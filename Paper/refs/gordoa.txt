@@ -1,0 +1,1289 @@
+i                                                                                                        i
+
+
+
+
+        Publ. RIMS, Kyoto Univ.
+        37 (2001), 327–347
+
+
+
+
+              On a Generalized 2 + 1 Dispersive Water
+                         Wave Hierarchy
+
+                                                   By
+
+                 Pilar R. Gordoa∗, Nalini Joshi∗∗ and Andrew Pickering*
+
+
+
+
+                                               Abstract
+
+
+              We present a generalized non-isospectral dispersive water wave hierarchy in 2 + 1
+        dimensions. We characterize our entire hierarchy and its underlying linear problem
+        using a single equation together with its corresponding non-isospectral scattering
+        problem. This then allows a straightforward construction of linear problems for the
+        entire generalized 2 + 1 hierarchy. Reductions of this hierarchy then yield new inte-
+        grable hierarchies in 1 + 1 dimensions, and also new integrable hierarchies of ordinary
+        diﬀerential equations, all together with their underlying linear problems. In particu-
+        lar, we obtain a generalized PIV − PII hierarchy; this includes as special cases both
+        a hierarchy of ODEs having the fourth Painlevé equation as ﬁrst member, and also
+        a hierarchy of ODEs having the second Painlevé equation as ﬁrst member. All of
+        these hierarchies of ordinary diﬀerential equations, as well as their underlying linear
+        problems, are new; both the PIV hierarchy and the PII hierarchy obtained here are
+        diﬀerent from those which have previously been given.
+
+
+
+                                        §1.    Introduction
+
+             Out of the huge variety of diﬀerent kinds of completely integrable systems
+        that are known today, one particular class has in recent years been attracting
+        increasing interest, namely those associated to non-isospectral scattering prob-
+        lems [1]–[17]. There are many reasons for this interest; one is the connection
+        that exists between non-isospectral scattering problems and linear problems
+        for ODEs [9]; another is the fact that very little appears to be understood
+            Communicated by T. Kawai, December 27, 2000.
+            2000 Mathematics Subject Classiﬁcation(s): Primary 35Q58; Secondary 34M55.
+          ∗ Area de Fisica Teórica, Facultad de Ciencias, Ediﬁcio de Fisica, Universidad de Sala-
+
+            manca, 37008 Salamanca, Spain.
+         ∗∗ Department of Pure Mathematics, University of Adelaide, Adelaide 5005, Australia.
+
+
+
+
+i                                                                                                        i
+
+    i                                                                                                i
+i                                                                                                 i
+
+
+
+
+        328                   P. R. Gordoa, N. Joshi and A. Pickering
+
+
+        about the actual process of Inverse Scattering for such systems [1]–[3]; a third
+        reason is, as observed in [13], [14], that it is possible to characterize an entire
+        hierarchy and its underlying linear problem using a single associated partial
+        diﬀerential equation (PDE) in 2 + 1 dimensions together with its underlying
+        non-isospectral scattering problem. This last idea was used in [13], [14] to
+        construct new hierarchies of PDEs in 2 + 1 dimensions, together with their
+        non-isospectral scattering problems, along with new hierarchies of PDEs in
+        1 + 1 dimensions having non-isospectral or isospectral scattering problems, and
+        also new hierarchies of ordinary diﬀerential equations (ODEs) together with
+        their underlying linear problems.
+             In the present paper we use the methodology developed in [13], [14] in
+        order to construct a new non-isospectral variant of the dispersive water wave
+        (DWW) hierarchy. Details of the standard 1 + 1-dimensional hierarchy, in
+        various diﬀerent coordinates, can be found in [18]–[25]. Here we follow the
+        choice of coordinates adopted in [24]. Reductions of our non-isospectral DWW
+        hierarchy to ODEs then give new hierarchies of integrable systems of ODEs,
+        together with their underlying linear problems. In particular we note that we
+        obtain a generalized PIV –PII hierarchy; this includes as special cases both a
+        hierarchy of ODEs having the fourth Painlevé equation (PIV ) as ﬁrst member,
+        and also a hierarchy of ODEs having the second Painlevé equation (PII ) as
+        ﬁrst member. All of these results are new; in particular, we note that the PIV
+        hierarchy and the PII hierarchy obtained here are diﬀerent from those which
+        have previously been given, in [14] and [26], [27] respectively.
+             The layout of the paper is as follows. In Section 2 we construct our 2 +
+        1-dimensional DWW hierarchy, together with its corresponding hierarchy of
+        scalar and matrix linear problems, and also discuss reductions to hierarchies
+        in 1 + 1 dimensions. In Section 3 we consider reductions in components, and
+        in Section 4 reductions to systems of ODEs; it is in Section 4 that we present
+        our generalized PIV –PII hierarchy, along with our PIV and PII hierarchies
+        which appear as special cases, all together with their underlying scalar and
+        matrix linear problems. In Section 5 we consider as explicit examples the ﬁrst
+        two members of these hierarchies. Section 6 is devoted to a summary and
+        conclusions.
+
+                     §2.   A Non-Isospectral 2+1 DWW Hierarchy
+
+             Following the approach introduced in [13], [14], we begin by considering
+        the (2 + 1)-dimensional system
+
+        (1)                              ut = Ruτ + G
+
+
+
+
+i                                                                                                 i
+
+    i                                                                                         i
+i                                                                                                 i
+
+
+
+
+                             A Generalized 2 + 1 DWW Hierarchy                         329
+
+
+        where u = (u, v)T , R is the recursion operator of the DWW hierarchy, G =
+        (g, 0)T , and g is an arbitrary function of t and τ . This function g is introduced
+        into the system (1) by the non-isospectral condition, that is, by the equation
+        satisﬁed by the spectral parameter in the corresponding Lax pair. The recursion
+        operator of the DWW hierarchy is
+                                                                
+                                      1 ∂x u∂x−1 − ∂x        2
+        (2)                      R=                                 .
+                                      2 2v + vx ∂x−1 u + ∂x
+
+        This can be written as the quotient of two Hamiltonian operators B1 and B2 ,
+
+        (3)                               R = B2 B1−1 ,
+
+        where B1 and B2 are given by
+                                                                  
+                                  1    2∂x            ∂x u − ∂x2
+        (4)                 B2 =
+                                  2 u∂x + ∂x2         v∂x + ∂x v
+                                         
+                                     0 ∂x
+        (5)                 B1 =            .
+                                    ∂x 0
+
+        We note that in fact the DWW hierarchy is tri-Hamiltonian. However, we do
+        not make use of the third Hamiltonian structure in this paper.
+            The system (1) has the Lax pair
+                                          2            
+                                          1       1
+        (6)                  ψxx =   λ − u + ux − v ψ,
+                                          2       2
+                                         1  −1          1
+        (7)                   ψt = λψτ +    ∂ uτ ψx − uτ ψ,
+                                         2 x              4
+        where the spectral parameter λ = λ(τ, t) satisﬁes the condition
+                                                   1
+        (8)                              λt = λλτ + g.
+                                                   2
+        We note that the system (1) is equivalent to an extension of the classical Boussi-
+        nesq system having a non-isospectral scattering problem ﬁrst given in [11], to-
+        gether with its Lax pair and Darboux transformation. In the case g = 0 it is
+        also equivalent to the 2 + 1-dimensional extension of the nonlinear Schrödinger
+        equation given in [2].
+             We now use the system (1) and the corresponding non-isospectral scatter-
+        ing problem (6)–(7) to generate our (2+ 1)-dimensional DWW hierarchy and at
+        the same time the corresponding hierarchy of non-isospectral scattering prob-
+        lems. The idea [13], [14] is that, for suitably speciﬁed ﬂow times t and τ , the
+
+
+
+
+i                                                                                                 i
+
+    i                                                                                         i
+i                                                                                            i
+
+
+
+
+        330                  P. R. Gordoa, N. Joshi and A. Pickering
+
+
+        system (1) can be understood as representing a generic member of the hierar-
+        chy and (6)–(7) its underlying scattering problem. We then use these equations
+        to iterate between succesive ﬂows and also their linear problems; note that we
+        also iterate on the function G. We take as base equation for this proccess of
+        iteration the system
+        (9)                   ut1 = Ruy + R2 G0 + RG1 + G2 .
+        When performing the iteration each Gi = (gi , 0)T and λ are considered to be
+        functions of all possible ﬂow times tj and y, but not of x. The system (9) can
+        be written locally by setting u = wx ;
+                    1
+        (10) wxt1 =    (wx wy − wxy )x + 2vy
+                    2
+                      1                                    1
+                   + g0 (xwx2 − xwxx − wx )x + 4v + 2xvx + g1 (xwx )x + g2 ,
+                      4                                        2
+                    1
+        (11) vt1 = [vx wy + 2vwxy + wx vy + vxy ]
+                    2
+                      1                                              1
+                   + g0 (2xwxx v + 2xwx vx + 4wx v +xvxx + 3vx ) + g1 (2v + xvx ) .
+                      4                                              2
+        This system has the linear problem
+                                         2           
+                                       1         1
+        (12)            ψxx =     λ − wx + wxx − v ψ,
+                                       2         2
+                                                                   
+                                      1               1
+        (13)             ψt1 = λψy +      λg0 x + wy + g0 xwx + g1 x ψx
+                                      2               2
+                                                               
+                                 1                 1
+                               −    λg0 + wxy + g0 (xwx )x + g1 ψ,
+                                 4                 2
+        where the spectral parameter λ satisﬁes the non-isospectral condition
+                                           1       1       1
+        (14)                  λt1 = λλy + λ2 g0 + λg1 + g2 .
+                                           2       2       2
+        In order to iterate between successive ﬂows of our hierarchy, and their corre-
+        sponding scattering problems, we begin by writing a generic member of our
+        (2 + 1)-dimensional hierarchy as
+        (15)                      utn = Mn = (Mn , Nn )T ,
+        and the corresponding generic evolution equations for the eigenfunction ψ and
+        the spectral parameter λ as
+                                           1       1
+        (16)                  ψtn = Γn ψy + Pn ψx − Pn,x ψ,
+                                           2       4
+        (17)                  λtn = Λn .
+
+
+
+
+i                                                                                            i
+
+    i                                                                                    i
+i                                                                                              i
+
+
+
+
+                            A Generalized 2 + 1 DWW Hierarchy                       331
+
+
+        We then obtain from (1), (7) and (8) the recursion relations
+
+        (18)                       Mn = RMn−1 + Gn+1
+        (19)                        Γn = λΓn−1
+                                                 1
+        (20)                        Λn = λΛn−1 + gn+1
+                                                 2
+        (21)                        Pn = λPn−1 + ∂x−1 Mn−1
+
+        where Mn = (Mn , Nn )T and Gn = (gn , 0)T . These recursion relations, to-
+        gether with the base equation (9) and its scattering problem and corresponding
+        constraint on λ, then yield the hierarchy
+                                                       n+1
+        (22)                 utn = Mn = Rn uy +              Rn+1−i Gi ,
+                                                       i=0
+
+        and the corresponding hierarchy of spectral problems
+                                           2            
+                                           1        1
+        (23)                 ψxx =    λ − u + ux − v ψ,
+                                           2        2
+                                            1       1
+        (24)                   ψtn = λn ψy + Pn ψx − Pn,x ψ,
+                                            2       4
+        where Pn is given by
+                                               n−1
+        (25)                       Pn = ∂x−1          λn−1−i Mi ,
+                                               i=−1
+
+        and the spectral parameter λ satisﬁes
+                                                     n+1
+                                                 1
+        (26)                     λtn = λn λy +         λn+1−i gi .
+                                                 2 i=0
+
+        Here we have set M0 = (uy + (1/2)g0 (xu)x + g1 , vy + (1/2)g0 (2v + xvx ))T and
+        M−1 = (g0 , 0)T . Note that here we have used the notation M−1 for convenience
+        only; this is not meant to denote the inverse ﬂow.
+             The hierarchy (22) is our generalized 2 + 1-dimensional DWW hierarchy;
+        this hierarchy is not to be found in the literature, although subcases have been
+        discussed in [28]. We note that the second term on the right-hand side of (22)
+        represents a non-isospectral deformation which gives rise to non-autonomous
+        terms; we note also that for n > 1 these are in the general case non-local.
+        Linear combinations of the above ﬂows can be obtained by allowing τ in (1) to
+        be a vector. This then makes it trivial to add to (22) ﬂows in 1 + 1 dimensions
+        (see Sections 4 and 5 later).
+
+
+
+
+i                                                                                              i
+
+    i                                                                                      i
+i                                                                                                   i
+
+
+
+
+        332                      P. R. Gordoa, N. Joshi and A. Pickering
+
+
+             Given a scalar linear problem, it is straightforward, as noted in [13], [14], to
+        write down a corresponding matrix linear problem. Thus, corresponding to the
+        scalar linear problem (23), (24), we have the matrix non-isospectral scattering
+        problem
+
+        (27)                             Ψx = F Ψ,
+        (28)                            Ψtn = λn Ψy + GΨ,
+                             T
+        where Ψ = (ψ1 , ψ2 ) , the matrices F and G are given by
+                                            
+                  − 21 (2λ − u)        1
+        (29)F =                   1
+                        −v        2 (2λ − u)
+                                                                                
+                         − 14 ((2λ − u) Pn + Pn,x )               1
+                                                                  2 Pn
+                                                                                
+                                                                                
+        (30)G =  1 n+1 n+1−i            1 n       1    1                       
+                 2 i=0 λ            gi + 2 λ uy − 2 Mn  4 ((2λ − u) Pn + Pn,x )
+                                                                                 
+                  − 14 ((2λ − u) Pn + Pn,x )x − 12 vPn
+
+        and where λ satisﬁes (26). This is a matrix non-isospectral scattering problem
+        of the form discussed in [11], where the case n = 1 and g0 = g1 = 0 can be found.
+        We note that in the expression for G there is a cancellation of terms in unx,y
+        between Mn and Pn,xx (in the corresponding ﬂow, utn = (−1/2)n unx,y +· · · and
+        vtn = (1/2)n vnx,y + · · ·). Suitable gauge transformations yield other canonical
+        forms of linear problem [11].
+             Reductions of the system (22) to PDEs in 1 + 1 dimensions include non-
+        isospectral deformations of standard 1 + 1 DWW ﬂows (∂y = ∂x ), and also
+        reductions to non-isospectral deformations of inverse DWW ﬂows (∂tn = 0),
+        all of which are obtained together with corresponding scalar and matrix linear
+        problems.
+
+
+                              §3.     Reductions in Components
+
+             The hierarchy (22) is a two-component hierarchy of PDEs in 2 + 1 dimen-
+        sions. We now consider reductions of this hierarchy to one component.
+             We begin by noting that in the case v = 0 the recursion operator (2)
+        becomes                                               
+                                   1 ∂x u∂x−1 − ∂x        2
+        (31)                 R=                                  .
+                                   2        0           u + ∂x
+
+        It then follows that in the reduction v = 0, the hierarchy (22) becomes the
+
+
+
+
+i                                                                                                   i
+
+    i                                                                                           i
+i                                                                                               i
+
+
+
+
+                               A Generalized 2 + 1 DWW Hierarchy                     333
+
+
+        (entirely local under u = wx ) scalar hierarchy
+
+                                                      n+1
+        (32)                        utn = R̃n uy +          R̃n+1−i gi ,
+                                                      i=0
+
+
+        where the operator R̃ = (1/2)∂x (u − ∂x )∂x−1 is the recursion operator of the
+        Burgers hierarchy. Thus we obtain a non-isospectral deformation of a 2 + 1-
+        dimensional non-isospectral Burgers hierarchy; special cases of this are dis-
+        cussed in [7] and [11].
+            Equation (32) is linearized by the transformation u = −ϕx /ϕ onto
+
+                               n         n+1     i
+                              1                   1                         
+        (33)       ϕtn =    −      ϕnx,y −      −      gn+1−i iϕ(i−1)x + xϕix .
+                              2            i=0
+                                                  2
+
+               We now consider the reduction u = 0. In this case we ﬁnd that
+                                                                        
+                                                     R̂             0
+        (34)                      R2 =       1                               ,
+                                             4 (2vx + vxx ∂x−1 )    R̂
+
+        where R̂ = (1/4)(∂x2 + 4v + 2vx ∂x−1 ) is the recursion operator of the Korteweg-
+        de Vries (KdV) hierarchy. Thus we obtain a reduction of the even ﬂows of the
+        hierarchy (22) to
+                                                       n
+        (35)                       vt2n = R̂n vy +         R̂n−k+1 g2k ,
+                                                     k=0
+
+        where in taking this reduction we have also set g2k+1 = 0 for k = 0, . . . , n.
+        This then gives a non-isospectral deformation of the 2 + 1 non-isospectral KdV
+        hierarchy.
+             If we now consider reductions to 1 + 1 dimensions, then we see that we
+        obtain, in the reduction v = 0, non-isospectral deformations of both the Burg-
+        ers hierarchy and of inverse Burgers ﬂows, and in the reduction u = 0, non-
+        isospectral deformations of both the KdV hierarchy and of inverse KdV ﬂows.
+        We also obtain, for all of these, corresponding scalar and matrix linear prob-
+        lems.
+             We note that in the special case of the standard 1 + 1-dimensional DWW
+        hierarchy, i.e. for ∂y = ∂x and all gi = 0 in (22), the reductions to the Burg-
+        ers and KdV hierarchies, which follow from the reductions obtained here, are
+        known.
+
+
+
+
+i                                                                                               i
+
+    i                                                                                       i
+i                                                                                                  i
+
+
+
+
+        334                      P. R. Gordoa, N. Joshi and A. Pickering
+
+
+                          §4.     A Generalized PIV –PII Hierarchy
+
+            We now consider reductions of the hierarchy (22) to systems of ODEs. We
+        take ∂tn = 0 and ∂y = ∂x , which then yields
+                                            n+1
+        (36)                      Rn ux +          Rn+1−i Gi = (0, 0)T ,
+                                            i=0
+
+        where all gi are now constant parameters. Following the approach in [9] we are
+        able to use our non-isospectral scattering problems to obtain linear problems
+        for the hierarchy of ODEs (36). We thus obtain the linear problem
+                                                     2           
+                                                     1       1
+        (37)                            ψxx =    λ − u + ux − v ψ,
+                                                     2       2
+                       n+1                            
+                        1                            1          1
+        (38)                  λn+1−i gi ψλ = λn + Pn ψx − Pn,x ψ,
+                        2 i=0                        2          4
+
+        where we assume that not all gi are zero. Here Pn is given by (25), where now
+                                                       i+1
+        (39)                          Mi = Ri ux +           Ri+1−j Gj ,
+                                                       j=0
+
+                                                                           T
+        M0 = (ux + (1/2)g0 (xu)x + g1 , vx + (1/2)g0 (2v + xvx )) , and as before M−1
+        = (g0 , 0)T .
+            We also obtain the matrix linear problem
+
+        (40)                                       Ψx = F Ψ,
+                               n+1
+                                               
+                             1
+        (41)                       λn+1−i gi       Ψλ = HΨ = (λn F + G) Ψ,
+                             2 i=0
+
+        where now the matrices F and G are given by
+                                                
+                   − 12 (2λ − u)          1
+        (42) F =                     1
+                         −v          2 (2λ − u)
+                                                                                        
+                          − 41 ((2λ − u) Pn + Pn,x )                           1
+                                                                               2 Pn
+                                                                                          
+                                                                                          
+        (43) G =  1 n+1 n+1−i                                                            
+                  2 i=0 λ           gi + 12 λn ux − 12 Mn         1
+                                                                   4 ((2λ − u) Pn + Pn,x ) 
+                       1
+                   − 4 ((2λ − u) Pn + Pn,x )x − 12 vPn
+
+        and where Pn and Mn are as described above.
+
+
+
+
+i                                                                                                  i
+
+    i                                                                                          i
+i                                                                                                                      i
+
+
+
+
+                                  A Generalized 2 + 1 DWW Hierarchy                                        335
+
+
+             We note that the solution of ODEs using associated linear problems is
+        discussed in [27] and [29]–[31]. Here we present linear problems for hierarchies
+        of ODEs.
+             In the local case gi = 0, i = 0, 1, . . . , n − 2, the hierarchy (36) reads
+
+                                                                      
+                          n  1          (xu2 − xux − u)x + 4v + 2xvx
+        (44)           R ux + gn−1
+                             4       2xux v + 2xuvx + 4vu + xvxx + 3vx
+                                                      
+                             1      (xu)x              1       0
+                            + gn              + gn+1      =       ,
+                             2     2v + xvx            0       0
+
+
+        where we now assume that at least one of gn−1 , gn , or gn+1 is nonzero. We note
+        that in the case gn−1 = gn+1 = 0 the hierarchy (44) is the similarity reduction
+        of the DWW hierarchy utn = Rn ux under
+
+
+        (45)
+                       U (X)                              V (X)                                x
+        u=                          1    ,   v=                        2    ,   X=                        1    .
+               [ 12 (n + 1)gn tn ] n+1            [ 12 (n + 1)gn tn ] n+1            [ 12 (n + 1)gn tn ] n+1
+
+
+        Thus we see that the hierarchy (44) is more general than that which would be
+        obtained using the scaling reduction (45). More general still is the hierarchy
+        (36) which, although written here nonlocally, can always be written locally
+        using suitable auxiliary variables. Notwithstanding, it is the hierarchy (44)
+        that we deﬁne here as a generalized PIV –PII hierarchy; scalar and matrix
+        linear problems follow easily from those given above for (36). As we shall see,
+        this hierarchy has as special cases both a hierarchy having PIV as ﬁrst member,
+        and also a hierarchy having PII as ﬁrst member. Both (36) and (44) are new
+        hierarchies of integrable ODEs.
+              Reductions in components of (36) follow easily from the discussion in Sec-
+        tion 3. In the case v = 0 we obtain a hierarchy of linearizable ODEs (∂y = ∂x
+        and ∂tn = 0 in (32)), and in the case u = 0 we obtain a generalized P34 hierar-
+        chy (∂y = ∂x and ∂tn = 0 in (35)); the standard P34 hierarchy is as deﬁned in
+        [32].
+              We now consider the special case gn−1 = 0 of our generalized PIV –PII
+        hierarchy (44). It is in this special case that we obtain our PIV and PII hier-
+        archies, according as to whether gn = 0 or gn = 0 respectively. Both of these
+        hierarchies are new.
+
+
+
+
+i                                                                                                                      i
+
+    i                                                                                                              i
+i                                                                                                 i
+
+
+
+
+        336                           P. R. Gordoa, N. Joshi and A. Pickering
+
+
+                         §4.1.        A PIV hierarchy: gn−1 = 0 and gn = 0
+
+             In this case the hierarchy (44) has the ﬁrst integral (In , Jn )T given by
+                                                                                
+                 In                   Ln,x − 2Kn − u + 2 gn+1gn   L n
+        (46)          =                                                            
+                 Jn        Ln Kn,x + vL2n + Kn2 − Ln,x Kn + u + 2 gn+1 gn    L n K n
+
+
+        where
+                                                n−2         n−i−1      
+                    Kn                              1       −gn+1
+        (47)                 = B1−1 R     n−1
+                                         ux + gn      +                   i
+                                                                         R ux
+                    Ln                              0   i=0
+                                                             gn
+                                         n  
+                                    −gn+1     0
+                               +2                 .
+                                     gn       1
+
+        In order to see this we note that
+                                                         
+                 ∂    In        −2      0         gn+1       Kn
+        (48)               =                 B2 +      B1
+                ∂x Jn          2Kn 2Ln             gn        Ln
+                                                                 
+                                −2      0     n            1          1
+                           =                 R ux + gn R      + gn+1
+                               2Kn 2Ln                     0          0
+                              
+                               0
+                           =       .
+                               0
+
+             We deﬁne two constants of integration αn and βn by
+                                                           
+                               In               gn − 2αn
+        (49)                        = 1             2 1 2
+                               Jn          2 gn − αn   − 4 βn
+
+        and thus obtain the equivalent system of ﬁrst integrals
+                                                  
+                                              gn+1
+        (50)            Ln,x = 2Kn + u + 2           Ln + (gn − 2αn ),
+                                               gn
+                                               2
+                                Kn + 12 gn − αn − 14 βn2
+        (51)           Kn,x =                             − vLn .
+                                           Ln
+        It is the system (49), or equivalently (50), (51), that is our PIV hierarchy; as we
+        shall see, in the case n = 1 this system of equations is just the fourth Painlevé
+        equation PIV . This PIV hierarchy is diﬀerent from that presented in [14]. That
+        is, the system (50), (51) represents a new PIV hierarchy. Linear problems for
+        this hierarchy follow from those presented above for (36).
+
+
+
+
+i                                                                                                 i
+
+    i                                                                                         i
+i                                                                                                i
+
+
+
+
+                             A Generalized 2 + 1 DWW Hierarchy                        337
+
+
+                     §4.2.    A PII hierarchy: gn−1 = 0 and gn = 0
+
+
+             In this case each component of our hierarchy (44) integrates immediately
+        to give
+                                                      
+                            ∂x−1    0     n            x        γn
+        (52)                             R ux + gn+1       =        ,
+                              0   ∂x−1                 0        δn
+
+        where γn and δn are two constants of integration, and where we now assume
+        that gn+1 = 0; this assumption then allows us to take γn = 0.
+            It is this hierarchy that is our PII hierarchy; as we shall see, in the case
+        n = 1 this system of equations is just the second Painlevé equation PII . We
+        note, however, that higher members of this hierarchy are diﬀerent from those of
+        the PII hierarchy presented in [26], [27]. That is, the system (52) represents a
+        new PII hierarchy. Again, linear problems for this hierarchy follow from those
+        presented above for (36).
+
+
+             Remark 1.     It is a simple matter to generalise our PDE and ODE hierar-
+        chies to include lower order DWW ﬂows. Thus corresponding to the local case
+        (44) we obtain
+
+                       n−2
+                                                                 
+                                             1          1          1   0
+        (53) Rn ux +     ci Ri ux + gn−1 R2     + gn R     + gn+1    =    ,
+                     i=0
+                                             0          0          0   0
+
+
+        where without loss of generality we have taken cn−1 = 0, together with cor-
+        responding scalar and matrix linear problems. We also obtain corresponding
+        generalizations of our PIV and PII hierarchies, again with their corresponding
+        linear problems.
+
+
+             Remark 2.      Thus far we have assumed that not all gi are zero. In the case
+        where all gi vanish then the coeﬃcients in λ of the determinant of H in (41)
+        give constants of integration of the system (44). Similarly for the corresponding
+        linear problem of (52) in the case gn+1 = 0, and for the more general PIV –PII
+        and PII hierarchies discussed in Remark 1 above. (Note that in any linear
+        problem we always replace higher derivatives of u and v using the corresponding
+        equations; see [13], [14].)
+
+
+
+
+i                                                                                                i
+
+    i                                                                                        i
+i                                                                                              i
+
+
+
+
+        338                    P. R. Gordoa, N. Joshi and A. Pickering
+
+
+                                         §5.   Examples
+
+                                          §5.1.   n=1
+
+             In the case n = 1 we obtain the system of PDEs (9), or equivalently (10)
+        and (11). Corresponding to (44) we obtain
+                                                        
+                                    1            1        1       0
+        (54)          Rux + g0 R2       + g1 R      + g2     =        ,
+                                    0            0        0       0
+
+        i.e.
+
+        (55)
+         1               1                               1
+           2v + u2 − ux x + g0 (xu2 − xux − u)x + 4v + 2xvx + g1 (xu)x + g2 = 0
+         2                 4                                 2
+
+        (56)
+        1               1                                         1
+          (2uv + vx )x + g0 (2xux v + 2xuvx + 4vu + xvxx + 3vx ) + g1 (2v + xvx ) = 0
+        2               4                                         2
+        together with the matrix linear problem (40), (41) with F and H given by
+                                               
+                    − 12 (2λ − u)         1
+        (57) F =                     1            ,
+                          −v         2 (2λ − u)
+                                                                                    
+                    −λ2 + 14 (u2 − ux ) + 14 g1 (xu             λ + 12 u + 12 xg1
+                                         
+                      −2xλ − 1) + 18 g0 xu2                    + 14 g0 (xu + 2xλ)    
+                                                                                    
+                      −xux − u − 4xλ2 − 2λ                                           
+                                                                                     
+                                                                                     
+        (58) H =                                                                     .
+                                                                                     
+                  −λv − 12 (vx + uv) − 12 xg1 v           λ − 4 (u − ux ) − 4 g1 (xu 
+                                                            2   1  2           1
+                  1                                                                 
+                  − g0 (xvx + xuv + 2xλv + 2v)               −2xλ − 1) − 18 g0 xu2 
+                     4                                                             
+                                                            −xux − u − 4xλ2 − 2λ
+        This system of ODEs is the ﬁrst member of our generalized PIV –PII hierarchy.
+             In the case g0 = 0 and g1 = 0 we obtain ﬁrst integrals as in Section 4.1,
+        with K1 and L1 given by
+                                                             
+                                K1                 v
+        (59)                         =                            .
+                                L1        u + g1 x − 2(g2 /g1 )
+
+        Corresponding to (50), (51) we thus obtain
+
+        (60)          ux = 2v + u2 + g1 xu + 2g2 x − 2α1 − 4(g2 /g1 )2 ,
+                                           2
+                           v − α1 + 12 g1 − 14 β12
+        (61)          vx =                         − v[u + g1 x − 2(g2 /g1 )],
+                           [u + g1 x − 2(g2 /g1 )]
+
+
+
+
+i                                                                                              i
+
+    i                                                                                      i
+i                                                                                                i
+
+
+
+
+                             A Generalized 2 + 1 DWW Hierarchy                         339
+
+
+        where α1 and β1 are two independent constants of integration. Solving the ﬁrst
+        of these for v,
+
+                           1
+        (62)          v=     ux − u2 − g1 xu − 2g2 x + 2α1 + 4(g2 /g1 )2 ,
+                           2
+        and substituting into the second then yields a scalar second order ODE in u
+        which, under the change of variables
+
+        (63)                       u(x) = y(z) − g1 z − 2(g2 /g1 )
+        (64)                          x = z + 4(g2 /g12 )
+
+        becomes
+
+                           1 yz2  3                                          1 β12
+        (65)       yzz =         + y 3 − 2g1 zy 2 + 2[(g12 z 2 /4) − α1 ]y −       .
+                           2 y    2                                          2 y
+
+             Setting g1 = −2, which can be done without loss of generality for g1 = 0,
+        gives
+
+                               1 yz2  3                              1 β12
+        (66)           yzz =         + y 3 + 4zy 2 + 2(z 2 − α1 )y −       ,
+                               2 y    2                              2 y
+        which is just the fourth Painlevé equation PIV . Thus we see that (49), or
+        equivalently (50), (51), is indeed a PIV hierarchy. Corresponding to (40), (41)
+        we obtain for (66) the linear problem
+                                                                             
+                            1
+                              (y − zg1 − 2µ)                       1
+        (67) F = 1  2      2                                                  ,
+                    2 y − yz − zg1 y + g1 − 2α1          − 12 (y − zg1 − 2µ)
+                  1  2                             2
+                                                                   1               
+                     4 y − yz − zg1 y − 2zµg1 − 4µ                  2 (2µ + y)
+                                                                                   
+                                                                                 
+                   1            yz2                                                
+        (68) H =       2yyz − y − y 3 + 4µ(y 2 − yz )        − 14 y 2 − yz − zg1 y  ,
+                     8
+                                                                                 
+                   −z 2 g 2 y + 2g zy 2 − zy + 2µ              −2zµg1 − 4µ2       
+                           1        1         z                                   
+                                       β12
+                           −2zµy) + y − 8α1 µ
+
+        where we have set λ = µ − (g2 /g1 ) [this change also needs to be made in (41)].
+            In the case g0 = g1 = 0 we obtain corresponding to (52) the system
+
+                                    1
+        (69)                     v + (u2 − ux ) + xg2 − γ1 = 0,
+                                    2
+                                                  1
+        (70)                               uv + vx − δ1 = 0,
+                                                  2
+
+
+
+
+i                                                                                                i
+
+    i                                                                                        i
+i                                                                                               i
+
+
+
+
+        340                    P. R. Gordoa, N. Joshi and A. Pickering
+
+
+        where γ1 and δ1 are two independent constants of integration. This system is
+        equivalent to the second order ODE
+
+        (71)                uxx = 2u3 + 4xg2 u − 4γ1 u + 2(g2 + 2δ1 ),
+
+        which for g2 = 0 (in which case we can take γ1 = 0) is just the second Painlevé
+        equation PII . Thus we see that our hierarchy (52) is indeed a PII hierarchy.
+        Corresponding to (40), (41) we obtain for (71) the linear problem
+                                                             
+                              −λ + 12 u                 1
+        (72) F = 1 2                                            ,
+                       2 (u − ux ) + xg2 − γ1        λ − 12 u
+                                 2                                                
+                               1                 2                          1
+                               4   u  − u x − 4λ                        λ + 2 u
+                                                                                    
+                                                                                  
+        (73) H =  1                                                1                .
+                     4 uux − u3 + 2λ(u2 − ux ) + 2γ1 u           − 4 u2 − ux − 4λ2 
+                          +2xg2 (2λ − u) − 4γ1 λ − 4δ1 ]
+
+             We note that in the case where all gi = 0 the determinant of H gives for
+        both (54) and (71) a quartic in λ with coeﬃcients constants of integration of
+        the equations.
+
+
+                                         §5.2.   n=2
+
+               In the case n = 2 we obtain the system of PDEs
+
+        (74)
+                 1  2                                
+        wxt2 =       wx wy − wxx wy − 2wx wxy + wxxy x
+                 4
+                 +2 (zxx wy + 2zx wxy + 2wx zxy + wxx zy )]
+                   1                                        1
+                 + g1 (xwx2 − xwxx − wx )x + 4zx + 2xzxx + g2 (xwx )x + g3
+                   4                                          2
+        (75)
+                  1
+        zxt2 =      [2zx wxx wy + 4zx wx wxy + 2zxx wxy + zxxx wy + wxx zxy + wx zxxy
+                  4
+                 +4zxzxy + 2zxx zy + wx2 zxy + 2wx wy zxx + wx zxxy + zxxxy
+                   1                                                      1
+                 + g1 (2xwxx zx + 2xwx zxx + 4wx zx + xzxxx + 3zxx ) + g2 (2zx + xzxx )
+                   4                                                      2
+        where we have set u = wx and v = zx , together with corresponding scalar and
+        matrix linear problems. In the above system, and throughout this section, we
+        have set g0 = 0 in order to consider only the local case of our PDEs and ODEs
+
+
+
+
+i                                                                                               i
+
+    i                                                                                       i
+i                                                                                              i
+
+
+
+
+                             A Generalized 2 + 1 DWW Hierarchy                       341
+
+
+        (that is, without the use of auxiliary variables). To the above system we can
+        readily add terms cux and cvx so that we obtain as ODE reduction the system
+                                                              
+                     2                2  1            1         1       0
+        (76)       R ux + cux + g1 R         + g2 R       + g3      =       ,
+                                         0            0         0       0
+
+        as explained in Remark 1 (and where we have relabelled c0 as c).
+             This system of ODEs is
+             1                      
+        (77)   uxx − 3uux + u3 + 6uv x + cux
+             4
+                1                                1
+               + g1 (xu2 − xux − u)x + 4v + 2xvx + g2 (xu)x + g3 = 0,
+                4                                    2
+             1        2            2
+                                       
+        (78)   vxx + 3v + 3uvx + 3u v x + cvx
+             4
+                1                                         1
+               + g1 (2xux v + 2xuvx + 4vu + xvxx + 3vx ) + g2 (2v + xvx ) = 0,
+                4                                         2
+        and is (with c = 0) the second member of our generalized PIV –PII hierarchy.
+             We obtain for this system the matrix linear problem (40), (41) with F and
+        G given by
+                                                              
+                                       −λ + 12 u         1
+        (79)                     F=                              ,
+                                          −v          λ − 12 u
+                                                      
+                                       H 11       H 12
+        (80)                     H=                       ,
+                                       H 21      −H 11
+
+        where
+                                      
+                         3       1         1                                    
+        (81)    H 11 = −λ + c      u−λ +      uxx − 2vx + u3 − 3uux + 2uv − 4λv
+                                 2         8
+                         1                   1                              
+                       + g2 (xu − 2xλ − 1) − g1 4xλ2 + 2λ + u − xu2 + xux ,
+                         4                   8
+                        2   1         1 2            1        1
+        (82)    H 12 = λ + λu + c +      u − ux + 2v + xg2 + g1 (2xλ + xu) ,
+                            2         4                  2      4
+                          2    1                  1                                
+        (83)    H 21 = −λ v − λ (uv + vx ) − cv −    vxx + vux + 2uvx + u2 v + 2v 2
+                               2                  4
+                         1        1
+                       − xg2 v − g1 (2xλv + 2v + xuv + xvx ) .
+                         2        4
+             In the case g1 = 0 and g2 = 0 we obtain ﬁrst integrals as in Section 4.1,
+        with K2 and L2 given by
+                                                                                  
+                 K2                          uv + 12 vx − (g3 /g2 )v
+        (84)           =                                                               .
+                  L2        v + 12 u2 − 12 ux + g2 x − (g3 /g2 )u + 2(g3 /g2 )2 + 2c
+
+
+
+
+i                                                                                              i
+
+    i                                                                                      i
+i                                                                                                i
+
+
+
+
+        342                     P. R. Gordoa, N. Joshi and A. Pickering
+
+
+        Corresponding to (50), (51) we thus obtain
+
+        (85)
+        uxx = 3uux − u3 − 6uv − 2g2 xu − 4g3 x + 4α2 − 8(g3 /g2 )3 − 4c (u + 2(g3 /g2 )) ,
+                                                                   2
+                                                                                  
+                               uv + 12 vx − (g3 /g2 )v − α2 + 12 g2 − 14 β22
+        (86)   vxx = 2
+                         v + 12 u2 − 12 ux + g2 x − (g3 /g2 )u + 2(g3 /g2 )2 + 2c
+                                                                                   
+                                 1       1
+                     −2v v + u2 − ux + g2 x − (g3 /g2 )u + 2(g3 /g2 )2 + 2c
+                                 2       2
+                     −2(uv)x + 2(g3 /g2 )vx ,
+
+        where α2 and β2 are two independent constants of integration. Solving the ﬁrst
+        of these for v,
+                                   1
+        (87)               v =−       uxx − 3uux + u3 + 2g2 xu + 4g3 x
+                                  6u
+                                − 4α2 + 8(g3 /g2 )3 + 4c(u + 2(g3 /g2 )) ,
+
+        and substituting into the second then yields a scalar fourth order ODE in u
+        which is too long to give here. The system (85), (86), or equivalently this scalar
+        ODE in u, is the second member of our new PIV hierarchy. This system may
+        also be written as (where the ﬁrst of these deﬁnes w)
+
+        (88)    uxx = 2u3 − 6(g3 /g2 )u2 + 4[2c + 3(g3 /g2 )2 ]u + 4g2 xu − 4g3 x + w
+                      +4[α2 − 2c(g3 /g2 ) − 2(g3 /g2 )3 ],
+                      1 wx2   ux        4 2 3u2x           7
+        (89)    wxx =       +    wx +     w − 2 w + u2 w − 6(g3 /g2 )uw
+                      2 w     u       3u         2u        2
+                                                              w         u2
+                      +4 α2 − g3 x − 2c(g3 /g2 ) − 2(g3 /g2 )3    − 18β22
+                                                              u         w
+                      +6 g2 x + 2c + 3(g3 /g2 )2 w,
+
+        corresponding to which we have a matrix linear problem (40), (41) with
+                                                                       
+                                       −λ + 12 u                  1
+                                                                       
+        (90)        F =  2c + g2 x + 2(g3 /g2 )2 − (g3 /g2 )u λ − 12 u  ,
+                             +(1/2)(u2 − u ) + (w/6u)
+                                       
+                          H 11    H 12
+        (91)       H=                     ,
+                          H 21 −H 11
+
+        where
+
+        (92)    H 11 = (1/(24g22u2 ))[24λg32 u2 − 24λ3 g22 u2 − 12λg2 g3 u3 − 12g32 u3
+
+
+
+
+i                                                                                                i
+
+    i                                                                                        i
+i                                                                                                     i
+
+
+
+
+                              A Generalized 2 + 1 DWW Hierarchy                             343
+
+
+                      +6λg22 u4 + 6g2 g3 u4 + 2λg22 uw − g22 u2 w − 6λg22 u2 ux
+                      −6g2 g3 u2 ux − g22 wux + g22 uwx ],
+        (93)   H 12 = (1/(12g22 u))[12λ2 g22 u − 12g32 u + 6λg22 u2 + 6g2 g3 u2 − g22 w],
+        (94)   H 21 = (1/(48g23 u3 w))[96cλ2 g22 u3 w − 36β22 g23 u4 − 48α2 λg23 u3 w
+                      +24λg24 u3 w + 48λ2 g24 xu3 w − 48α2 g22 g3 u3 w + 96cλg22 g3 u3 w
+                      +24g23 g3 u3 w + 48λg23 g3 xu3 w + 96λ2 g2 g32 u3 w + 96λg33 u3 w
+                      −48cλg23 u4 w − 24λg24 xu4 w − 48cg22g3 u4 w − 48λ2 g22 g3 u4 w
+                      −24g23 g3 xu4 w − 96λg2 g32 u4 w − 48g33 u4 w + 24λ2 g23 u5 w
+                      +48λg22 g3 u5 w + 24g2 g32 u5 w − 12λg23 u6 w − 12g22 g3 u6 w
+                      +8λ2 g23 u2 w2 − 4g2 g32 u2 w2 − 8λg23 u3 w2 − 4g22 g3 u3 w2
+                      +g23 u4 w2 − 24λ2 g23 u3 wux − 24λg22 g3 u3 wux + 12λg23 u4 wux
+                      +12g22 g3 u4 wux − 4λg23 uw2 ux + 2g23 u2 w2 ux + g23 w2 u2x
+                      +4λg23 u2 wwx − 2g23 u3 wwx − 2g23 uwux wx + g23 u2 wx2 ].
+
+        The Painlevé analysis of our fourth order ODE in u is of particular interest
+        since it presents a previously unseen diﬃculty for Painlevé classiﬁcation; this
+        will be discussed in a later paper.
+             In the case g1 = g2 = 0, we obtain corresponding to (52) the system
+                         1                      
+        (95)               uxx − 3uux + u3 + 6uv + cu + g3 x − γ2 = 0,
+                         4
+                             1                         
+        (96)                   vxx + 3v 2 + 3uvx + 3u2 v + cv − δ2 = 0,
+                             4
+        where γ2 and δ2 are two independent constants of integration. Solving the ﬁrst
+        of these for v,
+                                1
+        (97)            v=−       uxx − 3uux + u3 + 4cu + 4g3 x − 4γ2 ,
+                               6u
+        and substituting into the second, we see that this system is equivalent to the
+        fourth order ODE
+                          uxxx ux 3 u2xx     uxx u2                          uxx
+        (98)   uxxxx = 2         +       − 2 2 x + 5u2 uxx − 8(γ2 − g3 x)
+                            u        2 u       u                              u
+                          5 2                u2x      ux    5 5
+                         + uux + 8(γ2 − g3 x) 2 + 8g3    − u − 12cu3
+                          2                  u        u     2
+                                       2      2                   (γ2 − g3 x)2
+                         +8(γ2 − g3 x)u − 4(2c + 6δ2 + 3g3 )u + 8              ,
+                                                                       u
+        where in the case g3 = 0 we can set γ2 = 0. The system (95), (96), or equiv-
+        alently this scalar ODE in u, is the second member of our new PII hierarchy.
+
+
+
+
+i                                                                                                     i
+
+    i                                                                                             i
+i                                                                                            i
+
+
+
+
+        344                   P. R. Gordoa, N. Joshi and A. Pickering
+
+
+        Corresponding to the ODE (98) we have the matrix linear problem (40), (41)
+        with
+                                                            
+                                     −λ + 12 u         1
+                                                            
+        (99)              F =  4(g3 x − γ2 ) + 4cu λ − 12 u  ,
+                                +uxx − 3uux + u3
+                                             
+                                H 11    H 12
+        (100)             H=                    ,
+                                H 21 −H 11
+        where
+        (101) H 11 = (1/(24u2 ))[4g3 u − 8λγ2 u + 8λg3 xu + 4γ2 u2 − 16λcu2
+                      −24λ3 u2 − 4g3 xu2 + 8cu3 + 2λu4 + 2u5 + 4γ2 ux − 4g3 xux
+                      −6λu2 ux − 4u3 ux + 2λuuxx − u2 uxx − ux uxx + uuxxx ],
+        (102) H 12 = (1/(12u))[4γ2 − 4g3 x + 8cu + 12λ2 u + 6λu2 + 2u3 − uxx ],
+        (103) H 21 = (1/(144u2))[16γ22 − 32γ2 g3 x + 16g32 x2 − 32cγ2 u − 96λ2 γ2 u
+                      +48λg3 u + 32cg3 xu + 96λ2 g3 xu + 16c2 u2 − 144δ2u2
+                      −48λγ2 u2 + 96λ2 cu2 − 24g3 u2 + 48λg3 xu2 + 40γ2 u3 + 48λcu3
+                      −40g3 xu3 − 40cu4 + 24λ2 u4 + 12λu5 − 11u6 + 48λγ2 ux
+                      −48λg3 xux − 24γ2 uux + 24g3 xuux − 72λ2 u2 ux − 12λu3 ux
+                      +24u4ux − 9u2 u2x − 8γ2 uxx + 8g3 xuxx + 8cuuxx + 24λ2 uuxx
+                      −24λu2 uxx + 8u3 uxx − 12λux uxx + 6uux uxx + u2xx
+                      +12λuuxxx − 6u2 uxxx ].
+        We believe that it is likely that (for g3 = 0) this fourth order ODE deﬁnes a
+        new transcendent; we note in particular that this ODE is not of polynomial
+        form.
+            Deﬁning ε by 2c2 + 6δ2 + 3g3 = ε/4 and assuming g3 = 0, so that we may
+        take γ2 = 0, we note that this ODE takes the particularly elegant form
+
+                           uxxx ux     3 u2xx    uxx u2                 uxx  5
+        (104)   uxxxx = 2            +        − 2 2 x + 5u2 uxx + 8g3 x     + uu2x
+                              u        2 u         u                     u   2
+                                 u2x        ux   5 5                          g 2 x2
+                         −8g3 x 2 + 8g3        − u − 12cu − 8g3 xu − εu + 8 3
+                                                          3         2
+                                 u          u    2                              u
+        for which the linear problem follows from that given above.
+             We note that in the case where all gi = 0 the determinant of H gives for
+        both (76), (98) a polynomial in λ of degree six with coeﬃcients constants of
+        integration of the equations.
+
+
+
+
+i                                                                                            i
+
+    i                                                                                    i
+i                                                                                                         i
+
+
+
+
+                              A Generalized 2 + 1 DWW Hierarchy                                345
+
+
+                                         §6.    Conclusions
+
+             We have given a generalized 2 + 1-dimensional non-isospectral DWW hi-
+        erarchy, together with underlying scalar and matrix linear problems. For this
+        hierarchy we have discussed reductions to PDEs in 1 + 1 dimensions, reduc-
+        tions in components, and also reductions to ODEs. In the case of reductions to
+        ODEs we have obtained a new generalized PIV –PII hierarchy, and as special
+        cases of this a new PIV hierarchy and a new PII hierarchy. For all of these
+        we have corresponding scalar and matrix linear problems. It is worth noting
+        the advantages of our approach over standard Painlevé classiﬁcation. First,
+        in the non-local case, recovering our hierarchies requires the use of auxiliary
+        variables. Second, it appears unlikely that one of the ODEs obtained here can
+        be obtained by classiﬁcation based on the standard Painlevé test (as will be
+        discussed in a later paper). Third, to date the only Painlevé classiﬁcations
+        of ODEs appearing in the literature are for scalar equations rather than for
+        systems, and in the case of ODEs of order greater than two are for equations
+        of polynomial type. Here we obtain new hierarchies of systems of ODEs, and
+        also higher order scalar ODEs of rational type; we draw particular attention to
+        the simplest of our new examples (104). This then shows the strengths of the
+        methodology developed in [13], [14].
+
+                                        Acknowledgements
+
+            The research of PRG and AP was supported in part by the DGICYT under
+        contract PB98-0262. NJ’s research was supported by the Australian Research
+        Council under Grant #A69803721 and Fellowship #F69700172. AP thanks
+        the Ministry of Education and Culture of Spain for a post-doctoral fellowship.
+        He also thanks Professor Cerveró for his kind hospitality during his stay in
+        Salamanca.
+
+
+
+                                               References
+        [1] Calogero, F., A method to generate solvable nonlinear evolution equations, Lett. Nuovo
+            Cim., 14 (1975), 443–447.
+        [2] Zakharov, V. E., The inverse scattering method, in Solitons, eds. by R. K. Bullough and
+            P. J. Caudrey, Springer, Berlin, 1980.
+        [3] Calogero, F. and Degasperis, A., Spectral Transform and Solitons I, North-Holland,
+            Amsterdam-New York-Oxford, 1982.
+        [4] Levi, D., Hierarchies of integrable equations obtained as nonisospectral (in x and t)
+            deformations of the Schrödinger spectral problem, Phys. Lett. A, 119 (1987), 453–456.
+        [5] Burtsev, S. P., Zakharov, V. E. and Mikhailov, A. V., Inverse scattering method with
+            variable spectral parameter, Teoret. i Matem. Fizika, 70 (1987), 323–341.
+
+
+
+
+i                                                                                                         i
+
+    i                                                                                                 i
+i                                                                                                            i
+
+
+
+
+        346                      P. R. Gordoa, N. Joshi and A. Pickering
+
+
+         [6] Levi, D. and Ragnisco, O., Non-isospectral deformations and Darboux transformations
+             for the third order spectral problem, Inverse Problems, 4 (1988), 815–828.
+         [7] Bogoyavlenskii, O. I., Overturning solitons in two-dimensional integrable equations, Us-
+             pekhi Mat. Nauk, 45 (1990), 17–77; Russian Math. Surveys, 45 (1990), 1–86.
+         [8] Strachan, I. A. B., Wave solutions of a 2 + 1-dimensional generalization of the nonlinear
+             Schrödinger equation, Inverse Problems, 8 (1992), L21–L27.
+         [9] Levi, D., Ragnisco, O. and Rodriguez, M. A., On non-isospectral ﬂows, Painlevé equa-
+             tions and symmetries of diﬀerential and diﬀerence equations, Teoret. i Matem. Fizika,
+             93 (1992), 473–480; Theor. Math. Phys., 93 (1993), 1409–1414.
+        [10] Li, Yi-shen and Zhang, You-jin, Symmetries of a 2 + 1-dimensional breaking soliton
+             equation, J. Phys. A, 26 (1993), 7487–7494.
+        [11] Pickering, A., The singular manifold method revisited, J. Math. Phys., 37 (1996), 1894–
+             1927.
+        [12] Gordoa, P. R. and Pickering, A., Bäcklund transformations for two new integrable partial
+             diﬀerential equations, Europhys. Lett., 47 (1999), 21–24.
+        [13] ———, Non-isospectral scattering problems: a key to integrable hierarchies, J. Math.
+             Phys., 40 (1999), 5749–5786.
+        [14] ———, On a new non-isospectral variant of the Boussinesq hierarchy, J. Phys. A, 33
+             (2000), 557–567.
+        [15] Gordoa, P. R., Symmetries, exact solutions, and nonlinear superposition formulas for
+             two integrable partial diﬀerential equations, J. Math. Phys., 41 (2000), 4713–4731.
+        [16] Estévez, P. G. and Hernáez, G. A., Non-isospectral problem in (2+1) dimensions, J.
+             Phys. A, 33 (2000), 2131–2143.
+        [17] ———, Lax pair, Darboux transformations and solitonic solutions for a 2+1 dimensional
+             nonlinear Schrödinger equation, J. Nonlinear Math. Phys., to appear, 2000.
+        [18] Broer, L. J. F., Approximate equations for long water waves, Appl. Sci. Res., 31 (1975),
+             377–395.
+        [19] Kaup, D. J., Finding eigenvalue problems for solving nonlinear evolution equations,
+             Prog. Theor. Phys., 54 (1975), 72–78.
+        [20] ———, A higher-order water-wave equation and the method for solving it, Prog. Theor.
+             Phys., 54 (1975), 396–408.
+        [21] Jaulent, M. and Miodek, J., Nonlinear evolution equations associated with energy-
+             dependent Schrödinger potentials, Lett. Math. Phys., 1 (1976), 243–250.
+        [22] Matveev, V. B. and Yavor, M. I., Solutions presque périodiques et à N solitons de
+             l’équation hydrodynamique non linéaire de Kaup, Ann. Inst. H. Poincaré, 31 (1979),
+             25–41.
+        [23] Martı́nez, Alonso, L., Schrödinger spectral problems with energy-dependent potentials
+             as sources of nonlinear Hamiltonian evolution equations, J. Math. Phys., 21 (1980),
+             2342–2349.
+        [24] Kupershmidt, B. A., Mathematics of dispersive water waves, Comm. Math. Phys., 99
+             (1985), 51–73.
+        [25] Sachs, R. L., On the integrable variant of the Boussinesq system: Painlevé property, ra-
+             tional solutions, a related many-body system, and equivalence with the AKNS hierarchy,
+             Physica D, 30 (1988), 1–27.
+        [26] Airault, H., Rational solutions of Painlevé equations, Stud. Appl. Math., 61 (1979),
+             31–53.
+        [27] Flaschka, H. and Newell, A. C., Monodromy and spectrum preserving deformations, I,
+             Comm. Math. Phys., 76 (1980), 65–116.
+        [28] Clarkson, P. A., Gordoa, P. R. and Pickering, A., Multicomponent equations associated
+             to non-isospectral scattering problems, Inverse Problems, 13 (1997), 1463–1476.
+        [29] Jimbo, M., Miwa, T. and Ueno, K., Monodromy preserving deformations of linear ordi-
+             nary diﬀerential equations with rational coeﬃcients, I, Physica D, 2 (1981), 306–352.
+        [30] Jimbo, M. and Miwa, T., Monodromy preserving deformations of linear ordinary diﬀer-
+             ential equations with rational coeﬃcients, II, Physica D, 2 (1981), 407–448.
+
+
+
+
+i                                                                                                            i
+
+    i                                                                                                    i
+i                                                                                                         i
+
+
+
+
+                               A Generalized 2 + 1 DWW Hierarchy                               347
+
+
+        [31] Jimbo, M. and Miwa, T., Monodromy preserving deformations of linear ordinary diﬀer-
+             ential equations with rational coeﬃcients, III, Physica D, 4 (1981), 26–46.
+        [32] Clarkson, P. A., Joshi, N. and Pickering, A., Bäcklund transformations for the second
+             Painlevé hierarchy: a modiﬁed truncation approach, Inverse Problems, 15 (1999), 175–
+             187.
+
+
+
+
+i                                                                                                         i
+
+    i                                                                                                 i
+

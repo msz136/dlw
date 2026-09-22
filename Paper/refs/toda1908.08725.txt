@@ -1,0 +1,2024 @@
+                                            RANK SHIFT CONDITIONS AND REDUCTIONS OF 2D-TODA THEORY
+
+                                                                                SHI-HAO LI AND GUO-FU YU
+
+
+                                                  Abstract. This paper focuses on different reductions of 2-dimensional (2d-)Toda hierarchy.
+                                                  Symmetric and skew symmetric moment matrices are firstly considered, resulting in the differ-
+arXiv:1908.08725v2 [nlin.SI] 5 Jan 2020
+
+
+
+
+                                                  ential relations between symmetric/skew symmetric tau functions and 2d-Toda’s tau functions
+                                                  respectively. Furthermore, motivated by the Cauchy two-matrix model and Bures ensemble from
+                                                  random matrix theory, we study the rank one shift condition in symmetric case and rank two
+                                                  shift condition in skew symmetric case, from which the C-Toda hierarchy and B-Toda hierarchy
+                                                  are found, together with their special Lax matrices and integrable structures.
+
+
+
+
+                                                                                     1. Introduction
+
+                                             The studies in random matrix theory and classic integrable systems promote the development
+                                          of both communities, and the orthogonal polynomials play an important role to connect these two
+                                          totally different subjects. For example, in [17, §2], it is shown that these polynomials can lead to an
+                                          iso-spectral flow of the Toda lattice, while the normalisation factors of the orthogonal polynomials
+                                          can be expressed in terms of the partition function of the unitary invariant Hermitian matrix model.
+                                          Later on, several novel random matrix models have been found in the course of doing analysis of
+                                          the classical integrable systems. An example is the appearance of the Cauchy two-matrix model.
+                                          This model was proposed in the studies of the peakon solutions of the Degasperis-Procesi equation
+                                          and its related Hermite-Padé approximation problem [34].
+                                             To some extent, the relation between random matrix and integrable system can be described in
+                                          terms of the partition function and tau functions. It has been realised that the partition function of
+                                          the coupled two-matrix model could be regarded as the tau function of 2d-Toda hierarchy [3], and
+                                          the partition function of symplectic ensemble and orthogonal ensemble could be thought as the tau
+                                          functions of Pfaff lattice and some differential-difference equations [4, 7, 26]. It was also found that
+                                          the partition function of Bures ensemble could be viewed as the tau function of BKP hierarchy
+                                          [15, 27, 37] and that of the Cauchy two-matrix model is related to the CKP hierarchy [31]. The
+                                          average characteristic polynomials (some of them are not orthogonal!) in matrix models are used
+                                          to find the correspondence [15, 31]. Though effective, only few members of these hierarchies could
+                                          be explicitly computed. For this reason, another method called the “moment matrix approach” is
+                                          employed to conquer the difficulty in this paper, to reveal more information about these integrable
+                                          hierarchies behind the Cauchy two-matrix model as well as the Bures ensemble.
+                                             The moment matrix approach is based on the group factorization theory and iso-spectral anal-
+                                          ysis, developed by Adler and van Moerbeke. An overall review could be seen in [8]. The basic
+                                          idea is that from the moment matrix, one can obtain the dressing operators, wave functions and
+                                          tau functions by the matrix decomposition. To the best of our knowledge, the most general case
+
+                                            2010 Mathematics Subject Classification. 37K10, 15A23.
+                                            Key words and phrases. Moment matrix, Reductions on 2d-Toda hierarchy, shift conditions.
+                                                                                               1
+2                                  SHI-HAO LI AND GUO-FU YU
+
+
+was considered in [3], motivated by the coupled two matrix model, showing that the tau functions
+of 2d-Toda hierarchy could be generated by a very general bi-moment matrix m∞ with evolutions
+∂tn m∞ = Λn m∞ and ∂sn m∞ = −m∞ Λ⊤n . Later on, some reduction theory about the 2d-Toda
+hierarchy have been considered, motivated by different random matrix models. In the literatures,
+there have been some examples and great success has been achieved. For instance,
+     • As observed in [2], the constraint Λi m∞ = m∞ Λ⊤i leads the 2d-Toda hierarchy to the
+       1d-Toda hierarchy, in which the time flows vn = tn + sn keep invariant and un = tn − sn
+       would make contributions. In fact, this constraint on the moment matrix indicates that
+       the matrix elements satisfy the relation mk+i,l = mk,l+i , amounting to a Hankel matrix.
+       It is well known that the 1d-Toda’s tau functions could be realised by the time-dependent
+       partition function of the Hermitian matrix model with unitary invariance [23], which could
+       also be expressed in terms of the Hankel determinants;
+     • The case considered in [1, 7] is the skew symmetric reduction on the moment matrix such
+       that m⊤ ∞ = −m∞ . Obviously, the tau functions defined by the skew symmetric moment
+       matrix should be written as Pfaffians rather than determinants due to the skew symmetry.
+       Applying the commuting flows ∂tn m∞ = Λn m∞ + m∞ Λ⊤n to the moment matrix leads to
+       the Pfaff lattice via the skew-Borel decomposition and the integrability follows from the
+       Adler-Kostant-Symes theorem [1, 8]. The Dyson’s symplectic and orthogonal ensembles
+       play important roles in this case. Moreover, the interrelation between Dyson’s β-ensemble
+       when β = 1, 2, 4 implies the relationship between the Toda lattice and Pfaff lattice via the
+       dressing operator and spectral problem, see [4, 5];
+     • The Toeplitz matrix/determinant appears in the studies of the unitary invariant ensemble
+       on the unit circle and random permutations, which shows the reduction on the moment
+       matrix Λm∞ Λ⊤ = m∞ (or equally mi,j := mi−j ). In fact, the Toeplitz moment matrix
+       is closely related to the integrable systems. If the evolutions ∂tn mi = mi+n and ∂sn mi =
+       −mi−n are permitted, there are some knwon examples including the 2 + 1 dimensional
+       generalisation of Ablowitz-Ladik lattice and the 2 + 1 dimensional AKNS hierarchy [6],
+       allowing some further interplays with the Calabi-Yau threefolds [12]. Moreover, if the time
+       evolutions ∂tn mi = mi+n + mi−n are permitted, one can find the corresponding Schur flow
+       [18, 22, 36].
+The considerations of subsequent developments within the random matrix theory suggest further
+interplays. In this paper, we focus on two different random matrix models and corresponding
+integrable hierarchies. The first one is the Cauchy two-matrix model defined on the configuration
+space R+ × R+ , as specified by an eigenvalue probability density function [9, 19]
+                         Q                     2         2 Y  n
+                            1≤i<j≤n (xj − xi ) (yj − yi )
+                                  Qn                             ω1 (xi )ω2 (yj )
+                                    i,j=1 (xi + yj )       i,j=1
+
+with some non-negative weight functions ω1 and ω2 . This model could be considered as a two-field
+model, where the interaction of the fields is described by the Cauchy kernel. It has been shown
+that in the symmetric case ω1 = ω2 , the time-dependent partition function of this model could
+be regarded as the tau function of the CKP hierarchy if we introduce an infinite series of time
+parameters {ti }i∈N into the weight function and assume that ∂ti ω(x; t) = xi ω(x; t) [31]. At the
+same time, there is an integrable lattice called the C-Toda lattice, whose tau function can be
+                  RANK SHIFT CONDITIONS AND REDUCTIONS OF 2D-TODA THEORY                              3
+
+
+expressed in terms of the Cauchy two-matrix model. It has also been found that the quantity
+of the partition function could be expressed as a Gram determinant with symmetric elements.
+Therefore, it motivates us to consider the (semi-)discrete hierarchy if the initial moment matrix
+is assumed to be symmetric. It would be demonstrated that the symmetric reduction is so strong
+that the bilinear form of tau functions would be broken. Luckily, the moments of the Cauchy
+two-matrix model give us another constraint, called the rank one shift condition, finally resulting
+in the C-Toda hierarchy.
+   The other model closely related to the Cauchy-two matrix model is the Bures ensemble [13].
+The significances of this model are on the two folds in physics. One is in quantum information
+theory—this model is a metric induced ensemble, induced by the Bures measure [38]. The other is
+in random matrix theory referred to as the O(1) model [9], which is a two-matrix model for n × n
+positive definite Hermitian matrices M and A with distribution
+
+                               exp −nTr(V (M ) + M A2 ) dM dA,
+                                                          
+
+where the potential function V is assumed to be non-negative. The integration over the Gaussian
+variable A can be performed and thus yield a measure over the eigenvalues {xi , i = 1, · · · , n} of
+M on Rn+ , admitting the form
+                                                         n
+                                     Y       (xj − xi )2 Y −nV (xi )
+                                                          e          .
+                                              xj + xi i=1
+                                   1≤i<j≤n
+
+The time-dependent partition function of this model could be regarded as the tau function of
+BKP hierarchy [27, 37] as well as several integrable lattices [15], including the interesting B-Toda
+lattice considered in [25]. Moreover, as tau functions could be written into Pfaffian, it inspires
+us to consider the skew symmetric reduction on the moment matrix and furthermore to find out
+the whole hierarchy of the B-Toda lattice. Although skew symmetric reduction has already been
+considered in [1, 5, 7], the known results are related to the DKP hierarchy (or Pfaff lattice hierarchy)
+according to the classification by the Kyoto school [28]. The connections between the Pfaff lattice
+hierarchy and the large BKP hierarchy proposed by Kac and van de Leur [29] was left as an ongoing
+problem in [7]. Therefore, in this paper, we’d like to show that by introducing odd-indexed Pfaffian
+tau functions, the large BKP hierarchy is the same with Pfaff lattice hierarchy in the sense of wave
+functions. Furthermore, the moments of the Bures ensemble would indicate a special rank two
+shift condition and we would give a novel sub-hierarchy of the Pfaff lattice with features of the
+BKP hierarchy.
+   The paper is organized as follows. In Section 2, we give a brief review of the moment matrix
+decomposition and group factorisation which is used for the upcoming sections. The symmetric
+reduction is considered in Section 3. We firstly consider the symmetric moment matrix and see what
+would happen if the time evolutions satisfy the commuting time flows ∂tn m∞ = Λn m∞ + m∞ Λ⊤n .
+It will be shown that the bilinear equation for the wave functions are quite simple, but it is not
+the case for tau functions—the symmetric reduction breaks down the bilinear form. Fortunately,
+the rank one shift condition would lead us to a local spectral problem, and further to a C-Toda
+hierarchy with auxiliary variables. In Section 4, we consider the skew symmetric moment matrix
+and Pfaffian tau functions. The most general skew symmetric reduction and the corresponding
+Pfaff lattice are summarised in 4.1. In 4.2, we would like to demonstrate an equivalent skew
+symmetric decomposition, resulting in the partial skew orthogonal polynomials and odd-indexed
+4                                          SHI-HAO LI AND GUO-FU YU
+
+
+wave functions. With the introduction of odd-indexed Pfaffian tau functions, it is shown that the
+Pfaff lattice is exactly the large BKP hierarchy. However, the tau functions of the Pfaff lattice
+hierarchy lack the features of B-type equation—the Gram-type Pfaffian elements. Therefore, in the
+following part, we take the rank two shift condition into account and demonstrate how to derive
+the B-Toda hierarchy from the 2d-Toda theory. Apart from being embedded into 2d-Toda theory,
+the rank two shift condition implies a particular Fay identity, indicating the recurrence relation
+for the partial skew orthogonal polynomials, and thus give a novel sub-hierarchy of Pfaff lattice
+hierarchy.
+
+                                      2. Review of 2d-Toda theory
+
+   For self-consistency, it is necessary to give a brief review to 2d-Toda theory since the article is
+mainly about the reductions of 2d-Toda theory. This section includes the following three parts:
+moment matrix decomposition, time evolutions and wave functions and tau functions. Please refer
+to [3, 7, 39] for more details.
+
+2.1. Moment Matrix Decomposition. Moment matrix is the linking node of different math-
+ematical objects such as integrable systems, orthogonal polynomials and random matrix theory.
+We call a semi-infinite matrix m∞ = (mi,j )i,j∈N a moment matrix if all of its principal minors are
+nonzero. Attributed to this fact, the moment matrix admits the LU decomposition (Gauu-Borel
+decomposition) m∞ = S1−1 S2 , where1
+
+                         S1 ∈G− = {lower triangular matrices with diagonals 1},                               (2.1a)
+                    S2 ∈ G+ = {upper triangular matrices with nonzero diagonals},                             (2.1b)
+
+and the corresponding Lie algebras g+ and g− . From the basic computation of matrix decompo-
+sition [35], one could compute
+                                                                 
+                                         1
+                                    −τ10 /τ1     1
+                                                                 
+                                                                  
+                              S1 = 
+                                                                 
+                                      τ20 /τ2  −τ21  /τ2 1        
+                                         ..       ..     .. . .
+                                                                 
+                                          .        .      .     .
+                     n−1
+with τn = det(mi,j )i,j=0 and τij the determinant for the i-th principal minor add the next row and
+delete its j-th row. For example,
+
+                                             m10     m11                      m00    m01
+               τ10 = m10 ,     τ20 = det                    ,   τ21 = det                    ,   ··· .
+                                             m20     m21                      m20    m21
+
+The diagonal of S2 is important and we denote it as h, where
+                                             
+                                     τ1 τ2
+                              h=       , ,··· ,      with τ0 = 1.
+                                     τ0 τ1
+
+    1Please note we mainly consider the semi-infinite case throughout the paper, given by the algebra A ∞
+                                                                                                        2 =
+{(si,j )i,j∈N , si,j ∈ C}. Usually we denote the shift operator Λ = (δi+1.j )i,j∈N and Λ−1 = Λ⊤ = (δi,j+1 )i,j∈N . The
+shift operator and its inverse are connected by ΛΛ−1 = I and Λ−1 Λ = I − E with Ei,j = δi,0 δj,0 . In this case, S1
+and S2 can be expressed in a formal way as S1 = Λ0 + Λ−1 a−1 + Λ−2 a−2 + · · · and S2 = Λ0 a0 + Λ1 a1 + Λ2 a2 + · · ·
+with ai , i ∈ Z vectors.
+                    RANK SHIFT CONDITIONS AND REDUCTIONS OF 2D-TODA THEORY                                               5
+
+
+Furthermore, if we define Lax matrices L1 = S1 ΛS1−1 and L2 = S2 Λ⊤ S2−1 , then P (x) = S1 χ(x),
+Q(y) = S2−⊤ χ(y) with χ(x) = (1, x, x2 , · · · ) are the eigenfunctions of L1 and L2 respectively,
+enjoying the spectral problems
+
+                                    L1 P (x) = xP (x),          L⊤
+                                                                 2 Q(y) = yQ(y)
+
+and orthogonal relation
+
+                                               hP (x), Q⊤ (y)i = I,
+
+where I is the identity matrix and the inner product is defined by hxi , y j i = mi,j .
+
+2.2. Time Evolutions. Let’s consider a time-dependent moment matrix m∞ (t, s), which admits
+the time evolutions
+                          ∂m∞                ∂m∞
+                                 = Λ n m∞ ,        = −m∞ Λ⊤n .
+                            ∂tn               ∂sn
+Given the initial value m∞ (0, 0), the unique solution of the evolution equation can be written as
+                                                P∞        i                 P∞        ⊤i
+                                m∞ (t, s) = e     i=1 ti Λ    m∞ (0, 0)e−     i=1 si Λ          .                    (2.2)
+
+Obviously, if m∞ (t, s) is non-degenerate for any parameters t, s ∈ R, then the Gauss-Borel decom-
+position is valid, and G± defined in (2.1a) and (2.1b) form the Lie subgroups of the general linear
+group with corresponding Lie algebras g± . Therefore, the equations
+                  ∂m∞ −1      ∂S −1   ∂S2 −1        ∂S1 −1 ∂S2 −1
+               S1      S2 = S1 1 +         S =−         S +      S ∈ g− ⊕ g+ ,
+                   ∂tn         ∂tn    ∂tn 2         ∂tn 1     ∂tn 2
+                  ∂m∞ −1
+               S1      S = S1 (Λn m∞ )S2−1 = S1 Λn S1−1 = Ln1
+                   ∂tn 2
+lead to
+                            ∂S1                       ∂S2
+                                 = −(Ln1 )− S1 , and       = (Ln1 )+ S2 .
+                            ∂tn                       ∂tn
+Here − (respectively +) represents the lower triangular part without diagonal (respectively upper
+triangular part with diagonals) according to Lie algebra splitting. Similarly, one could obtain the
+result for time parameter s in the same approach. Therefore, from the definition of Lax matrices,
+it is easy to obtain the Lax representation
+                                  ∂L1                           ∂L2
+                                      = [L1 , (Ln1 )− ],            = [L2 , (Ln2 )+ ].
+                                  ∂tn                           ∂sn
+2.3. Wave Functions and Tau Functions. Now we’d like to introduce the wave functions and
+tau functions, to show the Lax representation is equal to the bilinear form of wave functions and
+tau functions.
+                              P∞
+   With the notation ξ(t, z) = k=1 tk z k , let’s define the wave functions
+                                                                                       −1
+                                                                                            )
+                        Φ1 (t, s; z) = eξ(t,z) S1 χ(z),        Φ2 (t, s; z) = eξ(s,z            S2 χ(z)              (2.3)
+
+and the dual wave functions
+                                                                                        −1
+                                                                                                )
+                 Φ∗1 (t, s; z) = e−ξ(t,z) S1−⊤ χ(z −1 ),      Φ∗2 (t, s; z) = e−ξ(s,z               S2−⊤ χ(z −1 ).   (2.4)
+
+It is remarkable that these wave functions satisfy the following bilinear equations [2, 40]
+                                                      dz                                           dz
+             I                                              I
+                   Φ1,n (t, s; z)Φ∗1,m (t′ , s′ ; z)      =     Φ2,n (t, s; z)Φ∗2,m (t′ , s′ ; z)      ,             (2.5)
+               C∞                                    2πiz    C0                                   2πiz
+6                                            SHI-HAO LI AND GUO-FU YU
+
+
+where C∞ and C0 stand for the circles surrounding infinity and zero respectively. Furthermore, if
+one defines tau functions by
+                                                                       n−1
+                                           τn (t, s) = det(mi,j (t, s))i,j=0 ,                                 (2.6)
+
+then one could find the relations between wave functions and tau functions via (∂˜t = (∂t1 , 21 ∂t2 , · · · ))
+                                                 !                                                          !
+                             −ξ(∂˜t ,z −1 )                                         ξ(∂˜t ,z −1 )
+                    ξ(t,z) e                τn n           ∗              −ξ(t,z) e               τn+1 −n
+   Φ1 (t, s; z) = e                            z       , Φ1 (t, s; z) = e                                z        ,
+                                  τn                                                      τn+1
+                                                   n≥0                                                        n≥0
+                                     ˜s ,z )
+                                                    !                                           ˜s ,z)
+                                                                                                             !
+                         −1 e
+                               −ξ(   ∂                                                       ξ( ∂
+                                             τn+1 n                                  −1 e              τn −n
+   Φ2 (t, s; z) = eξ(s,z )                       z       , Φ∗2 (t, s; z) = e−ξ(s,z )                      z         .
+                                       τn                                                     τn+1
+                                                       n≥0                                                 n≥0
+                                         2    3
+If we introduce the notation [z] = (z, z2 , z3 , · · · ), then the bilinear identities (2.5) could be written
+into tau-functions as
+                        I
+                                                                                   ′
+                                 τn (t − [z −1 ], s)τm+1 (t′ + [z −1 ], s′ )eξ(t−t ,z) z n−m−1 dz
+                          C∞
+                             I                                                                                 (2.7)
+                                                                              ′    −1
+                                                                                        ) n−m−1
+                         =         τn+1 (t, s − [z])τm (t′ , s′ + [z])eξ(s−s ,z         z         dz.
+                             C0
+
+                         3. Symmetric reduction and C-Toda hierarchy
+
+   In this section, we consider the symmetric reduction to the moment matrix, with our aim being
+to develop a theory of the symmetric tau function theory analogous to that done in [1, 5, 7] for
+the skew symmetric case. The symmetric Cholesky decomposition would play an important role in
+the discussion of this part. Therefore, in subsection 3.1, we consider the symmetric initial moment
+matrix and find out that there are some relations between the pairs of dressing operators S1 and S2 ,
+wave functions Φ and Φ∗ and Lax operators L1 and L2 . Furthermore, the symmetric features and
+the commuting flow ∂tn m∞ = Λn m∞ + m∞ Λ⊤n result in the relations between the symmetric tau
+functions and 2d-Toda’s tau functions (See Proposition 3.2). Unfortunately, the relations between
+symmetric tau functions and 2d-Toda tau functions are nonlinear, thus breaking down the bilinear
+structures. The failure of bilinear forms ask us for some extra constraints. Motivated by the
+Cauchy two-matrix model, a rank one shift condition is given. This condition provides an explicit
+relation between auxiliary functions and tau functions, and thus help us to write down the whole
+C-Toda hierarchy successfully. The subsection 3.3 is devoted to a detailed discussion about why
+the rank one shift condition works and finally demonstrate that the rank one shift condition is
+equal to a local spectral problem. The Lax integrability of the whole hierarchy is considered in the
+end.
+
+3.1. The Symmetric Reduction on 2d-Toda Hierarchy. From (2.2), we know that the most
+general moment matrix has the form
+                                                  P∞        i                 P∞       ⊤i
+                                  m∞ (t, s) = e     i=1 ti Λ    m∞ (0, 0)e−    i=1 si Λ     ,
+
+and two constraints are considered here. The first is to deal with the symmetric initial data
+m∞ (0, 0). To assume that m⊤
+                           ∞ (0, 0) = m∞ (0, 0), one could show the relationship between m∞ (t, s)
+and m∞ (−s, −t), and further to show the relations between the corresponding tau functions, Lax
+operators and wave functions. The second part is to impose the time constraint ‘s = −t’, from
+which one could induce commuting time flows ∂tn m∞ = Λn m∞ + m∞ Λ⊤n . In this case, tau
+                   RANK SHIFT CONDITIONS AND REDUCTIONS OF 2D-TODA THEORY                                                          7
+
+
+function depends on time parameters {tk }k=1,2,··· only. Some relations between symmetric tau
+functions and 2d-Toda’s tau functions are obtained.
+
+3.1.1. Symmetric Reduction on Moment Matrix. Consider the symmetric initial moment matrix
+m∞ (0, 0) satisfies m⊤
+                     ∞ (0, 0) = m∞ (0, 0). It is easy to show
+                                        P∞        i                    P∞       ⊤i
+                      m⊤            −     i=1 si Λ        m⊤ (0, 0)e    i=1 ti Λ
+                       ∞ (t, s) = e                                                  = m∞ (−s, −t).
+
+                                                                       n−1
+Moreover, the definition of tau function τn (t, s) = det(mi,j (t, s))i,j=0  gives us τn (−s, −t) = τn (t, s),
+and it leads to
+                                                                 
+                                       τ1 (t, s) τ2 (t, s)
+                           h(t, s) =            ,          , · · · = h(−s, −t).
+                                       τ0 (t, s) τ1 (t, s)
+Furthermore, we can state the following proposition under this symmetric reduction.
+
+Proposition 3.1. For the symmetric initial moment matrix, the following equations are satisfied
+    (1) h−1 (t, s)S1 (t, s) = S2−T (−s, −t);
+    (2) h−1 (t, s)Φ1 (t, s; z) = Φ∗2 (−s, −t; z −1) and h−1 (t, s)Φ2 (t, s; z) = Φ∗1 (−s, −t; z −1 );
+    (3) L1 (t, s) = h(−s, −t)L⊤  2 (−s, −t)h
+                                              −1
+                                                 (−s, −t).
+
+                                                                                  −1
+Proof. Starting with m⊤
+                      ∞ (t, s) = m∞ (−s, −t) and Borel decomposition m∞ (t, s) = S1 (t, s)S2 (t, s),
+we know
+
+                               S1−1 (t, s)S2 (t, s) = S2⊤ (−s, −t)S1−⊤ (−s, −t).
+
+Recall S1 and S2 belong to the groups G± , therefore, we can rewrite the right hand side as
+
+              S2⊤ (−s, −t)S1−⊤ (−s, −t) = S2⊤ (−s, −t)h−1 (−s, −t)h(−s, −t)S1−⊤ (−s, −t)
+
+with S2⊤ (−s, −t)h−1 (−s, −t) ∈ G− and h(−s, −t)S1−⊤ (−s, −t) ∈ G+ . Moreover, from the unique-
+ness of Borel decomposition, it must satisfy
+
+              S1−1 (t, s) = S2⊤ (−s, −t)h−1 (−s, −t),               S2 (t, s) = h(−s, −t)S1−⊤ (−s, −t),
+
+which gives rise to the first equality.
+   The second equality is a direct generalisation of the first one if one notices the definition of wave
+functions (2.3) and their dual (2.4) and compute
+
+  h−1 (t, s)Φ1 (t, s; z) = h−1 (t, s)eξ(t,z) S1 (t, s)χ(z) = eξ(t,z) S2−⊤ (−s, −t)χ(z) = Φ∗2 (−s, −t; z −1).
+                                              −1                                    −1
+                                                   )                                     )
+  h−1 (t, s)Φ2 (t, s; z) = h−1 (t, s)eξ(s,z            S2 (t, s)χ(z −1 ) = eξ(s,z            S1−⊤ χ(z −1 ) = Φ∗1 (−s, −t; z −1).
+
+Finally, a direct computation
+
+          L1 (t, s) = S1 (t, s)ΛS1−1 (t, s) = h(−s, −t)S2−⊤ (−s, −t)ΛS2⊤ (−s, −t)h−1 (−s, −t)
+                                               = h(−s, −t)L⊤
+                                                           2 (−s, −t)h
+                                                                       −1
+                                                                          (−s, −t)
+
+results in the third equation.                                                                                                     
+8                                          SHI-HAO LI AND GUO-FU YU
+
+
+3.1.2. The “s = −t” Constraint. The assumption s = −t shows that the moment matrix depends
+on parameters {tk }k=1,2,··· only, satisfying the time evolutions
+
+                     ∂tn mi,j = mi+n,j + mi,j+n ,        or ∂tn m∞ = Λn m∞ + m∞ Λ⊤n .
+
+Under this framework, one can define the symmetric tau function τ̃ (t) by τ̃n (t) := τn (t, −t). To
+find the integrable hierarchy satisfied by {τ̃n (t)}n∈N with τ̃0 (t) = 1, we need to firstly find the
+relations between the τ̃n (t) and τn (t, s)|s=−t and the result is shown as the following proposition.
+
+Proposition 3.2. Regarding the evolutions of the symmetric tau function τ̃n (t) and 2d-Toda’s tau
+function τn (t, s)|s=−t , they are connected with each other by
+
+    τ̃m (t)τ̃m (t + [α] − [β]) − (β − α)2 τ̃m−1 (t − [β])τ̃m+1 (t + [α]) = (τm (t + [α] − [β], −t))2 .        (3.1)
+
+Proof. This method used in this proof is almost the same with [7, Theorem 2.2], and the slight
+difference lies in the reduction conditions of the initial matrix. Regarding the bilinear identity
+satisfied by the 2d-Toda’s tau function (2.7), if we take n = m − 1 and “s = −t” constraint
+s = −t + [β], t′ = t + [α] − [β] and s′ = −t − [α], then by the use of residue theorem, the right
+hand side of the bilinear identity (2.7) could be computed as
+                      1                                                             dz
+                         I
+                                                                                ′
+                             τm−1 (t − [z −1 ], s)τm+1 (t′ + [z −1 ], s′ )eξ(t−t ,z) 2
+                     2πi C∞                                                         z
+                            = (β − α)τm−1 (t − [β], −t + [β])τm+1 (t + [α], −t − [α]).
+
+It is similar to the left hand side, and one could obtain
+   1                                              ′ −1 dz
+       I
+           τm (t, s − [z])τm (t′ , s′ + [z])eξ(s−s ,z ) 2
+  2πi C0                                               z
+         1
+  =         (τm (t, −t + [β] − [α])τm (t + [α] − [β], −t) − τm (t, −t)τm (t + [α] − [β], −t − [α] + [β])) .
+      α−β
+From the definition τ̃n (t) = τn (t, −t) and τn (t, s) = τn (−s, −t), the above two equalities would
+result in the equation (3.1).                                                                     
+
+  This proposition provides a way to study the symmetric tau functions from 2d-Toda theory.
+Taking the square root of both sides, one could obtain2
+                           p
+   τm (t + [α] − [β], −t) = τ̃m (t)τ̃m (t + [α] − [β]) − (β − α)2 τ̃m−1 (t − [β])τ̃m+1 (t + [α]). (3.2)
+
+Unlike the Pfaff lattice, the bilinear form (2.7) would break down if we replace the tau functions of
+2d-Toda by the symmetric tau functions with relationship (3.2). Nonetheless, this equation implies
+us some useful information about the t-derivatives of symmetric tau functions and 2d-Toda’s tau
+functions, which helps us to find the integrable hierarchy later.
+       • If we take the limit α → β, then we immediately obtain
+
+                                              τm (t, s)|s=−t = τ̃m (t);                                       (3.3)
+
+    2Here we just take the positive sign when taking the square root of both sides. It doesn’t matter if we take the
+
+negative sign since it wouldn’t affect the forms of the equations.
+                       RANK SHIFT CONDITIONS AND REDUCTIONS OF 2D-TODA THEORY                                                       9
+
+
+     • If we take the derivative about α on both sides, then we obtain
+     ∞
+     X                                               1           1
+           αk−1 ∂tk τm (t + [α] − [β], −t) =
+                                                     2 τm (t + [α] − [β], −t)
+     k=1
+                                                                   ∞
+                                                                   X
+                                                  × {τ̃m (t) ×           αk−1 ∂tk τ̃m (t + [α] − [β]) + O ((β − α))}.
+                                                                   k=1
+
+
+        Taking the limit α → β and comparing the coefficient of αk−1 , one obtains
+
+                                                                         1
+                                               ∂tk τm (t, s)|s=−t =        ∂t τ̃m (t);                                          (3.4)
+                                                                         2 k
+     • Moreover, if we take the derivative about α and β on both sides, and take α → β, then we
+       get
+           ∞
+           X                                                                  ∞
+                                                                              X
+     −2            ∂tl τm (t, −t)∂tk τm (t, −t)αk+l−2 − 2τm (t, −t)                   ∂tl ∂tk τm (t, −t)αk+l−2
+           k,l=1                                                              k,l=1
+                                    ∞                                     ∞
+                                                                                  pk (−∂˜t )τ̃m−1 (t)pl (∂˜t )τ̃m+1 (t)αk+l .
+                                    X                                     X
+                      = −τ̃m (t)           ∂tk ∂tl τ̃m (t)αk+l−2 + 2
+                                   k,l=1                                  k,l=0
+
+
+        The special case α0 gives rise to the equation
+                                                                                                      
+                                    1                         1     1
+               ∂t21 τm (t, s)|s=−t = ∂t21 τ̃m (t) −                               2
+                                                                      (∂t τ̃m (t)) + τ̃m−1 (t)τ̃m+1 (t) .                       (3.5)
+                                           2               τ̃m (t) 4 1
+
+Most generally, one can state the following proposition.
+
+Corollary 3.3. For arbitrary i, j ∈ N, there exists the general relation between the symmetric tau
+function and 2d-Toda’s tau functions via
+
+                     j
+                   i X
+                             pk (∂˜t )pl (−∂˜t )τm (t, s)|s=−t × pi−k (∂˜t )pj−l (−∂˜t )τm (t, s)|s=−t
+                   X
+
+                   k=0 l=0
+                                                                                                                                (3.6)
+                   = τ̃m (t)pi (∂˜t )pj (−∂˜t )τ̃m (t) − pi−2 (−∂˜t )τ̃m−1 (t)pj (∂˜t )τ̃m+1 (t)
+                   + 2pi−1 (−∂˜t )τ̃m−1 (t)pj−1 (∂˜t )τ̃m+1 (t) − pi (−∂˜t )τ̃m−1 (t)pj−2 (∂˜t )τ̃m+1 (t).
+
+Proof. This equation is from the expansion
+
+                                                              ˜           ˜
+                       τm (t + [α] − [β], s)|s=−t = eξ(∂t ,α)−ξ(∂t ,β) τm (t, s)|s=−t
+                                                           ∞
+                                                                   αk β l pk (∂˜t )pl (−∂˜t )τm (t, s)|s=−t .
+                                                           X
+                                                       =
+                                                           k,l=0
+
+
+By comparing with the coefficients of αi β j on both sides of (3.1), we can arrive at this conclusion.
+                                                                                                    
+
+Remark 3.4. It should be pointed out that equations (3.3)-(3.5) could also be obtained from this
+unified expression (3.6) by picking the label (i, j) as (0, 0), (1, 0) and (1, 1), respectively.
+10                                         SHI-HAO LI AND GUO-FU YU
+
+
+3.1.3. symmetric moment matrix and Cholesky decomposition. At the end of this subsection, we’d
+like to mention that these symmetric moment matrices could not only be embedded in the 2d-Toda
+theory, but they admit the symmetric Cholesky decomposition. The Cholesky decomposition would
+lead to an equivalent expression. Let’s consider the symmetric matrix m∞ (t) and the decomposition
+
+                                   m∞ (t) = S −1 (t)S −⊤ (t),                     S(t) ∈ G− ,
+
+where G− is the group composed of the lower triangular matrices with nonzero diagonals. Moreover,
+the matrix S(t) defines wave operators
+                                          P∞              i                                    P∞       ⊤i
+                         W1 (t) = S(t)e           i=1 ti Λ     ,     W2 (t) = S −⊤ (t)e−        i=1 ti Λ     ,                          (3.7)
+
+wave functions (c.f. (2.3) and (2.4))
+                                  P∞          i                                                        P∞               i
+     Ψ1 (t; z) = W1 (t)χ(z) = e    i=1 ti z       S(t)χ(z), Ψ2 (t; z) = W2 (t)χ(z) = e−                      i=1 ti z       S −⊤ (t)χ(z),
+
+and their dual
+
+          Ψ∗1 (t; z) = W1 (t)−⊤ χ(z −1 ) = Ψ2 (t; z −1 ), Ψ∗2 (t; z) = W2 (t)−⊤ χ(z −1 ) = Ψ1 (t; z −1 )
+
+with asymptotics
+                                        P∞           i
+                      Ψ1,n (t; z) = e    i=1 ti z        z n cn (t)ψ1,n (t; z),       ψ1,n = 1 + O(z −1 ),
+                                        P∞               i
+                     Ψ2,n (t; z) = e−     i=1 ti z           z n c−1
+                                                                  n (t)ψ2,n (t; z),       ψ2,n = 1 + O(z),
+
+where the cn are the diagonals of matrix S. Furthermore, the Lax matrix L1 = SΛS −1 and
+L2 = S −⊤ Λ⊤ S ⊤ are connected by the simple relation L1 = L⊤
+                                                            2 . From these relations, one can
+state the following proposition.
+
+Proposition 3.5. For the symmetric moment matrix with commuting vector field ∂tn m∞ =
+Λn m∞ + m∞ Λ⊤n , the Cholesky decomposition m∞ (t) = S −1 (t)S −⊤ (t) gives rise to the wave
+operators W1 (t) and W2 (t) via (3.7). Moreover, these two operators satisfy the relation
+
+                             W1 (t)W1−1 (t′ ) = W2 (t)W2−1 (t′ ),                     ∀ t, t′ ∈ C∞ ,
+
+which implies the bilinear identity for the wave functions
+                                       ′ −1 dz                                         dz
+               I                                     I
+                     Ψ1,n (t; z)Ψ2,m (t ; z )      =     Ψ2,n (t; z)Ψ1,m (t′ ; z −1 )      .
+                C∞                            2πiz    C0                              2πiz
+3.2. Rank One Shift Condition and Integrable Hierarchy. In the last subsection, we demon-
+strate the bilinear identity loses if we replace the 2d-Toda’s tau function by symmetric tau function.
+In this subsection, we would like to impose another condition for the moment matrix such that the
+symmetric tau functions could be put into an integrable hierarchy, which is called as the C-Toda
+hierarchy.
+   This condition, firstly appeared in [10] , is called the rank one shift condition. It means the shift
+of moment matrix satisfies a rank one decomposition
+
+                      Λm∞ + m∞ Λ⊤ = αα⊤ ,                          α = (α0 , α1 , · · · )⊤ ,   αi (t) ∈ C ∞ .                           (3.8)
+
+It should be pointed out that the time evolution of the vector α should satisfy the condition
+
+                                                              ∂ti α = Λi α,                                                             (3.9)
+                  RANK SHIFT CONDITIONS AND REDUCTIONS OF 2D-TODA THEORY                             11
+
+
+to be consistent with that of moment matrix m∞ . Then according to the Borel decomposition
+m∞ = S1−1 S2 , the rank one condition is equal to
+
+                 ΛS1−1 S2 + S1−1 S2 Λ⊤ = αα⊤        S1 ΛS1−1 + S2 Λ⊤ S2−1 = S1 αα⊤ S2−1 .
+
+From the Proposition 3.1 and condition “s = −t”, we know S2 = hS1−⊤ and L2 = hL⊤
+                                                                               1h
+                                                                                  −1
+                                                                                     .
+Therefore, the above equality could then be written in a symmetric form
+
+                                L1 h + hL⊤               ⊤
+                                         1 = (S1 α)(S1 α) := σσ
+                                                                ⊤
+                                                                                                (3.10)
+
+with σ = S1 α. In addition, the rank one shift condition (3.8), or its equivalent condition (3.10), im-
+plies that there are some relations between symmetric τ -functions and auxiliary functions {σn }n≥0 .
+
+Proposition 3.6. If we denote L1 as
+                                                                          
+                                  l00        1
+                                l10        l11      1
+                                                                          
+                                                                           
+                         L1 =  l20
+                                                                            := (li,j ),
+                                            l21     l22     1              
+                                   ..        ..      ..     ..
+                                                                          
+                                                                  ..
+                                    .         .       .      .         .
+
+then there are relations between tau functions and σ via
+
+                                      2lj,j hj = σj σj ,                                       (3.11a)
+                                      hj+1 + lj+1,j hj = σj σj+1 ,                             (3.11b)
+                                      li,j hj = σi σj , i ≥ j + 2.                             (3.11c)
+
+    Now we plan to show the equations (3.11a)-(3.11c) are the hierarchy of intergable lattice, whose
+first example is the C-Toda lattice given by [31]. By the use of the fact L1 = S1 ΛS1−1 and denote
+S1 = (si,j ), S1−1 = (s̃i,j ), we have
+                                                                                    
+                       1                       0 1                    1
+                    s10 1                       0 1             s̃10 1
+                                                                                    
+                                                                                       
+            L1 =   s20 s21 1
+                                                                                     
+                                                 0 1           s̃20 s̃21 1
+                                                                                       
+                       ..      ..  .. . .                             .    .    .
+                                                                                      
+                                                      ..   .                    .. . . .
+                        .       .   .     .              . ..         ..   ..
+
+which shows
+                                                                 i−1
+                                                                 X
+                                li,j = s̃i+1,j + si,j−1 +              si,k s̃k+1,j .           (3.12)
+                                                                 k=j
+
+Moreover, since S1−1 is the inverse matrix of S1 , and notice S1 and S1−1 are strictly lower triangular
+matrix with diagonals 1, we have
+                                                           i−1
+                                                           X
+                                    s̃i,j = −si,j −               si,k s̃k,j ,                  (3.13)
+                                                          k=j+1
+
+In addition, from the 2d-Toda theory, we know
+                                                 pi−j (−∂˜t )τi (t, s)
+                                       si,j =                          .
+                                                       τi (t, s)
+Therefore, we have the following proposition.
+12                                        SHI-HAO LI AND GUO-FU YU
+
+
+Proposition 3.7. The main diagonal and sub-diagonal give rise to the C-Toda lattice
+
+                                          Dt1 τ̃n+1 · τ̃n = σ̃n σ̃n ,                                      (3.14a)
+                                          Dt21 τ̃n+1 · τ̃n+1 = 4σ̃n σ̃n+1 ,                                (3.14b)
+
+where σ̃n = τ̃n σn and Dt is the standard Hirota operator defined by
+                                                        ∂m
+                                 Dtm f (t) · g(t) =         f (t + x)g(t − x)|x=0 .
+                                                        ∂xm
+Proof. Firstly, we prove the equality (3.14a). From equation (3.12) and (3.13), one can demonstrate
+the elements of main diagonal can be written as
+
+                                   lj,j = sj,j−1 + s̃j+1,j = sj,j−1 − sj+1,j ,
+
+and as is indicated,
+                                                       p1 (−∂˜t )τj (t, s)|s=−t
+                                        sj,j−1 =                                .
+                                                           τj (t, s)|s=−t
+Furthermore, from the relations (3.3) and (3.4), one can express sj,j−1 in terms of symmetric tau
+function as sj,j−1 = − 21 ∂t1 log τ̃j (t). Therefore, the main diagonal (3.11a) leads to
+                                                      τ̃j+1   τ̃j+1  σ̃j σ̃j
+                                         ∂t1 log            ×       = 2 ,
+                                                        τ̃j     τ̃j    τ̃j
+which is indeed (3.14a).
+  Now we turn to equation (3.14b). From the equations
+
+      lj+1,j = sj+1,j−1 + sj+1,j s̃j+1,j + s̃j+2,j = sj+1,j−1 − sj+2,j + sj+2,j+1 sj+1,j − s2j+1,j ,
+                   p2 (−∂˜t )τj+1 (t, s)|s=−t
+      sj+1,j−1 =                              ,
+                       τj+1 (t, s)|s=−t
+one knows
+                              1         τj+2 (t, s)|s=−t   1 ∂t21 τj+1 (t, s)|s=−t   1 ∂t21 τj+2 (t, s)|s=−t
+     sj+1,j−1 − sj+2,j =        ∂t2 log                  +                         −                         .
+                              2         τj+1 (t, s)|s=−t   2 τj+1 (t, s)|s=−t        2 τj+2 (t, s)|s=−t
+It seems that t2 -flow would involve in this equation. Interestingly, the t2 -flow can be cancelled
+from the 2d-Toda hierarchy since {τn (t, s)|s=−t }∞     n=0 satisfy the modified KP hierarchy [28], whose
+                     2
+first equation is (Dt1 + Dt2 )τj+1 (t, s) · τj+2 (t, s)|s=−t = 0. This equation implies
+                             τj+2 (t, s)|s=−t     ∂t τj+1 (t, s)|s=−t ∂t1 τj+2 (t, s)|s=−t
+                   ∂t2 log                    = −2 1
+                             τj+1 (t, s)|s=−t        τj+1 (t, s)|s=−t τj+2 (t, s)|s=−t
+                                                      ∂t21 τj+1 (t, s)|s=−t  ∂ 2 τj+2 (t, s)|s=−t
+                                              +                             + t1                  ,
+                                                        τj+1 (t, s)|s=−t       τj+2 (t, s)|s=−t
+and therefore
+                              τj+1 (t, s)|s=−t ∂t21 τj+1 (t, s)|s=−t − (∂t1 τj+1 (t, s)|s=−t )2
+                   lj+1,j =                                                                     .            (3.15)
+                                                      (τj+1 (t, s)|s=−t )2
+By using the derivatives among τ̃j (t) and τj (t, s)|s=−t in (3.3)-(3.5), we finally arrive at
+                                                  1
+                                                      Dt21 τ̃j+1 · τ̃j+1  τ̃j τ̃j+2
+                                      lj+1,j = 4              2          − 2
+                                                            τ̃j+1           τ̃j+1
+By taking lj+1,j into equation (3.11b), the second equation of C-Toda lattice can be obtained.                   
+                 RANK SHIFT CONDITIONS AND REDUCTIONS OF 2D-TODA THEORY                           13
+
+
+   One should notice: the rank one shift condition is one of the necessary conditions to find these
+quadralinear equations, and the other is the symmetric reduction on the τ -function of 2d-Toda
+hierarchy. These two conditions, could be regarded as the spectral problem and time evolutions of
+the C-Toda hierarchy respectively, which are the inherent structures of integrability and we’d like
+to give an explanation in the subsection 3.4.
+
+3.3. Rank One Shift Condition Revisited: Polynomial Case. In fact, the rank one shift
+condition has a natural explanation in polynomial sense. If we denote the symmetric moment
+matrix m∞ = (mi,j )i,j∈N , composed by moments generated by Cauchy kernel as
+
+                                            xi y j
+                                       Z
+                                mi,j =             ω(x)ω(y)dxdy,                     (3.16)
+                                        R2+ x + y
+
+then from the rank one shift condition (3.8), one knows {αi }i∈Z can be expressed as
+                                             Z
+                                       αi =      xi ω(x)dx.                                   (3.17)
+                                                R+
+
+In this case, we always assume that the weight function ω(x) decays fast when x → ∞ so that
+the moments are nonsingular. As a way of illustration, in [11], ω(x) is taken as the Laguerre
+weight, and the corresponding Cauchy-Laguerre polynomials are considered, with the asymptotic
+behaviour depicted by Meijer G-function.
+   At the same time, these moments in (3.16) could be interpreted by the symmetric bilinear inner
+product h·, ·i mapping R[x] × R[y] 7→ R, such that
+
+                                                    xi y j
+                                               Z
+                              i j
+                            hx , y i := mi,j =             ω(x)ω(y)dxdy.                   (3.18)
+                                                R2+ x + y
+
+Under the bilinear inner product, one can introduce a family of polynomials {Pn (x)}∞
+                                                                                    n=0 , satisfying
+the orthogonal relation
+                                                               det(mi,j )ni,j=0
+                         hPn (x), Pm (y)i = hn δm,n ,   hn =             n−1      .
+                                                               det(mi,j )i,j=0
+
+We call this family of polynomials the symmetric Cauchy bi-orthogonal polynomials since mi,j =
+mj,i and a determinant expression of these polynomials could be found in [31].
+
+Remark 3.8. In this paper, we mainly consider the symmetric reduction of moment matrix,
+therefore from the Cholesky decomposition we know the dressing operator can be chosen as the
+same upon a constant factor. Therefore, the two family of Cauchy bi-orthogonal polynomials in
+this case is reduced to one family of polynomials. This is a special case of Cauchy bi-orthogonal
+polynomials motivated by the structure of symmetric tau functions.
+
+   To be consistent with the time evolution (3.9), from now on, we assume ω(x) is dependent on
+time parameters {tk }k=1,2,··· with evolutions ∂tk ω(x; t) = xk ω(x; t). Furthermore, it should be
+pointed out that if the time-dependent moments are chosen as
+
+                                            xi y j
+                                       Z
+                                mi,j =             ω(x; t)ω(y; t)dxdy,
+                                        R2+ x + y
+14                                          SHI-HAO LI AND GUO-FU YU
+
+
+then from the definition of tau function, one knows
+                                                                                           !n−1
+                                                               xi y j
+                                                         Z
+                                    n−1
+                     τn = det(mi,j )i,j=0 = det                       ω(x; t)ω(y; t)dxdy              .
+                                                           R2+ x + y
+                                                                                              i,j=0
+
+By using the Andréief formula, one can show
+                           n Z
+                 X         Y       σ −1                      1
+            τn =      ǫ(σ)        xj j yjj−1                      ω(xj ; t)ω(yj ; t)dxj dyj
+                               j=1    R2+                 xj + yj
+                     σ∈Sn
+                                      n
+                                                       1
+                     Z                Y
+                 =             ∆(x)         yjj−1           ω(xj ; t)ω(yj ; t)dxj dyj
+                      Rn   n
+                       + ×R+          j=1
+                                                    xj + yj
+                                                n
+                   1 X                                      1
+                                Z              Y
+                 =         ǫ(σ)           ∆(x)     yσj−1         ω(xj ; t)ω(yj ; t)dxj dyj
+                   n!              n
+                                  R+ ×R+n
+                                               j=1
+                                                      j
+                                                         xj + yj
+                      σ∈Sn
+                                              n                  n
+                     1                     1
+                        Z                                         Y
+                 =                det                  ∆(x)∆(y)       ω(xi ; t)ω(yi ; t)dxi dyi .
+                   (n!)2 Rn+ ×Rn+       xi + yj i,j=1             i=1
+
+which is the time-dependent partition function of Cauchy two-matrix model. Moreover, the Cauchy
+bi-orthogonal polynomials could be written in terms of dressing operator.
+
+Proposition 3.9. We have
+
+                                                Pn (x) = (S1 χ(x))n ,
+
+where (S1 χ(x))n is the (n + 1)-th component of the vector S1 χ(x).
+
+     With this expression, one can show the explicit expression for the σ as
+                                             Z                 !
+                                 σ = S1 α =       Pn (x)ω(x)dx
+                                                          R+
+                                                                              n≥0
+
+if equation (3.17) is taken into account. Now that σ is a column vector, one can write it as a
+diagonal matrix acting on a vector composed by 1, denoting as σ = Dσ 1. Therefore, we have the
+following proposition.
+
+Proposition 3.10. The equation (3.10) is equivalent to
+
+                                (Λ − Id)Dσ−1 L1 h + (Λ − Id)Dσ−1 hL⊤
+                                                                   1 = 0.
+
+Proof. Since 1 is the null vector of (Λ − Id), then one can immediately obtain this equation by
+acting (Λ − Id)Dσ−1 on both sides of equation (3.10).                                         
+
+     Moreover, if we denote a matrix-value operator
+
+                                              A := (Λ − Id)Dσ−1 L1 h,
+
+then A ∈ M[−1,2] , where M[−1,2] is the set of band matrices with one sub-diagonals and two off-
+diagonals. It is because L1 = S1 ΛS1−1 is a lower Hessenberg matrix, we know (Λ − Id)Dσ−1 L1 h has
+two off-diagonals while (Λ − Id)Dσ−1 hL⊤1 is still an upper Hessenberg matrix, from which we could
+conclude (Λ − Id)Dσ−1 L1 h belongs to M[−1,2] . This fact implies a four term recurrence relation or
+a 3 × 3 spectral problem.
+                      RANK SHIFT CONDITIONS AND REDUCTIONS OF 2D-TODA THEORY                                                 15
+
+
+Corollary 3.11. The spectral problem L1 Φ = zΦ could be decomposed into
+                                              z(Λ − Id)Dσ−1 Φ = Ah−1 Φ.                                                (3.19)
+
+  As has been indicated in 2d-Toda theory, the Lax matrix is usually a nonlocal upper Hessenberg
+matrix and is difficult to analyse, while under the rank one shift condition, this spectral problem
+could be decomposed into a local 3 × 3 spectral problem and some further explanations would be
+made in the sequent part.
+
+3.4. Lax Integrability of the C-Toda Lattice. It has been shown that the rank one shift
+condition gives rise to a local spectral problem and the involvement of time parameters indicates
+an evolutionary equation. In this part, we’d like to go further with the Lax representation for the
+C-Toda hierarchy. Under the constraint “s = −t”, the moment matrix m∞ now is dependent on
+time variables {tk }k=1,2,··· and it satisfies the time evolution
+                                             ∂tk m∞ = Λk m∞ + m∞ Λ⊤k .                                                 (3.20)
+From the time-dependent Borel decomposition m∞ (t) = S1−1 (t)S2 (t) and define L1 (t) = S1 (t)ΛS1−1 (t),
+L2 (t) = S2 (t)Λ⊤ S2−1 (t), we know
+                     ∂m∞ −1                        ∂S1 −1 ∂S2 −1
+                        S1  S = Ln1 + Ln2 = −           S +         S ∈ g− ⊕ g+ ,
+                       ∂tn 2                       ∂tn 1       ∂tn 2
+where g− (respectively g+ ) is the Lie algebra of strictly lower triangular matrices (resp. Lie algebra
+of upper triangular matrices). Therefore, according to the Lie algebra splitting, one could obtain
+                             ∂S1                               ∂L1
+                                 = −(Ln1 + Ln2 )− S1 ,             = [−(Ln1 + Ln2 )− , L1 ].                           (3.21)
+                             ∂tn                               ∂tn
+As has been shown in Proposition 3.1, we know S1−1 (t) = S2⊤ (t)h−1 (t). This fact leads to the
+relation L1 = hL⊤2h
+                    −1
+                       , where h is a diagonal matrix admitting the form h = diag{h0 , h1 , · · · } with
+hn = τn+1 /τn .
+   Therefore, the Lax equation (3.21) could be re-expressed as
+                                ∂L1
+                                     = [−(Ln1 + hL⊤n
+                                                   1 h
+                                                        −1
+                                                           )− , L1 ],                     (3.22)
+                                 ∂tn
+dependent on Lax operator L1 and a diagonal matrix h. Now, we try to give an explicit expression
+for the Lax operator L1 in terms of nonlinear variables (or symmetric tau-functions introduced
+before). With the help of bilinear inner product (3.18), time evolution (3.20) and rank one shift
+condition (3.10), we could obtain the following four-term recurrence relation and time evolution
+for the Cauchy bi-orthogonal polynomials [31, Equation 2.4, Equation 3.2]
+      x(Pn+1 (x; t) + an Pn (x; t)) = Pn+2 (x; t) + bn Pn+1 (x; t) + cn Pn (x; t) + dn Pn−1 (x; t),
+                                                                                                                       (3.23)
+      ∂t1 Pn+1 (x; t) + an ∂t1 Pn (x; t) = an ∂t1 (log hn )Pn (x; t)
+with the coefficients
+          σn+1 τn            1                                         hn+1  1                                       hn
+  an = −          , bn = an + ∂t1 log hn+1 ,                 cn = −         − an ∂t1 log hn ,          dn = −an          .
+          σn τn+1            2                                          hn   2                                      hn−1
+If we denote a = diag(a1 , a2 , · · · ), b = diag(b0 , b1 , · · · ), c = diag(c1 , c2 , · · · ) and d = diag(d2 , d3 , · · · ),
+then the above recurrence relation and time evolution could be written as
+                          (Λ0 + Λ−1 a)xP (x; t) = (Λ1 + Λ0 b + Λ−1 c + Λ−2 d)P (x; t),                               (3.24a)
+                          (Λ0 + Λ−1 a)∂t1 P (x; t) = (Λ−1 e)P (x; t)                                                 (3.24b)
+16                                       SHI-HAO LI AND GUO-FU YU
+
+
+with e = diag(e1 , e2 , · · · ) and en = 2(bn−1 − an−1 )an . Here the equation (3.24a) is another
+equivalent form of Proposition 3.11. From the explicit expressions for the symmetric Cauchy
+biorthogonal polynomials, we can state the following proposition.
+
+Proposition 3.12. The Lax matrix of C-Toda lattice admits the expression
+                              L1 = (Λ0 + Λ−1 a)−1 (Λ1 + Λ0 b + Λ−1 c + Λ−2 d).
+Moreover, there exists
+                                (Λ0 + Λ−1 a)−1 (Λ−1 e) = −(L1 + hL⊤
+                                                                  1h
+                                                                     −1
+                                                                        )− .
+
+Proof. The first equation is obvious since the Cauchy bi-orthogonal polynomials can be viewed as
+a modification of the wave function and thus the spectral operator L1 can be characterised by the
+four term recurrence relation. The only thing we need to verify is to show the second equality, i.e.
+       {(Λ0 + Λ−1 a)−1 (Λ1 + Λ0 b + Λ−1 c + Λ−2 d) + hΛ−1 h−1 }Λ<0 = −(Λ0 + Λ−1 a)−1 (Λ−1 e)
+after taking the exact value of L1 . Equally, we plan to show
+                                                            
+       X ∞                                                                    ∞
+                                                                                X
+            (−Λ−1 a)j (Λ1 + Λ0 b + Λ−1 c + Λ−2 d) + hΛ−1 h−1               =−         (−Λ−1 a)j (Λ−1 e).
+                                                            
+         j=0                                                                    j=0
+                                                                     Λ<0
+            −1
+For the Λ        term, it is to verify
+                          − Λ−1 e = Λ−1 aΛ−1 aΛ1 − Λ−1 aΛ0 b + Λ−1 c + hΛ−1 h−1 ,
+and it is equal to verify
+                             −en−1 = an−1 an−2 − an−1 bn−2 + cn−1 + hn h−1
+                                                                        n−1 .
+
+By taking the expressions of the coefficients in (3.23), it is easy to find the equation is valid.
+  For the reminding parts, firstly, notice that for j ≥ 1,
+     −(−Λ−1 a)j Λ−1 e = (−Λ−1 a)j+2 Λ1 + (−Λ−1 a)j+1 Λ0 b + (−Λ−1 a)j Λ−1 c + (−Λ−1 a)j−1 Λ−2 d
+could be expressed as
+                    an−1 en−2 = −an−1 an−2 an−3 + an−1 an−2 bn−3 − an−1 cn−2 + dn−1
+if we make a cancellation of the highest order term and make a shift of the index. Moreover,
+this equation could be verified if the values of the coefficients are taken, and thus complete this
+proof.                                                                                           
+
+Remark 3.13. This hierarchy is interesting in two folds. One is in the classical integrable system
+theory. As is shown in [16], the first member of the hierarchy could be viewed as the continuum
+limit of the full discrete CKP equation, and therefore, this hierarchy in some sense could be viewed
+as a discrete CKP hierarchy. The second is pointed out in [45], in which the Lax matrix of the
+form
+                      L = (Λ − al+2 )−1 (Λk+1 + a1 Λk + · · · + al+1 Λk−l ),    1≤k<l
+plays an important role when studying the Frobenius manifold isomorphic to the orbit space of the
+extended affine Weyl group W̃ (k,k+1) (Al ). One can see when k = 1 and l = 2, this Lax matrix
+implies a four term recurrence relationship of bi-orthogonal polynomials and Cauchy bi-orthogonal
+polynomials provides a reasonable example in this case.
+                 RANK SHIFT CONDITIONS AND REDUCTIONS OF 2D-TODA THEORY                          17
+
+
+   At the end of this section, we would like to remark that the Cholesky decomposition discussed
+in Section 3.1.3 could result in an equivalent Lax representation for this hierarchy. As before,
+consider m∞ = S −1 S −⊤ with S the lower triangular matrix with nonzero diagonals. By defining
+the Lax matrix L = SΛS −1 and from the commuting vector field (3.20), one could obtain
+                                   ∂S −1 ∂S ⊤ −⊤
+                               −       S −     S = Ln + L⊤n .
+                                   ∂tn     ∂tn
+Note that S and S ⊤ admit the same diagonals, therefore, from the Lie algebra decomposition, one
+has
+                              ∂S
+                                 = −[(Ln )− + (L⊤n )− + (Ln )0 ]S,
+                             ∂tn
+where − and 0 stand for the strictly lower triangular and diagonal part of the matrix respectively.
+
+                  4. Skew symmetric reduction and B-Toda hierarchy
+
+    In this section, we would like to consider skew symmetric reduction to the moment matrix,
+comparing with the symmetric reduction given in the last section. In Subsection 4.1, we would like
+to give a review to the skew symmetric reduction and restate the basic ideas about the skew Borel
+decomposition and the concept of skew orthogonal polynomials. The previous results are important
+in two aspects. One is that the Pfaff lattice hierarchy could be embedded into 2d-Toda hierarchy
+and the second is due to the explicit connection between Dyson’s unitary matrix model and the
+symmetric, symplectic random ensembles. The latter demonstrates the relationship between the
+orthogonal polynomials and skew orthogonal polynomials, which are indeed the wave functions of
+Pfaff lattice and Toda lattice [4, 5].
+    However, there are some problems still remained in the skew symmetric reductions. In [29],
+Kac and de van Leur have found a large BKP hierarchy and demonstrated later in [42] that the
+Pfaff lattice hierarchy should be a subclass of the large BKP hierarchy with only even indexed
+tau functions. In [7], Adler and van Moerbeke left the exact relation between Pfaff lattice and
+large BKP hierarchy as an ongoing problem. Very recently, Chang et al showed that if the odd
+indexed Pfaffian tau functions are introduced, some integrable lattices could be derived with the
+concept of partial skew orthogonal polynomials [15]. Therefore, in Subsection 4.2, we give some new
+properties about partial skew orthogonal polynomials, from which an alternative expressions for
+the odd indexed wave functions for Pfaff lattice hierarchy would be provided. With the help of the
+odd indexed wave function, we prove that the large BKP hierarchy and the Pfaff lattice hierarchy
+are exactly the same in the sense of wave functions/tau functions. The second interesting problem
+is the tau function of the Pfaff lattice hierarchy/large BKP hierarchy are not exactly the tau
+functions of BKP hierarchy in Hirota’s sense since the tau functions of BKP hierarchy should
+satisfy the derivative law of Gram-type Pfaffian, which motivates us to consider the rank two shift
+condition here. In Subsection 4.3, we consider the rank two shift condition for the skew symmetric
+case in details and embed them into 2d-Toda theory. It is shown that the B-Toda lattice is the
+first nontrivial example in this case which is not listed in the large BKP hierarchy. Therefore, we
+make an effort in the rank two shift condition and finally give a novel sub-hierarchy under this
+condition. A recurrence relation for the particular partial skew orthogonal polynomials is given in
+terms of the Fay identity and some discussions about the Lax integrability are made at the end of
+this section.
+18                                        SHI-HAO LI AND GUO-FU YU
+
+
+4.1. The Skew Symmetric Reduction on the 2d-Toda Hierarchy. Consider a skew sym-
+metric moment matrix m2k of the block form
+                                         "         #
+                                           M1 −C ⊤
+                                  m2k =              ,
+                                           C   M2
+where M1 is a nonzero 2 × 2 skew symmetric matrix and M2 is a (2k − 2) × (2k − 2) skew symmetric
+matrix and C is a (2k − 2) × 2 matrix. By applying the decomposition
+        "             # "               #"                        #"                  #
+          M1 −C ⊤               I          M1                          I −M1−1 C ⊤
+                        =                                                               ,
+           C     M2           CM1−1 I            M2 + CM1−1 C ⊤                 I
+and iterating the process, one can see the skew symmetric moment matrix with even order can be
+decomposed into the form m∞ = S −1 hS −⊤ , where
+
+        S ∈ {A| A is a strictly lower triangular matrix in the sense of 2 × 2 block matrix},
+                (              !                      !          )
+                     0    h0            0       h1                              τ̂2n+2
+     h = diag                      ,                      ,···       ,   hn =          ,      τ̂2n = Pf(mi,j )2n−1
+                                                                                                              i,j=0   (4.1)
+                    −h0   0            −h1      0                                 τ̂2n
+with the notation τ̂0 = 1.
+
+Remark 4.1. In fact, this kind of decomposition has been considered in [1, 7] while they put more
+emphasis on the standard decomposition m∞ = Ŝ −1 J Ŝ −⊤ , where J is the matrix of the form
+                                                                        !
+                                                                 0 1
+                      J = diag (J2×2 , J2×2 , · · · ) , J2×2 =            ,
+                                                                −1 0
+
+and Ŝ is the lower triangular block matrix with nonzero diagonals. This standard decomposition is
+called the skew Borel decomposition and corresponds to the Lie algebra splitting gl∞ = k ⊕ sp(∞),
+where k is the Lie algebra of lower triangular matrix with diagonals (in the sense of 2 × 2 block
+matrix) and sp(∞) is the Lie algebra of Symplectic group.
+
+    Two main results have already been known from this skew symmetric LU decomposition. One
+is to construct skew orthogonal polynomials and corresponding Christoffel-Darboux kernel [1, 21].
+Starting from the dressing operator S, one can set a family of polynomials {Pn (x)}n≥0 such that
+                                             (1) P (x) = Sχ(x);
+                                                                                                                      (4.2)
+                                             (2) hP (x), P ⊤ (y)i = h,
+
+where P (x) is the vector of skew orthogonal polynomials P (x) = (P0 (x), P1 (x), · · · )⊤ , h·, ·i is a
+skew symmetric inner product defined by hxi , y j i = mi,j such that mi,j = −mj,i and h is given in
+(4.1). Moreover, this family of skew orthogonal polynomials could be written in explicit Pfaffian
+expressions [1, 15, 21]
+                         1                                                 1
+           P2n (x) =        Pf(0, · · · , 2n, x),    P2n+1 (x) =              Pf(0, · · · , 2n − 1, 2n + 1, x),       (4.3)
+                       τ̂2n                                              τ̂2n
+where τ̂2n = Pf(0, · · · , 2n − 1), Pf(i, j) = mi,j and Pf(i, x) = xi .
+  The other is to connect with integrable hierarchy by the introduction of evolutions [1, 7]. Let’s
+consider the moment matrix admitting the form
+                                                P∞          i                   P∞       ⊤i
+                               m∞ (t, s) = e        i=1 ti Λ    m∞ (0, 0)e−      i=1 si Λ
+                     RANK SHIFT CONDITIONS AND REDUCTIONS OF 2D-TODA THEORY                                                      19
+
+
+with initial moment matrix m⊤
+                            ∞ (0, 0) = −m∞ (0, 0). The constraint “s = −t” shows us the com-
+muting vector field
+                                                 ∂tn m∞ = Λn m∞ + m∞ Λ⊤n ,                                                    (4.4)
+and therefore the skew orthogonal polynomials have the relation
+                                      (z + ∂t1 )(τ̂2n P2n (x; t)) = τ̂2n P2n+1 (x; t),                                        (4.5)
+which is a mixture of the spectral problem and time evolution. Moreover, the skew symmetric tau
+functions {τ̂2n (t)}n≥0 defined in (4.1) have the following connections with 2d-Toda’s tau functions
+{τn (t, s)}n≥0 via relations (see [7, Theorem 2.2])
+                            τ2n (t + [α] − [β], −t) = τ̂2n (t)τ̂2n (t + [α] − [β]),
+                         τ2n+1 (t + [α] − [β], −t) = (α − β)τ̂2n (t − [β])τ̂2n+2 (t + [α])
+by making use of the same manner mentioned in Proposition 3.2. Furthermore, by expanding these
+tau functions in terms of α and β and compare with the coefficients, one can show
+    pk (∂˜t )pl (−∂˜t )τ2n (t, s)|s=−t = τ̂2n (t)pk (∂˜t )pl (−∂˜t )τ̂2n (t),                                                 (4.6)
+ pk (∂˜t )pl (−∂˜t )τ2n+1 (t, s)|s=−t = pl (−∂˜t )τ̂2n (t)pk−1 (∂˜t )τ̂2n+2 (t) − pl−1 (−∂˜t )τ̂2n (t)pk (∂˜t )τ̂2n+2 (t).
+Therefore, these relations result in the Pfaff lattice hierarchy [7] (or DKP hierarchy [28])
+                        I
+                                                                           ′
+                    0=        τ̂2n (t − [z −1 ])τ̂2m+2 (t′ + [z −1 ])eξ(t−t ,z) z 2n−2m−2 dz
+                         C
+                        I ∞                                                                                                   (4.7)
+                                                                 ′     −1
+                     +      τ̂2n+2 (t + [z])τ̂2m (t′ − [z])eξ(t −t,z ) z 2n−2m dz.
+                               C0
+
+Interestingly, this bilinear identity could be written in terms of the wave functions
+                                                  dz                                         dz
+           I                                            I
+                 Φ1 (t; z) ⊗ h−1 Φ2 (t′ ; z −1 )      +     Φ2 (t; z) ⊗ h−1 Φ1 (t′ ; z −1 )      = 0,                         (4.8)
+             C∞                                  2πiz    C0                                 2πiz
+where wave functions Φ1 and Φ2 are defined by
+                                P∞          i                                                 P∞        ⊤i
+                Φ1 (t, z) = e       i=1 ti Λ    S(t)χ(z),               Φ2 (t, z) = h(t)e−      i=1 ti Λ     S −⊤ (t)χ(z).
+It should be mentioned that with the explicit expressions of wave functions [5, Theorem 3.2]
+                                                P∞           i          τ2n (t − [z −1 ])
+                        Φ1,2n (t, z) = e          i=1 ti z       z 2n                     ,                                  (4.9a)
+                                                                             τ2n (t)
+                                                P∞   (z + ∂t1 )τ2n (t − [z −1 ])
+                                                             i
+                     Φ1,2n+1 (t, z) = e           i=1 ti z       z 2n            ,                                           (4.9b)
+                                                              τ2n (t)
+                                         P∞       −i          τ2n+2 (t + [z])
+                        Φ2,2n (t, z) = e− i=1 ti z z 2n+1 hn                   ,                                             (4.9c)
+                                                                 τ2n+2 (t)
+                                                     P∞             −i               (z −1 − ∂t1 )τ2n+2 (t + [z])
+                     Φ2,2n+1 (t, z) = −e−              i=1 ti z          z 2n+1 hn                                ,          (4.9d)
+                                                                                              τ2n+2 (t)
+the Pfaff lattice (4.7) could be obtained by taking Φ1,2n and Φ2,2m into (4.8). Moreover, if one
+takes t1 -derivative or t′1 -derivative on both sides of Φ1,2n and Φ2,2m , and employs equation (4.5),
+the equation regarding Φ1,2n+1 and Φ2,2m+1 would be obtained.
+   Although these tau functions could be regarded as the most general case regarding the skew
+symmetric reduction, there should be another family of the tau functions about the odd-number
+index, which has been pointed out in [42], to find out the tau functions of the large BKP hierarchy
+20                                            SHI-HAO LI AND GUO-FU YU
+
+
+(or D∞ hierarchy in Sato school’s framework [28, Section 7]). In fact, there have been many
+discussions about the odd-indexed Pfaffian tau functions [27, 37, 43, 44] in recent years, but few
+are made about the wave functions. In the next parts, we would like to show the odd indexed
+Pfaffian tau functions would provide an alternative expressions for the odd indexed wave functions,
+and therefore to show the wave equations (4.8) regarding (4.9b) and (4.9d) would lead to the other
+cases of large BKP hierarchy.
+
+
+4.2. Partial Skew Orthogonal Polynomials, Skew Orthogonal Polynomials and Large
+BKP Hierarchy. Unlike the free charged fermions whose Fock space is generated by a single
+vacuum state, the Fock space of neutral fermions are generated by two different vacuum state—|vaci
+and φ0 |vaci [28, 44]. Therefore, the Fermion-Boson correspondence tells us the tau functions of the
+BKP and DKP hierarchy should be labelled by even and odd numbers respectively. Therefore, in
+[27, 37, 43, 44], the authors have demonstrated the odd-indexed Pfaffian tau functions {τ̂2n+1 }n∈N
+for the BKP hierarchy or large BKP hierarchy from different perspectives. The intimate connection
+between tau functions and orthogonal polynomials motivates the concept of the skew orthogonal
+polynomials related to the odd indexed tau functions. Some results are given in [15].
+   Let’s consider a skew symmetric bilinear inner product h ·, · i from R[x] × R[y] 7→ R, then the
+partial skew orthogonal polynomials {P̃n (x)}n∈N are defined under the this inner product by
+                                      !2n
+                   1          mi,j xi
+        P̃2n (x) =      Pf                    , τ̂2n = Pf(mi,j )2n−1
+                                                                i,j=0
+                   τ̂2n       −xj 0
+                                        i,j=0
+                                               2n+1                                                                (4.10)
+                                  0   αj     0                                                         !2n
+                      1                                                                  0      αi
+     P̃2n+1 (x) =          Pf  −αi mi,j xi            , τ̂2n+1 = Pf                                            ,
+                                               
+                   τ̂2n+1                j                                              −αj     mi,j
+                                  0   −x     0    i,j=0
+                                                                                                         i,j=0
+
+
+
+where the general skew symmetric bi-moments
+                                         Z
+                           i      j
+               mi,j = h x , y i :=              xi y j ω(x, y)dµ(x)dµ(y) with ω(x, y) = −ω(y, x),
+                                           Γ2
+
+
+and αi is the single moments defined by αi = Γ xi dµ(x). To make the moments are finite, we
+                                                  R
+
+assume that measure dµ(x) decay fast at the boundary of the supports ∂Γ.
+   Remarkably, some specified choices of ω(x, y) have been indicated in [37], well motivated from
+combinatorics, quantum Hall effect as well as different random matrix ensembles in cases of Mehta-
+Pandey interpolating ensemble, matrix models with orthogonal and symplectic symmetries, Bures
+ensemble, and so on. Later on, for simplicity, we denote Pf(i, j) = mi,j , Pf(d0 , i) = αi , Pf(i, x) = xi
+and Pf(d0 , x) = 0, and thus the notations in (4.10) could be alternatively written as
+
+                           1                                              1
+             P̃2n (x) =          Pf(0, · · · , 2n, x),   P̃2n+1 (x) =            Pf(d0 , 0, · · · , 2n + 1, x)
+                          τ̂2n                                          τ̂2n+1
+
+with τ̂2n = Pf(0, · · · , 2n − 1) and τ̂2n+1 = Pf(d0 , 0, · · · , 2n).
+   Firstly, we’d like to give some properties about the partial skew orthogonal polynomials and
+their connections with skew orthogonal polynomials.
+                    RANK SHIFT CONDITIONS AND REDUCTIONS OF 2D-TODA THEORY                                                   21
+
+
+Proposition 4.2. Under the skew symmetric inner product h ·, · i, one has
+
+        hP̃2n (x), P̃2m (y)i = hP̃2n+1 (x), P̃2m+1 (y)i = 0,
+                                      τ̂2n+2                                            τ̂2n+2 τ̂2m+1
+        hP̃2n (x), P̃2m+1 (y)i =             δn.m ,     hP̃2n+1 (x), P̃2m (y)i = −                    ,    m ≤ n.
+                                        τ̂2n                                              τ̂2n+1 τ̂2m
+Proof. The proof of this proposition is based on the basic expansion of Pfaffians. Noting that
+                                         2m
+                                      2n X
+                               1     X
+    hP̃2n (x), P̃2m (y)i =                   (−1)i+j hxi , y j iPf(0, · · · , î, · · · , 2n)Pf(0, · · · , ĵ, · · · , 2m)
+                           τ̂2n τ̂2m i=0 j=0
+                                         2n
+                                  1     X
+                          =                 (−1)i Pf(0, · · · , î, · · · , 2n)Pf(0, · · · , 2m, i),
+                              τ̂2n τ̂2m i=0
+
+where î means the missing of the index. The last equation is equal to zero if n ≤ m. Moreover,
+according to the skew symmetry, we know hP̃2n (x), P̃2m (y)i = 0 for all n, m ∈ N. By the use of
+the same manner, one can prove the remaining formulae and we omit it here.                    
+
+  Therefore, there is a strictly lower triangular matrix S̃, such that
+                                                                                                  
+                                                          τ̂2       τ̂1 τ̂4
+                                                   0      τ̂0  0    τ̂0 τ̂3                   ···
+                                              − τ̂2 τ̂
+                                                           0   0       0                      ··· 
+                                                                                                  
+                                                       0                                          
+                                                                      τ̂
+                   m∞ = S̃ −1 h̃S̃ −⊤ , h̃ = 
+                                                  0       0   0      τ̂2
+                                                                         4
+                                                                                              ···                     (4.11)
+                                              τ̂1 τ̂4
+                                              − τ̂0 τ̂3 0 − τ̂τ̂24    0                      ··· 
+                                                                                                   
+                                                   ..      ..   ..     ..                     ..
+                                                                                                  
+                                                    .       .    .      .                        .
+
+and the vector of partial skew orthogonal polynomials can be written as P̃ (x) = S̃χ(x). From
+the skew Borel decomposition m∞ = S −1 hS −⊤ , we know h̃ and h are congruent via the equation
+(S S̃ −1 )h̃(S S̃ −1 )⊤ = h. Moreover, there exists a relation between skew orthogonal polynomials
+{Pn (x)}n∈N given by (4.3) and partial skew orthogonal polynomials {P̃n (x)}n∈N
+
+                                P (x) = Sχ(x) = (S S̃ −1 )S̃χ(x) = (S S̃ −1 )P̃ (x).
+
+In what follows, we would like to show the form of S S̃ −1 .
+
+Proposition 4.3. For the skew orthogonal polynomials {Pn (x)}n∈N and partial skew orthogonal
+polynomials {P̃n (x)}n∈N , there exist
+
+                                  P2n (x) = P̃2n (x),
+                               P2n+1 (x) = P̃2n+1 (x) + αn P̃2n (x) + βn P̃2n−1 (x)
+
+with proper coefficients αn and βn .
+
+Proof. It is obvious that the polynomials of even order are exactly the same in these two cases
+according to the definitions of the Pfaffian elements. For the polynomials of odd order, we need to
+use the Pfaffian identity
+
+    Pf(d0 , ⋆, 2n, 2n + 1, x)Pf(⋆)
+    = Pf(d0 , ⋆, 2n)Pf(⋆, 2n + 1, x) − Pf(d0 , ⋆, 2n + 1)Pf(⋆, 2n, x) + Pf(d0 , ⋆, x)Pf(⋆, 2n, 2n + 1)
+22                                       SHI-HAO LI AND GUO-FU YU
+
+
+with {⋆} = {0, · · · , 2n−1}. By taking the explicit expressions of these Pfaffians in (4.3) and (4.10),
+we make this proof completed with
+                             Pf(d0 , 0, · · · , 2n − 1, 2n + 1)                        τ̂2n+2 τ̂2n−1
+                      αn =                                      ,          βn = −                    .   (4.12)
+                                             τ̂2n+1                                      τ̂2n τ̂2n+1
+                                                                                                             
+
+     Following this proposition, one can show
+                                                                                      
+                                            1
+                                           α               1                          
+                                           0                                          
+                                       −1   0               0     1
+                                                                                      
+                                   S S̃ = 
+                                          
+                                                                                       
+                                                                                       
+                                           0               β1    α1     1             
+                                                                                      
+                                             ..              ..    ..    ..   ..
+                                              .               .     .     .        .
+
+and denote this matrix as A. In addition, if we introduce the Lax operator L = SΛS −1 and
+operator L̃ = S̃ΛS̃ −1 , then we have the following relation between these two operators
+
+                                                 L = AL̃A−1 .                                            (4.13)
+
+   Next, we would introduce the time parameters and assume the commuting vector fields ∂tn m∞ =
+Λn m∞ + m∞ Λ⊤n , which connects the partial skew orthogonal polynomials (wave functions) with
+tau function.
+
+Proposition 4.4. With the time evolutions ∂tn m∞ = Λn m∞ + m∞ Λ⊤n and ∂tn α = Λn α, we have
+
+                                                        τ̂n (t − [x−1 ]) n
+                                        P̃n (x; t) =                    x .                              (4.14)
+                                                              τ̂n (t)
+
+Proof. The expansion of the notation in (4.14) gives us
+                                           ˜ −1
+                                        eξ(∂t ,x ) τ̂n (t) n X pk (−∂˜t )τ̂n n−k
+                         P̃n (x; t) =                     x =               x    ,
+                                              τ̂n (t)              τ̂n
+                                                                     k≥0
+
+where {pk }k≥0 are the Schur functions. Moreover, by the use of the time evolution condition, one
+knows [24, Equation 3.84]
+                                                      2n−1
+                                                       X
+                      ∂tj Pf(0, · · · , 2n − 1) =            Pf(0, · · · , k + j, · · · , 2n − 1),
+                                                      k=0
+                                                      2n
+                                                      X
+                       ∂tj Pf(d0 , 0, · · · , 2n) =         Pf(d0 , 0, · · · , k + j, · · · , 2n).
+                                                      k=0
+
+Therefore, by expanding the Schur function, one can demonstrate
+
+                          pk (−∂˜t )τ̂2n = (−1)k Pf(0, · · · , 2n
+                                                                \ − k, · · · , 2n),
+                       pk (−∂˜t )τ̂2n+1 = (−1)k Pf(d0 , 0, · · · , 2n\
+                                                                     + 1 − k, 2n + 1)
+
+and pk (−∂˜t )τ̂n = 0 if k > n. This formula corresponds to the Pfaffian form of the partial skew
+orthogonal polynomials in (4.10).                                                               
+                    RANK SHIFT CONDITIONS AND REDUCTIONS OF 2D-TODA THEORY                                              23
+
+
+  Therefore, we know that αn in (4.12) could be easily expressed as αn = ∂t1 log τ̂2n+1 if time
+parameters are involved. Moreover, the equation (4.5) and Proposition 4.3 imply
+                                                             τ̂2n+1               τ̂2n+2 τ̂2n−1
+          (x + ∂t1 )P̃2n (x; t) = P̃2n+1 (x; t) + ∂t1 log           P̃2n (x; t) −               P̃2n−1 (x; t)
+                                                               τ̂2n                 τ̂2n+1 τ̂2n
+with respect to the t1 -flow. In fact, for the partial skew orthogonal polynomials {P̃n (x; t)}n∈N with
+odd and even indexes, they obey the same recurrence relation [15, Lemma 3.21]
+                                                        
+                                                   τ̂n+1                τ̂n+2 τ̂n−1
+        (x + ∂t1 )P̃n (x; t) = P̃n+1 (x) + ∂t1 log         P̃n (x; t) −             P̃n−1 (x; t). (4.15)
+                                                     τ̂n                  τ̂n+1 τ̂n
+Substituting the expression (4.14) into equation (4.15), one can find
+   x2 τ̂n+1 (t)τ̂n (t − [x−1 ]) − τ̂n (t)τ̂n+1 (t − [x−1 ])
+                                                           
+                                                                                                                  (4.16)
+    + x τ̂n+1 (t)∂t1 τ̂n (t − [x−1 ]) − ∂t1 τ̂n+1 (t)τ̂n (t − [x−1 ]) + τ̂n+2 (t)τ̂n−1 (t − [x−1 ]) = 0.
+                                                                    
+
+This equation is a particular Fay identity of the large BKP hierarchy given by [42, Corollary 6.1].
+Again, by expanding the Miwa variables into Schur functions, i.e. τ̂n (t−[x−1 ]) = k≥0 pk (−∂˜t )τ̂n z −k ,
+                                                                                  P
+
+we finally arrive at
+          τ̂n · pk+2 (−∂˜t )τ̂n+1 − τ̂n+1 · pk+2 (−∂˜t )τ̂n + ∂t1 τ̂n+1 · pk+1 (−∂˜t )τ̂n
+                                 − τ̂n+1 · ∂t1 pk+1 (−∂˜t )τ̂n − τ̂n+2 · pk (−∂˜t )τ̂n−1 = 0,      ∀k ∈ Z.
+The first nontrivial example is the k = 0 case
+                                      (D2 + D12 )τ̂n · τ̂n+1 = 2τ̂n−1 τ̂n+2 ,
+which is the first nontrivial example of large BKP hierarchy proposed in [29] and an example in
+[28, Equation 7.7]. Moreover, this particular Fay identity gives us an alternative expressions of the
+odd-indexed tau functions.
+
+Proposition 4.5. The wave functions Φ1,2n+1 (t; z) and Φ2,2n+1 (t; z) could be expressed in terms
+of odd-indexed tau functions via
+                   P∞        i
+Φ1,2n+1 (t; z) = e i=1 ti z                                                                          (4.17a)
+                                                                                                        
+        1                 −1   2n+1   ∂t1 τ̂2n+1              −1  2n    τ̂2n+2                 −1   2n−1
+×           τ̂2n+1 (t − [z ])z      +             τ̂2n (t − [z ])z −             τ̂2n−1 (t − [z ])z        ,
+     τ̂2n+1                           τ̂2n τ̂2n+1                    τ̂2n τ̂2n+1
+                        P∞       −i
+Φ2,2n+1 (t; z) = −e− i=1 ti z                                                                             (4.17b)
+                                                                                                        
+        τ̂2n+2                         ∂t τ̂2n+1                               1
+×                τ̂2n+1 (t + [z])z 2n − 1          τ̂2n+2 (t + [z])z 2n+1 −        τ̂2n+3 (t + [z])z 2n+2 .
+     τ̂2n τ̂2n+1                       τ̂2n τ̂2n+1                          τ̂2n+1
+Proof. The first equation (4.17a) is obvious if one substitutes the Fay identity (4.16) into the
+expression (4.9b). Moreover, if one takes the shift t − [x−1 ] 7→ t and transform x−1 7→ x, one can
+get an equivalent Fay identity
+          x−2 [τ̂n+1 (t + [x])τ̂n (t) − τ̂n (t + [x])τ̂n+1 (t)]
+           + x−1 [τ̂n+1 (t + [x])∂t1 τ̂n (t) − ∂t1 τ̂n+1 (t + [x])τ̂n (t)] + τ̂n+2 (t + [x])τ̂n−1 (t) = 0,
+which implies
+                                                      τ̂n                                                       τ̂n−2
+   (x−1 − ∂t1 )τ̂n (t + [x]) = x−1 τ̂n−1 (t + [x])           − ∂t1 log τ̂n−1 τ̂n (t + [x]) − xτ̂n+1 (t + [x])
+                                                     τ̂n−1                                                      τ̂n−1
+up to a shift in “n” index. Taking this equation into (4.9d), one can get the conclusion.                               
+24                                                   SHI-HAO LI AND GUO-FU YU
+
+
+     Therefore, if one takes the odd-indexed Pfaffian wave functions into (4.8) of the form
+                                                   dz                                          dz
+           I                                             I
+                 Φ1,2n+1 (t; z)Φ2,2m (t′ ; z −1 )      +     Φ2,2n+1 (t; z)Φ1,2m (t′ ; z −1 )      = 0,
+            C∞                                    2πiz    C0                                  2πiz
+one can obtain
+                                I
+                                                     ′
+                     τ̂2n (t)             eξ(t−t ,z) τ̂2n+1 (t − [z −1 ])τ̂2m+2 (t′ + [z −1 ])z 2n−2m−1 dz
+                                    C∞
+                                    I                                                                               
+                                                 ′        −1
+                                                               )
+                                +         eξ(t −t,z                τ̂2n+3 (t + [z])τ̂2m (t′ − [z])z 2n−2m+1 dz
+                                     C0
+                                I
+                                                     ′
+                 −τ̂2n+2 (t)              eξ(t−t ,z) τ̂2n−1 (t − [z −1 ])τ̂2m+2 (t′ + [z −1 ])z 2n−2m−3 dz
+                                    C∞
+                                    I                                                                               
+                                              ξ(t′ −t,z −1 )                            ′            2n−2m−1
+                                +         e                        τ̂2n+1 (t + [z])τ̂2m (t − [z])z             dz       = 0,
+                                     C0
+
+and this equation is valid for all t, t′ ∈ C. With n and m being symmetry invariant in this case,
+this equation results in
+                                  I
+                                               ′
+                             ′
+            τ̂2n (t)τ̂2m+1 (t ) =     eξ(t−t ,z) τ̂2n−1 (t − [z −1 ])τ̂2m+2 (t′ + [z −1 ])z 2n−2m−3
+                                   C
+                                  I ∞                                                               (4.18)
+                                       ξ(t′ −t,z −1 )                        ′        2n−2m−1
+                                +    e                τ̂2n+1 (t + [z])τ̂2m (t − [z])z         dz.
+                                              C0
+
+Furthermore, from the equation (4.18) and Proposition 4.5, we know the equation
+                                               dz                                            dz
+       I                                             I
+           Φ1,2n+1 (t; z)Φ2,2m+1 (t′ ; z −1 )      +     Φ2,2n+1 (t; z)Φ1,2m+1 (t′ ; z −1 )      =0
+        C∞                                    2πiz    C0                                    2πiz
+could be expressed in terms of tau functions as
+                      I
+                                  ′
+                 0=        eξ(t−t ,z) τ̂2n−1 (t − [z −1 ])τ̂2m+1 (t′ + [z −1 ])z 2n−2m−2 dz
+                        C
+                     I ∞
+                              ′     −1
+                   +      eξ(t −t,z ) τ̂2n+1 (t + [z])τ̂2m−1 (t′ − [z])z 2n−2m dz.
+                            C0
+
+To conclude, we have the following proposition.
+
+Proposition 4.6. The large BKP hierarchy
+   1
+                                     I
+                                                ′
+              n+m
+     (1 − (−1)                  ′
+                  )τ̂n (t)τ̂m (t ) =     eξ(t−t ,z) τ̂n−1 (t − [z −1 ])τ̂m+1 (t′ + [z −1 ])z n−m−2 dz
+   2                                  C
+                                     I ∞                                                                                       (4.19)
+                                            ′     −1
+                                   +    eξ(t −t,z ) τ̂n+1 (t + [z])τ̂m−1 (t′ − [z])z n−m dz
+                                                     C0
+
+could be written in terms of wave functions (4.8).
+
+4.3. Rank Two Shift Condition and B-Toda Lattice. From the last two subsections, we
+know the Pfaff lattice hierarchy and the large BKP hierarchy are the same if the odd-indexed tau
+functions are introduced. However, it should be mentioned that one of the most important features
+of BKP hierarchy hasn’t been involved. It was shown by Hirota [24, §3.3] that the tau functions
+of BKP hierarchy always admit the form
+                                                          Z t1
+                     τ = Pf(1, 2, · · · , 2n), Pf(i, j) =      Dt1 fi (t) · fj (t)dt1 ,
+                                                                                   −∞
+                    RANK SHIFT CONDITIONS AND REDUCTIONS OF 2D-TODA THEORY                                               25
+
+
+and {fi (t), i = 1, · · · , 2n} should satisfy the linear differential relation ∂tn fi (t) = ∂tn1 fi (t). If we
+introduce the label di by Pf(dn , i) = ∂tn1 fi (x), then the derivative formula
+                              ∂t1 Pf(i, j) = Pf(d0 , d1 , i, j),       Pf(d0 , d1 ) = 0                              (4.20)
+results in the Gram-type Pfaffian elements. It is not difficult to see that Pfaffian tau functions
+shown in (4.10) are not the tau functions of BKP hierarchy if we merely consider the time evolutions
+∂tn m∞ = Λn m∞ + m∞ Λ⊤n and ∂tn α = Λn α. In fact, with the commuting vector fields, the
+derivative formula (4.20) implies the relations between the single moments and bi-moments, which
+can be formulated by the following rank two shift condition
+              Λm∞ + m∞ Λ⊤ = Λαα⊤ − αα⊤ Λ⊤ ,                     α = (α0 , α1 , · · · )⊤ ,   αi (t) ∈ C ∞ .           (4.21)
+
+Remark 4.7. The rank two shift condition can be naturally realised by the moments of Bures
+ensemble
+                                        x−y i j
+                                  Z
+                           mi,j =             x y dµ(x)dµ(y)
+                                    R2+ x + y
+
+from the relation
+                                  Z                  Z                      Z               Z
+            mi+1,j + mi,j+1 =           xi+1 dµ(x)            y j dµ(y) −        xi dµ(x)            y j+1 dµ(y).
+                                   R+                    R+                 R+                  R+
+
+   The first aim is to derive the B-Toda lattice from the 2d-Toda theory, by the consideration of
+rank two shift condition. By using the skew-Borel decomposition m∞ = S −1 hS −⊤ in (4.1) and
+denoting L = SΛS −1 , σ = Sα and ρ = SΛα, the above rank two shift condition is equal to
+                                          Lh + hL⊤ = ρσ ⊤ − σρ⊤ ,
+where the right hand side is again a skew symmetric matrix of rank two. Moreover, we have the
+following proposition.
+
+Proposition 4.8. The rank two shift condition is equal to
+           ρ2n+1 σ2n−1 − ρ2n−1 σ2n+1 = hn−1 l2n+1,2n−2 − hn ,                                                       (4.22a)
+           ρ2n−1 σ2n−2 − ρ2n−2 σ2n−1 = −hn−1 (l2n−1,2n−1 + l2n−2,2n−2 ),                                            (4.22b)
+             ρj−1 σ2n−1 − ρ2n−1 σj−1 = hn−1 lj−1,2n−2 ,                 j = 2n + 1, 2n + 3, · · · ,                 (4.22c)
+             ρj−1 σ2n−2 − ρ2n−2 σj−1 = −hn−1 lj−1,2n−1 ,                j = 2n + 1, 2n + 2, · · · ,                 (4.22d)
+where {li,j } are the elements of the Lax operator L.
+
+Proof. One could easily observe h = [−h0 e2 , h0 e1 , −h1 e4 , h1 e3 , · · · ], where ei is the ith elementary
+column vector, which means its ith element is 1 and the others are 0. Therefore, the (i, 2j − 1)-th
+and (i, 2j)-th elements of Lh could be computed as
+                  (                                                         (
+                    −hj−1 li−1,2j−1 , i ≥ 2j,                                   hj−1 li−1,2j−2 , i ≥ 2j − 1,
+ Lh(i, 2j − 1) =                                       Lh(i, 2j) =
+                    −hj−1 ,           i = 2j − 1,                               hj−1 ,            i = 2j − 2.
+Similarly, if one denotes h = [h0 e⊤         ⊤       ⊤        ⊤
+                                    2 , −h0 e1 , h1 e4 , −h1 e3 , · · · ], then one could get
+                   (                                                          (
+   ⊤                 hi−1 lj−1,2i−1 , j ≥ 2i,                ⊤                   −hi−1 lj−1,2i−2 , j ≥ 2i − 1,
+hL (2i − 1, j) =                                          hL (2i, j) =
+                     hi−1 ,             j = 2i − 1,                              −hi−1 ,           j = 2i − 2.
+Making a combination of these results, one can easily arrive at the conclusion.                                          
+26                                               SHI-HAO LI AND GUO-FU YU
+
+
+  Furthermore, from the 2d-Toda theory (see equations (3.12) and (3.13)), we know the explicit
+expressions for lj,j could be written as
+                                                                                  p1 (−∂˜t )τj (t, s)|s=−t
+                 lj,j = sj,j−1 + s̃j+1,j = sj,j−1 − sj+1,j ,          sj,j−1 =                             ,
+                                                                                      τj (t, s)|s=−t
+and by the use of the relation (4.6) with k = 0, l = 0 and k = 0, l = 1, the equation (4.22b) could
+be rewritten as
+                             2
+       Dt1 τ̂2n · τ̂2n−2 = τ̂2n−2 (ρ2n−1 σ2n−2 − ρ2n−2 σ2n−1 ) := ρ̂2n−1 σ̂2n−2 − ρ̂2n−2 σ̂2n−1 ,              (4.23)
+where ρ̂2n−1 = τ̂2n−2 ρ2n−1 , ρ̂2n−2 = τ̂2n−2 ρ2n−2 , σ̂2n−1 = τ̂2n−2 σ2n−1 and σ̂2n−2 = τ̂2n−2 σ2n−2 .
+  On the other hand, if one takes j = 2n + 1 in (4.22d) and then this equation equals to
+                                     ρ2n σ2n−2 − ρ2n−2 σ2n = −hn−1 l2n,2n−1 .
+In 2d-Toda theory, it is shown that (c.f. (3.15))
+                                    τ2n (t, s)|s=−t ∂t21 τ2n (t, s)|s=−t − (∂t21 τ2n (t, s)|s=−t )2
+                      l2n,2n−1 =                                                                    .
+                                                          (τ2n (t, s)|s=−t )2
+Now, taking (4.6) into consideration and choosing (k, l) as (0, 0), (0, 1) and (1, 1) respectively,
+one can find
+                                          τ̂2n ∂t21 τ̂2n − (∂t1 τ̂2n )2
+                               l2n,2n−1 =                 2             .
+                                                        τ̂2n
+Therefore, equation (4.22d) in this case could be rewritten as
+                              1 2
+                                D τ̂2n · τ̂2n = ρ̂2n−2 σ̂2n − ρ̂2n σ̂2n−2 .                                    (4.24)
+                              2 t1
+One should notice that σ̂ and ρ̂ are interrelated.
+
+Proposition 4.9. One has
+                                                      ∂t1 (τ̂ σ) = τ̂ ρ,                                       (4.25)
+where τ̂ = diag{τ̂0 I2×2 , τ̂2 I2×2 , · · · }.
+
+Proof. If one substitutes σ = Sα and ρ = SΛα into equation (4.25), this equation equals to show
+that
+                                                    ∂t1 (τ̂ Sα) = τ̂ SΛα.                                      (4.26)
+By noting that α obeys the derivation rule ∂tn α = Λn α, the equation (4.26) is equivalent to prove
+[∂t1 (τ̂ S)]α = 0. Observing that S is the dressing operator of the skew orthogonal polynomials, we
+can rewrite this equation as
+                                    Z
+                                         ∂t1 (τ̂ P (x; t))dµ(x; t) = 0,
+                                             R+
+
+where P (x; t) is the vector of skew orthogonal polynomials related to the skew-Borel decomposition
+m∞ = S −1 hS −⊤ . Since the moment matrix satisfies the rank two shift condition, one can get
+                              ∂t1 (τ̂2n P2n (x; t)) = Pf(d0 , d1 , 0, · · · , 2n, x),
+                                                                                                               (4.27)
+                           ∂t1 (τ̂2n P2n+1 (x; t)) = Pf(d0 , d1 , 0, · · · , 2n − 1, 2n + 1, x),
+and the integration over x contributes to another label d0 . From the definition of Pfaffian, one
+knows these results are equal to zero, which completes the proof.                              
+                   RANK SHIFT CONDITIONS AND REDUCTIONS OF 2D-TODA THEORY                                         27
+
+
+Corollary 4.10. α and Λα are the null vectors of ∂t1 (τ̂ S). Equivalently, σ and ρ are the null
+vectors of ∂t1 (τ̂ S)S −1 .
+
+Proof. In the last proposition, we have proved that α is the null vector of ∂t1 (τ̂ S). Furthermore,
+if we consider the integration of x∂t1 (τ̂ P (x; t)) over x, the label d1 would appear in expressions
+(4.27) by taking the place of label x, which is also equal to zero. This property demonstrates that
+                                   Z
+                                       x∂t1 (τ̂ P (x; t))dµ(x; t) = 0,
+                                         R+
+
+and one can get ∂t1 (τ̂ S)Λα = 0.                                                                                 
+
+   Therefore, the B-Toda lattice (4.23) and (4.24) could be written as
+
+                                       Dt τ̂2n · τ̂2n−2 = Dt σ̂2n−1 · σ̂2n−2                                 (4.28a)
+                                         Dt2 τ̂2n · τ̂2n = 2Dt σ̂2n−2 · σ̂2n .                               (4.28b)
+
+Also, the odd-indexed σ̂2n+1 is related to σ̂2n . Since P (x) = Sχ(x), one could write σ as
+                                              Z
+                                   σ = Sα =         P (x; t)dµ(x; t),
+                                                          R+
+
+and
+                         Z                                              Z
+                σ̂2n =        τ̂2n P2n (x; t)dµ(x; t),     σ̂2n+1 =            τ̂2n P2n+1 (x; t)dµ(x; t).
+                         R+                                               R+
+
+From the definition, one can find
+
+              σ̂2n = Pf(d0 , 0, · · · , 2n) := τ̂2n+1 ,        σ̂2n+1 = Pf(d0 , 0, · · · , 2n − 1, 2n + 1)
+
+if we substitute the explicit expressions of skew orthogonal polynomials {Pn (x)}n∈N into (4.3).
+From the relationship in Proposition 4.4, we know σ̂2n+1 = ∂t1 τ̂2n+1 . Therefore, the first member
+of the B-Toda hierarchy could be written as
+
+                                     Dt21 τ̂2n · τ̂2n = 2Dt1 τ̂2n−1 · τ̂2n+1 ,                               (4.29a)
+                                     2Dt1 τ̂2n · τ̂2n+2 = Dt21 τ̂2n+1 · τ̂2n+1 .                             (4.29b)
+
+if one takes {σ̂n }n∈N into (4.28a) and (4.28b). Interestingly, these two equations could be expressed
+in a unified way as Dt21 τ̂n · τ̂n = 2Dt1 τ̂n−1 · τ̂n+1 , which is called as the B-Toda lattice in the known
+literature [25]. This fact demonstrates that {τ̂2n+1 }n≥0 (or {σn , ρn }≥0 ) in this case are no longer
+auxiliary variables but another family of tau functions of BKP hierarchy [27, 33], generated by
+φ0 |vaci which we mentioned at the beginning of this section.
+    As mentioned, the rank two shift condition is also motivated by the moments of Bures ensemble,
+that is, if we consider a skew symmetric bilinear inner product h·, ·i : R[x] × R[y] → R such that
+                                                          x−y i j
+                                                    Z
+                                 i j
+                             hx , y i := mi,j =                x y ω(x)ω(y)dxdy.                        (4.30)
+                                                      R+ x + y
+                                                       2
+
+
+In this case, the partition function of Bures ensemble is defined as the Pfaffian of the moment
+matrix and therefore
+                                                                      2n
+                                                          (xj − xi )2 Y
+                                               Z     Y
+                 τ̂2n = Pf(mi,j )2n−1
+                                 i,j=0 = (−1)n
+                                                                         ω(xi )dxi
+                                                ξ 2n       xj + xi i=1
+                                                                1≤i<j≤2n
+28                                           SHI-HAO LI AND GUO-FU YU
+
+
+by making applications of the de Bruijn formula (See [15, Equation A.5]) and Schur’s Pfaffian iden-
+tity (See [15, Equation A.8]) and ξ 2n is the subspace of R2n
+                                                            + defined by ξ
+                                                                           2n
+                                                                              = {(x1 , · · · , x2n ) | 0 <
+x1 < · · · < x2n }. It is also noted that the odd-indexed tau functions could be also written as the
+partition functions of Bures ensemble for the odd-number particles [15, 19]
+                                                !2n
+                                       0    αj
+                       τ̂2n+1 = Pf
+                                      −αi mi,j
+                                                            i,j=0
+                                                                                  2n+1
+                                                                    (xj − xi )2 Y
+                                           Z             Y
+                                = (−1)n                                           ω(xi )dxi ,
+                                               ξ 2n+1 1≤i<j≤2n+1     xj + xi i=1
+
+where ξ 2n+1 is the configuration space of R2n+1
+                                            +    with the ordered set ξ 2n+1 = {(x1 , · · · , x2n+1 ) | 0 <
+x1 < · · · < x2n+1 }.
+
+4.4. B-Toda Hierarchy. In the last subsection, we embed the B-Toda hierarchy into 2d-Toda
+theory and obtain the equations from the rank two shift condition. It is shown that these equations
+(4.29a) and (4.29b) are not included in the large BKP hierarchy, thus motivating us to consider
+what is the sub-hierarchy of the B-Toda lattice. To this end, firstly we restate the derivatives of
+partial skew orthogonal polynomials under the rank two shift condition [15, Corollary 3.16].
+
+Lemma 4.11. Under the rank two shift condition, there is a derivative formula for the partial
+skew orthogonal polynomials
+               τ̂n+1 ·∂t1 (τ̂n−1 P̃n−1 (x; t))
+                                                                                                                  (4.31)
+                      = ∂t1 τ̂n+1 · τ̂n−1 P̃n−1 (x; t) − τ̂n · ∂t1 (τ̂n P̃n (x; t)) + ∂t1 τ̂n · τ̂n P̃n (x; t).
+
+     In particular, if we take (4.14) into the above equation, it leads to a novel particular Fay identity
+          τ̂n+1 · ∂t1 τ̂n−1 (t − [x−1 ]) + xτ̂n · ∂t1 τ̂n (t − [x−1 ])
+                                                                                                                  (4.32)
+                                         = ∂t1 τ̂n+1 · τ̂n−1 (t − [x−1 ]) + x∂t1 τ̂n · τ̂n (t − [x−1 ]).
+
+By the use of τ̂n (t − [x−1 ]) =
+                                     P            ˜        −k
+                                         k≥0 pk (−∂t )τ̂n x   , then
+
+ τ̂n+1 · ∂t1 pk (−∂˜t )τ̂n−1 − ∂t1 τ̂n+1 · pk (−∂˜t )τn−1 + τ̂n · ∂t1 pk+1 (−∂˜t )τ̂n − ∂t1 τ̂n · pk+1 (−∂˜t )τ̂n = 0
+
+is valid for all k ∈ N. The first nontrivial example is given by k = 0 and it can be explicitly
+expressed as
+
+                                            Dt2 τ̂n · τ̂n = 2Dt τ̂n−1 · τ̂n+1 ,
+
+which is the B-Toda lattice in (4.29a) and (4.29b). Moreover, we’d like to obtain the general
+bilinear expressions for this hierarchy. It requires detailed analysis of the wave functions.
+   From the particular Fay identity (4.32), one can find
+                     ∂t1 τ̂n (t − [x−1 ]) n              τ̂n (t − [x−1 ]) n
+                                         x = ∂t1 log τ̂n                   x
+                             τ̂n+1                             τ̂n+1
+                                               n                                                                  (4.33)
+                                              X                      τ̂i+1 τ̂i−1 (t − [x−1 ]) i−1
+                                            +     (−1)n−i ∂t1 log                            x .
+                                              i=1
+                                                                     τ̂i−1          τ̂i
+
+With the shift t − [x−1 ] 7→ t and transform x−1 7→ x, the Fay identity (4.32) is changed into
+
+         xτ̂n+1 (t + [x])∂t1 τ̂n−1 + τ̂n (t + [x])∂t1 τ̂n = x∂t1 τ̂n+1 (t + [x])τ̂n−1 + τ̂n ∂t1 τ̂n (t + [x]),
+                            RANK SHIFT CONDITIONS AND REDUCTIONS OF 2D-TODA THEORY                                                             29
+
+
+which implies
+
+                                                             n                        
+    ∂t1 τ̂n+1 (t + [x]) n                τ̂n+1 (t + [x]) n X        n−i            τ̂i   τ̂i (t + [x]) i−1
+                       x = ∂t1 log τ̂n−1                x +     (−1)     ∂t1 log                      x
+            τ̂n                                 τ̂n         i=2
+                                                                                 τ̂i−2        τ̂i−1
+                                   + (−1)n−1 (∂t1 log τ̂1 · τ̂1 (t + [x]) − ∂t1 τ̂1 (t + [x])) ,                                           (4.34)
+
+where the tail term comes from the assumption τ̂−1 = 0 and τ̂0 = 1. Since we have obtained the
+derivatives of τ̂n (t ± [x]), we can state the following proposition.
+
+Proposition 4.12. Under the rank two shift condition, the bilinear identity for the wave functions
+(4.8) could be written as
+
+                           (−1)n+m ∂t1 τ̂n (t) · τ̂m (t′ ) − τ̂n (t) · ∂t′1 τ̂m (t′ )
+                                                                                     
+                                     I
+                                                ′     −1
+                                  =         eξ(t −t,z ) z n−m−1 τ̂n+1 (t + [z])τ̂m−1 (t′ − [z])dz
+                                       C                                                                                                   (4.35)
+                                    I 0
+                                                    ′
+                                  −         eξ(t−t ,z) z n−m−1 τ̂n−1 (t − [z −1 ])τ̂m+1 (t′ + [z −1 ])dz.
+                                                 C∞
+
+
+    The proof of this proposition needs the following lemma.
+
+Lemma 4.13. Under the assumption that τ̂−1 = 0, we have
+                       I
+                                    ′       −1
+                                                 ) −m
+                                eξ(t −t,z        z      ∂t1 τ̂1 (t + [z])τ̂m−1 (t′ − [z])dz = (−1)m−1 ∂t′ τ̂m (t′ ).                       (4.36)
+                           C0
+
+
+Proof. Taking n = 0 in the large BKP hierarchy (4.19) and taking the t1 -derivative on the both
+sides, one knows
+I                                                                               I
+          ′       −1                                                                         ′       −1
+                       ) −m                                                                               ) −m−1
+      eξ(t −t,z        z        ∂t1 τ̂1 (t + [z])τ̂m−1 (t′ − [z])dz =                    eξ(t −t,z        z        τ̂1 (t + [z])τ̂m−1 (t′ − [z])dz
+ C0                                                                                 C0
+
+
+due to τ̂−1 = 0 and τ̂0 = 1. Noting that the right hand side in the above equation can be expressed
+as
+
+                  1
+                                                             I
+                                                                       ′       −1
+                                                                                    ) −m
+                    (1 − (−1)m )∂t′1 τ̂m (t′ ) −                   eξ(t −t,z        z      τ̂1 (t + [z])∂t′1 τ̂m−1 (t′ − [z])dz
+                  2                                           C0
+
+
+if we take the t′1 -derivative of (4.19) when n = 0. By the use of equation (4.33), one could find the
+latter term is equal to
+
+                                               m−1
+1                                              X                              τ̂i+1  1
+  (1 − (−1)m )τ̂m ∂t′1 log τ̂m−1 + (−1)m−1 τ̂m     (−1)i (1 − (−1)i )∂t′1 log       = (1 + (−1)m )∂t′1 τ̂m ,
+2                                              i=1
+                                                                              τ̂i−1  2
+
+and thus complete the proof.                                                                                                                    
+
+
+    Now we could state the proof of Proposition 4.12.
+30                                            SHI-HAO LI AND GUO-FU YU
+
+
+Proof. If one takes the t1 -derivative on the both sides of large BKP hierarchy, then one can find
+                       1
+                         (1 − (−1)n+m )∂t1 τ̂n (t) · τ̂m (t′ )
+                       2 I
+                                          ′
+                         =          eξ(t−t ,z) τ̂n−1 (t − [z −1 ])τ̂m+1 (t′ + [z −1 ])z n−m−1 dz
+                              C
+                           I ∞
+                                   ′    −1
+                         −     eξ(t −t,z ) τ̂n+1 (t + [z])τ̂m−1 (t′ − [z])z n−m−1 dz
+                            C
+                           I 0
+                                      ′
+                         +      eξ(t−t ,z) ∂t1 τ̂n−1 (t − [z −1 ])τ̂m+1 (t′ + [z −1 ])z n−m−2 dz
+                            C
+                           I ∞
+                                   ′    −1
+                         +     eξ(t −t,z ) ∂t1 τ̂n+1 (t + [z])τ̂m−1 (t′ − [z])z n−m dz.
+                             C0
+
+Taking the expressions of ∂t1 τ̂n−1 (t − [z −1 ]) and ∂t1 τ̂n+1 (t + [z]) from (4.33) and (4.34), and by
+the use of the large BKP hierarchy (4.19) again, we know the last two terms are equal to
+    1
+                                                    I
+                                                            ′    −1
+      (1 + (−1) n+m        ′                   n
+                    )τ̂m (t )∂t1 τ̂n (t) + (−1) τ̂n     eξ(t −t,z ) ∂t1 τ̂1 (t + [z])τ̂m−1 (t′ − [z])z −mdz.
+    2                                                C0
+
+By using the result of lemma 4.13, the proof is completed.                                                   
+
+   It should be mentioned that the B-Toda hierarchy’s Fay identity (4.33) could give us the following
+relation
+                                           n                       
+                                    τ̂n+1 X                   τ̂i+1 τ̂i−1
+                   ∂t1 P̃n (x; t) =           (−1)n−i ∂t1 log             P̃i−1 (x; t).         (4.37)
+                                      τ̂n i=1                 τ̂i−1   τ̂i
+
+Making a combination of the results (4.15) and (4.37), one could find the spectral problem
+                                              
+                                        τ̂n+1                                  τ̂n+2 τ̂n−1
+   xP̃n (x; t) = P̃n+1 (x; t) + ∂t1 log           P̃n (x; t) + (∂t21 log τ̂n −             )P̃n−1 (x; t)
+                                          τ̂n                                    τ̂n+1 τ̂n
+                       n−1                                                                             (4.38)
+                 τ̂n+1 X        n−i           τ̂i+1 τ̂i−1
+               −            (−1)     ∂t1 log                 P̃i−1 (x; t)
+                   τ̂n i=1                    τ̂i−1      τ̂i
+
+with regard to the partial skew orthogonal polynomials. The equation (4.38) also implies the
+following four term recurrence relation
+     x(P̃n (x) + un P̃n−1 (x))
+                                                                                                         (4.39)
+     = P̃n+1 (x) + (vn+1 − vn + un )P̃n (x) − un (vn+1 − vn + un+1 )P̃n−1 (x) − u2n un−1 P̃n−2 (x)
+for all n ∈ N, where un and vn have the expressions
+                                                 τ̂n+1 τ̂n−1
+                                         un =                ,   vn = ∂t1 log τ̂n
+                                                     τ̂n2
+if the t1 -parameter is introduced. Therefore, one can denote the spectral operator L̃ as
+
+                                  L̃ = (Λ0 + Λ−1 a)−1 (Λ1 + Λ0 b + Λ−1 c + Λ−2 d),
+
+such that xP̃ = L̃P̃ and a = diag(a1 , a2 , · · · ), b = diag(b0 , b1 , · · · ), c = diag(c1 , c2 , · · · ), d =
+diag(d2 , d3 , · · · ) with elements an = un , bn = vn+1 − vn + un , cn = −un (vn+1 − vn + un+1 ) and
+dn = −u2n un−1 .
+   Till now, we show that the tau function of the B-Toda hierarchy is obtained by a skew symmetric
+reduction from the 2d-Toda hierarchy as well as a rank two shift condition. The first condition tells
+us the B-Toda lattice could be viewed as a special case of the Pfaff lattice, and therefore, B-Toda
+                   RANK SHIFT CONDITIONS AND REDUCTIONS OF 2D-TODA THEORY                                      31
+
+
+lattice inherits the merits of the Pfaff lattice. Moreover, the rank two shift condition suggests
+us another basis of polynomials, which satisfy a four term recurrence relation and provide us an
+explicit spectral problem. Therefore, we would utilise these two important features and give the
+Lax representation with explicit Lax matrix for the B-Toda hierarchy.
+
+Proposition 4.14. Given a skew symmetric moment matrix m∞ with the rank two shift condition
+(4.21) and its related skew-Borel decomposition m∞ = S −1 hS −⊤ , one can define a family of
+skew orthogonal polynomials P (x) = Sχ(x) satisfying the spectral problem LP (x) = xP (x) with
+L = SΛS −1 , and L could be expressed as
+    L = (Λ0 + Λ−1 α + Λ−2 β)(Λ0 + Λ−1 a)−1 (Λ1 + Λ0 b + Λ−1 c + Λ−2 d)(Λ0 + Λ−1 α + Λ−2 β)−1
+with α = diag(v1 , 0, v3 , 0, v5 , · · · ) and β = diag(0, −u1 u2 , 0, −u3 u4 , · · · ). Moreover, one can get the
+Lax integrability of the B-Toda hierarchy from the skew-Borel decomposition
+                            ∂tn L = [−(Ln + hL⊤n h−1 )<0 , L] := [−πi (Ln ), L],
+where πi is the projection to the strict lower triangular matrix part in 2 × 2 block matrix sense.
+
+   In general, the Lax matrix L for the skew-orthogonal polynomials could hardly be written in an
+explicit form except the first few diagonals, see [5, Equation 0.17] and [30, Equation 1.5]. However,
+this proposition tells us, under the rank two shift condition, the Lax matrix L could be written
+explicitly and therefore one can get more information about the Lax integrability of the B-Toda
+hierarchy.
+
+                                         5. Concluding remarks
+
+   This article is about two new sub-hierarchies by considering the symmetric and skew symmetric
+reductions on the general moment matrix and some rank shift conditions, motivated by the Cauchy
+two-matrix model and Bures ensemble. Although the first members of these hierarchies have been
+achieved by the average characteristic polynomials approach, the moment matrix method provides
+us an insight to the integrable structures as well as algebraic structures for the whole discrete
+hierarchy. Moreover, the rank shift condition has never appeared before in the studies of integrable
+systems, and we hope this kind of concepts would bring some new features to the studies, not only
+in the classical integrable system theory but in random matrix theory.
+   However, some problems are left for future studies. One is regarding the partial skew orthogonal
+relation. Notice that the matrix h̃ in (4.11) could be written as
+                                                                      
+                                          ⊤ −1                τ̂1 τ̂2
+                            h̃ = τ̂ (Λ − Λ ) τ̂ , τ̂ = diag      , ,··· ,
+                                                              τ̂0 τ̂1
+which is simply structured. It is unclear what is the role they will play in the random matrix
+theory and it is also difficult to see how do these odd-indexed tau functions come from the matrix
+decomposition theory and how do they connect with 2d-Toda’s tau functions. In addition, similar
+with the relationship between Toda and KP hierarchy, these two hierarchies could be viewed as
+the discrete versions of BKP and CKP hierarchies. The first members of these discrete flows, in
+fact, have been partially demonstrated in [33, Equation (27)] and [32, Equation (31)] in the studies
+of symmetry reductions from the continuous hierarchies and Darboux transformations. Being lack
+of the discrete variables, equations in the above-mentioned references are not closed in the t1 -flow.
+However, They did provide some hints to reveal the relations between these discrete and continuous
+32                                        SHI-HAO LI AND GUO-FU YU
+
+
+hierarchies. This kind of link may help us to consider the Virasoro constraints for these discrete
+hierarchies, and further to the gap probabilities for the Bures ensemble and Cauchy two-matrix
+model, regarding the continuous hierarchies have already been known, e.g. the Adler-Shiota-van
+Moerbeke formula and Virasoro symmetries for the BKP hierarchy have been shown in [41] and
+non-linearizable Virasoro symmetries for the CKP hierarchy has been given in [14]. It is also
+interesting to consider the general spectral problem implied in [45] with Lax matrix
+
+                      L = (Λ − al+2 )−1 (Λk+1 + a1 Λk + · · · + al+1 Λk−l ), 1 ≤ k < l.
+
+In fact, in the recent work [20], Forrester and one of the author proposed a θ-deformed Cauchy
+two-matrix model with the joint probability density function
+           Q                                                                N
+             1≤i<j≤N (xj − xi )(yj − yi )
+                                             Y                             Y
+                 QN                               (xθj − xθi )(yjθ − yiθ )     ω1 (xi )ω2 (yi )dxi dyi ,
+                   i,j=1 (xi + yj )       1≤i<j≤N                          i=1
+
+which probably relates to the above spectral problem since the generalised θ-deformed Cauchy bi-
+orthogonal polynomials will provide a longer recurrence relation and we will show it in a following
+work.
+
+                                             Acknowledgement
+
+  S. Li is supported by the ARC Centre of Excellence for Mathematical and Statistical frontiers
+(ACEMS) and G. Yu is supported by National Natural Science Foundation of China (Grant no.
+11871336).
+
+                                                   References
+ [1] M. Adler, E. Horozov, and P. van Moerbeke. The Pfaff lattice and skew-orthogonal polynomials. Int. Math.
+     Res. Notices, 11: 569–588, 1999.
+ [2] M. Adler and P. van Moerbeke. Group factorization, moment matrices, and Toda lattices. Int. Math. Res.
+     Notices, 12: 555-572, 1997.
+ [3] M. Adler and P. van Moerbeke. The spectrum of coupled random matrices. Ann. of Math (2), 149: 921-976,
+     1999.
+ [4] M. Adler and P. van Moerbeke. Hermitian, symmetric and symplectic random ensembles: PDEs for the distri-
+     bution of the spectrum. Ann. of Math (2), 153: 149-189, 2001.
+ [5] M. Adler and P. van Moerbeke. Toda versus Pfaff lattice and related polynomials. Duke Math J., 112: 1-58,
+     2002.
+ [6] M. Adler and P. van Moerbeke. Recursion relations for unitary integrals, combinatorics and the Toeplitz lattice.
+     Comm. Math. Phys., 237: 397-440, 2003.
+ [7] M. Adler, T. Shiota, and P. van Moerbeke. Pfaff τ -functions. Math. Ann., 322(3): 423–476, 2002.
+ [8] M. Adler and P. van Moerbeke. The AKS theorem, A.C.I. systems and random matrix theory. J. Phys. A, 51:
+     423001, 2018
+ [9] M. Bertola, M. Gekhtman, and J. Szmigielski. The Cauchy two-matrix model. Commun. Math. Phys., 287(3):
+     983–1014, 2009.
+[10] M. Bertola, M. Gekhtman and J. Szmigielski. Cauchy biorthogonal polynomials. J. Approx. Theory, 162: 832-
+     867, 2010.
+[11] M. Bertola, M. Gekhtman and J. Szmigielski. Cauchy-Laguerre two-matrix model and the Meijer-G random
+     point field. Commum. Math. Phys., 326: 111-144, 2014.
+[12] A. Brini, G. Carlet, S. Romano and P. Rossi. Rational reductions of the 2D-Toda hierarchy and mirror sym-
+     metry. J. Eur. Math. Soc., 19: 835-880, 2017.
+[13] D. Bures. An extension of Kakutani’s thoerem on infinite product measures to the tensor product of semifinite
+     w*-algebras. Trans. of the AMS, 135: 199-212, 1969.
+                    RANK SHIFT CONDITIONS AND REDUCTIONS OF 2D-TODA THEORY                                        33
+
+
+[14] L. Chang and C. Wu. Tau function of the CKP hierarchy and non-linearizable Virasoro symmetries. Nonlin-
+     earity, 26: 2577, 2013.
+[15] X. Chang, Y. He, X. Hu and S. Li. Partial-skew-orthogonal polynomials and related integrable lattices with
+     Pfaffian tau-functions. Comm. Math. Phys., 364: 1069-1119, 2018.
+[16] X. Chang, X. Hu and S. Li. Degasperis-Procesi peakon dynamical system and finite Toda lattice of CKP type.
+     Nonlinearity, 31: 4746, 2018.
+[17] P. Deift. Orthogonal Polynomials and Random Matrices: A Riemann-Hilbert Approach. Courant Lecture Notes
+    3, American Mathematical Society, 2000.
+[18] L. Faybusovich and M. Gekhtman. On Schur flows. J. Phys. A, 32: 4671, 1999.
+[19] P. Forrester and M. Kieburg. Relating the Bures measure to the Cauchy two-matrix model. Commun. Math.
+    Phys., 342: 151-187, 2016.
+[20] P. Forrester and S. Li. Fox H-kernel and θ-deformation of the Cauchy two-matrix model and Bures ensemble.
+     Int. Mat. Res. Not., rnz028, 2019.
+[21] P. Forrester and S. Li. Classical discrete symplectic ensembles on the linear and exponential lattice: skew
+     orthogonal polynomials and correlation functions. arXiv: 1902.09042, accepted by Trans. of AMS, 2019.
+[22] P. Forrester and N. Witte. Bi-orthogonal polynomials on the unit circle, regular semi-classical weights and
+     integrable systems. Constr. Approx., 24: 201-237, 2006.
+[23] A. Gerasimov, A. Marshakov, A. Mironov, A. Morozov and A. Orlov. Matrix models of two-dimensional gravity
+    and Toda theory. Nucl. Phys. B, 357: 565-618, 1990.
+[24] R. Hirota (Translated by A. Nagai, J. Nimmo and C. Gilson). The direct method in soliton theory. Cambridge
+     University Press, 2004.
+[25] R. Hirota, M. Iwao and S. Tsujimoto. Soliton equations exhibiting Pfaffian solutions. Glasgow Math. J., 43A:
+     33-41, 2001.
+[26] X. Hu, J. Zhao and C. Li. Matrix integrals and several integrable differential-difference systems. J. Phys. Soc.
+     Jpn., 75: 054003, 2006.
+[27] X. Hu and S. Li. The partition function of Bures ensemble as the τ -function of BKP and DKP hierarchies:
+    continuous and discrete. J. Phys. A, 50: 285201, 2017.
+[28] M. Jimbo and T. Miwa. Solitons and infinite dimensional Lie algebras. Publ. RIMS, Kyoto Univ., 19: 943-1001,
+     1983.
+[29] V. Kac and J. van de Leur. The geometry of spinors and the multicomponent BKP and DKP hierarchies. CRM
+     Proc. Lecture notes 14, AMS, Providence, 159-202, 1998.
+[30] Y. Kodama and V. Pierce. The Pfaff lattice on symplectic matrices. J. Phys. A, 43: 055206, 2010.
+[31] C. Li and S. Li. The Cauchy Two-Matrix Model, C-Toda Lattice and CKP Hierarchy. J. Nonlinear Sci., 29:
+     3-27, 2019.
+[32] I. Loris. On reduced CKP equations. Inverse Problems, 15: 1099-1109, 1999.
+[33] I. Loris and R. Willox. Symmetry reductions of the BKP hierarchy. J. Math. Phys., 40: 1420-1431, 1999.
+[34] H. Lundmark and J. Szmigielski. Degasperis-Procesi peakons and the discrete cubic string. Int. Math. Res.
+     Pap., 2005(2): 53–116, 2005.
+[35] M. Mañas. Revisiting biorthogonal polynomials. An LU factorization discussion. arXiv: 1907.04280v1, 2019.
+[36] A. Mukaihira and Y. Nakamura. Schur flow for orthogonal polynomials on the unit circle and its integrable
+     discretization. J. Comp. Appl. Math., 139: 75-94, 2002.
+[37] A. Orlov, T. Shiota and K. Takasaki. Pfaffian structures and certain solutions to BKP hierarchies II. Multiple
+    integrals. arXiv: 1611.02244, 2016.
+[38] H. Sommers and K. Zyczkowski. Bures volume of the set of mixed quantum states. J. Phys. A, 36: 10083-10100,
+     2003.
+[39] K. Takasaki. Toda hierarchies and their applications. J. Phys. A, 51: 203001, 2018.
+[40] K. Ueno and K. Takasaki. Toda lattice hierarchy. Adv. Studies Pure Math., 4: 1-95, 1984.
+[41] J. van de Leur. The Adler-Shiota-van Moerbeke formula for the BKP hierarchy. J. Math. Phys., 36: 4940, 1995.
+[42] J. van de Leur. Matrix integrals and the geometry of spinors. J. Nonlinear Math. Phys., 8: 288-310, 2001.
+[43] J. van de Leur and A. Orlov. Pfaffian and determinantal tau functions. Lett. Math. Phys., 105: 1499-1531,
+    2015.
+[44] Z. Wang and S. Li. BKP hierarchy and Pfaffian point process. Nucl. Phys. B, 939: 447-464, 2019.
+34                                        SHI-HAO LI AND GUO-FU YU
+
+
+[45] D. Zuo. Frobenius manifolds and a new class of extended affine Weyl groups W̃ (k,k+1) (Al ). arXiv: 1905.09470,
+     2019.
+
+     School of Mathematical and Statistics, ARC Centre of Excellence for Mathematical and Sta-
+tistical Frontiers, The University of Melbourne, Victoria 3010, Australia
+   E-mail address: shihao.li@unimelb.edu.au
+
+     School of Mathematical Sciences, Shanghai Jiaotong University, People’s Republic of China.
+     E-mail address: gfyu@sjtu.edu.cn
+

@@ -1,0 +1,125 @@
+
+============================================================================================
+A. continuum baseline:  (7) B_a f.g = 0  and  (6)|lam=-2  D_y B_a f.g = 4 D_x f.g
+============================================================================================
+   N=1   (7) OK      (6)@lam=-2 OK  
+   N=2   (7) OK      (6)@lam=-2 OK  
+   N=3   (7) OK      (6)@lam=-2 OK  
+   N=4   (7) OK      (6)@lam=-2 OK  
+   N=5   (7) OK      (6)@lam=-2 OK  
+
+============================================================================================
+B. (7) is exact at EVERY y-lattice site   lam(z) = (z+h/2)/(z-h/2)
+============================================================================================
+   N=1   site 0:7=OK F=OK  1:7=OK F=OK  2:7=OK F=OK  3:7=OK F=OK
+   N=2   site 0:7=OK F=OK  1:7=OK F=OK  2:7=OK F=OK  3:7=OK F=OK
+   N=3   site 0:7=OK F=OK  1:7=OK F=OK  2:7=OK F=OK  3:7=OK F=OK
+   N=4   site 0:7=OK F=OK  1:7=OK F=OK  2:7=OK F=OK  3:7=OK F=OK
+
+============================================================================================
+C. exact N=1 cross-site formula   B_a tau_1(p) . tau_0(q) = 2 c P E (chi^q - chi^p)
+============================================================================================
+   (p,q)=(0,0)  B=0   formula=0   OK  
+   (p,q)=(1,0)  B=-32712/185   formula=-32712/185   OK  
+   (p,q)=(0,1)  B=32712/185   formula=32712/185   OK  
+   (p,q)=(1,1)  B=0   formula=0   OK  
+   (p,q)=(2,1)  B=-116749128/34225   formula=-116749128/34225   OK  
+   (p,q)=(3,0)  B=-439395794712/6331625   formula=-439395794712/6331625   OK  
+   => B_a f_p.g_q is antisymmetric in (p,q) and vanishes iff p = q;
+      (7) is a purely POINTWISE identity, it carries no lattice information.
+
+============================================================================================
+D. naive lattice (6):   (1/h)[B f_{j+1}.g_j - B f_j.g_{j+1}] - 4 D_x f_j.g_j   != 0
+============================================================================================
+   D_x f_j.g_j                        = -470/267
+   (1/h)(Bf_{j+1}.g_j - Bf_j.g_{j+1}) = -5452/555
+   residual                           = -137428/49395
+   residual / h                       = -68714/444555  (finite, nonzero at h=0)
+   => the naive two-site scheme is only FIRST order and never exact for h>0.
+   N=1  naive residual identically zero? NO (as expected)
+   N=2  naive residual identically zero? NO (as expected)
+   N=3  naive residual identically zero? NO (as expected)
+
+============================================================================================
+E. structural identity   tau_1(j=1 ; coeff param a+d) = tau_1(j=0 ; coeff param a-d)
+============================================================================================
+   N=1   OK  
+   N=2   OK  
+   N=3   OK  
+   N=4   OK  
+   (equivalently:  -((P-d)/(Q+d)) * chi_ik  =  -((P+d)/(Q-d)) , chi_ik = lam(P)lam(Q))
+
+============================================================================================
+F. staggered lattice pair   d = h/2,   F_j = tau_1(j ; coeff param a-d),  G_j = tau_0(j)
+     (7)_h :  B_(a-d) F_j . G_j     = 0
+     (6)_h :  B_(a+d) F_j . G_(j+1) = 0
+============================================================================================
+   N=1   site 0:(OK,OK)  1:(OK,OK)  2:(OK,OK)  3:(OK,OK)
+   N=2   site 0:(OK,OK)  1:(OK,OK)  2:(OK,OK)  3:(OK,OK)
+   N=3   site 0:(OK,OK)  1:(OK,OK)  2:(OK,OK)  3:(OK,OK)
+   N=4   site 0:(OK,OK)  1:(OK,OK)  2:(OK,OK)  3:(OK,OK)
+   N=5   site 0:(OK,OK)  1:(OK,OK)  2:(OK,OK)  3:(OK,OK)
+
+============================================================================================
+G. equivalent two-point form   (1/h) B_(a-d) F_j . (G_{j+1} - G_j) + 2 D_x F_j . G_{j+1} = 0
+============================================================================================
+   N=1   site 0:OK  1:OK  2:OK
+   N=2   site 0:OK  1:OK  2:OK
+   N=3   site 0:OK  1:OK  2:OK
+   N=4   site 0:OK  1:OK  2:OK
+
+============================================================================================
+H. probes for extra structure
+============================================================================================
+   N=2  2DTL:  (1/2 D_y D_x - 1) t_n.t_n + t_{n+1} t_{n-1} = 0     HOLDS
+   N=2  symmetric 2-site:  B_a f_{j+1}.g_j + B_a f_j.g_{j+1} = 0  [lattice] no
+   N=2  symmetric 2-site:  B_a f_{j+1}.g_j + B_a f_j.g_{j+1} = 2 B_a f.g ?  [continuum] HOLDS
+
+============================================================================================
+I. UNIQUENESS of the staggered pair  (see nosearch.py, nosearch_uniform.py,
+   h_scaling.py, uni_identity.py, stag_h.py)
+============================================================================================
+   Search space: all 24 bilinear combinations
+        {D_x^2, D_t, D_x, id}  x  {(0,0),(1,0),(0,1),(1,1),(-1,0),(0,-1)}
+   with coefficients in Q(a,h) (no dependence on the spectral parameters),
+   intersected over N = 1,2,3,4,5 and several generic (p,q) samples.
+
+   CAVEAT (found in this work): the intersection matrix is assembled at a FIXED
+   (a,h), so its null space may contain vectors that vanish only at that h.
+
+   STAGGERED class  (f = tau_1 with coefficient parameter a-d, d = h/2):
+        dim = 4 for EVERY tested h in {1/2, 3/7, 1/3, 1/5, 1/10}, and the span is
+        always exactly
+             (7)_h at site j ,  (7)_h at site j+1 ,
+             (6)_h at (j,j+1) , (6)_h at (j-1,j)
+        i.e. by the two equations of the system taken at neighbouring sites.
+        => the staggered pair is the UNIQUE exact lattice system in this stencil,
+           robustly in h.   [stag_h.py]
+
+   UNIFORM class    (f = tau_1 with coefficient parameter a):
+        dim = 4 at the fixed value h = 1/3 (up to N = 7, 8748 rows), with two extra
+        cross-site vectors whose coefficients diverge like h^-2.  Their structure is
+             X = B_{a-h}F_{j+1}.G_j - B_{a+h}F_j.G_{j+1} + h^2(F_{j+1}G_j-F_jG_{j+1})
+        and X IS NOT AN IDENTITY: it vanishes for h = 1/3 and 1/4 but NOT for
+        h = 1/2 (N = 3,4)   [uni_identity.py].  So the extra vectors are artifacts
+        of fixing h.
+        Structurally: as h -> 0 every site collapses to one point, so the leading
+        operator of ANY uniform-class identity is a SINGLE-POINT operator
+        annihilating the continuum tau, hence proportional to B_a -- i.e. its h^0
+        content can only be (7), never (6).  And the leading term of X is indeed
+             X = h D_y B_a f.g - 4h D_x f.g + O(h^2) = O(h^2)   using (6).
+        => a "lattice (6)" with an unshifted B-parameter does NOT exist.
+
+============================================================================================
+J. COUNTEREXAMPLE to the old claim (5.2a) of OUT_GSG_DLW_report.md:
+   "the lattice one-soliton profile equals the continuum profile with a -> a - h/2"
+============================================================================================
+   symbolic numerator of  u_lat - u_con(a-h/2)  has an overall factor  E*h : yes
+   at (p,q,a,h,E) = (5/3, 7/4, 3/2, 1/4, 2):  u_lat - u_con = -58273134100141/12500000000000
+   => the claim is FALSE.  The correct statement is the RATE renormalisation
+        exp(y(1/P + 1/Q))  ->  lambda^j ,   i.e.  1/P -> Lambda_h(P) = ln(lam(P))/h ,
+      which reproduces the lattice profile EXACTLY (see REPORT.md section 8.3).
+
+============================================================================================
+certify.py finished.
+============================================================================================

@@ -1,0 +1,153 @@
+
+==============================================================================
+Sec 0  environment
+==============================================================================
+python   : 3.13.3 (tags/v3.13.3:6280bb5, Apr  8 2025, 14:47:33) [MSC v.1943 64 bit (AMD64)]
+sympy    : 1.13.3
+cwd      : C:\Users\msz\ѧ������\expression_deepseek-v4.1-flash_20260917_222927\B_spectral\experiments
+
+==============================================================================
+Sec 1  exact linearisation and the dispersion relation
+==============================================================================
+PASS  Sec1 linearised (1) equals (i l s)U - k^2 V - (u0+2a)k l U
+PASS  Sec1 linearised (2) equals (s+i(u0+2a)k)V + i(v0+2 lam)kU - i k^2 l U
+PASS  Sec1 (1L) determines V (unique solution)
+PASS  Sec1 elimination of V gives (s+i(u0+2a)k)^2 = k^4 - (v0+2 lam)k^3/l   | residual = 0
+PASS  Sec1 l=0: (1L) forces V = 0
+PASS  Sec1 l=0: (2L) with V = 0 forces (v0+2 lam) U = 0   | (2L)|l=0 with V=0 is I*U*k*(2*lam + v0)
+
+==============================================================================
+Sec 2  the l = 0 sector of the nonlinear system (exact Fourier computation)
+==============================================================================
+PASS  Sec2 l=0 of (1) is exactly d_x^2 v_0 (no u_0, no nonlinearity)   | residual = 0
+PASS  Sec2 l=0 of (2) is d_t v_0 + d_x[<uv> + 2a v_0 + 2 lam u_0]   | residual = 0
+PASS  Sec2 the quadratic pair u u_xy + u_x u_y contributes zero to l=0 (antisymmetry)   | residual = 0
+PASS  Sec2 (V7) v = -2 lam, u = U(x,t) arbitrary solves (1) exactly (all l)
+PASS  Sec2 (V7) same family solves (2) exactly (all l)
+PASS  Sec2 the zero-mode family is not affected by the projection (residuals are mode-wise zero for every retained band)
+
+==============================================================================
+Sec 3  Fourier-Galerkin truncation at N: algebraic checks
+==============================================================================
+PASS  Sec3 truncated (N=1) l=0 identities hold exactly
+PASS  Sec3 truncated (N=2) l=0 identities hold exactly
+PASS  Sec3 truncated (N=3) l=0 identities hold exactly
+
+==============================================================================
+Sec 4  exact sign analysis: stable x-band is 0 < sgn(l) k < c/|l|
+==============================================================================
+PASS  Sec4 l * disc factors as k^3 (k l - c)   | l*disc = k**3*(-c + k*l)
+PASS  Sec4 sign(disc) matches the predicted neutral/unstable regions (c=1)
+PASS  Sec4 neutral region 0 < sgn(l) k < c/|l| has disc <= 0
+
+==============================================================================
+Sec 5  aliasing quantified (exact, no floating point)
+==============================================================================
+PASS  Sec5 root-of-unity filter: sum_j w^{tj} = M if M|t else 0 (M=3)
+PASS  Sec5 root-of-unity filter: sum_j w^{tj} = M if M|t else 0 (M=4)
+PASS  Sec5 root-of-unity filter: sum_j w^{tj} = M if M|t else 0 (M=5)
+PASS  Sec5 N=1: mode -1 of (top mode)^2 is 0 exactly, 0 under 3-point collocation
+PASS  Sec5 N=2: mode -1 of (top mode)^2 is 0 exactly, 0 under 5-point collocation
+PASS  Sec5 N=3: mode -1 of (top mode)^2 is 0 exactly, 0 under 7-point collocation
+PASS  Sec5 N=4: mode -1 of (top mode)^2 is 0 exactly, 0 under 9-point collocation
+PASS  Sec5 N=5: mode -1 of (top mode)^2 is 0 exactly, 0 under 11-point collocation
+PASS  Sec5 N=6: mode -1 of (top mode)^2 is 0 exactly, 0 under 13-point collocation
+PASS  Sec5 N=7: mode -1 of (top mode)^2 is 0 exactly, 0 under 15-point collocation
+PASS  Sec5 N=8: mode -1 of (top mode)^2 is 0 exactly, 0 under 17-point collocation
+PASS  Sec5 N=1, M=2N+1: aliasing contaminates the nonzero modes, never l=0   | contaminated modes: [-1]
+PASS  Sec5 N=2, M=2N+1: aliasing contaminates the nonzero modes, never l=0   | contaminated modes: [-2, -1, 1, 2]
+PASS  Sec5 N=3, M=2N+1: aliasing contaminates the nonzero modes, never l=0   | contaminated modes: [-3, -2, -1, 1, 2, 3]
+PASS  Sec5 N=4, M=2N+1: aliasing contaminates the nonzero modes, never l=0   | contaminated modes: [-4, -3, -2, -1, 1, 2, 3, 4]
+PASS  Sec5 N=5, M=2N+1: aliasing contaminates the nonzero modes, never l=0   | contaminated modes: [-5, -4, -3, -2, 1, 2, 3, 4, 5]
+PASS  Sec5 N=6, M=2N+1: aliasing contaminates the nonzero modes, never l=0   | contaminated modes: [-6, -5, -4, -3, -2, 2, 3, 4, 5, 6]
+PASS  Sec5 N=7, M=2N+1: aliasing contaminates the nonzero modes, never l=0   | contaminated modes: [-7, -6, -5, -4, -3, -2, -1, 1, 2, 3, 4, 5, 6, 7]
+PASS  Sec5 N=8, M=2N+1: aliasing contaminates the nonzero modes, never l=0   | contaminated modes: [-8, -7, -6, -5, -4, -3, -2, -1, 2, 3, 4, 5, 6, 7, 8]
+PASS  Sec5 N=1, M=3N+1=4: collocation reproduces the exact Galerkin coefficients
+PASS  Sec5 N=2, M=3N+1=7: collocation reproduces the exact Galerkin coefficients
+PASS  Sec5 N=3, M=3N+1=10: collocation reproduces the exact Galerkin coefficients
+PASS  Sec5 N=4, M=3N+1=13: collocation reproduces the exact Galerkin coefficients
+PASS  Sec5 N=5, M=3N+1=16: collocation reproduces the exact Galerkin coefficients
+PASS  Sec5 N=6, M=3N+1=19: collocation reproduces the exact Galerkin coefficients
+PASS  Sec5 N=7, M=3N+1=22: collocation reproduces the exact Galerkin coefficients
+PASS  Sec5 N=8, M=3N+1=25: collocation reproduces the exact Galerkin coefficients
+PASS  Sec5 N=1, M=3N: the top mode still aliases onto mode -1 (threshold is sharp at M >= 3N+1)   | contaminated modes: [-1]
+PASS  Sec5 N=2, M=3N: the top mode still aliases onto mode -2 (threshold is sharp at M >= 3N+1)   | contaminated modes: [-2]
+PASS  Sec5 N=3, M=3N: the top mode still aliases onto mode -3 (threshold is sharp at M >= 3N+1)   | contaminated modes: [-3]
+PASS  Sec5 N=4, M=3N: the top mode still aliases onto mode -4 (threshold is sharp at M >= 3N+1)   | contaminated modes: [-4]
+PASS  Sec5 N=5, M=3N: the top mode still aliases onto mode -5 (threshold is sharp at M >= 3N+1)   | contaminated modes: [-5]
+PASS  Sec5 N=6, M=3N: the top mode still aliases onto mode -6 (threshold is sharp at M >= 3N+1)   | contaminated modes: [-6]
+PASS  Sec5 N=7, M=3N: the top mode still aliases onto mode -7 (threshold is sharp at M >= 3N+1)   | contaminated modes: [-7]
+PASS  Sec5 N=8, M=3N: the top mode still aliases onto mode -8 (threshold is sharp at M >= 3N+1)   | contaminated modes: [-8]
+PASS  Sec5 the alias error is O(1) in the data: corrupted coefficient 1 vs exact 0 (amplitude 1)
+
+==============================================================================
+Sec 6  spectral diagnostic: finite-band growth vs continuous growth
+==============================================================================
+
+  (a) max over the retained band |l| <= N of Re sigma, c = 1
+         k | N=1      N=2      N=4      N=8      N=16     N=32     | sqrt(k^4+c k^3)
+      0.25 | 0.1398   0.1398   0.1398   0.1398   0.1398   0.1398   |     0.1398
+      0.50 | 0.4330   0.4330   0.4330   0.4330   0.4330   0.4330   |     0.4330
+      1.00 | 1.4142   1.4142   1.4142   1.4142   1.4142   1.4142   |     1.4142
+      2.00 | 4.8990   4.8990   4.8990   4.8990   4.8990   4.8990   |     4.8990
+      4.00 | 17.8885  17.8885  17.8885  17.8885  17.8885  17.8885  |    17.8885
+      8.00 | 67.8823  67.8823  67.8823  67.8823  67.8823  67.8823  |    67.8823
+     16.00 | 263.8788 263.8788 263.8788 263.8788 263.8788 263.8788 |   263.8788
+     32.00 | 1039.8769 1039.8769 1039.8769 1039.8769 1039.8769 1039.8769 |  1039.8769
+     64.00 | 4127.8760 4127.8760 4127.8760 4127.8760 4127.8760 4127.8760 |  4127.8760
+PASS  Sec6 (a) every truncation N >= 1 is unstable at EVERY k > 0 (the mode l = -1 is retained in every band)
+PASS  Sec6 (a) the band maximum is attained at l = -1 and is completely independent of the truncation N
+
+  (b) ratio max Re sigma / k^2   (-> 1 for every fixed N: same k^2 rate)
+         k | N=1      N=2      N=4      N=8      N=16     N=32    
+      0.25 | 2.2361   2.2361   2.2361   2.2361   2.2361   2.2361  
+      0.50 | 1.7321   1.7321   1.7321   1.7321   1.7321   1.7321  
+      1.00 | 1.4142   1.4142   1.4142   1.4142   1.4142   1.4142  
+      2.00 | 1.2247   1.2247   1.2247   1.2247   1.2247   1.2247  
+      4.00 | 1.1180   1.1180   1.1180   1.1180   1.1180   1.1180  
+      8.00 | 1.0607   1.0607   1.0607   1.0607   1.0607   1.0607  
+     16.00 | 1.0308   1.0308   1.0308   1.0308   1.0308   1.0308  
+     32.00 | 1.0155   1.0155   1.0155   1.0155   1.0155   1.0155  
+     64.00 | 1.0078   1.0078   1.0078   1.0078   1.0078   1.0078  
+PASS  Sec6 (b) the finite-band growth shows the same k^2 rate as the continuous high-frequency growth, uniformly in N
+
+  (c) ONE-SIDED sector l >= 1 only: threshold in k is c/N
+    N= 1 : measured k* = 1.00000 , c/N = 1.00000
+    N= 2 : measured k* = 0.50000 , c/N = 0.50000
+    N= 4 : measured k* = 0.25000 , c/N = 0.25000
+    N= 8 : measured k* = 0.12490 , c/N = 0.12500
+    N=16 : measured k* = 0.06250 , c/N = 0.06250
+PASS  Sec6 (c) the positive-ell modes are neutral exactly for k <= c/N, so the one-sided stable band shrinks like 1/N -- this is NOT full-band stability, because l = -1 is unstable for every k > 0
+
+  (d) the small-|l| face: fixed k = 1, l -> 0^- gives unbounded growth
+             l |     Re sigma | sqrt(c k^3/|l|)
+      -1.0e-01 |       3.3166 |       3.1623
+      -1.0e-02 |      10.0499 |      10.0000
+      -1.0e-03 |      31.6386 |      31.6228
+      -1.0e-04 |     100.0050 |     100.0000
+      -1.0e-05 |     316.2293 |     316.2278
+      -1.0e-06 |    1000.0005 |    1000.0000
+PASS  Sec6 (d) for fixed k the CONTINUOUS growth is unbounded as l -> 0^- (Re sigma ~ sqrt(c k^3/|l|)), while the truncated band |l| >= 1 has the finite maximum sqrt(k^4+c k^3) = 1.4142
+PASS  Sec6 (d) hence the y-truncation regularises the l -> 0 direction (the singularity at l = 0 is removed) but NOT the k -> infinity direction
+
+==============================================================================
+Sec 7  centred-difference kernel on Z/M (cross-check with Common/Operators.lean)
+==============================================================================
+  Z/M, C[j, j+1] = +1/2, C[j, j-1] = -1/2 ;  nullity = M - rank
+     M |  nullity | expected
+     3 |        1 | 1
+     4 |        2 | 2
+     5 |        1 | 1
+     6 |        2 | 2
+     7 |        1 | 1
+     8 |        2 | 2
+     9 |        1 | 1
+    10 |        2 | 2
+PASS  Sec7 odd M (in particular M = 2N+1) gives a ONE-dimensional kernel, even M gives a spurious second zero mode
+
+==============================================================================
+summary
+==============================================================================
+61/61 checks passed
+RESULT: OK
+wrote C:\Users\msz\ѧ������\expression_deepseek-v4.1-flash_20260917_222927\B_spectral\experiments\spectral_diagnostic_summary.json

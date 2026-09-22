@@ -1,0 +1,417 @@
+{
+  "direction": "B_spectral",
+  "python": "3.13.3",
+  "sympy": "1.13.3",
+  "checks_total": 61,
+  "checks_passed": 61,
+  "failures": [],
+  "checks": [
+    {
+      "check": "Sec1 linearised (1) equals (i l s)U - k^2 V - (u0+2a)k l U",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Sec1 linearised (2) equals (s+i(u0+2a)k)V + i(v0+2 lam)kU - i k^2 l U",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Sec1 (1L) determines V (unique solution)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Sec1 elimination of V gives (s+i(u0+2a)k)^2 = k^4 - (v0+2 lam)k^3/l",
+      "ok": true,
+      "detail": "residual = 0"
+    },
+    {
+      "check": "Sec1 l=0: (1L) forces V = 0",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Sec1 l=0: (2L) with V = 0 forces (v0+2 lam) U = 0",
+      "ok": true,
+      "detail": "(2L)|l=0 with V=0 is I*U*k*(2*lam + v0)"
+    },
+    {
+      "check": "Sec2 l=0 of (1) is exactly d_x^2 v_0 (no u_0, no nonlinearity)",
+      "ok": true,
+      "detail": "residual = 0"
+    },
+    {
+      "check": "Sec2 l=0 of (2) is d_t v_0 + d_x[<uv> + 2a v_0 + 2 lam u_0]",
+      "ok": true,
+      "detail": "residual = 0"
+    },
+    {
+      "check": "Sec2 the quadratic pair u u_xy + u_x u_y contributes zero to l=0 (antisymmetry)",
+      "ok": true,
+      "detail": "residual = 0"
+    },
+    {
+      "check": "Sec2 (V7) v = -2 lam, u = U(x,t) arbitrary solves (1) exactly (all l)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Sec2 (V7) same family solves (2) exactly (all l)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Sec2 the zero-mode family is not affected by the projection (residuals are mode-wise zero for every retained band)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Sec3 truncated (N=1) l=0 identities hold exactly",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Sec3 truncated (N=2) l=0 identities hold exactly",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Sec3 truncated (N=3) l=0 identities hold exactly",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Sec4 l * disc factors as k^3 (k l - c)",
+      "ok": true,
+      "detail": "l*disc = k**3*(-c + k*l)"
+    },
+    {
+      "check": "Sec4 sign(disc) matches the predicted neutral/unstable regions (c=1)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Sec4 neutral region 0 < sgn(l) k < c/|l| has disc <= 0",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Sec5 root-of-unity filter: sum_j w^{tj} = M if M|t else 0 (M=3)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Sec5 root-of-unity filter: sum_j w^{tj} = M if M|t else 0 (M=4)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Sec5 root-of-unity filter: sum_j w^{tj} = M if M|t else 0 (M=5)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Sec5 N=1: mode -1 of (top mode)^2 is 0 exactly, 0 under 3-point collocation",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Sec5 N=2: mode -1 of (top mode)^2 is 0 exactly, 0 under 5-point collocation",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Sec5 N=3: mode -1 of (top mode)^2 is 0 exactly, 0 under 7-point collocation",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Sec5 N=4: mode -1 of (top mode)^2 is 0 exactly, 0 under 9-point collocation",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Sec5 N=5: mode -1 of (top mode)^2 is 0 exactly, 0 under 11-point collocation",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Sec5 N=6: mode -1 of (top mode)^2 is 0 exactly, 0 under 13-point collocation",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Sec5 N=7: mode -1 of (top mode)^2 is 0 exactly, 0 under 15-point collocation",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Sec5 N=8: mode -1 of (top mode)^2 is 0 exactly, 0 under 17-point collocation",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Sec5 N=1, M=2N+1: aliasing contaminates the nonzero modes, never l=0",
+      "ok": true,
+      "detail": "contaminated modes: [-1]"
+    },
+    {
+      "check": "Sec5 N=2, M=2N+1: aliasing contaminates the nonzero modes, never l=0",
+      "ok": true,
+      "detail": "contaminated modes: [-2, -1, 1, 2]"
+    },
+    {
+      "check": "Sec5 N=3, M=2N+1: aliasing contaminates the nonzero modes, never l=0",
+      "ok": true,
+      "detail": "contaminated modes: [-3, -2, -1, 1, 2, 3]"
+    },
+    {
+      "check": "Sec5 N=4, M=2N+1: aliasing contaminates the nonzero modes, never l=0",
+      "ok": true,
+      "detail": "contaminated modes: [-4, -3, -2, -1, 1, 2, 3, 4]"
+    },
+    {
+      "check": "Sec5 N=5, M=2N+1: aliasing contaminates the nonzero modes, never l=0",
+      "ok": true,
+      "detail": "contaminated modes: [-5, -4, -3, -2, 1, 2, 3, 4, 5]"
+    },
+    {
+      "check": "Sec5 N=6, M=2N+1: aliasing contaminates the nonzero modes, never l=0",
+      "ok": true,
+      "detail": "contaminated modes: [-6, -5, -4, -3, -2, 2, 3, 4, 5, 6]"
+    },
+    {
+      "check": "Sec5 N=7, M=2N+1: aliasing contaminates the nonzero modes, never l=0",
+      "ok": true,
+      "detail": "contaminated modes: [-7, -6, -5, -4, -3, -2, -1, 1, 2, 3, 4, 5, 6, 7]"
+    },
+    {
+      "check": "Sec5 N=8, M=2N+1: aliasing contaminates the nonzero modes, never l=0",
+      "ok": true,
+      "detail": "contaminated modes: [-8, -7, -6, -5, -4, -3, -2, -1, 2, 3, 4, 5, 6, 7, 8]"
+    },
+    {
+      "check": "Sec5 N=1, M=3N+1=4: collocation reproduces the exact Galerkin coefficients",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Sec5 N=2, M=3N+1=7: collocation reproduces the exact Galerkin coefficients",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Sec5 N=3, M=3N+1=10: collocation reproduces the exact Galerkin coefficients",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Sec5 N=4, M=3N+1=13: collocation reproduces the exact Galerkin coefficients",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Sec5 N=5, M=3N+1=16: collocation reproduces the exact Galerkin coefficients",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Sec5 N=6, M=3N+1=19: collocation reproduces the exact Galerkin coefficients",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Sec5 N=7, M=3N+1=22: collocation reproduces the exact Galerkin coefficients",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Sec5 N=8, M=3N+1=25: collocation reproduces the exact Galerkin coefficients",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Sec5 N=1, M=3N: the top mode still aliases onto mode -1 (threshold is sharp at M >= 3N+1)",
+      "ok": true,
+      "detail": "contaminated modes: [-1]"
+    },
+    {
+      "check": "Sec5 N=2, M=3N: the top mode still aliases onto mode -2 (threshold is sharp at M >= 3N+1)",
+      "ok": true,
+      "detail": "contaminated modes: [-2]"
+    },
+    {
+      "check": "Sec5 N=3, M=3N: the top mode still aliases onto mode -3 (threshold is sharp at M >= 3N+1)",
+      "ok": true,
+      "detail": "contaminated modes: [-3]"
+    },
+    {
+      "check": "Sec5 N=4, M=3N: the top mode still aliases onto mode -4 (threshold is sharp at M >= 3N+1)",
+      "ok": true,
+      "detail": "contaminated modes: [-4]"
+    },
+    {
+      "check": "Sec5 N=5, M=3N: the top mode still aliases onto mode -5 (threshold is sharp at M >= 3N+1)",
+      "ok": true,
+      "detail": "contaminated modes: [-5]"
+    },
+    {
+      "check": "Sec5 N=6, M=3N: the top mode still aliases onto mode -6 (threshold is sharp at M >= 3N+1)",
+      "ok": true,
+      "detail": "contaminated modes: [-6]"
+    },
+    {
+      "check": "Sec5 N=7, M=3N: the top mode still aliases onto mode -7 (threshold is sharp at M >= 3N+1)",
+      "ok": true,
+      "detail": "contaminated modes: [-7]"
+    },
+    {
+      "check": "Sec5 N=8, M=3N: the top mode still aliases onto mode -8 (threshold is sharp at M >= 3N+1)",
+      "ok": true,
+      "detail": "contaminated modes: [-8]"
+    },
+    {
+      "check": "Sec5 the alias error is O(1) in the data: corrupted coefficient 1 vs exact 0 (amplitude 1)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Sec6 (a) every truncation N >= 1 is unstable at EVERY k > 0 (the mode l = -1 is retained in every band)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Sec6 (a) the band maximum is attained at l = -1 and is completely independent of the truncation N",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Sec6 (b) the finite-band growth shows the same k^2 rate as the continuous high-frequency growth, uniformly in N",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Sec6 (c) the positive-ell modes are neutral exactly for k <= c/N, so the one-sided stable band shrinks like 1/N -- this is NOT full-band stability, because l = -1 is unstable for every k > 0",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Sec6 (d) for fixed k the CONTINUOUS growth is unbounded as l -> 0^- (Re sigma ~ sqrt(c k^3/|l|)), while the truncated band |l| >= 1 has the finite maximum sqrt(k^4+c k^3) = 1.4142",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Sec6 (d) hence the y-truncation regularises the l -> 0 direction (the singularity at l = 0 is removed) but NOT the k -> infinity direction",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "Sec7 odd M (in particular M = 2N+1) gives a ONE-dimensional kernel, even M gives a spurious second zero mode",
+      "ok": true,
+      "detail": ""
+    }
+  ],
+  "growth_table": [
+    {
+      "k": 0.25,
+      "maxReSigma_N1_N2_N4_N8_N16_N32": [
+        0.13975424859373686,
+        0.13975424859373686,
+        0.13975424859373686,
+        0.13975424859373686,
+        0.13975424859373686,
+        0.13975424859373686
+      ]
+    },
+    {
+      "k": 0.5,
+      "maxReSigma_N1_N2_N4_N8_N16_N32": [
+        0.4330127018922193,
+        0.4330127018922193,
+        0.4330127018922193,
+        0.4330127018922193,
+        0.4330127018922193,
+        0.4330127018922193
+      ]
+    },
+    {
+      "k": 1.0,
+      "maxReSigma_N1_N2_N4_N8_N16_N32": [
+        1.4142135623730951,
+        1.4142135623730951,
+        1.4142135623730951,
+        1.4142135623730951,
+        1.4142135623730951,
+        1.4142135623730951
+      ]
+    },
+    {
+      "k": 2.0,
+      "maxReSigma_N1_N2_N4_N8_N16_N32": [
+        4.898979485566356,
+        4.898979485566356,
+        4.898979485566356,
+        4.898979485566356,
+        4.898979485566356,
+        4.898979485566356
+      ]
+    },
+    {
+      "k": 4.0,
+      "maxReSigma_N1_N2_N4_N8_N16_N32": [
+        17.88854381999832,
+        17.88854381999832,
+        17.88854381999832,
+        17.88854381999832,
+        17.88854381999832,
+        17.88854381999832
+      ]
+    },
+    {
+      "k": 8.0,
+      "maxReSigma_N1_N2_N4_N8_N16_N32": [
+        67.88225099390856,
+        67.88225099390856,
+        67.88225099390856,
+        67.88225099390856,
+        67.88225099390856,
+        67.88225099390856
+      ]
+    },
+    {
+      "k": 16.0,
+      "maxReSigma_N1_N2_N4_N8_N16_N32": [
+        263.8787600395303,
+        263.8787600395303,
+        263.8787600395303,
+        263.8787600395303,
+        263.8787600395303,
+        263.8787600395303
+      ]
+    },
+    {
+      "k": 32.0,
+      "maxReSigma_N1_N2_N4_N8_N16_N32": [
+        1039.876915793403,
+        1039.876915793403,
+        1039.876915793403,
+        1039.876915793403,
+        1039.876915793403,
+        1039.876915793403
+      ]
+    },
+    {
+      "k": 64.0,
+      "maxReSigma_N1_N2_N4_N8_N16_N32": [
+        4127.875967128857,
+        4127.875967128857,
+        4127.875967128857,
+        4127.875967128857,
+        4127.875967128857,
+        4127.875967128857
+      ]
+    }
+  ],
+  "c_normalisation": 1.0
+}

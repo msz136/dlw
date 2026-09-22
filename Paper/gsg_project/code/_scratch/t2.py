@@ -1,0 +1,15 @@
+import sympy as sp
+from engine import Lattice, e_add, e_mul, e_scale, e_zero
+L = Lattice(1, h=None, kind="none")
+print("P,Q =", L.P, L.Q)
+f = L.tau(1); g = L.tau(0)
+print("g =", g)
+print("f =", f)
+print("der g x:", L.der(g,"x"))
+print("der f x:", L.der(f,"x"))
+dd = L.der(L.der(f,"x"),"x")
+print("f_xx =", dd)
+print("Dx2 =", L.Dx2(f,g))
+print("Dx t =", L.Dx(f,g,"t"))
+print("Dx x =", L.Dx(f,g,"x"))
+print("B =", L.B(f,g))

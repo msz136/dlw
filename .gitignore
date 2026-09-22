@@ -1,0 +1,44 @@
+# =====================================================================
+#  本地环境 / 生成物 —— 一律不进仓库
+#  （本文件只做排除，不移动、不删除任何文件；AGENTS.md 的“不 rm”规则仍然有效）
+# =====================================================================
+
+# 共享 Lean 工具链 + Mathlib 检出（约 7 GB / 14 万文件，是环境不是我们的成果）
+_lean_shared/
+
+# 垃圾桶：隔离保留、绝不删除、也不提交
+Trash/
+
+# 数值实验的原始产物（体积大、可重跑复现）：
+# u/v/exact 全场快照 JSON、npz 二进制场缓存、日志、图……全部由
+# Paper/dlw_semidiscrete/numerics/ 下的脚本重跑生成，不入库
+Paper/dlw_semidiscrete/numerics/out/
+
+# Lean 构建产物与运行日志
+.lake/
+**/.lake/
+.lean-runs/
+**/.lean-runs/
+*.olean
+*.ilean
+*.c
+*.trace
+
+# 嵌套的 Lean 工程本地 git 元数据（lean-toda 内的空仓库，避免被记成 gitlink）
+lean-toda/.git/
+
+# Python
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini
+desktop.ini
+*~
+*.bak_pre_*

@@ -1,0 +1,111 @@
+/-
+Package: C02 — PROVED.  The target `C02` is established at the end of this file by
+
+    theorem c02_proved : C02
+
+No `sorry`, `admit` or new axiom is used: the proof is ordinary Mathlib calculus.
+
+=============================================================================
+THE THEOREM
+=============================================================================
+
+`C02` states: for smooth positive `f g : XYT` with `ContinuousPair a f g`, both
+`c1 a (cu f g) (cv f g)` and `c2 a (cu f g) (cv f g)` vanish.
+
+Put `A := log f + log g`, `B := log f - log g`.  Then, in `XYT` notation,
+
+    cu f g = (2:ℝ) • sx B          (`c02_cu_eq`)
+    cv f g = (2:ℝ) • sx (sy A)     (`c02_cv_eq`)
+
+The proof runs through the certificate
+
+    R  := c02R a A B = sx (sx A) + (sx B) * (sx B) + st B + (2a) • sx B
+    S  := c02S a A B = sx (sx (sy A)) - sx (sx (sy B)) - st (sy A) + st (sy B)
+                        - 2 • ((sx B) * (sx (sy A) - sx (sy B)))
+                        - (2a) • (sx (sy A) - sx (sy B)) + 4 • sx B
+    E2 := c02E2 a A B = (sy A - sy B) * R + S
+
+(so, in jet notation and with the honest third-order quantity `e`,
+
+    S = 2*e + 4*B_x,   E2 = 2*(q_y * R + e + 2*B_x),
+    e = (1/2)*(A_xxy - B_xxy - A_yt + B_yt) - B_x*(A_xy - B_xy) - a*(A_xy - B_xy),
+    q_y = (A_y - B_y)/2,
+
+all verified exactly by `_c02_scratch/check_old_form.py` and formalised below),
+
+together with the three bridges
+
+    cbil a f g          = (f * g) * R                 (`c02_cbil_eq`)
+    chx  f g            = (f * g) * sx B              (`c02_chx_eq`)
+    2 • cbil a f (sy g) = (f * g) * (E2 - 4 • sx B)   (`c02_cbil_syg_eq`)
+
+and the two *pure calculus* identities
+
+    c1 a (2 • sx B) (2 • sx (sy A)) = 2 • sx (sy R)                 (`c02_c1_eq`)
+    c2 a (2 • sx B) (2 • sx (sy A)) = 2 • sx (sy R) - 2 • sx S      (`c02_c2_eq`)
+
+Vanishing then follows from positivity of `f * g`: the first hypothesis
+`cbil a f g = 0` gives `R = 0`; the second hypothesis, in the equivalent form
+`cbil a f (sy g) + 2 * chx f g = 0` produced by `c02_hyp_from_ContinuousPair`,
+gives `E2 = 0`; hence `S = E2 - (sy A - sy B) * R = 0`, and both `c1` and `c2`
+vanish.
+
+=============================================================================
+THE SCALAR HYPOTHESES (corrected, verbatim)
+=============================================================================
+
+For smooth positive `f`, `g`, `ContinuousPair a f g` — i.e.
+
+    cbil a f g = 0  ∧  cdybil a f g - 4 * chx f g = 0
+
+— is equivalent to the following pair of *scalar* equations on `A`, `B`:
+
+    (I)  R  := c02R a A B
+            = sx (sx A) + (sx B) * (sx B) + st B + (2a) • sx B = 0
+
+    (II) E2 := c02E2 a A B = (sy A - sy B) * c02R a A B + c02S a A B = 0
+
+with `c02S` exactly as displayed above (equivalently `S = 2*e + 4*B_x` with the
+`e` above; equivalently `E2 = 2*(q_y * R + e + 2*B_x)` with `q_y = (A_y-B_y)/2`).
+
+WARNING.  An earlier draft of this file recorded the second scalar as
+
+    (II-wrong)  E2 = beta_y * (S_xx + (D_x)^2 + D_t + 2a * D_x) + 2 * B_x
+                where  beta_y := (A_y - B_y)/2,  alpha := (A + B)/2,
+                       S := alpha + beta_y,      D := alpha - beta_y.
+
+THIS FORM IS WRONG.  `S := alpha + beta_y` is not a log coordinate at all (it
+adds a function of `(x,t)` to a function of `(x,y,t)`), and the expression is not
+equal to the correct `E2`: the difference `E2 - (II-wrong)` is a nonzero
+polynomial on random smooth `A`, `B` (checked exactly with sympy in
+`_c02_scratch/check_old_form.py`; it vanishes only for degenerate inputs such as
+`a = 0` with `B` independent of `y`).  The correct statement is (II) above, whose
+right-hand side is built from `R` and from the *third-order* quantity `c02S`.
+Note also that the correction is not cosmetic: `2 • cbil a f (sy g)` is a
+second-order expression in the jets, and matching it to `(f*g)*(E2 - 4 B_x)`
+requires the `y`-derivatives `sx (sy A)`, `st (sy A)` appearing in `c02S`.
+
+=============================================================================
+WHAT IS PROVED IN THIS FILE
+=============================================================================
+
+* `c02_smooth_fixed_t`, `c02_smooth_fixed_x`, `c02_smooth_fixed_y` — slicing a
+  `Smooth3` function in any one variable keeps it `C^∞`.
+* `c02_log_sx`, `c02_log_sy`, `c02_log_st` — the log-jet lemmas
+  `sx φ = φ * sx (log φ)` and its `sy`/`st` analogues for a positive smooth `φ`.
+* `c02_log_sxx` — the second-order log-jet lemma
+  `sx (sx φ) = φ * (sx (sx (log φ)) + (sx (log φ))^2)`.
+* `c02_deriv_cbil_y` — the `y`-derivative of the bilinear form along `y`-slices,
+  `deriv (fun y' => cbil a f g x y' t) y
+     = cbil a (sy f) g x y t + cbil a f (sy g) x y t`
+  (the copy of `PkgContinuous.lean`'s private `dc_deriv_cbil_y`).
+* `c02_cdybil_eq` — the pointwise unfolding of `cdybil` used by `C01`.
+* `c02_hyp_from_ContinuousPair` — the two scalar hypotheses (I) and (II) in the
+  `A`/`B` normalisation, derived from `ContinuousPair` (I directly; II as
+  `cbil a f (sy g) + 2 * chx f g = 0`, the form C01 shows is equivalent to
+  `cdybil - 4 * chx = 0`).
+* the `XYT` jet toolkit (`c02_sx_mul`, `c02_sy_st`, `c02_smooth_log`, ...), the
+  three bridges `c02_cbil_eq` / `c02_chx_eq` / `c02_cbil_syg_eq`, the two
+  calculus identities `c02_c1_eq` / `c02_c2_eq`, and finally
+  `theorem c02_proved : C02`.
+-/

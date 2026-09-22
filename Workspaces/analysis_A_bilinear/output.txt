@@ -1,0 +1,48 @@
+==============================================================================
+A-route bilinearisation audit: simple finite difference -> discrete
+bilinear form -> solitons?
+==============================================================================
+[PASS] CHECK 1  B f.g = 0   (paper's equation (7), exact for all parameters)
+        B f.g = 0
+[PASS] CHECK 2  D_x f.g = -A E (p+q)^2/(q+a)  != 0 generically
+        D_x f.g = -A*E*(p + q)**2/(a + q)
+
+(F1) COLLAPSE at fixed operator parameter a:
+     B f_j.g_j = 0 at EVERY site => any difference of it vanishes,
+     so the difference-discretised (6) degenerates to 2*lam*D_x f.g = 0.
+[PASS] CHECK 3  degenerate equation holds only on the branch p+q = 0
+        D_x f.g/(A E) = -(p + q)**2/(a + q)   (zero iff p+q = 0)
+
+(F2) on the locus, (6) is EQUIVALENT to  B f.g_y + 2 D_x f.g = 0 ;
+     all y-information sits in the single bilinear form B(f.g_y).
+[PASS] CHECK 4  B f.g_y = -2 D_x f.g   hence  B f.g_y + 2 D_x f.g = 0
+        B f.g_y = 2*A*E*(p + q)**2/(a + q)
+
+(F3) replacing g_y by a CENTRED difference in j:
+     since B is linear in its second slot,
+         B(f_j, (g_{j+1}-g_{j-1})/(2h)) = [ratio] * B(f_j, g_y)
+[PASS] CHECK 5  ratio = sinh(kappa)/kappa   (kappa = log rho), deficit kappa^2/6
+        ratio = (rho**2 - 1)/(2*rho*log(rho))  = (rho - 1/rho)/(2 log rho) = sinh(kappa)/kappa
+        numeric rho=2: 1.082021280667
+        sinh(k)/k - 1 = kappa**4/120 + kappa**2/6
+[PASS] CHECK 6  no lattice factor can fix it: sinh(kappa)=kappa only at kappa=0
+        so the discrete bilinear equation has residual 2*D_x f.g*(1 - sinh(kappa)/kappa) != 0 for every h > 0
+
+(F4) the CONSTRAINT is transcendental, not bilinear:
+     w_j = (u_{j+1}-u_{j-1})/(2h), u_j = 2 d_x ln(f_j/g_j)  forces
+         exp(h phi_j) = f_{j+1} g_{j-1} / (g_{j+1} f_{j-1}) ,  d_x phi_j = w_j
+[PASS] CHECK 7  separable tau => phi_j independent of j => w_j = d_x phi_j = 0
+        phi_j = log(alpha**2/beta**2)/h
+
+(F5) CONTRAST: the staggered scheme is exact at N=1 because it shifts the
+     OPERATOR PARAMETER (s = a -+ h/2) at neighbouring sites, instead of
+     differencing the tau in y.  (Set j = 0; the equations carry no d_y.)
+[PASS] CHECK 8  (B - hD_x)F_j.G_j = 0  and  (B + hD_x)F_j.G_{j+1} = 0  exactly
+        (B-hD_x)F.G = 0
+        (B+hD_x)F.G+ = 0
+[PASS] CHECK 9  staggered log(rho)/h = 1/P + 1/Q + h^2/12 (1/P^3 + 1/Q^3) + O(h^4)
+        series verified against  1/P + 1/Q + h^2/12 (1/P^3 + 1/Q^3)
+
+==============================================================================
+ALL CHECKS PASSED
+==============================================================================

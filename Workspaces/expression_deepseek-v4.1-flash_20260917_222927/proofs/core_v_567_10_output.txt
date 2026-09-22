@@ -1,0 +1,18 @@
+==============================================================================
+MAIN-AGENT INDEPENDENT VERIFICATION (DLW y-discretisation programme)
+==============================================================================
+--- v5 ---
+[PASS] V5  w=u_y: (1) == w_t + d_x[v_x+(u+2a)w]
+[PASS] V5  w=u_y: (2) == v_t + d_x[(u+2a)v+w_x+2*lam*u]
+--- v6 ---
+[PASS] V6  linearisation gives [sigma + i(u0+2a)k]^2 = k^4 - (v0+2*lam) k^3/ell
+      two branches sigma = [-sqrt(-ell*k**3*(-ell*k + 2*lambda + v0))/ell, sqrt(ell*k**3*(ell*k - 2*lambda - v0))/ell]
+      => for real k,ell != 0 and |k| large: |Re(sigma)| ~ k^2  (Hadamard ill-posedness)
+      ell=0 sector solution set: [{uh: 0, vh: 0}]
+--- v7 ---
+[PASS] V7  v == -2*lam and u = U(x,t) arbitrary (u_y = 0) is an EXACT solution => y-independent zero mode / non-uniqueness
+--- v10 ---
+[PASS] V10  A_h = Bf.g + h^2(1/8 Bf.g_yy + 1/2 Dx f.g_y) + O(h^4)   (no h^1 term)
+[PASS] V10  C_h = Bf.g_y + 2 Dx f.g + h^2(1/24 Bf.g_yyy + 1/4 Dx f.g_yy) + O(h^4)
+------------------------------------------------------------------------------
+ALL REQUESTED CHECKS PASSED

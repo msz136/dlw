@@ -1,0 +1,1008 @@
+                                                                  DIRECT LINEARISATION OF THE DISCRETE-TIME
+                                                                       TWO-DIMENSIONAL TODA LATTICES
+
+                                                                                                      WEI FU
+
+
+                                                  Abstract. The discrete-time two-dimensional Toda lattice of A∞ -type is studied within the direct linearisation
+                                                  framework, which allows us to deal with several nonlinear equations in this class simultaneously and to construct
+                                                  more general solutions of these equations. The periodic reductions of this model are also considered, giving rise
+                                                                                                          (1)
+                                                  to the discrete-time two-dimensional Toda lattices of Ar−1 -type for r ≥ 2 (which amount to the negative flows
+                                                  of members in the discrete Gel’fand–Dikii hierarchy) and their integrability properties.
+
+                                                  Keywords: direct linearisation, discrete-time two-dimensional Toda lattice, exact solution, tau function, Lax
+arXiv:1802.06452v3 [nlin.SI] 8 Jul 2018
+
+
+
+
+                                                  pair, periodic reduction
+
+
+
+
+                                                                                               1. Introduction
+                                            The two-dimensional Toda lattice (2DTL)
+                                          (1.1)                                      ∂1 ∂−1 ϕn = −eϕn+1−ϕn + eϕn −ϕn−1 ,
+                                          where ϕn is the potential as a function of two continuous time variables x1 and x−1 and one discrete spatial
+                                          variable n, and ∂1 and ∂−1 denote the partial derivatives ∂/∂x1 and ∂/∂x−1 , respectively, was originally proposed
+                                          by Mikhailov [18] in 1979, as an integrable generalisation of the famous one-dimensional Toda lattice [28].
+                                          Equation (1.1) can alternatively be written in the form of (cf. e.g. Jimbo and Miwa’s review paper [16])
+                                                                                                    X
+                                          (1.2)                                     ∂1 ∂−1 θn = −      an,m e−θm ,
+                                                                                                         m∈Z
+
+                                          where θn = ϕn−1 − ϕn and an,m are the entries of the Cartan matrix corresponding to the infinite-dimensional
+                                          algebra A∞ , namely
+                                                                                        
+                                                                                         2,     n = m,
+                                                                                an,m =      −1, n = m ± 1,
+                                                                                            0,   otherwise,
+                                                                                        
+
+                                          and thus, it is also reasonable to refer to this model as the 2DTL of A∞ -type. The 2DTL is mathematically
+                                          remarkable because it is still integrable when the algebra A∞ is replaced by various algebras, see Mikhailov,
+                                          Olshanetsky and Perelomov [20], Fordy and Gibbons [6, 7], Wilson [30], and also the Kyoto School [3, 16, 29].
+                                                                                                   (1)          (2)
+                                          Among these the two typical ones are the 2DTLs of A1 -type and A2 -type which can be written in scalar
+                                          form, namely the well-known sinh–Gordon and Tzitzeica equations
+                                          (1.3)                         ∂1 ∂−1 ϕ0 = e2ϕ0 + e−2ϕ0        and ∂1 ∂−1 ϕ0 = e2ϕ0 − e−ϕ0 .
+                                          Exact solutions to the 2DTLs of different types are also obtained by using various methods, see e.g. [15, 19, 25]
+                                          for soliton solutions, and also [1] for higher-rank solutions. For the algebraic structure of the 2DTL, we refer to
+                                          Ueno and Takasaki [29] (see also [27]).
+                                             Discrete integrable systems are often considered being master models in the theory of integrable systems,
+                                          mainly due to their rich algebraic structure and connection with modern mathematics and physics, see e.g. [12].
+                                          The discretisation (discrete in both time variables) of the 2DTL was considered from several perspectives in the
+                                          past decades. An effective way to construct the discrete 2DTL is to discretise the bilinear 2DTL, attributed
+                                          to Hirota [13] and Miwa [21]. The mechanism of such a discretisation was explained by Date, Jimbo and
+                                          Miwa [2] from the viewpoint of the theory of transformation groups, motivated by the idea in [21]. Moreover,
+                                          the q-discretisation of the 2DTL, which is closely related to quantum groups, was also obtained by the bilinear
+                                          approach in [17]. Another approach to discretise the 2DTL was introduced by Fordy and Gibbons [6, 7], where
+                                          the discrete equation arises as the superposition formula of two Bäcklund transforms for the continuous-time
+                                          2DTL on the nonlinear level. A recent significant progress on the discrete-time 2DTLs was made in [11,26], where
+                                          the integrability is guaranteed in sense that first integrals and symmetries are preserved in the discretisation.
+                                                                                                         1
+2                                                                WEI FU
+
+
+   Our motivation is to consider the discrete-time 2DTL within the so-called direct linearisation framework.
+The direct linearising method was first proposed by Fokas and Ablowitz [5] to construct several classes of exact
+solutions of the continuous Korteweg–de Vries (KdV) equation, and was later generalised by the Dutch School
+to study discrete integrable systems, see e.g. [22–24]. The benefit of this approach is that it helps us to deal with
+several discrete nonlinear equations in the same class simultaneously, and more importantly, it provides very
+general solutions to these nonlinear integrable equations. Recently, the direct linearising method was developed
+to study the linear, bilinear and nonlinear structures of a class of integrable equations from a unified point of
+view [9], illustrated by three-dimensional (3D) models including the discrete Kadomtsev–Petviashvili (KP)-type
+equations.
+   In the present paper, three nonlinear discrete equations in the class of the discrete-time 2DTL of A∞ -type
+are constructed in the direct linearisation, including the bilinear and modified discrete-time 2DTL equations
+given by Date, Jimbo and Miwa in [2], and also an unmodified equation which is a new parametrisation of an
+unnamed octahedron-type equation that appeared recently in [4]. Their associated Lax pairs are also obtained
+in the scheme, which completes the incomplete part in [2] (though the author firmly believes that those authors
+were able to construct the Lax pairs in their framework). The direct linearising solutions for these equations are
+natural consequences of the scheme, reducing to soliton solutions as a particular degenerate case. The periodic
+reductions are also considered in the framework, resulting in the corresponding two-dimensional (2D) discrete
+                                                            (1)
+integrable systems, namely the discrete-time 2DTLs of Ar−1 -type for r ≥ 2 (amounting to the negative flows
+                                                                                                     (1)
+of members in the discrete Gel’fand–Dikii (GD) hierarchy), in which the A1 class provides the well-known
+discrete sinh–Gordon (or sine–Gordon) equation and its gauge equivalent models. When r ≥ 3, we obtain the
+new discrete integrable systems very recently given by Fordy and Xenitidis [8]. The nonlinear forms, the bilinear
+formalism, the Lax matrices and the direct linearising solutions for these models are all discussed, from the
+perspective of the direct linearisation.
+   The paper is organised as follows. In section 2, we introduce the general theory of the direct linearisation,
+in the language of infinite matrix. Sections 3 and 4 are contributed to the direct linearisation schemes of the
+                                                  (1)
+discrete-time 2DTL equations of A∞ -type and Ar−1 -type, respectively, and their integrability properties.
+
+                                                      2. General theory
+2.1. Infinite-dimensional projection and index-raising matrices. In the direct linearising method, we
+need the notion of infinite matrix. In this subsection, we only give a brief introduction to such a notion. For
+more detail, we refer the reader to [9]. The fundamental objects in infinite matrices include a projection matrix
+O and two index-raising matrices Λ and tΛ. They are all matrices of size ∞ × ∞ having their respective entries
+(2.1)                       (O)i,j = δi,0 δ0,j ,       (Λ)i,j = δi+1,j ,       and (tΛ)i,j = δi,j+1 ,
+respectively, where δ·,· is the standard Kronecker delta function defined as
+                                                
+                                                  1, i = j,
+                                         δi,j =                 ∀i, j ∈ Z.
+                                                  0, i 6= j,
+From the definitions, one can observe that the transpose of O obeys tO = O, and Λ and tΛ are the transposes
+for each other. The projection operator O is a “centred” infinite matrix and satisfies the property O2 = O.
+Given a general infinite matrix U with the (i, j)-entries Ui,j , one can verify that
+                                   (O · U)i,j = δi,0 U0,j         and (U · O)i,j = Ui,0 δ0,j ,
+according to the definition of O. In terms of Λ and tΛ, we have operations
+                                      ′                                              ′
+                                 (Λi · U)i,j = Ui+i′ ,j          and (U · tΛj )i,j = Ui,j+j ′ ,
+which follow from the definitions of Λ and tΛ, namely they raise the row and column indices, respectively.
+Similarly, for a given infinite-dimensional column vector u having its ith-component u(i) , and its transpose, i.e.
+an infinite-dimensional row vector tu still having its ith-component u(i) , we have the following operations:
+                                                                          ′                   ′                 ′        ′
+             (O · u)i = δi,0 u(0) ,       (tu · O)j = u(0) δ0,j ,    (Λi · u)i = u(i+i ) ,           (u · tΛj )j = u(j+j ) ,
+where (·)i and (·)j denote taking the ith- and jth-components of an infinite-dimensional vector, respectively. In
+the direct linearisation, we need to consider two particular infinite-dimensional vectors
+                           ck = (· · · , k −1 , 1, k, · · · )T   and   t
+                                                                          ck′ = (· · · , k ′−1 , 1, k ′ , · · · ).
+               DIRECT LINEARISATION OF THE DISCRETE-TIME TWO-DIMENSIONAL TODA LATTICES                             3
+
+
+The operations of O, Λ and tΛ on these two vectors satisfy the following relations:
+(2.2)                        Λi · ck = k i ck ,     ck′ · tΛj = k ′j tck′ ,
+                                                    t                           t
+                                                                                ck′ · O · ck = 1.
+The above are the fundamental operations of infinite-dimensional matrices and vectors. More complicated
+operations involving these objects can be derived from these fundamental ones or from the definitions.
+
+2.2. Linear integral equation and its infinite matrix representation. The idea of the direct linearis-
+ing method is to solve a nonlinear integrable equation by considering its associated linear integral equation.
+Reversely, a linear integral equation having a certain structure also brings a class of related nonlinear equations.
+   We consider a general linear integral equation taking the form of
+                                           ZZ
+(2.3)                                 uk +       dζ(l, l′ )ρk Ωk,l′ σl′ ul = ρk ck ,
+                                                   D
+                                                                                                        (i)
+where the wave function uk is an infinite-dimensional column vector having its ith-component uk as a smooth
+function of the dynamical variables and their associated parameters, also depending on the spectral parameter
+k; the Cauchy kernel Ωk,l′ is an algebraic expression of the spectral parameters k and l′ , which is independent
+of the dynamical variables; the plane wave functions ρk and σl′ are expressions of dynamical variables (i.e.
+flow variables), depending on the spectral parameters k and l′ , respectively; the measure dζ(l, l′ ) depending on
+the spectral variables l and l′ , and the integration domain D can be determined later for particular classes of
+solutions.
+   The key point is that the plane wave factors ρk and σk′ containing the information of the dynamics, determine
+the linear structure in the integral equation (2.3); the Cauchy kernel Ωk,k′ and the measure dζ(k, k ′ ), instead,
+describe the dependence of the spectral variables k and k ′ , governing the nonlinear structure of the resulting
+nonlinear equations.
+   In order to relate a class of nonlinear equations to a given linear integral equation, we interpret the structure
+of the linear integral equation (2.3) in infinite matrix language. First of all, we introduce an infinite matrix Ω
+defined by the following relation:
+(2.4)                                               Ωk,k′ = tck′ · Ω · ck .
+This relation implies that Ω is the infinite matrix representation of the Cauchy kernel Ωk,k′ . The second object
+we need is an infinite matrix C defined as
+                                               ZZ
+(2.5)                                      C=       dζ(k, k ′ )ρk ck tck′ σk′ .
+                                                         D
+The core part of this infinite matrix is ρk σk′ , namely the effective dispersion in the linear integral equation,
+which implies that C is the infinite matrix representation of the effective plane wave factor. We also define an
+infinite matrix U by
+                                                 ZZ
+(2.6)                                     U=         dζ(k, k ′ )uk tck′ σk′ ,
+                                                          D
+
+which is a nonlinearisation of the wave function uk in the linear integral equation (2.3). Using these quantities,
+we can represent the linear integral equation by the above infinite matrices.
+Proposition 2.1. The linear integral (2.3) has an infinite matrix representation
+(2.7)                                             uk = (1 − U · Ω) · ρk ck ,
+where Ω, U are the infinite matrices defined in (2.4) and (2.6).
+Corollary 2.2. The infinite matrix U satisfies the following relation:
+(2.8)                   U = (1 − U · Ω) · C,            or alternatively      U = C · (1 + Ω · C)−1 ;
+in other words, the dynamics of U is governed by C (the linear structure) and Ω (the nonlinear structure).
+  In addition, we also need the notion of the tau function in the framework.
+Definition 2.3. The tau function in the direct linearisation framework is defined as
+(2.9)                                               τ = det(1 + Ω · C),
+in which the determinant should be understood as the expansion of exp{tr [ln(1 + Ω · C)]}.
+4                                                                WEI FU
+
+
+    These quantities constitute the key ingredients in the direct linearising approach. For a given linear integral
+equation, namely for fixed plane wave factors ρk and σk′ (i.e. the linear structure), and fixed Cauchy kernel Ωk,k′
+and measure dζ(k, k ′ ) (i.e. the nonlinear structure), the direct linearisation helps to algebraically construct a
+class of closed-form equations from the following perspectives: i) The components of uk solve linear equations
+(i.e. Lax pairs); ii) The tau function τ solves the bilinear equations in Hirota’s form; iii) The entries of U
+solve the nonlinear equations in the class; iv) The quantities given in (2.3), (2.9) and (2.6) provide the direct
+linearising solutions to the corresponding closed-form equations.
+
+                      3. Discrete-time two-dimensional Toda lattice of A∞ -type
+3.1. Notations. We introduce some essential notations in the discrete theory. For an arbitrary function f =
+            .
+fn1 ,n−1 ,n = f (n1 , n−1 , n) of discrete independent variables n1 , n−1 and n associated with lattice parameters p1 ,
+p−1 and zero, respectively. The following accent marks denote the discrete forward shift operators with respect
+to their corresponding lattice directions:
+                                   f˜ = fn +1,n ,n , fˇ = fn ,n +1,n , f˙ = fn ,n ,n+1 .
+                                         1       −1                 1     −1                  1   −1
+
+Similarly, for backward shift operators we have
+                           f = fn1 −1,n−1 ,n , f = fn1 ,n−1 −1,n , f = fn1 ,n−1 ,n−1 .
+                           ˜                   ˇ                   ˙
+Combinations of the above accent marks then naturally denote the compositions of these discrete shift opera-
+tions.
+3.2. Nonlinear and linear structures. To algebraically construct equations in the class of the discrete-time
+2DTL of A∞ -type, we consider the following Cauchy kernel and measure:
+                                            1
+(3.1)                             Ωk,k′ =        , dζ(k, k ′ ) being arbitrary,
+                                          k + k′
+as well as the plane wave factors
+(3.2)         ρk = (p1 + k)n1 (p−1 + k)n−1 k n           and σk′ = (p1 − k ′ )−n1 (p−1 − k ′−1 )−n−1 (−k ′ )−n .
+In concrete calculation, the two plane wave factors normally combine together (cf. the infinite matrix C), and
+form the effective plane wave factor
+                                                  n1              n−1      n
+                                          p1 + k         p−1 + k −1          k
+(3.3)                          ρk σk′ =                                    −       ,
+                                          p1 − k ′       p−1 − k ′−1         k′
+which completely governs the dynamics in the resulting nonlinear models.
+3.3. Soliton solution. According to the general statement, equations (2.3), (2.9) and (2.6) provide us with the
+direct linearising solutions to the discrete-time 2DTL of A∞ -type. As an example, below we give the explicit
+formulae for soliton solutions. We take a particular measure involving a finite number of singularities, namely
+                                                           ′
+                                                        N
+                                                      N X
+                                                      X
+                                             ′
+(3.4)                               dζ(k, k ) =                 Ai,j δ(k − ki )δ(k ′ − kj′ )dkdk ′ ,
+                                                      i=1 j=1
+
+where Ai,j is the (i, j)-entry of a constant full-rank N × N ′ matrix A, ki and kj′ are the singularities, and the
+                                                               1  1
+delta function here should be understood as δ(k − kj ) = 2πi     k−kj with i being the imaginary unit. Let the
+domain D contain all these singularities. This reduces the linear integral equation (2.3) to
+                                                            ′
+                                                        N
+                                                      N X
+                                                      X                 ρk σkj′
+(3.5)                                        uk +               Ai,j              uki = ρk ck ,
+                                                      i=1 j=1
+                                                                        k + kj′
+
+according to the residue theorem. Now we introduce an N ′ ×N generalised Cauchy matrix M with its (j, i)-entry
+                                     ρki σkj′
+                              Mj,i =          , j = 1, 2, · · · , N ′ , i = 1, 2, · · · , N,
+                                     ki + kj′
+where ρk σk′ is given by (3.3). Taking k = ki for i = 1, 2, · · · , N in the reduced equation (3.5), we obtain
+                  (uk1 , uk2 , · · · , ukN ) + (uk1 , uk2 , · · · , ukN )AM = (ρk1 ck1 , ρk2 ck2 , · · · , ρkN ckN )
+and thus, uki can be expressed by
+                            (uk1 , uk2 , · · · , ukN ) = rT diag(ck1 , ck2 , · · · , ckN )(1 + AM)−1 ,
+                  DIRECT LINEARISATION OF THE DISCRETE-TIME TWO-DIMENSIONAL TODA LATTICES                                       5
+
+
+where r = (ρk1 , ρk2 , · · · , ρkN )T . Meanwhile, considering (2.6) together with (3.4), we also have
+                                   ′
+                              N
+                            N X
+                            X
+(3.6)                  U=              Ai,j uki tckj′ σkj′ = (uk1 , uk2 , · · · , ukN )A diag(ck1′ , ck2′ , · · · , ckN
+                                                                                                                      ′ )s.
+                                                                                                                        ′
+                            i=1 j=1
+                                       T
+                                   ′ ) . Therefore, substituting uk in (3.6) by using the previous formula, we end up
+where s = (σk1′ , σk2′ , · · · , σkN ′                             i
+
+with the explicit expression of U as follows:
+                        U = rT diag(ck1 , ck2 , · · · , ckN )(1 + AM)−1 A diag(ck1′ , ck2′ , · · · , ckN
+                                                                                                       ′ )s.
+                                                                                                         ′
+
+Furthermore, we can also consider the soliton expression for the tau function. According to the definition of
+the determinant of an infinite matrix, we have the following relation for the tau function:
+                                          ln τ = ln (det(1 + Ω · C)) = tr (ln(1 + Ω · C)) .
+Thus, by expansion the right hand side can be written as
+                                ∞
+                                                      !    ∞
+                                       γ+1 1                        1
+                               X                          X
+                                                    γ
+                           tr     (−1)       (Ω · C)    =    (−1)γ+1 tr(Ω · C)γ .
+                               γ=1
+                                           γ              γ=1
+                                                                    γ
+
+Considering the degeneration (3.4) and the definition of C, i.e. (2.5), we can derive
+                                                                           γ
+                                             XN X N′
+                     tr(Ω · C)γ = tr Ω ·           Ai,j ρki cki tckj′ σkj′  = tr(AM)γ ,
+                                                            i=1 j=1
+
+where the cyclic permutation of the trace is used in the last step. Thus, we end up with the relation
+                                 ∞                               ∞
+                                                                                   !
+                                X            1                  X          1
+                        ln τ =     (−1)γ+1 tr(AM)γ = tr            (−1)γ+1 (AM)γ
+                                γ=1
+                                            γ                   γ=1
+                                                                           γ
+                                       = tr (ln(1 + AM)) = ln (det(1 + AM)) .
+We have derived the soliton formulae for the linear, nonlinear and bilinear variables. For convenience in the
+                                                   (i)
+future, we give the formulae for the components uk in the wave function, the entries Ui,j in the infinite matrix
+U as well as the tau function τ , and conclude all the results in the following theorem:
+Theorem 3.1. For the Cauchy kernel, the measure and the effective plane wave factor given in (3.1), (3.4) and
+(3.3), the wave function, the tau function and the potential variable in the (N, N ′ )-soliton form are determined
+by the following:
+           (i)   (i)        (i)
+         (uk1 , uk2 , · · · , ukN ) = rT Ki (1 + AM)−1 ,          τ = det(1 + AM),            Ui,j = rT Ki (1 + AM)−1 AK′j s,
+                                                                            ′
+in which K = diag(k1 , k2 , · · · , kN ) and K′ = diag(k1′ , k2′ , · · · , kN ′ ).
+
+
+3.4. Discrete dynamics. In this subsection, we discuss the infinite matrix formalism in the direct linearisation
+based on the nonlinear and linear structures of the discrete-time 2DTL, i.e. (3.1) and (3.3), which will be used
+to construct closed-form equations in the next subsection.
+   Equation (3.1) implies that the Cauchy kernel obeys the relation Ωk,k′ k +k ′ Ωk,k′ = 1. Recalling the definition
+of Ω, i.e. (2.4), we can deduce that
+(3.7a)                                                     Ω · Λ + tΛ · Ω = O,
+and consequently it can be generalised to
+(3.7b)       Ω · (p1 + Λ) − (p1 − tΛ) · Ω = O and Ω · (p−1 + Λ−1 ) − (p−1 − tΛ−1 ) · Ω = tΛ−1 · O · Λ−1 .
+The above relations form the nonlinear structure of the infinite matrix formalism. Below we give the linear
+structure. Observing that the effective plane wave factor (3.3) satisfies
+                                                                                       
+                   ˜    p1 + k                     ˇ    p−1 + k −1                    ˙   k
+           (ρk σk ) =
+                 ′                 ρk σk , (ρk σk ) =
+                                        ′        ′                    ρk σk , (ρk σk ) = − ′ ρk σk′ ,
+                                                                           ′        ′
+                        p1 − k ′                        p−1 − k ′−1                       k
+and the property of ck given in (2.2), we can derive from (2.5) the dynamical evolutions of C as follows:
+(3.8)        C̃ · (p1 − tΛ) = (p1 + Λ) · C,            Č · (p−1 − tΛ−1 ) = (p−1 + Λ−1 ) · C,             Ċ · (−tΛ) = Λ · C.
+Equations (3.7) and (3.8) are the fundamental relations which can help to build up the dynamics for key
+ingredients, namely U, uk and τ , in the scheme.
+6                                                        WEI FU
+
+
+Proposition 3.2. The infinite matrix U obeys the following dynamical evolutions with respect to the lattice
+variables n1 , n−1 and n:
+
+(3.9a)                    Ũ · (p1 − tΛ) = (p1 + Λ) · U − Ũ · O · U,
+(3.9b)                    Ǔ · (p−1 − tΛ−1 ) = (p−1 + Λ−1 ) · U − Ǔ · tΛ−1 · O · Λ−1 · U,
+(3.9c)                    U̇ · (−tΛ) = Λ · U − U̇ · O · U,
+which are the fundamental relations for constructing nonlinear equations in the class of the 2DTL of A∞ -type.
+Proof. We only prove the first equation. According to the infinite matrix representation (2.8), we have
+
+                                     Ũ · (p1 − tΛ) = (1 − Ũ · Ω) · C̃ · (p1 − tΛ).
+
+In light of the first dynamical relation in (3.8), this relation can be written as
+
+                 Ũ · (p1 − tΛ) = (1 − Ũ · Ω) · (p1 + Λ) · C = (p1 + Λ) · C − Ũ · Ω · (p1 + Λ) · C.
+
+Notice the second relation in (3.7). The above equation can further be reformulated as
+
+                          Ũ · (p1 − tΛ) = (p1 + Λ) · C − Ũ · O + (p1 − tΛ) · Ω · C,
+                                                                               
+
+which amounts to
+                              Ũ · (p1 − tΛ) · (1 + Ω · C) = (p1 + Λ) · C − Ũ · O · C.
+
+Multiplying this equation by (1 + Ω · C)−1 from the right and recalling U = C · (1 + Ω · C)−1 , we obtain the
+first equation in (3.9). The second and third equations are proven similarly.                              
+
+    Equations in (3.9) can further help to derive the dynamics of the wave function uk .
+Proposition 3.3. The wave function uk satisfies the following dynamical evolutions with respect to the discrete
+flow variables n1 , n−1 and n:
+
+(3.10a)                          ũk = (p1 + Λ) · uk − Ũ · O · uk ,
+(3.10b)                          ǔk = (p−1 + Λ−1 ) · uk − Ǔ · tΛ−1 · O · Λ−1 · uk ,
+(3.10c)                          u̇k = Λ · uk − U̇ · O · uk ,
+which will be used to construct the closed-form linear equations in the class of the 2DTL of A∞ -type.
+Proof. Once again, we only prove the first equation. Forward-shifting equation (2.7) with respect to n1 by one
+unit gives us
+              ũk = (1 − Ũ · Ω) · ρ̃k ck = (1 − Ũ · Ω) · (p1 + k)ρk ck = (1 − Ũ · Ω) · (p1 + Λ) · ρk ck ,
+
+where the last step holds due to (2.2). In virtue of the second relation in (3.7), we further obtain
+
+       ũk = (p1 + Λ) · ρk ck − Ũ · Ω · (p1 + Λ) · ρk ck = (p1 + Λ) · ρk ck − Ũ · O + (p1 − tΛ) · Ω · ρk ck .
+                                                                                                    
+
+With the help of (3.9a), this can be written as
+                                                            h                         i
+                   ũk = (p1 + Λ) · ρk ck − Ũ · O · ρk ck − (p1 + Λ) · U − Ũ · O · U · Ω · ρk ck ,
+
+which is nothing but (3.10a) since uk = (1 − U · Ω) · ρk ck (see (2.7)).                                          
+
+   In the framework, we also need to consider dynamical evolutions of the tau function with respect to these
+lattice variables. Below we only list two relations which will be used later.
+Proposition 3.4. The tau function obeys evolutions
+                                        τ̇                        τ
+(3.11)                                     = 1 − U0,−1    and     ˙ = 1 − U−1,0
+                                        τ                         τ
+with respect to the lattice direction n.
+                 DIRECT LINEARISATION OF THE DISCRETE-TIME TWO-DIMENSIONAL TODA LATTICES                                          7
+
+
+Proof. Notice that the tau function is defined by (2.9). We can calculate that
+         τ̇ = det(1 + Ω · Ċ) = det 1 + Ω · Λ · C · (−tΛ)−1 = det 1 + (O − tΛ · Ω) · C · (−tΛ)−1 ,
+                                                                                               
+
+where the last equation holds because of (3.7). We can then further reformulate this equation as
+          τ̇ = det 1 + Ω · C − tΛ−1 · O · C = det (1 + Ω · C) det 1 − (1 + Ω · C)−1 · tΛ−1 · O · C
+                                                                                                  
+
+             = τ 1 − (C · (1 + Ω · C)−1 · tΛ−1 )0,0 = τ 1 − (U · tΛ−1 )0,0 = τ (1 − U0,−1 ),
+                                                                       
+
+where the rank 1 Weinstein–Aronszajn formula is used to evaluate the determinant in terms of a scalar quantity,
+see [9]. This is exactly the first identity for the tau function. The second one can be derived similarly and we
+skip the proof.                                                                                                
+3.5. Closed-form nonlinear equations and associated linear systems. In order to construct closed-form
+equations, we introduce the unmodified variable u, and the modified variables v and w as follows:
+            .                  .                                     .
+         u = U0,0 = (U)0,0 , v = 1 − U0,−1 = 1 − (U · tΛ−1 )0,0 , w = 1 − U−1,0 = 1 − (Λ−1 · U)0,0 .
+These variables and the tau function are connected with each other via certain difference transforms. We list
+all these relations in the proposition below.
+Proposition 3.5. The unmodified variable u and the modified variable v are related via the following discrete
+Miura transform:
+                                                     ṽ                    v̌
+(3.12a)                             p1 + u̇ − ũ = p1 , 1 + p−1 (u − ǔ) = .
+                                                     v                     v
+                                                                           ˙
+The bilinear transforms between the nonlinear variables u, v and the bilinear variable τ are given by
+                                            τ τ̃˙                  τ τ̌˙            τ̇
+(3.12b)                   p1 + u̇ − ũ = p1 , 1 + p−1 (u − ǔ) = ˙       and v = ,
+                                            τ̇ τ̃                  τ τ̌             τ
+respectively. The two modified variables v and w satisfy a simple relation w = 1/v.
+                                                                                  ˙
+Proof. Recalling (3.11) and the definitions of v and w, we can easily observe that v = τ̇ /τ and w = τ /τ , which
+                                                                                                     ˙
+are the bilinear transforms for the two modified variables, leading to the relation v ẇ = 1 immediately,    1
+                                                                                                               i.e.
+w = 1/v. Taking the (0, −1)-entry of (3.9a) and (3.9c), respectively, we obtain
+        ˙
+                                p1 (v − ṽ) = U1,−1 + ũv and U1,−1 + u̇v = 0.
+Subtracting the two relations and eliminating U1,−1 gives rise to the first half in the Miura transform (3.12a).
+Next, we take the (0, 0)-entry of (3.9b), which results in
+(3.13)                                               1 + p−1 (u − ǔ) = v̌w.
+This is exactly the second half of the Miura transform once the variable w is replaced by 1/v. The bilinear
+                                                                                            ˙ with the tau
+transform between u and τ can then be derived by substituting v in the Miura transform (3.12a)
+function via v = τ̇ /τ .                                                                                 
+   With the help of these transforms, we are able to construct closed-form linear systems based on the eigen-
+           .           (0)
+function φ = (uk )0 = uk .
+Theorem 3.6. In the class of the discrete-time 2DTL of A∞ -type, we have the following linear systems:
+                                                        ṽ           τ τ̃˙
+(3.14a)                   φ̃ = (p1 + u̇ − ũ)φ + φ̇ = p1 φ + φ̇ = p1 φ + φ̇,
+                                                        v            τ̇ τ̃
+                                                                       v̌         τ τ̌˙
+(3.14b)                   φ̌ = p−1 φ + [1 + p−1 (u − ǔ)] φ = p−1 φ + φ = p−1 φ + ˙ φ.
+                                                           ˙           v˙         τ τ̌ ˙
+                                                                        ˙
+which are the Lax pairs for their corresponding nonlinear integrable lattice equations of u, v and τ .
+Proof. We only prove the linear equations involving the unmodified variable u. The other equalities are natural
+consequences of this under the difference transforms given in (3.12a) and (3.12b). The relation (3.10c) can be
+expressed by
+                   Λ · uk = u̇k + U̇ · O · uk ,     or alternatively Λ−1 · uk = uk − Λ−1 · U · O · uk ,
+                                                                                ˙                  ˙
+1Such an identity can alternatively be derived from the infinite matrix relation (3.9c) by taking the (−1, −1)-entry, cf. [23]. Here
+we can observe that this relation is a consequence of a trivial identity based on the tau function.
+8                                                          WEI FU
+
+
+which helps us to eliminate Λ · uk and Λ−1 · uk in (3.10a) and (3.10b), respectively, and obtain the following
+relations involving only uk :
+                               ũk = (p1 + U̇ · O − Ũ · O) · uk + u̇k ,
+                           ǔk = p−1 uk + (1 − Ǔ · tΛ−1 · O) · (1 − Λ−1 · U · O) · uk
+                                                                                    ˙
+The 0th-component of the first equation immediately gives rise to the “tilde” equation, i.e. (3.14a). For the
+“check” equation in (3.14b), we consider the 0th-component of the second equation and obtain
+                                              φ̌ = p−1 φ + v̌wφ,
+                                                              ˙
+which then turns out to be the second equation (3.14b) once v̌w is replaced by 1 + p−1 (u − ǔ), with the help of
+the identity (3.13).                                                                                           
+
+   The compatibility condition of the equations in each Lax pair listed in (3.14) gives us a 3D nonlinear integrable
+difference equation.
+Theorem 3.7. The unmodified variable u, the unmodified variable v and the tau function τ solve the following
+3D integrable discrete equations:
+                                          p1 + ǔ˙ − ũ ˇ      1 + p−1 (ũ − ũ)     ˇ
+(3.15a)                                                   =                            ,
+                                          p1 + u − ũ          1 + p−1 (u − ǔ)
+                                                  ˇ˙
+                                                                         v̌˙     ṽˇ
+                                                               
+                                                    ṽ     ṽ
+(3.15b)                                   p1 p−1         −        =− + ,
+                                                    v̌     v             v ṽ
+                                                                                  ˙
+(3.15c)                                   p1 p−1 (τ τ̃ˇ − τ̃ τ̌ ) = τ τ̃ˇ − τ̌˙ τ̃ ,
+                                                                                 ˙
+which we refer to as the unmodified, modified and bilinear discrete-time 2DTL equations of A∞ -type, respectively.
+The direct linearising solutions for these equations are governed by (2.6) and (2.9), respectively. The (N, N ′ )-
+soliton solutions are given in theorem 3.1.
+Proof. Equations (3.15a) and (3.15b) follow from the u and v parts of the linear equations (3.14a) and (3.14b).
+The compatibility condition φ̃ˇ = φ̌˜ in terms of τ gives a quartic equation
+                                                                                                      ˇ˙
+                                       p1 p−1 τ τ̃ˇτ̌˙ τ̇˜ − τ̃ τ̌ τ̇ τ̃ˇ˙ = τ τ̃ τ̃ˇτ̌˙˙ − τ̃ τ̇ τ̌˙ τ̃.
+                                                                         
+                                                                                             ˙
+This is a weak equation defined on 10 points and by discrete integration we obtain the bilinear equation
+(3.15c).                                                                                                     
+
+Remark 3.8. Making use of the transform v = 1/w, we can derive another modified equation expressed by w
+which is dual to (3.15b), cf. (3.11), and its Lax pair ˙ can be obtained from (3.14) under the same transform.
+                                                                              .
+These is also a closed-form equation based on the Schwarzian variable z = U−1,−1 , which takes a dual form of
+the unmodified equation (3.15a). This is because in the discrete-time 2DTL the effective plane wave factor (3.3)
+depends on k, k ′ and k −1 , k ′−1 in a covariant way, leading to the fact that u and z are dual to each other.
+   The bilinear equation (3.15c) and the modified equation (3.15b) were originally given by Date, Jimbo and
+Miwa [2] within the framework of transformation groups for soliton equations.2 Through a point transformation
+u = u − n1 p1 − n−1 /p−1 , the unmodified equation (3.15a) can be written as
+                                                               ˇ
+                                                (u − ǔ)(ǔ˙ − ũ)
+                                                                   = 1,
+                                                               ˇ
+                                                (u − ũ)(ũ − ũ)
+                                                      ˙
+which appeared very recently in [4] (after a recombination of all the discrete shifts). The parametrisation in
+(3.15a), however, describes its solution structure in a more natural way and allows to consider its continuum
+limit. Furthermore, by a transform v = exp ϕ we obtain from (3.15b)
+                        p1 p−1 exp(ϕ̃ˇ − ϕ̌) − exp(ϕ̃ − ϕ) = − exp(ϕ̌˙ − ϕ) + exp(ϕ̃ˇ − ϕ̃),
+                                                             
+(3.16)
+                                                                                         ˙
+which is the discrete analogue of (1.1).
+
+2A two-component extension of this modified equation was given in [23].
+                 DIRECT LINEARISATION OF THE DISCRETE-TIME TWO-DIMENSIONAL TODA LATTICES                             9
+
+
+3.6. Continuum limits. We set up the continuum limit scheme for the discrete-time 2DTL of A∞ -type. The
+continuous independent variables are introduced as follows:
+                                n1           n−1
+                          x1 =     , x−1 =       , n1 , n−1 → ∞, p1 , p−1 → ∞.
+                                p1           p−1
+To respect the tradition, we mark the discrete variable n explicitly as a suffix in the corresponding variables.
+The continuum limit scheme results in the maps between the discrete and continuous spaces, namely for f =
+fn1 ,n−1 ,n = fn (x1 , x−1 ) we have
+                       f˜ = fn (x1 + 1/p1 , x−1 ),        fˇ = fn (x1 , x−1 + 1/p−1 ),      f˙ = fn+1 (x1 , x−1 ).
+as well as
+                  f = fn (x1 − 1/p1 , x−1 ), f = fn (x1 , x−1 − 1/p−1 ), f = fn−1 (x1 , x−1 ).
+                  ˜                           ˇ                          ˙
+where f can be any of the variables u, v and τ .
+  In the continuum limit, the discrete bilinear equation (3.15c) turns out to be
+                                           1
+                                             D1 D−1 τn · τn = τn2 − τn+1 τn−1 ,
+                                           2
+where D1 and D−1 are Hirota’s bilinear operators3 with respect to x1 and x−1 . This is the bilinear 2DTL, see
+e.g. [2, 13]. Similarly we also have the continuum limits of the unmodified and modified equations as follows:
+                                                                                vn+1    vn
+                      ∂1 ln(1 − ∂−1 un ) = un+1 − 2un + un−1 , ∂1 ∂−1 ln vn = −      +      .
+                                                                                 vn    vn−1
+These equations are different nonlinear forms of the 2DTL (1.1), as we can still see the characteristic of the
+Cartan matrix corresponding to A∞ in both equations. By transform vn = exp ϕn , the vn equation becomes
+(1.1), which can alternatively be derived by taking the limit of (3.16). All these potentials are connected with
+each other via transforms
+                                        τn+1                                       τn+1
+                        ϕn = ln vn = ln        and un+1 − un = ∂1 ln vn = ∂1 ln         ,
+                                         τn                                         τn
+which are actually the continuum limits of the bilinear transforms (3.12b) and Miura transforms (3.12a). The
+un equation can also be written in a slightly different form
+                                            ∂1 ∂−1 ln(1 − sn ) = sn+1 − 2sn + sn−1
+via transform sn = ∂−1 un , which is the nonpotential form of the un equation and was the form considered
+in [14].
+   The Lax pairs of the continuous equations can be recovered from the discrete ones in the same limit scheme.
+One can also take the limit only with respect to n1 or n−1 , from which the semi-discrete equations will arise.
+                                                                                                      (1)
+                       4. Discrete-time two-dimensional Toda lattices of Ar−1 -type
+4.1. Periodic reductions. Performing the r-periodic reduction (for integer r ≥ 2) of the discrete-time 2DTL
+                                                       (1)
+of A∞ -type is equivalent to considering sub-algebra Ar−1 , see e.g. [16]. In the direct linearisation framework,
+such a reduction can be realised by taking the measure
+                                                   X
+(4.1)                                dζ(k, k ′ ) =   dλj (k)dk ′ δ(k ′ + ω j k),
+                                                             j∈J
+
+where dλj (k) are the measures only depending on the spectral variable k, and ω = exp(2πi/r) and J =
+{j|0 < j < r are integers coprime to r}, i.e. ω j are all rth primitive roots of unity. In other words, a constraint
+is imposed on the two spectral parameters, restricting k and k ′ on an algebraic curve k r = (−k ′ )r , cf. [10]. As a
+consequence, the linear integral equation (2.3) associated with a double integral degenerates, and becomes one
+with only a single integral, namely
+                                       XZ
+(4.2)                             uk +          dλj (l)ρk Ωk,−ωj l σ−ωj l ul = ρk ck ,
+                                              j∈J    Γj
+
+
+3For given differentiable functions f (x) and g(x), Hirota’s bilinear derivative with respect to x is defined by
+
+                                                Dx f · g = (∂x − ∂x′ )f (x)g(x′ )|x′ =x .
+10                                                                 WEI FU
+
+
+where Γj are the corresponding contours. Meanwhile, reduction (4.1) also results in
+                    XZ                                         XZ
+(4.3)          C=          dλj (k)ρk ck tc−ωj k σ−ωj k and U =         dλj (k)uk tc−ωj k σ−ωj k ,
+                          j∈J     Γj                                              j∈J    Γj
+
+where ρk and σk′ still take their respective forms given in (3.2), but one now has to keep in mind that the
+reduced effective plane wave factors become
+                                                 n1                 n−1  n
+                                          p1 + k          p−1 + k −1         1
+(4.4)                      ρk σ−ωj k =         j                j
+                                                                                 .
+                                         p1 + ω k       p−1 + (ω k) −1       ωj
+Thus, the variables φ = (uk )0 , u = (U)0,0 , v = 1 − (U)0,−1 and τ = det(1 + Ω · C) governed by (4.2) and
+(4.3) play the roles of the direct linearising solutions to the corresponding linear and nonlinear equations. For
+explicit solitons, we can still take particular measures which bring a finite number of poles as we have done in
+subsection 3.3. We omit the derivation here since the structure of the direct linearising solution is already clear
+and the resulting soliton structure is very similar to that for the 3D case in theorem 3.1. The only comment
+here is that in this case a block Cauchy matrix structure will arise, cf. e.g. [31], since all the primitive roots
+are involved. As the simplest example, one can take kj′ = −ωkj (i.e. we only consider one primitive root) in
+theorem 3.1. This immediately provides us with the soliton solutions of the reduced equations.
+
+4.2. Constraints on the linear and nonlinear variables. The reduction (4.1) provides not only the reduced
+direct linearising solutions, but also the corresponding constraints on the linear, bilinear and nonlinear variables
+in the 3D theory, leading to 2D equations. In fact, we can observe from (4.4) that the plane wave factors obeys
+ρk (n + r)σ−ωj k (n + r) = ρk (n)σ−ωj k (n), since ω j are the rth primitive roots of unity, which implies that the
+reduced infinite matrix C given in (4.3) satisfies C(n + r) = C(n) as its dynamics rely on the effective plane
+wave factors ρk σ−ωj k . Recalling that the dynamics of the infinite matrix U and the tau function τ explicitly
+depend on C and the dynamics of the wave function uk are determined by U and ρk , cf. (2.8), (2.9) and (2.7),
+we can therefore obtain
+                              U(n + r) = U(n),        τ (n + r) = τ (n)      and uk (n + r) = k r uk (n).
+                                                                       (1)
+For future convenience, in the discrete-time 2DTL of Ar−1 -type, we introduce a suffix n for each variable. For
+example, we mark u = un , u̇ = un+1 and u = un−1 (and similar for v, τ and φ). Taking the corresponding
+                                            ˙ we have the constraints for all the variables we need and conclude
+components or entries for the above relations,
+them in the following proposition.
+Proposition 4.1. The r-periodic reduction results in the following constraints on the nonlinear, bilinear and
+linear variables:
+(4.5)                                  un+r = un ,   vn+r = vn ,       τn+r = τn ,      φn+r = k n φn ,
+which implies that we only need to consider ui , vi , τi and φi for i = 0, 1, · · · , r − 1 in the r-periodic reduction.
+     Furthermore, there are also additional relations arising from the reduction.
+Proposition 4.2. The unmodified and modified variables un and vn obey identities
+                        r−1
+                        Y                                   r−1
+                                                            Y                                           r−1
+                                                                                                        Y
+(4.6)                         (p1 + ui+1 − ũi ) = pr1 ,          [1 + p−1 (ui − ǔi )] = 1     and           vi = 1,
+                        i=0                                 i=0                                         i=0
+
+                                                      (1)
+in the class of the discrete-time 2DTL of Ar−1 -type.
+Proof. These identities are easily proven as they all follow from (3.12b) and proposition 4.1. For instance,
+              r−1                              r−1                                        r−1          r−1
+              Y                                Y   τi τ̃i+1        τ0 τ̃r                 Y            Y   τi+1   τr
+                    (p1 + ui+1 − ũi ) = pr1                 = pr1        = pr1   and           vn =            =    = 1,
+              i=0                              i=0
+                                                   τi+1  τ̃i       τr τ̃0                 i=0          i=0
+                                                                                                            τi    τ0
+
+where τr = τ0 is used in the last step in each equation. The second identity is proven similarly.                           
+
+  The identities in proposition 4.2 were also given in [8] and were referred to as discrete first integrals. Here
+we can see that they are consequences of the periodicity of the tau function in the reduction.
+                 DIRECT LINEARISATION OF THE DISCRETE-TIME TWO-DIMENSIONAL TODA LATTICES                                11
+
+
+4.3. Reduced bilinear and nonlinear equations. We can now construct the bilinear and nonlinear equations
+                                            (1)
+in the class of the discrete-time 2DTL of Ar−1 -type, with the help of the constraints generated by the periodic
+reduction.
+   We first consider the bilinear equation, which is derived from (3.15c). By selecting n = 0, 1, · · · , r − 1 and
+making use of τn+r = τn , we obtain a coupled system of bilinear discrete equations
+(4.7a)                        p1 p−1 (τ0 τ̃ˇ0 − τ̃0 τ̌0 ) = τ0 τ̃ˇ0 − τ̌1 τ̃r−1 ,
+(4.7b)                        p1 p−1 (τn τ̃ˇn − τ̃n τ̌n ) = τn τ̃ˇn − τ̌n+1 τ̃n−1 ,
+                                                                                n = 1, 2, · · · , r − 2,
+(4.7c)                                     ˇ                            ˇ
+                              p1 p−1 (τr−1 τ̃r−1 − τ̃r−1 τ̌r−1 ) = τr−1 τ̃r−1 − τ̌0 τ̃r−2 ,
+                                                                              (1)
+which we refer to as the bilinear discrete-time 2DTL of Ar−1 -type.
+                                                    (1)
+  Similarly, the unmodified discrete-time 2DTL of Ar−1 -type is derived from (3.15a) with the help of un+r = un
+and also takes a coupled system form
+                                            ˇ0
+                                 p1 + ǔ1 − ũ                     ˇ0 )
+                                                    1 + p−1 (ũ0 − ũ
+(4.8a)                                            =                     ,
+                                p1 + u0 − ũr−1     1 + p−1 (u0 − ǔ0 )
+                                p1 + ǔn+1 − ũˇn   1 + p−1 (ũn − ũˇn )
+(4.8b)                                            =                       , n = 1, 2, · · · , r − 2,
+                                p1 + un − ũn−1     1 + p−1 (un − ǔn )
+                                            ˇr−1
+                                 p1 + ǔ0 − ũ        1 + p−1 (ũr−1 − ũ  ˇr−1 )
+(4.8c)                                              =                             .
+                                p1 + ur−1 − ũr−2     1 + p−1 (ur−1 − ǔr−1 )
+This system should also be referred to as the negative flow4 of the rth member in the discrete unmodified
+GD hierarchy. Although the variable u obeys an additional identity (see proposition 4.2), in this case it
+seems not possible to eliminate one dependent variable in (4.8) and express the coupled system by r − 1
+components. However, for the positive flow of a member in the discrete GD hierarchy, one can reduce the
+number of components by one, making use of such an identity, see [8].
+                                              (1)
+   The modified discrete-time 2DTL of Ar−1 -type can be written as the following coupled system of discrete
+equations:
+                                 ˇ
+                                                               ṽˇ0
+                                              
+                                   ṽ0    ṽ0         v̌1
+(4.9a)                    p1 p−1        −         =− +                 ,
+                                   v̌0    v0          v0     ṽr−1
+                                   ṽˇn                              ṽˇn
+                                              
+                                          ṽn          v̌n+1
+(4.9b)                    p1 p−1        −         =−          +              , n = 1, 2, · · · , r − 2,
+                                   v̌n    vn             vn        ṽn−1
+                                 ˇ
+                                                                          ṽˇr−1
+                                                    
+                                   ṽr−1      ṽr−1           v̌0
+(4.9c)                    p1 p−1          −           =−             +           ,
+                                   v̌r−1      vr−1          vr−1          ṽr−2
+which can also be referred to as the negative flow of the rth member in the discrete modified GD hierarchy. In
+this case, it is possible to eliminate one of the components with the help          Qr−2of proposition 4.2. Without loss of
+generality, we can replace vr−1 by v0 , · · · , vr−2 according to vr−1 = 1/ i=0 vi . Thus, the modified system can
+also be written as
+                                   ˇ                           r−2
+                                    ṽ0     ṽ0         v̌1      Y
+                            p1 p−1      −          = − + ṽˇ0           ṽi ,
+                                    v̌0     v0          v0       i=0
+                                   ˇ
+                                                                    ṽˇn
+                                                 
+                                    ṽn     ṽn          v̌n+1
+                            p1 p−1      −           =−         +            , n = 1, 2, · · · , r − 3,
+                                    v̌n     vn             vn     ṽn−1
+                                   ˇ
+                                                                                 ṽˇr−2
+                                                      
+                                    ṽr−2       ṽr−2                  1
+                            p1 p−1         −            =−          Qr−2 +              ,
+                                    v̌r−2       vr−2          vr−2 i=0 v̌i       ṽr−3
+                                                                                                           (1)
+The transform vn = exp ϕn gives us the exponential form of the discrete-time 2DTL of Ar−1 -type.
+
+4 Compare (4.4) with the effective plane wave factor
+                                                                             n1                 n2
+                                                                  p1 + k               p2 + k
+                                              ρk σ−ω j k =
+                                                                 p1 + ω j k           p2 + ω j k
+for the discrete GD hierarchy, see [24].
+12                                                         WEI FU
+
+
+     The constraints (4.5) simultaneously bring us the Miura and bilinear transforms
+                                           ṽn      τn τ̃n+1                                ṽr−1      τr−1 τ̃0
+(4.10a)             p1 + un+1 − ũn = p1       = p1          ,       p1 + u0 − ũr−1 = p1         = p1
+                                           vn       τn+1 τ̃n                                vr−1       τ0 τ̃r−1
+for n = 0, 1, · · · , r − 2, and
+                                                                     τr−1 τ̌1
+                                                                     v̌0
+                                     1 + p−1 (u0 − ǔ0 ) =                 =   ,
+                                                           vr−1        τ0 τ̌0
+                                                             v̌n      τn−1 τ̌n+1
+(4.10b)                              1 + p−1 (un − ǔn ) =         =                ,
+                                                           vn−1          τn τ̌n
+                                                                 v̌r−1        τr−2 τ̌0
+                                     1 + p−1 (ur−1 − ǔr−1 ) =          =
+                                                                 vr−2        τr−1 τ̌r−1
+for n = 1, 2, · · · , r − 2, which relate (4.8), (4.9) and (4.7) with each other.
+   The unmodified equation (4.8) and the modified equation (4.9) are new parametrisations of the integrable
+lattice equations corresponding to equivalence class [(0, 1; r − 1, 0)] given in [8], allowing exact solutions and
+continuum limits.
+
+4.4. Lax matrices. The Lax pairs for the reduced equations (4.7), (4.8) and (4.9) can be constructed from
+(3.14) under the constraints given in proposition 4.1. We only write down the Lax pair for the unmodified
+equation in un , and those for the modified and bilinear equations can be obtained by using the Miura and
+bilinear transforms given in (4.10).
+   The “tilde” equation of the Lax pair is a consequence of (3.14a) and the constraints on un and φn in (4.5),
+taking the form of
+                 ˜                                                                                 
+              φ0          p1 + u1 − ũ0       1                                                    φ0
+           φ1                        p1 + u2 − ũ1 1                                         φ1 
+           ..                                                                                .. 
+                                                                                                   
+(4.11a)  .  =                                      ..           ..                          . .
+                                                      .            .                               
+           φr−2                                          p1 + ur−1 − ũr−2        1          φr−2 
+             φr−1              kr                                             p1 + u0 − ũr−1     φr−1
+
+This linear equation is also compatible with the positive flows of members in the discrete GD hierarchy, and
+it is gauge equivalent to the one given in [24]. The dynamics describing the negative flow is contained in the
+“check” part, which follows from (3.14b) and φ−1 = k −r φr−1 in proposition 4.1 and is given by
+(4.11b)
+         ˇ                                                                                                              
+      φ0        p−1                                                                                          ∗         φ0
+   φ1  1 + p−1 (u1 − ǔ1 )           p−1                                                                          φ1
+   ..                                                                                                                ..
+                                                                                                                    
+   . =                               ..                  ..                                                  
+                                                                                                                         ,
+                                                                                                                         
+                                        .                     .                                              
+                                                                                                                       .
+                                                                                                                         
+   φr−2                                       1 + p−1 (ur−2 − ǔr−2 )                p−1                       φr−2 
+     φr−1                                                                      1 + p−1 (ur−1 − ǔr−1 )      p−1     φr−1
+
+where ∗ = k −r [1 + p−1 (u0 − ǔ0 )]. The compatibility condition of the Lax pair gives rise to the coupled system
+(4.8).
+   An alternative way to construct such a linear problem was discussed within a framework of ZN graded
+algebras. In fact, by introducing a gauge transform
+                                                                                  
+                              ψ0           1                                      φ0
+                           ψ1   k −1                                        φ1 
+                           ..                                               .. 
+                                                                                  
+                           . =                    ..                       . ,
+                                                     .                            
+                           ψr−2                        k −(r−2)             φr−2 
+                            ψr−1                                    k −(r−1)     φr−1
+
+the linear equations in (4.11) become more or less the same as the ones given in [8]. To be more precise, the
+“tilde” part becomes exactly the same (up to a translation on the potential variables un ), and the “check” part
+has the same matrix structure but in our case it depends on k −1 explicitly.
+                   DIRECT LINEARISATION OF THE DISCRETE-TIME TWO-DIMENSIONAL TODA LATTICES                                                                     13
+
+       (1)            (1)
+4.5. A1 and A2 : Negative flows of discrete Korteweg–de Vries and Boussinesq. We list two concrete
+                                                          (1)            (1)            (1)
+examples explicitly, namely the discrete-time 2DTLs of A1 -type and A2 -type. The A1 class is corresponding
+to the negative flows of the discrete KdV-type equations, including the discrete sine–Gordon equation which was
+                                                                (2)
+discovered and rediscovered in the literature for times. The A2 class gives the negative flows of the discrete
+Boussinesq-type equations.
+          (1)
+   The A1 class includes the negative flows of the discrete unmodified and modified KdV equations, and the
+                                   (1)
+bilinear discrete-time 2DTL of A1 as follows:
+
+                            p1 + ǔ1 − ũ  ˇ0      1 + p−1 (ũ0 − ũ   ˇ0 )     p1 + ǔ0 − ũˇ1        1 + p−1 (ũ1 − ũˇ1 )
+                                              =                              ,                    =                             ,
+                            p1 + u0 − ũ1          1 + p−1 (u0 − ǔ0 )          p1 + u1 − ũ0          1 + p−1 (u1 − ǔ1 )
+                                   ˇ              
+                                      ṽ0     ṽ0               1
+                            p1 p−1          −          =−          + ṽ0 ṽˇ0 ,
+                                      v̌0     v0           v0 v̌0
+                            p1 p−1 (τ0 τ̃ˇ0 − τ̃0 τ̌0 ) = τ0 τ̃ˇ0 − τ̌1 τ̃1 , p1 p−1 (τ1 τ̃ˇ1 − τ̃1 τ̌1 ) = τ1 τ̃ˇ1 − τ̌0 τ̃0 .
+
+The transform v0 = exp ϕ0 then brings us
+
+                            p1 p−1 exp(ϕ̃ˇ0 − ϕ̌0 ) − exp(ϕ̃0 − ϕ0 ) = exp(ϕ̃0 + ϕ̃ˇ0 ) − exp(−ϕ0 − ϕ̌0 ),
+                                                                    
+
+which is the discrete analogue of the continuous-time sinh–Gordon equation (i.e. the first equation in (1.3)).
+This equation can also be written in another form, namely the discrete sine–Gordon equation
+
+                                       p1 p−1 sin(ϑ0 + ϑ̃ˇ0 − ϑ̃0 − ϑ̌0 ) = sin(ϑ0 + ϑ̃0 + ϑ̌0 + ϑ̃ˇ0 ),
+
+by transform ϕ0 = 2iϑ0 . One comment here is that the unmodified equation in u0 and u1 can also be written
+in a coupled system composed of the unmodified and modified variables u0 and v0 , with the help of the Miura
+transform p1 + u1 − ũ0 = p1 ṽ0 /v0 .
+                                                             (1)
+   Now we consider the class of the discrete-time 2DTL of A2 -type, namely the 3-periodic reduction. The
+                                   (1)
+bilinear discrete-time 2DTL of A2 -type according to the general framework (4.7) is given by
+
+   p1 p−1 (τ0 τ̃ˇ0 − τ̃0 τ̌0 ) = τ0 τ̃ˇ0 − τ̌1 τ̃2 ,   p1 p−1 (τ1 τ̃ˇ1 − τ̃1 τ̌1 ) = τ1 τ̃ˇ1 − τ̌2 τ̃0 ,   p1 p−1 (τ2 τ̃ˇ2 − τ̃2 τ̌2 ) = τ2 τ̃ˇ2 − τ̌0 τ̃1 ,
+
+which is also the negative flow of the trilinear discrete Boussinesq equation discussed in [10, 31].
+   The unmodified equation in this class is a three-component system involving u0 , u1 and u2 , which takes the
+form of
+  p1 + ǔ1 − ũˇ0                  ˇ0 )
+                    1 + p−1 (ũ0 − ũ                             ˇ1
+                                                       p1 + ǔ2 − ũ                  ˇ1 )
+                                                                       1 + p−1 (ũ1 − ũ                               ˇ2
+                                                                                                            p1 + ǔ0 − ũ                  ˇ2 )
+                                                                                                                            1 + p−1 (ũ2 − ũ
+                  =                     ,                            =                     ,                              =                     .
+  p1 + u0 − ũ2     1 + p−1 (u0 − ǔ0 )                p1 + u1 − ũ0   1 + p−1 (u1 − ǔ1 )                  p1 + u2 − ũ1   1 + p−1 (u2 − ǔ2 )
+This equation is also not decoupled and acts as the negative flow of the 9-point discrete unmodified Boussinesq
+equation proposed in [24].
+   The modified equation is also a three-component system of discrete equations, composed of v0 , v1 and v2 ,
+according to (4.9). In this case, we can make use of the identity v2 = 1/(v0 v1 ) (cf. equation (4.6)) and eliminate
+the component v2 . As a consequence, we have
+                          ˇ                                         ˇ
+                                                                                                 ṽˇ1
+                                                                               
+                             ṽ0   ṽ0      v̌1                       ṽ1   ṽ1           1
+                   p1 p−1        −       = − + ṽˇ0 ṽ0 ṽ1 , p1 p−1      −       =−            + ,
+                             v̌0   v0       v0                        v̌1   v1       v̌0 v̌1 v1  ṽ0
+
+which is the negative flow of the 9-point discrete modified Boussinesq equation given in [24]. The exponential
+                                        (1)
+form of the discrete-time 2DTL of A2 -type is derived by the transforms v0 = exp ϕ0 and v1 = exp ϕ1 , taking
+the form of
+
+                 p1 p−1 exp(ϕ̃ˇ0 − ϕ̌0 ) − exp(ϕ̃0 − ϕ0 ) = exp(ϕ̃ˇ0 + ϕ̃0 + ϕ̃1 ) − exp(ϕ̌1 − ϕ0 ),
+                                                         
+
+                 p1 p−1 exp(ϕ̃ˇ1 − ϕ̌1 ) − exp(ϕ̃1 − ϕ1 ) = exp(ϕ̃ˇ1 − ϕ̃0 ) − exp(−ϕ̌0 − ϕ̌1 − ϕ1 ),
+                                                         
+
+                   (1)
+which is the A2 -type analogue of (3.16).
+  The continuum limits of these discrete equations follow the same scheme in subsection 3.6, leading to the
+negative flows in the continuous KdV and Boussinesq hierarchies.
+14                                                            WEI FU
+
+
+                                                 5. Concluding remarks
+                                                                                                                              (1)
+   The direct linearisation scheme was established for the discrete-time 2DTL equations of A∞ -type and Ar−1 -
+type. For each algebra, a class of nonlinear (including bilinear) equations arise and their integrability is guar-
+anteed in the sense of having Lax pairs and direct linearising solutions.
+   For convenience we mainly focused on equations expressed by the (potential) unmodified variable, the (po-
+tential) modified variable, as well as the tau function, because the resulting equations take relatively simple
+forms (i.e. scalar octahedron-type equations). There certainly exist alternative nonlinear forms, and sometimes
+a nonlinear equation could even take the form of a coupled system, which normally happens in a closed-form
+equation expressed by a nonpotential variable, see e.g. [14, 17].
+   In fact, in the framework there is also another nonpotential form of the discrete-time 2DTL of A∞ -type.
+Introducing nonpotential variables
+                       .                −1 v̌       τ τ̌˙         .                 ṽ     τ τ̃˙
+                    P = p−1
+                         −1 + u − ǔ = p−1    = p−1
+                                                 −1 ˙     and Q = p1 + u̇ − ũ = p1 = p1 ,
+                                           v        τ τ̌                            v      τ̇ τ̃
+                                           ˙
+we obtain the nonpotential equation taking the form of a coupled system of P and Q, namely
+(5.1)                                     Q̌/Q = P̃ /P, Q̌ − Q = P̃ − Ṗ ,
+                                             ˙
+which follow from the unmodified equation (3.15a) and the modified equation (3.15b), respectively. Equation
+(5.1) is still a 6-point equation (if we count both components P and Q), similar to equations given in theorem
+3.7. The Lax pair of this coupled system takes the form of
+                                                         φ̌ = p−1 (φ + P φ)
+                                              φ̃ = Qφ + φ̇,
+                                                                         ˙
+which is derived from (3.14) by replacing u by the nonpotential variables. Following the idea about deriving
+the nonpotential discrete KP equation given in [9], one can eliminate either P or Q in (5.1). As a consequence,
+a 10-point scalar equation in terms of only Q or P can be expected, which we leave as an exercise. This is not
+surprising as we have already seen such a lattice structure in the derivation of the bilinear equation (3.15c), see
+the proof of theorem 3.7.
+   The solution structure of the discrete-time 2DTL of A∞ -type is the related to that of the discrete KP
+equation, cf. [9]. To be more precise, the nonlinear structure (3.1) is exactly the same, and the linear structure
+(3.3) is a slight deformation of that in KP and it can be reconstructed from the plane wave factor of the discrete
+KP equation in a subtle way. However, such a deformation leads to discrete integrable systems having different
+lattice structures (though in this case they are still octahedron-type equations).
+   The unmodified and modified equations (4.8) and (4.9) are corresponding to some new equations equivalence
+class [(0, 1; r − 1, 0)] in [8]. Thus, we identify that these new equations are the nonlinear equations in the
+                                       (1)
+class of the discrete-time 2DTL of Ar−1 -type, which arise as the dimensional reductions of (3.15a) and (3.15b).
+                                                                                                  (1)
+Equations in other equivalence classes in [8] are actually also associated with the algebra Ar−1 . To put it
+another way, these new equations share the same kernel and measure in the direct linearisation, and obey
+different (discrete) time evolutions.
+   The direct linearisation of the discrete-time 2DTLs of other types (such as B∞ and C∞ and their reductions)
+will be reported elsewhere. From the author’s experience, the structures of these equations are very different.
+This is mainly because of the fractionally linear dependence on the spectral parameters in their dispersions [9].
+However, such an issue does not occur in the continuous theory, and various continuous-time 2DTLs of different
+types arise very naturally as reductions of the 2DTL of A∞ -type.
+Acknowledgements. The author is very grateful to both referees for their suggestions, which improve the
+manuscript a lot. He also thanks Frank Nijhoff for useful comments on a draft version of the manuscript and
+Allan Fordy for explaining some details in [8]. This project was supported by a Leeds International Research
+Scholarship (LIRS) and by the School of Mathematics.
+
+                                                         References
+ [1] Bury R, Mikhailov AV, Wang JP. 2017 Wave fronts and cascades of soliton interactions in the periodic two dimensional Volterra
+     system. Physica D 347, 21–41.
+ [2] Date E, Jimbo M, Miwa T. 1982 Method for generating discrete soliton equations. II. J. Phys. Soc. Jpn. 51, 4125–4131.
+ [3] Date E, Jimbo M, Miwa T. 1983 Method for generating discrete soliton equations. III. J. Phys. Soc. Jpn. 52, 388–393.
+ [4] Ferapontov EV, Novikov VS, Roustemoglou I. 2015 On the classification of discrete Hirota-type equations in 3D. Int. Math.
+     Res. Notices 2015, 4933–4974.
+ [5] Fokas AS, Ablowitz MJ. 1981 Linearization of the Korteweg–de Vries and Painlevé II equations. Phys. Rev. Lett. 47, 1096–1110.
+                DIRECT LINEARISATION OF THE DISCRETE-TIME TWO-DIMENSIONAL TODA LATTICES                                      15
+
+
+ [6] Fordy AP, Gibbons J. 1980 Integrable nonlinear Klein–Gordon equations and Toda lattices. Commun. Math. Phys. 77, 21–30.
+ [7] Fordy AP, Gibbons J. 1983 Nonlinear Klein–Gordon equations and simple Lie algebras. Proc. R. Ir. Acad. A 83, 33–44.
+ [8] Fordy AP, Xenitidis P. 2017 Zn graded discrete Lax pairs and integrable difference equations. J. Phys. A: Math. Theor. 50,
+     165205.
+ [9] Fu W, Nijhoff FW. 2017 Direct linearizing transform for three-dimensional discrete integrable systems: the lattice AKP, BKP
+     and CKP equations. Proc. R. Soc. A 473, 20160915.
+[10] Fu W, Nijhoff FW. 2017 On reductions of the discrete Kadomtsev–Petviashvili-type equations. J. Phys. A: Math. Theor. 50,
+     505203.
+[11] Garifullin R, Habibullin I and Yangubaeva M. 2012 Affine and finite Lie algebras and integrable Toda field equations on
+     discrete space-time. SIGMA 8, 062.
+[12] Hietarinta J, Joshi N, Nijhoff FW. 2016 Discrete Systems and Integrability. Cambridge, UK: Cambridge University Press.
+[13] Hirota R. 1981 Discrete analogue of a generalized Toda equation. J. Phys. Soc. Jpn. 50, 3785–3791.
+[14] Hirota R, Ito M, Kako F. 1988 Two-dimensional Toda lattice equations. Progr. Theor. Phys. Suppl. 94, 42–58.
+[15] Hirota R, Ohta Y, Satsuma Y. 1981 Solution of the Kadomtsev–Petviashvili equation and the two-dimensional Toda equations.
+     J. Phys. Soc. Jpn. 57, 1901–1904.
+[16] Jimbo M, Miwa T. 1983 Solitons and infinite dimensional Lie algebras. Publ. RIMS 19, 943–1001.
+[17] Kajiwara K, Ohta Y, Satsuma J. 1994 q-Discretization of the two-dimensional Toda equations. Theor. Math. Phys. 99, 668–674.
+[18] Mikhailov AV. 1979 Integrability of a two-dimensional generalization of the Toda chain. JETP Lett. 30, 414–418.
+[19] Mikhailov AV. 1981 The reduction problem and the inverse scattering method. Physica D 3, 73–117.
+[20] Mikhailov AV, Olshanetsky MA, Perelomov AM. 1982 Two-dimensional generalized Toda lattice. Commun. Math. Phys. 79,
+     473–488.
+[21] Miwa T. 1982 On Hirota’s difference equations. Proc. Japan Acad. 58A, 9–12.
+[22] Nijhoff FW, Capel HW. 1995 The discrete Korteweg–de Vries equation. Acta Appl. Math. 39, 133–158.
+[23] Nijhoff FW, Capel HW, Wiersma GL. 1985 Integrable lattice systems in two and three dimensions, Ed. R. Martini, in:
+     Geometric Aspects of the Einstein Equations and Integrable Systems. Lect. Not. Phys. 239, 263–302.
+[24] Nijhoff FW, Papageorgiou VG, Capel HW, Quispel GRW. 1992 The lattice Gel’fand–Dikii hierarchy. Inverse Probl. 8, 597–621.
+[25] Nimmo JJC, Willox R. 1997 Darboux transformations for the two-dimensional Toda system. Proc. R. Soc. Lond. A 453,
+     2497–2525.
+[26] Smirnov SV. 2015 Daroubx integrability of discrete two-dimensional Toda lattices. Theor. Math. Phys. 182, 189–210.
+[27] Takasaki K. 2018 Toda hierarchies and their applications. J. Phys. A: Math. Theor. 51, 203001.
+[28] Toda M. 1967 Vibration of a chain with nonlinear interaction. J. Phys. Soc. Jpn. 22, 431–436.
+[29] Ueno K, Takasaki K. 1984 Toda lattice hierarchy, Ed. K. Okamoto, in: Group Representations and Systems of Differential
+     Equations. Adv. Stud. Pure Math. 4, 1–95.
+[30] Wilson G. 1981 The modified Lax and two-dimensional Toda lattice equations associated with simple Lie algebras. Ergod.
+     Theory Dyn. Syst. 1, 361–380.
+[31] Zhang DJ, Zhao SL, Nijhoff FW. 2012 Direct linearization of extended lattice BSQ systems. Stud. Appl. Math. 129, 220–248.
+
+   School of Mathematics, University of Leeds, Leeds LS2 9JT, UK
+

@@ -1,0 +1,761 @@
+                                             Quasideterminant solutions to a noncommutative q-difference
+                                                       two-dimensional Toda lattice equation
+                                                                  C.X. Li1,2∗, J.J.C. Nimmo3†and Shoufeng Shen4,2
+                                                                         1
+                                                                           School of Mathematical Sciences,
+                                                                Capital Normal University, Beijing 100048, CHINA
+                                                                   2
+                                                                     Department of Mathematics and Statistics,
+                                                            University of South Florida, Tampa, FL 33620-5700, USA
+                                                                            3
+                                                                              Department of Mathematics,
+                                                                  University of Glasgow, Glasgow G12 8QW, UK,
+arXiv:1406.1330v1 [nlin.SI] 5 Jun 2014
+
+
+
+
+                                                                      4
+                                                                        Department of Applied Mathematics,
+                                                           Zhejiang University of Technology, Hangzhou 310023, CHINA
+
+
+                                                                                               Abstract
+                                                    In [1], a generalized type of Darboux transformations defined in terms of a twisted derivation
+                                                was constructed in a unified form. Such twisted derivations include regular derivations, difference
+                                                operators, superderivatives and q-difference operators as special cases. The formulae for the iteration
+                                                of Darboux transformations are expressed in terms of quasideterminants. This approach not only
+                                                enables one to recover the known Darboux transformations and quasideterminant solutions to the
+                                                noncommutative KP equation, the non-Abelian two-dimensional Toda lattice equation, the non-
+                                                Abelian Hirota-Miwa equation and the super KdV equation, but also inspires us to investigate
+                                                quasideterminant solutions to q-difference soliton equations. In this paper, we first derive the bilinear
+                                                Bäcklund transformations for the known bilinear q-difference two-dimensional Toda lattice equation
+                                                (q-2DTL), then derive a Lax pair whose compatibility gives a new nonlinear q-2DTL equation and
+                                                finally obtain its quasideterminant solutions by iteration of its Darboux transformations.
+
+
+                                         1      Introduction
+                                         Recently, there has been great interest in noncommutative (nc) versions of soliton equations and their
+                                         integrability. Examples include the KP equation, the modified KP equation, the KdV equation, the
+                                         Hirota-Miwa equation and the two-dimensional Toda lattice equation [2–16]. Throughout the paper, we
+                                         do not assume that in general, the dependent variables commute. Results obtained under this assumption
+                                         are applicable to most of the nc integrable systems. It has been shown that nc integrable systems
+                                         often have solutions expressed in terms of quasideterminants [17]. For instance, in [13], two families of
+                                         solutions of the nc KP equation were presented which were termed quasiwronskians and quasigrammians.
+                                         The origin of these solutions was explained by Darboux and binary Darboux transformations. The
+                                         quasideterminant solutions were then verified directly using formulae for derivatives of quasideterminants
+                                         (see also [10]).
+                                             Supersymmetric equations can be looked on as a special type of nc integrable systems due to the
+                                         presence of odd variables. In [1], we proposed a twisted derivation following the terminology used
+                                         in [18–20]. This twisted derivation includes regular derivations, difference operators, superderivatives
+                                         and q-difference operators as some of its special cases. We showed that one can formulate Darboux
+                                         transformations for such twisted derivations and the iteration formulae are expressed in terms of quaside-
+                                         terminants in which one simply replaces the derivative with the twisted derivation. As an example, we
+                                         obtained solutions to the super KdV equation expressed in terms of quasideterminants in a unified way
+                                             ∗ trisha li2001@163.com
+                                             † j.nimmo@maths.gla.ac.uk
+
+
+
+
+                                                                                                   1
+for the first time. In fact, the super KdV equation has solutions expressed in terms of superdetermi-
+nants [21] and the relations between superdeterminants and quasideterminants have been established in
+the literature [22, 23]. However, in [21], the authors had to consider different cases in order to obtain
+superdeterminant solutions and failed to express solutions in terms of superdeterminants in one case. By
+using quasideterminants, one can avoid such discussions. The above results not only enable us to recover
+the Darboux transformations and therefore quasideterminant solutions to the existing nc KP equation,
+the non-Abelian (2 + 1)-dimensional Toda lattice equation and the non-Abelian Hirota-Miwa equation,
+but also inspire us to seek quasideterminant solutions to q-difference soliton equations. To a certain
+point, the proposal of the twisted derivation together with its Darboux transformations provide a sys-
+tematic approach to study some supersymmetric equations, difference equations, differential equations
+and q-difference soliton equations and their quasideterminant solutions.
+    The q-difference (also called q-analogue, q-deformed or q-discrete) integrable system is defined by
+means of q-difference operator (q-derivative or Jackson derivative) instead of the normal derivative ∂ with
+respect to independent variables x, y or t, etc. in a classical system [24]. It reduces to a classical integrable
+system as q → 1. The study of q-analogues of classical integrable systems in parallel with classical
+integrable systems has attracted much attention. Examples include q-difference Painéve equations, q-
+deformed KdV hierarchy and mKdV hierarchy, q-deformed KP hierarchy and constrained KP hierarchy,
+q-discrete two-dimensional Toda molecule (q-2DTM) equation and q-2DTL equation were studied as
+well as their integrability [25–30]. In [30], a q-2DTM equation and a q-2DTL equation as well as their
+determinant solutions were presented. The Bäcklund transformation and Lax pair were obtained for
+the former, but the Bäcklund transformation and Lax pair for the latter remains unknown. As another
+application of the twisted derivation, we will take the q-2DTL equation which involves q-difference
+operators as an example to explore its quasideterminant solutions.
+    In this paper, we will first present the bilinear Bäcklund transformation and Lax pair for the q-2DTL
+equation and then construct its quasideterminant solutions by iterating its Darboux transformations. The
+paper is organized as follows. In Section 2 and Section 3, we give a brief review of quasideterminants
+and Darboux transformations for the twisted derivation respectively and discuss their applications in
+some known nc integrable systems. In Section 4, we derive Bäcklund transformation and Lax pair for
+the q-2DTL equation. We present quasideterminant solutions for the q-2DTL equation constructed by
+Darboux transformations in Section 5 and give conclusions in Section 6.
+
+
+2     Quasideterminants
+In this short section we will list some of the key elementary properties of quasideterminants used in the
+paper. The reader is referred to the original papers [17,31,32] for a more detailed and general treatment.
+    An n × n matrix M = (mi,j ) over a ring R (noncommutative, in general) has n2 quasideterminants
+written as |M |i,j for i, j = 1, . . . , n, which are also elements of R. They are defined recursively by
+
+
+                         |M |i,j = mi,j − rij (M i,j )−1 cij ,   M −1 = (|M |−1
+                                                                             j,i )i,j=1,...,n .              (1)
+
+In the above rij represents the ith row of M with the jth element removed, cij the jth column with the
+ith element removed and M i,j the submatrix obtained by removing the ith row and the jth column
+from M . Quasideterminants can be also denoted as shown below by boxing the entry about which the
+expansion is made
+                                                   M i,j  cij
+                                         |M |i,j =   j        .
+                                                    ri   mi,j
+
+Note that if the entries in M commute then
+                                                                  det(M )
+                                           |M |i,j = (−1)i+j                 .                               (2)
+                                                                 det(M i,j )
+
+Noncommutative Jacobi Identity There is a quasideterminant version of Jacobi identity for de-
+terminants, called the noncommutative Sylvester’s Theorem by Gelfand and Retakh [17]. The simplest
+
+
+
+                                                            2
+version of this identity is given by
+                          A   B    C                           A   B
+                                                                       −1
+                                       A          C   A   B                 A     C
+                          D   f    g =              −
+                                       E          i   E   h    D   f        D     g ,                  (3)
+                          E   h    i
+where f, g, h, i ∈ R, A is an n × n matrix and B, C (resp. D, E) are column (resp. row) n-vectors over
+R. As a direct result, we have the homological relation
+                                  A    B   C   A      B    0   A   B    C
+                                  D    f   g = D      f    0   D   f    g .                            (4)
+                                  E    h   i   E      h    1   E   h    i
+
+Quasi-Plücker coordinates Given an (n + k) × n matrix A, denote the ith row of A by Ai , the
+submatrix of A having rows with indices in a subset I of {1, 2, . . . , n + k} by AI and A{1,...,n+k}\{i}
+by Abı . Given i, j ∈ {1, 2, . . . , n + k} and I such that #I = n − 1 and j ∈
+                                                                             / I, one defines the (right)
+quasi-Plücker coordinates
+                                                           −1     AI        0
+                                I     I           AI    AI
+                               rij = rij (A) :=               = − Ai        0 ,                        (5)
+                                                  Ai ns Aj ns
+                                                                  Aj        1
+for any column index s ∈ {1, . . . , n}. The final equality in (5) comes from an identity of the form (3)
+and proves that the definition is independent of the choice of s.
+
+
+3     A type of twisted derivations and Darboux transformations
+In [1], we proposed a type of twisted derivations and constructed Darboux transformations in terms of it in
+a unified way. Such twisted derivations include regular derivatives, difference operators, superderivatives
+and q-difference operators as special cases. Surprisingly, the formulae for the iteration of Darboux
+transformations were expressed in terms of quasideterminants. So far, we have succeeded in deriving
+quasideterminant solutions to some nc soliton equations involving regular derivatives, difference operators
+and superderivatives. These results inspire us to consider quasideterminant solutions to q-difference
+soliton equations. Here let us first give a brief review on some known results.
+
+3.1    A type of twisted derivations
+Consider a general setting in which A is an associative, unital algebra over ring K, not necessarily
+graded. Suppose that there is a homomorphism σ : A → A (i.e. for all α ∈ K, a, b ∈ A, σ(αa) = ασ(a),
+σ(a + b) = σ(a) + σ(b) and σ(ab) = σ(a)σ(b)) and a twisted derivation or σ-derivation [18–20] D : A → A
+satisfying D(K) = 0 and D(ab) = D(a)b + σ(a)D(b).
+    Simple examples arise in the case that elements a ∈ A depend on a variable x, say.
+Derivative Here D = ∂/∂x satisfies D(ab) = D(a)b + aD(b) and σ is the identity mapping.
+Forward difference The homomorphism is the shift operator T , where T (a(x)) = a(x + h) and the
+    twisted derivation is
+                                                a(x + h) − a(x)
+                                      ∆(a(x)) =                 ,
+                                                       h
+    satisfying ∆(ab) = ∆(a)b + T (a)∆(b).
+Superderivative For a, b ∈ A, a superalgebra, the superderivative D = ∂θ + θ∂x satisfies D(ab) =
+            aD(b), where b is the grade involution.
+    D(a)b + b
+Jackson derivative The homomorphism is a q-shift operator defined by Sq (a(x)) = a(qx) and the
+     twisted derivation is
+                                               a(qx) − a(x)
+                                   Dq (a(x)) =              .
+                                                  (q − 1)x
+      satisfying Dq (ab) = Dq (a)b + Sq (a)Dq (b).
+
+                                                      3
+    In what follows several simple properties of twisted derivations which will be used in detailed calcu-
+lations later on, are listed .
+   1. Given a, b ∈ A. Whenever ab is defined, σ(ab) = σ(a)σ(b) and D(ab) = D(a)b + σ(a)D(b),
+   2. Let a be invertible over A. Then σ(a)−1 = σ(a−1 ) and D(a−1 ) = −σ(a)−1 D(a)a−1 ,
+   3. Take a, b, c ∈ A such that ab−1 c is well-defined. Then
+
+                              D(ab−1 c) = D(a)b−1 c + σ(a)σ(b)−1 (D(c) − D(b)b−1 c).
+
+3.2    Darboux transformations for twisted derivations
+Let θ0 , θ1 , θ2 , . . . be a sequence in A. Consider the sequence θ[0], θ[1], θ[2], . . . in A, generated from the
+first sequence by Darboux transformations of the form
+
+                                        Gθ = σ(θ)Dθ−1 = D − D(θ)θ−1 ,                                          (6)
+
+where D and σ are the twisted derivation and homomorphism defined above. To be specific, θ[0] = θ0
+and G[0] = Gθ[0] , then let
+                               θ[1] = G[0](θ1 ) = D(θ1 ) − D(θ0 )θ0−1 θ1                       (7)
+and G[1] = Gθ[1] , θ[2] = G[1] ◦ G[0](θ2 ) and G[2] = Gθ[2] and so on. In general, for k ∈ N,
+
+                    θ[k] = G[k − 1] ◦ G[k − 2] ◦ · · · ◦ G[0](θk ),               G[k] = σ(θ[k])Dθ[k]−1 ,      (8)
+
+and we require that each θ[k] is invertible.
+   In the standard case, D = ∂ and σ = Id, it is well known that the terms in the sequence of Darboux
+transformations have closed form expressions in terms of the original sequence. In the case that A is
+commutative, they are expressed as ratios of wronskian determinants [33],
+
+                                          θ0          ...     θn−1           θn
+                                          (1)                  (1)           (1)
+                                         θ0           ...     θn−1          θn
+                                           ..                   ..
+                                            .                    .
+                                         (n−1)                (n−1)         (n−1)
+                                        θ0            ...     θn−1       θn
+                                           (n)                   (n)        (n)
+                                         θ0           ...       θn−1      θn
+                               θ[n] =                                                 ,   n ∈ N,               (9)
+                                                    θ0      . . . θn−1
+                                                    (1)              (1)
+                                                   θ0       . . . θn−1
+                                                     ..               ..
+                                                      .                .
+                                                   (n−1)                (n−1)
+                                               θ0           ...     θn−1
+        (i)
+where θj denotes ∂ i (θj ). In the case that A is not commutative, the terms in the sequence are expressed
+as quasideterminants [33],
+
+                                          θ0          ...     θn−1           θn
+                                          (1)                  (1)           (1)
+                                         θ0           ...     θn−1          θn
+                                           ..                   ..
+                               θ[n] =       .                    .                    ,   n ∈ N.              (10)
+                                         (n−1)                (n−1)         (n−1)
+                                        θ0            ...    θn−1         θn
+                                             (n)                  (n)           (n)
+                                         θ0           ...     θn−1          θn
+
+The following theorem gives a generalisation of this formula to the case of general D and σ. Note in
+particular that the expressions do not depend on σ and are obtained simply by replacing ∂ with D.
+Theorem 1. Let φ[0] = φ and for n ∈ N let
+
+                            φ[n] = D(φ[n − 1]) − D(θ[n − 1])θ[n − 1]−1 φ[n − 1],
+
+                                                               4
+where θ[n] = φ[n]|φ→θn . Then, for n ∈ N,
+
+                                        θ0         ···        θn−1           φ
+                                       D(θ0 )      ···       D(θn−1 )       D(φ)
+                                         ..                     ..           ..
+                             φ[n] =       .                      .            .    .               (11)
+                                      Dn−1 (θ0 ) · · ·   Dn−1 (θn−1 )   Dn−1 (φ)
+                                       Dn (θ0 )  ···      Dn (θn−1 )     Dn (φ)
+
+3.3    Applications in some known noncommutative integrable systems
+In the literature, quasideterminant solutions to the nc KP equation, the non-Abelian (2 + 1)-dimensional
+Toda lattice equation, the non-Abelian Hirota-Miwa equation and the super KdV equation have been
+constructed by elementary Darboux transformations and binary Darboux transformations separately.
+In this section, we would like to illustrate how the Darboux transformations for the above-mentioned
+nc integrable systems coincide with the Darboux transformations in terms of the twisted derivation
+presented in previous sections. Once we have Darboux transformations, it is not difficult to construct
+quasideterminant solutions by the standard procedure.
+Example 1: The nc KP equation (Ref. [13])
+    The nc KP equation reads as
+                                   (vt + vxxx + 3vx vx )x + 3vyy − 3[vx , vy ] = 0.
+      It has the Lax pair
+                                   Lφ = (∂x2 + vx − ∂y )φ = 0,
+                                  M φ = (4∂x3 + 6vx ∂x + 3vxx + 3vy + ∂t )φ = 0.
+      Let θ be a particular eigenfunction of the Lax pair. From Theorem 1, the normal derivative ∂x
+      induces the Darboux transformation of the general eigenfunction φ by
+                                       φe = D(φ) − D(θ)θ−1 φ = φx − θx θ−1 φ
+      and further the Darboux transformation of the potential v by
+                                                    ve = v + 2θx θ−1
+      which coincide with the results obtained in [13].
+Example 2: The non-Abelian 2DTL equation (Ref. [15])
+    The non-Abelian 2DTL equation is written as
+                                           Un,x + Un Vn+1 − Vn Un = 0,
+                                           Vn,t + αn Un−1 − Un αn+1 = 0.
+      It has the Lax pair
+                                                φn,x = Vn φn + αn φn−1 ,
+                                                φn,t = Un φn+1 .
+      Assume θn is a particular eigenfunction of the Lax pair. From Theorem 1, it is not difficult to
+      derive the Darboux transformation of the general eigenfunction φn
+                            φen = φn+1,x − θn+1,x θn+1
+                                                   −1                        −1
+                                                       φn+1 = αn+1 (φn − θn θn+1 φn+1 ),
+      which is almost the same as the result obtained in [15]
+
+                                                φen = φn − θn θn+1
+                                                               −1
+                                                                   φn+1 .
+      Based on this transformation, one can derive the corresponding transformations of Un and Vn
+      similar to these given by [15].
+
+                                                         5
+Example 3: The non-Abelian Hirota-Miwa equation (Ref. [12])
+    The non-Abelian Hirota-Miwa equation is
+
+                                       Uij + Ujk + Uki = 0,
+                                       Tk (Uij ) + Ti (Ujk ) + Tj (Uki ) = 0,
+                                       Tk (Uij )Uki = Tj (Uki )Uij ,
+
+     with i, j, k ∈ {1, 2, 3}, Uij etc. depending on discrete variables n1 , n2 , n3 and Ti the shift operator
+     in variable ni defined by Ti (X) = X(ni + 1). The non-Abelian Hirota-Miwa equation has the Lax
+     pair
+
+                                         ai−1 Ti (φ) − aj−1 Tj (φ) = Uij φ.
+
+     It is not difficult to show that the forward difference operator ∆i = a−1
+                                                                            i (Ti −1) is a twisted derivation
+     with σ = Ti . Thus given a particular eigenfunction θ, we have the Darboux transformation of φ
+
+                              φe = ∆i (φ) − ∆i (θ)θ−1 φ = a−1
+                                                           i (Ti (φ) − Ti (θ)θ
+                                                                               −1
+                                                                                  φ)
+
+     and furthermore the Darboux transformation of the potentials
+                                        eij = Tj (Ti (θ)θ−1 )Uij θTi (θ)−1 ,
+                                        U
+
+     which are nothing but the Darboux transformations presented in [12].
+Example 4: The super KdV equation (Ref. [1])
+    The Manin-Radul super KdV equation is written as
+                                            1
+                                        αt =  (αxx + 3αD(α) + 6αu)x ,
+                                            4
+                                            1
+                                        ut = (uxx + 3u2 + 3αD(u))x ,
+                                            4
+     where D = ∂θ + θ∂x with θ an odd Grassmann variable, u and α are even and odd dependent
+     variables respectively. It has the Lax pair
+
+                             Lφ = (∂x2 + αD + u)φ = λφ,
+                                               3
+                             φt = M φ = (∂x3 + ((α∂x + ∂x α)D + u∂x + ∂x u))φ.
+                                               4
+     Given an even particular eigenfunction θ0 of the Lax pair. From Theorem 1, we have the Darboux
+     transformation of eigenfunction φ
+
+                                            φe = D(φ) − D(θ0 )θ0−1 φ,
+
+     and furthermore the Darboux transformations of potentials
+
+                                 e = −α + 2(D(θ0 )θ0−1 )x ,
+                                 α
+                                 e = u + D(α) − 2D(θ0 )θ0−1 (α − (D(θ0 )θ0−1 )x )
+                                 u
+
+     which are exactly the same as the Darboux transformation given in [1].
+
+
+4    The noncommutative q-2DTL equation
+As we know that the twisted derivation includes normal derivative, forward difference operator, super
+derivative and q-difference operator as its special cases. In the previous section, we have already illus-
+trated how to recover Darboux transformations for normal derivative, forward difference operator and
+super derivative from the Darboux transformation for the twisted derivation by taking some nc inte-
+grable systems as examples. All these results inspire us to study nc q-difference soliton equations, their
+Darboux transformations and quasideterminant solutions.
+
+                                                      6
+   In [30], a q-discrete version of the two-dimensional Toda lattice equation was proposed
+
+                            δqα ,x Vn (x, y) = Jn (x, y)Vn (q α x, y) − Jn+1 (x, y)Vn (x, y),                         (12)
+                                                              α            β          β
+                            δqβ ,y Jn (x, y) = Vn−1 (q x, y) − q Vn (x, q y),                                         (13)
+
+where δqα ,x and δqβ ,y are q-difference operators defined by
+
+                                      f (x, y) − f (q α x, y)                     f (x, y) − f (x, q β y)
+                  δqα ,x f (x, y) =                           , δqβ ,y f (x, y) =                         .           (14)
+                                             (1 − q)x                                    (1 − q)y
+
+   Under the dependent variable transformations
+
+                                τn+1 (q α x, y)τn−1 (x, q β y)
+                    Vn (x, y) =                                ,
+                                    τn (x, q β y)τn (x, y)
+                                                                                                 
+                                    1                             τn (q α x, y)τn−1 (x, y))
+                    Jn (x, y) =              {1 + (1 − q)2 xy}                                − 1   ,
+                                (1 − q)x                         τn (x, q β y)τn−1 (q α x, y)
+
+the q-2DTL equations (12) and (13) were transformed to the bilinear form
+
+              {δqα ,x δqβ ,y τn (x, y)}τn (x, y) − {δqα ,x τn (x, y)}{δqβ ,y τn (x, y)}
+                                                     = τn+1 (x, q β y)τn−1 (q α x, y) − τn (q α x, q β y)τn (x, y),   (15)
+
+whose solutions were given by
+                                              (1)                 (1)                     (1)
+                                        fn (x, y)             fn+1 (x, y)       ···     fn+N −1 (x, y)
+                                         (2)                   (2)                       (2)
+                                        fn (x, y)             fn+1 (x, y)       ···     fn+N −1 (x, y)
+                            τn (x, y) =      ..                    ..                         ..                      (16)
+                                              .                     .           ···            .
+                                              (N )                (N )                    (N )
+                                             fn (x, y)        fn+1 (x, y)       ···     fn+N −1 (x, y)
+        (k)
+where fn , k = 1, · · · , N, satisfy the dispersion relations
+                                                       (k)                                        (k)
+                         δqα ,x fn(k) (x, y) = −fn+1 (x, y), δqβ ,y fn(k) (x, y) = fn−1 (x, y).                       (17)
+
+   In the following, we will first present a bilinear Bäcklund transformation for (15) and then derive a
+Lax pair whose compatibility condition yields a much simpler q-2DTL equation.
+
+4.1    Bilinear Bäcklund transformations for (15)
+Based on the solutions given by (16) and determinant identities, we propose the following bilinear
+Bäcklund transformation
+
+                δqβ ,y τn′ (x, y) · τn (x, y) − δqβ ,y τn (x, y) · τn′ (x, y) = τn−1
+                                                                                 ′
+                                                                                     (x, y)τn+1 (x, q β y),           (18)
+                                     ′                      ′
+                δqα ,x τn (x, y) · τn−1  (x, y) − δqα ,x τn−1   (x, y) · τn (x, y) = τn−1 (q α x, y)τn′ (x, y),       (19)
+
+which transforms the solution τn (x, y) given by (16) to another solution τn′ (x, y) given by
+                                             (1)                   (1)                          (1)
+                                          fn (x, y)               fn+1 (x, y)     ···      fn+N (x, y)
+                                           (2)                     (2)                      (2)
+                                          fn (x, y)               fn+1 (x, y)     ···      fn+N (x, y)
+                         τn′ (x, y) =          ..                      ..                       ..     .              (20)
+                                                .                       .         ···            .
+                                         (N +1)                   (N +1)                    (N +1)
+                                        fn           (x, y)   fn+1 (x, y)         ···      fn+N (x, y)
+
+     In what follows, we will prove how the bilinear Bäcklund transformation works for given τn (x, y) and
+τn′ (x, y). For the sake of simplicity, we adopt the notations used in [30]. We denote
+
+                                              τn′ (x, y) = |0, 1, . . . , N − 1, N |                                  (21)
+
+
+                                                                    7
+where “j” is a column vector given by
+                                                                       
+                                                            (1)
+                                                           fn+j (x, y)
+                                                         (2)           
+                                                         fn+j (x, y) 
+                                                                       
+                                                                ..     
+                                                  “j” =          .     .                                              (22)
+                                                                       
+                                                         f (N ) (x, y) 
+                                                         n+j           
+                                                           (N +1)
+                                                          fn+j (x, y)
+
+Similarly, we can denote
+                                               τn (x, y) = |0, 1, . . . , N − 1, t|,                                    (23)
+                              T
+where t = (0, 0, . . . , 0, 1) is an (N + 1) × 1 matrix.
+   By virtue of the dispersion relations (17), we have
+
+      τn+1 (x, y) = |1, 2, . . . , N, t|, τn−1 (x, y) = | − 1, 0, . . . , N − 2, t|,                                    (24)
+        ′
+      τn−1  (x, y) = | − 1, 0, . . . , N − 2, N − 1|, τn (x, q −β y) = |0q−β y , 1, . . . , N − 1, t|,                  (25)
+                                                           ′
+      τn′ (x, q −β y) = |0q−β y , 1, . . . , N − 1, N |, τn−1  (x, q −β y) = | − 1q−β y , 0, . . . , N − 2, N − 1|,     (26)
+        ′
+      τn−1  (q −α x, y) = | − 1, 0, . . . , N − 2, N − 1q−α x |, τn (q −α x, y) = |0, . . . , N − 2, N − 1q−α x , t|,   (27)
+      (1 − q)q −β yτn−1′
+                          (x, q −β y) = |0q−β y , 0, . . . , N − 2, N − 1|,                                             (28)
+       − (1 − q)q −α xτn′ (q −α x, y) = |0, 1, . . . , N − 1, N − 1q−α x |.                                             (29)
+
+It is not difficult to prove that the Laplacian expansion of the determinant identity
+
+                    0q−β y            0        1 ··· N − 1            ∅        N                    t
+                  ·········       ·········     ·········        ·········  ·········           ········· ≡ 0           (30)
+                    0q−β y            0              ∅          1 ··· N − 1    N                    t
+
+leads to the following equation
+                           ′
+             (1 − q)q −β yτn−1 (x, q −β y)τn+1 (x, y) − τn′ (x, q −β y)τn (x, y) + τn (x, q −β y)τn′ (x, y) = 0         (31)
+
+which is nothing but (18) with y replaced by q β y. Similarly, the following determinant identity
+
+                     −1           0 ··· N − 2       ∅                 N −1       N − 1q−α x         t
+                  ·········        ·········   ·········            ·········    ·········      ········· ≡ 0           (32)
+                     −1                 ∅     0 ··· N − 2             N −1       N − 1q−α x         t
+
+leads to
+            ′
+           τn−1                         ′
+                (x, y)τn (q −α x, y) − τn−1 (q −α x, y)τn (x, y) − (1 − q)q −α xτn′ (q −α x, y)τn−1 (x, y) = 0,         (33)
+
+which is nothing but (19) by replacing x with q α x.
+
+4.2      A new nonlinear q-2DTL equation and its Lax pair
+By introducing the eigenfunction φn+1 (x, y) = τn (x, y)/τn′ (x, y), we can derive the following Lax pair
+from the bilinear Bäcklund transformation (18) and (19)
+
+                                    δqβ ,y φn+1 (x, y) = Vn (x, y)φn (x, y),                                            (34)
+                                    δqα ,x φn (x, y) = −φn+1 (x, y) + Jn (x, y)φn (x, y),                               (35)
+
+where
+                                               τn−1 (x, y)τn+1 (x, q β y)
+                                   Vn (x, y) =                            ,                                             (36)
+                                                  τn (x, y)τn (x, q β y)
+                                                                                         
+                                                   1             τn−1 (x, y)τn (q α x, y)
+                                   Jn (x, y) =              1−                              .                           (37)
+                                               (1 − q)x          τn (x, y)τn−1 (q α x, y)
+
+
+                                                                8
+The compatibility condition of the Lax pair (34) and (35) gives the following nonlinear q-2DTL equation
+
+                         δqβ ,y Jn (x, y) = Vn (x, y) − Vn−1 (q α x, y),                                    (38)
+                                                      β                    α
+                         δqα ,x Vn (x, y) = Jn+1 (x, q y)Vn (x, y) − Vn (q x, y)Jn (x, y).                  (39)
+
+    Hereafter, we denote the q-difference operators D1 = δqα ,x , D2 = δqβ ,y . σ1 and σ2 are homomorphism
+satisfying σ1 (f (x, y)) = f (q α x, y) and σ2 (g(x, y)) = g(x, q β y) respectively. With the new notations, (38)
+and (39) can be rewritten as
+
+                                      D2 (Jn ) = Vn − σ1 (Vn−1 ),                                           (40)
+                                      D1 (Vn ) = σ2 (Jn+1 )Vn − σ1 (Vn )Jn .                                (41)
+
+It is not difficult to check that both D1 and D2 are twisted derivations with respect to σ1 and σ2
+individually. Noticing the properties of twisted derivations given by Lemma 1 and introducing new
+variables Xn where
+                                Vn = σ2 (Xn+1 )Xn−1 , Jn = D1 (Xn )Xn−1 ,
+(40) and (41) can be reduced to one single equation
+                                                                             −1
+                          D2 (D1 (Xn )Xn−1 ) = σ2 (Xn+1 )Xn−1 − σ1 (σ2 (Xn )Xn−1 ).                         (42)
+
+From now on, we refer to (42) as the nc q-2DTL equation. In what follows, we will concentrate on
+looking for its quasideterminant solutions constructed by Darboux transformations.
+Remark 1. In commutative case, one can easily recover the bilinear q-2DTL equation (15) from the nc
+q-2DTL equation (42) by letting Xn = τn /τn−1 .
+
+
+5     Quasicasoratian solutions for (42)
+In this section, we will first derive the Darboux transformations for the q-2DTL equation and then
+construct its quasideterminant solutions by Darboux transformations.
+
+5.1    Darboux transformations
+As was pointed out in Section 3, a q-difference operator is a kind of twisted derivations. Therefore, from
+the general Darboux transformations defined in terms of twisted derivations, we can get the following
+Darboux transformation for the nc q-2DTL equation (42).
+
+            φen = σ1 (θn )D1 θn−1 φn = (D1 − D1 (θn )θn−1 )φn = −φn+1 + θn+1 θn−1 φn ,                      (43)
+            Jen = Jn+1 + σ1 (θn+1 θn−1 ) − θn+2 θ−1 = {D1 (θn+1 θn−1 ) + σ1 (θn+1 θn−1 )Jn }θn θ−1 ,
+                                                   n+1                                          n+1         (44)
+           Ven = σ2 (θn+2 θn+1
+                           −1          −1
+                               )Vn θn θn+1                    −1
+                                           = vn+1 − D2 (θn+2 θn+1 ),                                        (45)
+           en = −θn+1 θn Xn ,
+           X             −1
+                                                                                                            (46)
+
+where θn is a particular solution of the Lax pair (34) and (35).
+
+5.2    Quasicasoratian solutions
+Let θn,i , i = 1, . . . , N be a particular set of eigenfunctions of the Lax pair (34) and (35) and introduce
+the nontation Θn = (θn,1 , . . . , θn,N ). The Darboux transformations for the nc q-2DTL equation may be
+iterated by defining
+
+                         φn [k + 1] = −φn+1 [k] + θn+1 [k]θn−1 [k]φn [k],                                   (47)
+                                                                                 −1
+                        Jn [k + 1] = Jn+1 [k] + σ1 (θn+1 [k]θn−1 [k]) − θn+2 [k]θn+1 [k],                   (48)
+                                                  −1                   −1
+                        Vn [k + 1] = σ2 (θn+2 [k]θn+1 [k])Vn [k]θn [k]θn+1 [k],                             (49)
+                        Xn [k + 1] = −θn+1 [k]θn−1 [k]Xn [k],                                               (50)
+
+
+                                                          9
+where φn [1] = φn , Xn [1] = Xn and
+                                          θn [k] = φn [k]|φn →θn,k .                                                   (51)
+    In what follows, we will show by induction that the results of N -repeated Darboux transformations
+φn [N + 1] and Xn [N + 1] can be expressed as in closed form as quasideterminants
+
+                                                     Θn+N                   φn+N
+                                                    Θn+N −1                φn+N −1
+                                 φn [N + 1] = (−1)N    ..                     ..   ,                                   (52)
+                                                        .                      .
+                                                               Θn             φn
+                                                   Θn+N        0
+                                                     ..        ..
+                                 Xn [N + 1] =         .         .   Xn .                                               (53)
+                                                   Θn+1        0
+                                                    Θn         1
+
+   The initial case N = 1 is obviously true. Also using the noncommutative Jacobi identity (3) and the
+homological relation (4) we have
+
+φn [N + 2] = −φn+1 [N + 1] + θn+1 [N + 1]θn [N + 1]−1 φn [N + 1]
+                                                                                                                 −1
+         Θn+N +1       φn+N +1         Θn+N +1             θn+N +1,N +1             Θn+N          θn+N,N +1            Θn+N      φn+N
+          Θn+N          φn+N            Θn+N                θn+N,N +1              Θn+N −1       θn+N −1,N +1         Θn+N −1   φn+N −1
+= −(−1)N    ..            ..   + (−1)N    ..                    ..                    ..              ..                 ..        ..
+             .             .               .                     .                     .               .                  .         .
+            Θn+1       φn+1                Θn+1        θn+1,N +1         Θn          θn,N +1          Θn        φn
+                                                                                          −1                     
+           
+            Θ n+N  +1  φn+N   +1   Θ n+N  +1   θ n+N +1,N +1     Θn+N        θn+N,N +1        Θn+N       φn+N   
+           
+                                                                                                                 
+                                                                                                                  
+            Θ           φn+N        Θn+N         θn+N,N +1      Θ n+N  −1  θ n+N  −1,N +1    Θ n+N  −1  φn+N  −1 
+      N +1      n+N
+= (−1)           .          .     −     .              .             .
+                                                                     .             .
+                                                                                   .              .
+                                                                                                  .         .
+                                                                                                            .
+           
+                ..         ..          ..             ..            .             .              .         .     
+                                                                                                                  
+           
+                                                                                                                 
+                                                                                                                  
+            Θ            φ                                         Θ          θ                 Θ         φ      
+                n+1        n+1       Θ n+1        θ n+1,N +1          n          n,N +1            n         n
+
+           Θn+N +1     θn+N +1,N +1     φn+N +1
+            Θn+N        θn+N,N +1        φn+N
+= (−1)N +1    ..            ..             ..
+               .             .              .
+              Θn+1       θn+1,N +1        φn+1
+               Θn         θn,N +1          φn
+
+and
+
+          Xn [N + 2] = θn+1 [N + 1]θn [N + 1]−1 Xn [N + 1]
+                                                                                       −1
+                       Θn+N +1        θn+N +1,N +1    Θn+N             θn+N,N +1            Θn+N       0
+                        Θn+N           θn+N,N +1     Θn+N −1         θn+N −1,N +1             ..       ..
+                     =                                                                         .        .   Xn
+                          ..               ..           ..                ..
+                           .                .            .                 .                 Θn+1      0
+                          Θn+1         θn+1,N +1          Θn               θn,N +1            Θn       1
+                                                                                       −1
+                       Θn+N +1        θn+N +1,N +1    Θn+N             θn+N,N +1
+                        Θn+N           θn+N,N +1     Θn+N −1         θn+N −1,N +1
+                     =    ..               ..           ..                ..                Xn
+                           .                .            .                 .
+                          Θn+1         θn+1,N +1          Θn               θn,N +1
+
+
+
+
+                                                     10
+and then using the quasi-Plücker coordinate formula (5), we get
+
+                        Θn+N +1     θn+N +1,N +1    0
+                         Θn+N        θn+N,N +1      0
+                      =    ..            ..         .. X .
+                            .             .          .  n
+
+                          Θn+1       θn+1,N +1      0
+                           Θn         θn,N +1       1
+
+This proves the inductive step. So far, we have finished proving quasideterminant solutions given by (52)
+and (53) to the nc q-discrete two-dimensional Toda lattice equation (42).
+Remark 2. In the commutative case, it is clear that (42) has the vacuum solution Xn = −1 and
+therefore we have Xn [N ] = τn /τn−1 from (53) with τn given by (16).
+
+
+6    Conclusions
+In our previous work [1], we proposed a twisted derivation which includes normal derivative, forward
+difference operators, q-difference operators and superderivatives as special cases and constructed its Dar-
+boux transformation which has an iteration formula written in terms of a quasideterminant. This result
+opens the opportunity for an unified approach to Darboux transformations for differential, superderiva-
+tive, forward difference and q-difference operators which makes it possible to construct quasideterminant
+solutions to noncommutative integrable systems. In this paper we show how this has been achieved for
+a noncommutative q-2DTL equation which involves q-difference operators besides the nc KP equation,
+the non-Abelian two-dimensional Toda lattice equation, the non-Abelian Hirota-Miwa equation and the
+super KdV equation which involve normal derivative, forward difference operators and superderivatives.
+    To sum up, in this paper, we first derive a bilinear Bäcklund transformation and Lax pair for a
+nc q-2DTL equation and then construct quasicasoratian solutions to the nc q-2DTL equation by its
+Darboux transformation. But how to construct its binary Darboux transformation and quasigrammian
+solutions remain unsolved. In some sense, these results extend the applications of quasideterminants in nc
+integrable systems and extended integrable systems and reveal the advantage of using quasideterminants
+in dealing with nc integrable systems, q-difference soliton equations and supersymmetric equations.
+
+
+Acknowledgement
+This work was supported by the National Natural Science Foundation of China under the grants 11271266
+and 11371323 and Beijing Teachers Training Center for Higher Education. This work was finished while
+the authors Chun-Xia Li and Shou-Feng Shen visiting the University of South Florida. One of the authors,
+Chun-Xia Li would like to thank Professor Wen-Xiu Ma for his hospitality and valuable discussions.
+
+
+References
+ [1] C.X. Li & J.J.C. Nimmo, Darboux transformations for a twisted derivation and quasideterminant
+     solutions to the super KdV equation. Proc. R. Soc. A 466 (2009), 2471-2493.
+ [2] Kupershmidt, B. A. 2000 KP or mKP: Noncommutative mathematics of Lagrangian, Hamiltonian,
+     and integrable systems, vol. 78, Mathematical Surveys and Monographs. New York, NY: American
+     Mathematical Society.
+ [3] Paniak, L. D. 2001 Exact Noncommutative KP and KdV Multi-solitons. arXiv: hep-th/0105185.
+ [4] Sakakibara, M. 2004 Factorization methods for noncommutative KP and Toda hierarchy. J. Phys.
+     A 37, L599–L604.
+                                                            ¯
+ [5] Wang, N. & Wadati, M. 2003 Noncommutative extension of ∂-dressing method. J. Phys. Soc. Japan
+     72, 1366–1373.
+
+
+                                                    11
+ [6] Wang, N. & Wadati, M. 2003 Exact multi-line soliton solutions of noncommutative KP equation. J.
+     Phys. Soc. Japan 72, 1881–1888.
+ [7] Wang, N. & Wadati, M. 2004 Noncommutative KP hierarchy and Hirota triple-product relations.
+     J. Phys. Soc. Japan 73, 1689–1698.
+ [8] Hamanaka, M. 2003 Noncommutative solitons and D-branes. Ph.D. thesis. arXiv: hep-th/0303256.
+ [9] Hamanaka, M. & Toda, K. 2003 Towards Noncommutative Integrable Systems. Phys. Lett. A 316,
+     77–83.
+[10] Dimakis, A. & Müller-Hoissen, F. 2005 An algebraic scheme associated with the non-commutative
+     KP hierarchy and some of its extensions. J. Phys. A 38, 5453–5505.
+[11] Nimmo, J. J. C. 2006 On a non-Abelian Hirota-Miwa equation. J. Phys. A 39, 5053–5065.
+[12] Li, C. X., Nimmo, J. J. C. & Tamizhmani, K. M. 2009 On solutions to the non-Abelian HirotaCMiwa
+     equation and its continuum limits. Proc. R. Soc. A 465, 1441–1451.
+[13] Gilson, C. R. & Nimmo, J. J. C. 2007 On a direct approach to quasideterminant solutions of a
+     noncommutative KP equation. J. Phys. A: Math. Theor. 40, 3839–3850.
+[14] Gilson, C. R., Nimmo, J. J. C. & Ohta, Y. 2007 Quasideterminant solutions of a non-Abelian
+     Hirota-Miwa equation. J. Phys. A: Math. Theor. 40, 12607–12617.
+[15] Li, C. X. & Nimmo, J. J. C. 2008 Quasideterminant solutions of a non-Abelian Toda lattice and
+     kink solutions of a matrix sine-Gordon equation. Proc. R. Soc. A 464, 951–966.
+[16] Li, C.X., Nimmo, J. J. C. & Tamizhmani K. M. 2009 On solutions to the non-Abelian Hirota-Miwa
+     equation and its continuum limits. Proc. R. Soc. A 465, 1441-1451.
+[17] Gelfand, I. M. & Retakh, V. S. 1991 Determinants of matrices over noncommutative rings. Funct.
+     Anal. Appl. 25, 13–25.
+[18] Hartwig, J. T., Larsson, D. & Silvestrov, S. D. 2006 Deformations of Lie algebras using sigma-
+     derivations. J. Algebra 295, 314–361.
+[19] De Concini S. & Procesi C. 1993 Quantum Groups. Lecture Notes in Mathematics 1565, 31–140.
+
+[20] Dimakis, A. & Müller-Hoissen, F. 2006 Functional representations of integrable hierarchies. J. Phys.
+     A 39, 9169–9186.
+[21] Liu, Q. P. & Manãs, M. 1997 Crum transformation and Wronskian type solutions for the supersym-
+     metric KdV equation. Phys. Lett. B 396, 133-140.
+[22] Berezin, F. A. 1987 Introduction to superanalysis. D. Reidel Publishing Company, Dordrecht.
+[23] DeWitt, B. 1984 Supermanifolds. Cambridge University Press.
+[24] Kac V. & Cheung, P. 2002 Quantum calculus, New York, Springer-Verlag.
+[25] Papageorgiou V. G., Nijhoff F. W., Grammaticos B., & Ramani A. 1992 Isomonodromic deformation
+     problems for discrete analogues of Painléve equations. Phys. Lett. A 164, 57-64.
+[26] Sakai, H. 1998 Casorati determinant solutions for the q-difference sixth Painléve equation. Nonlin-
+     earity 11, 823-833.
+[27] Tu, M. H., Shaw, J. C. & Lee, C. R. 1999 On Darboux-Bäcklund transformations for the q-deformed
+     Korteweg-de Vries hierarchy. Lett. Math. Phys. 49, 33-45.
+[28] Tu, M. H. & Lee. C. R. 2000 On the q-deformed modified Korteweg-de Vries hierarchy. Phys. Lett.
+     A 266, 155-159.
+
+
+
+                                                   12
+[29] He, J. S., Li Y. H. & Cheng Y. 2006 q-deformed KP hierarchy and q-deformed constrained KP
+     hierarchy. Symm. Integrabilty. Geom. 2, 060.
+[30] K. Kajiwara, Y. Ohta & J. Satsuma, q-Discretization of the two-dimensional Toda equations. Theor.
+     Math. Phys. 99 (1994), 668–674.
+[31] Etingof, P., Gelfand, I. & Retakh, V. 1997 Factorization of differential operators, quasideterminants,
+     and nonabelian Toda field equations. Math. Res. Lett. 4, 413–425.
+[32] Gelfand, I., Gelfand, S., Retakh, V. & Wilson, R. L. 2005 Quasideterminants. Adv. in Math. 193,
+     56–141.
+[33] Crum, M. M. 1955 Associated Sturm-Liouville systems. Q. J. Math. 6, 121–127.
+
+
+
+
+                                                    13
+

@@ -1,0 +1,10 @@
+==============================================================================
+MAIN-AGENT INDEPENDENT VERIFICATION (DLW y-discretisation programme)
+==============================================================================
+--- v2 ---
+[PASS] V2  D_y(P f.g) = d_y(P f.g) - 2 P(f.g_y)  for all tested P (P = 1,Dx,Dx^2,Dt,DxDy,Dy)
+--- v3 ---
+[PASS] V3  (D_yB-4D_x)f.g + 2[B f.g_y + 2 D_x f.g] = d_y(B f.g)  => on {B f.g=0}: (paper eq.6, lam=-2) <=> [B f.g_y + 2 D_x f.g = 0]
+--- v4 ---
+      N=1 p=[5] q=[2]: eq6=True eq7=True eq1=True eq2=True
+      N=2 p=[1, 2] q=[3, 5]: eq6=False eq7=True eq1=False eq2=False

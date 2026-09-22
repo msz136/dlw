@@ -1,0 +1,535 @@
+                                        Miura Transformation between two
+                                      Non-Linear Equations in 2 + 1 dimensions
+arXiv:solv-int/9803007v1 6 Mar 1998
+
+
+
+
+                                                        J.M. Cerveró and P.G. Estévez∗
+                                                                    Area de Fı́sica Teórica
+                                                                        Facultad de Fı́sica
+                                                                 Universidad de Salamanca
+                                                                   37008 Salamanca. Spain
+
+                                                                    September 18, 2018
+
+
+                                                                            Abstract
+                                                A Dispersive Wave Equation in 2 + 1 dimensions (2LDW) widely
+                                            discussed by different authors is shown to be nothing but the modi-
+                                            fied version of the Generalized Dispersive Wave Equation (GLDW).
+                                            Using Singularity Analysis and techniques based upon the Painlevé
+                                            Property leading to the Double Singular Manifold Expansion we shall
+                                            find the Miura Transformation which converts the 2LDW Equation
+                                            into the GLDW Equation. Through this Miura Transformation we
+                                            shall also present the Lax pair of the 2LDW Equation as well as some
+                                            interesting reductions to several already known integrable sytems in
+                                            1+ 1 dimensions. As the 2LDW Equation arises from a Miura Trans-
+                                            formation we propose that it should be treated conventionally as a
+                                            Modified Equation. In this case, we propose its designation as The
+                                            MGLDW Equation
+
+
+
+                                          PACS Numbers 02.30 and 03.40K
+                                      ∗
+                                          e-mail: pilar@sonia.usal.es
+
+                                                                                1
+Miura trans. for two equations in 2 + 1                                      2
+
+
+I.     Introduction
+Recently the following system of non-linear partial differential equations in
+2 + 1 dimensions has prompted a great deal of interest and several papers
+have appeared dealing with this system [1], [2]. It could also be considered
+as a Long Dispersive Wave Equation (2LDW) in the form:
+
+
+                  0 = λqt + qxx − 2qV
+                  0 = λrt − rxx + 2rV
+                                               Z y
+                  0 = (qr)x − Vy =⇒ V =              (qr)x dy ′           (1.1)
+                                                −∞
+
+
+• For λ = i and r = q ∗ , it is identical to the equation proposed by Fokas
+[3] as the simplest integrable equation in 2 + 1 dimensions. In this reference,
+the author presents the Lax pair of this particular case of (1.1). It is also
+worth pointing out that when x = y the equation proposed by Fokas reduces
+to the Non-Linear Schrödinger Equation [4]
+
+• The real version of (1.1) has been obtained by Chakravarty, Kent and
+Newman [5] as a particular reduction of the General Self-Dual Yang Mills
+Equations while the complex version of (1.1) has recently been discussed
+by Maccari [6] using the so-called Asymtotically Exact Reduction Method
+with the Kadomtsev-Petviashily Equation as a starting point.
+
+• The Painlevé Property [7], [8] as well as the Bilinear Hirota Equations
+for the equation under consideration have been studied by Porsezian [2] for
+the complex version and by Radha and Lakhsmanan [1] for the real case.
+In this latter reference, a systematic use of the Bilinear Formalism is made
+in order to obtain soliton-like solutions of dromion type.
+   The aim of this paper is to show that equation (1.1) is nothing but the
+modified version of the Generalized Dispersive Wave Equation (GLDW)
+which has been thoroughly studied by Boiti, León and Pempinelli [9]. In
+order to show this, we shall be using singularity analysis of the GLDW
+that has already been succesfully applied to this equation by one of the
+present authors [10]. Also using techniques based upon Painlevé Analysis,
+Miura trans. for two equations in 2 + 1                                      3
+
+
+we shall find the Miura transformation which converts (1.1) into the GLDW.
+In view of these results, it appears reasonable to refer to equation (1.1) as
+the Modified Generalized Dispersive Wave Equation (MGDLW). Since the
+Lax pair of the GLDW equation is known [11], [9], the Miura transformation
+that we shall present in this paper can easily be used to find the Lax pair for
+equation (1.1). As a final point, we shall offer several interesting reductions
+of our equation to some integrable equations in 1 + 1 dimensions.
+
+
+II.     The Miura Transformation between the
+        GDLW and the MGDLW
+In 1987 Boiti et al. [9] proposed a dispersive wave equation in 2 + 1 dimen-
+sions
+
+                         0 = uty + (ηxy + 2uuy )x
+                         0 = ηty + (uxy + 2uηy )x ,                       (2.1)
+
+which we shall hereafter call the Generalized Dispersive Long Wave Equa-
+tion (GDLW) since its reduction when x = y is the dispersive wave equation
+also called the Kaup System [12] or Classical Boussinesq System [13]. Fur-
+thermore, the stationary version of (2.1) corresponds to the Sinh-Gordon
+Equation [9], [14].
+
+• The Painlevé Property One of the present authors [10] has studied
+and discussed the system given by (2.1) from the point of view of Painlevé
+Analysis. As is well known [7] the Painlevé Property (PP), for practical
+purposes can be summarized in the statement that all solutions of equation
+(2.1) could be written in the form:
+
+                                   ∞
+                                         uj χj−a
+                                   X
+                             u=
+                                   j=0
+                                    ∞
+                                         ηj χj−b
+                                   X
+                              η=                                          (2.2)
+                                   j=0
+Miura trans. for two equations in 2 + 1                                     4
+
+
+where χ = 0 is an arbitrary function called the Movable Singularities Man-
+ifold while uj y ηj are analytic functions in an arbitrary neighbourhood of
+this manifold. Inserting (2.2) in (2.1), the dominant terms balance easily
+yields
+                                  a=b=1                               (2.3)
+                         uo = ±χx           ηo = χx                      (2.4)
+where ± means that two Painlevé expansions are in principle possible. In
+reference [10] a detailed discussion is presented on how to deal with both
+expansions simultaneously.
+
+• The Double Singular Manifold Method In 1983 Weiss [8] proposed
+the Singular Manifold Method (SMM) which has been proved to be ex-
+tremely successful in dealing with a large class of non-linear equations. The
+method is based on the restriction of the solutions of (2.1) for which expan-
+sion (2.2) becomes truncated at the constant level. In this case, one can
+prove that χ is no longer an arbitrary function since it must verify the trun-
+cation condition. Accordingly, henceforth it is called Singular Manifold. As
+system (2.1) presents two different Painlevé branches, the suggestion made
+in [10] is to use two singular manifolds φ and φ̂ (one for each expansion
+branch) in such a way that the truncation of (2.2) adopts the form:
+
+                                        φx φ̂x
+                            u′ = u +      −
+                                        φ   φ̂
+                                        φx φ̂x
+                            η′ = η +      +                              (2.5)
+                                        φ   φ̂
+
+• Superposition of Solutions: Expansion (2.5) suggests the following
+change of dependent variables:
+
+                               u = m − m̂
+                               η = m + m̂                                (2.6)
+
+such that m and m̂ satisfy individual equations, each with just one branch
+of the Painlevé expansion. In order to find which equations m y m̂ should
+Miura trans. for two equations in 2 + 1                                       5
+
+
+satisfy, we add and substract (2.1), and using (2.6) we finally obtain:
+                      0 = mty + [mxy + 2(m − m̂)my ]x
+                      0 = m̂ty + [−m̂xy + 2(m − m̂)m̂y ]x                 (2.7)
+    Let us now define
+                                     mt = nx
+                                     m̂t = n̂x                            (2.8)
+After an integration over the variable x in (2.7) we obtain
+                            0 = ny + mxy + 2(m − m̂)my                    (2.9)
+                            0 = n̂y − m̂xy + 2(m − m̂)m̂y                (2.10)
+These equations allow us to obtain m and m̂ from (2.9) and (2.10). The
+result is:
+                                     m̂xy − n̂y
+                         m = m̂ +                                (2.11)
+                                        2m̂y
+                                     mxy + ny
+                         m̂ = m +                                (2.12)
+                                       2my
+By substituting (2.11) in (2.9) and (2.12) in (2.10), one can easily decouple
+these equations, thus obtaining one that is satisfied by m and another one
+that is satisfied just by m̂. Is is trivial to check that both equations are one
+and the same but written with different variables. In fact (m, n) satisfies:
+                   0 = mt − nx                            
+                   0 = m2y (nyt − mxxxy ) + mxy n2y − m2xy
+                      + 2my (mxy mxxy − ny nxy ) − 4m3y mxx              (2.13)
+while (m̂, n̂) satisfies:
+                   0 = m̂t − n̂x                                
+                   0 = m̂2y (n̂yt − m̂xxxy ) + m̂xy n̂2y − m̂2xy
+                      + 2m̂y (m̂xy m̂xxy − n̂y n̂xy ) − 4m̂3y m̂xx       (2.14)
+which is obviously the same equation. Therefore, m and m̂ are both solu-
+tions of equation (2.13) but constrained by the the transformation (2.11-12).
+It is not dificult to recognize the constraint as an Auto-Bäcklund Trans-
+formation between two solutions of (2.13).
+Miura trans. for two equations in 2 + 1                                     6
+
+
+• The Miura Transformation: With regard to u and η, these can be
+expressed through (2.6) as a linear superposition of m and m̂. Taking into
+account (2.6) and (2.11), one can write:
+                         m̂xy − n̂y     mxy + ny
+            u = m − m̂ =            =−
+                            2m̂y           2my
+                               m̂xy − n̂y        mxy + ny
+            η = m + m̂ = 2m̂ +            = 2m +                       (2.15)
+                                  2m̂y            2my
+In order to express m and m̂ as a function of u and η with the help of
+(2.15), we must previously realize that the first of the equations (2.1) can
+be integrated in the form:
+                             ηx = −∂x−1 ut − u2x                       (2.16)
+in such a way that m and m̂ can be finally expressed as:
+                   2mx = ux + ηx = ux − u2 − ∂x−1 ut
+                   2m̂x = ηx − ux = −ux − u2 − ∂x−1 ut                 (2.17)
+Expressions (2.17) are Miura transformations between solutions of the non-
+linear systems (2.1) and (2.14). In the next Section we shall show that
+system (2.14) is nothing but the initial system given by (1.1). Obviously,
+(2.13) must be considered as the Modified GLDW Equation since it
+has been tranformed trough the Miura transformation (2.17) from the
+GLDW equation. Hereafter, we sahall refer to (2.13) as the MGLDW equa-
+tion.
+
+
+III.     The Modified GDLW Equation
+We now attempt to show that (1.1) must truly be considered the modified
+GDLW equation (2.13)
+
+III..1    Equation (1.1) as the Modified GDLW Equa-
+          tion
+We first try to write down (1.1) as a equation for just one field. In order to
+do so, we make the change
+                                 V = −mx                                 (3.1)
+Miura trans. for two equations in 2 + 1                                             7
+
+
+in such a way that (1.1) becomes:
+                           0 = qt + qxx + 2qmx                                  (3.2)
+                           0 = rt − rxx − 2rmx                                  (3.3)
+                           0 = qr + my                                          (3.4)
+where time has been rescaled in the form:
+                                    t → λt
+Taking q out of (3.4) and substituting it in (3.2), we find:
+                                                                         !
+         myt + mxxy       rx      2mx  rt  rxx   r2
+      0=            − 2mxy 2 + my     − 2 − 2 − 2 x3                            (3.5)
+              r           r        r   r    r    r
+Using (3.3) in (3.5), we also obtain
+                                            rx
+                                                       
+                       0 = mxxy + myt − 2my                                     (3.6)
+                                            r           x
+
+which can easily be integrated by setting mt = nx , which yields
+                               rx   mxy + ny
+                                  =                                             (3.7)
+                               r     2my
+Substituting (3.7) in (3.3), we obtain
+                    rt         mxxy + nxy m2xy − n2y
+                       = 2mx +           −                                      (3.8)
+                    r             2my        4m2y
+                                        rt           rx
+                                                         
+Next, we calculate the obvious identity            =            using (3.7) and (3.8),
+                                        r        x   r      t
+and finally we obtain for m the equation:
+                0 = mt − nx                            
+                0 = m2y (nyt − mxxxy ) + mxy n2y − m2xy
+                    + 2my (mxy mxxy − ny nxy ) − 4m3y mxx                       (3.9)
+which is precisely equation (2.13). Taking into account (3.1) and (2.17), we
+also find
+                               1                   
+                          V =     ux + u2 + ∂x−1 ut                   (3.10)
+                               2
+Miura trans. for two equations in 2 + 1                                      8
+
+
+that establishes the relationship between the V -field of (1.1) and the u-field
+of (2.1).
+    Also, one can compare (3.7-8) and (2.15) yielding
+                               rx
+                                  = −u
+                               r
+                               rt
+                                  = ηx + u2                             (3.11)
+                                r
+
+III..2    The Lax pair for MGDLW
+The Lax pair of the GLDW equation (2.1) is well known and can easily be
+written as [10]:
+
+
+                     0 = ϕt − ϕxx + 2uϕx
+                                               ηy − uy
+                     0 = ϕxy − ∂x−1 uy ϕx +            ϕ                (3.12)
+                                                  2
+Alternatively, one can also write the Lax pair by using the gauge transfor-
+mation:
+
+                                 ϕ = e∂x u ψ
+                                          −1
+
+
+
+which leads equation (3.12) to the expression:
+
+                                      h                 i
+                   0 = ψt − ψxx + ∂x−1 ut − ux + u2 ψ
+                                   ηy + uy
+                   0 = ψxy + uψy +          ψ                           (3.13)
+                                       2
+This is the form of the Lax pair obtained by other authors [11], [9]. Using
+(2.15-17), expression (3.13) becomes:
+
+
+                      0 = ψt − ψxx − 2mx ψ
+                                mxy + ny
+                      0 = ψxy −          ψy + my ψ,                     (3.14)
+                                   2my
+Miura trans. for two equations in 2 + 1                                     9
+
+
+which can be considered as the Lax pair for the MGLDW equation (2.13).
+Taking into account (3.1), (3.4) and (3.8), this latter expression can also be
+written as
+
+                          0 = ψt − ψxx + 2V ψ
+                                       rx
+                          0 = ψxy − ψy − qrψ,                  (3.15)
+                                       r
+which would be the same Lax pair but for form (3.2-4) of the MGLDW
+equation. Since (3.1-4) is invariant under the transformation
+                                  t → −t
+                                  r → q,
+the following pair of equations
+                        0 = ψ̂t + ψ̂xx − 2V ψ̂
+                                    qx
+                        0 = ψ̂xy − ψ̂y − qr ψ̂                         (3.16)
+                                    q
+would also be a Lax pair for the MGLDW equation.
+
+
+IV.       Particular Cases
+Let us now examine the Miura transformations induced in some interesting
+reductions of the MGLDW equation:
+
+IV..1     The stationary case: Sinh-Gordon versus AKNS
+• Let us assume that the fields of the MGDLW equation (3.9) do not
+to depend on t. The equation takes the form:
+             0 = −m2y mxxxy − m3xy + 2my mxy mxxy − 4m3y mxx             (4.1)
+which can be integrated with respect to x to give:
+                       2mxxy my + 8mx m2y − m2xy = 0                     (4.2)
+Eliminating mxxy between (4.1) and (4.2), we finally obtain:
+                      mxxxy + 8mx mxy + 4my mxx = 0,                     (4.3)
+which is the AKNS equation in 1 + 1 dimensions [15]
+Miura trans. for two equations in 2 + 1                                    10
+
+
+• With the same reduction of time-independent fields, The GLDW equa-
+tion (2.1) can also be written as:
+                              0 = ηxy + 2uuy                             (4.4)
+                              0 = uxy + 2uηy                             (4.5)
+Let us now multiply (4.4) by ηy , (4.5) by uy , and substract. The result is:
+                               d(ηy2 − u2y )
+                                             =0
+                                    dx
+Next, we introduce the change of variables
+                             ηy = a0 cosh 2q
+                             uy = a0 sinh 2q                             (4.6)
+and so equations (4.4-5) take the form
+                                  u = −qx                                (4.7)
+Alternatively, using (4.6) we finally obtain:
+
+                               qxy = a0 sinh 2q                          (4.8)
+which is the Sinh-Gordon equation [11], [14]
+
+• Therefore, the particularization of the Miura transformation (2.17) to
+the stationary case:
+                       2mx = ux − u2 = −qxx − qx2
+                       2m̂x = −ux − u2 = qxx − qx2                       (4.9)
+yields the corresponding Miura transformation between solutions of the
+AKNS equation (4.3) and the Sinh-Gordon equation (4.8).
+
+IV..2     Non-Local Boussinesq Equation versus the Kaup
+          System
+In the next subsection we shall deal with the reduction which arises from
+setting x = y
+Miura trans. for two equations in 2 + 1                                    11
+
+
+• In the present case, the MGLDW equation (3.10) is reduced to:
+
+
+                 0 = mt − nx
+                 0 = m2x (nxt − mxxxx ) + mxx (n2x − m2xx )            (4.10)
+                   = 2mx (mxx mxxx − nx nxx ) − 4m3x mxx
+
+The set of equations (4.10) can be integrated with respect to x. One easily
+obtains:
+
+                0 = mt − nx
+                0 = mx (nt − mxxx ) − (n2x − m2xx ) − 2m3x             (4.11)
+
+Alternatively, we can eliminate the field n. Thus, for m we find the following
+equation:
+                             "                        #
+                                           n2 − m2xx
+                     mtt =    mxxx + 2m2x + x                          (4.12)
+                                              mx     x
+
+Lambert et al. [16], [17] have called (4.12) the non-local Boussinesq
+equation (NLBq)
+
+• We now apply the reduction x = y to the GLDW equation (2.1):
+
+                             0 = ut + ηxx + 2uux
+                             0 = ηt + uxx + 2uηx                       (4.13)
+
+This system has been known as the classical Boussinesq system [13] or the
+Kaup system [18], [12], [19], [16].
+
+• The Miura transformation (2.17) establishes a relationship between the
+solutions of The non-local Boussinesq equation (4.12) and the Kaup system
+(4.13):
+Miura trans. for two equations in 2 + 1                                   12
+
+
+• An important subcase of this reduction is the non-linear Schrödinger
+equation. To see this, we must notice that the reduction x = y applied to
+the MGLDW in its form given by (3.2-4) appears as:
+
+
+                           0 = qt + qxx − 2q 2 r
+                           0 = rt − rxx + 2r 2 q                      (4.14)
+
+which for imaginary time, t → it and q = r ∗ , is clearly the non-linear
+Schrödinger equation [3], [20].
+
+
+V.     Conclusions
+• Firs, starting from Painlevé analysis of the Dispersive Long Wave Equa-
+tion in 2 + 1 dimensions (GDLW), we have been able to decompose the
+solutions of this equation as a linear superposition of two solutions of
+another equation in 2 + 1 that has been called Modified Dispersive Long
+Wave Equation (MGDLW).
+
+• The expansion of the solutions of the GDLW as a linear superposition of
+its modified version (MGDLW) is shown to be invertible and gives rise to the
+Miura transformation between both equations. This Miura transformation
+has been obtained explicitly.
+
+• In Section III we have shown that the MGLDW equation is nothing
+but the equation proposed by several authors [3], [1], [6], [2] as one of the
+simplest possible integrable equation in 2 + 1 dimensions.
+
+• Since the Lax pair of the GDLW equation is already known [9], the
+Miura transformation allows one to pass from the GDLW equation to the
+MGDLW equation. In particular, we can easily find the Lax pair of the
+latter equation.
+
+• In Section IV some interesting reductions of the MGDLW equation are
+presented using the Miura transformation between GDLW and MGDLW.
+Miura trans. for two equations in 2 + 1                                    13
+
+
+In this way, one can obtain the Miura transformations between AKNS and
+Sinh-Gordon in 1 + 1 and between non-local Boussinesq equation and the
+Kaup system, also in 1 + 1 dimensions.
+
+• In view of the above results one could conjecture that when two or more
+expansion branches in the Painlevé expansion appear in a given non-linear
+partial differential equation, a Miura transformation exists that converts
+the initial equation into one with just one branch in this expansion.
+
+• Systematic application of the Singular Manifold Method [8] and use of it
+to find the Darboux transformation for the MGDLW equation pave the way
+for finding extremely simple algorithms for the construction of solutions that
+generalize the ones already obtained by other authors [1] using the bilinear
+formalism. We shall shortly be presenting these results in a forthcoming
+publication.
+
+ACKNOWLEDGEMENTS This research has been supported in part
+by the DGICYT under contract PB95-0947.
+
+
+References
+ [1] Radha R. and Lakshmanan, J. Math. Physic 24, 292 (1983).
+
+ [2] Porsezian K., J. Math. Physics 38, 4675 (1997).
+
+ [3] Fokas A., Inverse Problems 10, L19 (1994).
+
+ [4] Zakharov V. and Shabat A., Sov. Phys.-JETP 34, 62 (1972)
+
+ [5] Chakravarty S., Kent S.L and Newman E.T., J. Math. Phys. 36, 763
+     (1995).
+
+ [6] Maccari A., ,J. Math. Phys. 37, 6207 (1996).
+
+ [7] Weiss J., Tabor M. and Carnevale G., J. Math. Phys. 24, 522 (1983).
+
+ [8] Weiss J., J. Math. Phys. 24, 1405-14013 (1983).
+Miura trans. for two equations in 2 + 1                                 14
+
+
+ [9] Boiti M., Leon J. and Pempinelli F, Inv. Problems 3, 37 (1987).
+
+[10] Estévez P.G. and Gordoa P.R., Inverse Problems 13, 939 (1997).
+
+[11] Ablowitz M. J and Clarkson P., “Solitons, Nonlinear Evolution Equa-
+     tions and Inverse Scattering”. London Mathematical Society. Lecture
+     Note Series 149, Cambridge University Press. (1991).
+
+[12] Kaup D., Prog. Theor. Phys. 54, 396 (1975)
+
+[13] Estévez P.G., Gordoa P.R., Martinez-Alonso L. and Medina-Reus E.,
+     J. Phys. A 26, 1915 (1993).
+
+[14] Estévez P.G., Conde-Calvo E. and Gordoa P.R., Jour. Nonlinear. Math.
+     Phys. In press (1998).
+
+[15] Ablowitz M.J., Kaup D.J., Newell A.C. and Segur H., Stud. Appl.
+     Math. 53, 249 (1974).
+
+[16] Lambert F, Loris I, Springael J and Willox R., J. Phys A: Math Gen.
+     27, 5325 (1994).
+
+[17] Willox R., Loris I. and Springael J., J. Phys A 28, 5963 (1995).
+
+[18] Conte R. Musette M. and Pickering A., J. Phys A: Math. Gen. 27,
+     2831 (1994).
+
+[19] Kawamoto S., J. Phys. Soc. Jap. 53, 2922 (1984)
+
+[20] Tabor M., Chaos and Integrability in Nonlinear Dynamics, Wiley and
+     sons, (1989).
+

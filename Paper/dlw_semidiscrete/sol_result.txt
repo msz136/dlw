@@ -1,0 +1,97 @@
+================================================================================================
+1/2.  the exact lattice N-soliton solves (7)_h and (6)_h  (machine precision)
+================================================================================================
+   N=1  h=1/4   : max|(7)_h| = 0.00e+00   max|(6)_h| = 0.00e+00   (tau scale 1.06)
+   N=2  h=1/4   : max|(7)_h| = 0.00e+00   max|(6)_h| = 0.00e+00   (tau scale 1)
+   N=3  h=1/5   : max|(7)_h| = 0.00e+00   max|(6)_h| = 0.00e+00   (tau scale 24.9)
+
+================================================================================================
+3.  structural theorem
+================================================================================================
+   Every monomial of the Gram determinant is a product of entries; the lattice
+   multiplier factorises as  lambda_ik = lambda(p_i - mu) * lambda(q_k + mu),  so
+        prod_i lambda_{i,sigma(i)}^j = [ prod_i lambda(p_i-mu) * prod_k lambda(q_k+mu) ]^j
+   depends ONLY on the row/column multisets -- exactly like the exponent part.
+   Hence the lattice tau equals the continuum tau under the substitution
+        1/(p_i - s)  ->  Lambda_h(p_i - s)      and      1/(q_k + s) -> Lambda_h(q_k + s),
+   where  Lambda_h(z) = (1/h) ln lambda(z) = (2/h) arctanh(h/(2z)).
+   => all DETERMINANT (interaction) coefficients are untouched by h.
+   2-soliton interaction coefficient kappa = A11 A22 - A12 A21 = (-a + p1)*(-a + p2)*(p1 - p2)*(q1 - q2)/((a + q1)*(a + q2)*(p1 + q1)*(p1 + q2)*(p2 + q1)*(p2 + q2))
+   This is the SAME expression as in the continuum, and contains no h.
+   Consequence: the two-soliton phase shift is EXACTLY h-independent.
+
+================================================================================================
+4.  lattice dispersion relation
+================================================================================================
+   Lambda_h(z) = h**6/(448*z**7) + h**4/(80*z**5) + h**2/(12*z**3) + 1/z
+   i.e.  Lambda_h(z) = 1/z + h^2/(12 z^3) + h^4/(80 z^5) + ...
+   Lattice phase of the one-soliton:  j * ln(lambda(P) lambda(Q))
+                                   =  j*h*[Lambda_h(P) + Lambda_h(Q)]
+     vs continuum                 y * [1/P + 1/Q] ,  y = j*h.
+   Error  =  (h^2/12)[1/P^3 + 1/Q^3] + O(h^4):  SECOND ORDER.
+
+================================================================================================
+5.  exact one-soliton profile
+================================================================================================
+   c = 1,  F_j = 1 - (P/(Q S)) e_j ,  G_j = 1 + e_j/S ,  e_j = E * lambda^j :
+      u_j = 2 d_x ln(F_j/G_j) = -2*e*(p + q)**3/((e + p + q)*(a*e + a*p + a*q - e*p + p*q + q**2))
+   Same functional form as the continuum one-soliton, with
+      e_cont = exp(S x + (q^2-p^2)t + y(1/P+1/Q))   -->   e_lat = exp(... + j ln lambda).
+   Amplitude:  the profile is a kink-like (line-soliton) front; on the lattice it is
+   the continuum front with a renormalised y-rate, so its steepness in y is
+   h*[Lambda_h(P)+Lambda_h(Q)] instead of 1/P+1/Q  (O(h^2) different).
+
+================================================================================================
+6.  two-soliton: (a) structural theorem verified on the physical field u,
+                  (b) the interaction coefficient is h-independent
+================================================================================================
+   (a)  u_j(x,t) = 2 d_x ln(F_j/G_j) on the lattice  vs  the continuum field
+        u_cont(x,y,t) with the spectral y-rates renormalised:
+              1/P_i -> Lambda_h(P_i),   1/Q_k -> Lambda_h(Q_k).   (a = 1)
+       h=1/4     max|u_lattice - u_continuum(renormalised)| = 1.387e-10
+       h=1/8     max|u_lattice - u_continuum(renormalised)| = 8.595e-11
+   (b)  the 2x2 Gram determinant has interaction coefficient
+            kappa = A11 A22 - A12 A21
+        which is h-free, so the collision phase shift is EXACTLY the continuum one.
+
+================================================================================================
+7.  continuum limit: order of accuracy of the two lattice equations
+================================================================================================
+   Take the CONTINUUM DLW tau (an exact solution of (7) and (6)) and apply
+   the two lattice operators to it.  With  F_j = f((j+1/2)h),  G_j = g(jh):
+      E1 = B_(a-d) F_j . G_j                                  ->  (7)
+      E2 = (1/h)B_(a-d) F_j . (G_{j+1}-G_j) + 2 D_x F_j.G_{j+1}  ->  (6)|lam=-2
+   The second operator is exactly (E2'-E1')/h where E1', E2' are the two
+   staggered equations, i.e. the difference carries the extra information.
+   h=1/4     |E1| = 2.273e-01   |E2| = 5.453e-01
+   h=1/8     |E1| = 6.363e-02  (ratio 3.57)   |E2| = 1.872e-01  (ratio 2.91)
+   h=1/16    |E1| = 1.688e-02  (ratio 3.77)   |E2| = 5.532e-02  (ratio 3.38)
+   h=1/32    |E1| = 4.350e-03  (ratio 3.88)   |E2| = 1.507e-02  (ratio 3.67)
+   E1 is a pure O(h^2) statement (its leading term is identically (7));
+   E2 approximates (6)|lam=-2 and its residual also decays like h^2.
+
+================================================================================================
+7b. continuum limit at FIXED physical y: second order
+================================================================================================
+   The phase error at site j is  j * h * [ (h^2/12)(1/P^3+1/Q^3) + ... ] .
+   * at j = 1 (fixed number of sites) the accumulated error is O(h^3);
+   * at fixed physical y = j*h it is O(h^2).   Both are checked below.
+   j = 1  (fixed site)
+      h=1/4     j=1     sup-error = 4.9746e-01
+      h=1/8     j=1     sup-error = 4.3149e-02   ratio = 11.529
+      h=1/16    j=1     sup-error = 5.0375e-03   ratio = 8.566
+      h=1/32    j=1     sup-error = 6.1962e-04   ratio = 8.130
+   y = 1  (fixed physical y)
+      h=1/4     j=4     sup-error = 1.8293e+00
+      h=1/8     j=8     sup-error = 3.4426e-01   ratio = 5.314
+      h=1/16    j=16    sup-error = 8.0588e-02   ratio = 4.272
+      h=1/32    j=32    sup-error = 1.9828e-02   ratio = 4.064
+
+================================================================================================
+8.  figures
+================================================================================================
+   wrote soliton_lattice.png
+
+================================================================================================
+done
+================================================================================================

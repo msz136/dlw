@@ -1,0 +1,472 @@
+                                                 The Moyal bracket and the dispersionless
+                                                                limit of the KP hierarchy
+                                                                               I.A.B.Strachan
+                                                     Dept. of Mathematics and Statistics, University of Newcastle,
+                                                               Newcastle-upon-Tyne, NE1 7RU, England 1 .
+arXiv:hep-th/9410048v1 7 Oct 1994
+
+
+
+
+                                                                                   Abstract
+                                          A new Lax equation is introduced for the KP hierarchy which avoids the use of pseudo-
+                                          differential operators, as used in the Sato approach. This Lax equation is closer to that
+                                          used in the study of the dispersionless KP hierarchy, and is obtained by replacing the
+                                          Poisson bracket with the Moyal bracket. The dispersionless limit, underwhich the Moyal
+                                          bracket collapses to the Poisson bracket, is particularly simple.
+
+
+
+                                    1. Introduction
+                                    One of the simplest nonlinear equations that can be completely be solved, albeit implicitly,
+                                    is
+
+                                                                              4UT − 12UUX = 0 ,
+
+                                    the solution to which can be obtained using the method of characteristics. This equation
+                                    can be described in two ways, either as the dispersionless KdV equation (i.e. the KdV
+                                    equation without the dispersion UXXX term) or as the simplest example of an equation of
+                                    hydrodynamic type. This connection between dispersionless and hydrodynamic equations
+                                    persists into the theory of (2 + 1)-dimensional systems. The dispersionless KP equation
+                                    (hereafter referred to as the dKP equation)
+
+                                                                          (4Ut − 12UUX )X = 3UY Y
+
+                                    may be obtained from the KP equation itself
+
+                                                                        (4ut − 12uux − uxxx )x = 3uyy
+
+                                    via the scaling transformation
+
+                                                                                  X     =   ǫx ,
+                                                                                   Y    =   ǫy ,
+                                                                                                                                      (1)
+                                                                                   T    =   ǫt ,
+                                                                          U(X, Y, T )   =   u(x, y, t)
+                                    in the limit as ǫ → 0 . The dKP may be reduced to the hydrodynamic-type equation
+                                                                               ∂w        ∂w
+                                                                                  = A(w)    ,
+                                                                               ∂T        ∂X
+                                      1
+                                          e-mail: i.a.b.strachan@newcastle.ac.uk
+
+                                                                                        1
+where A is an N × N matrix and w is an N-component column vector (N, which charac-
+terises this reduction, is an arbitrary integer). Such a reduction enables one to construct
+solutions, and study the properties of, the dKP equation by using existing results on the
+theory of equation of hydrodynamic type [1].
+
+    The dKP and KP equations are important examples of (2 + 1)-dimensional integrable
+systems, both having associated Lax equation. For the KP equation (or more generally,
+for the KP hierarchy) the Lax equation is [2]
+                                    ∂L   h          i
+                                        = (Ln )+ , L ,                                  (2)
+                                    ∂tn
+          ∂
+where ∂ = ∂x ,
+
+                                      X
+                                      ∞
+                             L=∂+           vn (x, t2 , t3 , . . .)∂ −n+1
+                                      n=2
+
+and Λ+ denotes the projection onto the differential operator part of the pseudo-differential
+operator Λ . The bracket [A, B] is just the commutator of the differential operators, i.e.
+[A, B] = A B − B A .
+
+   The Lax equation for the dKP hierarchy is somewhat different, as it does not involve
+the use of pseudo-differential operators. The Lax equation is [1]
+                                    ∂L n n         o
+                                        = (L )+ , L ,                                   (3)
+                                    ∂tn
+where
+                                      X
+                                      ∞
+                            L=λ+            un (x, t2 , t3 , . . .)λ−n+1
+                                      n=2
+
+and Ω+ denotes the projection onto positive (and zero) powers of λ in the Laurent series
+Ω . The bracket {f, g} is just the Poisson bracket
+                                            ∂f ∂g   ∂g ∂f
+                                {f, g} =          −       .                             (4)
+                                            ∂λ ∂x ∂λ ∂x
+
+   One interesting point to notice is that, although the scaling transformation takes one
+from the KP equation to the dKP equation, if one applies it to the Lax equation for the
+KP equation one does not obtain the Lax equation for the dKP equation, at least not
+in any naive way. This may be summarised as the failure of the following diagram to
+commute:
+
+                     KP hierarchy             ←→            Lax equation (2)
+                             |                                     |
+                             |
+                 scaling (1) |                                          |
+                             |
+                             ↓                                     ↓
+                    dKP hierarchy              ←→           Lax equation (3)
+
+                                                2
+The aim of this letter is to introduce a new Lax equation for the KP hierarchy so that
+the above diagram does commute. In fact one will obtain the KP equation in the form
+
+                             (4ut − 12uux − 4κ2 uxxx)x = 3uyy
+
+and so the dispersionless limit corresponds to κ → 0 . This then avoids the scaling trans-
+formation. This will be achieved by replacing the Poisson bracket in (3) by the Moyal
+bracket, and the dispersionless limit is the limit in which the Moyal bracket collapses to
+the Poisson bracket.
+
+
+2. The Moyal Bracket
+The Moyal bracket [3] may be thought of as a deformation of the Poisson bracket by
+the introduction of higher order derivative terms. It turns out that the Jacobi identity
+is highly restrictive as to the nature of these terms, and one is lead uniquely [4] to the
+Moyal bracket:
+                                  2s+1
+                                                                 !
+                   X
+                   ∞
+                          κ2s      X               2s + 1
+         {f, g}κ =                    (−1)j                          (∂xj ∂λ2s+1−j f )(∂x2s+1−j ∂λj g) .   (5)
+                   s=0 (2s +  1)! j=0
+                                                      j
+It has all the standard properties one would expect of such a bracket:
+
+        (a)    {f, g}κ = −{f, g}κ ,                                   antisymmetry ,
+        (b)    {af + bg, h}κ = a{f, h}κ + b{g, h}κ ,                  linearity ,
+        (c)    {f, {g, h}κ }κ + {g, {h, f }κ}κ + {h, {f, g}κ }κ = 0 , Jacobi identity
+
+(where a, b are independent of x and λ ). Moreover it has the important property that
+
+                                    lim {f, g}κ = {f, g} ,                                                 (6)
+                                   κ→0
+
+i.e. in the limit as κ → 0 the bracket collapses to the Poisson bracket (4). It also has
+many other interesting properties [5], amongst which is the fact that it may be written
+in terms of an associative ⋆-product defined by
+                                  s
+                                                          !
+                             X
+                             ∞
+                               κs X                   s
+                    f ⋆g =             (−1)   j
+                                                              (∂xj ∂λs−j f )(∂xs−j ∂λj g) .
+                             s=0 s! j=0
+                                                      j
+
+This has the property that
+
+                                      lim f ⋆ g = f g ,                                                    (7)
+                                      κ→0
+
+and with this the Moyal bracket takes the form:
+                                                  f ⋆g−g⋆f
+                                  {f, g}κ =                .
+                                                      2κ
+
+    The hierarchy to be considered here is obtained by replacing the Poisson bracket in
+(3) by the Moyal bracket:
+
+
+                                                  3
+                                      ∂L
+                                          = {Bn , L}κ ,                                (8)
+                                      ∂tn
+where
+
+                                    Bn = (L     . . ⋆ L})+
+                                          | ⋆ .{z
+                                              n−terms
+
+and L remains unchanged. This is equivalent to the zero-curvature relations
+                              ∂Bn ∂Bm
+                                  −     + {Bn , Bm }κ = 0 .                            (9)
+                              ∂tm   ∂tn
+
+Since the Bi are all polynomial in λ the Moyal bracket will automatically truncate after
+a finite number of terms, and so one obtains a well defined set of evolution equation for
+the independent variables. These equations differ from those of the dKP hierarchy by
+a finite number of κ-dependent terms. From (8) and (9) one may prove a number of
+general properties of the hierarchy. For example, using equations (6) and (7), as κ → 0
+the hierarchy reduces to the dKP hierarchy.
+
+Example
+
+   With n = 2 and n = 3 equation (8) yields
+
+                                 B2 = λ2 + 2u2 ,
+                                 B3 = λ3 + 3λu2 + 3u3
+
+(κ-dependent terms only appear in Bn for n > 3), and one obtains from (9):
+
+                                            −3u2,t2 + 6u3,x = 0 ,
+                       2u2,t3 − 6u2u2,x − 2κ2 u2,xxx − 3u3,t2 = 0 .
+
+On eliminating u3 one obtains a single equation for u2 :
+
+                        (4u2,t3 − 12u2u2,x − 4κ2 u2,xxx)x = 3u2,t2 t2 ,
+
+the KP equation itself. For this to agree with the KP equation obtained from (2) one has
+to set κ2 = 41 . Further, as κ → 0 one obtains the dKP directly without the need of the
+scaling transformation (1).
+
+
+
+    It therefore seems plausible that (8) is the KP hierarchy, and this has been proved for
+the first four members of the hierarchy by direct calculation. However, a direct proof that
+(8) is equivalent to the hierarchy given by the Sato approach is lacking at present, though
+it does seem highly unlikely that in addition to having the same dispersionless limit as
+the KP hierarchy, it should agree with the KP hierarchy for the first four terms and then,
+after that, diverge. An additional problem is that the functions vn and un appearing in
+L and L are not identical, but are related by simple relations, the first few being (with
+κ2 = 41 )
+
+                                              4
+                                        u2 = v2 ,
+                                                 1
+                                        u3 = v3 + v2,x ,
+                                                 2
+                                                        1
+                                        u4 = v4 + v3,x + v2,xx .
+                                                        4
+It is therefore conjectured that this Moyal-KP hierarchy (with κ2 = 41 ) is the same as the
+KP hierarchy given by equation (2). Until this is proved, equation (8) will be called the
+Moyal-KP hierarchy. A similar approach was studied in [7], however the formalism used
+there is slightly different and the κ → 0 limit does not yield the dKP equation directly,
+not without a scaling transformation, the avoidance of which was one of the motivations
+of this section.
+
+
+3. The reduction to the KdV hierarchy
+The KdV hierarchy may be obtained by imposing the constraint L ⋆ L = B2 , and the
+evolution of u2 is given by
+                                           ∂B2
+                                                 = {B2n+1 , B2 }κ ,
+                                          ∂t2n+1
+all functions being independent of the even time variables. The first couple of equations
+are given below, to show how the terms depend on the parameter κ :
+
+                 u2,t3 = κ2 u2,xxx + 3u2 u2,x ,
+                 u2,t5 = 10κ4 u2,xxxxx + 5κ2 u2 u2,xxx + 10κ2 u2,x u2,xx + 15 u2 u .
+                                                                           2 2 2,x
+
+In the limit as κ → 0 one obtains the dispersionless KdV hierarchy. Other (1 + 1)-
+dimensional hierarchies may be obtain by imposing the appropriate constraints, as in
+the standard Sato theory. Once again, a direct proof that this is equivalent to the KdV
+hierarchy obtains using differential operators, as in the Sato approach, is lacking.
+
+
+4. The geometry of the Moyal-KP hierarchy
+A more geometrical way to describe the dKP hierarchy, equivalent to the Lax equation
+(3), is to introduce a 2-form2
+                                                    X
+                                                    ∞
+                                           ω(λ) =         dBen ∧ dtn ,
+                                                    n=1
+
+
+where Ben = (Ln )+ , i.e. the κ → 0 limit of the Bn . The dKP hierarchy then becomes the
+following conditions on the 2-form ω :
+
+                                            ω(λ) ∧ ω(λ) = 0 ,
+                                                                                       (10)
+                                                  dω(λ) = 0 .
+  2
+      In this section it will be notationally convenient to set x = t1 .
+
+                                                        5
+These equation imply, by Frobenious’s theorem, the local existence of functions P(λ) and
+Q(λ) such that ω = dP ∧ dQ . In fact, one such pair of functions is given by
+
+
+                                 P(λ) = L ,
+                                              X
+                                              ∞
+                                 Q(λ) =             ntn Ln−1 ,
+                                              n=1
+                                        def
+                                        = M(λ) ,
+
+and hence:
+
+Proposition [7]
+
+   The dispersionless KP hierarchy is governed by the exterior differential equation
+
+                                     ω = dL ∧ dM ,
+
+with
+
+                                      {L, M} = 1 .
+
+   To discuss the geometry of the KP hierarchy it is first convenient to redefine the Moyal
+bracket
+
+                                 {f, g}κ = f ⋆ g − g ⋆ f .
+
+This amounts to rescaling the time variables, so now the limit κ → 0 is singular. The
+basic definitions of L and Bn remains unchanged. In Sato theory the pseudo-differential
+operator
+                                               X
+                                               ∞
+                                   W =1+              wi ∂ −n
+                                              n=1
+
+plays a more fundamental role than the Lax operator L, and the evolution of W is governed
+by
+                                  ∂W
+                                      = Bn W − W ∂ n ,
+                                  ∂tn
+
+where L = W ∂W −1 and Bn = (Ln )+ . From these equations it is straightforward to
+derive the Lax equation and the zero curvature relations. For the Moyal version of the
+KP hierarchy one may similarly define a function
+                                                  X
+                                                  ∞
+                                    W =1+             w n λn
+                                               n=1
+
+governed by
+                                ∂W
+                                    = Bn ⋆ W − W ⋆ λn .
+                                ∂tn
+
+                                              6
+The Lax functions is then L = W ⋆ λ ⋆ W −1 (where W −1 is defined uniquely by the
+relations W ⋆ W −1 = W −1 ⋆ W = 1 ), and this satisfies the Lax equation (8).
+
+   Recently, another pseudo-differential operator was introduced in [8],
+                                            X
+                                            ∞
+                                  M = W(          ntn ∂ n−1 )W −1 .
+                                            n=1
+
+this satisfying the equations
+
+                                       ∂M
+                                            = [Bn , M] .
+                                        ∂tn
+                                     [L, M] = 1 .
+With this one may study the symmetries and other properties of the KP hierarchy in
+terms of the infinite dimensional Grassmannian manifold. Similarly, there is a Moyal
+version of this operator:
+                                             X
+                                             ∞
+                                M=W ⋆(            ntn λn−1 ) ⋆ W −1 .
+                                            n=1
+
+This satisfies the relations
+
+                                      ∂M
+                                          = {Bn , M}κ ,
+                                      ∂tn
+                                  {L, M}κ = 1 .
+This suggests that one may characterise solutions of the Moyal KP hierarchy in terms of
+a Riemann-Hilbert problem in the Moyal loop group.
+
+    Another multidimensional integrable system that admits such a description is the anti-
+self-dual Einstein equation [9]. These describe a complex 4-metric with vanishing Ricci
+and anti-self-dual Weyl tensors. The metric may be written in terms of a single function
+Ω , the Kähler potential, which is governed by the equation
+
+                                   Ω,xx̃ Ω,yỹ − Ω,xỹ Ω,yx̃ = 1 ,
+or, using the Poisson bracket (4) (with respect to x̃ and ỹ variables):
+
+                                        {Ω,x , Ω,y } = 1 .                                   (11)
+This equation (Plebanski’s first heavenly equation [10]) may also be written in the form
+(10), with
+
+ ω(λ) = dx ∧ dy + λ(Ωxx̃ dx ∧ dx̃ + Ωxỹ dx ∧ dỹ + Ωyx̃ dy ∧ dx̃ + Ωyỹ dy ∧ dỹ) + λ2 dx̃ ∧ dỹ
+and the additional constraint dλ = 0 . Once again one may show the existence of function
+P(λ) and Q(λ) with ω = dP ∧ dQ and {P(λ), Q(λ)} = 1 , connected by Riemann-Hilbert
+problems. A Moyal algebraic deformation of (11), obtained by replacing the Poisson
+bracket by the Moyal bracket was introduced in [11], and has been studied further by
+Takasaki [12] and Castro [13], the former showing that it may be described in terms of
+a Riemann-Hilbert problem in the corresponding Moyal loop group.
+
+                                                  7
+5. Comments
+The Moyal bracket was first introduced in an attempt to reformulate quantum mechanics
+in terms of a distribution f on phase space. From the equation
+                                      ∂f
+                                         = {f, H}κ
+                                      ∂t
+(together with an auxiliary equations for f ) one can derive a wavefunction satisfying
+the Schrödinger equation. Note that the use of commutator relations is avoided. The
+theory outlined in this paper is somewhat analogous; the use of differential operator and
+commutator relations is replaced by the use of the Moyal bracket. Perhaps these ideas
+may be useful in a proof of the conjecture that the hierarchy (8) is the KP hierarchy.
+
+    It therefore seems likely that the entire theory of the KP hierarchy may be reformulated
+in terms of the Moyal bracket and ⋆-products, thus totally avoiding the use of pseudo-
+differential operators. One attraction of this approach is that it is closer in spirit to
+the formulation of other multidimensional integrable systems such as the anti-self-dual
+vacuum equations. For this equation the Riemann-Hilbert problem may be used to define
+an associated 3-dimensional complex manifold known as twistor space. Such a twistorial
+description of the KP equation has been sort for many years, after the conjecture of Ward
+[14] that all classical integrable systems should admit such a description. The failure to
+find this has lead to the suggestion [15] that a more general version to twistor theory is
+needed to encompass systems such as the KP equation. The use of the Moyal bracket
+in the study of the KP hierarchy, as outlined in this paper, suggests that what might be
+required is some sort of κ-deformed twistor space which would make use of the Moyal
+bracket, rather than the Poisson bracket as used in conventional twistor theory. This,
+however, remains pure speculation.
+
+
+Acknowledgements
+Financial support was provided by the University of Newcastle, via the Wilfred Hall
+fellowship.
+
+
+References
+
+[1]   Y. Kodama, Phys. Lett. A129 (1988) 223.
+      Y. Kodama and J. Gibbons, Phys. Lett. A135 (1989) 167-170.
+
+[2]   Y. Ohta, J. Satuma, D. Takahashi and T. Tokihiro,
+      Prog. Theor. Phys. Supp. 94 (1988) 210.
+
+[3]   J. Moyal, Proc. Cam. Phil. Soc. 45 (1949) 99.
+
+[4]   P. Fletcher, Phys. Lett. B248 (1990) 323.
+      W. Arveson, Commun. Math. Phys. 89 (1983) 77.
+
+                                             8
+[5]   D.B. Fairlie, P. Fletcher and C.K. Zachos, J. Math. Phys. 31 (1990) 1085.
+
+[6]   B.A. Kupershmidt, Lett. Math. Phys. 20 (1990) 19.
+
+[7]   K. Takasaki and T. Takebe, Int. J. Mod. Phys. A7 Suppl. 1B (1992), 889.
+
+[8]   P.G Grinevich and A.Yu. Orlov, in Problems of Modern Quantum Field Theory
+      eds. A.A. Belavin, A.U. Klimyk and A.B. Zamalodchikov (Springer-Verlag, 1989).
+
+[9]   R. Penrose, Gen. Rel. Grav. 7 (1976) 31.
+
+[10] J.F. Plebanski, J. Math. Phys. 16 (1975) 2395.
+
+[11] I.A.B. Strachan, Phys. Lett. B283 (1992) 63.
+
+[12] K. Takasaki, Dressing operator approach to Moyal algebraic deformation of
+                  self dual gravity, Kyoto preprint, KUCP-0054/92,
+                  Nonabelian KP hierarchy with Moyal algebraic coefficients,
+                  to appear J. Geom. Phys. 14.
+
+[13] C. Castro, Nonlinear W∞ algebras from nonlinear integrable deformations of
+                self dual gravity, preprint I.A.E.C.-4-94.
+                A Universal W∞ algebra and quantization of integrable deformations
+                of self-dual gravity, preprint I.A.E.C.-2-94.
+
+[14] R.S. Ward, Phil. Trans. R. Soc. A315 (1985) 451,
+                in Twistors in Mathematics and Physics, eds. T.N. Bailey and
+                R.J. Baston (Cambridge University Press, 1990).
+
+[15] L.J. Mason, Generalized twistor correspondences, d-bar problems and the
+                 KP equations,to appear in the proceedings of the Twistor Theory
+                 conference held in Newton Abbot, 1993.
+
+
+
+
+                                          9
+

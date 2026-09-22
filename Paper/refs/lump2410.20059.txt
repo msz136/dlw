@@ -1,0 +1,1028 @@
+                                           Construction and analysis of multi-lump solutions of dispersive long
+                                                          wave equations via integer partitions
+                                                                                       Yong-Ning An, Rui Guo∗
+arXiv:2410.20059v1 [math-ph] 26 Oct 2024
+
+
+
+
+                                                                        School of Mathematics, Taiyuan University of
+                                                                            Technology, Taiyuan 030024, China
+
+
+                                                                                                  Abstract
+                                                    In this paper, the relation between the integer partition theory and a kind of rational solution of
+                                                the dispersion long wave equations is studied. For the integer partition λ = (λ1 , λ2 , · · · , λn ) of positive
+                                                integer N , with the degree vector m = (m1 , m2 , · · · , mn ), the corresponding M lump solution can be
+                                                obtained where M = N + nmn . Combined with the generalized Schur polynomial and heat polynomial,
+                                                the asymptotic positions of peaks are studied, and the arrangement of multi-peak groups in multi-lump
+                                                solutions are obtained, as well as the relationship between the patterns formed by single-peak groups
+                                                and the corresponding integer partition.
+
+                                                Keywords: The dispersive long wave equation; Generalized Schur polynomial; Multi-lump solutions;
+                                                Integer partition
+
+
+
+                                           1 Introduction
+
+                                              The (2 + 1) dimensional dispersion long wave equations(DLWEs)
+
+                                                                                          uyt + (vx + uuy )x = 0,
+                                                                                                                                                                   (1.1)
+                                                                                            vt + (uv − uxy )x = 0,
+
+                                           where u and v are wave amplitude functions in relation to spatial variables (x and y) and time variable
+                                           (t). Eq. (1.1) is a mathematical model that describes the scenario of wide channels or open oceans with
+                                           finite depth, which has substantial research significance in physics, engineering and earth science [1–8]. The
+                                           DLWEs were initially introduced by Boiti in 1987 as a compatibility condition for a weak Lax pair [8]. Over
+                                           the past few years, various intriguing properties of the (2 + 1)-dimensional DLWEs have been extensively
+                                           studied [9–18].
+                                               In recent years, there has been a significant amount of interest in lump solutions as a new area of
+                                           research. A lump is a specific object or structure characterized as a nonlinear wave, maintaining its shape
+                                           and amplitude as it propagates through a medium [19, 20]. The study of lumps has been extensively
+                                           explored in nonlinear dynamics and has demonstrated potential applications in various areas, such as data
+                                           transmission, energy storage, and quantum computing [21–25]. Furthermore, it plays a crucial role in gaining
+                                           a deeper understanding of complex wave phenomena and nonlinear dynamic behaviors. Take the Kadomtsev-
+                                           Petviashvili(KP) equation for instance. In Ref. [26], twelve classes of lump-kink solutions to the KP equation
+                                             ∗ Corresponding author: guorui@tyut.edu.cn
+
+
+
+
+                                                                                                       1
+were obtained using Hirota bilinear methods. Ref. [27] utilized a simplified form of a function to generate
+a class of generalized solutions for the KP equation and discussed different distribution characteristics of
+lump chains. Ref. [28, 29] used the Binary Darboux transform (BDT) and polynomial theory to develop
+multi-lump solutions to the KPI problem. Then they evaluated the solution by introducing the partition
+notion, offering significant insights into the phenomena.
+    This paper aims to study the lump solutions under high-order BDT. By doing so, we can enhance our
+comprehension of the structure and characteristics of lump solutions in DLWEs, particularly in relation
+to various orders and integer partitions. We can find that the different orders n of the BDT and the
+different integer partition λ = (λ1 , λ2 , · · · , λn ) of N will correspond to the solutions with varying amounts
+of lump, but they can be regarded as composed of the multi-peak groups and the single-peak groups. Each
+single-peak group contains only one lump, while each multi-peak group contains n lumps. In addition, in
+terms of the location of the distribution, the multi-peak groups are usually located near the coordinate axis
+and approximately parallel distribution, situated on the r-axis when t > 0, and located near the s-axis
+when t < 0. The distribution of single-peak groups is related to the Young diagram of integer partition of
+N . In particular, we discuss the distribution properties of single-peak groups in special partitions such as
+rectangular partitions, trapezoidal partitions, triangular partitions, odd partitions and even partitions with
+concrete examples.
+    The structure of this paper is as follows: In Sect. 2, we will introduce the generalized Schur polynomial
+and its simple properties, and then convert the expression of DLWEs’ lump solutions constructed by BDT
+into the sum of squares of the modules. Lastly, we will give some examples. In Sect. 3, we will introduce
+the integer partition theory and establish its relationship with multi-lump solutions. In order to explore
+the peak distribution of multiple lump solutions, we will establish the relationship between generalized
+Schur polynomials and the heat polynomials in Sect. 4, especially the graphs formed by the distribution of
+single-peak groups in some special partitions. Finally, the conclusions will be summarized in Sect. 5.
+
+2 Construction of multi-lump solutions
+
+   In this section, we will explain the process of constructing a family of multi-lump solutions using Grami-
+ans, which are derived from the BDT applied to the DLWEs. The solutions are constructed using a specific
+kind of complex polynomials known as the generalized Schur polynomials, which are explained in detail
+below.
+
+   2.1 Generalized Schur polynomials and new notation
+
+   The generic expression for the generalised Schur polynomials is defined by the relation [30–32]
+                      1 ∂ n ϕ iσ
+                              e = pn (k) eiσ , σ (x, y, t, k) =: kx + k 3 y + k 2 t + γ (k) ,            (2.1)
+                      n! ∂k n
+where k is a complex parameter and γ (k) is an arbitrarily differentiable function of k. By definition, we can
+                                                                                   ∂j σ
+know that pn is a polynomial in n variables σ1 , σ2 , · · · , σn with σj := i j!
+                                                                              k
+                                                                                 , which gives us
+
+   σ1 = i x + 3k 2 y + 2kt + γ1 , σ2 = i (3ky + t + γ2 ) , σ3 = i (y + γ3 ) , σj (k) = iγj (k) , j > 3,
+                               
+                                                                                                             (2.2)
+                ∂kj γ(k)
+where γj (k) = j! are independent complex parameters related to k only.
+   The expression of the generalised Schur polynomial pn can be obtained by comparing Eqs. (2.3) and (2.4),
+which are Taylor expansions of eiσ(k+h) in different orders
+                                             ∞                            ∞
+                                             X hn ∂ n                     X
+                                eiσ(k+h) =               n
+                                                           eiϑ(k) = eiσ         hn pn (k),                   (2.3)
+                                             n=0
+                                                 n! ∂k                    n=0
+
+
+                                                           2
+                                                                                                                 m j 
+                                                                     ∞                    ∞         ∞
+                                    ′      ′′
+                                                                                                            hj σj
+                                                       
+                            i σ(k)+σ (k)h+σ (k)h2/2+···                      j
+                                                                     Y                    Y         X
+             eiσ(k+h) = e                                    = eiσ         eh σj = eiσ                                .    (2.4)
+                                                                     j=1                  j=1    mj =0
+                                                                                                              mj !
+
+By comparing the two equations above in which the powers of h are equal, we obtain
+                                                      X                          σ1m1 σ2m2 · · · σnmn
+                             pn (k) =                                                                 ,
+                                                                                 m1 !m2 ! · · · mn !                         (2.5)
+                                         m1 + 2m2 + · · · + nmn = n
+
+where m1 , m2 , · · · , mn ≥ 0. Based on the above equation, we get the first few terms of pn as
+
+                                                σ12                   σ13
+                             p1 = σ1 ,   p2 =       + σ2 ,    p3 =        + σ1 σ2 + σ3 ,            ··· .                    (2.6)
+                                                2                     3!
+From Eq. (2.5), we know that pn is a weighted polynomial of order n in σj , j = 1, · · · , n, where weights
+wt(σj ) = j and each pn has degree n in x, y, t since σ1n appears in the expansion. There is a useful property
+that can be derived from Eqs. (2.1) and (2.2) for the generalized Schur polynomials as follows
+                                                      (
+                                     ∂ j pn    ∂pn        pn−j , j ≤ n
+                                          j
+                                            =       =                    .                               (2.7)
+                                     ∂σ1       ∂σ j       0,     j>n
+
+   Next, we present the new notations and their basic features. Let
+
+                            Qm,n = (pm−1 + k0 pm ) p∗n ,          Q∗m,n = p∗m−1 + k0∗ p∗m pn ,
+                                                                                         
+                                                                                                                             (2.8)
+
+where the first term of the subscript of Qm,n represents the maximum index of pn inside the parentheses,
+and the second term of the subscript represents the index of p∗n outside the parentheses, while the subscript
+in Q∗m,n has the opposite meaning.
+     Review before, pn is a generalized Schur polynomial with respect to σ1 , · · · , σn , and p∗n is a polynomial
+with respect to σ1∗ , · · · , σn∗ , then we can get some simple properties of the derivative of Qm,n with respect to
+σi , σj∗ , (i = 1, · · · , m, j = 1, · · · , n).
+     Property 2.1 Properties of the polynomial Qm,n .
+   (a) Derivative of Qm,n with respect to σi (i = 1, · · · , m) and σj∗ (j = 1, · · · , n).
+                                                  (
+                       ∂ i Qm,n       ∂Qm,n         Qm−i,n , i ≤ m
+                              i
+                                   =           =                       ,                                                    (2.9a)
+                          ∂σ1           ∂σi         0,        i>m
+                                                  (
+                       ∂ j Qm,n       ∂Qm,n         Qm,n−j , j ≤ n
+                                    =          =                      ,                                                     (2.9b)
+                         ∂σ1∗
+                               j
+                                        ∂σj∗        0,         j>n
+                                                    (
+                       ∂ i+j Qm,n        ∂ 2 Qm,n      Qm−i,n−j , i ≤ m and j ≤ n
+                            i    ∗ j  =         ∗ =                                         .                               (2.9c)
+                        ∂σ1 ∂σ1          ∂σi ∂σj       0,           i > m or j > n
+
+   (b) Derivative of Qm,n with respect to x.
+                                                               l
+                         ∂ l Qm,n              l            l
+                                                              X
+                                                                  l
+                                                                         j
+                              l
+                                  =: Qm,n,l = i  Z m,n,l = i      j   (−1) Qm−l+j,n−j ,                                     (2.10)
+                            ∂x                                j=0
+
+where the third term of the subscript of Qm,n,l denotes the degree to which the polynomial Qm,n takes the
+derivative with respect to x.
+
+   2.2 Expression for multi-lump solutions
+
+
+
+                                                              3
+  Based on previous studies, we have constructed the expression v (x, y, t) for the multi-lump solution of
+DLWEs as follows
+                                          ∂2
+                        v (x, y, t) = −2      ln (|H|) , |H| (x, y, t) = |A| |B| ,                  (2.11)
+                                         ∂x∂y
+where
+                                    mi +mj                                             mi +mj
+                                     X ∂xl Qmi ,mj                                       X ∂xl Q∗mj ,mi
+                            Aij =                     l
+                                                            ,               Bij =                        l
+                                                                                                              ,
+                                    l=0          (2b)                                    l=0         (2b)
+                                    n
+                                                                                                                         (2.12)
+                                    X
+                            Hij =         Aik Bkj ,                         i, j = 1, 2, · · · , n,
+                                    k=1
+
+where n represents the order of the BDT. From the related content of polynomials introduced in the previous
+subsection, we can know that it is the term of k = n that plays the main role in Hij , and thus we obtain
+
+                                          mX
+                                           i +mn                        mn +mj
+                                                   ∂xα Qmi ,mn               X         ∂xβ Q∗mj ,mn
+                     Hij ≈ Ain Bnj =                      α                                      β
+                                           α=0
+                                                      (2b)                                (2b)
+                                                                             β=0
+                                          mi +2mn +mj                       α
+                                              X               1 X β
+                                     =                           α ∂x Qmi ,mn ∂xα−β Q∗mj ,mn                             (2.13)
+                                              α=0
+                                                            (2b)
+                                                                        β=0
+                                           i +mn mn
+                                          mX        +mj
+                                                  X                     1          α+β
+                                                                                          ∂x Qmi ,mn ∂xβ Q∗mj ,mn .
+                                                                                          α
+                                     =                                  α+β         β
+                                           α=0        β=0        (2b)
+
+Notice that the upper limits of both sums in the last equality above can be extended to 2mn without any
+loss of generality, because ∂xr Qmi ,mn = 0 if r > mi + mn . Next consider n complex vectors in C2mn +1
+                                                                                           T
+                      Pi := Qmi ,mn , ∂x Qmi ,mn , · · · , ∂x2mn Qmi ,mn                        , i = 1, 2, · · · , n,   (2.14)
+
+the elements of the (2mn + 1) × n matrix can be represented as
+
+                 Prj = ∂xr Qmj ,mn = ir Wrj ,
+                        (
+                            Zmj ,mn ,r , r ≤ mj + mn                                                                     (2.15)
+                 Wrj =                               , r = 0, 1, · · · , 2mn , j = 1, 2, · · · , n.
+                            0,           r > mj + mn
+
+Then the elements of Hij are given by the inner products
+
+                                                                1
+                        Hij = P†j CPi , Cα,β =                              α+β
+                                                                                  
+                                                                 α+β         β        , i = 0, 1, 2, · · · , 2mn ,       (2.16)
+                                                          (2b)
+
+where † stands for conjugate transpose and C is a real, symmetric (2mn + 1) × (2mn + 1) matrix that has a
+unique decomposition
+                                         (
+                                               1    s
+                                                      
+                           †                (2b)s−r r ,   r≤s
+                     C = U DU, Urs =                           , r, s = 0, 1, · · · , 2mn .        (2.17)
+                                            0,            r>s
+
+Here U is a (2mn + 1) × (2mn + 1) upper-triangular matrix with 1′ s along its main diagonal and D is a
+                               −2r
+diagonal matrix with Drr = (2b)    , r = 0, 1, · · · , 2mn . Then the entries of martix H from Eq. (2.16) are
+expressed as
+                                Hij = P†j CPi = Q†j DQi , Qi = UPi .                                   (2.18)
+
+
+
+
+                                                                    4
+   Let Q = UP, where P is defined in Eq. (2.15), then the determinant of H = Q† DQ can be expressed as
+a sum of squares using the Cauchy-Binet formula
+                                                                                                             2
+                                                                   X                    |Q (l1 · · · ln )|
+                                  τ = det H =                                                  2(l1 +···+ln )
+                                                                                                                 ,
+                                                                                        (2b)
+                                                      0 ≤ l1 < · · · < ln ≤ mn                                                          (2.19)
+                                                              X
+                                                                          U rl11 ···l
+                                                                                        
+                                     Q (l1 · · · ln ) =                          ···rn P (r1 · · · rn ) ,
+                                                                                      n
+
+
+                                                       0≤r1 <···<rn ≤mn
+
+           l1 ···ln
+                    
+where U r1 ···rn is the n × n minor of U obtained from the submatrix whose rows and columns are indexed
+by (l1 , · · · , ln ) and (r1 , · · · , rn ), respectively. Since U is upper-triangular matrix with 1′ s along its main
+diagonal, it follows that the principal minors U ll11 ···l                     l1 ···ln
+                                                                                       
+                                                               ···ln = 1 and U r1 ···rn ̸= 0 if and only if lj ≤ rj for each
+                                                                   n
+
+
+j = 1, · · · , n.
+     To facilitate further discussion, we introduce the total lexicographic order for the multi-index sets l :=
+(l1 · · · ln ) , 0 ≤ l1 < · · · < ln ≤ mn .
+     Definition 2.1 Given two multi-index sets l, r, if j is the earliest index that causes l and r to differ,
+thus l < r if and only if lj < rj . We denote the smallest element (01 · · · n) in the lexicographic order as 0.
+     After using the notation above, we can express Eq. (2.19) in the following simplified form
+                                                                      2
+                                                    X      |Q (r)|                         X
+                                                                                                 U rs P (s) ,
+                                                                                                     
+                                τ = det H =                             ,        Q (r) =
+                                                            (2b)
+                                                                   2|r|                                                                 (2.20)
+                                                                                           s≥r
+                                                   r≥0
+                                                                                                                     2
+                                                                                 |Q(0)|
+with |r| := r1 + · · · + rn . The leading polynomial term in det H is given by (2b)n(n−1) , where
+
+                                                                          X
+                                                                                U 0s P (s) .
+                                                                                    
+                                                  Q (0) = P (0) +                                                                       (2.21)
+                                                                          s≥0
+
+                                                                                                                         n(n−1)
+For any set of multiple indices r, we can get that P (r) = i|r| W (r), in particular P (0) = i                              2     W (0), where
+
+        Zm1 ,mn ,r1          Zm2 ,mn ,r1    ···   Zmn ,mn ,r1            Zm1 ,mn                         Zm2 ,mn
+                                                                                                            Zmn ,mn       ···
+        Zm1 ,mn ,r2          Zm2 ,mn ,r2    ···   Zmn ,mn ,r2            Zm1 ,mn ,1                      Zm2 ,mn ,1
+                                                                                                            Zmn ,mn ,1    ···
+W (r) =      ..                   ..         ..        ..     , W (0) =      ..                              .. ..         ..
+              .                    .          .         .                     .                               .  .          .
+        Zm1 ,mn ,rn          Zm2 ,mn ,rn    ···   Zmn ,mn ,rn           Zm1 ,mn ,n−1                    Zm2 ,mn ,n−1
+                                                                                                           Zmn ,mn ,n−1   ···
+                                                                                                                   (2.22)
+are the n × n minors of the (2mn + 1) × n matrix W defined in Eq. (2.15). Notice that P (r) is a weighted
+                                                            ∗
+homogeneous polynomial in σ1 , · · · , σmn , σ1∗ , · · · , σm n
+                                                                of degree (m1 + · · · + mn ) + nmn − |r|, and which of
+                                            n(n−1)
+P (0) is M := (m1 + · · · + mn ) + nmn − 2 .
+
+   2.3 Examples of multi-lump solutions
+
+   In this subsection, we will give several examples of multi-lump solutions of the DLWEs. For simplicity,
+we will introduce the following set of coordinates
+                                                                             a2 + b2              1
+                        r = x′ + 3 a2 − b2 y ′ , s = 6aby ′ , where x′ = x +         t, y ′ = y + t.
+                                          
+                                                                                                                                        (2.23)
+                                                                                a                3a
+Recall that a = Re (k0 ) and b = Im (k0 ), let a = ωb and parameter b be a constant, so that k0 = b (ω + i)
+can be obtained. By changing the value of ω, we can know the effects of k0 on DLWEs’ lump solutions.
+Thus, the variable σj in Eq. (2.2) becomes the following
+                                            s  t  is              is   it
+   σ1 = i (r + is + γ1 ) , σ2 = −             + +    + iγ2 , σ3 = 2 −     + iγ3 , σj (k) = 0, j > 3,                                    (2.24)
+                                           2bω ω 2b              6b ω 3bω
+
+                                                                      5
+where we can set γj = 0 for simplicity.
+
+   Example 2.1 Let’s first consider the case n = 2, where m1 = 1 and m2 = 2. In this case, the matrices
+P, U and D are given by
+                                                         1            1      1               1
+                                                                                                
+      Z1,2        Z2,2                    1              2b          4b2    8b3            16b4
+     Z                                                               1      3               1
+     1,2,1       Z2,2,1                0              1            b     4b2             2b3
+                                                                                                                                                           
+                                       
+                                                                             3               3
+                                                                                                                                    1     1     1     1
+P =  Z1,2,2      Z2,2,2  ,          U= 0              0           1                             ,           D = diag 1,             ,     ,     ,            .
+                                                                                                
+                                                                            2b              2b2                                    (2b)2 (2b)4 (2b)6 (2b)8
+                                                                                             2
+                                                                                                
+     Z1,2,3      Z2,2,3                0              0           0          1            b
+                                                                                                   
+      Z1,2,4      Z2,2,4                  0              0           0          0             1
+                                                                                                                                                       (2.25)
+Next, calculating all the 2 × 2 minors using Eq. (2.20) leads to the sum of squares expression
+                                        2                    2                        2                     2                  2          2
+                             |Q (01)|           |Q (02)|              |Q (03)| + |Q (12)|                               |Q (04)| + |Q (13)|
+                    τ=             2        +            4       +                            6                     +              8
+                               (2b)               (2b)                                (2b)                                     (2b)
+                                       2                     2                       2                      2
+                                                                                                                                                       (2.26)
+                             |Q (14)| + |Q (23)|                     |Q (24)|                 |Q (34)|
+                         +                  10                   +              12        +            14       .
+                                       (2b)                              (2b)                     (2b)
+
+By substituting the above formula into Eq. (2.11), we get the expression of the multi-lump solution of
+DLWEs.
+
+
+
+
+                   (a)                                                               (b)                                                  (c)
+
+
+
+Fig. 1. (a)∼(c) are the 6-lump solutions of the DLWEs with b = 0.5, ω = 0.5..
+
+   We can see from Fig. 1 that in this case, there are six peaks in the whole system, of which two groups
+contain two lumps, known as multi-peak groups, and the other two groups are single, known as single-peak
+groups. When t < 0, the single-peak groups are approximately located on the r-axis, and the multi-peak
+groups are approximately located on the s-axis, and the peaks in these groups are parallel to the r-axis. As
+t → 0, all peaks attract each other and move toward the origin. Then the deflection occurs, and at t > 0,
+the peaks in the multi-peak groups are approximately parallel to the r-axis, and the peaks in the single-peak
+groups are approximately located on the s-axis.
+
+    Example 2.2 Now let’s keep n = 2 the same as in the previous example, and set (m1 , m2 ) = (1, 3) and
+(2, 3), respectively. We first consider the case n = 2, where m1 = 1 and m2 = 2. By referring to Eqs. (2.14)
+and (2.17) and the same process as in Ex. 2.1, we can get the matrix P, U and D, respectively, and thus get
+the result shown in Fig. 2.
+
+
+
+
+                                                                                     6
+                   (a)                                      (b)                                      (c)
+
+
+
+
+                   (d)                                      (e)                                      (f)
+
+
+Fig. 2. The parameters are selected as b = 0.5, ω = 0.5. (a)∼(c) are the 9-lump solutions of the DLWEs. (d)∼(f) are the
+10-lump solutions of the DLWEs.
+
+    From Fig. 2(a)-(c), we can see that the whole system contains 9 lumps, which are distributed around
+the s-axis when t < 0, and around the r-axis when t > 0. In the process of time evolution, as in the case
+of 6-lump decomposition, the interiors of the system attracted to each other and then repelled away from
+each other. The difference, however, is that in this case, there are five lumps near the origin, and three
+of them can be seen as triangular distributions. That is, the entire system consists of three multi-peak
+groups consisting of two peaks, and three single-peak groups forming a triangular distribution. Fig. 2(d)-(f)
+shows the 10-lump solutions at different values of t, which consist of three multi-peak groups consisting of
+two peaks, and four single-peak groups forming a rectangular distribution. The general motion laws are
+consistent with the above examples.
+
+3 Integer partition theory and multi-lump solutions
+
+    In the previous section, we have constructed the multi-lump solutions of DLWEs, that is Eq. (2.20), by
+using the BDT and the related content of the generalized Schur polynomials. Given a set of different positive
+integer indices {m1 , m2 , · · · , mn }, we can get the corresponding expression. Therefore, in order to establish
+the correlation between multi-lump solutions and integer partitions, we will begin by introducing some basic
+ideas from partition theory and its association with polynomials.
+    Definition 3.1 For a given non-negative integer N , we decompose it and write the result as λ =
+(λ1 , λ2 , · · · , λn ) in non-decreasing order such that 0 ≤ λ1 ≤ λ2 ≤ · · · ≤ λn and |λ| := λ1 + · · · + λn = N
+satisfy. The number of non-zero parts l (λ) ≤ n of λ is called its length and |λ| = N . The strictly
+increasing sequence m = (m1 , m2 , · · · , mn ) defined by mj = λj + (j − 1) , j = 1, · · · , n is called the degree
+vector of the partition λ. Similar to the above, we define the λ = (λ1 + mn , λ2 + mn , · · · , λn + mn ), m =
+
+
+                                                             7
+(m1 + mn , m2 + mn , · · · , 2mn ), then obtain that λ := λ1 + · · · + λn + nmn = N + nmn and mj = λj +
+(j − 1) , j = 1, · · · , n.
+     It is convenient to describe the partition λ of the positive integer N with the corresponding Young
+diagram Yλ , which is a left-justified rectangular array such that the ith row from the top contains λn − i + 1
+boxes, i = 1, · · · , n. So Yλ contains n rows, where the l (λ) row contains non-zero boxes, λn columns, and
+the total number of boxes Yλ contains is N . If we flip the Young diagram Yλ by interchanging its rows and
+columns and is called Yλ′ , the partition is called the conjugate partition λ′ of λ. Clearly, |λ| = |λ′ | = N ,
+     ′
+(λ′ ) = λ, the length l (λ′ ) = λn , and λ′ has l (λ) ≤ n columns.
+     For a given partition µ and λ, µ ⊂ λ means that Yµ ⊂ Yλ , that is µi ≤ λi , 1 ≤ i ≤ (µ) where µi and λi
+are the number of boxes in the ith row of Yµ and Yλ , respectively. Suppose λ has n parts, then µ can reach
+n parts by adding a number of 0 parts, in which case µ ⊂ λ reveals µi < λi , i = 1, · · · , n. The set difference
+Yλ − Yµ is called a skew diagram Yλ/µ which may be disconnected.
+
+   Example 3.1 Let λ = (1, 1, 3, 4) , µ = (1, 2, 3), then we have
+
+
+
+Yλ =                         Yµ =                          Yλ′ =                       Yλ/µ =
+
+
+
+
+   In conjunction with Eq. (2.22), for each partition λ of N and the corresponding degree vector m =
+                                                                                        
+(m1 , m2 , · · · , mn ), we get W (0) = det Zmj ,mn ,i−1 = det Zλj +(j−1),λn +(n−1),i−1 . Similarly, the corre-
+sponding skew Schur function can be defined as follows. Let λ and µ be two partitions satisfying λ ⊂ µ and
+the degree vectors are m and n, where mi = λi + (i − 1), ni = µi + (i − 1), i = 1, · · · , n, respectively, then
+the corresponding skew Schur function can be expressed as
+                                                          
+                             Wλ = W (0) = det Zmj ,mn ,i−1 ,
+                                                                                                          (3.1)
+                             Wλ/µ = det Zmj ,mn ,i−1 = det Zλj +(j−1),λn +(n−1),µi +i−1 .
+
+Both Wλ and Wλ/µ are weighted homogeneous polynomials in the σj s and σj∗ s of degree nmn + |λ| = λ
+and λ − |µ| respectively, then subtract nmn from the corresponding degrees, which is the number of boxes
+corresponding to the Young diagram Yλ and the skew diagram Yλ/µ respectively.
+    Notice that the multi-index set r = (r1 · · · rn ) with 0 ≤ r1 < r2 < · · · < rn ≤ mn introduced as a degree
+vector of a partition denoted by λ (r). Each element λi (r) = ri − i + 1 for 1 ≤ i ≤ n and |λ (r)| = |r| − |0|.
+In particular, if r = 0, the partition λ (0) = ∅ has only 0 parts, and λ (m) = λ when r = m is the last
+multi-index in the lexicographic order. In addition, corresponding to the lexicographic order in Definition
+2.1, we can introduce a partial order relation
+
+                                        r ≼ s ⇐⇒ ri ≤ si ,    1 ≤ i ≤ n,                                    (3.2)
+
+for multi-index sets that also satisfies λ(r) ⊂ λ(s) and Yλ(r) ⊂ Yλ(s) .
+    The main purpose of partition theory is to connect the function τ in Eq. (2.20) with the Schur and skew
+Schur functions. We have already mentioned that in Eq. (3.1), that is the second formula of Eq. (2.22). For
+a given multi-index set r and the corresponding partition µ, the skew Schur function can be expressed as
+Wλ/µ = Wλ/λ(r) = W (r), where W (r) is the first expression in Eq. (2.22). By combining Eq. (2.21), we can
+get                                                   X
+                                 Q (0) = i|0| Wλ +        i|λ(s)| U 0s Wλ/λ(s) ,
+                                                                             
+                                                                                                       (3.3)
+                                                    λ(s)̸=∅
+
+
+                                                       8
+where the sum is all non-empty partitions λ (s). Similarly, for each r > 0, the second formula in Eq. (2.20)
+can be written as
+                                         X
+                  Q (r) = i|r| Wλ/λ(r) +   i|λ(s)|−|λ(r)| U rs Wλ/λ(s) , λ (r) ⊂ λ (s) ⊆ λ,
+                                                                     
+                                                                                                       (3.4)
+                                                   λ(s)
+
+where the sum is for all partitions of the Young diagrams that satisfy Yλ(r) ⊂ Yλ(s) ⊆ Yλ .
+    Example 3.1 Take the 6-lump solution in Ex. 2.1 as an example. In this case, the partition corresponding
+to the degree vector m = (1, 2) is λ = (1, 1). Then, the 2 × 2 minors of P, Q, U, D can be labeled by the
+multi-index set r = {(r1 , r2 ) , 0 ≤ r1 < r2 ≤ mn }. So the Schur function W(1,2) = W (0) and the skew Schur
+function Wλ/λ(r) = W (r) in this example can be denoted as
+
+                                               Z1,2       Z2,2                                         Z1,2     Z2,2
+               W ((0, 1)) = W(1,2) =                             ,       W ((0, 2)) = W(1,2)/(0,1) =                   ,
+                                               Z1,2,1     Z2,2,1                                       Z1,2,2   Z2,2,2
+
+                                               Z1,2       Z2,2                                         Z1,2     Z2,2
+         W ((0, 3)) = W(1,2)/(0,2) =                             ,       W ((0, 4)) = W(1,2)/(0,3) =                   ,
+                                               Z1,2,3     Z2,2,3                                       Z1,2,4   Z2,2,4
+
+                                               Z1,2,1     Z2,2,1                                       Z1,2,1   Z2,2,1
+         W ((1, 2)) = W(1,2)/(1,1) =                             ,       W ((1, 3)) = W(1,2)/(1,2) =                   ,
+                                               Z1,2,2     Z2,2,2                                       Z1,2,3   Z2,2,3
+
+                                               Z1,2,1     Z2,2,1                                       Z1,2,2   Z2,2,2
+         W ((1, 4)) = W(1,2)/(1,3) =                             ,       W ((2, 3)) = W(1,2)/(2,2) =                   ,
+                                               Z1,2,4     Z2,2,4                                       Z1,2,3   Z2,2,3
+
+                                               Z1,2,2     Z2,2,2                                       Z1,2,3   Z2,2,3
+         W ((2, 4)) = W(1,2)/(2,3) =                             ,       W ((3, 4)) = W(1,2)/(3,3) =                   .
+                                               Z1,2,4     Z2,2,4                                       Z1,2,4   Z2,2,4
+
+Therefore, in contrast to Eq. (3.3), the first term in Eq. (2.26) can be represented as
+
+                                              i                3                   i
+                Q (0) = Q ((01)) = i[W(1,2) + W(1,2)/(0,1) − 2 W(1,2)/(0,2) − 3 W(1,2)/(0,3)
+                                              b               4b                  2b
+                                    1                  i                   3
+                                 − 2 W(1,2)/(1,1) − 3 W(1,2)/(1,2) +          W(1,2)/(1,3)
+                                   4b                 4b                 16b4
+                                     1                   i                   1
+                                 +      W(1,2)/(2,2) +      W(1,2)/(2,3) −       W(1,2)/(3,3) ],
+                                   16b4                16b5                 16b6
+Similarly, from Eq. (3.4), we can represent other terms in Eq. (2.26), such as
+
+                                   3i                3                  i                3
+        Q ((02)) = −[W(1,2)/(0,1) +   W(1,2)/(0,2) − 2 W(1,2)/(0,3) + W(1,2)/(1,1) − 2 W(1,2)/(1,2)
+                                   2b               2b                 2b               4b
+                   3i                 i                5                   3i
+                 − 3 W(1,2)/(1,3) − 3 W(1,2)/(2,2) +       W(1,2)/(2,3) +      W(1,2)/(3,3) ].
+                  4b                4b                16b4                32b5
+    Let λ = (λ1 , λ2 , · · · , λn ) be a partition of a positive integer N and Wλ be the associated Schur function.
+Combining the above contents with Eqs. (2.20), (3.3) and (3.4), we can get the following expressed as a sum
+of squares of the modules
+                                                                                     2
+                                 1                  X
+                                                             i|λ(s)| U   0
+                                                                         
+                       τ=        2|0|
+                                         Wλ +                            s Wλ/λ(s)
+                             (2b)                  λ(s)̸=∅
+                                                                                                       2
+                                                                                                                           (3.5)
+                             X       1                               X
+                                                                             i|λ(s)|−|λ(r)| U s Wλ/λ(s) ,
+                                                                                           r
+                                                                                            
+                         +              2|r|
+                                                Wλ/λ(r) +
+                             r>0 (2b)                          λ(r)⊂λ(s)⊆λ
+
+
+where r = (r1 · · · rn ), 0 ≤ r1 < · · · < rn ≤ 2mn is the degree vector of the partition λ (r).
+
+
+                                                                     9
+4 Asymptotic analysis of multi-lump solutions and special integer partitions
+
+    In the previous content, we have seen that the multi-lump solutions of DLWEs can be identified by the
+partition λ of the positive integer N . To avoid redundancy, we consider in this section only those partitions
+λ with the smallest element λ1 > 0, that is, partitions with partition length l (λ) = N . Similar to Definition
+2.1, let λ and µ be two different partitions of N , and if j is the first index to make µj ̸= λj , then there is
+µ < λ if and only if µj < λj . Note that the lexicographic ordering is a total ordering. The smallest partition
+                           
+λ = (1, 1, · · · , 1) := 1N which has N parts, and the largest partition λ = (N ) that has only one part.
+    In the following, we will gain further insight into the dynamical properties of DLWEs by studying the
+evolution of the peak positions of the multi-lump solutions. From Eq. (2.11), we can get
+                                                                    τxy τ − τx τy
+                                              v (x, y, t) = −2                    .                            (4.1)
+                                                                          τ2
+                                                                                                           τ
+When τ takes the minimum value, there are τx = 0 and τy = 0, we can get |τ | = 2 xyτ  for the maximum
+value which is the peak height. In combination with Eq. (3.5), we set the minimum value of its first term,
+that is, let                                 X
+                                                 i|λ(s)| U 0s Wλ/λ(s) = 0,
+                                                             
+                                 l0 = Wλ +                                                            (4.2)
+                                                     λ(s)̸=∅
+
+so that the above condition is established.
+    Next, recall from Eq. (2.24), the t-dependence in pN occurs via σ2 and σ3 which are linear in t. Then
+from Eq. (2.5),
+                                        X      σ1m1 σ2m2 σ3m3
+                      pN (r, s, t) =                          , m1 + 2m2 + 3m3 = N,                  (4.3)
+                                               m1 !m2 !m3 !
+                                      m1 ,m2 ,m3 ≥0
+
+since σj for j > 3 are constants. In order to get the highest order in the polynomial concerning t, we need to
+maximize m2 +m3 in the case of m1 +2m2 +3m3 = N . From Eq. (3.4), σ1 = iz where z = r+is, σ2 ∼ i2 − ωt
+                                                                                                             
+               t
+                 
+and σ3 ∼ i3 2bω    , then we obtain
+                                           n
+                                             
+                                                            −1          1                     −1 
+                                                                                                   
+                     pn (r, s, t) ∼ in |t| 2 Hn (ρ, ν) + |t| 2             Hn−3 (ρ, ν) + O |t|       ,         (4.4)
+                                                                       3bω
+where Hn (ρ, ν) is the heat polynomial which can be obtained via the generating function [33–35]
+                                                        ∞
+                                                      X
+                                        exp αρ + α2 ν =   Hr (ρ, ν) αr ,                                       (4.5)
+                                                                    r=0
+
+and can be rewritten as
+                                                                                      (
+                                      X ρj ν k                                            1
+                        Hr (ρ, ν) =                  ,    j + 2k = r,         ν=          ω,       t<0
+                                                                                                       .       (4.6)
+                                      j,k≥0
+                                              j!k!                                        − ω1 ,   t≥0
+
+If we set l0 = 0 in Eq. (4.2), then the peak locations are given by
+                                                               1
+                          zj (t) = rj (t) + isj (t) = |t| 2 ρj ,          j = 1, 2, · · · , N + nmn ,          (4.7)
+
+which depend only on ρ.
+   Then, combined with the above content, we give the peak position schematic diagrams of the cases given
+in Ex. 2.1 and 2.2.
+
+
+
+
+                                                               10
+                    (a)                                       (b)                                        (c)
+
+
+
+
+                    (d)                                       (e)                                        (f)
+
+
+
+Fig. 3. The parameters are selected as b = 0.5, ω = 0.5. (a) and (d) show the approximate peak locations of 6-lump solution.
+(b) and (e) display the approximate peak locations of 9-lump solution. (c) and (f) exhibit the approximate peak locations of
+10-lump solution.
+
+    In the figures above, the blue dots represent the multi-peak groups, and the pink dots represent the
+single-peak groups. Each pink dot represents only the approximate peak position of one peak, while a blue
+dot represents multiple peaks and the number of peaks is known by the number indicated. Further, we can
+see that the structures presented in Fig. 3 are basically the same as the peak positions in the corresponding
+examples in Figs. 1 and 2. In particular, the single-peak groups in the three solutions shown in Fig. 3 form a
+straight line (it can also be viewed as a rectangle), a triangle, and a rectangle, respectively. In the following,
+we will discuss the approximate distribution of the peak positions by combining the Young diagrams of the
+different partitions with the corresponding peak positions schematics.
+    Case A: Rectangular partition
+   Consider the rectangular partition λ = (m, m, · · · , m) = (mn ) with |λ| = N = nm and degree vector
+m=(m, m + 1, · · · , m + n − 1). The corresponding Young diagram is m × n rectangle. Taking λ = (4, 4, 4) =
+                             
+ 43 and λ = (4, 4, 4, 4) = 44 as examples, we can see that when t > 0, the peaks of all single-peak groups
+form a rectangle with the same specification as the corresponding Young diagram, while the multi-peak
+groups are located on the r-axis. For t < 0, it can be viewed approximately as rotated 90◦ .
+
+
+
+
+                                                             11
+                   (a)                                    (b)                                       (c)
+
+
+
+
+                       (d)                                (e)                                       (f)
+
+
+Fig. 4. (a) is the Young diagram of λ = 43 , (b) and (c) are the peak position graphs for odd partition λ = 44 with b = 0.5
+                                                                                                              
+
+and ω = 0.5. (d) is the Young diagram of λ = 43 , (e) and (f) are the peak position graphs for odd partition λ = 44 with
+                                                                                                                  
+
+b = 0.5 and ω = 0.5.
+
+
+   Case B: Triangular partition
+    The triangular partition λ = (1, 2, · · · , n) is a conjugate partition with |λ| = N , and its corresponding
+Young diagram is distributed in a staircase shape, also known as a staircase partition. As follows, we take
+λ = (1, 2, 3) and λ = (1, 2, 3, 4) as examples to observe the distribution of single-peak groups. When t < 0,
+a triangle formed by N single-peak groups points to the negative direction of the r-axis, and the opposite is
+true when t > 0.
+
+
+
+
+                   (a)                                    (b)                                       (c)
+
+
+
+
+                                                            12
+                     (d)                                     (e)                                          (f)
+
+
+Fig. 5. (a) is the Young diagram of λ = (1, 2, 3), (b) and (c) are the peak position graphs for odd partition λ = (1, 2, 3, 4)
+with b = 0.5 and ω = 0.5. (d) is the Young diagram of λ = (1, 2, 3), (e) and (f) are the peak position graphs for odd partition
+λ = (1, 2, 3, 4) with b = 0.5 and ω = 0.5.
+
+
+    Case C: Trapezoidal partition
+    If the partition has the form λ = (m, m + 1, · · · , m + n − 1) and m > 1, then it is called a trapezoidal
+partition with |λ| = n(2m+n−1)
+                           2    . In particular, when m = n and |λ| = n(3n−1)
+                                                                           2   , λ is also called a pentagonal
+partition. In the following, we split the Young diagram of the partition, by removing d copies of two
+consecutive boxes in each row, so that the new partition µ = (m − 2d, m + 1 − 2d, · · · , m + n − 1 − 2d) is a
+triangle partition.
+
+
+
+
+                     (a)                                     (b)                                          (c)
+
+
+
+
+                     (d)                                     (e)                                          (f)
+
+
+Fig. 6. (a) is the Young diagram of λ = (3, 4, 5, 6), (b) and (c) are the peak position graphs for odd partition λ = (5, 6, 7)
+with b = 0.5 and ω = 0.5. (d) is the Young diagram of λ = (3, 4, 5, 6), (e) and (f) are the peak position graphs for odd
+partition λ = (5, 6, 7) with b = 0.5 and ω = 0.5.
+
+
+
+                                                               13
+                    (a)                                      (b)                                          (c)
+
+
+
+
+                    (d)                                      (e)                                          (f)
+
+
+Fig. 7. (a) is the Young diagram of λ = (2, 3, 4, 5), (b) and (c) are the peak position graphs for odd partition λ = (4, 5, 6)
+with b = 0.5 and ω = 0.5. (d) is the Young diagram of λ = (2, 3, 4, 5), (e) and (f) are the peak position graphs for odd
+partition λ = (4, 5, 6) with b = 0.5 and ω = 0.5.
+
+    When m is odd, the new partition after splitting is µ = (1, 2, · · · , n), there are |µ| = n(n+1)
+                                                                                                  2   single-peak
+groups near the origin forming a triangle pattern, and the remaining 2nd single-peak groups are arranged
+in the periphery of the triangle with symmetric distribution about coordinates, and each side has d arcs
+composed of n groups. For the case where m is even, the new partition is µ = (1, 2, · · · , n − 1), similar to the
+case where m is odd, except that the triangular pattern at the center consists of n(n−1)  2   single-peak groups.
+Figs. 6 and 7 correspond to cases where m is odd and even, respectively, and confirm the above conclusion.
+    Case D: Odd partition
+    If each row of a partition’s Young diagram contains an odd number of boxes, then the partition λ =
+(1, 3, 5, · · · , 2n − 1) is called an odd partition, which has a degree vector of m = (1, 4, 7, · · · , 3n − 2) and
+N = n2 . For any odd partitions λ = (1, 3, 5, · · · , 2n − 1), we split q boxes in each row of the corresponding
+Young diagram to form a new diagram, where q = λi2−1 , i = 1, 2, · · · , n, and the two new diagrams correspond
+to two different triangular partitions, which can also be regarded as reorganized into a rectangular partition
+µ = (nn ). As shown in Fig. 8(b), when t > 0, N single-peak groups form two triangles of side length n with
+one common side on the s-axis. Similarly, it can be also seen as a square with side length n, that is, the
+figure formed by the single-peak groups in Fig. 4(e)-(f) is rotated by 45◦ about the central origin.
+
+
+
+
+                                                               14
+                         (a)                                                                        (b)
+
+
+Fig. 8. (a) is an example of the decomposition of the odd partition λ = (1, 3, 5, 7). (b) is the peak position diagram for odd
+partition λ = (1, 3, 5, 7) with b = 0.5 and ω = 0.5.
+
+
+    Case E: Even partition
+    Compared with the Case D, even partition λ = (2, 4, 6, · · · , 2n) corresponds to an even number of boxes
+in each row. Similarly, after dividing q = λ2i boxes in each row to form a new graph, the two new Young
+diagrams correspond to two identical triangular partitions, which can also be regarded as reorganized into a
+                                   n
+rectangular partition µ = (n + 1) .
+    At t > 0, the N single-peak groups form two triangles with side length n and whose distribution is
+symmetric about the s axis. Further, combined with Fig. 4(c) and 9(b), the shape formed by the single-peak
+groups corresponding to the even partition can be regarded as the figure formed by the single-peak groups in
+the converted rectangular partition rotated 45◦ counterclockwise around the origin and split by the s-axis.
+
+
+
+
+                         (a)                                                                        (b)
+
+
+Fig. 9. (a) is an example of the decomposition of the odd partition λ = (2, 4, 6). (b) is the peak position diagram for odd
+partition λ = (2, 4, 6) with b = 0.5 and ω = 0.5.
+
+
+    Case F: Square partition
+                                                               
+   If a partition can be denoted as λ = λ21 , λ22 , · · · , λ2n , we call it a square partition. This partition can
+be decomposed into two identical partitions λ = (λ1 , λ2 , · · · , λn ), and the graph formed by the single-peak
+groups is symmetric with respect to the r axis when t > 0, as verified by Fig. 10(b) and (d). For partition
+           
+λ = 32 , 42 , we can obtain two triangles with side lengths of 2, symmetrically positioned on the r-axis, and
+creating two arcs around the triangle, as depicted in the bottom half of Fig. 10(c).
+
+
+                                                              15
+                        (a)                                                                         (b)
+
+
+
+
+                        (c)                                                                         (d)
+
+
+Fig. 10. (a) is an example of the decomposition of the odd partition λ = 12 , 22 , 32 . (b) is the peak position diagram for odd
+                                                                                     
+
+partition λ = 12 , 22 , 32 with b = 0.5 and ω = 0.5. (c) is an example of the decomposition of the odd partition λ = 32 , 42 .
+                                                                                                                             
+
+(d) is the peak position diagram for odd partition λ = 32 , 42 with b = 0.5 and ω = 0.5.
+                                                                
+
+
+    Combined with the above special partitions and corresponding examples, we can draw the following
+conclusions.
+    (i) For any partition λ = (λ1 , λ2 , · · · , λn ), whose degree vector is m = (m1 , m2 , · · · , mn ), the multi-lump
+solution generated by the partition contains M = N + nmn peaks, which can be divided into mn multi-peak
+groups and N = |λ| single-peak groups, and each multi-peak group contains l (λ) = n peaks. In terms of
+position distribution, when t > 0, the multi-peak groups are located on the r-axis, and when t < 0, it is
+approximately parallel to the s-axis.
+    (ii) Take the splitting process of t > 0 as an example, if the Young diagram of partition is split into
+left and right parts, such as odd partition and even partition, the graph formed by single-peak groups of
+the partition is also about the s-axis distribution. If it is split by row, the graph formed by the single-peak
+groups is distributed up and down the r-axis, such as square partition.
+    (iii) The graph formed by the single-peak groups of partition λ at t > 0 is the same as that of the
+conjugate partition λ′ at t < 0.
+    (iv) For a class of partitions with only one triangle in the graph formed by single-peak groups, such as
+triangular partitions and trapezoidal partitions, the triangle points in the positive direction of the r-axis
+when t > 0, and the opposite direction when t < 0. For odd and even partitions, the single-peak groups
+form two triangles pointing in both directions of the r-axis when t > 0, and in the positive and negative
+directions of the s-axis when t < 0.
+
+
+                                                              16
+    Through the discussion in this section, we obtained the approximate locations and distribution charac-
+teristics of the peaks of multi-lump solutions formed by different integer partitions, especially a special class
+of partitions, which will provide a solid foundation for us to further understand the characteristics of DLWEs
+and the application in different fields.
+
+5 Conclusions
+
+    In this paper, we mainly studied the relationship between the multi-lump solutions of DLWEs and integer
+partition, and the following conclusions were obtained. By introducing generalized Schur polynomials and
+the integer partition theory, combined with rational solutions constructed by the BDT, the multi-lump
+solutions of DLWEs have been derived. Furthermore, we have studied the distribution of peak positions of
+lump solutions with special partition, especially the distribution characteristics of single-peak groups, and
+have summarized the relevant properties of the distribution of peak positions. In general, this paper further
+analyzed the peak properties of multi-lump solutions obtained under the condition of high-order BDT, which
+not only expanded our understanding of DLWEs, but also provided a theoretical basis for other fields of
+research and application. However, there is still much unexplored research on the multi-lump solutions of
+DLWEs, which is a direction we are still working on.
+
+Acknowledgments
+
+   We express our sincere thanks to each member of our discussion group for their suggestions. This work
+has been supported by the Shanxi Province Science Foundation under Grant No. 202303021221031, and the
+Fund Program for the Scientific Activities of Selected Returned Overseas Scholars in Shanxi Province under
+Grant No. 20220008.
+
+Data availability
+
+   Enquiries about data availability should be directed to the authors.
+
+Conflict of interest
+
+   The authors have not disclosed any competing interests.
+
+
+References
+ [1] R. Grimshaw, E. Pelinovsky, T. Taipova, A. Sergeeva. Rogue internal waves in the ocean: Long wave
+     model. Eur. Phys. J. Spec. Top. 185(1) (2010) 195-208.
+
+ [2] Z. I. Fedotova, G. S. Khakimzyanov. Nonlinear-dispersive shallow water equations on a rotating sphere.
+     Russ. J. Numer. Anal. Math. Model. 25(1) (2010) 15-26.
+
+ [3] X. Y. Gao, Y. J. Guo, W. R. Shan. Oceanic shallow-water symbolic computation on a (2 + 1)-
+     dimensional generalized dispersive long-wave system. Phys. Lett. A 457 (2023) 128552.
+
+ [4] M. Niwas, S. Kumar. New plenteous soliton solutions and other form solutions for a generalized disper-
+     sive long-wave system employing two methodological approaches. Opt. Quantum Electron. 55(7) (2023)
+     630.
+
+
+
+                                                       17
+ [5] M. S. Aktar, M. A. Akbar, K. S. Nisar, H. I. Alrebdi, A. Abdel-Aty. Steeping and dispersive effects
+     analysis of a couple of long-wave equations in dispersive media. Alex. Eng. J. 61(12) (2022) 9457-9470.
+
+ [6] T. B. Benjamin, J. L. Bona, J. J. Mahony. Model equations for long waves in nonlinear dispersive
+     systems. Phil. Trans. R. Soc. A 272(1220) (1972) 47-78.
+
+ [7] C. Q. Dai, Y. Y. Wang, A. Biswas. Dynamics of dispersive long waves in fluids. Ocean Eng. 81 (2014)
+     77-88.
+
+ [8] M. Boiti, J. J. P. Leon, F. Pempinelli. Spectral transform for a two spatial dimension extension of the
+     dispersive long wave equation. Inverse Probl. 3(3) (1987) 371-387.
+
+ [9] C. Q. Dai, F. D. Zong, J. F. Zhang. Nonpropagating solitary waves in (2 + 1)-dimensional generalized
+     dispersive long wave systems. Int. J. Theor. Phys. 45 (2006) 790-801.
+
+[10] Y. H. Tian, H. L. Chen, X. Q. Liu. New exact solutions to dispersive long-wave equations in (2 + 1)-
+     dimensional space. Commun. Theor. Phys. 45(2) (2006) 207-210.
+
+[11] L. L. Feng, S. F. Tian, T. T. Zhang. Nonlocal symmetries and consistent Riccati expansions of the
+     (2 + 1)-dimensional dispersive long wave equation. Z. Naturforsch. A 72(5) (2017) 425-431.
+
+[12] J. Hu, Z. W. Xu, G. F. Yu. Determinant structure for the (2 + 1)-dimensional dispersive long wave
+     system. Appl. Math. Lett. 62 (2016) 76-83.
+
+[13] H. Y. Zhang, Y. F. Zhang. Rational solutions and their interaction solutions for the (2 + 1)-dimensional
+     dispersive long wave equation. Phys. Scr. 95(4) (2020) 045208.
+
+[14] Z. Y. Yan. The investigation for (2 + 1)-dimensional Eckhaus-type extension of the dispersive long wave
+     equation. J. Phys. A: Math. Gen. 37(2) (2004) 841.
+
+[15] H. Wang, Y. H. Wang, H. H. Dong. Interaction solutions of a (2 + 1)-dimensional dispersive long wave
+     system. Comput. Math. Appl. 75(8) (2018) 2625-2628.
+
+[16] M. Eslami. Solutions for space-time fractional (2 + 1)-dimensional dispersive long wave equations. Iran.
+     J. Sci. Technol. A 41 (2017) 1027-1032.
+
+[17] Y. Q. Zhou, Q. Liu. Bifurcation of travelling wave solutions for a (2 + 1)-dimensional nonlinear dispersive
+     long wave equation. Appl. Math. Comput. 189(1) (2007) 970-979.
+
+[18] Z. Y. Yan. Generalized transformations and abundant new families of exact solutions for (2 + 1)-
+     dimensional dispersive long wave equations. Comput. Math. Appl. 46(8-9) (2003) 1363-1372.
+
+[19] Y. L. Dang, H. J. Li, J. Lin. Soliton solutions in nonlocal nonlinear coupler. Nonlinear Dyn. 88 (2017)
+     489-501.
+
+[20] S. Singh, K. Sakkaravarthi, T. Tamizhmani, K. Murugesan. Painlevé analysis and higher-order rogue
+     waves of a generalized (3 + 1)-dimensional shallow water wave equation. Phys. Scr. 97(5) (2022) 055204.
+
+[21] Z. L. Zhao, L. C. He, A. M. Wazwaz. Dynamics of lump chains for the BKP equation describing
+     propagation of nonlinear waves. Chin. Phys. B 32(4) (2023) 040501.
+
+[22] T. H. Andriotty, P. S. Schneider, L. J. Rodrigues. Accuracy of lumped element model for cyclic sensible
+     thermal energy storage systems. J. Energy Storage 28 (2020) 101277.
+
+
+
+                                                      18
+[23] Y. F. Jian, F. W. Bai, Q. Falcoz, C. Xu, Y. Wang, Z. F. Wang. Thermal analysis and design of solid
+     energy storage systems using a modified lumped capacitance method. Appl. Therm. Eng. 75 (2015)
+     213-223.
+
+[24] H. Leblond, M. Manna. Nonlinear dynamics of two-dimensional electromagnetic solitons in a ferromag-
+     netic slab. Phys. Rev. B 77(22) (2008) 224416.
+
+[25] K. Q. Li. Nonlinear dynamics for different nonautonomous wave structure solutions. Open Phys. 20(1)
+     (2022) 464-469.
+
+[26] H. Q. Zhao, W. X. Ma. Mixed lump-kink solutions to the KP equation. Comput. Math. Appl. 74(6)
+     (2017) 1399-1405.
+
+[27] C. Lester, A. Gelash, D. Zakharov, V. Zakharov. Lump chains in the KP-I equation. Stud. Appl. Math.
+     147(4) (2021) 1425-1442.
+
+[28] S. Chakravarty, M. Zowada. Multi-lump wave patterns of KPI via integer partitions. Physica D 446
+     (2023) 133644.
+
+[29] S. Chakravarty. Multi-lump solutions of KPI. Nonlinear Dyn. 112(1) (2024) 575-589.
+
+[30] V. B. Matveev. Some comments on the rational solutions of the Zakharov-Schabat equations. Lett.
+     Math. Phys. 3 (1979) 503-512.
+
+[31] D. Pelinovsky. Rational solutions of the Kadomtsev-Petviashvili hierarchy and the dynamics of their
+     poles. I. New form of a general rational solution. J. Math. Phys. 35(11) (1994) 5820-5830.
+
+[32] D. Pelinovsky. Rational solutions of the KP hierarchy and the dynamics of their poles. II. Construction
+     of the degenerate polynomial solutions. J. Math. Phys. 39(10) (1998) 5377-5395.
+
+[33] S. Chakravarty, M. Zowada. Dynamics of KPI lumps. J. Phys. A: Math. Theor. 55(19) (2022) 195701.
+
+[34] P. G. L. Leach. Heat polynomials and Lie point symmetries. J. Phys. A: Math. Theor. 322(1) (2006)
+     288-297.
+
+[35] P. C. Rosenbloom, D. V. Widder. Expansions in terms of heat polynomials and associated functions.
+     Trans. Am. Math. Soc. 92(2) (1959) 220-266.
+
+
+
+
+                                                    19
+

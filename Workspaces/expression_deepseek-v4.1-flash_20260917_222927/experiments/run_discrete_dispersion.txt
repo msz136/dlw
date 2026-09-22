@@ -1,0 +1,48 @@
+==============================================================================
+MAIN-AGENT CROSS-CUTTING: ill-posedness is invariant under y-discretisation
+==============================================================================
+[PASS] D1  continuous: [sigma+i(u0+2a)k]^2 = k^4 - (v0+2*lam)k^3/ell
+[PASS] D2  semi-discrete: [sigma+i(u0+2a)k]^2 = k^4 - (v0+2*lam)k^3/mu   (mu = lattice symbol of discrete d/dy)
+    argument: [s+i(u0+2a)k]^2 = k^4 - (v0+2 lam) k^3/mu
+    => s = -i(u0+2a)k +- k^2 sqrt(1 - (v0+2 lam)/(mu k))
+    => for fixed mu != 0 and |k| -> infinity:  s ~ -i(u0+2a)k +- k^2
+    => |Re s| ~ k^2 for ALL h, including h -> 0 and every consistent scheme.
+    mu      k        Re(sigma + i(u0+2a)k)
+    3.0     1.0      1
+    3.0     10.0     100
+    3.0     100.0    10000
+    3.0     1000.0   1e+06
+    1.0     1.0      1
+    1.0     10.0     100
+    1.0     100.0    10000
+    1.0     1000.0   1e+06
+    0.3     1.0      1
+    0.3     10.0     100
+    0.3     100.0    10000
+    0.3     1000.0   1e+06
+    0.1     1.0      1
+    0.1     10.0     100
+    0.1     100.0    10000
+    0.1     1000.0   1e+06
+[PASS] D3  |Re sigma| / k^2 -> 1 for every fixed lattice symbol mu != 0 (ill-posedness is invariant under y-discretisation)
+    scheme                              r_h(ell) NORMALISED (= Lambda_h/ell)   zeros
+    forward  (u_{j+1}-u_j)/h            I*(1 - exp(I*ell*h))/(ell*h)        []
+    backward (u_j-u_{j-1})/h            -I/(ell*h) + I*exp(-I*ell*h)/(ell*h) []
+    centred  (u_{j+1}-u_{j-1})/(2h)     sin(ell*h)/(ell*h)                  [pi/h]
+[PASS] D4  all three normalised symbols -> 1 as ell -> 0 (consistency)
+    NOTE: the CENTRED symbol is sin(ell h)/(ell h), which VANISHES at the
+          Nyquist mode ell h = pi (the checkerboard mode).  There the
+          dispersion relation degenerates: the (v0+2 lam) k^3 / mu term blows up.
+          The one-sided/staggered symbols do NOT vanish at Nyquist.
+          centred symbol at Nyquist = 0;  forward at Nyquist = 2*I/pi
+[PASS] D4  centred differential operator has a spurious Nyquist/checkerboard zero mode
+    ell = 0 (y-independent) sector:
+      E1: -k**2*vh
+      E2: 2*I*a*k*vh + 2*I*k*lambda*uh + I*k*u0*vh + I*k*uh*v0 + sigma*vh
+      => vh = 0 and uh*(v0 + 2 lam) = 0
+      => NO nontrivial y-independent linear mode unless v0 = -2 lam;
+         at v0 = -2 lam the exact solution v = -2 lam, u = U(x,t) is a
+         genuine infinite-dimensional zero mode (verified in MAIN_verify_core V7).
+[PASS] D5  ell=0 sector forces vh=0 and uh*(v0+2*lam)=0
+------------------------------------------------------------------------------
+ALL CROSS-CUTTING CHECKS PASSED

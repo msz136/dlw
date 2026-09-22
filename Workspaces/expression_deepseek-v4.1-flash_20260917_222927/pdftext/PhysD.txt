@@ -1,0 +1,1273 @@
+                                                                     Physica D 432 (2022) 133140
+
+
+
+                                                            Contents lists available at ScienceDirect
+
+
+                                                                          Physica D
+                                                      journal homepage: www.elsevier.com/locate/physd
+
+
+
+
+Solitons, breathers and rational solutions for a (2+1)-dimensional
+dispersive long wave system
+                                            ∗
+Han-Han Sheng, Guo-Fu Yu
+School of Mathematical Sciences, CMA-Shanghai, Shanghai Jiao Tong University, Shanghai 200240, PR China
+
+
+
+article             info                              a b s t r a c t
+
+Article history:                                      In this paper, we investigate a (2+1)-dimensional dispersive long wave system with an arbitrary con-
+Received 20 May 2021                                  stant a. Solitons, line breathers, rational solutions and algebraic solitons of the system are constructed
+Accepted 21 December 2021                             based on Hirota’s bilinear method and Kadomtsev–Petviashvili (KP) hierarchy reduction technique.
+Available online 1 January 2022
+                                                      These solutions are expressed in terms of N × N determinant. When the size of the determinant
+Communicated by B. Feng
+                                                      N is odd, solutions on periodic backgrounds are generated. Solutions on constant backgrounds are
+Keywords:                                             derived when N is even. By using asymptotic analysis, we elucidate explicit expressions of asymptotic
+Hirota’s bilinear method                              algebraic solitons localized in the straight for the algebraic soliton solutions. As a byproduct, we find
+Breather                                              lump solutions for an intermediate potential of the system. The effects of constant a are discussed and
+Algebraic soliton                                     it is shown that the constant can affect collision of solitons. Dynamics of the obtained solutions are
+Lump soliton                                          discussed with plots.
+Dispersive long wave system                                                                                               © 2021 Elsevier B.V. All rights reserved.
+
+
+
+
+1. Introduction
+
+    In the 1960s, Zabusky and Kruskal used finite difference approach to study numerical solutions of KdV equation and introduced
+the concept of solitons [1]. Solitons have the prototype elastic collision property, that is, the shapes and velocities keep the same after
+collisions. Besides KdV equation, solitons exist in other (1+1)-dimensional continuous and discrete equations, including the modified
+KdV, the Burgers equation, the sine–Gordon equation, the nonlinear Schrödinger equation and their higher dimensional extensions.
+These equations have been widely used to model nonlinear phenomena in physics, optics, biology and chemistry. Studies on solitons
+are very active and the topic has attracted great attention. With the development of soliton theory, several types of soliton solutions
+are found, such as simple line solitons, loop solitons, algebraic solitons, breathers, rogue waves, cuspon and peakon solutions, et al. For
+(2 + 1)-dimensional integrable equations, for example, Davey–Stewartson (DS) equation and KP equation, there exist localized soliton
+solutions, including dromions, lumps and rogue wave solutions. Although mathematical structures and hidden algebraic properties of
+soliton equations have attracted more and more attention, investigation of solutions of nonlinear soliton equations is a permanent topic
+because these solutions can help us understand nonlinear phenomena.
+    The structure of soliton equations has been clarified due to various analytic and algebraic methods, such as inverse scattering
+method [2], Riemann–Hilbert method [3], Darboux transformation method [4] and Hirota bilinear method [5]. Among those methods,
+Hirota bilinear method is purely algebraic and direct. By transforming soliton equations into bilinear forms, we can not only derive
+N-soliton solutions and N −periodic wave solutions, but also obtain integrable characteristics such as Bäcklund transformation, Lax
+pairs and infinite conservation laws. In general, these soliton solutions own determinant or Pfaffian structures. Sato theory gives deep
+understanding of Hirota’s method and present bilinear integrable hierarchy [6]. Recently, breathers and rogue waves have attracted
+much attention. There are two kinds of breathers, spacial periodic and time periodic, respectively. In the limit case, breathers could
+become rogue waves. Rogue waves originate from oceanography [7] and describe an instantaneous excitation phenomenon. Rogue
+wave solutions of integrable systems are rational in both space and time variables. Based on Lax pairs, Darboux transformation method
+is useful to construct rational solutions [8–10]. Besides, the KP hierarchy reduction technique based on Hirota bilinear method is also
+a powerful approach to generate rational solutions of integrable systems [11–14]. This method has been successfully applied to study
+solutions of nonlocal integrable systems [15,16]. Algebraic solitons are some kind of rational solutions and less studied for soliton
+
+ ∗ Corresponding author.
+    E-mail address: gfyu@sjtu.edu.cn (G.-F. Yu).
+
+https://doi.org/10.1016/j.physd.2021.133140
+0167-2789/© 2021 Elsevier B.V. All rights reserved.
+H.-H. Sheng and G.-F. Yu                                                                                             Physica D 432 (2022) 133140
+
+
+equations. They appear in KP equation [17], DS equation [18], the Benjamin–Ono equation [19], a model equation for deep water
+waves [20], and also in some nonlocal integrable systems [21,22]. Algebraic solitons also exhibit elastic collision phenomena. It is
+interesting to find algebraic soliton solutions for soliton equations. Meanwhile, solutions of integrable systems are mainly on constant
+backgrounds, zero or nonzero, and less discussion about solutions on the periodic backgrounds.
+   The aim of the present paper is devoted to the studies of a (2+1)-dimensional dispersive long wave (DLW) system
+
+       uyt + vxx + uuxy + ux uy + 2auxy = 0,                                                                                                (1)
+       vt + (uv )x + uxxy + 2avx + 2λux = 0,                                                                                                (2)
+
+where λ and a are arbitrary constants. By the variable transformation x → x − 2at, DLW system (1)–(2) reduces to
+
+       uyt + vxx + uuxy + ux uy = 0,                                                                                                        (3)
+       vt + (uv )x + uxxy + 2λux = 0,                                                                                                       (4)
+
+which was firstly derived by Boiti in 1987 [23] to model the hydrodynamics of a wide channel or open sea with a finite depth. Here
+u(x, y, t) is the horizontal velocity and v (x, y, t) is the wave height above the undisturbed water surface. Variables t and (x, y) represent
+the time and propagation plane, respectively. Under the dimension reduction y = x, one dimensional DLW system can approximate
+the inviscid gravity waves on a water layer with constant depth [24,25].
+   DLW system has attracted great attention. In [26], Grammian and Wronskian type determinant solutions of DLW system were
+presented based on the KP reduction approach. By choosing exponential type determinant elements, N −bright soliton solutions of
+DLW were derived [26]. Group theoretical analysis [27], non-Painlevé property [28], Darboux transformation [29,30], Kac–Moody–
+Virasoro symmetry algebra [31] and line solitons and dromion solutions [32–34] of DLW system were studied. We will present different
+kinds of solutions of DLW system and show that soliton solutions for DLW system given in [34] is a constrained case of our soliton
+solutions derived here. Recently, Grinevich and Santini [35] show that the rogue wave solution or the Akhmediev breather solution
+on a nonzero background expressed by elliptic function can be formed. Breather and rogue wave solutions for the Hirota equation
+and nonlinear Schrödinger equation on the elliptic function background were studied [36,37]. The construction of soliton solutions
+on periodic function backgrounds is much more challenge. In this paper, one aim is to construct general solutions, such as solitons,
+breathers and algebraic soliton solutions, of DLW system on the periodic function background systematically. Compared with asymptotic
+analysis of exponential-type solitons, asymptotic behavior of algebraic soliton solutions is much more difficult to be conducted. We
+analyze the asymptotic behaviors of algebraic solitons of DLW system and show that wave peaks evolve along the lines.
+   The paper is organized as follows. In Section 2, we introduce the derivation and reduction of the solutions of DLW system from
+the modified KP equations. In Section 3, we analyze the dynamics of solitons on constant and periodic background, respectively. In
+Section 4, we investigate the breather solutions. In Section 5, we discuss the dynamic behaviors of the rational solutions which include
+algebraic solitons, multiple and high-order rational solutions. Lump solutions are found for some intermediate potential. Section 6 is
+devoted to the conclusion and discussion.
+
+2. Soliton and (semi-)rational solutions in determinant form
+
+    The spirit of Hirota bilinear method is to transform nonlinear equations into bilinear form by dependent variable transformation.
+Firstly, we make the dependent variable transformation
+                (    f)
+       u = 2 ln               ,    v = 2(ln fg)xy ,                                                                                         (5)
+                     g    x
+
+and transform DLW system (1)–(2) into the bilinear equations
+
+       [Dy (D2x + Dt + 2aDx ) + 2λDx ]f · g = 0,                                                                                            (6)
+       (D2x    + Dt + 2aDx )f · g = 0.                                                                                                      (7)
+
+The Hirota’s bilinear operator D is defined by
+                                  ∂n
+       Dnx f (x) · g(x) =              f (x + δ )g(x − δ )|δ=0 .                                                                            (8)
+                                  ∂δ n
+We note that bilinear DLW system is very similar to bilinear (2 + 1)-dimensional sinh-Gordon equation . In fact, under the variable
+interchange y ↔ t and a = 0, λ = 1, the bilinear DLW system becomes bilinear (2 + 1)-dimensional sinh-Gordon equation [38,39]. It is
+common that different nonlinear integrable equations can share same bilinear equations by different dependent variable transformation.
+For example, the bilinear form of the (2 + 1)-dimensional Gardner equation is the same as the bilinear modified KP equation [40]. In [26],
+bright soliton solutions with the determinant structure were derived for (2 + 1)-dimensional sinh-Gordon equation. Rational solutions
+on the zero background with the determinant structure for DLW system were presented in [39].
+   In the following discussion we take the parameter λ = −2 for convenient. We start from the bilinear modified KP equations
+
+       (Dx−1 (D2x1 − Dx2 + 2aDx1 ) − 4Dx1 )τn+1 · τn = 0,                                                                                   (9)
+       (D2x1   − Dx2 + 2aDx1 )τn+1 · τn = 0.                                                                                               (10)
+
+Lemma 2.1 ([41]). The modified KP equations (9)–(10) have the Gram-type determinant solution
+
+       τn = det (m(n)
+                  ij ),                                                                                                                    (11)
+                1⩽i,j⩽N
+
+                                                                      2
+H.-H. Sheng and G.-F. Yu                                                                                                                                           Physica D 432 (2022) 133140
+
+
+where the determinant elements satisfy the relations
+       ∂x1 m(n)   (n)
+            ij = φi   · ψj(n)
+       ∂x2 m(n)   (n+1)
+            ij = φi     · ψj(n) + φi(n) · ψj(n−1) + 2aφi(n) · ψj(n)
+       ∂x−1 m(n)    (n−1)
+             ij = −φi     · ψj(n+1)
+         (n+1)
+       mij       = m(n)   (n)
+                    ij + φi   · ψj(n+1)
+       ∂x2 φi(n) = φi(n+2) + 2aφi(n+1) + a2 φi(n)
+       ∂x1 φi(n) = φi(n+1) + aφi(n)
+       ∂x−1 φi(n) = φi(n−1)
+       ∂x2 ψj(n) = −ψj(n−2) − 2aψj(n−1) − a2 ψj (n)
+       ∂x1 ψj(n) = −ψj(n−1) − aψj(n)
+       ∂x−1 ψj(n) = −ψj(n+1) .
+        (n)     (n)     (n)
+Here mij , φi , ψj            are functions of x−1 , x1 , x2 and N is any positive integer.
+   In general, we choose the following special φ and ψ functions to construct soliton solutions,
+       φi(n) = (pi − a)n eξi , ψj(n) = (−qj − a)−n eηj ,                                                                                                                                 (12)
+        (n)               1        pi − a n ξi +ηj
+       mij = cj δi,j +         (−         ) e      ,                                                                                                                                     (13)
+                       pi + qj     qj + a
+                                          1
+       ξi = pi x1 + p2i x2 +                      x−1 + ξi0 ,                                                                                                                            (14)
+                                     pi − a
+                                        1
+       ηj = qj x1 − q2j x2 +                      x−1 + ηj0 ,                                                                                                                            (15)
+                                     qj + a
+where cj , pi , qj and ξi0 , ηj0 are arbitrary parameters. Under the variable transformation x−1 = y, x1 = x, x2 = −t and f = τn+1 , g = τn ,
+                                                                                                              (n)
+the modified KP equation (9)–(10) turns into bilinear DLW system (6)–(7). Substituting above elements mij into the Gram determinant,
+we obtain N −soliton solutions for DLW system.
+                                                                                               (n)
+Remark 2.1. One can see that the definition of elements mij here is very similar to that of (2+1)-dimensional sinh-Gordon equation
+in [39] and the differences mainly lie in the singular shift pj − a and qj + a besides the variable interchange y ↔ t.
+   Following the method proposed in [11], we introduce the differential operators Ai and Bj
+               ni                                                      nj
+               ∑        (                     )ni −k                   ∑        (              )nj −l
+       Ai =           aik (pi − a)∂pi                  ,    Bj =             bjl (qj + a)∂qj            ,                                                                                (16)
+               k=0                                                     l=0
+                                                                                                                                                                   (n)
+to generate rational solutions. Here aik and bjl are constants. We apply the differential operators Ai and Bj to mij and denote
+         (n)              (n)
+       m̃ij = Ai Bj mij
+                          (         )n         ni
+                             pi − a
+                                       eξi +ηj
+                                               ∑
+               = cj δi,j + −                      aik ((pi − a)∂pi + n + ξ̃i )ni −k
+                             qj + a
+                                                                 k=0
+                                    nj
+                                    ∑                                                   1
+                                ×         bjl ((qj + a)∂qj − n + η̃j )nj −l                     ,                                                                                        (17)
+                                                                                     pi + qj
+                                    l=0
+
+with
+                                                                   1
+       ξ̃i = (pi − a)x1 + 2pi (pi − a)x2 −                                   x−1 ,                                                                                                       (18)
+                                                                 pi − a
+                                                                    1
+       η̃j = (qj + a)x1 − 2qj (qj + a)x2 −                                   x−1 .                                                                                                       (19)
+                                                                 qj + a
+                                                                                                                                                             (n)
+Because these operators apply only to parameters pi and qj and thus the determinant τn = det(m̃ij )1≤i,j≤N also solves bilinear
+equations (9)–(10). Furthermore, according to the gauge freedom of τn , we introduce p̃i = pi − a, q̃j = qj + a and rewrite the Gram
+                         (n)
+determinants τn = det(m̃ij ) of (9)–(10) with determinant elements
+                                         (                ni
+                                                       )n ∑                                          nj
+         (n)
+        ˜ = cj δi,j e−ξi −ηj +                   p̃i                                                 ∑                                          1
+       m̃ ij                                 −                   aik (p̃i ∂p̃i + n + ξ̃i )ni −k ×           bjl (q̃j ∂q̃j − n + η̃j )nj −l               .                               (20)
+                                                 q̃j                                                                                         p̃i + q̃j
+                                                           k=0                                       l=0
+
+When all cj equal zero in (20), determinant elements are all polynomials of x, y, t that lead τn to be polynomials, and we obtain rational
+solutions of DLW system. While if cj ̸ = 0, we can get semi-rational solutions expressed by the combination of exponential functions
+and polynomials. To summarize, we have the following theorem.
+                                                                                                            3
+H.-H. Sheng and G.-F. Yu                                                                                                                             Physica D 432 (2022) 133140
+
+
+Theorem 2.1.       DLW system (1)–(2) admits solution
+               (   τn+1 )
+       u = 2 ln           ,         v = 2(ln τn τn+1 )xy ,                                                                                                                 (21)
+                    τn x
+                                        ˜ ) has elements      (n)
+where the determinant τn = det1⩽i,j⩽N (m̃ ij
+
+                                     (         ni
+                                            )n ∑                                   nj
+         (n)
+        ˜ = cj δi,j e−ξi −ηj +          p̃i                                        ∑                                           1
+       m̃ij                           −           cik (p̃i ∂p̃i + n + ξ̃i )ni −k ×    djl (q̃j ∂q̃j − n + η̃j )nj −l                                                       (22)
+                                           q̃j                                                                              p̃i + q̃j
+                                                       k=0                                          l=0
+
+with
+                                            1
+       ξ̃i = p̃i x − 2p̃i (p̃i + a)t −            y                                                                                                                        (23)
+                                            p̃i
+                                             1
+       η̃j = q̃j x + 2q̃j (q̃j − a)t −            y                                                                                                                        (24)
+                                            q̃j
+                                                      1
+       ξi = (p̃i + a)x − (p̃i + a)2 t +                     y + ξi0                                                                                                        (25)
+                                                      p̃i
+                                                       1
+       ηj = (q̃j − a)x + (q̃j − a)2 t +                     y + ηj0 .                                                                                                      (26)
+                                                      q̃j
+
+Remark 2.2. Under the variable transformation y → − 21 y and the interchange y ↔ t, when a = 0 and cj = 0 (j = 1, 2, . . . , N) the tau
+function solution τn with elements (22)–(26) degenerates to solutions of the (2+1)-dimensional sinh-Gordon equation given in [39].
+
+
+3. Dynamics of the soliton solutions
+
+    In this part, we study the dynamics of soliton solutions u and v of DLW system with constant and periodic background, respectively.
+First, we elucidate the difference between soliton solutions for DLW system here and soliton solutions for DLW system obtained
+in [26,34].
+
+ (1) Setting a = 0, cj = 1, the determinant solution of DLW with elements (13)–(15) is reduced to soliton solutions in [26].
+ (2) Setting a = 0, cj = 1, variables transformation pi = −p̂i , qj = q̂j , and the constraint exp(ξi0 + ηj0 ) = (p̂i + q̂j )q̂j , the determinant
+     solution of DLW with elements (13)–(15) is degenerated into soliton solutions in [34] with variables p̂, q̂.
+
+
+3.1. One-soliton solution on the zero and periodic backgrounds
+
+   We set N = 1 in (13)–(15) and get first order determinant
+                           p1 − a n  1
+                                          eξ1 +η1 ,
+         (n)
+       m11 = c1 + (−             )                                        n = 0, 1,
+                           q1 + a p1 + q1
+                                                                    (     1            1      )
+       ξ1 + η1 = (p1 + q1 )x + (q21 − p21 )t +                                   +                y + ξ10 + η10 .
+                                                                        q1 + a       p1 − a
+Here p1 , q1 , c1 , ξ10 , η10 are arbitrary constants. We take c1 = 1 and the potential u is of the form
+                   f                              2(p1 + q1 )2
+       u = 2(ln      )x = − √                                                        ,                                                                                     (27)
+                   g       2 (a − p1 )(a + q1 ) cosh(ξ1 + η1 − θ ) + (2a − p1 + q1 )
+                                √
+where exp(θ ) = (p1 + q1 )
+                                      a+q1
+                                      a−p1
+                                           . Here we require that both p1                         + q1 and (a − p1 )(a + q1 ) to be positive to avoid the singularity. Plots of
+one-bright-soliton solution (27) are shown in Fig. 1.
+   When we take c1 = ci, p1 = α + β i and q1 = −p∗1 , functions f and g have the form
+                       p1 − a          1               α − a + βi           [                      y                      ]
+       f = c1 + (−              )                 eξ1 +η1 = ci −        exp 2β i(x − 2α t −                ) + ξ 10 + η10   ,
+                   q1 + a p1 + q1                  2β i(−α + a + β i)                       (α − a)2 + β 2
+                   1                      i     [                        y                    ]
+      g = c1 +          eξ1 +η1 = ci −       exp 2β i(x − 2α t −                 ) + ξ10 + η10 .
+                p1 + q1                  2β                      (α − a)2 + β 2
+                                                                  (      )
+                                                                            and v = 2(ln fg)xy are periodic solution. Furthermore, under the
+                                                                      f
+   Actually, f and g are periodic in this case and both u = 2 ln g
+                                                                          x
+special circumstance α = a, we obtain one-soliton solution
+             ( f)           16iβ 2 c exp(2iζ − ξ10 − η10 )
+      u = 2 ln       =                                       ,                                                                          (28)
+                g x     4β 2 c 2 exp(4iζ − 2ξ10 − 2η10 ) − 1
+where ζ = 2aβ t − β x + β −1 y. It is clear that u is regular when |2β c exp(−ξ10 − η10 )| ̸ = 1. In this case, the solution (28) is periodic
+with period π /β in x, πβ in y and π/(aβ ) in t. Plot of this periodic one-soliton solution is depicted in Fig. 2.
+                                                                                                          4
+H.-H. Sheng and G.-F. Yu                                                                                                                  Physica D 432 (2022) 133140
+
+
+
+
+Fig. 1. One-soliton solution u with parameters (a) p1 = 1, q1 = 2, t = 1, a = 2, ξ1 = 0, η1 = 0, c1 = 1, and (b) p1 = 4, q1 = −3, t = 0, a = 2, ξ1 = 0, η1 = 0, c1 = 1.
+
+
+
+
+           Fig. 2. The periodic solution u (28) with parameters β = 1, c = 1, ξ10 = η10 = 0, a = α = 1, t = 0. (b) is the corresponding density plot of u.
+
+
+
+
+3.2. Two-soliton solutions on the zero background
+
+   To derive two-soliton solution, we set N = 2 in (11). For convenience, we take c1 = c2 = 1. Then we have the tau function solutions
+f and g in 2 × 2 determinant
+           ⏐                                                                           ⏐
+           ⏐ 1 + 1 (− p1 −a )eξ1 +η1                       1
+                                                               −( q1 +a )eξ1 +η2
+                                                                   p −a                ⏐
+                 p1 +q1       q1 +a                     p1 +q2
+        f =⏐                                                        2
+           ⏐                                                                           ⏐
+                              −a ξ2 +η1
+           ⏐ p2 +1 q1 (− pq12 +                                   ( q2 +a )eξ2 +η2
+                                                              1       p −a
+                                  )e                 1+            −
+                                                                                       ⏐
+                                a                          p2 +q2      2
+                                                                                       ⏐
+                  1      p1 − a ζ1           1      p 2 − a ζ2           (p1 − p2 )(q1 − q2 )           (p1 − a)(p2 − a) ζ1 +ζ2
+         =1−                   e −                         e +                                                           e      ,                                 (29)
+              p1 + q1 q1 + a           p2 + q2 q2 + a          (p1 + q1 )(p1 + q2 )(p2 + q1 )(p2 + q2 ) (q1 + a)(q2 + a)
+          ⏐                                              ⏐
+          ⏐ 1 + 1 eξ1 +η1             1
+                                            eξ1 +η2      ⏐
+                p1 +q1             p1 +q2
+       g =⏐
+          ⏐                                              ⏐
+          ⏐ p2 +1 q1 eξ2 +η1    1+ p +    1
+                                               eξ2 +η2 ⏐
+                                                         ⏐
+                                        2   q2
+
+                       1                   1                           (p1 − p2 )(q1 − q2 )
+         =1+                 e ζ1 +             eζ2 +                                                    eζ1 +ζ2 ,                                                (30)
+                   p1 + q1            p2 + q2             (p1 + q1 )(p1 + q2 )(p2 + q1 )(p2 + q2 )
+where
+                                                                   1           1
+       ζi = ξi + ηi = (pi + qi )x + (q2i − p2i )t + (                    +            )y + ξi0 + ηi0 ,   i = 1, 2.                                                (31)
+                                                              qi + a         pi − a
+We analyze the collision of two solitons and give asymptotic behaviors. For convenience, we suppose t = 0 in the following discussion.
+Two-soliton solution of u is expressed as
+              (     f)                                    A112 e2ζ1 +ζ2 + A122 eζ1 +2ζ2 + A12 eζ1 +ζ2 + A1 eζ1 + A2 eζ2
+       u = 2 ln            =2                                                                                                                  ,
+                   g   x        B1122   e2ζ1 +2ζ2   + B112 e2ζ1 +ζ2 + B122 eζ1 +2ζ2 + B12 eζ1 +ζ2 + B11 eζ1 + B22 e2ζ2 + B1 eζ1 + B2 eζ2 + 1
+                  p1 + q1           p2 + q2
+       A1 = −            , A2 = −           ,
+                  q1 + a             q2 + a
+                      (p2 + q2 )(−p1 + a)(p1 − p2 )(q1 − q2 )
+       A112 = −                                                                 ,
+                   (p1 + q1 )2 (p1 + q2 )(p2 + q1 )(q1 + a)(q2 + a)
+                                                                                           5
+H.-H. Sheng and G.-F. Yu                                                                                               Physica D 432 (2022) 133140
+
+                          (p1 + q1 )(−p2 + a)(p1 − p2 )(q1 − q2 )
+       A122 = −                                                                ,
+                 (p2 + q2 )2 (p1 + q2 )(p2 + q1 )(q1 + a)(q2 + a)
+              −p1 + q1 + 2a                 −p2 + q2 + 2a
+       B1 =                      , B2 =                       ,
+             (p1 + q1 )(q1 + a)            (p2 + q2 )(q2 + a)
+                   −p1 + a                         −p2 + a
+       B11 =                       , B22 =                         ,
+              (p1 + q1 )2 (q1 + a)            (p2 + q2 )2 (q2 + a)
+                   (−p1 + a)(p1 − p2 )(q1 − q2 )(−p2 + 2a + q2 )
+       B112 =                                                             ,
+               (p2 + q1 )(p1 + q2 )(q1 + a)(q2 + a)(p1 + q1 )2 (p2 + q2 )
+                   (−p2 + a)(p1 − p2 )(q1 − q2 )(−p1 + 2a + q1 )
+       B122 =                                                             ,
+               (p2 + q1 )(p1 + q2 )(q1 + a)(q2 + a)(p1 + q1 )(p2 + q2 )2
+                              (−p1 + a)(−p2 + a)(p1 − p2 )2 (q1 − q2 )2
+       B1122 =                                                                         .
+                 (p2 + q1 )2 (p1 + q2 )2 (q1 + a)(q2 + a)(p1 + q1 )2 (p2 + q2 )2
+Without loss of generality, we assume that pi + qi > 0, (i = 1, 2) and (−p2 + a)(q2 + a) > (−p1 + a)(q1 + a) > 0. We denote the
+left-moving soliton along the plane ζ1 = 0 by soliton 1 and the right-moving soliton along the plane ζ2 = 0 by soliton 2. By conducting
+the asymptotic analysis, we have the following asymptotic forms for the two-bright-soliton solution.
+    (1) Before collision (y → −∞).
+    Soliton 1 (ζ1 ≈ 0, ζ2 → +∞):
+                           2A122 eζ1                            −2(p1 + q1 )2
+       u→                                               =       √                                 ,
+             B22 + B122 eζ1 + B1122 e2ζ1     (−p1 + q1 + 2a) + 2 (−p1 + a)(q1 + a) cosh(ζ1 − θ1 )
+                                                  √
+                   (p2 + q1 )(p1 + q2 )(p1 + q1 )    q1 + a
+        exp(θ1 ) =                                          .
+                        (p1 − p2 )(q1 − q2 )        −p1 + a
+   Soliton 2 (ζ2 ≈ 0, ζ1 → −∞):
+                      2A2 eζ2                                          −2(p2 + q2 )2
+       u→                                       =                      √                                 ,
+               1 + B eζ2 + B
+                     2             22   e2ζ2        (−p2 + q2 + 2a) + 2 (−p2 + a)(q2 + a) cosh(ζ2 − θ2 )
+                                   √
+                                          q2 + a
+        exp(θ2 ) = (p2 + q2 )                    .
+                                         −p2 + a
+   (2) After collision (y → +∞)
+   Soliton 1 (ζ1 ≈ 0, ζ2 → −∞):
+                      2A1 eζ1                                          −2(p1 + q1 )2
+       u→                                       =                      √                                 ,
+               1 + B eζ1 + B
+                     1             11   e2ζ1        (−p1 + q1 + 2a) + 2 (−p1 + a)(q1 + a) cosh(ζ1 − θ3 )
+                                   √
+                                         q1 + a
+        exp(θ3 ) = (p1 + q1 )                       .
+                                         a − p1
+   Soliton 2 (ζ2 ≈ 0, ζ1 → +∞):
+                           2A112 eζ2                          −2(p2 + q2 )2
+       u→                                               =     √                                 ,
+             B11 + B112 eζ2 + B1122 e2ζ2     (−p2 + q2 + 2a) + (−p2 + a)(q2 + a) cosh(ζ2 − θ4 )
+                                                  √
+                   (p2 + q1 )(p1 + q2 )(p2 + q2 )    q2 + a
+        exp(θ4 ) =                                          .
+                        (p1 − p2 )(q1 − q2 )        −p2 + a
+   The asymptotic analysis shows that the collision of two solitons is completely elastic. In other words, shapes and velocities of two
+solitary waves keep unchanged after the collision. The collision produces phase shifts θ for Soliton 1 and −θ for Soliton 2, where
+exp(θ ) = (p2 −p1 )(q1 −q2 ) . The plots of the interactions of two solitons together with the corresponding density on the zero background
+          (p +q )(p +q )
+            1   2    1   2
+are depicted in Fig. 3, Fig. 4 and Fig. 5. In Fig. 3, it exhibits the interaction of two bright solitons. Fig. 4 displays the interaction of two
+solitons with one above the horizon and the other under the horizon. Fig. 5 shows the interaction between two solitons that are both
+under the horizon.
+
+3.3. Two-soliton solutions on the periodic background
+
+   To construct two-soliton solutions on the periodic background, we take N = 3 and q3 = −p∗3 in (13)–(15). The other parameters are
+chosen similar to those in Section 3.2. The tau functions f and g have the determinant expressions
+                    (1)                                     (0)
+       f = det(mi,j )1≤i,j≤3 ,                 g = det(mi,j )1≤i,j≤3 ,                                                                       (32)
+
+where the entries are defined by
+                               1    ( p − a )n
+                                               eξi +ηj ,
+         (n)                            i
+       mij = cj δi,j +               −                             n = 0, 1,                                                                 (33)
+                            pi + qj    qj + a
+with the parameters
+
+       p3 = α + β i, q3 = −p∗3 , c1 = c2 = 1, c3 = ci, α = a,                                                                                (34)
+                                                                                   6
+H.-H. Sheng and G.-F. Yu                                                                                                                     Physica D 432 (2022) 133140
+
+
+
+
+        Fig. 3. Two-soliton solution u at t = 0 and the corresponding density plot with a = 2, p1 = 6, q1 = −5, p2 = 4, q2 = −3, ξi0 = ηi0 = 0, c1 = c2 = 1.
+
+
+
+
+         Fig. 4. Two-soliton solution u at t = 0 and the corresponding density plot with a = 2, p1 = 1, q1 = 2, p2 = 4, q2 = −3, ξi0 = ηi0 = 0, c1 = c2 = 1.
+
+
+
+
+       Fig. 5. Two-soliton solution u at t = 0 and the corresponding density plot with a = 2, p1 = 47 , q1 = − 53 , p2 = 1, q2 = − 45 , ξi0 = ηi0 = 0, c1 = c2 = 1.
+
+
+
+
+and
+                                                       1           1
+       ξi + ηi = (pi + qi )x + (q2i − p2i )t + (             +            )y + ξi0 + ηi0 ,   i = 1, 2,                                                                (35)
+                                                    qi + a       pi − a
+                                        1
+       ξ3 + η3 = 2(β x − 2β at −            y)i + ξ30 + η30 .                                                                                                         (36)
+                                        β
+The parameters p1 , p2 and q1 , q2 , a, β, c are real numbers. Substituting f and g above into the expression (5) leads to the two-soliton
+solution on the periodic background. We plot the two-soliton solution on the periodic background in Fig. 6. The profile Fig. 6(a) and
+the density plot Fig. 6(b) show that when we set p3 = −q∗3 and take the same values of p1 , p2 , q1 , q2 , c as those in Section 3.2, the
+shape of waves becomes periodic instead of line smooth and the background becomes periodic instead of zero constant.
+
+4. Line breather solutions
+
+   In this part, we will investigate dynamics of line breather solutions of DLW system.
+                                                                                    7
+H.-H. Sheng and G.-F. Yu                                                                                                                      Physica D 432 (2022) 133140
+
+
+
+
+Fig. 6. Two-soliton solutions on the periodic background with t = 0, a = 2, p1 = 47 , q1 = − 53 , p2 = 1, q2 = − 45 , p3 = 2 + 5i, q3 = −2 + 5i, c1 = c2 = 1, c3 = 2i, ξi0 =
+ηi0 = 0, i = 1, 2, 3.
+
+
+
+4.1. Line breather on the constant background
+
+   To construct line breather solutions of the DLW system on the constant background, firstly, we set the size of the determinant to be
+even in Theorem 2.1. We choose parameters p̃i , q̃i , (i = 1, 2, . . . , N) to be purely imaginary and p̃i ̸ = −q̃i . For simplicity, we suppose
+N = 2, p̃1 = q̃2 = pi, q̃1 = p̃2 = qi, c1 = α + β i, c2 = −c1∗ , p, q, α, β are real and p ̸ = −q, β ̸ = 0. In this case, the solutions u and v in
+Theorem 2.1 are expressed by
+                  (f )                     ( )
+       u = 2 ln              ,     v = 2 ln fg ,
+                    g    x                               xy
+
+where
+           ⏐                                                                     ⏐
+           ⏐ (α + β i)e−ξ1 −η1 − pi 1                       pi    1
+                                                        (− pi ) pi+              ⏐
+                                   qi pi+qi                         pi
+       f =⏐
+           ⏐                                                                     ⏐
+                                               (−α + β i)e
+                         qi    1                            −ξ2 −η2       qi 1
+                     (− qi ) qi+qi                                    − pi qi+pi ⏐
+                                                                                 ⏐
+           ⏐
+                                         (      p              q                             )
+         = −(α 2 + β 2 )e−ξ1 −η1 −ξ2 −η2 1 − b1 eξ1 +η1 − b2 eξ2 +η2 + b12 eξ1 +η1 +ξ2 +η2 ,
+                                                q              p
+           ⏐                                                                 ⏐
+           ⏐ (α + β i)e−ξ1 −η1 + 1                        1                  ⏐
+                                   pi+qi                pi+pi
+       g =⏐
+           ⏐                                                                 ⏐
+                          1
+                                            ( −α  + β i)e−ξ2 −η2
+                                                                  +      1   ⏐
+                        qi+qi                                          qi+pi
+           ⏐                                                                 ⏐
+                                         (                                                )
+         = −(α 2 + β 2 )e−ξ1 −η1 −ξ2 −η2 1 + b1 eξ1 +η1 + b2 eξ2 +η2 + b12 eξ1 +η1 +ξ2 +η2 ,
+and
+                        (                      i )
+       ξ1 + η1 = (p + q) ix + (p − q − 2ai)t − y + ξ10 + η10 ,
+                                              pq
+                        (                      i )
+       ξ2 + η2 = (p + q) ix + (q − p − 2ai)t − y + ξ20 + η20 ,
+                                                                         pq
+                             1                                       1                                        (p − q)2
+       b1 =                              ,       b2 =                                    ,   b12 = −                              .
+               (p + q)(−β + α i)                         (p + q)(−β − α i)                             4pq(p + q)2 (α 2 + β 2 )
+It is clear that the solutions u and v are periodic on x, y and t and they display line breathers. The solution u is regular when fg ̸ = 0,
+which is equivalent to
+                  p           p
+        F ≡ 1 − b1 eξ1 +η1 − b2 eξ2 +η2 + b12 eξ1 +η1 +ξ2 +η2 ̸ = 0,                                                                   (37)
+                  q           q
+       G ≡ 1 + b1 eξ1 +η1 + b2 eξ2 +η2 + b12 eξ1 +η1 +ξ2 +η2 ̸ = 0.                                                                                                   (38)
+If we take α = 0 and ξ10 + η10 = ξ20 + η20 = ζ0 , pq > 0, then the condition F ̸ = 0 is equivalent to
+                        p2 b2                    pb ( p2 b2                   )1/2
+       2b212 e2ζ0 ̸ =            − 2b12 ±                     − 4b12                 ,                                                                                (39)
+                         q2                      q       q2
+and G ̸ = 0 is equivalent to
+                                             (                )1/2
+       2b212 e2ζ0 ̸ = b2 − 2b12 ± b b2 − 4b12                        ,                                                                                                (40)
+           −1
+with b = (p+ q)β
+                 (e(p−q)t + e(q−p)t ). The proof is similar to that in [16] and one can find details therein. To illustrate the dynamics of the
+breather solution u, we take the parameters
+                                     1               2
+       α = 0, β = −1, p =                ,q =            , t = 0, a = 1,                                                                                              (41)
+                                    10               5
+                                                                                                   8
+H.-H. Sheng and G.-F. Yu                                                                                                                            Physica D 432 (2022) 133140
+
+
+
+
+       Fig. 7. Line breather solution on the constant background and the corresponding density plot. Parameters: α = 0, β = −1, p = 10
+                                                                                                                                     1
+                                                                                                                                       , q = 52 , t = 0, a = 1.
+
+
+
+and the line breather solution is expressed as
+                                                          3
+                                                    4e− 2 i(x−25y) + 9e−1/2i(x−25y)
+        u = 50                                        1                                        1
+                                                                                                                .                                                         (42)
+                 (−4e−i(x−25y) + 34e− 2 i(x−25y) + 9)(4e−i(x−25y) + 16e− 2 i(x−25y) − 9)
+Line breather solution u on the constant background is depicted in Figs. 7(a)–7(b). The periods of the solution (42) are 4π in x and
+4π/25 in y and the maximum and minimum values of |u| under the parameters are approximately at 1.5152 and 0.3331, respectively.
+
+4.2. Line breather on the periodic background
+
+   To derive line breather solution on the periodic background, the size of the determinant in Theorem 2.1 should be odd, which is
+similar to the construction of two-soliton solution on the periodic background in Section 3.3. For simplicity, we suppose the determinant
+size is N = 3. By choosing p̃i , q̃j (i, j = 1, 2, 3) to be purely imaginary and p̃1 = q̃2 = pi, q̃1 = p̃2 = qi, p̃3 = q̃3 = mi, we get the line
+breather solution on the periodic background with tau functions
+           ⏐                                                                                           ⏐
+           ⏐ (α + β i)e−ξ1 −η1 − p 1                   − 2pi1                           p
+                                                                                    (− m ) pi+1mi      ⏐
+           ⏐                       q pi+qi                                                             ⏐
+                                            (−α + β i)e
+                                                                    q 1                 q
+                                                                                                       ⏐,
+                            1                           −ξ2 −η2                               1
+        f =⏐           − 2qi                                      − p qi+pi         (− m ) qi+mi                                                                          (43)
+           ⏐                                                                                           ⏐
+                    (− mq ) mi1+qi                  (− mp ) mi1+pi           (−α + β i)e−ξ3 −η3 − 2mi
+                                                                                                    1
+           ⏐                                                                                           ⏐
+           ⏐                                                                                           ⏐
+           ⏐                                                                                        ⏐
+           ⏐ (α + β i)e−ξ1 −η1 + 1                     1                              1             ⏐
+           ⏐                       pi+qi              2pi                           pi+mi           ⏐
+        g =⏐
+                         1
+                                           (−α + β i)e−ξ2 −η2 + qi+ 1                 1
+                                                                                                    ⏐.                                                                    (44)
+           ⏐                                                                                        ⏐
+                        2qi                                           pi            qi+mi
+                         1                             1
+                                                                           (−α + β i)e−ξ3 −η3 + 2mi
+                                                                                                  1
+           ⏐                                                                                        ⏐
+                       mi+qi                         mi+pi
+           ⏐                                                                                        ⏐
+Furthermore, we put the parameters m = 1, c3 = −i and the others have the values in (41). Then we obtain the line breather solution
+on the periodic background
+                   (f )                    A
+        u = 2 ln             = 154              ,
+                     g   x                 BC
+with
+                                                                     1
+        A =786671424e−3i(x−9y) − 123268068e− 2 i(5x−29y) − 36374184e−2i(x−y)
+                                   1                                                                   3
+             + 4428675e− 2 i(x−25y) − 58436224e−4i(x−13y) + 16008300e− 2 i(x−25y)
+                                           1                                      1                             3
+             − 182613200e− 2 i(11x−83y) + 156241008e− 2 i(7x−79y) − 410879700e− 2 i(3x−11y) ,
+                                                                                      1                     1
+        B =47432e−3i(x−9y) − 23716e−i(x−25y) − 403172e− 2 i(5x−29y) + 70686e− 2 i(x−25y) − 106722e−2i(x−y) + 6561,
+                                                                                      1                     1
+        C =47432e−3i(x−9y) + 23716e−i(x−25y) + 189728e− 2 i(5x−29y) + 33264e− 2 i(x−25y) − 106722e−2i(x−y) − 6561.
+The amplitudes of the periodic background (see Figs. 8(a)–8(b)) are higher than those of the constant background (see Figs. 7(a)–7(b)).
+The maximum and minimum values of |u| on the periodic background are approximately at 4.8409 and 0.3160, respectively.
+
+5. Dynamics of the rational solutions
+
+5.1. Fundamental algebraic solitons
+
+   In this part, we take N = 1, n = 0, c1 = 0 in Theorem 2.1. In this case, DLW system (1)–(2) owns the solution (5) with
+                                                [                                                                                           ]
+               (1)
+             ˜ =−            p̃1       1                                    p̃1                                 q̃1            p̃1 q̃1
+        f = m̃11                                    (1 + ξ̃1 + c11 −                  )(−1 + η̃1 + d11 −               )+                       ,                         (45)
+                             q̃1 p̃1 + q̃1                               p̃1 + q̃1                         p̃1 + q̃1        (p̃1 + q̃1 )2
+                                                                                                   9
+H.-H. Sheng and G.-F. Yu                                                                                                                       Physica D 432 (2022) 133140
+
+
+
+
+Fig. 8. Line breather solutions on the periodic background with parameters α = 0, β = −1, p = 10
+                                                                                               1
+                                                                                                 , q = 52 , t = 0, a = 1, p̃3 = q̃3 = i, c3 = −i and the corresponding
+density plot.
+
+
+                                             [                                                                                         ]
+            ˜ =  (0)              1                                  p̃1                            q̃1                      p̃1 q̃1
+       g = m̃11                                  (ξ̃1 + c11 −                 )(η̃1 + d11 −                  )+                            ,                         (46)
+                           p̃1 + q̃1                              p̃1 + q̃1                      p̃1 + q̃1            (p̃1 + q̃1 )2
+where
+                                                       1                                                     1
+       ξ̃1 = p̃1 x − 2p̃1 (p̃1 + a)t −                       y,   η̃1 = q̃1 x + 2q̃1 (q̃1 − a)t −                y.
+                                                       p̃1                                                 q̃1
+Here we choose parameters
+       c11 = ci, d11 = di,                                                                                                                                           (47)
+and set p̃1 , q̃1 , a as real. Then
+                            ⏐(                                              )                 ⏐
+                p̃1        1
+                            ⏐ 1 + ξ˜1 + ci − p̃1 )(−1 + η˜1 + di − q̃1              p̃1 q̃1 ⏐
+                            ⏐
+       |f | =                                                                 +               ⏐
+             q̃1 p̃1 + q̃1 ⏐                p̃1 + q̃1             p̃1 + q̃1     (p̃1 + q̃1 )2 ⏐
+                 1
+                      √
+           =                     2
+                          I 2 + I12 ,
+             p̃1 + q̃1 11
+                                       p̃1       q̃1                  p̃1 q̃1
+       I11 =(ξ̃1 + 1 −                            )(η̃1 − 1 −
+                                                         ) − cd +               ,
+                                   p̃1 + q̃1 p̃1 + q̃1            (p̃1 + q̃1 )2
+                                       p̃1             q̃1
+       I12 =(ξ̃1 + 1 −           )d + (η̃1 − 1 −             )c ,
+                       p̃1 + q̃1                   p̃1 + q̃1
+and
+                       1
+                               √
+       |g | =                      2
+                                  I21    2
+                                      + I22 ,
+                p̃1 + q̃1
+                                 p̃1      q̃1                  p̃1 q̃1
+        I21 =(ξ̃1 −                     )(η̃1 −   ) − cd +               ,
+                           p̃1 + q̃1  p̃1 + q̃1            (p̃1 + q̃1 )2
+                               p̃1              q̃1
+        I22 =(ξ̃1 −           )d + (η̃1 −             )c .
+                    p̃1 + q̃1               p̃1 + q̃1
+                                                                             2     2            2     2
+To ensure the regularity of |u| and |v|, we need to take parameters so that I11 + I12 ̸= 0 and I21 + I22 ̸= 0.
+   Collision properties of algebraic solitons for nonlocal NLS equations were discussed in [21,22]. We analyze the collision of the
+two-algebraic-soliton solution for DLW system. For convenience, we assume t = 0 and denote p̃1 = p, q̃1 = q. Then we have
+                            1                         1                                    1                          1
+       ξ̃1 = p̃1 x −             y = p̃1 (x −               y) = pξ ,      η̃1 = q̃1 x −         y = q̃1 (x −                y) = qη,
+                           p̃1                       p̃21                                  q̃1                        q̃21
+
+where ξ = x − p12 y, η = x − q12 y. The solution v is expressed by
+                            (f     fx fy  gxy   gx gy )
+                               xy
+         v = 2(ln fg)xy = 2       − 2 +       − 2 ,
+                              f     f      g     g
+                        [                                                    ]
+               p 1                            p                          q
+        fx = −            q(1 + pξ + c11 −       ) + p(−1 + qη + d11 −      ) ,
+               qp+q                         p+q                        p+q
+                        [                                                       ]
+               p 1          1                   p       1                   q
+        fy = −            − (1 + pξ + c11 −          ) − (−1 + qη + d11 −      ) ,
+               qp+q         q                 p+q       p                  p+q
+                    [                                           ]
+               1                       p                    q
+        gx =          q(pξ + c11 −       ) + p(qη + d11 −      ) ,
+             p+q                    p+q                   p+q
+                                                                                                          10
+H.-H. Sheng and G.-F. Yu                                                                                                                   Physica D 432 (2022) 133140
+
+
+
+
+           Fig. 9. The exact algebraic soliton solution v and the asymptotic solitons vasy at t = 0 with parameters p̃1 = − 21 , q̃1 = 32 , c = d = 2, a = 1.
+
+
+                 [                                         ]
+                 1  1             p      1             q
+       gy =        − (pξ + c11 −      ) − (qη + d11 −     ) ,
+             p+q    q            p+q     p            p+q
+                    (         )
+               p 1     p    q            p    q
+       fxy = −        − −       , gxy = − − .
+               qp+q    q    p            q    p
+                                                                 p2 −q2
+Obviously, v depends on ξ and η. Since ξ − η = p2 q2 y, the asymptotic solitons of v appear only on the following two asymptotic
+cases: (1) |ξ | = O(|y|), |η| = O(1), (2) |η| = O(|y|), |ξ | = O(1). In case (1), the explicit expression of v is given in the Appendix. The
+Taylor expansion of v with ξ −1 yields
+                           (                                                                )
+                                           1                                 1
+       v = 2(p + q)    2
+                                                             +                                  + O(ξ −1 ) ≡ v1 .                                                (48)
+                               [(qη + d − 1)(p + q) − q]2        [(qη + d)(p + q) − q]2
+Similarly, case (2) leads to
+                           (                                                                )
+                                           1                                 1
+       v = 2(p + q)2                                      +                                     + O(η−1 ) ≡ v2 ,                                                 (49)
+                               [(pξ + c + 1)(p + q) − p]2   [(pξ + c)(p + q) − p]2
+where O(ξ −1 ) and O(η−1 ) can be replaced by O(y−1 ) through the asymptotic conditions. From the asymptotic analysis above, the solution
+v approaches to two asymptotic solitons v1 and v2 in two cases with the rate O(t −1 ), respectively. To give exact expression of algebraic
+two-soliton solution, firstly, we consider p̃1 ̸ = q̃1 and take
+                1        3
+       p̃1 = − , q̃1 = , c = d = 2, a = 1, t = 0.                                                                                                                (50)
+                2        2
+In this case, from (45)–(5) and (46), solution v has the expression
+       v = 32(−485352 − 967680iyx + 806400ixy2 − 30720ixy3 + 231552ix2 y − 894240ix − 528768iy − 1069056iy2
+         − 165888ix2 + 55296iy3 + 241056ix3 + 1173312y2 − 334368yx − 93960ix4 + 1033236x2 + 194560iy4 + 48384ix2 y2
+         − 21504ix2 y3 + 231552ix3 y − 47520ix4 y − 16128ix3 y2 − 112640ixy4 + 13608ix5 + 57344iy5 + 3645x6
+         + 20480y6 − 34506x5 + 174080y5 + 173178x4 + 670208y4 − 38232x5 y + 143280x4 y2 − 251136x3 y3 + 254720x2 y4
+         − 120832xy5 + 292680x4 y − 857664x3 y2 + 1132800x2 y3 − 750080xy4 − 1111968x3 y + 1796544x2 y2 − 2087424xy3
+         − 1817856y2 x + 2130624yx2 + 1422336y3 − 511920x3 + 899424i − 876744x − 1200096y)/
+         [(24ix + 32iy + 9x2 − 40yx + 16y2 + 102 − 24i − 42x + 72y)2 (24ix + 32iy + 9x2 − 40yx + 16y2 + 66 − 24i − 18x + 40y)2 ].
+Fig. 9 describes exact and asymptotic algebraic two-soliton solution of v together with the error. Here we choose vasy = v1 +v2 . One can
+see that the collision is completely elastic in Fig. 9(a). There are one peak and two troughs under the wave plane. The similar rational
+solutions were found in the study of 2+1-dimensional sinh-Gordon equation [39].
+   We find that the sign of q̃1 (q̃1 − a) determines propagation speed and direction of algebraic solitons. When we take a new set of
+parameters
+       p̃1 = q̃1 = 1, c = 2, d = 3, a = 2,                                                                                                                       (51)
+                                                                                  11
+H.-H. Sheng and G.-F. Yu                                                                                                                               Physica D 432 (2022) 133140
+
+
+
+
+                                Fig. 10.   The algebraic soliton solution v at different time with parameters c = 2, d = 3, p̃1 = q̃1 = 1, a = 1.
+
+
+
+
+two algebraic solitons become parallel and the higher one owns fast speed so that it catches up with the lower one and then two
+solitons separate each other after the collision (see Fig. 10). When y = t = 0, the parallel two-soliton solution v has simple form
+                30ix5 + 2x6 − 74ix4 − 6x5 − 552ix3 − 180x4 + 861ix2 + 360x3 + 755ix + 908x2 − 247 − 462i − 1009x
+       v = 64                                     (                          )2 (                        )2                                                 .
+                                                   −13 − 3i + 10ix + 2x2 − 2x −11 − 5i + 10ix + 2x2 − 2x
+and the plot is displayed in Fig. 10(d). It is easy to verify the regularity of the solution. We see that v decays algebraically to the wave
+plane. When parameters satisfy p̃1 = q̃1 = a, one can find that one soliton propagates regularly and the other one is stationary.
+   Since there is an arbitrary parameter a in DLW system, it is natural to consider the influence of the constant. Figs. 11(a)–11(d) display
+the algebraic soliton solutions v with different values of a. As we can see, parameter a affects the direction of wave propagation and
+amplitudes. The two waves are almost parallel each other at a = −3 and a = 5, while almost perpendicular when a = 0.83.
+
+
+5.2. Algebraic multi-soliton solutions
+
+   In this part, we assume the determinant size N > 1 to derive algebraic multi-soliton solutions. In particular, we take N = 2, n1 =
+1, n = 0, c1 = 0 in Theorem 2.1. Thus we obtain
+            ⏐ (1)
+                           ˜ (1) ⏐
+                                         ⏐ (0)
+               ˜                            ˜                   ˜ (0) ⏐
+                                   ⏐                                  ⏐
+            ⏐ m̃          m̃             ⏐ m̃                  m̃
+       f = ⏐⏐ 11             (1) ⏐ , g = ⏐ ˜ (0)                ˜ (0) ⏐ ,
+                             12 ⏐        ⏐ 11                     12 ⏐                                                                                                       (52)
+               ˜ (1)
+              m̃           ˜
+                          m̃               m̃                  m̃
+                 21         22                      21            22
+
+where
+                                   [                                                                                                           ]
+        ˜ (1) = − p̃i
+       m̃
+                            1
+                                       (1 + ξ̃i + ci1 −
+                                                                    p̃i
+                                                                             )(−1 + η̃j + dj1 −
+                                                                                                                 q̃j
+                                                                                                                       )+
+                                                                                                                                   p̃i q̃j
+                                                                                                                                                   ,                         (53)
+         ij
+                   q̃j p̃i + q̃j                                 p̃i + q̃j                               p̃i + q̃j             (p̃i + q̃j )2
+                            [                                                                                          ]
+         (0)
+        ˜ =           1                                p̃i                         q̃j                 p̃i q̃j
+       m̃ ij                    (ξ̃i + ci1 −                   )(η̃j + dj1 −                )+                             ,                                                 (54)
+                p̃i + q̃j                         p̃i + q̃j                     p̃i + q̃j        (p̃i + q̃j )2
+and
+                                            1                                                    1
+       ξ̃i = p̃i x − 2p̃i (p̃i + a)t −            y,         η̃j = q̃j x + 2q̃j (q̃j − a)t −           y.
+                                            p̃i                                                  q̃j
+                                                                                                        12
+H.-H. Sheng and G.-F. Yu                                                                                                                      Physica D 432 (2022) 133140
+
+
+
+
+                            Fig. 11. The algebraic soliton solution v with different a with parameters p̃1 = − 12 , q̃1 = 32 , c = d = 2, y = 0.
+
+
+
+
+To illustrate the dynamics of the solution v , we first choose parameters
+               1        3          5
+       p̃1 = − , q̃1 = , p̃2 = − , q̃2 = 2, a = 1, c11 = 2i, c21 = i, d11 = 3i, d21 = 20i.                                               (55)
+               2        2          2
+   Figs. 12(a)–12(i) display the dynamics of potential v with parameters (55). There are three waves with different propagation direction
+and different speeds on the wave plane. At different time t, the position of the collision center changes (see Fig. 12(b), 12(e), 12(h)). The
+2-dimensional images Figs. 12(c), 12(f) and 12(i) show that waves with higher amplitudes catch up with lower waves. After collision,
+waves separate each other with some change of heights.
+   If we choose parameters as
+                   1               3
+      p̃1 = q̃2 = − , p̃2 = q̃1 = , a = 1, c11 = 2i, c21 = 4i, d11 = 2i, d21 = 10i,                                                (56)
+                   2               2
+the image of the potential v degenerates into that of algebraic two-soliton solution in Section 5.2. Plot of the degeneration algebraic
+two-soliton v is depicted in Fig. 13(a).
+
+5.3. Multiple rational solutions on periodic background
+
+   In order to construct multiple rational solutions on the periodic background, we choose the Gram determinant size N = 3. In this
+case, f , g are expressed by
+            ⏐ (1)          (1)    ˜ (1) ⏐
+                                                   ⏐ (0)         (0)
+               ˜        ˜                             ˜        ˜        ˜ (0) ⏐
+                                        ⏐                                     ⏐
+            ⏐ m̃       m̃        m̃                ⏐ m̃       m̃       m̃
+            ⏐ 11          12        13 ⏐           ⏐ 11          12       13 ⏐
+               ˜ (1)
+       f = ⏐⏐ m̃        ˜
+                       m̃
+                           (1)    ˜ (1) ⏐ ,
+                                 m̃                   ˜ (0)
+                                              g = ⏐⏐ m̃        ˜
+                                                              m̃
+                                                                 (0)    ˜ (0) ⏐ ,
+                                                                       m̃                                                                                           (57)
+                 21       22        23 ⏐                21       22       23 ⏐
+               ˜ (1)
+            ⏐ m̃        ˜ (1)
+                       m̃         ˜ (1) ⏐
+                                 m̃                   ˜ (0)
+                                                   ⏐ m̃        ˜ (0)
+                                                              m̃        ˜ (0) ⏐
+                                                                       m̃
+                 31        32      33                   31       32      33
+        (n)
+        ˜
+where m̃ij (n    = 0, 1, i, j = 1, 2) are given as (53)–(54) and
+       ⎧
+          ˜ (n) = − p̃i
+                  (        )n 1                               p̃i
+         m̃                              (n + ξ̃i + ci1 −             ), i = 1, 2; j = 3
+       ⎪
+       ⎪
+            ij
+                       q̃j p̃i + q̃j                      p̃i + q̃j
+       ⎪
+       ⎪
+       ⎪
+       ⎪
+       ⎪
+          ˜ (n) = − p̃i
+       ⎨          (        )n 1                                   q̃j
+         m̃ ij                           (−n + η̃j + dj1 −                ), j = 1, 2; i = 3
+       ⎪
+       ⎪               q̃j    p̃ i + q̃j                      p̃i +   q̃j
+       ⎪
+          ˜ (n) = cj e−ξi −ηj + − p̃i            1
+       ⎪                           (       )n
+                                                      ,i = j = 3
+       ⎪
+       ⎩m̃
+       ⎪
+       ⎪
+            ij
+                                        q̃j p̃i + q̃j
+                                                                                     13
+H.-H. Sheng and G.-F. Yu                                                                                                                        Physica D 432 (2022) 133140
+
+
+
+
+Fig. 12. The algebraic three-soliton solution v at different time with parameters p̃1 = − 12 , q̃1 = 32 , p̃2 = − 52 , q̃2 = 2, a = 1, c11 = 2i, c21 = i, d11 = 3i, d21 = 20i.
+
+
+
+
+           Fig. 13. The algebraic soliton solution v at t = 0 with parameters p̃1 = q̃2 = − 21 , p̃2 = q̃1 = 32 , a = 1, c11 = 2i, c21 = 4i, d11 = 2i, d21 = 10i.
+
+
+
+
+Substituting f and g into Eq. (5) leads to the semi-rational solution u and v . Since the explicit expression for u and v is very complicated,
+we omit the exact form of u and v here. To study the dynamics of this kind of semi-rational solution, we put the parameters
+p̃3 = q̃3 = −i, c3 = −2i and the other parameters are the same as (55), Fig. 14(a) displays three periodic waves on the periodic
+background plane where two waves are anti-dark and the third one is dark. While we take parameters as (56), Fig. 15(a) shows two
+periodic wave on the periodic background that one wave is anti-dark and the other is dark. One can see that the amplitudes of the
+waves have increased after the collision and the propagation direction has no change.
+
+
+5.4. Lump solutions for the intermediate potential
+
+                                                                                                                                                         f
+   We know that the ratio of rational tau functions can generate lump solutions. Thus we consider the potential W = g in the solution
+(52). In this case, we can obtain multiple lump solutions on the constant and periodic background (see Fig. 8, Fig. 9), respectively.
+                                                                                     14
+H.-H. Sheng and G.-F. Yu                                                                                                              Physica D 432 (2022) 133140
+
+
+
+
+Fig. 14. The semi-rational solution v at t = 0 on the periodic background with parameters in (55) and p̃3 = q̃3 = −i, c3 = −2i and (b) is the corresponding density
+plot.
+
+
+
+
+Fig. 15. The semi-rational solution v at t = 0 on the periodic background with parameters in (56) and p̃3 = q̃3 = −i, c3 = −2i and (b) is the corresponding density
+plot.
+
+
+
+
+Actually, when we choose
+
+       q̃i = p̃∗i , p̃1 + q̃1 = −(p̃2 + q̃2 ), t = 0, c11 = c21 = d11 = d21 = 0,                                                                              (58)
+                                                                      7
+the regularity can be verified similar to [16]. With parameters p̃1 = 10    7
+                                                                         − 10 i, q̃1 = 10
+                                                                                       7     7
+                                                                                          + 10 i, p̃2 = − 10
+                                                                                                           7    7
+                                                                                                             + 10 i, q̃2 = − 10
+                                                                                                                              7   7
+                                                                                                                                − 10 i, t = 0,
+the potential W can be rewritten as
+                   5764801x4 + 12005000y2 x2 + 6250000y4 + 11764900ix2 − 12250000iy2 + 24010000yx − 6002500
+       W =−                                                                                                                               .                   (59)
+                                                 5764801x4 + 12005000x2 y2 + 6250000y4 + 6002500
+Since the denominator is positive, W is always regular. Fig. 16 displays four peaks and four troughs. With different imaginary parts of
+p̃i , q̃j , (i, j = 1, 2), the wave profiles change (see Figs. 16(a)–16(f)) accordingly. When |pi | = |qi |, the density plot Fig. 16(d) shows that
+the center part exhibits a circle. While |pi | ̸ = |qi |, the center part displays an ellipse, see Fig. 16(e) and Fig. 16(f).
+      In order to construct rational solutions of the potential W on the periodic background, we take N = 3 in Theorem 2.1. With
+parameters c3 = 5i, p̃3 = q̃3 = − 32 i and other parameters the same as those in Fig. 16(a), we obtain rational solution W on the
+periodic background. Fig. 17 shows that the wave plane becomes periodic and the shape of the wave is similar to the periodic solution
+depicted in Fig. 8(a).
+
+5.5. High-order rational solutions
+
+   When N = 1, n1 > 1, we obtain high-order rational solutions. Here we take n = 0, n1 = 2 and tau functions are
+                      2                                      2                                            (               )
+               p̃1 ∑                                         ∑                                                   1
+       f =−                c1k (p̃1 ∂p̃1 + 1 + ξ̃1 )2−k ×          d1l (q̃1 ∂q̃1 − 1 + η̃1 )2−l                               ,                               (60)
+               q̃1                                                                                            p̃1 + q̃1
+                     k=0                                     l=0
+             2                                  2                                (               )
+             ∑                                  ∑                                       1
+       g =         c1k (p̃1 ∂p̃1 + ξ̃1 )2−k ×         d1l (q̃1 ∂q̃1 + η̃1 )2−l                        .                                                       (61)
+                                                                                     p̃1 + q̃1
+             k=0                                l=0
+
+Parameters
+
+       c10 = 1,      c11 = 0,       d10 = 1,          d11 = 0,
+                                                                                                 15
+H.-H. Sheng and G.-F. Yu                                                                                                                                        Physica D 432 (2022) 133140
+
+
+
+
+Fig. 16. Lump solutions and the corresponding density plots of the potential f /g on the constant background at t = 0. Parameters are given as c11 = c21 = d11 =
+                              7
+d21 = 0 and (a) p̃1 = q̃∗1 = 10    7
+                                − 10 i, p̃2 = q̃∗2 = − 10
+                                                        7   7
+                                                          + 10                      7
+                                                               i, (b) p̃1 = q̃∗1 = 10 − 45 i, p̃2 = q̃∗2 = − 10
+                                                                                                              7                           7
+                                                                                                                + 54 i, (c) p̃1 = q̃∗1 = 10 − 53 i, p̃2 = q̃∗2 = − 10
+                                                                                                                                                                    7
+                                                                                                                                                                      + 35 i. (d), (e) and (f) are
+density plots corresponding to (a), (b), (c) respectively.
+
+
+
+
+Fig. 17. Lump solutions and the corresponding density plot of the potential f /g on the periodic background with parameters c3 = 5i, p̃3 = q̃3 = − 32 i, and other
+parameters are the same as those for Fig. 16(a).
+
+
+
+
+lead to
+                                                                                                      (               )
+                  p̃1                                                                                        1
+        f =−            ((p̃1 ∂p̃1 + 1 + ξ˜1 )2 + c12 ) × ((q̃1 ∂q̃1 − 1 + η˜1 )2 + d12 )                                 ,                                                                 (62)
+                  q̃1                                                                                     p̃1 + q̃1
+                                                                              (               )
+                                                                                      1
+        g = ((p̃1 ∂p̃1 + ξ˜1 )2 + c12 ) × ((q̃1 ∂q̃1 + η˜1 )2 + d12 )                             .                                                                                         (63)
+                                                                                  p̃1 + q̃1
+By setting the parameters c12 , d12 to be purely imaginary,
+
+        c12 = ci = 20i,           d12 = d i = ±20i,
+
+together with p̃1 = − 21 , q̃1 = −2, a = 1, we depict the image of |v| at t = 0 in Figs. 18(a)–18(b). It is shown that there are two waves
+before collision (i.e. y → −∞), and four waves after collision (i.e. y → +∞). The wave heights tend to infinity when y approaches to
+positive infinity. When d = 20 (see Fig. 18(a)), one peak appears at the collision center. When d = −20 (see Fig. 18(c)), the collision
+center is sunken. The profiles are similar to those in [39].
+    Also we can construct high-order rational solution of the potential W . We depict Figs. 19(a)–19(b) with parameters c = d = 0, a =
+1, p̃1 = 1 + i, q̃1 = 1 − i for the potential W . In this case, the potential W at t = 0 is expressed as
+
+        W =(−8y2 x + 48yx − 32x + 48x2 − 16ix4 − 8iy2 x2 − iy4 − 16yx2 − 4y3 + 4y2 + 16ix3
+                + 24iyx2 + 20iy2 x − 2iy3 − 32x3 − 16y − 8iyx − 4iy2 + 16 − 8ix)
+                /(16x4 + 8x2 y2 + y4 − 16x3 − 24x2 y − 20xy2 + 2y3 + 32x2 + 24xy + 12y2 − 32x − 12y + 16).
+Fig. 19(b) shows that there are four parts at the collision center.
+                                                                                                  16
+H.-H. Sheng and G.-F. Yu                                                                                                                  Physica D 432 (2022) 133140
+
+
+
+
+                Fig. 18. High-order rational solution v and the corresponding density plot with parameters t = 0, c = 20, p̃1 = − 12 , q̃1 = −2, a = 1.
+
+
+
+
+Fig. 19. High-order rational solution of the intermediate potential W at t = 0 with parameters c = d = 0, a = 1, p̃1 = q̃∗1 = 1 + i and the corresponding density plot.
+
+
+
+
+6. Conclusion and discussion
+
+   The KP hierarchy reduction technique is a powerful method to investigate structures of solutions of integrable systems. Based on
+this approach, we investigated a (2+1)-dimensional generalized dispersive wave system. General soliton and (semi-)rational solutions
+are given in terms of N × N determinant. Under different size of the determinant solution, we construct soliton solutions, line breathers,
+algebraic solitons, multiple and high-order rational solutions on constant and periodic background, respectively. Dynamics of obtained
+solutions with different parameters are analyzed. Roles of constant a in DLW are discussed. As a byproduct, we find lump solutions for
+the intermediate potential of DLW system. It is known that the NLS equation possess multi-breather solutions on the elliptic function
+background. One question is how to construct breather solutions on the elliptic function background for DLW system. Meanwhile,
+nonlocal integrable equations, such as nonlocal NLS and nonlocal mKdV, were proposed from the reduction of well known AKNS system.
+These nonlocal systems possess PT symmetries and singular or nonsingular soliton solutions. High dimensional nonlocal integrable
+equations, for example, (2+1)-dimensional Davey–Stewartson equation, were also proposed. It would be interesting to investigate
+nonlocal DLW system and it remains a topic to be explored in the future.
+                                                                                  17
+H.-H. Sheng and G.-F. Yu                                                                                                                 Physica D 432 (2022) 133140
+
+
+Declaration of competing interest
+
+    The authors declare that they have no known competing financial interests or personal relationships that could have appeared to
+influence the work reported in this paper.
+
+Acknowledgments
+
+   The authors would like to thank referees for helpful comments which improve the article a lot. The work is supported by National
+Natural Science Foundation of China (Grant no. 11871336) and Shanghai Frontier Research Institute for Modern Analysis, PR China.
+
+Appendix
+
+    When we investigate the collision of two algebraic solitons for DLW system in the case |ξ | = O(|y|), we have the expression of v as
+follows
+               (f      fx fy  gxy    gx gy )
+                  xy
+          v =2       − 2 +         − 2 ,
+                 f      f      g      g
+             fxy        p2 + q2                                   1
+                   =−
+                                  (1 + pξ + c11 − p+q )(−1 + qη + d11 − p+q ) + (p+q)2
+                                                        p                            q      pq
+              f            pq
+                        p2 + q2                         ξ −1
+                   =−
+                      pq (p + (1 + c11 − p+q )ξ −1 )(−1 + qη + d11 − p+q ) + (p+q)2 ξ −1
+                                             p                             q        pq
+
+                   [                                                     ][                                                      ]
+                     q(1 + pξ + c11 − p+q ) + p(−1 + qη + d11 − p+q ) − 1q (1 + pξ + c11 − p+q ) − 1p (−1 + qη + d11 − p+q )
+                                        p                            q                            p                            q
+          fx fy
+         − 2 =−                                                                                        ]2
+           f
+                                             [
+                                               (1 + pξ + c11 − p+q )(−1 + qη + d11 − p+q ) + (p+q)2
+                                                                  p                        q       pq
+
+                   [                                                            ] [ (p+(1+c − p )ξ −1 ) (−1+qη+d − q )       ]
+                     q(p + (1 + c11 − p+q )ξ ) + p(qη − 1 + d11 − p+q )ξ                                                ξ
+                                       p    −1                         q     −1            11 p+q                11 p+q   −1
+                                                                                   −         q
+                                                                                                       −       p
+                =−                    [                                                                 ]2
+                                        (p + (1 + c11 − p+q )ξ −1 )(−1 + qη + d11 − p+q ) + (p+q)2 ξ −1
+                                                          p                             q       pq
+
+
+            gxy         p2 + q2                             1
+                   =−
+                                  (pξ + c11 − p+q )(qη + d11 − p+q ) + (p+q)2
+                                                  p                         q   pq
+             g             pq
+                        p2 + q2                                 ξ −1
+                   =−
+                                                              − p+q q ) + (p+pqq)2 ξ −1
+                                                      )ξ −1 )(qη + d
+                                                 p
+                           pq     (p + (c11 − p+q                      11
+                    [                                       ][                                                       ]
+         gx gy  q(p ξ + c11 −   p
+                               p+q
+                                   ) +  p(qη +  d11 −   q
+                                                       p+q
+                                                           )   −  1
+                                                                  q
+                                                                    (p ξ +  c11  −    p
+                                                                                     p+q
+                                                                                         )  −  1
+                                                                                               p
+                                                                                                 (qη +  d11 −   q
+                                                                                                               p+q
+                                                                                                                   )
+        − 2 =                                                                              ]2
+          g
+                                     [
+                                       (pξ + c11 − p+q )(qη + d11 − p+q ) + (p+q)2
+                                                     p                    q           pq
+
+                  [                                                      ] [ (p+(c − p )ξ −1 ) (qη+d − q )                 ]
+                    q(p + (c11 − p+q )ξ −1 ) + p(qη + d11 − p+q )ξ −1 −                                               ξ
+                                   p                            q                     11 p+q                11 p+q      −1
+                                                                                          q
+                                                                                                     −       p
+               =−                    [                                                               ]2                      .
+                                       (p + (c11 − p+q )ξ −1 )(qη + d11 − p+q ) + (p+q)2 ξ −1
+                                                     p                           q          pq
+
+
+
+References
+
+ [1]   N.J. Zabusky, M.D. Kruskal, Interaction of solitons in a collisionless plasma and the recurrence of initial states, Phys. Rev. Lett. 6 (1965) 240–243.
+ [2]   M.J. Ablowitz, P.A. Clarkson, Solitons, Nonlinear Evolution Equations and Inverse Scat Tering, Cambridge University Press, Cambridge, 1991.
+ [3]   M.J. Ablowitz, A.S. Fokas, Complex Variables: Introduction and Applications, Cambridge University Press, 2003.
+ [4]   C.H. Gu, H.S. Hu, Z.X. Zhou, Darboux Transformations in Integrable Systems: Theory and their Applications to Geometry, Springer, 2006.
+ [5]   R. Hirota, The Direct Method in Soliton Theory, Cambridge University Press, 2004.
+ [6]   M. Jimbo, T. Miwa, Solitons and infinite-dimensional Lie algebras, Publ. Res. Inst. Math. Sci. 19 (1983) 943–1001.
+ [7]   K. Dysthe, H.E. Krogstad, P. Müller, Oceanic rogue waves, Annu. Rev. Fluid Mech. 40 (2008) 287–310.
+ [8]   S. Xu, J. He, L. Wang, The darboux transformation of the derivative nonlinear Schr ödinger equation, J. Phys. A 44 (2011) 305203.
+ [9]   X. Wen, Z. Yan, Modulational instability and higher-order rogue waves with parameters modulation in a coupled integrable AB system via the generalized
+       darboux transformation, Chaos 25 (2015) 123115.
+[10]   B. Guo, L. Ling, Q. Liu, High-order solutions and generalized Darboux transformations of derivative nonlinear Schrödinger equations, Stud. Appl. Math. 130
+       (2013) 317–344.
+[11]   Y. Ohta, J. Yang, General high-order rogue waves and their dynamics in the nonlinear Schrödinger equation, Proc. R. Soc. Lond. Ser. A 2142 (2012) 1716–1740.
+[12]   Y. Ohta, J. Yang, Rogue waves in the Davey–Stewartson I equation, Phys. Rev. E 2 (2012) 036604.
+[13]   Y. Ohta, J. Yang, Dynamics of rogue waves in the Davey–Stewartson II equation, J.Phys. A 10 (2013) 105202.
+[14]   Y. Ohta, J. Yang, General rogue waves in the focusing and defocusing Ablowitz-Ladik equations, J. Phys. A 25 (2014) 255201.
+[15]   B.F. Feng, X. Luo, M. Ablowitz, Z. Musslimani, General soliton solution to a nonlocal nonlinear Schrödinger equation with zero and nonzero boundary conditions,
+       Nonlinearity 31 (2018) 5385–5409.
+[16]   M. Li, H. Fu, C. Wu, General soliton and (semi-)rational solutions to the nonlocal Mel’nikov equation on the periodic background, Stud. Appl. Math. 145 (2020)
+       97–136.
+[17]   S.V. Manakov, V.E. Zakharov, A. Bordag, A.R. Its, V.B. Matveev, Two-dimensional solitons of the Kadomtsev–Petviashvili equation and their interaction, Phys.
+       Lett. A. 63 (1977) 205–206.
+[18]   J. Satsuma, M.J. Ablowitz, Two-dimensional lumps in nonlinear dispersive systems, J. Math. Phys. 20 (1979) 1496–1503.
+
+                                                                                     18
+H.-H. Sheng and G.-F. Yu                                                                                                                       Physica D 432 (2022) 133140
+
+
+[19]   Y. Matsuno, A direct proof of the N-soliton solution of the Benjamin–Ono equation by means of Jacobi’s formula, J. Phys. Soc. Japan 57 (1988) 1924–1929.
+[20]   Y. Matsuno, New type of algebraic solitons expressed in terms of pfaffians, J. Phys. Soc. Japan 58 (1989) 1948–1961.
+[21]   M. Li, T. Xu, D.X. Meng, Rational solitons in the parity-time-symmetric nonlocal nonlinear Schrödinger model, J. Phys. Soc. Japan 85 (2016) 124001.
+[22]   T. Xu, L.L. Li, M. Li, C.X. Li, X.F. Zhang, Rational solutions of the defocusing nonlocal nonlinear Schrodinger equation: Asymptotic analysis and soliton interactions,
+       Proc. R. Soc. Lond. Ser. A Math. Phys. Eng. Sci. 477 (2021) 20210512, arXiv:2002.00134.
+[23]   M. Boiti, J.J.P. Leon, F. Pempinelli, Spectral transform for a two spatial dimension extension of the dispersive long wave equation, Inverse Probl. 3 (1987)
+       371–387.
+[24]   LJF. Broer, Approximate equations for long water waves, Appl. Sci. Res. 31 (1975) 377–395.
+[25]   LJF. Broer, On the hamiltonian theory of surface waves, Appl. Sci. Res. 29 (1974) 430–446.
+[26]   J. Hu, Z.W. Xu, G.F. Yu, Determinant structure for the (2+1)-dimensional dispersive long wave system, Appl. Math. Lett. 62 (2016) 76–83.
+[27]   G. Paquin, P. Winternitz, Group theoretical analysis of dispersive long wave equations in two space dimensions, Phys. D. 46 (1990) 122–138.
+[28]   S.Y. Lou, Painlevé test for the integrable dispersive long wave equations in two space dimensions, Phys. Lett. A 176 (1993) 96–100.
+[29]   E. Fan, Darboux transformation and soliton-like solutions for dispersive long wave equations, in: Computer Mathematics (Chiang Mai, 2000), in: Lecture Notes
+       Ser. Comput., vol. 8, World Sci. Publ., River Edge, NJ, 2000, pp. 249–257.
+[30]   R.M. Li, X.G. Geng, On a vector long wave-short wave-type model, Stud. Appl. Math. 144 (2020) 164–184.
+[31]   M.L. Wang, Y.B. Zhou, Z.B. Li, A nonlinear transformation of the dispersive long wave equations in (2+1) dimensions and its applications, J. Nonlinear Math.
+       Phys. 5 (1998) 120–125.
+[32]   J.F. Zhang, Exotic localized coherent structures of the (2+1)-dimensional dispersive long-wave equation, Commun. Theor. Phys. 37 (2002) 277–282.
+[33]   J.F. Zhang, P. Han, New multisoliton solutions of the (2+1)-dimensional dispersive long wave equations, Commun. Nonlinear Sci. Numer. Simul. 6 (2001) 178–182.
+[34]   K. Sun, B. Tian, W. Liu, M. Li, Q. Qu, Y. Jiang, Symbolic-computation study on the (2+1)-dimensional dispersive long wave system, SIAM J. Appl. Math. 70 (2010)
+       2259–2272.
+[35]   P.G. Grinevich, P.M. Santini, The finite gap method and the periodic nls cauchy problem of the anomalous waves, in: for a Finite Number of Unstable Modes,
+       arXiv:1810.09247.
+[36]   W.Q. Peng, S.F. Tian, X.B. Wang, T.T. Zhang, Characteristics of rogue waves on a periodic background for the Hirota equation, Wave Motion 93 (2020) 102454.
+[37]   B.F. Feng, L.M. Ling, D.A. Takahashi, Multi-breather and high-order rogue waves for the nonlinear schrodinger equation on the elliptic function background,
+       Stud. Appl. Math. 144 (2020) 46–101.
+[38]   Gegenhasi X.B. Hu, H.Y. Wang, A (2 + 1)-dimensional sinh-Gordon equation and its Pfaffian generalization, Phys. Lett. A. 360 (2007) 439–447.
+[39]   H.H. Sheng, G.F. Yu, Rational solutions of a (2+1)-dimensional sinh-Gordon equation, Appl. Math. Lett. 101 (2020) 106051.
+[40]   G.F. Yu, H.W. Tam, On the (2+1)-dimensional gardner equation: determinant solutions and Pfaffianization, J. Math. Anal. Appl. 330 (2007) 989–1001.
+[41]   Y. Ohta, Dark soliton solution of Sasa-Satsuma equation, AIP Conf. Proc. 1212 (2010) 114–121.
+
+
+
+
+                                                                                      19
+

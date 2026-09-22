@@ -1,0 +1,1150 @@
+Journal of Nonlinear Mathematical Physics (2023) 30:1621–1640
+https://doi.org/10.1007/s44198-023-00147-z
+
+    RESEARCH ARTICLE
+
+
+
+General Soliton and (Semi‑)Rational Solutions
+of a (2+1)‑Dimensional Sinh‑Gordon Equation
+
+Sheng‑Nan Wang1 · Guo‑Fu Yu1 · Zuo‑Nong Zhu1
+
+Received: 29 July 2023 / Accepted: 18 September 2023 / Published online: 10 October 2023
+© The Author(s) 2023
+
+
+
+Abstract
+In this paper, we investigate solutions of a (2+1)-dimensional sinh-Gordon equation.
+General solitons and (semi-)rational solutions are derived by the combination of
+Hirota’s bilinear method and Kadomtsev-Petviashvili hierarchy reduction approach.
+General solutions are expressed as N × N Gram-type determinants. When the
+determinant size N is even, we generate solitons, line breathers, and (semi-)rational
+solutions located on constant backgrounds. In particular, through the asymptotic
+analysis we prove that the collision of solitons are completely elastic. When N is
+odd, we derive exact solutions on periodic backgrounds. The dynamical behaviors
+of those derived solutions are analyzed with plots. For rational solutions, we
+display the interaction of lumps. For semi-rational solutions, we find the interaction
+solutions between lumps and solitons.
+
+Keywords Hirota’s bilinear method · Breather · Lump · (Semi-)rational solution ·
+Sinh-Gordon equation
+
+
+1 Introduction
+
+The study of solitons, breathers, rational solutions and their interactions is a main
+topic in the field of soliton theory and attracts great attention in recent years.
+Various explicit physical meaning solutions of integrable equations are found,
+such as algebra solitons, lumps, line breathers, rogue waves and peakon solutions,
+and so on. Studies of solitons are not only restricted in (1+1)-dimensional
+integrable equations. In fact, (2+1)-dimensional integrable systems have richer
+dynamic properties and they are more relevant to real world physics. Many
+(2+1)-dimensional integrable systems have been extensively studied, such as
+Davey-Stewartson (DS) equation [1–3], Mel’nikov equation [4], dispersive long
+
+
+* Zuo‑Nong Zhu
+  znzhu@sjtu.edu.cn
+1
+      School of Mathematical Sciences, CMA‑Shanghai, Shanghai Jiao Tong University,
+      Shanghai 200240, People’s Republic of China
+
+
+                                                                                             13
+                                                                                      Vol.:(0123456789)
+1622                                    Journal of Nonlinear Mathematical Physics (2023) 30:1621–1640
+
+
+wave equation [5], Fokas equation [6], et al. A variety of powerful methods have
+been developed to solve integrable equations, such as inverse scattering method
+[7], Darboux transformation method (DT) [8], Hirota’s bilinear method [9], the
+dressing method [10], Riemann-Hilbert method [11], Kadomtsev-Petviashvili
+(KP) hierarchy reduction method [12] and so on. Among these methods, the KP
+reduction technique in conjunction with Hirota’s bilinear method is very powerful
+to construct (semi-)rational solutions. This approach has been applied to many
+integrable systems [1–4, 13–16] to derive rational and semi-rational solutions.
+These pioneer works inspire us to study dynamics of (2+1)-dimensional nonlinear
+integrable equations.
+   In 1987, the sinh-Gordon equation, qxt + sinh q = 0 , was extended to
+(2+1)-dimension by the inverse spectral transform [17]. The extended
+(2+1)-dimensional sinh-Gordon equation reads
+      ( (                  ))           (      x           )
+
+                                             ∫−∞
+         −q   q                       2   −q        q
+        e e (qxt + sinh q)       =𝜎 e            (e )y dx
+                             x x                              yt
+                                         ((        x            )2 )               (1)
+                                               ∫−∞
+                                    1
+                                 − 𝜎 2 e−q            (eq )y dx        , 𝜎 2 = ±1.
+                                    2                               xt
+
+In [18], Lou proposed the following (2+1)-dimensional extended sinh-Gordon
+equation
+
+         ⎧�                       �
+         ⎪ 𝛼𝜙yt + e−2𝜙 (e2𝜙 𝜙xt )x = −(sx e2𝜙 )xx ,
+                                    y
+                                                                                                 (2)
+         ⎪
+         ⎨� �                         ��
+                     1
+         ⎪ e2𝜙 𝜙 − Ce2𝜙 + Ce−2𝜙   1
+                 xt                          + 𝛼e2𝜙 𝜙yt + 𝛼e2𝜙 (e2𝜙 s)x = 0.
+         ⎪           2            2        x
+         ⎩
+
+This equation is related to the first negative KP equation by a two-dimen-
+sional Miura transformation. Here, C is arbitrary constant, 𝛼 2 = −1 and 𝛼 2 = 1
+correspond to the KP I and KP II equation, respectively. In [19], by setting
+2𝜙 = 𝜔, C = 21 , 𝛼 = 1, s = 𝜃 , the (2+1)-dimensional sinh-Gordon equation (2) is
+rewritten as
+                  � �                ��
+                ⎧ e𝜔 𝜔 − sinh 𝜔
+                          xt              + e𝜔 𝜔yt = −2e2𝜔 (𝜃x + 𝜔x 𝜃),
+                                                                              (3)
+                ⎪                       x
+                ⎪ (𝜃 e𝜔 ) + 1 𝜔 + 𝜔 + 1 𝜔2
+                ⎨               �                �
+                ⎩ x xx 2 y             xx            = 0.
+                                             2 x yt
+Upon the dependent variable transformation
+                                                         −∞ (                ) ( G(𝜉, y, t) )2
+                                                    ∫x
+                    F(x, y, t)
+  𝜔(x, y, t) = 2 ln            ,   𝜃(x, y, t) = 2               ln G(𝜉, y, t)                  d𝜉,
+                    G(x, y, t)                                                yt F(𝜉, y, t)
+                                                                                                 (4)
+
+
+
+
+13
+Journal of Nonlinear Mathematical Physics (2023) 30:1621–1640                     1623
+
+
+the sinh-Gordon equation (3) is transformed into the following bilinear form [19]
+                       {
+                           (Dy + D2x )F ⋅ G = 0,
+                                                                                    (5)
+                                  (D2x Dt + Dy Dt + 2Dx )F ⋅ G = 0.
+
+Besides, a bilinear Bäcklund transformation, Wronskian solutions and Pfaffian
+generalization of this equation were derived in [19]. Integrable discretization of the
+(2+1)-dimensional extended sinh-Gordon equation (3) was investigated in [20]. By
+using Hirota’s bilinear method and KP hierarchy reduction technique, the rational
+solutions of algebraic solitons in the Gram determinant form are constructed in [21].
+However, to the best of our knowledge, general solitons, line breathers, lumps on the
+constant and periodic backgrounds of the (2+1)-dimensional sinh-Gordon equation
+(3) have not been reported yet.
+   In this paper, we consider general solitons, line breather solutions and (semi-)
+rational solutions of the (2+1)-dimensional sinh-Gordon equation (3). We derive
+lump solutions and further explore semi-rational solutions consisting of lumps and
+solitons. Moreover, the dynamical behaviors of solitons, line breathers and lumps
+both on constant and periodic backgrounds are studied.
+   This paper is organized as follows. In Section 2, we present the general solitons
+and (semi-)rational solutions of the sinh-Gordon equation. These solutions
+are expressed as N × N Gram-type determinant. In Section 3, we demonstrate
+the dynamic behaviors of solitons on the constant and periodic backgrounds,
+respectively. In Section 4, we present the line breather solutions on the constant and
+periodic grounds. In Section 5, the dynamics of rational solutions on the constant
+and periodic background are illustrated. In Section 6, semi-rational solutions of
+interactions of lumps and solitons are investigated. Finally we give the conclusion
+and discussion.
+
+
+2 General Solitons and (Semi‑)Rational Solutions in Determinant
+   Form
+
+In this part, we give the general solitons and (semi-)rational solutions of the sinh-
+Gordon Eq. (3). Bilinear sinh-Gordon equation (5) can be obtained from the
+following KP hierarchy equations
+
+                                     (D2x − Dx2 )𝜏n+1 ⋅ 𝜏n = 0,                     (6)
+                                           1
+
+
+
+
+                            (Dx−1 (D2x − Dx2 ) − 4Dx1 )𝜏n+1 ⋅ 𝜏n = 0,               (7)
+                                       1
+
+
+under the variables transformation x1 = −x, x2 = −y, x−1 = 2t , and 𝜏n = F, 𝜏n+1 = G
+(see ref. [21]). The rational algebraic solitons in the Gram-type determinant form of
+the sinh-Gordon equation (5) are presented in [21]. In the following we give more
+general soliton and (semi-)rational solutions.
+
+
+
+                                                                           13
+1624                                      Journal of Nonlinear Mathematical Physics (2023) 30:1621–1640
+
+
+Theorem 1 The bilinear sinh-Gordon equation (5) admits solutions
+                                       F = 𝜏n+1 ,       G = 𝜏n ,                                   (8)
+where 𝜏n = det1≤i,j≤N (m(n)
+                        i,j
+                            ). The elements are defined as following
+                                                        ni
+                                          (       pi )n ∑      (                 )ni −k
+              m(n)
+               i,j
+                   = ci 𝛿i,j e−𝜉i −𝜂j +       −            ai,k pi 𝜕pi + 𝜉i� + n
+                                                  qj k=0
+                          nj                            )nj −l                                     (9)
+                                                                    1
+                          ∑        (
+                      ×         bj,l qj 𝜕qj + 𝜂j� − n                    ,
+                          l=0
+                                                                 pi + qj
+
+where
+                                                                  1
+                                   𝜉i� = −pi x − 2p2i y −            t,                          (10)
+                                                                 2pi
+
+                                                                  1
+                                   𝜂j� = −qj x + 2q2j y −            t,                          (11)
+                                                                 2qj
+
+                                                             1
+                                 𝜉i = −pi x − p2i y +           t + 𝜉i,0 ,                       (12)
+                                                            2pi
+
+                                                             1
+                                 𝜂j = −qj x + q2j y +           t + 𝜂j,0 .                       (13)
+                                                            2qj
+
+Here, N is a positive integer, ni , nj are nonnegative integers, 𝛿i,j is the Kronecker
+delta, and ci , pi , qj , 𝜉i,0 , 𝜂j,0 are arbitrary parameters.
+
+   The Gram determinant solutions can be obtained from solutions the KP
+hierarchy equations by introducing differential operators applied to those
+parameters of elements in the determinant [21]. The proof of the above theorem
+is similar to that in [21] and we omit the details here.
+
+Remark 1 Four types of solutions (8) in Theorem 1 will be discussed under the fol-
+lowing different parameter constraints:
+   I . soliton solutions as ci ≠ 0, ni = 0, i = 1, ..., N ;
+   II. line breathers as ci ≠ 0, ni = 0, i = 1, ..., N ;
+   III. rational solutions (lumps) as ci = 0, k=1 nk ≥ 1, i = 1, ..., N ;
+                                                ∑N
+   IV. semi-rational solutions (mixed solutions of lumps and solitons) as
+       �c � > 0, k=1 nk ≥ 1.
+∑N              ∑N
+  i=1 i
+
+Remark 2 To construct solitons, line breathers, rational and semi-rational solutions
+on the constant background, we set the size of the determinants to be even in Theo-
+rem 1. Meanwhile, to derive solutions on the periodic background, we take the odd
+size of the determinants.
+
+13
+Journal of Nonlinear Mathematical Physics (2023) 30:1621–1640                               1625
+
+
+   In the following, we take appropriate parameter constraints to construct solitons,
+line breathers and lumps of the sinh-Gordon equation (3).
+
+
+3 Dynamics of the Soliton Solutions
+
+In this part, we study the dynamic behaviors of the soliton solutions of the sinh-
+Gordon equation (3) on constant and periodic backgrounds, respectively. To this
+end, we take parameters ni = 0, (i = 1, 2, ..., N) in Theorem 1.
+
+
+3.1 One‑Soliton Solutions
+
+To obtain one-soliton solutions on the constant background, we take N = 1 in
+Theorem 1. Then the first order determinant reads as
+                               ( p )n
+                                           1
+                 m(n)
+                   1,1
+                       = c 1 +   − 1            e𝜉1 +𝜂1 , n = 0, 1,     (14)
+                                   q    p +q 1      1     1
+
+where
+                                                               1   1
+                                                          (           )
+           𝜉1 + 𝜂1 = −(p1 + q1 )x + (q21 − p21 )y +              +      t + 𝜉1,0 + 𝜂1,0 ,   (15)
+                                                              2p1 2q1
+
+and p1 , q1 , 𝜉1,0 , 𝜂1,0 are arbitrary complex numbers. Let us consider the potential 𝜔x ,
+where
+                    (
+                        F
+                          )                   2(p1 + q1 )2
+              𝜔x = 2 ln     =
+                        G x q1 (p1 + q1 )e−𝜉1 −𝜂1 + −p1 e𝜉1 +𝜂1 + q1 − p1
+                                                                          .                 (16)
+                                                                    p1 +q1
+
+Here we require p1 q1 < 0 and p1 + q1 > 0 to avoid singularity. We remark here that
+the last equation can be rewritten as
+
+                                       2(p1 + q1 )2
+                       𝜔x = √                                    ,
+                           2 −p1 q1 cosh(−𝜉1 − 𝜂1 + 𝜃) + q1 − p1
+
+as p1 < 0, q1 > 0 or
+
+                                                 2(p1 + q1 )2
+                      𝜔x =       √                                             ,
+                              −2 −p1 q1 cosh(−𝜉1 − 𝜂1 + 𝜃) + q1 − p1
+                                            √ q
+as p1 > 0, q1 < 0, where exp(𝜃) = (p1 + q1 ) − p1 . Plots of one-soliton solutions
+                                                                1
+(16) under different parameters are shown in Fig. 1 with different parameters.
+   We set p1 = 𝛼 + 𝛽i, c1 = 𝜆i and q1 = −p∗1 with real 𝛼, 𝛽, 𝜆. The tau functions F
+and G have the expression
+
+
+
+                                                                                        13
+1626                                            Journal of Nonlinear Mathematical Physics (2023) 30:1621–1640
+
+
+
+
+Fig. 1  One-soliton solution 𝜔x (16) with parameter values a p1 = −2, q1 = 3, c1 = 1, y = 1, 𝜉1,0 = 𝜂1,0 = 0;
+b p1 = 4, q1 = −3, c1 = 1, y = 2, 𝜉1,0 = 𝜂1,0 = 0
+
+
+                    p1 ) 1
+                     (
+       F = c1 +          −     e𝜉1 +𝜂1
+                    q1 p1 + q1
+                  𝛼 + 𝛽i                                                      ] (17)
+                                                      t
+                               [       (                      )
+        = 𝜆i −              exp − 2𝛽i x + 2𝛼y +                 + 𝜉 1,0 + 𝜂1,0 ,
+               2𝛽i(−𝛼 + 𝛽i)                     2(𝛼 2 + 𝛽 2 )
+
+                  1                    1                            t
+                                             [     (                        )               ]
+   G = c1 +            e𝜉1 +𝜂1 = 𝜆i +     exp − 2𝛽i x + 2𝛼y +                 + 𝜉1,0 + 𝜂1,0   .
+               p1 + q1                2𝛽i                     2(𝛼 2 + 𝛽 2 )
+                                                                                                               (18)
+Substituting F and G into the potential 𝜔x leads to
+                                           16𝛽 3 𝜆 exp(−2i𝜁 + 𝜉1,0 + 𝜂1,0 )
+   𝜔x =                                                                                                          ,
+          (−𝛼 − i𝛽) exp(−4i𝜁 + 2𝜉1,0 + 2𝜂1,0 ) + 4𝛼𝛽𝜆 exp(−2i𝜁 + 𝜉1,0 + 𝜂1,0 ) + 4𝛽 2 𝜆2 (−𝛼 + i𝛽)
+                                                                                                               (19)
+where 𝜁 = 𝛽x + 2𝛼𝛽y + 2(𝛼2𝛽+𝛽 2 ) t . In this case, solution (19) is periodic with periods
+𝜋∕𝛽 in x,  𝜋∕2𝛼𝛽in y and           2
+                            2𝜋(𝛼 + 𝛽 )∕𝛽  2     in t. Figures of this periodic one-soliton
+solution are depicted in Fig. 2.
+
+3.2 Two‑Soliton Solutions on the Constant Background
+
+For N = 2, we take c1 = c2 = 1 in Theorem 1. The tau function solutions F and G
+are expressed by 2 × 2 determinants
+        |1 − p1 1 e𝜉1 +𝜂1 − p1 1 e𝜉1 +𝜂2 |
+   F = || p2q1 p11 +q1 𝜉 +𝜂        q2 p1 +q2
+        |                                               |
+                                     p2 1
+                                                        |
+                                                 𝜉2 +𝜂2 |
+          −
+        | q p +q      e 2   1   1 −  q  p  +q
+                                                e       |
+        |    1 2    1                  2 2    2         |
+            p1       1            p2      1               pp              (p1 − p2 )(q1 − q2 )
+     =1−                  e −𝜁1
+                                                  e + 1 2
+                                                   𝜁2
+                                                                                                         e𝜁1 +𝜁2 ,
+            q1 p1 + q1            q2 p2 + q2              q1 q2 (p1 + q1 )(p1 + q2 )(p2 + q1 )(p2 + q2 )
+                                                                                                               (20)
+
+
+
+
+13
+Journal of Nonlinear Mathematical Physics (2023) 30:1621–1640                                                               1627
+
+
+
+
+Fig. 2  Profiles of periodic one-soliton (19) with parameters 𝛼 = 𝛽 = 1, c1 = 1, y = 1, 𝜉1,0 = 𝜂1,0 = 0; b
+Density plot of 𝜔x
+        |1 + 1 e𝜉1 +𝜂1         1
+                                     e𝜉1 +𝜂2 ||
+             p1 +q1         p1 +q2
+        |
+   G=|  |    1                     1
+                                              |
+        | p +q e𝜉2 +𝜂1 1 + p +q e𝜉2 +𝜂2 |
+                                              |
+        | 2 1                    2    2       |
+                 1             1                        (p1 − p2 )(q1 − q2 )
+      =1+           e𝜁1 +               e𝜁2 +                                          e𝜁1 +𝜁2 ,
+            p1 + q1       p2 + q2             (p1 + q1 )(p1 + q2 )(p2 + q1 )(p2 + q2 )
+                                                                                             (21)
+with
+                                                      1      1
+                                                   (            )
+   𝜁i = 𝜉i + 𝜂i = −(pi + qi )x + (q2i − p2i )y +          +       t + 𝜉i,0 + 𝜂i,0 , i = 1, 2.
+                                                     2pi 2qi
+                                                                                             (22)
+In what follows, we analyze the asymptotic behaviors of two-soliton solutions. For
+convenience, we set y = 0 and then the potential 𝜔x is expressed as
+                                   A1 e𝜁1 + A2 e𝜁2 + A12 e𝜁1 +𝜁2 + A112 e2𝜁1 +𝜁2 + A122 e𝜁1 +2𝜁2
+     𝜔x = 2                                                                                                             ,
+              1 + B1 e𝜁1 + B2 e𝜁2 + B11 e2𝜁1 + B22 e2𝜁2 + B12 e𝜁1 +𝜁2 + B112 e2𝜁1 +𝜁2 + B122 e𝜁1 +2𝜁2 + B1122 e2𝜁1 +2𝜁2
+                                                                                                                            (23)
+where
+             p1 + q1              p + q2               −p1 + q1                 −p2 + q2
+       A1 =           , A2 = 2             , B1 =                   , B2 =                   ,
+                q1                   q2               q1 (p1 + q1 )            q2 (p2 + q2 )
+                −p1 (p1 − p2 )(q1 − q2 )(p2 + q2 )                   −p2 (p1 − p2 )(q1 − q2 )(p1 + q1 )
+       A112 =                                         , A122 =                                            ,
+               q1 q2 (p1 + q1 )2 (p1 + q2 )(p2 + q1 )               q1 q2 (p1 + q2 )(p2 + q1 )(p2 + q2 )2
+                   −p1                        −p2
+       B11 =                 , B22 =                    ,
+              q1 (p1 + q1 )2             q2 (p2 + q2 )2
+                       −p1 (−p2 + q2 )(p1 − p2 )(q1 − q2 )
+         B112 =                                                     ,
+                  q1 q2 (p1 + q1 )2 (p1 + q2 )(p2 + q1 )(p2 + q2 )
+                    −p2 (−p1 + q1 )(p1 − p2 )(q1 − q2 )
+       B122 =                                                   ,
+               q1 q2 (p1 + q1 )(p1 + q2 )(p2 + q1 )(p2 + q2 )2
+                             p1 p2 (p1 − p2 )2 (q1 − q2 )2
+       B1122 =                                                          .
+                  q1 q2 (p1 + q1 )2 (p1 + q2 )2 (p2 + q1 )2 (p2 + q2 )2
+
+
+
+                                                                                                                13
+1628                                       Journal of Nonlinear Mathematical Physics (2023) 30:1621–1640
+
+
+Without loss of generality, we assume pi + qi > 0, (i = 1, 2) and p2 q2 < p1 q1 < 0.
+We denote the left-moving soliton along 𝜁1 = 0 as Soliton 1 and the right-moving
+soliton along 𝜁2 = 0 as Soliton 2. The asymptotic behaviours for the two-soliton
+solutions are analysed in the following.
+   Before collision (t → −∞):
+   Soliton 1 (𝜁1 ≈ 0, 𝜁2 → +∞)
+
+                                               2(p1 + q1 )2
+                         𝜔x →                   √                      ,                          (24)
+                                  (q1 − p1 ) + 2 −p1 q1 cosh(𝜁1 − 𝜃1 )
+                                                                      √
+where 𝜃1 is defined by exp(𝜃1 ) =
+                                        (p1 +q1 )(p1 +q2 )(p2 +q1 )         q
+                                            (p1 −p2 )(q1 −q2 )
+                                                                          − p1 .
+                                                                                1
+   Soliton 2 (𝜁2 ≈ 0, 𝜁1 → −∞)
+
+                                               2(p2 + q2 )2
+                         𝜔x →                   √                      ,                          (25)
+                                  (q2 − p2 ) + 2 −p2 q2 cosh(𝜁2 − 𝜃2 )
+                                            √ q
+where 𝜃2 is defined by exp(𝜃2 ) = (p2 + q2 ) − p2 .
+                                                               2
+   After collision (t → +∞):
+   Soliton 1 (𝜁1 ≈ 0, 𝜁2 → −∞)
+
+                                              2(p1 + q1 )2
+                         𝜔x →                   √                     ,                           (26)
+                                  (q1 − p1 ) + 2 p1 q1 cosh(𝜁1 − 𝜃3 )
+                                            √ q
+where 𝜃3 is defined by exp(𝜃3 ) = (p1 + q1 ) − p1 .
+                                                              1
+   Soliton 2 (𝜁2 ≈ 0, 𝜁1 → +∞)
+
+                                              2(p2 + q2 )2
+                         𝜔x →                   √                     ,                           (27)
+                                  (q2 − p2 ) + 2 p2 q2 cosh(𝜁2 − 𝜃4 )
+                                                                      √
+where 𝜃4 is defined by exp(𝜃4 ) =
+                                        (p2 +q2 )(p1 +q2 )(p2 +q1 )         q
+                                            (p1 −p2 )(q1 −q2 )
+                                                                          − p2 .
+                                                                                2
+   From the asymptotic analysis, we find that the collision of two solitons is com-
+pletely elastic, i.e., their shapes and velocities keep unchanged after the interaction.
+In particular, Soliton 1 has a phase shift 𝜃 and Soliton 2 has an opposite phase shift
+−𝜃 with exp(𝜃) = (p1 −p2 )(q2 −q1 ) after the collision. We depict the plots of the interac-
+                      (p +q )(p +q )
+                     1    2   1    2
+tion of two solitons and the corresponding density plots on the constant background
+in Figs. 3, 4 and 5, respectively. We observe three types of two-soliton solutions.
+Figure 3 displays the interaction of two bright solitons. Figure 4 shows the interac-
+tion of two solitons both under the horizon. Figure 5 exhibits the interaction of two
+solitons with one under the horizon and the other above the horizon.
+
+
+
+
+13
+Journal of Nonlinear Mathematical Physics (2023) 30:1621–1640                                    1629
+
+
+
+
+Fig. 3  Two-soliton solution 𝜔x on the constant background at y = 0 and the corresponding density plot
+with parameters p1 = −1, q1 = 53 , p2 = − 15 , q2 = 53 , 𝜉i,0 = 𝜂i,0 = 0, c1 = c2 = 1
+
+
+
+
+Fig. 4  Two-soliton solution 𝜔x on the constant background at y = 0 and the corresponding density plot
+with parameters p1 = 2, q1 = − 54 , p2 = 1, q2 = − 53 , 𝜉i,0 = 𝜂i,0 = 0, c1 = c2 = 1
+
+
+3.3 Two‑Soliton Solutions on the Periodic Background
+
+In order to derive two-soliton solutions on the periodic background, we take N = 3
+and q3 = −p∗3 in Theorem 1. Then the tau functions F and G have the following
+determinant expressions
+                           |m(1) m(1) m(1) |              |m(0) m(0) m(0) |
+                           | 1,1 1,2 1,3 |                | 1,1 1,2 1,3 |
+                           |                |             |                |
+                                                                                                (28)
+                           | (1) (1) (1) |                | (0) (0) (0) |
+                       F = |m2,1 m2,2 m2,3 || ,
+                           |                          G = |m2,1 m2,2 m2,3 || ,
+                                                          |
+                           |                |             |                |
+                           | (1) (1) (1) |                | (0) (0) (0) |
+                           |m3,1 m3,2 m3,3 |              |m3,1 m3,2 m3,3 |
+                           |                |             |                |
+with entries
+
+
+
+                                                                                         13
+1630                                          Journal of Nonlinear Mathematical Physics (2023) 30:1621–1640
+
+
+
+
+Fig. 5  Two-soliton solution 𝜔x on the constant background at y = 0 and the corresponding density plot
+with parameters p1 = −1, q1 = 2, p2 = 5, q2 = −3, 𝜉i,0 = 𝜂i,0 = 0, c1 = c2 = 1
+
+
+
+                                                                1 ≤ i, j ≤ 3,
+                                (       pi )n 1
+             m(n)
+              i,j
+                  = ci 𝛿i,j +       −              e𝜉i +𝜂j ,                       n = 0, 1.         (29)
+                                        qj pi + qj
+
+We put p3 = 𝛼 + 𝛽i, q3 = −𝛼 + 𝛽i, c1 = c2 = 1, c3 = 𝜆i, and
+                                                1   1
+                                             (         )
+    𝜉i + 𝜂i = −(pi + qi )x + (q2i − p2i )y +      +      t + 𝜉i,0 + 𝜂i,0 ,                 i = 1, 2, (30)
+                                               2pi 2qi
+
+                                                            1
+                                [                                      ]
+                  𝜉3 + 𝜂3 = −2𝛽i x − 2𝛼y −                           t   + 𝜉3,0 + 𝜂3,0 .             (31)
+                                                       2(𝛼 2 + 𝛽 2 )
+We choose p1 , q1 , p2 , q2 the same values as those in Fig. 3 and
+p3 = −q∗3 = 2 + 5i, c3 = 2i. Then we can generate two solitons on the periodic back-
+ground (see Fig. 6).
+
+
+
+4 Dynamics of the Line Breather Solutions
+
+In this part, we study the dynamics of line breather solutions of sinh-Gordon
+equation (3) on both constant and periodic backgrounds. To construct line breather
+solutions, we take parameters ni = 0, i = 1, 2, ..., N . For simplicity, we consider the
+line breather solutions on constant and periodic backgrounds by setting N = 2 and 3,
+respectively.
+
+4.1 Line Breather Solutions on the Constant Background
+
+To construct line breather solutions of sinh-Gordon equation (3) on the constant back-
+ground, we choose pi , qi , (i = 1, 2, ..., N) to be purely imaginary and pi ≠ −qi. For
+
+
+
+13
+Journal of Nonlinear Mathematical Physics (2023) 30:1621–1640                                           1631
+
+
+
+
+Fig. 6  Two-soliton solution 𝜔x on the periodic background at y = 0 and the corresponding density plot
+with parameters p1 = −1, q1 = 53 , p2 = − 15 , q2 = 53 , p3 = 2 + 5i, q3 = −2 + 5i, 𝜉i,0 = 𝜂i,0 = 0, c1 = c2 =
+1, c3 = 2i
+
+
+N = 2, we set p1 = q2 = pi, q1 = p2 = qi, c1 = 𝛼 + 𝛽i, c2 = −c∗1, where p, q, 𝛼, 𝛽 are
+real numbers, p ≠ −q and 𝛽 are nonzero. The potential 𝜔x has the expression
+                                             F
+                                        (      )
+                                 𝜔x = 2 ln       ,                                (32)
+                                             G x
+where
+            |(𝛼 + 𝛽i)e−𝜉1 −𝜂1 − pi 1             − pi   1              |
+                                qi pi+qi           pi pi+pi
+            |                                                          |
+       F = ||          qi 1                        −𝜉2 −𝜂2    qi 1 |
+                                                                       |
+            |        − qi qi+qi          (−𝛼 + 𝛽i)e         − pi qi+pi |
+            |                                                          |
+                2    2 −𝜉1 −𝜂1 −𝜉2 −𝜂2
+                                       [   p 𝜉1 +𝜂1 q 𝜉2 +𝜂2                              ]
+         = −(𝛼 + 𝛽 )e                   1 − b1 e      − b2 e         + b12 e𝜉1 +𝜂1 +𝜉2 +𝜂2 ,
+                                           q              p
+                                                                                                        (33)
+              |(𝛼 + 𝛽i)e−𝜉1 −𝜂1 + 1                1            |
+                                 pi+qi           pi+pi
+              |                                                 |
+         G = ||           1                       −𝜉 −𝜂    1
+                                                                |
+                                        (−𝛼 + 𝛽i)e 2 2 + qi+pi ||
+              |
+              |         qi+qi                                   |                                       (34)
+                                       [                                                          ]
+            = −(𝛼 2 + 𝛽 2 )e−𝜉1 −𝜂1 −𝜉2 −𝜂2 1 + b1 e𝜉1 +𝜂1 + b2 e𝜉2 +𝜂2 + b12 e𝜉1 +𝜂1 +𝜉2 +𝜂2 ,
+
+and
+                                                       i
+                                   [                       ]
+                  𝜉1 + 𝜂1 = (p + q) − ix + (p − q)y −     t + 𝜉1,0 + 𝜂1,0 ,                             (35)
+                                                      2pq
+
+                                                       i
+                                   [                       ]
+                  𝜉2 + 𝜂2 = (p + q) − ix + (q − p)y −     t + 𝜉2,0 + 𝜂2,0 ,                             (36)
+                                                      2pq
+
+
+
+
+                                                                                                13
+1632                                        Journal of Nonlinear Mathematical Physics (2023) 30:1621–1640
+
+
+                  1                              1                          (p − q)2
+   b1 =                    ,      b2 =                    ,       b12 = −                     .
+          (p + q)(−𝛽 + 𝛼i)               (p + q)(−𝛽 − 𝛼i)              4pq(p + q)(𝛼 2 + 𝛽 2 )
+                                                                                            (37)
+To illustrate the dynamics of 𝜔x (32), we select the parameters
+𝛼 = 0, 𝛽 = −1, p = 10 1
+                        , q = 52 , y = 0. In this case, the line breather solution admits
+                                       ( 3i               i
+                                                                     )
+                                   50i 4e 4 (2x+25t) + 9e 4 (2x+25t)
+        𝜔x = ( i                     i
+                                                  )( i                  i
+                                                                                     ) . (38)
+               4e 2 (2x+25t) − 34e 4 (2x+25t) − 9 4e 2 (2x+25t) + 16e 4 (2x+25t) − 9
+
+with the periods p+q
+                  2𝜋
+                     in x and 4pq𝜋
+                              p+q
+                                   in t. The plot of the line breather is depicted in
+Fig. 7 with parameter values 𝛼 = 0, 𝛽 = −1, p = 10
+                                                1
+                                                   , q = 52 , y = 0. One can find that
+the figure appears periodicity. The maximum and minimum value of |𝜔x | under these
+parameters are approximately 1.5152 and 0.3332, respectively.
+
+
+4.2 Line Breather Solutions on the Periodic Background
+
+For N = 3, we choose pi , qj , i, j = 1, 2, 3 to be purely imaginary and
+p1 = q2 = pi, q1 = p2 = qi, p3 = q3 = mi, c1 = 𝛼 + 𝛽i, c3 = c2 = −c∗1 to construct
+line breather
+       (      )solutions on the periodic background. In this case, we have potential
+𝜔x = 2 ln G , where
+           F
+                  x
+        |(𝛼 + 𝛽i)e−𝜉1 −𝜂1 − p 1                  1
+                                              − 2pi                − mp pi+mi
+                                                                          1             |
+        |                   q pi+qi                                                     |
+        |             1                       −𝜉  −𝜂  q  1            q   1             |
+   F = ||         − 2qi             (−𝛼 + 𝛽i)e 2 2 − p qi+pi       − m qi+mi            |,
+                                                                                        |
+        |         m 1                         m 1                       −𝜉   −𝜂      1  |
+        |
+        |       −  q mi+qi
+                                           −  p mi+pi
+                                                             (−𝛼 + 𝛽i)e    3    3 −     |
+                                                                                    2mi |
+                                                                                                   (39)
+
+
+
+
+Fig. 7  Line breather solution 𝜔x (38) on the constant background and the corresponding density plot with
+parameters 𝛼 = 0, 𝛽 = −1, p = 10 1
+                                   , q = 25 , y = 0
+
+
+
+13
+Journal of Nonlinear Mathematical Physics (2023) 30:1621–1640                                       1633
+
+
+          |(𝛼 + 𝛽i)e−𝜉1 −𝜂1 + 1                      1                        1             |
+          |                          p+q            2pi                     pi+mi           |
+          |                1                        −𝜉2 −𝜂2     1             1             |
+    G = ||                q+q
+                                         (−𝛼 +  𝛽i)e        + qi+pi         qi+mi
+                                                                                            |.
+                                                                                            |
+          |                1                         1                        −𝜉3 −𝜂3 +  1  |
+          |
+          |              mi+qi                     mi+pi
+                                                                    (−𝛼 + 𝛽i)e              |
+                                                                                        2mi |
+                                                                                              (40)
+Here 𝜉1 , 𝜉2 , 𝜉3 , 𝜂1 , 𝜂2 , 𝜂3 are given by (10)–(13). By taking the same parameter values
+as those in Fig. 7 and p3 = q3 = i, c3 = −i, 𝜔x owns the expression
+
+                                                    1                            1                 (41)
+𝜔x = (58436224e2i(2x+13t) + 182613200e 4 i(22x+83t) − 156241008e 4 i(14x+79t)
+                        3                               3                        3
+       − 16008300e 4 i(2x+25t) − 786671424e 2 i(2x+9t) + 410879700e 4 i(6x+11t)
+                            1                           1
+       + 123268068e 4 i(10x+29t) − 4428675e 4 i(2x+25t)) + 36374184ei(t+2x) )
+                   3                     1                       1                       1
+      ∕[(47432e 2 i(2x+9t) − 23716e 2 i(2x+25t) − 403172e 4 i(10x+29t) + 70686e 4 i(2x+25t)
+                                                3                     1                       1
+       − 106722ei(t+2x) + 6561)(47432e 2 i(2x+9t) + 23716e 2 i(2x+25t) + 189728e 4 i(10x+29t)
+                   1
+       + 33264e 4 i(2x+25t) − 106722ei(t+2x) − 6561)].
+
+
+
+We depict the line breather solution (41) on the periodic background (see Fig. 8).
+The line breathers on the periodic background exhibit higher amplitudes than those
+on the constant background. As shown in Fig. 8, the maximum and the minimum
+values of |𝜔x | are approximately 4.8392 and 0.1342, respectively.
+
+
+
+
+Fig. 8  Line breather solution 𝜔x (41) on the periodic background and the corresponding density plot with
+parameters 𝛼 = 0, 𝛽 = −1, p = 10 1
+                                   , q = 25 , p3 = q3 = i, c3 = −i, y = 0
+
+
+
+
+                                                                                             13
+1634                                    Journal of Nonlinear Mathematical Physics (2023) 30:1621–1640
+
+
+5 Dynamics of the Rational Solutions
+
+In this part, we derive rational solutions to the sinh-Gordon equation (3) and
+investigate dynamic behaviors. In order to obtain rational solutions, we take
+ci = 0, (ni = 1, i = 1, 2..., ) in Theorem 1. Rational solutions of algebraic soliton
+types to the sinh-Gordon equation (3) were studied in [5], but lump type rational
+solutions have not been reported. In the following we consider lump type rational
+solutions to the potential GF both on constant and periodic backgrounds.
+
+
+5.1 Rational Solutions on the Constant Background
+
+We take the determinant size N = 2 and then
+                                |m(1) m(1) |           |m(0) m(0) |
+                                | 1,1 1,2 |            | 1,1 1,2 |
+                           F = ||          |,     G = ||          |,                           (42)
+                                |m(1) m(1) |           |m(0) m(0) |
+                                           |                      |
+                               | 2,1 2,2 |            | 2,1 2,2 |
+with matrix entries
+                                                                     qj
+                         [
+                (   pi )n ( �             pi      ) (                        )
+       m(n)
+        i,j
+            =       −      𝜉i + ai,1 −         + n × 𝜂j� + bj,1 −         −n
+                    qj                 pi + qj                    pi + qj
+             pi qj
+                     ]                                                                         (43)
+                         1
+        +                     , i, j = 1, 2.
+          (pi + qj )2 pi + qj
+
+Here 𝜉i′ , 𝜂j′ are defined in (10)-(13), and ai,1 , bj,1 , pi , qj are arbitrary complex num-
+bers. Actually, when we take q∗1 = p1 , q∗2 = p2 , p2 + q2 = −(p1 + q1 ), a1,1 = a2,1 =
+b1,1 = b2,1 = 0, y = 0, the regularity of G can be verified by a similar process in [4].
+                                           F
+
+   By taking p1 = q∗1 = 10 − 10 i, p2 = q∗2 = − 10
+                            7    7                  7
+                                                        + 10 7
+                                                                i, y = 0, we get
+   F   −390625t4 + (−3001250x2 + 3062500i)t2 + 12005000xt − 5764801x4 − 11764900ix2 + 6002500
+     =                                                                                        .
+   G                       390625t4 + 3001250t2 x2 + 5764801x4 + 6002500
+                                                                                      (44)
+The positivity of the denominator ensures the regular property of the rational solu-
+tion (44). Figure 9 displays lumps on the constant background. The figure depicts
+four peaks and four troughs. When |p1 | = |p2 |, the density plot Fig. 9f demonstrates
+that the center part is almost a circle. When |p1 | ≠ |p2 |, the density plots Fig. 9d and
+e show that the center part is close to an ellipse.
+
+
+5.2 Rational Solutions on the Periodic Background
+
+In order to construct rational solutions to the sinh-Gordon equation (3) on the peri-
+odic background, we take N = 3, q3 = −p∗3 and p3 , c3 to be purely imaginary in
+Theorem 1. Then the tau functions are expressed by
+
+
+13
+Journal of Nonlinear Mathematical Physics (2023) 30:1621–1640                                          1635
+
+
+
+
+Fig. 9  Rational solutions of F/G given by (42) and the corresponding density plots on the con-
+stant      background      with    parameters    y = 0, a1,1 = a2,1 = b1,1 = b2,1 = 0, 𝜉i,0 = 0, 𝜂j,0 = 0,
+a       p1 = q∗1 = 1 − 2i , p2 = q∗2 = −1 + 2i ;      b        p1 = q∗1 = 12 + i, p2 = q∗2 = − 12 − i;     c
+p1 = q1 = 10 − 10 i, p2 = q2 = − 10 + 10 i; d, e and f are density plots corresponding to a–c respectively
+      ∗    7     7           ∗      7   7
+
+
+
+
+                             |m(1) m(1) m(1) |              |m(0) m(0) m(0) |
+                             | 1,1 1,2 1,3 |                | 1,1 1,2 1,3 |
+                             |                |             |                |
+                        F = ||m(1)                                                                    (45)
+                                    (1)  (1) ||
+                                                       G = ||m(0)  (0)  (0) ||
+                             |                              |
+                                   m    m     |,                  m    m     |,
+                             | 2,1 2,2 2,3 |                | 2,1 2,2 2,3 |
+                             | (1) (1) (1) |                | (0) (0) (0) |
+                             |m3,1 m3,2 m3,3 |              |m3,1 m3,2 m3,3 |
+                             |                |             |                |
+with matrix entries
+                                                                        qj
+                              [
+                   (   pi )n ( �               pi        )(                     )
+          m(n)
+           i,j
+               =     −          𝜉i + ai,1 −         + n 𝜂j� + bj,1 −         −n
+                       qj                   pi + qj                  pi + qj
+                        pi qj
+                                ]                                                                     (46)
+                                    1
+                   +                      , i, j = 1, 2,
+                     (pi + qj )2 pi + qj
+
+and
+                � p �n �                         pi             1
+                                                           �
+        ⎧ (n)           i       �
+          m
+        ⎪ i,j =    −          𝜉i
+                                  + a i,1  −           + n           ,        i = 1, 2;    j = 3,
+                      qj                      pi + qj        pi + qj
+                                                 qj
+        ⎪       � p �n �
+                                                                1
+                                                           �
+        ⎪ (n)           i       �
+          m
+        ⎨ i,j =    −
+                      qj
+                              𝜂 j + b  j,1 −
+                                              pi + qj
+                                                       − n
+                                                             pi + qj
+                                                                     ,        j = 1, 2; i = 3,        (47)
+        ⎪                     � p �n
+                                               1
+                                  − i
+        ⎪ (n)       −𝜉i −𝜂j
+          m
+        ⎪ i,j = ci e        +                        , i = j = 3.
+        ⎩                           q j     pi +  qj
+
+
+
+                                                                                              13
+1636                                         Journal of Nonlinear Mathematical Physics (2023) 30:1621–1640
+
+
+Here 𝜉i , 𝜂j , 𝜉i′ , 𝜂j′ are defined in (10)-(13), and ai,1 , bj,1 , pi , qj are arbitrary complex
+numbers.
+   By taking the same parameter values of pi , qi , i = 1, 2 as those in Fig. 9 and
+q3 = −p∗3, p3 , c3 to be purely imaginary, we generate the rational solutions on the
+periodic background (see Fig. 10).
+
+
+
+6 Dynamics of the Semi‑Rational Solutions
+
+In this part, we study the dynamics of semi-rational solutions on the constant and
+periodic backgrounds to the sinh-Gordon equation. For this purpose, we set
+ci ≠ 0, ni = 1, i = 1, 2..., in Theorem 1 and then the matrix entries m(n)
+                                                                       i,j
+                                                                           are combina-
+tions of polynomials and exponential functions. In the following, we consider the
+potential GF and construct semi-rational solutions that consist of lumps and solitons.
+
+6.1 Semi‑Rational Solutions on the Constant Background
+
+We take N = 2 in Theorem 1 to construct semi-rational solutions of the sinh-Gordon
+equation (3) on the constant background. In this case, the tau functions F and G are
+determinants
+
+
+
+
+Fig. 10  Rational solutions F/G given by (45) and the corresponding density plots on the peri-
+odic background with parameters, a p3 = −q∗3 = −3i, c3 = 5i; b p3 = −q∗3 = −3i, c3 = 5i; c
+p3 = −q∗3 = − 23 i, c3 = 5i, and other parameter values are same as in Fig. 9. Besides, d–f are density plots
+corresponding to a–c respectively
+
+
+13
+Journal of Nonlinear Mathematical Physics (2023) 30:1621–1640                                          1637
+
+
+                                     |m(1) m(1) |           |m(0) m(0) |
+                                     | 1,1 1,2 |            | 1,1 1,2 |
+                                F = ||          |,     G = ||          |,                             (48)
+                                     |m(1) m(1) |           |m(0) m(0) |
+                                                |                      |
+                                     | 2,1 2,2 |            | 2,1 2,2 |
+with entries
+                                          [
+                                     pi )n ( �
+                                     (                       pi      )
+          m(n)
+           i,j
+               =ci 𝛿i,j e−𝜉i −𝜂j +       −  𝜉i + ai,1 −           +n
+                                     qj                   pi + qj
+                                     qj               pi q j
+                                                               ]                                      (49)
+                                                                  1
+                     (                       )
+                       �
+                    × 𝜂j + bj,1 −         −n +               2
+                                                                      ,              i, j = 1, 2.
+                                  pi + qj         (pi + qj ) pi + qj
+
+and ai,1 , bj,1 , pi , qj are arbitrary complex numbers. Similar as subsection 5.1, the poten-
+tial F/G is regular when q∗1 = p1 , q∗2 = p2 , (p2 + q2 ) = −(p1 + q1 ), a1,1 = a2,1 = b1,1
+= b2,1 = 0, c2 = −c∗1. By setting p1 = q∗1 = 10          7    7
+                                                           − 10                 7
+                                                                i, p2 = q∗2 = − 10    7
+                                                                                   + 10 i and
+c2 = −c1 = 2 + 2i, the semi-rational solution F/G depicts the interaction between
+          ∗
+
+solitons and lumps. As shown in Fig. 11, one soliton stands under the horizon, while
+the other one locates above the horizon with its amplitude decreasing as y → 0 and
+merges into the background around y = 0. As y > 0, the soliton travels below the
+horizon and its amplitude becomes larger.
+
+
+
+
+Fig. 11  Semi-rational solutions F/G given by (48) and the corresponding density plots on the constant
+background with parameters a1,1 = a2,1 = b1,1 = b2,1 = 0, 𝜉i,0 = 0, 𝜂j,0 = 0, c1 = −c∗2 = 2 + 2i, p1 = q∗1 =
+ 7    7                 7     7
+10
+   − 10 i, p2 = q∗2 = − 10 + 10 i
+
+
+
+
+                                                                                              13
+1638                                      Journal of Nonlinear Mathematical Physics (2023) 30:1621–1640
+
+
+6.2 Semi‑Rational Solutions on the Periodic Background
+
+Semi-rational solutions of the sinh-Gordon equation (3) on the periodic background
+are derived by setting N = 3, q3 = −p∗3 and p3 , c3 to be purely imaginary in
+Theorem 1. In this case, we have
+                           |m(1) m(1) m(1) |             |m(0) m(0) m(0) |
+                           | 1,1 1,2 1,3 |               | 1,1 1,2 1,3 |
+                           |                |            |                |
+                      F = ||m(1)                                                                 (50)
+                                  (1)  (1) ||
+                                                    G = ||m(0)  (0)  (0) ||
+                           |                             |
+                                 m    m     |,                 m    m     |,
+                           | 2,1 2,2 2,3 |               | 2,1 2,2 2,3 |
+                           | (1) (1) (1) |               | (0) (0) (0) |
+                           |m3,1 m3,2 m3,3 |             |m3,1 m3,2 m3,3 |
+                           |                |            |                |
+with entries
+                                        [
+                                   pi )n ( �
+                                    (                      pi      )
+         m(n)
+          i,j
+              =ci 𝛿i,j e−𝜉i −𝜂j +
+                                −         𝜉i + ai,1 −           +n
+                                   qj                   pi + qj
+                                   q                p  q
+                                                             ]                                   (51)
+                                                                1
+                  (                  j
+                                           )          i j
+                 × 𝜂j� + bj,1 −         −n +                        ,            i, j = 1, 2,
+                                pi + qj         (pi + qj )2 pi + qj
+
+and
+                 � p �n �                       pi              1
+                                                           �
+        ⎧ (n)            i      �
+          mi,j
+               =    −         𝜉i
+                                  + a i,1 −            + n           ,    i = 1, 2;    j = 3,
+        ⎪              qj                    pi + qj         pi + qj
+                                                qj
+        ⎪        � p �n �
+                                                                1
+                                                           �
+        ⎪ (n)            i
+        ⎨ mi,j = − q          𝜂j� + bj,1 −             −n            ,    j = 1, 2; i = 3,       (52)
+                         j                   pi +  q j       pi + qj
+        ⎪                     � p �n
+                                              1
+                             + − i
+        ⎪ (n)        −𝜉i −𝜂j
+        ⎪ mi,j = ci e               q      p  +  qj
+                                                    , i = j = 3.
+        ⎩                             j     i
+
+
+Here 𝜉i , 𝜂j , 𝜉i′ , 𝜂j′ are defined in (10)–(13), and ai,1 , bj,1 , pi , qj are arbitrary complex
+numbers.
+   Setting q3 = −p∗3 = −i, c3 = 2i and pi , qi , (i = 1, 2) the same values as those in
+Fig. 11, we derive semi-rational solutions consisting of solitons and lumps on the
+periodic background. The plots are shown in Fig. 12.
+
+
+7 Conclusion
+
+The KP hierarchy reduction method is a powerful method to investigate exact solu-
+tions of integrable equations and present Gram determinant structures of N−soliton
+solutions. Based on this approach, we give rational and semi-rational solutions in
+the N × N determinant form of the sinh-Gordon equation. Under different size of the
+determinant and parameters constraints, we obtain soliton solutions, line breathers,
+lump solutions and their interactions. For even N, we present local solutions on con-
+stant backgrounds. For odd N, we construct solutions on the periodic background.
+We study dynamic behaviors for solitons, line breathers, lumps and their interac-
+tions on both the constant and periodic backgrounds. Here the periodic backgrounds
+
+13
+Journal of Nonlinear Mathematical Physics (2023) 30:1621–1640                                       1639
+
+
+
+
+Fig. 12  Semi-rational solutions F/G given by (50) and the corresponding density plots on the periodic
+background with parameters p3 = −q∗3 = −i, c3 = −2i, and other parameter values are same as those in
+Fig. 11
+
+
+
+are caused by the trigonometric functions. Recently, solitons and rational solutions
+on elliptic functions attract much attention. How to construct solutions of the sinh-
+Gordon equation on those elliptic functions is left to be studied.
+Acknowledgements The work of GFY is supported by National Natural Science Foundation of China
+under Grant No. 12371251, Shanghai Frontier Research Institute for Modern Analysis and “the Funda-
+mental Research Funds for the Central Universities", and that of ZNZ is supported by National Natural
+Science Foundation of China under Grant No. 12071286, and by the Ministry of Economy and Competi-
+tiveness of Spain under contract PID2020-115273GB-I00(AEI/FEDER, EU).
+
+Author Contributions Three authors have the same contributions.
+
+Funding National Natural Science Foundation of China under Grant Nos. 12371251 and 12071286.
+
+Availability of data and materials Not applicable
+
+Declarations
+Conflict of interest No competing interests.
+
+Ethics approval and consent to participate Not applicable.
+
+Consent for publication All authors agree to publish this work in JNMP.
+
+Open Access This article is licensed under a Creative Commons Attribution 4.0 International License,
+which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as
+you give appropriate credit to the original author(s) and the source, provide a link to the Creative Com-
+mons licence, and indicate if changes were made. The images or other third party material in this article
+
+
+
+                                                                                            13
+1640                                          Journal of Nonlinear Mathematical Physics (2023) 30:1621–1640
+
+
+are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the
+material. If material is not included in the article’s Creative Commons licence and your intended use is
+not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission
+directly from the copyright holder. To view a copy of this licence, visit http://​creat​iveco​mmons.​org/​licen​
+ses/​by/4.​0/.
+
+
+
+References
+ 1. Ohta, Y., Yang, J.K.: Rogue waves in the Davey-Stewartson I equation. Phys. Rev. E 86, 036604
+    (2012)
+ 2. Ohta, Y., Yang, J.K.: Dynamics of rogue waves in the Davey-Stewartson II equation. J. Phys. A 46,
+    105202 (2013)
+ 3. Rao, J.G., Fokas, A.S., He, J.S.: Doubly localized two-dimensional rogue waves in the Davey-Stew-
+    artson I equation. J. Nonlinear Sci. 31, 67 (2021)
+ 4. Li, M., Fu, H.M., Wu, C.F.: General soliton and (semi-)rational solutions to the nonlocal Mel’nikov
+    equation on the periodic background. Stud. Appl. Math. 145, 97–136 (2020)
+ 5. Sheng, H.H., Yu, G.F.: Solitons, breathers and rational solutions for a (2+1)-dimensional dispersive
+    long wave system. Phys. D 432, 133140 (2022)
+ 6. Rao, J.G., He, J.S., Mihalache, D.: Doubly localized rogue waves on a background of dark solitons
+    for the Fokas system. Appl. Math. Lett. 121, 107435 (2021)
+ 7. Ablowitz, M.J., Clarkson, P.A.: Soliton, Nonlinear Evolution Equations and Inverse Scattering.
+    Cambridge University Press, Cambridge, England (1991)
+ 8. Gu, C.H., Hu, H.S., Zhou, Z.X.: Darboux Transformations in Integrable Systems: Theory and their
+    Applications to Geometry. Springer, New York (2006)
+ 9. Hirota, R.: The Direct Method in Soliton Theory. Cambridge University Press, Cambridge, UK
+    (2004)
+10. Doktorov, E.V., Leble, S.B.: A Dressing Method in Mathematical Physics. Springer, New York
+    (2007)
+11. Ablowitz, M.J., Fokas, A.S.: Complex Variables: Introduction and Applications. Cambridge Univer-
+    sity Press, Cambridge (2003)
+12. Jimbo, M., Miwa, T.: Solitons and infinite deminsional Lie algebras. Publ. Res. Inst. Math. Sci. 19,
+    943–1001 (1983)
+13. Ohta, Y., Wang, D.S., Yang, J.K.: General N-dark-dark solitons in the coupled nonlinear Schrödinger
+    equations. Stud. Appl. Math. 127, 345–371 (2011)
+14. Ohta, Y., Yang, J.K.: General high-order rogue waves and their dynamics in the nonlinear
+    Schrödinger equation. Proc. R. Soc. A 468, 1716–1740 (2012)
+15. Feng, B.F.: General N-soliton solution to a vector nonlinear Schrödinger equation. J. Phys. A 47,
+    355203 (2014)
+16. Chen, J.C., Feng, B.F., Maruno, K.I., Ohta, Y.: The derivative Yajima-Oikawa system: bright, dark
+    soliton and breather solutions. Stud. Appl. Math. 141, 145–185 (2018)
+17. Boiti, M., Leon, J.J.-P., Pempinelli, F.: Integrable two-dimensional generalisation of the sine- and
+    sinh-Gordon equations. Inverse Prob. 3, 37–49 (1987)
+18. Lou, S.Y.: Negative Kadomtsev-Petviashvili equation and extension of the sinh-Gordon equation.
+    Phys. Lett. A 187, 239–242 (1994)
+19. Gegenhasi, A., Hu, X.B., Wang, H.Y.: A (2+1)-dimensional sinh-Gordon equation and its Pfaffian
+    generalization. Phys. Lett. A 360, 439–447 (2007)
+20. Hu, X.B., Yu, G.F.: Integrable discretizations of the (2+1)-dimensional sinh-Gordon equation. J.
+    Phys. A 40, 12645–12659 (2007)
+21. Sheng, H.H., Yu, G.F.: Rational solutions of a (2+1)-dimensional sinh-Gordon equation. Appl.
+    Math. Lett. 101, 106051 (2020)
+
+
+
+
+13
+

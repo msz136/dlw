@@ -1,0 +1,1050 @@
+Numerical Algorithms (2023) 94:351–370
+https://doi.org/10.1007/s11075-023-01504-1
+ORIGINAL PAPER
+
+
+
+Integrable semi-discretizations and self-adaptive
+moving mesh method for a generalized sine-Gordon
+equation
+
+Bao-Feng Feng1 · Han-Han Sheng2 · Guo-Fu Yu2
+
+Received: 5 August 2022 / Accepted: 20 January 2023 / Published online: 23 February 2023
+© The Author(s), under exclusive licence to Springer Science+Business Media, LLC, part of Springer Nature 2023
+
+
+
+Abstract
+In the present paper, two integrable and one non-integrable semi-discrete analogues
+of a generalized sine-Gordon (sG) equation are constructed. The keys of the con-
+struction are the Bäcklund transformation of bilinear equations and appropriate
+definition of the discrete hodograph transformation. We construct N-soliton solutions
+for the semi-discrete analogues of the generalized sG equation in the determinant
+form. In the continuous limit, we show that the semi-discrete generalized sG equa-
+tions converge to the continuous generalized sG equation. Furthermore, we propose
+four self-adaptive moving mesh methods for the generalized sG equation, two are
+integrable and two are non-integrable. Integrable and non-integrable self-adaptive
+moving mesh methods are proposed and used for simulations of regular, irregular and
+loop soliton while comparing with the Crank-Nicolson (C-N) scheme. The numerical
+solutions show that the proposed self-adaptive moving methods perform better than
+the C-N scheme.
+
+Keywords Generalized sG equation · Integrable discretization ·
+Discrete hodograph transformation · Self-adaptive moving mesh method
+
+Mathematics Subject Classiﬁcation (2010) Primary 37K40 · 35Q53
+
+
+ Guo-Fu Yu
+    gfyu@sjtu.edu.cn
+
+    Bao-Feng Feng
+    baofeng.feng@utrgv.edu
+
+    Han-Han Sheng
+    tutu123@sjtu.edu.cn
+
+
+1   School of Mathematical and Statistical Sciences, The University of Texas Rio Grande Valley,
+    Edinburg, TX 78541, USA
+2   School of Mathematical Sciences, CMA-Shanghai, Shanghai Jiao Tong University,
+    Shanghai 200240, People’s Republic of China
+352                                                      Numerical Algorithms (2023) 94:351–370
+
+
+1 Introduction
+
+In this paper, we consider the integrable semi-discretizations of the following
+generalized sine-Gordon (sG) equation
+
+
+                              uxt = (1 + ν∂x2 ) sin u,                                   (1.1)
+
+
+where u = u(x, t) is a scalar-valued function, ν is a real parameter, ∂x2 and the
+subscripts t and x appended to u denote partial differentiation. The generalized sG
+equation was derived for the first time in [1] using bi-Hamiltonian method. In the
+case ν = −1, the integrability was shown with Lax pair and initial value problem of
+the equation was solved for decaying initial data [2]. The Riemann-Hilbert formalism
+was developed to obtain eigenfunctions of the Lax pair and construct traveling-wave
+solutions in [2]. Bilinear transformation method was used to construct multi-soliton
+solutions in the form of parametric representation and a variety of solutions which
+include kinks, loop solitons and breathers were obtained in [3]. Equation (1.1) with
+ν = 1 was solved by Hirota’s bilinear method [4]. It was shown that the equation
+exhibits kink and breather solutions and does not admit multi-valued solutions like
+loop solitons as obtained when ν = −1.
+   It was shown that the generalized sG equation reduces to the short pulse (SP) equa-
+tion in the short wave limit, and reduces to the sG equation in the long wave limit
+[3]. Therefore, we can say that the generalized sG equation is an interesting soli-
+ton equation lies between the SP equation and the sG equation. Due to the facts that
+the discrete sG equation has been well-known [5, 6], and the integrable discretiza-
+tions of the SP equation was recently proposed in [7], it would be an interesting
+problem to look for the integrable discretization of the generalized sG equation.
+Integrable discretizations of soliton equations have received considerable attention
+recently [8–11]. Integrable semi- and fully discretizations of the SP equation [7],
+semi-discretization of (2+1)-dimensional Zakharov equation [12] were constructed
+via Hirota’s bilinear method. Based on the compatibility between an integrable
+system and its Bäcklund transformation, a systematic procedure to derive discrete
+analogues of integrable PDEs via Hirota’s bilinear method was proposed [13].
+Most recently, an integrable discretization for a coupled SP equation [14, 15] was
+constructed [16].
+   In this paper, we attempt to construct integrable semi-discrete analogues of the
+generalized sG equation (1.1) with ν = −1 by the same approach used in the
+Camassa-Holm equation [17] and SP equation [7], and apply them for the numerical
+simulations as integrable self-adaptive moving mesh (SAMM) method.
+   The paper is organized as follows. In Section 2, we review the bilinear equations
+and determinant solutions of the generalized sG equation with ν = −1. In Section 3,
+we propose two integrable semi-discrete analogues, whose N-soliton solutions are
+also constructed in terms of determinant form. We then apply the two versions of the
+semi-discrete generalized sG equations as integrable SAMM method while compar-
+ing with a non-integrable SAMM method. Section 4 is devoted to conclusions and
+some discussions.
+Numerical Algorithms (2023) 94:351–370                                              353
+
+
+2 Bilinear equations and determinant solutions
+
+In this section, we first review the results in [3] about the bilinear form of the
+generalized sG equation.
+   By introducing the new dependent variable r in accordance with the relation
+                                  r 2 = 1 + u2x ,   (r > 0),                      (2.1)
+the generalized sG equation (1.1) with ν = −1 is rewritten as
+                                     rt + (r cos u)x = 0.                         (2.2)
+We then define the hodograph transformation (x, t) → (y, τ ) by
+                            dy = rdx − r cos udt,       dτ = dt,                  (2.3)
+The x and t derivatives are then rewritten in terms of the y and τ derivatives as
+                       ∂        ∂     ∂       ∂            ∂
+                           =r ,          =       − r cos u .                      (2.4)
+                      ∂x       ∂y     ∂t     ∂τ           ∂y
+With the new variables y and τ , (2.1) and (2.2) are recast into the form
+                                        r 2 = 1 + r 2 u2y ,                       (2.5)
+                                      
+                                      1
+                                      r     − (cos u)y = 0,                       (2.6)
+                                         τ
+respectively. Further reduction is possible if one defines the variable φ by
+                                           π             π               
+          uy = sin φ, φ = φ(y, τ ),         − < φ < , mod 2π .                    (2.7)
+                                                2         2
+It follows from (2.5) and (2.7) that
+                                      1
+                                         = cos φ.                                 (2.8)
+                                      r
+Substituting (2.7) and (2.8) into (2.6), we find
+                                         φτ = sin u.                              (2.9)
+Let σ and σ  be solutions of sG equation
+                                 στy = sin σ, σ = σ (τ, y),                     (2.10)
+                                  
+                                 στy = sin σ  , σ  = σ  (τ, y).              (2.11)
+Then we put
+                                        1
+                                          (σ + σ  ),
+                                         u=                                     (2.12)
+                                        2
+                                        1
+                                   φ = (σ − σ  ).                              (2.13)
+                                        2
+                   
+In terms of σ and σ , equations (2.7) and (2.9) can be written as
+                                  1                  1
+                                    (σ + σ  )y = sin (σ − σ  ),               (2.14)
+                                  2                  2
+                                  1                  1
+                                           
+                                    (σ − σ )τ = sin (σ + σ  ),                 (2.15)
+                                  2                  2
+354                                                         Numerical Algorithms (2023) 94:351–370
+
+
+which is a Bäcklund transformation (BT) of the sG equation with a Bäcklund
+parameter taken to be 1.
+   Introducing the dependent variable transformation
+                                                    f¯
+                                         σ = 2i ln      ,                                 (2.16)
+                                                    f
+                                                     ḡ
+                                         σ  = 2i ln ,                                    (2.17)
+                                                     g
+where f¯ and ḡ denote the complex conjugate of f and g, respectively, then we have
+the bilinear equations
+                                              1 2
+                                Dτ Dy f · f =   (f − f¯2 ),                               (2.18)
+                                              2
+                                             1
+                                Dτ Dy g · g = (g 2 − ḡ 2 ),                              (2.19)
+                                             2
+where the Hirota’s bilinear differential operator Dym Dtk is defined [18] by
+                               ∂   ∂     ∂   ∂
+          Dym Dtk a · b ≡ (      −  )m ( −  )k a(y, t)b(y  , t  )|y  =y,t  =t .
+                              ∂y  ∂y     ∂t ∂t
+Now from the definition of u and φ, we have
+                                     1                  F̄
+                                  u=   (σ + σ  ) = i ln ,                                (2.20)
+                                     2                  F
+                                     1                 Ḡ
+                                  φ = (σ − σ ) = i ln ,                                   (2.21)
+                                     2                  G
+where F = f g and G = f ḡ.
+   We give two sets of bilinear equations of 2DTL with tau functions τn and τn
+respectively,
+                          1
+                         ( Dx−1 Dx1 − 1)τn · τn = −τn+1 τn−1 ,                            (2.22)
+                          2
+                          1                           
+                         ( Dx−1 Dx1 − 1)τn · τn = −τn+1  
+                                                          τn−1 .                          (2.23)
+                          2
+It is known that the bilinear equations
+                                                      
+                          (Dx−1 − 1)τn · τn + τn+1 τn−1 = 0,                             (2.24)
+                                                   
+                          (Dx1 − 1)τn+1 · τn + τn τn+1 = 0,                               (2.25)
+is one BT between τn and τn . The above two-dimensional Toda-lattice (2DTL) equa-
+tions (2.22)–(2.23) and BT (2.24)–(2.25) have exact solutions in Casorati determinant
+form with arbitrary parameters. If we put some restrictions on those parameters in
+solutions, we can obtain
+                                                 
+                                τn+1  τ̄n ,    τn+1  τ̄n ,                             (2.26)
+which means both τn and τn are 2-period sequences. Here  means two τ functions
+are equivalent up to a constant multiple and τ̄ denotes complex conjugate of τ .
+Numerical Algorithms (2023) 94:351–370                                                        355
+
+
+Proposition 1 The following Casorati determinants satisfy bilinear equations (2.22)–
+(2.25)
+                                                                 
+                                       φ (1) φ (1) · · · φ (1)   
+                                       n      n+1         n+N−1 
+                                       (2) (2)             (2)   
+                                      φ      φn+1 · · · φn+N−1 
+                    τn (x−1 , x1 ) =  n                          ,          (2.27)
+                                       ··· ··· ··· ··· 
+                                       (N) (N)                   
+                                       φn φ                (N)   
+                                               n+1 · · · φn+N−1
+                                       (1) (1)                     
+                                      ψ                     (1)    
+                                       n ψn+1 · · · ψn+N−1 
+                                       (2) (2)              (2)    
+                                      ψ      ψn+1 · · · ψn+N−1 
+                    τn (x−1 , x1 ) =  n                           ,        (2.28)
+                                       ··· ··· ···           ··· 
+                                       (N) (N)                     
+                                       ψn ψ         · · · ψ (N)    
+                                                       n+1            n+N−1
+
+where
+
+             φn(i) = pin eξi + qin eηi ,   ψn(i) = pin (1 − pi )eξi + qin (1 − qi )eηi ,   (2.29)
+             ξi = pi x1 + pi−1 x−1 + ξi0 ,        ηi = qi x1 + qi−1 x−1 + ηi0 .            (2.30)
+
+Here, pi , qi , ξi0 and ηi0 are the arbitrary parameters that can take either real or
+complex values.
+
+   One can find the proof of this Proposition in [19] for details. Resembling the
+deduction of solutions to the coupled SP equation and coupled integrable disper-
+sionless equations, we are ready to give N-soliton solution of the generalized sG
+equation with ν = −1. If pi and qi are real parameters, we impose restrictions on the
+parameters of above τ functions,
+
+                         qi = −pi ,         ηi0 − ξi0 = iπ/2 + χi0 .                       (2.31)
+
+If pi and qi are complex parameters with χi0 being a real parameter, we put the
+restrictions
+
+                  qi = −p̄i ,         ηi0 + 2 arg(qi ) − ξi0 = iπ/2 + χi0 .                (2.32)
+
+These restrictions on parameters guarantee the 2-period reduction (2.26), that is, two
+neighboring τ functions in both sequences are complex conjugate with a constant
+factor.
+   Moreover, by variable transformation τ = 2x1 , y = 2x−1 and substitution τ0 =
+f, τ1 = f¯, τ0 = g, τ1 = ḡ, from (2.22)–(2.23) we have
+
+                                 Dτ Dy f · f = 12 (f 2 − f¯2 ),
+                                                                                           (2.33)
+                                 Dτ Dy f¯ · f¯ = 12 (f¯2 − f 2 ),
+
+and
+
+                                  Dτ Dy g · g = 12 (g 2 − ḡ 2 ),
+                                                                                           (2.34)
+                                  Dτ Dy ḡ · ḡ = 12 (ḡ 2 − g 2 ).
+356                                                                Numerical Algorithms (2023) 94:351–370
+
+
+which are bilinear equations of the generalized sG equation. From the BT (2.24)–
+(2.25), we have
+
+                              (2Dτ − 1)f · g + f¯ḡ = 0,                                         (2.35)
+                              (2Dy − 1)f¯ · g + f ḡ = 0.                                        (2.36)
+
+From equations (2.35)–(2.36), we get
+                                  f   1 1 f¯ḡ
+                                   ln  = −       ,                                               (2.37)
+                                   g τ  2 2 fg
+                                f¯    1 1 f ḡ
+                                ln     = −       ,                                               (2.38)
+                                   g y  2 2 f¯g
+
+that lead to
+
+               ∂x   1              1  f¯g    f ḡ         g ḡ 
+                  = = cos φ =               +        = 1 + ln         ,                          (2.39)
+               ∂y   r              2 f ḡ     f¯g              f f¯ y
+               ∂x           1  f¯ḡ     fg           g ḡ 
+                  = cos u =          +        = 1 + ln           .                               (2.40)
+               ∂τ           2 fg         f¯ḡ             f f¯ τ
+
+Thus we obtain the expression for x by tau functions
+
+                                                          g ḡ
+                               x = y + τ + ln                  .                                 (2.41)
+                                                          f f¯
+
+  Summarizing the above results, the determinant (N-soliton) solution of the
+generalized sG equation is given by the following theorem.
+
+Theorem 1 The parametric form for the N-soliton solution of the generalized sG
+(1.1) is
+
+                                                   F̄
+                                        u = i ln      ,
+                                                   F
+where F = f g. f and g are the determinants given by
+                                (1) (1)                 
+                               φ                   (1) 
+                                0 φ1 · · · φN−1 
+                                (2) (2)            (2) 
+                               φ      φ1 · · · φN−1 
+                          f = 0                         ,                                      (2.42)
+                                ··· ··· ··· ··· 
+                                (N) (N)            (N) 
+                               φ      φ1 · · · φN−1 
+                                  0
+                                                         
+                                ψ (1) ψ (1) · · · ψ (1) 
+                                0       1           N−1 
+                                (2)     (2)         (2) 
+                               ψ      ψ1 · · · ψN−1 
+                          g= 0                           ,                                     (2.43)
+                                ··· ··· ··· ··· 
+                                (N) (N)             (N) 
+                               ψ      ψ1 · · · ψN−1 
+                                  0
+Numerical Algorithms (2023) 94:351–370                                                                              357
+
+
+with
+                            pi                                    p̄
+                                 y+ 2p1 τ +ηi0                  − 2i y− 2p̄1 τ +ξi0
+        φn(i) (τ, y) = pin e 2        i          + (−p̄i )n e              i          ,
+                                          pi    1                                           p̄
+                                          2 y+ 2pi τ +ηi0                                 − 2i y− 2p̄1 τ +ξi0
+        ψn(i) (τ, y) = pin (1 − pi )e                       + (−p̄i )n (1 + p̄i )e                   i          ,
+                            ḡg
+        x = y + τ + ln          , t = τ,
+                           f¯f
+and ηi0 , ξi0 satisfy the restriction conditions (2.31)–(2.32).
+
+
+3 Integrable semi-discretization of the generalized sG equation
+
+3.1 Bäcklund transformations for the generalized sG equation
+
+Based on the above fact, we construct the integrable spatial-discretization of the gen-
+eralized sG equation. Similar as the integrable discretization of SP equation, we start
+with two sets of bilinear equations for the semi-discrete 2DTL equations with the
+same discrete parameter a
+             1           
+                 Dx−1 − 1 τn (k + 1) · τn (k) + τn+1 (k + 1)τn−1 (k) = 0,         (3.1)
+               a
+             1           
+                                                  
+                 Dx − 1 τn (k + 1) · τn (k) + τn+1           
+                                                      (k + 1)τn−1  (k) = 0,       (3.2)
+               a −1
+which is linked by an another bilinear equations
+                                                           
+                     (Dx−1 − 1)τn (k) · τn (k) + τn+1 (k)τn−1 (k) = 0.                                         (3.3)
+Equations (3.1)–(3.2) can be viewed as Bäcklund transformations for the 2DTL equa-
+tions in the sense that if τn (k) or τn (k) is a solution to the 2DTL equations (2.22) or
+(2.23), so is τn (k + 1) or τn (k + 1), while (3.3) is the BT linking the solution of (3.1)
+to (3.2).
+
+Proposition 2 The bilinear equations (3.1)–(3.3) admit the following determinant
+solutions                                                             
+                                φ (1) (k) φ (1) (k) · · · φ (1)       
+                                n          n+1             n+N−1 (k) 
+                                (2)         (2)             (2)       
+                                φ (k) φn+1      (k) · · · φn+N−1 (k) 
+               τn (x−1 , k) =  n                                      ,   (3.4)
+                                ···          ··· ···            ···   
+                                (N)                                   
+                                φn (k) φ (N) (k) · · · φ (N) (k) 
+                                            n+1             n+N−1
+                                                                       
+                               ψ (1) (k) ψ (1) (k) · · · ψ (1)         
+                               n            n+1              n+N−1 (k) 
+                               (2)          (2)              (2)       
+                               ψ (k) ψn+1 (k) · · · ψn+N−1 (k) 
+              τn (x−1 , k) =  n                                       ,  (3.5)
+                               ···           ···    ···         ···    
+                               (N)                                     
+                               ψn (k) ψ (N) (k) · · · ψ (N) (k) 
+                                                       n+1                 n+N−1
+where
+            φn(i) (k) = pin (1 − api )−k eξi + qin (1 − aqi )−k eηi ,                                           (3.6)
+            ψn(i) (k) = pin (1 − pi )(1 − api )−k eξi + qin (1 − qi )(1 − aqi )−k eηi ,                         (3.7)
+358                                                       Numerical Algorithms (2023) 94:351–370
+
+
+with
+                     ξi = pi −1 x−1 + ξi0 ,    ηi = qi −1 x−1 + ηi0 .
+
+Here pi , qi , ξi0 and ηi0 are arbitrary parameters which can take either real or
+complex values.
+
+   The proof is presented in [20].
+   Applying a 2-reduction condition qi = −pi , then we could have each of the τ
+sequence becomes a sequence of period 2, i.e., τn  τn+2 , τn  τn+2   . Furthermore,
+
+by choosing particular values in phase constants, we can make τn and τn+1 complex
+conjugate to each other.
+   By putting τ = 2x−1 , τ0 (k) = fk , τ1 (k) = f¯k , (3.1) can be converted into
+                          2       
+                             Dτ − 1 fk+1 · fk + f¯k+1 f¯k = 0,                            (3.8)
+                           a
+                          2       
+                             Dτ − 1 f¯k+1 · f¯k + fk+1 fk = 0,                            (3.9)
+                           a
+while by putting τ0 (k) = gk , τ1 (k) = ḡk , (3.2) can be converted into
+                          2       
+                             Dτ − 1 gk+1 · gk + ḡk+1 ḡk = 0,                          (3.10)
+                           a
+                          2       
+                             Dτ − 1 ḡk+1 · ḡk + gk+1 gk = 0.                          (3.11)
+                           a
+The bilinear (3.3) is converted into
+
+                               (2Dτ − 1)fk · gk + f¯k ḡk = 0,                          (3.12)
+                               (2Dτ − 1)f¯k · ḡk + fk gk = 0.                          (3.13)
+
+The bilinear equations constitute (3.10)–(3.12) the BT for the generalized sG equa-
+tion with ν = −1, based on which the semi-discrete generalized sG equations will
+be deduced in the subsequent two subsections.
+
+3.2 Semi-discrete generalized sG equation
+
+First, we notice that the bilinear equations (3.10)–(3.12) can be rewritten as
+
+                             2  fk+1          f¯k+1 f¯k
+                                ln         −1=−           ,                             (3.14)
+                             a     fk τ         fk+1 fk
+                             2  f¯k+1         fk+1 fk
+                                ln         −1=−           ,                             (3.15)
+                             a     f¯k τ        f¯k+1 f¯k
+                             2  gk+1          ḡk+1 ḡk
+                                ln         −1=−           ,                             (3.16)
+                             a     gk τ         gk+1 gk
+                             2  ḡk+1         gk+1 gk
+                                ln         −1=−           ,                             (3.17)
+                             a     ḡk   τ      ḡk+1 ḡk
+Numerical Algorithms (2023) 94:351–370                                         359
+
+
+and
+                                     f           f¯k ḡk
+                                          k
+                                   2 ln       −1=−         ,                (3.18)
+                                        gk τ       f k gk
+                                     f¯          fk g k
+                                          k
+                                   2 ln       −1=−         .                (3.19)
+                                        ḡk τ      f¯k ḡk
+
+Introducing two intermediate variables
+
+                                                          f¯k (s)
+                                         σk (τ ) = 2i ln          ,         (3.20)
+                                                          fk (s)
+                                                          ḡk (s)
+                                         σk (τ ) = 2i ln         ,         (3.21)
+                                                          gk (s)
+
+one arrives at a pair of semi-discrete sG equation
+                                                    σ         
+                              1                       k+1 + σk
+                                (σk+1 − σk )τ = sin              ,          (3.22)
+                             2a                          2
+                              1                    σ + σ 
+                                (σk+1 − σk )τ = sin k+1     k
+                                                                 .          (3.23)
+                             2a                          2
+Next we introduce dependent variable transformations
+
+                                        1                    f¯k ḡk
+                               uk (τ ) =  (σk + σk ) = i ln         ,      (3.24)
+                                        2                    f k gk
+                                        1                    f¯k gk
+                               φk (τ ) = (σk − σk ) = i ln          ,.     (3.25)
+                                        2                    fk ḡk
+
+Prior to deriving the semi-discrete generalized sG equation, we present two useful
+relations.
+
+Proposition 3
+                           dφk
+                                 = sin uk ,                                 (3.26)
+                            dτ
+                                 φ                u         
+                                   k+1 + φk           k+1 − uk
+                           a sin              = sin             .           (3.27)
+                                       2                 2
+   The proof is given in Appendix. Furthermore, we define a discrete hodograph
+transformation
+                                      φ          
+                                         k+1 + φk
+                          δk = 2a cos               ,                    (3.28)
+                                            2
+which mimics the continuous case
+                                             ∂x
+                                                = cos φ .
+                                             ∂y
+360                                                               Numerical Algorithms (2023) 94:351–370
+
+
+Then, we have
+                                           
+                                                           
+        dτ (uk+1 − uk ) = 2 dτ
+        d                 1 d
+                                  σk+1 + σk+1  − σk − σk
+                                                   σ  +σ  
+                          = a sin σk+12+σk + sin k+12 k
+                                    σ +σ  +σ +σ         σ −σ  +σ −σ  
+                          = 2a sin
+                                      k+1  k+1 k   k           k+1 k+1 k k
+                                                       cos                                             (3.29)
+                                           4                    4
+                          = 2a sin uk+12+uk cos φk+12+φk
+                                           
+                          = δk sin uk+12+uk .
+On the other hand, taking the derivative with respect to δk results in
+                                                          
+                   dδk              φk+1 +φk d
+                       = −a   sin               φ k+1 +  φk
+                   dτ              2 dτ                        
+                       = −a sin φk+12+φk sin uk + sin uk+1
+                                                             
+                       = − sin uk+12−uk sin uk + sin uk+1                                              (3.30)
+                                                               
+                       = 12 cos 3uk+12 −uk − 12 cos 3uk −u    k+1
+                                                         2
+                       = cos uk+12−uk (cos uk+1 − cos uk ).
+Summarizing the above results, we obtain an integrable semi-discrete analogue of
+the generalized sG equation with ν = −1 together with its N-soliton solution by the
+following theorem
+
+Theorem 2 A semi-discrete analogue of the generalized sG equation is of the form
+                                              u           
+                      d                           k+1 + uk
+                        (uk+1 − uk ) = δk sin                ,              (3.31)
+                     dτ                              2
+                                u           
+                     dδk           k+1 − uk
+                         = cos                 (cos uk+1 − cos uk ),        (3.32)
+                     dτ                2
+where the lattice parameter δk is a function depending on (k, t) defined by
+                                         φ           
+                                            k+1 + φk
+                           δk = 2a cos                  .                   (3.33)
+                                                2
+Moreover, the N-soliton solution is given by
+                                          f¯k ḡk             f¯k gk
+                            uk = i ln             , φk = i ln        ,                                 (3.34)
+                                          f k gk              fk ḡk
+where fk , gk , f¯k and ḡk are tau functions defined by
+            τ                   τ                 τ                τ 
+   fk = τ0       , k , f¯k = τ1       , k , gk = τ0     , k , ḡk = τ1      ,k ,                     (3.35)
+              2                     2                  2                    2
+with
+         τ                                  τ               
+                       (i)                                (i)   
+      τn     , k = φn+j −1              , τn    , k = ψn+j −1             ,                       (3.36)
+           2                     1≤i,j ≤N        2                   1≤i,j ≤N
+
+                                  1
+                                       τ +ξi0                              − 2p̄1 τ +ηi0
+  φn(i) (k) = pin (1 − api )−k e 2pi            + (−p̄i )n (1 + a p̄i )−k e    i           ,
+                                            1
+                                           2pi τ +ξi0                                          − 2p̄1 τ +ηi0
+  ψn(i) (k) = pin (1−pi )(1−api )−k e                   +(−p̄i )n (1+ p̄i )(1+a p̄i )−k e          i           .
+Numerical Algorithms (2023) 94:351–370                                                               361
+
+
+   Next, we show that the semi-discrete generalized sG equation converges to the
+generalized sG equation in the continuous limit. In the discrete case, the dependent
+variable u is a function of K and τ , meanwhile, it can be viewed as a function of x
+and t where x is the spatial coordinate at the Kth lattice point
+
+                                                
+                                                K−1
+                                  x = x0 +            δk ,   t =τ.                                (3.37)
+                                                k=0
+
+Note the relation
+                                         u            
+                                           k+1 − uk                 δk2
+                                sin2                       = a2 −                                 (3.38)
+                                                2                   4
+holds due to (3.27) and (3.28). Thus we have
+           u            
+              k+1 − uk                             a2  δ2
+       cos                ≡ 1 − a 2 + δk2 /4 ∼ 1 −    + k ,                          (a → 0).
+                  2                                2    8
+In other words,
+                            dδk
+                                = (1 + ε 2 )(cos uk+1 − cos uk ) ,
+                            dτ
+where ε2 = δk2 /8 − a 2 /2. Therefore,
+
+         ∂x   ∂x0    dδk   
+                          K−1             K−1
+            =     +       =   (1 − ε2 )(cos uk+1 − cos uk ) → cos u .
+         ∂τ   ∂τ      dτ
+                          k=0             k=0
+
+Thus
+                                              ∂x
+                              ∂ τ = ∂t +         ∂x → ∂t + cos u∂x .                              (3.39)
+                                              ∂s
+Furthermore, we have
+       d uk+1 − uk
+      dτ     δk
+          uk+1 + uk   uk+1 − uk
+    = sin           −           (1 + ε2 )(cos uk+1 − cos uk )
+              2           δk2
+          uk+1 + uk    uk+1 −uk              u +u          u −u 
+                                               k+1   k         k+1 k
+    = sin           +2      2
+                                (1+ε2 ) sin             sin          . (3.40)
+              2           δk                     2               2
+In the continuous limit ??a → 0 (δk → 0), we have
+                                                                                    
+                                                                          uk+1 −uk
+          uk+1 − uk                      uk+1 + uk             sin           2
+                    → ux , ??                      → u,                                  → ux .
+             δk                              2                            δk /2
+Equation (3.40) converges to
+                            (∂t + cos u ∂x )ux = (1 + u2x ) sin u,                                (3.41)
+which is exactly the generalized sG equation (1.1) with ν = −1.
+362                                                               Numerical Algorithms (2023) 94:351–370
+
+
+3.3 Another integrable semi-discrete generalized sine-Gordon equation
+
+Following the hodograph transformation in continuous case, we define a discrete
+hodograph transformation
+                                                           ḡk gk
+                                   xk = 2ka + τ + ln              ,                             (3.42)
+                                                           f¯k fk
+then the nonuniform mesh can be derived as
+                                                          ḡk+1 gk+1 f¯k fk
+                     δk = xk+1 − xk = 2a + ln                               .                   (3.43)
+                                                          f¯k+1 fk+1 ḡk gk
+Taking the derivative with respect to τ results in
+           dδk                  f¯k        f¯k      f¯k+1         fk+1
+                 =         ln       + ln       − ln       − ln
+           dτ                   ḡk        ḡk      ḡk+1         gk+1 τ
+                       1             fk g k      1        f¯k ḡk
+                 =              1−             +      1−
+                       2               ¯
+                                     fk ḡk      2        f k gk
+                       1               ¯
+                                     fk+1 ḡk+1        1          fk+1 gk+1
+                   −            1−                  −      1−
+                       2             fk+1 gk+1         2          f¯k+1 ḡk+1
+                   1            f¯k+1 ḡk+1     fk+1 gk+1          1 fk gk      f¯k ḡk
+                 =                            +                −              −
+                   2            fk+1 gk+1        ¯
+                                                fk+1 ḡk+1               ¯
+                                                                   2 fk ḡk     f k gk
+                 = cos(uk+1 ) − cos(uk ).                                                       (3.44)
+
+           d                 1 d           
+                                                           
+              (uk+1 − uk ) =        σk+1 + σk+1 − σk − σk
+           dτ                2 dτ
+                                    σk+1 + σk            σ  + σk
+                           = a sin              + a sin k+1
+                                        2                      2
+                                     uk+1 + uk         φk+1 + φk
+                           = 2a sin              cos               .                            (3.45)
+                                          2                  2
+Referring two relations proved in previous subsection, we have
+
+                       φk+1 + φk                                      uk+1 − uk
+              2a cos                        =     4a 2 − 4 sin2                     ,           (3.46)
+                           2                                              2
+which is defined as Δk hereafter. Therefore, we can propose an alternative integrable
+semi-discrete generalized sine-Gordon equation
+
+Theorem 3 An alternative semi-discrete analogue of the generalized sG equation is
+of the form
+                       d                          uk+1 + uk
+                          (uk+1 − uk ) = Δk sin                                 ,               (3.47)
+                       dτ                             2
+                       d
+                          (xk+1 − xk ) = cos uk+1 − cos uk ,                                    (3.48)
+                       dτ
+Numerical Algorithms (2023) 94:351–370                                            363
+
+
+where the lattice parameter Δk is a function depending on (k, t) defined by
+
+                                                         uk+1 − uk
+                           Δk =      4a 2 − 4 sin2                     .       (3.49)
+                                                             2
+
+   The N-soliton solution is given by the same tau functions but different parame-
+terizations. In the continuous limit, we can similarly show that above semi-discrete
+generalized sG equation converges to the original generalized sG equation.
+
+
+4 Integrable and non-integrable self-adaptive moving mesh
+methods
+
+In this section, we propose four self-adaptive moving mesh methods and one Crank-
+Nicolson scheme for the generalized sG equation. We also compare the numerical
+results of these five numerical schemes for one kink solution.
+
+4.1 Numerical schemes
+
+Based on two integrable semi-discrete generalized sG equations and a semi-implicit
+Euler scheme, we propose the following two integrable self-adaptive moving mesh
+methods.
+Scheme 1:
+                                               unk+1 + unk
+                     pkn+1 = pkn + Δt δkn sin              ,                (4.1)
+                                                    2
+                      Δt        3unk+1 − unk           3unk − unk+1
+            δkn+1 = δkn +  cos                 − cos                    ,    (4.2)
+                       2              2                       2
+where pk = uk+1 − uk , δk = xk+1 − xk . The superscript n represents the numerical
+value at t = nΔt.
+Scheme 2:
+                                              unk+1 + unk
+                   pkn+1 = pkn + ΔtΔnk sin                  ,                (4.3)
+                                                   2
+                                                         
+                    δkn+1 = δkn + Δt cos unk+1 − cos unk .                   (4.4)
+where
+                                                         unk+1 − unk
+                            Δnk =        4a 2 − 4 sin2                     .
+                                                             2
+  In addition, we have the following non-integrable semi-discrete generalized sG
+equation
+
+                            d                         uk+1 + uk
+                               (uk+1 − uk ) = δk sin              ,             (4.5)
+                            dτ                            2
+                            d
+                               (xk+1 − xk ) = cos uk+1 − cos uk ,               (4.6)
+                            dτ
+364                                                                 Numerical Algorithms (2023) 94:351–370
+
+
+which leads to a non-integrable self-adaptive moving mesh method.
+Scheme 3:
+                                                           unk+1 + unk
+                              pkn+1 = pkn + Δtδkn sin                        ,                      (4.7)
+                                                                2
+
+                               δkn+1 = δkn + Δt(cos unk+1 − cos unk ) .                             (4.8)
+
+Furthermore, based on above non-integrable scheme, we propose the following
+scheme.
+Scheme 4:
+                                                             n+ 21
+                                       pkn+1 = pkn + Δt qk              ,                           (4.9)
+                                                            n+ 12
+                                       δkn+1 = δkn + Δt rk          .                             (4.10)
+
+where
+
+                n+ 21 1 n         unk+1 + unk               un+1
+                                                             k+1 + uk
+                                                                       n+1
+               qk       = δk sin              + δkn+1 sin                                     ,   (4.11)
+                      2                2                         2
+                n+ 1  1                                           
+               rk 2 =    cos unk+1 + cos un+1
+                                          k+1 − cos unk − cos un+1
+                                                               k     .                            (4.12)
+                      2
+
+And we take the following approximation to calculate un+1
+                                                      k
+
+                                         dunk
+                    un+1
+                     k   ∼ unk + Δt
+                                         dτ
+                                               dun0  n
+                                                     k
+                                                              uni+1 + uni
+                            = unk + Δt             +   δi sin                         .
+                                               dτ                  2
+                                                     i=1
+
+  It is known that self-adaptive moving mesh methods can deal with peak waves
+much better than other methods. To make the comparison we propose the Crank-
+Nicolson scheme.
+Scheme 5 (Crank-Nicolson scheme):
+                     ⎛                                                      ⎞
+                                          n+ 12          n+ 12        n+ 12
+                               n+ 1  sin u      − 2 sin u      + sin u
+    pkn+1 = pkn + Δt ⎝Δx sin uk 2 −       k+1            k            k−1 ⎠
+                                                                              , (4.13)
+                                                      Δx
+
+           n+ 12        sin unk + sin un+1
+      sin uk        =                  k
+                                           .                                                      (4.14)
+                                 2
+
+4.2 Numerical experiments
+
+The tau functions for the one-soliton solution are
+
+                                 f ∝ 1 + ieθ ,       g ∝ 1 + is1 eθ ,                             (4.15)
+Numerical Algorithms (2023) 94:351–370                                                             365
+
+
+
+
+Fig. 1 Comparison between numerical and analytical results√ for one-soliton solution to the generalized
+sG equation through the integrable scheme 1. (a) p1 = 0.8/ 2, (b) p1 = 0.9, (c) p1 = 2
+
+where s1 = 1−p1+p1 , θ = p1 y +τ/p1 +θ0 . The parametric representation of one-soliton
+                 1
+
+is written in the form
+                  u = 2 tan−1 (sinh θ − p1 cosh θ) + π,                                        (4.16)
+                                          1 + p12            2p1
+                  x = y + τ + ln                      −              tanh θ     + y0 .         (4.17)
+                                         (1 + p1 )2       (1 + p1 )2
+It is analyzed in [3] that one-soliton solution can be classified to different types
+according to values of p1 . When 0 < p1 < √1 , it exhibits regular kink solution.
+                                                           2
+When √1 < p1 < 1, it exhibits irregular kink solution. While p1 > 1, loop soliton
+         2
+appears. We take the initial conditions (4.16)–(4.17)
+                                               √      for one-soliton propagation with
+parameters y0 = 0, and p1 = 0.9, p1 = 0.8/ 2 and p1 = 2, respectively. In these
+three cases, the comparison between the numerical and analytical results by using the
+integrable scheme 1 is shown in Fig. 1. One can see that the numerical results are in
+good agreement with the analytical ones. The absolute error of u for one-soliton solu-
+tions through scheme 1 is demonstrated in Fig. 2. It shows that the simulation for the
+
+
+
+
+                                                                                                   √
+Fig. 2 The absolute error u for one-soliton solution through the integrable scheme 1. (a) p1 = 0.8/ 2,
+(b) p1 = 0.9, (c) p1 = 2
+366                                                             Numerical Algorithms (2023) 94:351–370
+
+
+
+
+Fig. 3√ Numerical experiment for the regular kink solution through the integrable scheme 2 with p1 =
+0.8/ 2
+
+
+loop soliton is very accurate. Scheme 2 is also applied to do numerical simulation for
+the regular kink solution. It is found that the numerical error is much bigger compared
+with scheme 1 (see Fig. 3(a)). The possible reason is that in scheme 2 the potential pk
+is independent with the moving mesh δk . The error between analytic and numerical
+result for x is depicted in Fig. 3(b). Comparison between numerical and analytical
+results for one-soliton solution to the generalized sG equation through non-integrable
+scheme 4 is displayed in Fig. 4. Figure 5 shows the comparison among numerical
+
+
+
+
+Fig. 4 Comparison between numerical and analytical
+                                           √        results for one-soliton solution to the generalized
+sG equation through scheme 4. (a) p1 = 0.8/ 2, (b) p1 = 0.9, (c) p1 = 2
+Numerical Algorithms (2023) 94:351–370                                                            367
+
+
+
+
+Fig. 5 Comparison between numerical and analytical results
+                                                        √ for one-soliton solution to the generalized
+sG equation through scheme 3 and scheme 4. (a) p1 = 0.8/ 2, (b) p1 = 0.9, (c) p1 = 2
+
+
+scheme 3, 4 and analytic solution. The absolute error of u for one-soliton through
+non-integrable scheme 3 is shown in Fig. 6 and the absolute error of u through non-
+integrable scheme 4 is displayed in Fig. 7. Compared with the integrable scheme, the
+simulation for kink and irregular kink solution owns the advantage, while for loop
+solution, the integrable scheme 1 is much better. Figure 8 exhibits the simulation
+for regular kink solution by using C-N scheme 5. One can find that the numerical
+error is much bigger compared with integrable scheme 1 or 2. In particular, the C-N
+scheme can not simulate the irregular kink and loop soliton because of the multi-
+value property. From this viewpoint, our self-adaptive moving mesh methods admit
+much advantage.
+
+
+5 Conclusion and discussion
+
+In this paper, we proposed two integrable and one non-integrable semi-discrete
+analogues of a generalized sine-Gordon equation. The determinant formulae of N-
+soliton solutions for the semi-discrete analogues are presented. The corresponding
+numerical schemes are given, respectively. The numerical results of one- regular
+kink, irregular kink and loop soliton are in good agreement with the analytical
+
+
+
+
+                                                                                 √
+Fig. 6 Absolute error for one-soliton u through the Euler scheme 3. (a) p1 = 0.8/ 2, (b) p1 = 0.9, (c)
+p1 = 2
+368                                                              Numerical Algorithms (2023) 94:351–370
+
+
+
+
+Fig. 7 Comparison between numerical and analytical
+                                               √     results for one-soliton solution to the generalized
+sG equation through the scheme 4. (a) p1 = 0.8/ 2, (b) p1 = 0.9, (c) p1 = 2
+
+
+
+
+solution. Moreover, the numerical solutions by integrable self-adaptive moving meth-
+ods perform better than C-N scheme due to the nature of particle integrability and
+self-adaptivity of the mesh.
+
+
+
+
+Fig. 8 Comparison between numerical and analytical
+                                               √ results for regular kink solution to the generalized
+sG equation through C-N scheme 5 with p1 = 0.8/ 2
+Numerical Algorithms (2023) 94:351–370                                                               369
+
+
+Appendix
+
+Here we present the proof of Proposition 3. From the definition of φk , uk and
+equations (3.18)–(3.19), we have
+                     dφk         f¯k gk            f¯k           fk
+                         = i ln            = i ln         − i ln
+                     dτ          fk ḡk τ          ḡk τ         gk τ
+                                 ¯
+                            i fk ḡk     f k gk        
+                                                     i −iuk         
+                         =             −         =      e    − eiuk
+                           2 f k gk      f¯k ḡk    2
+                         = sin uk .                                                               (A.1)
+Therefore
+                                       d
+             sin uk+1 − sin uk =         (φk+1 − φk )
+                                      dτ
+                                            σ                 σ  + σ  
+                                               k+1 + σk                    k
+                                    = a sin                − sin k+1
+                                                  2                    2
+                                             u               φ          
+                                                k+1 + uk          k+1 + φk
+                                    = 2a cos               sin              ,                     (A.2)
+                                                   2                 2
+which results in
+        u +u          u −u                 u +u           φ +φ 
+          k+1    k        k+1    k               k+1    k         k+1 k
+ 2 cos             sin               = 2a cos              sin          ?? (A.3)
+            2                2                      2               2
+i.e.,
+                            φ                 u          
+                               k+1 + φk            k+1 − uk
+                      a sin               = sin              .             (A.4)
+                                  2                   2
+Thus, we complete the proof.
+
+Author contribution B. Feng proposed the original idea and made the review of the manuscript. H.
+Sheng contributed the numerical simulation. G.Yu conducted the simulation, visualization and wrote the
+manuscript draft. Both authors read and approved the final manuscript.
+
+
+Funding G. Yu’s work is supported by the National Natural Science Foundation of China, Grant
+Nos.11871336, 12175155, and Shanghai Frontier Research Institute for Modern Analysis, PR China. B.
+Feng’s work is partially supported the National Science Foundation (NSF), Grant No. DMS-1715991; U.S.
+Air Force for Scientific Research (AFOSR), Grant No. W911NF2010276.
+
+Availability of supporting data Data sharing not applicable to this article as no datasets were generated
+or analyzed during the current study.
+
+
+Declarations
+Ethics approval and consent to participate Not applicable
+
+Consent for publication Not applicable
+
+
+Human and animal ethics Not applicable
+
+Competing interests The authors declare no competing interests.
+370                                                                 Numerical Algorithms (2023) 94:351–370
+
+
+References
+
+1. Fokas, A.S.: On a class of physically important integrable equations. Physica D. 87, 145–150 (1995)
+2. Lenells, L., Fokas, A.S.: On a novel integrable generalization of the sine-Gordon equation. J. Math.
+   Phys. 51, 023519 (2010)
+3. Matsuno, Y.: A direct method for solving the generalized sine-Gordon equation. J. Phys. A: Math.
+   Theor. 43, 105204 (2010)
+4. Matsuno, Y.: A direct method for solving the generalized sine-Gordon equation II. J. Phys. A: Math.
+   Theor. 43, 375201 (2010)
+5. Hirota, R.: Nonlinear partial difference equations. III. Discrete sine-Gordon equation. J. Phys. Soc. Jpn.
+   43, 2079–2086 (1977)
+6. Orfanidis, S.: Discrete sine-Gordon equations. Phys. Rev. D 15, 3822–3827 (1978)
+7. Feng, B., Maruno, K., Ohta, Y.: Integrable discretizations of the short pulse equation. J. Phys. A Math.
+   Theor. 43, 085203 (2010)
+8. Levi, D., Ragnisco, O. (eds.): SIDE II-Symmetries and Integrability of Difference Equations (CRM
+   Proc and Lecture Notes vol 25). AMS, Montreal (1998)
+9. Grammaticos, B., Kosmann-Schwarzbach, Y., Tamizhmani, T. (eds.): Discrete Integrable Systems
+   (Lecture Notes in Physics vol 644). Springer, Berlin (2004)
+10. Suris, Y.: The Problem of Integrable Discretization: Hamiltonian Approach (Progress in Mathemat-
+   icsvol vol 219). Basel, Birkháuser (2003)
+11. Bobenko, A., Suris, Y.: Discrete Differential Geometry (Graduate Studies in Mathematics vol 98).
+   AMS, RI (2008)
+12. Yu, G., Xu, Z.: Dynamics of a differential-difference integrable (2+1)-dimensional system. Phys. Rev
+   E 91(06), 2015 (2902)
+13. Zhang, Y., Chang, X., Hu, J., Hu, X., Tam, H.: Integrable discretization of soliton equations via
+   bilinear method and Bäcklund transformation. Science China Mathemtatics 58, 279 (2015)
+14. Dimakis, A., Muller-Hoissen, F.: Bidifferential calculus approach to AKNS hierarchies and their
+   solutions. SIGMA 6, 055 (2010)
+15. Matsuno, Y.: A novel multi-component generalization of the short pulse equation and its multisoliton
+   solutions. J. Math. Phys. 52, 123702 (2011)
+16. Feng, B., Maruno, K., Ohta, Y.: Integrable semi-discretization of a multi-component short pulse
+   equation. J. Math Phys. 56, 043502 (2015)
+17. Feng, B., Maruno, K., Ohta, Y.: An integrable semi-discretization of the Camassa-Holm equation and
+   its determinant solution. J. Phys. A Math. Theor. 41, 355205 (2008)
+18. Hirota, R.: The Direct Methods in Soliton Theory. Cambridge University Press, Cambridge (2004)
+19. Feng, B.: An integrable coupled short pulse equation. J. Phys. A: Math. Theor. 45, 085202 (2012)
+20. Feng, B.: (Etc.). Integrable discretizations and self-adaptive moving mesh method for a coupled short
+   pulse equation. J. Phys. A: Math. Theor. 48, 385202 (2015)
+
+Publisher’s note Springer Nature remains neutral with regard to jurisdictional claims in published
+maps and institutional affiliations.
+
+Springer Nature or its licensor (e.g. a society or other partner) holds exclusive rights to this article under
+a publishing agreement with the author(s) or other rightsholder(s); author self-archiving of the accepted
+manuscript version of this article is solely governed by the terms of such publishing agreement and
+applicable law.
+

@@ -1,0 +1,870 @@
+                       (c) 2025 Rom. Rep. Phys. (for accepted papers only)
+
+
+        THE INTEGRABLE HIERARCHY AND THE NONLINEAR
+    RIEMANN-HILBERT PROBLEM ASSOCIATED WITH ONE TYPICAL
+   EINSTEIN-WEYL PHYSICO-GEOMETRIC DISPERSIONLESS SYSTEM
+
+
+                         GE YI, TANGNA LV, KELEI TIAN* , YING XU
+     School of Mathematics, Hefei University of Technology, Hefei, Anhui, 230009, P.R. China
+              ∗
+                Corresponding author, Emails: kltian@ustc.edu.cn, kltian@hfut.edu.cn
+                                      Compiled April 27, 2025
+
+
+             Abstract. From a specific series of exchange conditions for a one-parameter
+      Hamiltonian vector field, we establish an integrable hierarchy using Lax pairs derived
+      from the dispersionless partial differential equation. An exterior differential form of the
+      integrable hierarchy is introduced, further confirming the existence of the τ function.
+      Subsequently, we present the twistor structure of the hierarchy. By constructing the
+      nonlinear Riemann-Hilbert problem for the equation, the structure of the solution to the
+      equation is better understood.
+             Key words: integrable hierarchy, Hamiltonian vector field, τ function, twistor
+                        structure, nonlinear Riemann-Hilbert problem.
+
+
+                                       1. INTRODUCTION
+
+       Einstein-Weyl geometry was first introduced by Weyl in the early 20th century
+and has been extensively studied [1, 2]. The relations of dispersionless integrable
+systems to Einstein-Weyl geometry have been discussed in [3–6], and there are sev-
+eral classes of partial differential equations (PDEs) whose integrability can be seen in
+their formal linearized geometries [7]. One class of integrable models possessing the
+central quadric ansatz is classified by the method of hydrodynamic reductions [8],
+leading to five regular forms. Then, applying the central quadric transformation can
+be obtained all Painlevé equations PI − PV I . These five regular forms appear in dif-
+ferent forms in the classification of multidimensional integrable systems, including
+the well-known BF (Boyer-Finley) equation
+                                 (eu )tt + uxx + uyy = 0,
+and the dKP (dispersionless Kadomtsev-Petviashvili) equation
+                                uxt − (uux )x − uyy = 0.
+In this paper, we will focus on the equation related to physico-geometric systems as
+follows
+                                 1       1
+                           uxt + uyy + u2 xy = 0.
+                                              
+                                                                                 (1)
+                                 2       2
+Rom. Rep. Phys.                Romanian Academy Publishing House                      ISSN: 1221-1451
+2                                       Ge Yi et al.                        (c) 2025 RRP
+
+
+It is the representative case in the classification of infinite hydrodynamic chains sat-
+isfying the Egorov property. The concept of Egorov hydrodynamic chains has been
+introduced in [9, 10], which establishes their connection to the integrable (2+1)-
+dimensional equations of hydrodynamic type. The results of the classification prob-
+lem for integrable (2+1)-dimensional hydrodynamic type systems are presented. In
+fact, the conformal structures corresponding to this integrable equation satisfy the
+Einstein-Weyl property. This construction uses the gauge group SDiff (Σ2 ) mod-
+elled on Riccati spaces and provides an Einstein-Weyl structure from the solutions of
+gauge field equations [11]. Calderbank [11] pointed out that, based on generalized
+Nahm equations with the gauge group SDiff (Σ2 ), can be obtained the generalized
+Nahm equations corresponding to equation (1) by twistor theoretical approach.
+       The study of the integrable systems originated in the 19th century in the field
+of mathematical physics, and it was an essential investigation of nonlinear evolu-
+tion equations. These integrable systems have special nonlinear evolution equations
+in which the shape and behaviour of the waves remain constant throughout their
+evolution [12–23]. In the 1970s, it was observed that some nonlinear equations
+possessed more symmetries than the traditional Lie group symmetries [24]. Later,
+Mikhailov, Shabat, and Yamilov used a bilinear approach based on the Lax pairs, af-
+ter which an infinite number of conservation laws and symmetries could be extracted
+from the nonlinear problem by introducing suitable variables [25]. In the 1990s, the
+Lax equation and Hamiltonian structures of the dispersionless integrable systems at-
+tracted increasing attention [26]. These works provide a foundation for the study of
+the properties of dispersionless equations, especially their infinite symmetries and
+the corresponding hierarchies. Actually, the integrable hierarchies with Hamiltonian
+vector field forms are more abundantly studied, for instance, the dKP hierarchies,
+SDiff(2) Toda hierarchies [27–29], and the dDS (dispersionless Davey-Stewartson)
+hierarchies [30].
+       Sato theory is widely recognized as one of the key theories in the field of inte-
+grable systems. Specifically, the τ function theory, which is the core of Sato theory,
+is essential to many related subjects and facilitates the analysis of PDEs. As an ef-
+fective tool for studying nonlinear PDEs, the τ function theory covers a variety of
+topics including soliton theory, inverse scattering methods, Hamiltonian methods,
+etc. [31–33]. In addition to its applications in integrable systems, the τ function the-
+ory has significant connections to string theory. Furthermore, the τ function theory,
+which has been extensively utilized to explain the vibrational modes and interac-
+tions of strings in physics, provides an important link between integrable systems
+and string theory [34, 35].
+       Additionally, several aspects of the study of dispersionless integrable systems
+are drawing more attention including the long-time behaviour and the possible wave
+breaking properties of dispersionless equations. Recently, Manakov and Santini in-
+http://www.infim.ro/rrp     submitted to Romanian Reports in Physics    ISSN: 1221-1451
+      TheRRP
+(c) 2025  integrable hierarchy and the nonlinear Riemann-Hilbert problem associated with . . .    3
+
+
+troduced a new IST (inverse scattering transform) method for solving the dispersion-
+less integrable equations at the formal level, such as the dKP equation, the heav-
+enly equation of Plebanski, the Pavlov equation and so on [36–41]. One key step in
+the Manakov-Santini method is to establish the relevant nonlinear Riemann-Hilbert
+problem with the dispersionless equation. Two important dispersionless integrable
+systems, the (3+1)-dimensional Dunajski hierarchy and the (2+1)-dimensional dDS
+system, are discussed by using the Manakov-Santini method [41, 42]. In [29], an al-
+ternate construction of the twistor structure, which provides general solutions for dis-
+persionless systems, is provided by Takasaki and Takebe. This is a kind of Riemann-
+Hilbert construction. Originally, the Riemann-Hilbert problem was a series of equa-
+tions pertaining to the properties of analytic functions. With the extensive study of
+integrable dynamical systems, it gradually associates with the integrable systems.
+Actually, in the study of classical integrable systems, we usually focus on the lin-
+earised Riemann-Hilbert problem, but in the exploration of dispersionless integrable
+systems, the relevant nonlinear Riemann-Hilbert problem draws more attention.
+      The paper is organized as follows. In Sec. 2, we construct the related hierarchy,
+which contains an infinite number of compatible partial differential equations. In
+Sec. 3, we show the existence of the τ function. In Sec. 4, we discuss the twistor
+structure of the integrable hierarchy. In Sec. 5, we consider the relevant nonlinear
+Riemann-Hilbert problem.
+
+
+                           2. LAX FORMALISM AND HIERARCHY
+
+       In this Section, we construct a hierarchy associated with the dispersionless sys-
+tem by taking a truncation of the eigenfunction from the Lax pair of equation (1).
+This hierarchy contains an infinite number of integrable dispersionless equations,
+which are infinite symmetries of equation (1). In [7], the authors proposed several
+classes of integrable models, and the integrability of these dispersionless equations
+is reflected in the compatibility of the vector field Lax pair. In particular, the Hamil-
+tonian vector field Lax pair of equation (1) reads as follows
+
+      L1 = ∂t − {H1 , ·} = ∂y − λ∂x + 2ux λ∂λ ,                                                  (2)
+                                          
+                                  1 2
+      L2 = ∂y − {H2 , ·} = ∂t +     λ + uλ ∂x − (ux λ + uy + 2uux ) λ∂λ ,                        (3)
+                                  2
+
+in which Hamiltonians H1 and H2 are given by
+
+                          H1 = λ + 2u,                                                           (4)
+                                                      
+                                   1 2         2   −1
+                          H2 = −     λ + uλ + u + ∂x uy .                                        (5)
+                                   4
+http://www.infim.ro/rrp         submitted to Romanian Reports in Physics            ISSN: 1221-1451
+4                                              Ge Yi et al.                   (c) 2025 RRP
+
+
+Here and hereafter, in this paper, the symbol {, } stands for the Poisson bracket in
+2D phase space (λ, x) as follows
+                                   ∂A ∂B       ∂A ∂B
+                            {A, B} = λ     −λ          .
+                                   ∂λ ∂x       ∂x ∂λ
+As we know, the dispersionless system (1) arises from the commutation condition
+                                          [L1 , L2 ] = 0.                             (6)
+In fact, the commutation condition (6) is equivalent to the following Zakharov-Shabat
+equation
+                               H1 H2
+                                  −    + {H1 , H2 } = 0.                              (7)
+                               ∂y   ∂t
+       In order to constructe infinite symmetries for the dispersionless system (1), we
+first consider an eigenfunction of the vector field. With a given simple closed curve
+around the original point in the complex λ -plane, the eigenfunction Φ of L1 can be
+described by the following formal Laurent expansion
+                                          X
+                                 Φ = λ+      ak λk .                                 (8)
+                                                 k≤0
+
+In fact, its coefficients ak can be calculated directly from L1 Φ = 0, in which all
+coefficients rely on the function u and their derivatives or integrals with respect to
+the independent variables under x, y. For example,
+                            a0 = 2u,
+                           a−1 = 2∂x−1 uy ,
+                           a−2 = 2∂x−2 uyy + 4∂x−1 ux ∂x−1 uy .
+                                                             
+
+Then we can recursively work out the arbitrary coefficients of the eigenfunction Φ.
+      In constructing the hierarchy of the dispersionless system (1), we need to con-
+sider m powers of the eigenfunction Φ. Based on the coefficients ak of the eigen-
+function Φ obtained above, we denote Φm as follows
+                                 X (m)
+                   Φm = λ m +          qk λk , m = 1, 2, · · · ,
+                                     k≤m−1
+            (m)      (m)
+in which qk = qk (a0 , a−1 , . . . , ak−1 ).
+      Meanwhile, according to the expression (8), conversely, the parameter λ can
+be formally represented by Φ as the following Laurent expansion
+                                         X
+                             λ = Φ+          pk Φk ,                           (9)
+                                                k≤0
+
+where pk = pk (a0 , a−1 , . . . , ak ).
+http://www.infim.ro/rrp         submitted to Romanian Reports in Physics   ISSN: 1221-1451
+      TheRRP
+(c) 2025  integrable hierarchy and the nonlinear Riemann-Hilbert problem associated with . . .      5
+
+
+      Next, we start to construct infinite symmetries of the dispersionless system (1),
+which form the integrable hierarchy, and the Lax formalisms are vector fields, which
+all have Hamiltonian structures. More specifically these Hamiltonians are truncations
+of higher powers of the eigenfunction Φ. Furthermore, we prove that all vector fields
+share the same eigenfunctions.
+Definition 2.1 For any positive integer m, we define a series of the Hamiltonian
+vector fields as follows
+                                  Lm = ∂tm − {Hm , ·} ,                                          (10)
+where
+                                                              
+                                           m−1       1 m
+                             Hm = (−1)                  Φ             ,                          (11)
+                                                     m2          ≥0
+
+and ()≥0 denotes the projection of the polynomial in λ with a positive power. In
+particular, we take t1 = y, t2 = t.
+      We now address the compatibility of the operator L1 with this series of opera-
+tors, which leads to the following conclusion.
+Proposition 2.1 The Zakharov-Shabat equations
+                          ∂H1 ∂Hm
+                              −        + {H1 , Hm } = 0,                                         (12)
+                          ∂tm      ∂y
+are equivalent to the following flow equations
+                                                           (m)
+                                  2utm = (−1)m−1 q0,y .                                          (13)
+Proof. In fact, the Zakharov-Shabat equations (12) represent
+                          ∂H1
+                                   = L1 (Hm )
+                          ∂tm
+                                        "                                    #
+                                                     m−1       1 m
+                                   = L1 (−1)                      Φ
+                                                               m2         ≥0
+                                                   m−1
+                                   = λ + (−1)            2utm .                                  (14)
+Since the eigenfunction space is a ring, then (−1)m−1 m12 Φm are also eigenfunctions
+and satisfy the equation L1 ((−1)m−1 m12 Φm ) = 0. The following recursive relations
+are obtained as
+                          (m)      (m)             (m)
+                     ql,y − ql−1,x + 2ux lql = 0,
+                      (m)     2u     (m)
+                                                                                (15)
+                     qm−1 =      , ql = 0, (l > m − 1) .
+                              m
+Bringing the above recursive relations into the display formula (14), then gives the
+flow equations (13).
+http://www.infim.ro/rrp         submitted to Romanian Reports in Physics            ISSN: 1221-1451
+6                                       Ge Yi et al.                      (c) 2025 RRP
+
+
+    Obviously, the Zakharov-Shabat equations (12) are equivalent to the following
+commutation condition
+
+                                  [L1 , Lm ] = 0.                                (16)
+
+As we know, the space of vector field eigenfunctions is a ring whose base consists
+of two independent eigenfunctions. Combining the above commutation (16), for any
+positive integers n, the vector fields Lm , Ln share the eigenfunction space with L1 .
+This implies that Ln satisfy the commutation condition with Lm . Thus we can define
+the hierarchy of the dispersionless system (1).
+
+Theorem 2.1 The Zakharov-Shabat equations
+
+                 ∂Hm ∂Hn
+                      −     + {Hm , Hn } = 0, m, n = 1, 2, · · · ,               (17)
+                  ∂tn   ∂tm
+
+are equivalent to a hierarchy of compatible systems.
+
+Proof. In fact, the Zakharov-Shabat equations (17) are equivalent to the commutation
+condition as follows
+
+                                  [Lm , Ln ] = 0.                                (18)
+
+The proof is given below. For Zakharov-Shabat equations
+
+      ∂Hm ∂Hn
+           −      + {Hm , Hn }
+       ∂tn   ∂tm
+                                                     
+            m−1   1 m−1                   n 1 n−1
+      = (−1)        Φ     Φtn       + (−1)      Φ   Φtm      + {Hm , Hn }
+                  m              ≥0           n           ≥0
+                                                                       
+             m−1 1 m−1                    n 1 n−1
+      = (−1)       Φ      {Hn , Φ} + (−1) Φ       {Hm , Φ} + {Hm , Hn }
+                 m                          n                             ≥0
+                                                                 
+                        1                         1
+      = Hn , (−1)m−1 2 Φm − Hm , (−1)n−1 2 Φn + {Hm , Hn }
+                       m                          n                    ≥0
+                                                                      
+                    n 1    n      m−1 1     m                    n 1    n
+      = Hn + (−1) 2 Φ , (−1)              Φ     − Hm , Hn + (−1) 2 Φ
+                     n                 m2                          n         ≥0
+                                                  
+                              1
+      = (Hn )<0 , (−1)m−1 2 Φm + Hm , (Hn )<0
+                                        
+                             m                         ≥0
+                          
+      = (Hm )<0 , (Hn )<0 ≥0 ,
+
+whose value equals to 0.
+http://www.infim.ro/rrp     submitted to Romanian Reports in Physics   ISSN: 1221-1451
+      TheRRP
+(c) 2025  integrable hierarchy and the nonlinear Riemann-Hilbert problem associated with . . .      7
+
+
+       On the other hand,
+    [Lm , Ln ] = Lm Ln − Ln Lm
+                  = (∂tm − {Hm , ·}) (∂tn − {Hn , ·})
+                       − (∂tn − {Hn , ·}) (∂tm − {Hm , ·})
+                  = (∂tm − λHm,λ ∂x + λHm,x ∂λ ) (∂tn − λHn,λ ∂x + λHn,x ∂λ )
+                    − (∂tn − λHn,λ ∂x + λHn,x ∂λ ) (∂tm − λHm,λ ∂x + λHm,x ∂λ )
+                                                 
+                        ∂Hm ∂Hn
+                  = λ        −       + {Hm , Hn }
+                         ∂tn   ∂tm                   λ
+                                                    
+                          ∂Hn ∂Hm
+                    +λ        −        + {Hn , Hm } .
+                          ∂tm    ∂tn                   x
+Likewise, according to the Zakharov-Shabat equations (17), this value also equals to
+0.
+Example 2.1 For the flow equations (13), when m = 1, 2, 3, we bring them in the
+recursive relations (15),
+           m = 1, ut1 = uy ,                                                                     (19)
+                                          2
+           m = 2, 2uxt2 + uyy + (u )xy = 0,                                                      (20)
+           m = 3,     3uxt3 − 2(u )yy − 2(ux ∂x−1 uy )y − 4(u2 ux )y − ∂x−1 uyyy = 0. (21)
+                                    2
+
+Equation (20) is the commutation condition [L1 , L2 ] = 0 arising from the Hamilto-
+nian vector field Lax pair. Additionally, equation (21) is equivalent to [L1 , L3 ] = 0.
+      To give another example, by taking m = 3, then the Hamiltonian (11) can be
+written as
+                 1      1         1        1       2         1     1
+          H3 = λ3 + a0 λ2 + a20 λ + a1 λ + a0 a1 + a2 + a30 .
+                 9      3         3        3       3         3     9
+The following nonlinear system
+        3ut3 + 8uut2 + 4u2 uy + 2u∂x−1 uyy + 2∂x−1 uyt2 − 2uy ∂x−1 uy = 0,
+        uyt3 + u2 xt3 + 2 u2 yt2 + 4 u2 ux t2 + ∂x−1 uyyt2 + 2 ux ∂x−1 uy t2 = 0,
+                                                                        
+
+derives from the Zakharov-Shabat equations (17), which equals to the commutation
+condition [L2 , L3 ] = 0.
+
+
+                          3. THE TAU FUNCTION OF THE HIERARCHY
+
+      In this Section, we present two exterior differential 2-forms that are equivalent
+to the hierarchy. In addition to the eigenfunction Φ, we will construct another inde-
+pendent eigenfunction Ψ. Based on this, we obtain the S function and the existence
+of the significant τ function.
+http://www.infim.ro/rrp         submitted to Romanian Reports in Physics            ISSN: 1221-1451
+8                                         Ge Yi et al.                     (c) 2025 RRP
+
+
+Definition 3.1 We introduce an exterior differential 2-form
+                                             ∞
+                                 dλ        X
+                            ω=      ∧ dx +   dHn ∧ dtn ,                          (22)
+                                 λ
+                                            n=1
+where “d” denotes the full differentiation.
+     In fact, this exterior differential 2-form ω is obviously a closed form, hence,
+                                       dω = 0.
+By the Zakharov-Shabat equations (17), ω satisfies the following relation
+                                     ω ∧ ω = 0.
+The above two relations indicate the existence of two functions P and Q that give a
+pair of Darboux coordinates as
+                                     dP
+                                ω=        ∧ dQ.
+                                      P
+Proposition 3.1 Taking P = Φ, there exists another eigenfunction Ψ satisfying
+                                     dΦ
+                                ω=        ∧ dΨ,                                (23)
+                                      Φ
+in which
+                                X
+                   Φ = λ+           ak λ k ,                                   (24)
+                                   k≤0
+                                   ∞                        ∞
+                                   X               tn n X
+                          Ψ = x+         (−1)n−1     Φ +  vi Φ−i .                (25)
+                                                   n
+                                   n=1                     i=1
+In particular,
+                                    {Φ, Ψ} = Φ,
+and they are the eigenfunctions of the vector field Lm , satisfying Lm (K) = 0, in
+which K = Φ, Ψ. Then the Lax expressions read as
+                       ∂Φ                 ∂Ψ
+                            = {Hn , Φ} ,       = {Hn , Ψ} ,                       (26)
+                       ∂tn                ∂tn
+and are equivalent to the hierarchy of the dispersionless system (1).
+      Next, we prove the equivalence of two forms of 2-form ω. Firstly, we show that
+the known Lax hierarchy derives the exterior differential equations. Looking back at
+the equation (22) and equation (23), they can both be written as a linear combination
+of dλ ∧ dx, dλ ∧ dtn , dx ∧ dtn , and dtm ∧ dtn . Obviously, there are coefficients of
+dλ ∧ dx for
+                                 1 Φλ Φx            1
+                                                =     .
+                                Φ Ψλ Ψx             λ
+http://www.infim.ro/rrp      submitted to Romanian Reports in Physics   ISSN: 1221-1451
+      TheRRP
+(c) 2025  integrable hierarchy and the nonlinear Riemann-Hilbert problem associated with . . .   9
+
+
+Similarly, we have the following coefficients of dλ ∧ dtn , dx ∧ dtn , and dtm ∧ dtn as
+             1 Φλ Φtn                 1
+                                 =      (Φλ {Hn , Ψ} − {Hn , Φ} Ψλ )
+             Φ Ψλ Ψtn                 Φ
+                                      1                  ∂Hn
+                                 =      (Hn,λ {Φ, Ψ}) =       ,
+                                      Φ                   ∂λ
+             1 Φx Φtn                 1
+                                 =      (Φx {Hn , Ψ} − {Hn , Φ} Ψx )
+             Φ Ψx Ψtn                 Φ
+                                      1                  ∂Hn
+                                 =      (Hn,x {Φ, Ψ}) =       ,
+                                      Φ                   ∂x
+           1 Φtm          Φtn         1
+                                 =      ({Hm , Φ} {Hn , Ψ} − {Hn , Φ} {Hm , Ψ})
+           Φ Ψtm          Ψtn         Φ
+                                      1
+                                 =      ({Φ, Ψ} {Hm , Hn }) = {Hm , Hn } .
+                                      Φ
+Secondly, the Lax hierarchy is deduced in turn from the exterior differential equa-
+tions. The coefficients of dλ ∧ dx hold as
+
+                            Φ = λ (Φλ Ψx − Ψλ Φx ) = {Φ, Ψ} .
+
+Comparing the coefficients on both sides of dλ ∧ dtn , dx ∧ dtn , there are
+                                1
+                                  (Φλ Ψtn − Ψλ Φtn ) = Hn,λ ,
+                                Φ
+                                1
+                                  (Φtn Ψx − Ψtn Φx ) = Hn,x .
+                                Φ
+For the above equations, we can accurately figure out Φtn and Ψtn . They are given
+by
+
+                      Φtn = λ (Hn,λ Φx − Hn,x Φλ ) = {Hn , Φ} ,
+                      Ψtn = λ (Hn,λ Ψx − Hn,x Ψλ ) = {Hn , Ψ} .
+
+The process of proving the equivalence of exterior differential equations is complete.
+      Combining the two equivalent definitions of the 2-form ω, the following equa-
+tion holds
+                                                   ∞
+                                dΦ dλ         X
+                      dΨ ∧         +   ∧ dx +   dHn ∧ dtn = 0.
+                                 Φ   λ
+                                                  n=1
+
+This equation can also be written as
+                                                    ∞
+                                                                   !
+                                                    X
+                      d Ψd log Φ + log λdx +              Hn dtn       = 0.
+                                                    n=1
+http://www.infim.ro/rrp           submitted to Romanian Reports in Physics          ISSN: 1221-1451
+10                                          Ge Yi et al.                                     (c) 2025 RRP
+
+
+This implies the existence of a function S such that
+                                                           ∞
+                                                           X
+                          dS = Ψd log Φ + log λdx +              Hn dtn .
+                                                           n=1
+Then there are the following equations
+                          ∂S          ∂S           ∂S
+                             = log λ,     = Hn ,         = Ψ.                                       (27)
+                          ∂x          ∂tn        ∂ log Φ
+In fact, even though S is not a true potential function, it has some profound impli-
+cations in the hierarchy. Then S can be expressed in the form of the Laurent series
+about Φ, Ψ.
+Proposition 3.2 S is given by
+                               ∞              ∞
+                                  n−1 tn n                                         vi
+                               X             X
+             S = x log Φ +    (−1)       Φ −     Si Φ−i ,                   Si =      .             (28)
+                                      n2                                           i
+                           n=1               i=1
+Through the equations (27) and (28) we show that Hn can be written in the form of
+a Laurent series related to Si as follows
+                                                            ∞
+                              ∂S            1      X ∂Si
+                     Hn =         = (−1)n−1 2 Φn −       Φ−i .                                      (29)
+                              ∂tn          n         ∂tn
+                                                            i=1
+In particular, for the above expression of Hn , when n = 1, we have
+                                             ∞
+                                             X ∂Si
+                                 H1 = Φ −               Φ−i ,
+                                                   ∂y
+                                             i=1
+which is also equivalent to equation (9).
+     Next, we introduce the 1-form residue operator
+                                  X
+                              res     an λn = a−1 .
+It has the following properties.
+Lemma 3.1 For any Laurent series L and M of λ,
+                resdλ L = 0,
+                resLdλ M = −resM dλ L,
+                resLdλ M = res (L≥0 ) dλ (M≤−1 ) + res (L≤−1 ) dλ (M≥0 ) .
+Lemma 3.2 For any positive integer n,
+                                 resΦn−1 dλ Φ = δn,−1 .
+From the above properties of the residue operator, we can obtain the following Lemma
+and prove it.
+http://www.infim.ro/rrp         submitted to Romanian Reports in Physics                  ISSN: 1221-1451
+      TheRRP
+(c) 2025  integrable hierarchy and the nonlinear Riemann-Hilbert problem associated with . . .   11
+
+
+Lemma 3.3 For the Laurent series Ψ, the partial derivatives of the coefficients vi ,
+                                       ∂vi
+                                           = resΦi dλ Hn .
+                                       ∂tn
+Proof. For the Laurent series Ψ, from the chain rule,
+                                                                   ∞
+                   ∂Ψ           1     ∂Ψ ∂Φ X ∂vi −i
+                       = (−1)n−1 Φn +        +     Φ ,
+                   ∂tn          n     ∂Φ ∂tn   ∂tn
+                                                                 i=1
+
+in which
+                                  ∞                          ∞
+                      ∂Ψ X                   X
+                         = (−1)n−1 tn Φn−1 −   ivi Φ−i−1 .
+                      ∂Φ
+                                 n=1                         i=1
+
+Then
+                                              
+  ∂vi                i−1       ∂Ψ ∂Ψ ∂Φ
+         = resΦ                   −                dλ Φ
+  ∂tn                          ∂tn ∂Φ ∂tn
+                                                     
+                     i−1                           ∂Ψ
+         = resΦ                {Hn , Ψ} − {Hn , Φ}      dλ Φ
+                                                   ∂Φ
+                                                                                 
+                     i−1                                                       ∂Ψ
+         = resΦ                (λHn,λ Ψx − λHn,x Ψλ ) − (λHn,λ Φx − λHn,x Φλ )      dλ Φ
+                                                                               ∂Φ
+         = resΦi−1 [Hn,λ (λΨx Φλ − λΦx Ψλ ) − Hn,x (λΨλ Φλ − λΦλ Ψλ )] dλ
+                          
+                i−1 ∂Hn
+         = resΦ           Φ dλ
+                     ∂λ
+         = resΦi dλ Hn .
+
+      Based on the above preparation, we will give an existence Theorem for the τ
+function.
+Theorem 3.1 For the hierarchy of the dispersionless equation (1), there exists the τ
+function satisfying
+
+                                        d log τ = vn dtn ,
+
+in which “d” represents the differentiation of tn .
+Proof. In fact, to prove the existence of τ function, we just need to show that the
+right-hand side of the equation is in closed form. It turn out to be
+                                          ∂vn   ∂vm
+                                              =     .
+                                          ∂tm   ∂tn
+http://www.infim.ro/rrp            submitted to Romanian Reports in Physics          ISSN: 1221-1451
+12                                       Ge Yi et al.                      (c) 2025 RRP
+
+
+Then, according to the previous Lemma, the following results are available,
+           ∂vn ∂vm
+              −           = resΦn dλ Hm − resΦm dλ Hn
+           ∂tm ∂tn
+                                                
+                          = res (Φn )≥0 + (Φn )<0 dλ (Φm )≥0
+                                                  
+                            −res (Φm )≥0 + (Φm )<0 dλ (Φn )≥0
+                          = res (Φn )<0 dλ (Φm )≥0 − res (Φm )<0 dλ (Φn )≥0
+                          = res (Φn )<0 dλ (Φm )≥0 + res (Φn )≥0 dλ (Φm )<0
+                          = resΦn dλ Φm
+                          = resmΦm+n−1 dλ Φ
+                          = mδm+n,−1 .
+Since m, n are positive integers, the above equation is vanished. Eventually, the
+existence of the τ function is proved.
+      In fact, the τ function occupies a very important place in dispersionless inte-
+grable systems, and it contains all the information about the structure of the disper-
+sionless hirearchy.
+
+
+                   4. THE TWISTOR STRUCTURE OF THE HIERARCHY
+
+      In this Section, we modify the eigenfunctions Φ and Ψ using the dressing func-
+tion. Then we further construct the twistor structure of the hierarchy.
+Proposition 4.1 Let Φ and Ψ be solutions of the hierarchy, and there exists a dress-
+ing function ϕ satisfying the following equations
+                                                         ∞
+                                                                             !
+                                                               n−1 tn n
+                                                        X
+                           ad ϕ             ad ϕ
+                 Φ = e          (λ) , Ψ = e        x+      (−1)         λ ,     (30)
+                                                                    n
+                                                        n=1
+                                                     
+                                        1
+           5tn ,ϕ ϕ = −(−1)n−1             ead ϕ (λn )    , n = 1, 2, · · · ,   (31)
+                                        n2             <0
+in which
+                                        ∞
+                                        X
+                               ϕ(t) =         ϕn (t)λ−n .
+                                        n=1
+      Indeed, observing the above results, we derive an alternative expression for
+the eigenfunctions, and one can apply such expression in the following proof of the
+twistor structure of the hierarchy.
+Proposition 4.2 If ϕ(t) = ∞                −n satisfies the equations of (31), then Φ
+                             P
+                                n=1 ϕn (t)λ
+and Ψ defined by (30) are solutions of the hierarchy.
+http://www.infim.ro/rrp      submitted to Romanian Reports in Physics   ISSN: 1221-1451
+      TheRRP
+(c) 2025  integrable hierarchy and the nonlinear Riemann-Hilbert problem associated with . . .   13
+
+
+Proof.
+                              n                      o
+      ∂tn Φ = ∂tn ead ϕ (λ)   =   5tn ,ϕ ϕ, ead ϕ (λ)
+                                   ad ϕ
+                                        n                    o
+                              = ee        e−ad ϕ 5tn ,ϕ ϕ, λ
+                                                                     
+                                                          1
+                              = ead ϕ e−ad ϕ (−1)n 2 ead ϕ (λn )     ,λ
+                                                          n       <0
+                                       n                o
+                                  ad ϕ     −ad ϕ
+                              = e        e       Hn , λ
+                                     = {Hn , Φ} .
+Another Lax equation reads as
+                                          ∞
+                                                                        !!
+                                                      n−1 tn
+                                          X
+                              ad ϕ                                  n
+     ∂tn (Ψ) = ∂tn e                 x+        (−1)             λ
+                                                            n
+                                          n=1
+                                                                           
+                                          ad ϕ             n−1 1        n
+                 = {5tn ,ϕ ϕ, Ψ} + e        (−1)        λ
+                                                      n
+                                                                           
+                                 n 1 ad ϕ n               ad ϕ       n−1 1 n
+                 =   Hn + (−1) 2 e          (λ ), Ψ + e          (−1)      λ
+                                   n                                     n
+                                                               ∞
+                           (                                                   )!
+                                                n 1 n                 n−1 tn n
+                                                              X
+                    ad ϕ       −ad ϕ
+                 = e         e       Hn + (−1) 2 λ , x +          (−1)       λ
+                                                  n                       n
+                                                              n=1
+                                           
+                      ad ϕ         n−1 1 n
+                   +e       (−1)          λ
+                                       n
+                                              ∞
+                           (                                      )!
+                                                       n−1 tn n
+                                              X
+                    ad ϕ       −ad ϕ
+                 = e         e       Hn , x +    (−1)          λ
+                                                            n
+                                                     n=1
+                 = {Hn , Ψ} .
+Definition 4.1 Let a pair of two functions (f (λ, x) , g (λ, x)) and a pair of Laurent
+series (Φ, Ψ), where Φ and Ψ are forms of equations (24) and (25) respectively. Sup-
+pose that they satisfy the canonical Poisson relation {f (λ, x) , g (λ, x)} = f (λ, x);
+F = f (Φ, Ψ) and G = g (Φ, Ψ) are both Taylor in λ as
+                          (f (Φ, Ψ))≤−1 = 0, (g (Φ, Ψ))≤−1 = 0.
+Then the pair (Φ, Ψ) is a solution of the hierarchy and for this reason, (f, g) is the
+twistor structure of this solution.
+Theorem 4.1 The hierarchy with twistor structure in their solutions, i.e., if (Φ, Ψ)
+is a solution to the dispersionless equation (1), then there exists the twistor structure
+(f, g) of this hierarchy.
+http://www.infim.ro/rrp          submitted to Romanian Reports in Physics            ISSN: 1221-1451
+14                                          Ge Yi et al.                         (c) 2025 RRP
+
+
+Proof. First, we show that {f, g} = f . Let ead ϕ(~t) be the dressing operator corre-
+sponding to (Φ, Ψ). When ~t = ~0, ~t = (t1 , t2 , · · · ). We set
+                  f (λ, x) = e−ad ϕ |~t=~0 λ, g (λ, x) = e−ad ϕ |~t=~0 x.               (32)
+In fact,
+                          {f (λ, x) , g (λ, x)} = e−ad ϕ |~t=~0 {λ, x}
+                                                = e−ad ϕ |~t=~0 λ
+                                                = f (λ, x) .
+For equation (30),
+                     Φ|~t=~0 = ead ϕ |~t=~0 λ, Ψ|~t=~0 = ead ϕ |~t=~0 x.
+Then, the following relations are obtained from equation (32),
+                  f Φ|~t=~0 , Ψ|~t=~0 = ead ϕ |~t=~0 f (λ, x) = λ,
+                                      
+                                                                                        (33)
+                                        = ead ϕ |~t=~0 g (λ, x) = x.
+                                      
+                  g Φ|~t=~0 , Ψ|~t=~0
+As a result,
+                 {f (Φ, Ψ) , g (Φ, Ψ)} = ead ϕ |~t=~0 {f (λ, x) , g (λ, x)}
+                                           = ead ϕ |~t=~0 f (λ, x)
+                                           = f (Φ, Ψ) .
+      Secondly, we prove that (f (Φ, Ψ))≤−1 = 0. Since Φ and Ψ satisfy the Lax
+equations (26), then
+                ∂f (Φ, Ψ)
+                               = fΦ (Φ, Ψ) · Φtn + fΨ (Φ, Ψ) · Ψtn
+                   ∂tn
+                               = fΦ (Φ, Ψ) {Hn , Φ} + fΨ (Φ, Ψ) {Hn , Ψ}
+                               = {Hn , f (Φ, Ψ)} .                                      (34)
+When ~t = ~0, based on the equations (33) and (34), the result is as follows
+                          ∂f (Φ, Ψ)
+                                    |~t=~0 = {Hn , f (Φ = 0, Ψ = 0)}
+                             ∂tn
+                                           = {Hn , λ}
+                                          = −λHn,x .
+Obviously, the above equation does not contain the negative part of λ. Beyond
+that, for equation (∂/∂t )α f (Φ, Ψ) |(~t=~0) , regardless of the value of α, the Taylor
+expansion coefficients of this equation at ~t = ~0 do not contain negative terms of
+λ. Ultimately we can prove that (f (Φ, Ψ))≤−1 = 0. The same reasoning leads to
+(g (Φ, Ψ))≤−1 = 0.
+http://www.infim.ro/rrp         submitted to Romanian Reports in Physics      ISSN: 1221-1451
+      TheRRP
+(c) 2025  integrable hierarchy and the nonlinear Riemann-Hilbert problem associated with . . .     15
+
+
+          5. THE RELEVANT NONLINEAR RIEMANN-HILBERT PROBLEM FOR
+                           CONSTRUCTING SOLUTIONS
+
+      The longtime behaviour and the possible wave breaking properties are impor-
+tant aspects in the study of the dispersionless equations. First and the key step is
+to relate the dispersionless equations to the nonlinear Riemann-Hilbert problem us-
+ing the Manakov-Santini method. In fact, solving equation (1) can be transformed
+into studying the nonlinear Riemann-Hilbert problem. The result is shown in the
+following Theorem.
+Theorem 5.1 Consider the vector nonlinear Riemann-Hilbert problem on the real
+line as
+                                         ~ π − (λ)), λ ∈ R,
+                              ~π + (λ) = R(~                                                     (35)
+in which ~π + (λ), ~π − (λ) ∈ C2 are two-dimensional vector functions resolved in the
+upper and lower halves of the complex λ plane, respectively, and normalized them
+into the following form as
+                                                               
+                                      λ + 2u
+   ~π ± (λ) =                                                   + o(λ−1 ), (36)
+                   t 2                             2       −1
+                − 2 λ − 2utλ + yλ + x + 2uy − 2u t − 2t∂x uy
+in which |λ|  1.
+      In fact,
+                                                              
+                               λ   ±         ±      t ±2
+               ∂x−1 u =    lim    π2 (λ) − yπ1 (λ) + π1 (λ) − x ,                                (37)
+                          λ→∞ 2                     2
+                                         ~ = (R1 (ξ1 , ξ2 ), R2 (ξ1 , ξ2 )), the vector ξ~ ∈
+                                       ~ ξ)
+and the differentiable spectral datum R(
+ 2
+C , λ ∈ R, satisfies the following given realistic constraint as
+                                        ~ R(
+                                        R(   ~¯ = ξ.
+                                           ~ ξ))  ~                                              (38)
+      Applying the vector fields Lax pair L1 , L2 defined by equations (2) and (3) on
+the above nonlinear Riemann-Hilbert problem (35), there are Lj ~π + (λ) = JLj ~π − (λ),
+j = 1, 2, where J satisfies the Jacobian matrix Jmn = ∂Rm /∂ξn , (m, n = 1, 2). Then,
+assuming that both forms of the solution are unique, ~π ± (λ) of the Riemann-Hilbert
+problem (35) are the common eigenfunctions of the vector fields, i.e., Lj ~π ± (λ) = 0
+and u is the solution to the equation (1). Combining R(  ~ with constraint (38), then
+                                                       ~ ξ)
+the solution u is real, i.e., u ∈ R.
+Proof. Let the vector fields Lax pair L1 and L2 act on ~π ± (λ) in equation (36). In
+fact, when λ → ∞, as a result,
+                                 Lj ~π ± (λ) → 0, j = 1, 2.
+http://www.infim.ro/rrp          submitted to Romanian Reports in Physics            ISSN: 1221-1451
+16                                           Ge Yi et al.                             (c) 2025 RRP
+
+
+We are based on the nonlinear Riemann-Hilbert problem linearized version
+                          Lj ~π + (λ) = JLj ~π − (λ), j = 1, 2,
+where J is the Jacobi matrix satisfying
+                                    ∂R1           ∂R2
+                                                     
+                                   ∂ξ1           ∂ξ1 
+                            J =   ∂R1
+                                                      .
+                                                  ∂R2 
+                                     ∂ξ2          ∂ξ2
+Obviously, combining equation (35), the vectors Lj ~π ± (λ) solve the linearised Riemann-
+Hilbert problem. By uniqueness, we infer that ~π ± (λ) are shared eigenfunctions of
+the Lax pair Lj , obtaining
+                                Lj ~π ± (λ) = 0, j = 1, 2.
+This indicates that the ~π ± (λ) are the solutions of the nonlinear Riemann-Hilbert
+problem. From the equation (36), one has
+                                                                
+              −1            λ     ±         ±       t ±2
+             ∂x u = lim         π2 (λ) − yπ1 (λ) + π1 (λ) − x .
+                      λ→∞ 2                         2
+Actually, it is the solution to the dispersionless system (1).
+                                                                    ~ and the non-
+                                                                 ~ ξ)
+      Similarly, by uniqueness, combining the constraint (38) of R(
+linear Riemann-Hilbert problem (35), we can get the following expression
+                                    ~π + (λ) = ~π − (λ).
+It follows that the solution u is real, i.e., u ∈ R.
+       Afterwards, on the basis of the Manakov-Santini method, we will continue to
+delve into the longtime behavior of the dispersionless system (1) in our next research
+phase.
+
+      Acknowledgements. This work is supported by the National Natural Science Foundation of
+China under Grant Nos. 12271136, 12171133, and 12171132.
+
+
+                                          REFERENCES
+
+ 1. N. J. Hitchin, Lect. Notes Math. 970, 79–99 (1982).
+ 2. R. S. Ward, Class. Quantum Grav. 7(4), L95–L98 (1990).
+ 3. D. M. J. Calderbank and H. Pedersen, Ann. Inst. Fourier. 50(3), 921–963 (2000).
+ 4. M. Dunajski, J. Geom. Phys. 51(1), 126–137 (2004).
+ 5. M. Dunajski, J. Phys. A: Math. Theor. 41, 315202 (2008).
+ 6. M. Dunajski, L. J. Mason, and P. Tod, J. Geom. Phys. 37(1), 63–93 (2001).
+ 7. E. V. Ferapontov and B. S. Kruglikov, J. Differ. Geom. 97(2), 215–254 (2014).
+ 8. E. V. Ferapontov, J. Phys. A: Math. Theor. 45(19), 195204 (2012).
+http://www.infim.ro/rrp        submitted to Romanian Reports in Physics           ISSN: 1221-1451
+      TheRRP
+(c) 2025  integrable hierarchy and the nonlinear Riemann-Hilbert problem associated with . . .    17
+
+
+ 9. M. V. Pavlov, Russ. Math. Surv. 58(2), 384–385 (2003).
+10. M. V. Pavlov, Theor. Math. Phys. 138, 45–58 (2004).
+11. D. M. Calderbank, SIGMA 10(034), 51 (2014).
+12. P. D. Lax, Commun. Pure Appl. Math. 21, 467–490 (1968).
+13. E. A. Zabolotskaya, Sov. Phys. Acoust. 15(1), 35–40 (1969).
+14. P. G. Drazin and R. S. Johnson, Solitons: an introduction, Cambridge University Press, Cambridge,
+       1989.
+15. Jianke Yang, Nonlinear waves in integrable and nonintegrable systems, SIAM, Philadelphia, 2010.
+16. B. A. Malomed, Advances in Physics: X 9, 2301592 (2024).
+17. Y. L. Cao, J. S. He, and Y. Cheng, Physica D: Nonl. Phenomena 458, 133990 (2024).
+18. J. G. Rao, D. Mihalache, M. J. Ma, and J. S. He, Phys. Lett. A 493, 129244 (2024).
+19. D. Mihalache, Rom. Rep. Phys. 76, 402 (2024).
+20. Zhou-Zheng Kang, Rom. J. Phys. 69, 109 (2024).
+21. K. L. Tian, G. M. Lai, G. Yi, and Y. Xu, Rom. Rep. Phys. 76, 103 (2024).
+22. Jin-Yun Yang and Wen-Xiu Ma, Rom. J. Phys. 69, 101 (2024).
+23. Wen-Xiu Ma, Rom. Rep. Phys. 76, 108 (2024).
+24. P. J. Olver, J. Math. Phys. 18(6), 1212–1215 (1977).
+25. A. V. Mikhailov, A. B. Shabat, and R. I. Yamilov, Commun. Math. Phys. 115, 1–19 (1988).
+26. I. M. Krichever, Commun. Math. Phys. 143, 415–429 (1992).
+27. K. Takasaki and T. Takebe, Int. J. Mod. Phys. A 7(supp01b), 889–922 (1992).
+28. K. Takasaki and T. Takebe, Lett. Math. Phys. 23, 205–214 (1991).
+29. K. Takasaki and T. Takebe, Rev. Math. Phys. 7(05), 743–808 (1995).
+30. G. Yi, Z. Angew. Math. Mech. 102(8), e202100435 (2022).
+31. E. Date, M. Kashiwara, and T. Miwa, PJA Ser. A Math. Sci. 57(8), 387–392 (1981).
+32. E. Date, M. Kashiwara, M. Jimbo, and T. Miwa, World Sci. 39–119 (1983).
+33. K. Takasaki, J. Math. Phys. 36(7), 3574–3607 (1995).
+34. J. Van de Leur, Acta Appl. Math. 44(1-2), 185–206 (1996).
+35. U. Danielsson, Rep. Prog. Phys. 64(1), 51 (2001).
+36. S. V. Manakov and P. M. Santini, Phys. Lett. A 359(6), 613–619 (2006).
+37. S. V. Manakov and P. M. Santini, JETP Lett. 83(10), 462–466 (2006).
+38. S. V. Manakov and P. M. Santini, Theor. Math. Phys. 152(1), 1004–1011 (2007).
+39. S. V. Manakov and P. M. Santini, J. Phys. A: Math. Theor. 41(5), 055204 (2008).
+40. S. V. Manakov and P. M. Santini, J. Phys. A: Math. Theor. 42(40), 404013 (2009).
+41. G. Yi and P. M. Santini, J. Phys. A: Math. Theor. 48(21), 215203 (2015).
+42. G. Yi, Lett. Math. Phys. 110(3), 445–463 (2020).
+
+
+
+
+http://www.infim.ro/rrp          submitted to Romanian Reports in Physics            ISSN: 1221-1451
+

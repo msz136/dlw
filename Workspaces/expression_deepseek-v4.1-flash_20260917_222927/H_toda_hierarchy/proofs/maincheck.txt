@@ -1,0 +1,53 @@
+CHECK Common\Operators.lean
+CHECK DirH.lean
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+C:\Users\msz\学术内容\Workspaces\expression_deepseek-v4.1-flash_20260917_222927\H_toda_hierarchy\proofs\DirH.lean:66:56: error: unsolved goals
+K : Type
+inst✝ : Field K
+A C a : K
+⊢ -(A * C * 2) + A * a * 2 - C * a * 2 = -(A * C * 2) + A * a * 2 + A ^ 2 - C * a * 2 + C ^ 2
+C:\Users\msz\学术内容\Workspaces\expression_deepseek-v4.1-flash_20260917_222927\H_toda_hierarchy\proofs\DirH.lean:84:3: error: unknown tactic
+C:\Users\msz\学术内容\Workspaces\expression_deepseek-v4.1-flash_20260917_222927\H_toda_hierarchy\proofs\DirH.lean:83:21: error: unsolved goals
+K : Type
+inst✝ : Field K
+A C a : K
+h : A - C + 2 * a = 0
+hC : C = -(A + 2 * a)
+⊢ A = C + 2 * a
+C:\Users\msz\学术内容\Workspaces\expression_deepseek-v4.1-flash_20260917_222927\H_toda_hierarchy\proofs\DirH.lean:98:7: error: Invalid projection: Projection operates on types of the form `C ...` where C is a constant. The expression
+  m1
+has type `K` which does not have the necessary form.
+C:\Users\msz\学术内容\Workspaces\expression_deepseek-v4.1-flash_20260917_222927\H_toda_hierarchy\proofs\DirH.lean:99:7: error: Invalid projection: Projection operates on types of the form `C ...` where C is a constant. The expression
+  m1
+has type `K` which does not have the necessary form.
+C:\Users\msz\学术内容\Workspaces\expression_deepseek-v4.1-flash_20260917_222927\H_toda_hierarchy\proofs\DirH.lean:106:5: warning: Variable name `h11` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h11
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+C:\Users\msz\学术内容\Workspaces\expression_deepseek-v4.1-flash_20260917_222927\H_toda_hierarchy\proofs\DirH.lean:106:28: warning: Variable name `h12` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h12
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+C:\Users\msz\学术内容\Workspaces\expression_deepseek-v4.1-flash_20260917_222927\H_toda_hierarchy\proofs\DirH.lean:107:5: warning: Variable name `h21` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h21
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+C:\Users\msz\学术内容\Workspaces\expression_deepseek-v4.1-flash_20260917_222927\H_toda_hierarchy\proofs\DirH.lean:107:28: warning: Variable name `h22` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h22
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+LEAN_CHECK_FAILED: DirH.lean. Correct the proof/import; do not reinstall dependencies.
+REPORT: C:\Users\msz\学术内容\Workspaces\expression_deepseek-v4.1-flash_20260917_222927\H_toda_hierarchy\proofs\.lean-runs\20260918_002143_cd8ad356\result.json

@@ -1,0 +1,74 @@
+
+==============================================================================
+F1  principal part of the linearised DLW system and its mode decomposition
+==============================================================================
+  PASS  F1.E1  linearised first equation has principal part  s*w - k^2*v + i k (u0+2a) w
+  PASS  F1.E2  linearised second equation has principal part  s*v - k^2*w + i k (u0+2a) v + (k/mu)(v0+2lam) w
+  PASS  F1.elim  D^2 = k^4 - (v0+2 lam) k^3 / mu  from the general-y-symbol linearisation
+  PASS  F1.plus   w+v obeys  D (w+v) = +k^2 (w+v)      [FORWARD heat in x]
+  PASS  F1.minus  w-v obeys  D (w-v) = -k^2 (w-v)      [BACKWARD heat in x]
+  PASS  F1.J  J is a symmetric involution with eigenvalues +1, -1  (indefinite principal symbol)
+  PASS  F1.growth  the antisymmetric branch grows like exp(+k^2 x): the ill-posedness is in x, not in y   symbol = +k^2 on W_-
+
+==============================================================================
+F2/F3  the k^4 coefficient is 1 for EVERY consistent y-symbol
+==============================================================================
+  PASS  F2  coefficient of k^4 in D^2 equals 1 for symbolic full symbol mu
+  PASS  F3  centred        r = sin(th)/th   normalised symbol r -> 1 (consistency)   limit = 1
+  PASS  F3  centred        r = sin(th)/th   full symbol Lambda = ell*r -> ell
+  PASS  F3  centred        r = sin(th)/th   k^4 coefficient stays exactly 1
+  PASS  F3  forward        r = (exp(i th)-1)/(i th)   normalised symbol r -> 1 (consistency)   limit = 1
+  PASS  F3  forward        r = (exp(i th)-1)/(i th)   full symbol Lambda = ell*r -> ell
+  PASS  F3  forward        r = (exp(i th)-1)/(i th)   k^4 coefficient stays exactly 1
+  PASS  F3  backward       r = (1-exp(-i th))/(i th)   normalised symbol r -> 1 (consistency)   limit = 1
+  PASS  F3  backward       r = (1-exp(-i th))/(i th)   full symbol Lambda = ell*r -> ell
+  PASS  F3  backward       r = (1-exp(-i th))/(i th)   k^4 coefficient stays exactly 1
+  PASS  F3  staggered      r = 2 sin(th/2)/th   normalised symbol r -> 1 (consistency)   limit = 1
+  PASS  F3  staggered      r = 2 sin(th/2)/th   full symbol Lambda = ell*r -> ell
+  PASS  F3  staggered      r = 2 sin(th/2)/th   k^4 coefficient stays exactly 1
+  PASS  F3  P1 cons. mass  r = 3 sin(th)/(th (2+cos th))   normalised symbol r -> 1 (consistency)   limit = 1
+  PASS  F3  P1 cons. mass  r = 3 sin(th)/(th (2+cos th))   full symbol Lambda = ell*r -> ell
+  PASS  F3  P1 cons. mass  r = 3 sin(th)/(th (2+cos th))   k^4 coefficient stays exactly 1
+  PASS  F3  spectral       r = 1   normalised symbol r -> 1 (consistency)   limit = 1
+  PASS  F3  spectral       r = 1   full symbol Lambda = ell*r -> ell
+  PASS  F3  spectral       r = 1   k^4 coefficient stays exactly 1
+  PASS  F3  centred        r = sin(th)/th   c = 0  =>  D^2 = k^4 exactly (matches the continuum)
+  PASS  F3  forward        r = (exp(i th)-1)/(i th)   c = 0  =>  D^2 = k^4 exactly (matches the continuum)
+  PASS  F3  backward       r = (1-exp(-i th))/(i th)   c = 0  =>  D^2 = k^4 exactly (matches the continuum)
+  PASS  F3  staggered      r = 2 sin(th/2)/th   c = 0  =>  D^2 = k^4 exactly (matches the continuum)
+  PASS  F3  P1 cons. mass  r = 3 sin(th)/(th (2+cos th))   c = 0  =>  D^2 = k^4 exactly (matches the continuum)
+  PASS  F3  spectral       r = 1   c = 0  =>  D^2 = k^4 exactly (matches the continuum)
+  PASS  F3  c = 0 is v0 = -2 lam;  at lam = -2 this is the exact zero-mode value v0 = 4
+  PASS  F3.note  centred normalised symbol vanishes at Nyquist th = pi (extra zero mode)
+  PASS  F3.note  P1 consistent-mass symbol ALSO vanishes at Nyquist (same stencil in the numerator)
+  PASS  F3.note  P1 mass factor 2+cos(th) is NEVER zero, so the zero does NOT come from the mass matrix
+  PASS  F3.note  forward       symbol at Nyquist is NONZERO   value = 2*I/pi
+  PASS  F3.note  backward      symbol at Nyquist is NONZERO   value = -2*I/pi
+  PASS  F3.note  staggered     symbol at Nyquist is NONZERO   value = 2/pi
+  PASS  F3.note  spectral      symbol at Nyquist is exactly 1 (NONZERO)
+
+==============================================================================
+F4  the y-lattice map from a discrete Lagrangian is symplectic (and what that does NOT buy)
+==============================================================================
+  PASS  F4.det   det T = 1  (area preserving / symplectic in y)
+  PASS  F4.form  T^T Om T = Om  (the 2-form is preserved exactly)
+  PASS  F4.pal   characteristic polynomial is palindromic: A r^2 + B r + A
+  PASS  F4.roots roots are reciprocal: r1 * r2 = 1   roots = [cos(theta) - I*Abs(sin(theta)), cos(theta) + I*Abs(sin(theta))]
+  PASS  F4.caveat  in general r1 r2 = 1 permits |r1| > 1: symplecticity is NOT stability   e.g. A=1, B=-3: roots (3+sqrt5)/2, (3-sqrt5)/2, product 1
+  PASS  F4.general  M^T Om M = [[0, det M], [-det M, 0]] for a general 2x2 M
+
+==============================================================================
+F5  scope limit: a y-only variational principle cannot generate the (x,t) dynamics
+==============================================================================
+  PASS  F5.constraint  varying w gives EXACTLY the forward-difference constraint w = (u_{j+1}-u_j)/h
+  PASS  F5.nodynamics  varying u_j gives w_{j+1/2} - w_{j-1/2} = 0: no evolution equation   dS/du_j = -w_{j+1/2} + w_{j-1/2}
+  -> CONCLUSION: the (x,t) equations must come from the t-direction.  A y-only
+     variational principle gives a symplectic lattice in y (F4) and the discrete
+     constraint, but it CANNOT produce -- and therefore cannot repair -- the
+     x-symbol J d_x^2 whose indefinite branch is the ill-posedness of F1-F3.
+
+==============================================================================
+SUMMARY
+==============================================================================
+ALL CHECKS PASSED.
+F_OVERALL: PASSED

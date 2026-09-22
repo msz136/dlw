@@ -1,0 +1,1005 @@
+    Integrable hierarchies, dispersionless limit
+               and string equations
+
+                          Kanehisa Takasaki 1
+                    Department of Fundamental Sciences
+           Faculty of Integrated Human Studies, Kyoto University
+                    Yoshida, Sakyo-ku, Kyoto 606, Japan
+
+
+
+
+                                     Abstract
+      The notion of string equations was discovered in the end of the eight-
+      ies, and has been studied in the language of integrable hierarchies.
+      String equations in the KP hierarchy are nowadays relatively well un-
+      derstood. Meanwhile, systematic studies of string equations in the
+      Toda hierarchy started rather recently. This article presents the state
+      of art of these issues from the author’s point of view.
+
+
+
+
+1
+    E-mail: takasaki@yukawa.kyoto-u.ac.jp
+
+                                            1
+1     Introduction
+The end of the eighties was a turning point of studies on integrable hier-
+archies. Before that time, the most popular special solutions of integrable
+hierarchies had been rational, trigonometric (soliton) and quasi-periodic solu-
+tions. Various algebro-geometric methods for these solutions were developed
+in the seventies [1]. A characteristic of these solutions is the existence of a
+“spectral curve” for each solution. Spectral curves of quasi-periodic solutions
+are nonsingular Riemann surfaces, and the solutions can be written explic-
+itly in terms of a Riemann theta function and abelian diﬀerentials. Spec-
+tral curves of trigonometric and rational solutions are singular, but algebro-
+geometric methods still turned out to be useful in that case, too. In the early
+eighties, the theory of τ -functions [2] elucidated the structure of “general so-
+lutions” in the language of inﬁnite dimensional Grassmannian manifolds.
+The algebro-geometric methods were transplanted into this new framework,
+and more profound and universal structures behind these algebro-geometric
+solutions have been revealed [3].
+    In the end of eighties, a new family of special solutions emerged out of
+studies on low dimensional quantum gravity and string theories [4]. Remark-
+ably, those solutions are related to a moduli space of curves, rather than a
+single curve. The new type of solutions are characterized by the so called
+“string equations”, which arise as constraints to an integrable hierarchy of
+KdV or KP type [5].
+    Since the early nineties, the author has been attempting to elucidate
+mathematical meanings of string equations and related issues. This article is
+a review of the author’s recent researches as well as basic notions concerning
+this issue [6].
+    This article is organized as follows. In Section 2, we review the most
+fundamental string equation of the KP hierarchy, i.e., the Douglas equation
+of two-dimensional quantum gravity coupled to conformal matters, in com-
+parison with algebro-geometric solutions of the KP hierarchy. In Section 3,
+the notion of “dispersionless limit” is illustrated for the KP hierarchy and its
+string equations. Section 4 is an introduction to the Toda lattice hierarchy
+and its “dispersionless” analogue. In Section 5, the state of art of studies
+on string equations in the Toda hierarchies is presented. Section 5 is the
+concluding section.
+
+
+                                       2
+2    String equations in KP hierarchy
+String equations in the KP hierarchy have several diﬀerent (but equivalent)
+expressions. The most convenient expression for our present purpose is the
+Douglas equation [5]
+                                [Q, P ] = 1,                          (2.1)
+where P and Q are ordinary diﬀerential operators of order p and q,
+
+                       P = ∂xp + a2 ∂xp−2 + · · · + ap ,
+                       Q = ∂xq + b2 ∂xq−2 + · · · + bq .                 (2.2)
+
+This equation describes the so called “(p, q) model” of two-dimensional quan-
+tum gravity coupled to conformal matters. One will immediately notice an
+analogy with canonical commutation relations in quantum mechanics. In
+fact, this equation is also frequently treated in the h̄-dependent form
+
+                                  [Q, P ] = h̄,                          (2.3)
+
+where P and Q are given by
+
+                   P = (h̄∂x )p + a2 (h̄∂x )p−2 + · · · + ap ,
+                   Q = (h̄∂x )q + b2 (h̄∂x )q−2 + · · · + bq .           (2.4)
+
+    Remarkably, quasi-periodic solutions and their degeneration (trigonomet-
+ric and rational solutions) of the KP hierarchy, too, are characterized by a
+similar commutator equation of the form
+
+                                  [Q, P ] = 0.                           (2.5)
+
+This equation has a rather long history of researches [7]. Let us call it the
+“Burchnall-Chaundy equation”. A fundamental fact is that such a commut-
+ing pair of ordinary diﬀerential operators satisfy a polynomial relation with
+constant coeﬃcients:
+                                 R(P, Q) = 0.                            (2.6)
+This relation deﬁnes a complex algebraic curve, R(X, Y ) = 0, which can
+be compactiﬁed by adding a point at inﬁnity. This is exactly the “spectral
+curve”. Conversely, given a complex algebraic curve (Riemann surface) with
+
+                                        3
+a set of additional data, one can construct a commuting pair of ordinary
+diﬀerential operators [1].
+   The Burchnall-Chaundy equation is related to the Lax formalism of the
+KP hierarchy as follows. The Lax operator of the KP hierarchy is a pseudo-
+diﬀerential operator of the form
+                                        ∞
+                                        X
+                           L = ∂x +         un+1 ∂x−n ,                 (2.7)
+                                      n=1
+
+and obeys the Lax equations
+                                ∂L
+                                    = [Bn , L].                         (2.8)
+                                ∂tn
+The Zakharov-Shabat operators Bn are given by
+                                        ³    ´
+                                Bn = Ln               ,                 (2.9)
+                                                 ≥0
+
+where “( )≥0 ” denotes the projection onto the space spanned by nonnegative
+powers of ∂x . Now suppose that P and Q are written
+
+                           P = f (L),       Q = g(L),                 (2.10)
+
+where f and g are Laurent series with constant coeﬃcients of the form
+
+                  f (L) = Lp + p2 Lp−2 + p3 Lp−3 + . . . ,
+                   g(L) = Lq + q2 Lq−2 + q3 Lq−3 + . . . .            (2.11)
+
+They obviously commute. To give a solution of the Burchnall-Chaundy equa-
+tion, P and Q are required to be diﬀerential operators. This requirement can
+be rewritten
+                         (P )≤−1 = 0, (Q)≤−1 = 0.                     (2.12)
+where “( )≤−1 ” denotes the projection onto the space spanned by negative
+powers of ∂x . These conditions are conserved under all tn ﬂows of the KP
+hierarchy, hence may be interpreted as a constraint to the KP hierarchy.
+Algebro-geometric methods for the problem of a commuting pair of diﬀeren-
+tial operators [1] are thus reformulated in the language of the KP hierarchy
+[3].
+
+                                        4
+    Although looking very similar, the Douglas equation has quite diﬀerent
+properties. First of all, P and Q no longer satisfy an algebraic relation
+of the form R(P, Q) = 0 (hence there is no analogue of spectral curves).
+One might have an impression that the relation between the Douglas and
+Burchnall-Chaundy equations is reminiscent of quantum and classical me-
+chanics, because classical mechanics deals with commuting quantities (c-
+numbers) whereas quantum mechanical quantities are non-commutative (q-
+numbers). This analogy, however, is somewhat misleading. According to the
+ordinary prescription of classical limit in quantum mechanics, the quantum
+mechanical commutator will be replaced by a Poisson bracket as
+
+                           h̄−1 [Q, P ] → {Q, P }                    (2.13)
+
+in the limit of h̄ → 0, and the Douglas equation will turn into a Poisson
+bracket relation of the form
+                               {Q, P } = 1                         (2.14)
+rather than the Burchnall-Chaundy equation.
+   To translate the Douglas equation into the language of the KP hierarchy,
+we need an extended Lax formalism developed by Orlov and Shulman [9].
+This contains, besides the standard Lax operator L, another operator M
+(Orlov-Shulman operator) of the form
+                         ∞
+                         X                       ∞
+                                                 X
+                   M=              n−1
+                               ntn L     +x+           vn L−n−1      (2.15)
+                         n=2                     n=1
+
+that obey the Lax equations
+                                ∂M
+                                    = [Bn , M ]                      (2.16)
+                                ∂tn
+and the canonical commutation relation
+
+                                  [L, M ] = 1.                       (2.17)
+
+Let us now consider the operators P and Q of the form
+
+                   P = Lp ,
+                         1        p − 1 −p
+                   Q = − M L1−p +      L + Lq ,                      (2.18)
+                         p          2p
+
+                                         5
+which automatically obey the canonical commutation relation
+                                   [Q, P ] = 1.                         (2.19)
+We further put constraints
+                         (P )≤−1 = 0,       (Q)≤−1 = 0,                (2.20)
+and restrict the range of time variables to
+                          tp+q = tp+q+1 = · · · = 0.                   (2.21)
+P and Q then become diﬀerential operators of the required form, and give a
+solution of the Douglas equation. From the standpoint of the KP hierarchy,
+therefore, it is the above constraints rather than the Douglas equation itself
+that plays a more fundamental role. In our terminology, “string equations”
+mean such constraints.
+    This correspondence with the KP hierarchy allows one to use many pow-
+erful tools developed for the study of the KP hierarchy, such as the Sato
+Grassmannian, the Hirota equations, W1+∞ algebras, etc. [8, 10, 11, 12].
+    The case of (p, 1) or (1, q) models has been studied with particular in-
+terest. A main reason is that this is case where the models are expected
+to describe “topological gravity” [13]. Furthermore, unlike the other (p, q)
+models, the string equation of the (p, 1) models can be solved explicitly in
+terms of a “matrix Airy function” (or “Kontsevich integral”) [14, 15, 16].
+This is a matrix integral of the form
+                             Z
+                                                        1
+             Z(Λ) = CN (Λ)        dM exp Tr(Λp M −         M p+1 ),    (2.22)
+                                                       p+1
+where the integral is over the space of N × N Hermitian matrices, Λ is
+an N × N Hermitian matrix variable, and CN (Λ) is a normalization factor
+that also plays an important role. Kontsevich [14] pointed out two distinct
+interpretations of this integral. According to the ﬁrst interpretation, this
+function can be viewed as a τ function of the KP hierarchy,
+                                  Z(Λ) = τ (t),                        (2.23)
+by the so called “Miwa transformation”:
+                                               N
+                                 1          1X
+                         tn =      Tr Λ−n =      λ−n .                  (2.24)
+                                 n          n i=1 i
+
+                                        6
+Here λ1 , . . . , λN are eigenvalues of Λ. According to the second interpretation
+(which is proven only for p = 2), this integral is a generating function of
+cohomological intersection numbers on moduli spaces of Riemann surfaces
+(in other words, the partition function of topological gravity). Kontsevich
+thus proved physicists’ conjecture [13] at least in the case of p = 2.
+    The above p-th generalized Kontsevich model are further generalized by
+Kharchev et al. [17].
+
+
+3     Dispersionless KP hierarchy
+Let us illustrate the concept of “dispersionless limit” in the case of the KdV
+equation. To this end, it is convenient to write the KdV equation as
+
+                            ut + uux + ²2 uxxx = 0.                        (3.1)
+
+Dispersionless limit means the limit as ² → 0. Formally, the equation then
+becomes
+                               ut + uux = 0.                          (3.2)
+This equation is well known to develop a shock wave in ﬁnite time. In
+the presence of the nonzero dispersion term ²2 uxxx , this purely nonlinear
+eﬀect is balanced with dispersion eﬀect, so that stable waves like solitons can
+exist. We shall not go into such analytical issues, and only consider formal
+aspects of dispersionless limit. We are, for instance, interested in the fact
+that the dispersionless equation can be solved by the so called “hodograph
+transformation”
+                                x − tu = f (u).                           (3.3)
+Here f (u) is an arbitrary function, and u = u(t, x) is understood to be deﬁned
+implicitly by this equation.
+    The small parameter ² actually plays the role of the Planck constant h̄
+that we have observed in the classical limit of the Douglas equation. The
+same idea can be applied to the KP hierarchy itself. Let us replace ∂x →
+h̄∂x in the formulation of the KP hierarchy. The Lax and Orlov-Shulman
+operators are then given by
+                                   ∞
+                                   X
+                    L = h̄∂x +           un+1 (h̄∂x )−n ,
+                                   n=1
+
+
+                                          7
+                           ∞
+                           X                           ∞
+                                                       X
+                  M =            ntn Ln−1 + x +              vn L−n−1 ,      (3.4)
+                           n=2                         n=1
+
+where the coeﬃcients are now allowed to depend on h̄ as well as (t, x). The
+Lax equations and the canonical commutation relations, too, are modiﬁed
+as:
+                      ∂L                 ∂M
+                   h̄     = [Bn , L], h̄     = [Bn , M ]               (3.5)
+                      ∂tn                ∂tn
+and
+                               [L, M ] = h̄.                           (3.6)
+Let us further assume that the coeﬃcients un and vn have a smooth limit
+u(0)
+  n and vn
+           (0)
+               as h̄ → 0. (In fact, this is a rather strong condition. One
+can obtain a solution of the above h̄-dependent KP hierarchy from the h̄-
+independent hierarchy just by rescaling tn → h̄−1 tn and x → h̄−1 x, however
+it does not satisfy the last condition in general. Meanwhile, the solutions
+given by the generalized Kontsevich models do satisfy this condition, and
+have a dispersionless limit. We shall give a direct construction of this solu-
+tion below.) As h̄ → 0, operators and commutators are replaced by their
+“classical” counterparts,
+
+                      h̄∂x → p,        h̄−1 [A, B] → {A, B}.                 (3.7)
+
+The Poisson bracket is given by
+
+                      {A, B} = ∂p A · ∂x B − ∂x A · ∂p B.                    (3.8)
+
+L and M are accordingly replaced by the Laurent series
+                                 ∞
+                                 X      (0)
+                   L = p+              un+1 p−n ,
+                                 n=1
+                          ∞
+                          X                            ∞
+                                                       X
+                  M =           ntn Ln−1 + x +              vn(0) L−n−1 ,    (3.9)
+                          n=2                         n=1
+
+which satisfy the Lax equations
+                     ∂L                           ∂M
+                         = {Bn , L},                  = {Bn , M}            (3.10)
+                     ∂tn                          ∂tn
+
+
+                                              8
+and the canonical relation
+                                 {L, M} = 1                             (3.11)
+with respect to the above Poisson bracket. Furthermore, Bn are given by
+                                      ³   ´
+                                Bn = Ln            ,                    (3.12)
+                                              ≥0
+
+where “( )≥0 ” now stands for the projection of Laurent series of p into the
+polynomial part. This hierarchy is called the “dispersionless KP hierarchy”
+[18]. As we have shown, its essence is rather a kind of classical limit of a
+quantum mechanical system (i.e., the full KP hierarchy).
+    In fact, this analogy with classical limit of quantum mechanics stems from
+a more profound structure. The Lax equations and the canonical commuta-
+tion relations are derived as Frobenius integrability conditions of the linear
+system
+                      ∂Ψ                            ∂Ψ
+                   h̄     = Bn Ψ, λΨ = LΨ, h̄           = M Ψ.           (3.13)
+                      ∂tn                           ∂λ
+It is a “WKB analysis” of this quantum mechanical linear system that un-
+derlies the classical limit of the Lax formalism presented above [18]. Further-
+more, the τ function, too, turns out to exhibit certain asymptotic behavior
+as h̄ → 0, which is also crucial for understanding the meaning of the “free
+energy” function in various matrix models and topological string theories [6].
+    String equations of the (p, q) model, too, have a natural counterpart in
+the dispersionless limit. In the present h̄-dependent formulation, P and Q
+are given by
+
+                    P = Lp ,
+                          1           p − 1 −p
+                    Q = − M L1−p + h̄      L + Lq .                     (3.14)
+                          p             2p
+In particular, the second term on the right hand side turns out to be a
+“quantum correction”, and disappears in the dispersionless limit. In the
+limit to the dispersionless KP hierarchy, these operators turn into the Laurent
+series
+
+                          P = Lp ,
+                                1
+                          Q = − ML1−p + Lq ,                            (3.15)
+                                p
+
+                                      9
+and the constraints (string equations) become
+                          (P)≤−1 = 0,           (Q)≤−1 = 0.                  (3.16)
+If q = 1, these constraints can be solved explicitly by a hodographic method
+[19]. This solution coincides with the Ap−1 “topological strings” [20, 21].
+(Actually, a similar hodographic method can be used for topological strings
+of D-type [22].) One can thus identify the Ap−1 model of topological strings as
+a dispersionless limit (or “spherical limit” in the terminology of string theory)
+of the (p, 1) model, i.e., the p-th generalized Kontsevich model [23, 24].
+
+
+4     Toda lattice hierarchy and its dispersion-
+      less limit
+We now turn to the Toda lattice hierarchy [25]. The Lax and Orlov-Shulman
+operators of the Toda lattice hierarchy [26, 27] are diﬀerence operators of the
+form
+                                     ∞
+                                     X
+                     L = e∂s +             un+1 e−n∂s ,
+                                     n=0
+                             ∞
+                             X                       ∞
+                                                     X
+                    M =            ntn Ln + s +            vn L−n ,
+                             n=1                     n=1
+                                        ∞
+                                        X
+                     L̄ = ũ0 e∂s +           ũn+1 e(n+2)∂s ,
+                                        n=0
+                                ∞
+                                X                          ∞
+                                                           X
+                    M̄ = −           nt̄n L̄−n + s +             v̄n L̄n ,    (4.1)
+                               n=1                         n=1
+
+where en∂s are the shift operators that act on a function of s as en∂s f (s) =
+f (s + n). The coeﬃcients un , vn , ũn and v̄n are functions of (t, t̄, q), un =
+un (t, t̄, s), etc. (The bar “¯” does not mean complex conjugate.) These oper-
+ators obey the twisted canonical commutation relations
+                           [L, M ] = L,         [L̄, M̄ ] = L̄                (4.2)
+and the Lax equations
+                      ∂L                          ∂L
+                          = [Bn , L],                   = [B̄n , L],
+                      ∂tn                         ∂ t̄n
+
+                                           10
+                       ∂M                                    ∂M
+                              = [Bn , M ],                         = [B̄n , M ],
+                       ∂tn                                   ∂ t̄n
+                         ∂ L̄                                ∂ L̄
+                               = [Bn , L̄],                        = [B̄n , L̄],
+                         ∂tn                                 ∂ t̄n
+                       ∂ M̄                                  ∂ M̄
+                              = [Bn , M̄ ],                        = [B̄n , M̄ ],                  (4.3)
+                       ∂tn                                   ∂ t̄n
+
+where the Zakharov-Shabat operators Bn and B̄n are given by
+
+                           Bn = (Ln )≥0 ,            B̄n = (L̄−n )<0 ,                             (4.4)
+
+and ( )≥0,<0 denotes the projection
+           X                      X                          X                   X
+          (       an en∂s )≥0 =         an en∂s ,        (       an en∂s )<0 =         an en∂s .   (4.5)
+              n                   n≥0                        n                   n<0
+
+
+Note that M L−1 and M̄ L̄−1 give canonical conjugate “momenta” of L and
+L̄:
+                   [L, M L−1 ] = 1, [L̄, M̄ L̄−1 ] = 1.            (4.6)
+    The Toda lattice hierarchy, like the KP hierarchy has a “dispersionless”
+analogue [28, 29]. (As we shall show below, this is in fact a “long-wave limit”,
+but the hierarchy is now widely called the “dispersionless Toda hierarchy”.)
+    Let us show what this limit looks like in the lowest two-dimensional sector
+of the hierarchy, i.e., the two-dimensional Toda ﬁeld theory. In terms of two-
+dimensional ﬁelds u(s) = u(t1 , t̄1 , s), s ∈ Z, the equations of motion can be
+written
+                           ³                         ´              ³                      ´
+      ∂t1 ∂t̄1 u(s) = exp u(s + 1) − u(s) − exp u(s) − u(s − 1) .                                  (4.7)
+
+We now rescale the ﬁeld and space-time variables as
+
+                            ∂t1 → h̄∂t1 , ∂t̄1 → h̄∂t̄1 ,
+                            s ± 1 → s ± h̄, u(s) → h̄−1 u(s).                                      (4.8)
+
+The equations of motion then become
+                      Ã                                                                        !
+                   1     ³ u(s + 1) − u(s) ´      ³ u(s) − u(s − 1) ´
+   ∂t1 ∂t̄1 u(s) =    exp                    − exp                    ,                            (4.9)
+                   h̄             h̄                       h̄
+
+                                                    11
+and reduce, as h̄ → 0, to
+
+                               ∂t1 ∂t̄1 u = ∂s exp(∂s u).                        (4.10)
+
+This is the long-wave limit of the two-dimensional Toda equations. Remark-
+ably, this equation coincides with a dimensional reduction of the self-dual
+Einstein equation [30].
+    To extend this limit to the hierarchy itself, we need an h̄-dependent for-
+mulation of the Toda lattice hierarchy. This can be achieved by inserting h̄
+in front of all derivatives in the previous equations as:
+                  ∂        ∂            ∂          ∂
+                     → h̄     ,              → h̄       ,      e∂s → eh̄∂s .     (4.11)
+                 ∂tn      ∂tn          ∂ t̄n      ∂ t̄n
+The discrete variable s now takes values in h̄Z. Accordingly, Lax and Orlov-
+Shulman operators are diﬀerence operators of the form
+                                          ∞
+                                          X
+                        L = eh̄∂s +             un+1 e−nh̄∂s ,
+                                          n=0
+                                ∞
+                                X                       ∞
+                                                        X
+                       M =            ntn Ln + s +            vn L−n ,
+                                n=1                     n=1
+                                            ∞
+                                            X
+                        L̄ = ũ0 eh̄∂s +           ũn+1 e(n+2)h̄∂s ,
+                                            n=0
+                                  ∞
+                                  X                           ∞
+                                                              X
+                       M̄ = −            nt̄n L̄−n + s +            v̄n L̄n ,    (4.12)
+                                  n=1                         n=1
+
+and obey the twisted canonical commutation relations
+
+                           [L, M ] = h̄L,         [L̄, M̄ ] = h̄L̄,              (4.13)
+
+and Lax equations
+                       ∂L                       ∂L
+                  h̄       = [Bn , L],     h̄         = [B̄n , L],       etc..   (4.14)
+                       ∂tn                      ∂ t̄n
+    We can now proceed as in the KP hierarchy. In this h̄-dependent formu-
+lation, the long-wave limit is nothing but the “classical limit”:
+
+                    eh̄∂s → P = ep ,        h̄−1 [A, B] → {A, B}.                (4.15)
+
+                                            12
+The Poisson bracket takes a somewhat unusual form,
+                       {A, B} = P ∂P A · ∂s B − ∂s A · P ∂P B.                           (4.16)
+Thus, in particular,
+                                       {P, s} = P,                                       (4.17)
+or, equivalently,
+                                     {P, sP −1 } = 1.                                    (4.18)
+Counterparts of the Lax and Orlov-Shuman operators are given by the Lau-
+rent series
+                                       ∞
+                                       X         (0)
+                       L = P+                un+1 P −n ,
+                                       n=0
+                               ∞
+                               X                              ∞
+                                                              X
+                     M =                     n
+                                      ntn L + s +                   vn(0) L−n ,
+                               n=1                            n=1
+                                             ∞
+                                             X
+                                (0)                     (0)
+                       L̄ = ũ0 P +                    ũn+1 P n+2 ,
+                                             n=0
+                                 ∞
+                                 X                                  ∞
+                                                                    X
+                     M̄ = −             nt̄n L̄−n + s +                   v̄n(0) L̄n ,   (4.19)
+                                 n=1                                n=1
+
+where u(0)
+       n = un |h̄→0 , etc. They obey the twisted canonical relations
+
+                           {L, M} = L,                 {L̄, M̄} = L̄                     (4.20)
+and the Lax equations
+                       ∂L                                ∂L
+                            = {Bn , L},                        = {B̄n , L},
+                       ∂tn                               ∂ t̄n
+                    ∂M                                   ∂M
+                           = {Bn , M},                         = {B̄n , M},
+                    ∂tn                                  ∂ t̄n
+                       ∂ L̄                              ∂ L̄
+                            = {Bn , L̄},                       = {B̄n , L̄},
+                       ∂tn                               ∂ t̄n
+                    ∂ M̄                                 ∂ M̄
+                           = {Bn , M̄},                        = {B̄n , M̄}              (4.21)
+                    ∂tn                                  ∂ t̄n
+with respect to the above Poisson bracket. This hierarchy is called “disper-
+sionless Toda hierarchy”.
+    Various results on the dispersionless KP hierarchy are extended to this
+hierarchy [6].
+
+                                                 13
+5    String equations in Toda lattice hierarchy
+As for the Toda lattice hierarchy, our knowledge on string equations is more
+fragmental, but simultaneously suggests richer possibilities.
+    An important family of string equations is provided by Hermitian (one-
+and multi-)matrix models. These matrix models give a special solution of the
+Toda lattice hierarchy satisfying extra “Virasoro constraints” [31]. In fact,
+Virasoro constraints are string equations in disguise. This fact lies in the
+heart of the matrix model approach to two-dimensional quantum gravity. To
+arrive at the continuum limit (two-dimensional gravity), however, one has to
+take the so called “double scaling limit” [4, 5]. This scaling limit destroys
+the structure of the Toda lattice hierarchy, and the ﬁnal outcome is rather
+the KP hierarchy and the string equations of (p, q) models.
+    In recent years, several new, and more natural examples of string equa-
+tions in the Toda lattice hierarchy have come to be studied. These ex-
+amples are mostly related to string theories with a one-dimensional target
+space: c = 1 strings [32, 33, 34, 35], two-dimensional topological strings
+[36, 37, 38, 39, 40], the topological CP 1 sigma model and its variations re-
+lated to aﬃne Coxeter groups [41, 42, 43].
+    String equations in those models are formulated in the form of a canonical
+transformation between the two canonical pairs (L, M ) and (L̄, M̄ ). For
+instance, string equations of the one-matrix model can be written
+
+                        L = L̄−1 ,   M L−1 = −M̄ L̄,                     (5.1)
+
+and those of the two-matrix model are given by
+
+                       L = −M̄ L̄,    M L−1 = −L̄−1 .                    (5.2)
+
+The string equations of the one-matrix model are coordinate-to-coordinate
+and momentum-to-momentum relations, and those of the two-matrix model
+mix coordinates and momenta.
+   A remark will be now in order: String equations in the literature may
+have extra terms on the right hand side such as V 0 (L) where V is a matrix
+model potential. These extra terms can be absorbed into redeﬁnition of M
+and M̄ as
+                   M → M + f (L), M̄ → M̄ + g(L̄),                    (5.3)
+
+
+                                     14
+where f (L) and g(L̄) are Laurent series of L and L̄ with constant coeﬃcients.
+The above equations should be understood in this manner.
+    Actually, most examples of string equations in the Toda lattice hierarchy
+are variants of the above two. For instance, a straightforward generalization
+of the string equations of the one-matrix model will be given by
+                                        1         −1
+                       Lp = L̄−p̄ ,       M L−p =     M̄ L̄p̄ .            (5.4)
+                                        p          p̄
+This is indeed the model of Aoyama and Kodama [44], which contains several
+interesting models of topological strings as special solutions. (More precisely,
+they consider these string equations in the dispersionless limit.)
+    Similarly, a generalization of the string equations of the two-matrix model
+will be of the form
+                           1               1
+                       Lp = M̄ L̄p̄ ,     − M L−p = L̄−p̄ .                (5.5)
+                           p̄              p
+String equations of compactiﬁed c = 1 strings are indeed of this type [34]:
+                                 ³
+                                 1        β+1    ´
+                      Lβ =      − M̄ − h̄     + 1 L̄β ,
+                                 β         2β
+                               ³ 1        β−1
+                    L̄−β     = − M + h̄       + 1)L−β .                    (5.6)
+                                 β         2β
+Here β is a positive integer parameter related to the compactiﬁcation redius
+of strings. In this case, p and p̄ are given by p = −p̄ = β. The extra terms
+other than M̄ L̄β and M L−β on the right hand side, as noted above, can be
+absorbed into (or reproduced from )redeﬁnition of M and M̄ .
+    The last example can be generalized as follows [45]: Given a pair of
+integers (p, p̄) with pp̄ 6= 0, one can construct a solution of the Toda lattice
+hierarchy that obeys the string equations
+                             1                p̄ − 1 −p̄
+                    Lp =        M̄ L̄−p̄ − h̄        L̄ + L̄p̄ ,
+                             p̄                  2p̄
+                                1                p − 1 −p
+                    L̄p̄   = − M L−p + h̄              L + Lp̄ .           (5.7)
+                                p                  2p
+    Let us show an outline of the construction of the solution [45]. The
+solution is given in terms of the τ function τ = τ (t, t̄, s). The τ function of
+
+                                          15
+any solution of the Toda lattice hierarchy can be written (at least formally)
+as a semi-inﬁnite determinant of the form
+                                          ³                                    ´
+                    τ (t, t̄, s) = det uij (t, t̄) (−∞ < i, j < s) .                             (5.8)
+                ³             ´
+Here U(t, t̄) = uij (t, t̄) is an inﬁnite (Z × Z) matrix connected with its
+“initial value” U = U(0, 0) as
+                                    ∞
+                                    X                                  ∞
+                                                                       X
+              U(t, t̄) = exp(             tn Λn )U(0, 0) exp(−               t̄n Λ−n ).          (5.9)
+                                    n=1                                n=1
+
+Λn are the shift matrices                         ³        ´
+                                          Λn = δi,j−n .                                         (5.10)
+Thus the matrix U determines a solution of the Toda lattice hierarchy. In
+the construction of a solution of the above string equations, we deﬁne the
+matrix elements uij to be coeﬃcients of asymptotic expansion of a set of
+generating functions. Let us now consider the case of p + p̄ > 0. (The case
+of p + p̄ = 0 coincides with the c = 1 strings mentioned above. The case of
+p + p̄ < 0 requires a slightly diﬀerent treatment.) The generating functions
+uj (λ) (j ∈ Z) are given by integrals of the form
+                          Z                                        ³                       ´
+                                                                                 p̄
+        uj (λ) = c(λ)             dµµ(p̄−1)/2−j−1 exp h̄−1 λp µp̄ −                   µp+p̄ ,
+                                                                               p + p̄
+                                                       ³ −p            ´
+         c(λ) = const. λ(p−1)/2 exp h̄−1                           λp+p̄ .                      (5.11)
+                                                          p + p̄
+The integrals are over a complex path passing through µ = λ. The detailed
+form of the path is irrelevant; the essence is that it is only a neighborhood of
+µ = λ (saddle point) that eventually contributes to asymptotic expansion as
+λ → +∞. One can show by the standard saddle point calculation that these
+functions have asymptotic expansion of the following form:
+                                      ∞
+                                      X
+                        uj (λ) ∼              λ−i−1 uij    (λ → +∞).                            (5.12)
+                                      i=j
+
+The matrix elements uij of U are thus determined. In particular, U is a
+lower triangular matrix with nonvanishing diagonal elements. This allows us
+to express the τ function as a ﬁnite determinant under the Miwa transfor-
+mation of time variables. Furthermore, these matrix elements obey a set of
+
+                                                  16
+linear relations. Translated into the language of the Lax and Orlov-Shulman
+operators, these linear relations give rise to the string equations above.
+    This construction is almost parallel to the case of the (generalized) Kont-
+sevich models in the KP hierarchy In particular, the p-th generalized Kont-
+sevich model itself can be reinterpreted as a solution of the Toda lattice
+hierarechy of this type with (p, p̄) = (p, −1). Apart from this case and the
+case of p̄ = 1, however, the solution does not have a matrix integral represen-
+tation of Kontsevich type. Such a matrix integral representation is crucial
+for identifying the model with a topological ﬁeld theory. Because of the
+absence of such a matrix integral representation, it is unclear if these gener-
+alized string equations have any physical interpretation (hopefully, as a kind
+of c = 1 string theory).
+
+
+6     Conclusion
+Since the late eighties, string theories have provided a variety of new material
+to studies on integrable hierarchies. The concept of string equations has been
+in the center of this new trend. Of course, several key ingredients had been
+prepared in advance in the early eighties:
+
+    1. The theory of τ functions [2] forms a theoretical foundation of all the
+       subsequent progress.
+
+    2. The theory of Orlov and Shulman [9], which was developed for a slightly
+       diﬀerent purpose, is now the most natural and useful framework for
+       formulating string equations.
+
+    3. String equations are also related to isomonodromy deformations and
+       Painlevé transcendents [46]. The string equation of (2, 3) model, for
+       instance, is nothing but the ﬁrst Painlevé equation in disguise. Fur-
+       thermore, although we have omitted in this review, there is another
+       family of matrix models, the “unitary matrix models”, and their dou-
+       ble scaling limit [31]. In the simplest case, this gives the the second
+       Painlevé equation. All these models have an interpretation as isomon-
+       odromy deformations [47].
+
+
+
+
+                                      17
+  4. The theory of dispersionless integrable hierarchies and related “hydro-
+     dynamic integrable systems” is very useful in both technical and con-
+     ceptual aspects.
+
+    The last point deserves to be mentioned in more detail. As pointed out
+by Dubrovin [48] in a far broader scope, this type of integrable structures can
+be found in many models of two-dimensional topological ﬁeld theories. The
+dispersionless KP and Toda hierarchies are just the simplest examples, and
+moreover, of “genus zero” type. “Higher genus” counterparts (i.e., systems
+related to a moduli space of higher genus Riemann surfaces) are given by
+the so called “Whitham equations”. These equations were ﬁrst derived as
+equations for modulation of quasi-periodic solutions in soliton equations [49],
+and later reformulated in a more abstract way by Dubrovin [50] and Krichever
+[51]. Very recently, it is pointed out that this type of equations also emerge
+in four dimensional N = 2 supersymmetric gauge theories [52]. This seems
+to indicate a new link between integrable hierarchies and solvable quantum
+ﬁeld theories (and underlying string theories).
+
+
+References
+ [1] B.A. Dubrovin, V.B. Matveev and S.P. Novikov, Non-linear equations
+     of Korteweg-de Vries type, ﬁnite-zone linear operators and Abelian va-
+     rieties, Russ. Math. Surveys 31:1 (1976), 59-146.
+     I.M. Krichever, Methods of algebraic geometry in the theory of nonlin-
+     ear equations, Russ. Math. Surveys 32:6 (1977), 185-213.
+     D. Munford, An algebro-geometric construction of commuting opera-
+     tors and of solutions to the Toda lattice equation, Korteweg-de Vries
+     equation and related non-linear equations, in: Proc. International Sym-
+     posium of Algebraic Geometry, Kyoto 1977, pp. 115-153 (Kinokuniya,
+     Tokyo, 1978).
+
+ [2] M. Sato and Y. Sato, Soliton equations as dynamical systems on inﬁ-
+     nite dimensional Grassmann manifold, in Nonlinear Partial Diﬀerential
+     Equations in Applied Science; Proceedings of the U.S.-Japan Seminar,
+     Tokyo, 1982, Lect. Notes in Num. Anal. 5 (1982), 259-271.
+     M. Sato and M. Noumi, Soliton equations and the universal Grassmann
+     manifolds, Sophia Univ. Kokyuroku in Math. 18 (1984), in Japanese.
+
+                                      18
+   E. Date, M. Kashiwara, M. Jimbo and T. Miwa, Transformation groups
+   for soliton equations, in Nonlinear Integrable Systems – Classical Theory
+   and Quantum Theory (World Scientiﬁc, Singapore, 1983), 39-119.
+   G. Segal and G. Wilson, Loop groups and equations of KdV type, IHES
+   Publ. Math. 63 (1985) 1-64.
+
+[3] M. Mulase, Cohomological structure in soliton equations and Jacobian
+    varieties, J. Diﬀ. Geom. 19 (1984), 403-430; Category of vector bun-
+    dles on algebraic curves and inﬁnite dimensional Grassmannians, Int. J.
+    Math. 1 (1990), 293-342.
+    Shiota, T., Characterization of Jacobian varieties in terms of soliton
+    equations, Inv. Math. 83 (1986), 333-382.
+
+[4] E. Brezin and V.A. Kazakov, Exactly solvable ﬁeld theories of closed
+    strings, Phys. Lett. B236 (1990), 144-150.
+    M.R. Douglas and S.H. Shenker, Strings in less than one-dimension,
+    Nucl. Phys. B335 (1990), 635-654.
+    D.J. Gross and A.A. Migdal, Nonperturbative two-dimensional quantum
+    gravity, Phys. Rev. Lett. 64 (1990), 127-130.
+
+[5] M. Douglas, Strings in less than one-dimension and the generalized K-
+    dV hierarchies, Phys. Lett. 238B (1990) 176-180.
+
+[6] Papers dealing with string equations:
+    K. Takasaki and T. Takebe, SDiﬀ(2) KP hierarchy, in: A. Tsuchiya, T.
+    Eguchi and T. Miwa (eds.), Inﬁnite Analysis, RIMS Research Project
+    1991, Int. J. Mod. Phys. A7, Suppl. 1, pp.889-922 (World Scientiﬁc,
+    Singapore, 1992).
+    K. Takasaki, Integrable hierarchy underlying topological Landau-
+    Ginzburg models of D-type, Lett. Math. Phys. 29 (1993), 111-121.
+    K. Takasaki, Dispersionless Toda hierarchy and two-dimensional string
+    theory, Commun. Math. Phys. 170 (1995), 101-116.
+    T. Nakatsu, K. Takasaki and S. Tsujimaru, Quantum and classical as-
+    pects of deformed c = 1 strings, Nucl. Phys. B443 (1995), 15-197.
+    K. Takasaki, Toda lattice hierarchy and generalized string equations,
+    KUCP-0079, hep-th/9506089.
+    Related topics (mostly, dispersionless limit):
+    K. Takasaki and T. Takebe, Integrable hierarchies and dispersionless
+
+                                   19
+    limit, UTMS 94-35, hep-th/9405096, Rev. Math. Phys. (to appear), and
+    references cited therein.
+
+ [7] J.L. Burchnall and T.W. Chaundy, Commutative ordinary diﬀerential
+     operators, Proc. London Math. Soc. 21 (1922), 420-440; Proc. Royal So.
+     London A118 (1928), 557-583; ibid. 134 (1931), 471-485.
+
+ [8] A. Schwarz, On solutions to the string equations, Mod. Phys. Lett. A6
+     (1991), 2713-2726.
+     V. Kac and A.Schwarz, Geometric interpretation of partition function
+     of 2D gravity, Phys. Lett. B257 (1991), 329-334.
+
+ [9] A.Yu. Orlov and E.I. Schulman, Additional symmetries for integrable
+     equations and conformal algebra representation, Lett. Math. Phys. 12
+     (1986), 171-179.
+                                       ¯
+     A.Yu. Orlov, Vertex operators, ∂-problems,     symmetries, variational
+     indentities and Hamiltonian formalism for 2 + 1 integrable systems,
+     in Plasma Theory and Nonlinear and Turbulent Processes in Physics
+     (World Scientiﬁc, Singapore, 1988).
+     P.G. Grinevich and A.Yu. Orlov, Virasoro action on Riemann surfaces,
+     Grassmannians, det ∂¯j and Segal Wilson τ function, in Problems of Mod-
+     ern Quantum Field Theory (Springer-Verlag, Berlin, 1989).
+
+[10] J. Goeree, W constraints in 2d quantum gravity, Nucl. Phys. B358
+     (1991), 737-757.
+
+[11] M. Fukuma, H. Kawai and R. Nakayama, Inﬁnite dimensional Grass-
+     mannian structure of two dimensional string theory, Commun. Math.
+     Phys. 143 (1991), 371-403.
+
+[12] T. Yoneya, Toward a canonical formalism of non-perturbative two-
+     dimensional gravity, Commun. Math. Phys. 144 (1992), 623-639.
+
+[13] E. Witten, On the structure of the topological structure of the topolog-
+     ical phase of two dimensional gravity, Nucl. Phys. B340 (1990), 281.
+     R. Dijkgraaf and E. Witten, Mean ﬁeld theory, topological ﬁeld theory,
+     and multi-matrix models, Nucl. Phys. B342 (1990), 486.
+     E. Verlinde and H. Verlinde, A solution of two-dimensional topological
+     quantum gravity, Nucl. Phys. B348 (1991), 457.
+
+                                     20
+     E. Witten, Two dimensional gravity and intersection theory on moduli
+     spaces, Surveys in Diﬀ. Geom. 1 (1991), 243.
+     R. Dijkgraaf, Intersection theory, integrable hierarchies, and topologi-
+     cal ﬁeld theory, in New Symmetry Principles in Quantum Field Theory,
+     NATO ASI Cargèse 1991 (Plenum, 1991).
+[14] M. Kontsevich, Intersection theory on the moduli space of curves and
+     the matrix Airy function, Commun. Math. Phys. 147 (1992), 1-23.
+[15] M. Adler and P. van Moerbeke, A matrix integral solution to two-
+     dimensional Wp -gravity, Commun. Math. Phys. 147 (1992), 25-56.
+[16] C. Itzykson, and J.B. Zuber, Combinatorics of the modular group II:
+     the Kontsevich integrals, Intern. J. Mod. Phys. A7 (1992), 5661-5705.
+[17] S. Kharchev, A. Marshakov, A. Mironov, A. Morozov and A. Zabrodin,
+     Towards uniﬁed theory of 2d gravity, Nucl. Phys. B380 (1992), 181-240.
+[18] Y. Kodama, A method for solving the dispersionless KP equation and
+     its exact solutions, Phys. Lett. 129A (1988), 223-226.
+     Y. Kodama and J. Gibbons, A method for solving the dispersionless KP
+     hierarchy and its exact solutions, II, Phys. Lett. 135A (1989), 167-170.
+     Y. Kodama and J. Gibbons, Integrability of the dispersionless KP hier-
+     archy in: Proceedings of Workshop “Nonlinear and Turbulent Processes
+     in Physics”, Kiev 1989 (World Scientiﬁc, Singapore, 1990).
+[19] K. Takasaki and T. Takebe, SDiﬀ(2) KP hierarchy [6]
+[20] R. Dijkgraaf, H. Verlinde E. Verlinde, Topological strings in d < 1, Nucl.
+     Phys. B352 (1991), 59-86; Loop equations and Virasoro constraints in
+     non-perturbative 2d quantum gravity, Nucl. Phys. B348 (1991), 435-
+     456.
+[21] I.M. Krichever, The dispersionless Lax equations and topological mini-
+     mal models, Commun. Math. Phys. 143 (1991), 415-426.
+[22] K. Takasaki, Integrable hierarchy underlying . . . [6].
+[23] S. Kharchev, A. Marshakov, A. Mironov and A. Morozov, Landau-
+     Ginzburg topological theories in the framework of GKM and equivalent
+     hierarchies, Mod. Phys. Lett. A8 (1993), 1047-1062.
+
+                                       21
+[24] T. Nakatsu, A. Kato, M. Noumi and T. Takebe, Topological strings,
+     matrix integrals, and singularity theory, Phys. Lett. B322 (1994), 192-
+     197.
+
+[25] K. Ueno and K. Takasaki, Toda lattice hierarchy, in Group Representa-
+     tions and Systems of Diﬀerential Equations, K. Okamoto ed., Advanced
+     Studies in Pure Math. 4 (North-Holland/Kinokuniya, 1984).
+
+[26] K. Takasaki and T. Takebe, Quasi-classical limit of Toda hierarchy and
+     W-inﬁnity symmetries, Lett. Math. Phys. 28 (1993), 165-176.
+
+[27] M. Adler, T. Shiota and P. van Moerbeke, A Lax Representation for the
+     Vertex Operator and the central extension, Commun. Math. Phys. 171
+     (1995), 547-588.
+
+[28] Y. Kodama, Solutions of the dispersionless Toda equation, Phys. Lett.
+     147A (1990), 477-482.
+
+[29] K. Takasaki and T. Takebe, SDiﬀ(2) Toda equation - hierarchy, tau
+     function and symmetries, Lett. Math. Phys. 23 (1991), 205-214.
+
+[30] C. Boyer and J.D. Finley, Killing vectors in self-dual, Euclidean Einstein
+     spaces, J. Math. Phys. 23 (1982), 1126-1128.
+     J.D. Gegenber and A. Das, Stationary Riemannian space-times with
+     self-dual curvature, Gen. Rel. Grav. 16 (1984), 817-829.
+
+[31] A. Gerasimov, A. Marshakov, A. Mironov, A. Morozov and A. Orlov,
+     Matrix models of 2D gravity and Toda theory, Nucl. Phys. B357 (1991),
+     565-618.
+     E.J. Martinec, On the origin of integrability in matrix models, Commun.
+     Math. Phys. 138 (1991), 437-450.
+     L. Alvarez-Gaumé, C. Gomez and J. Lacki, Integrability in random ma-
+     trix models, Phys. Lett. B253 (1991), 56-62.
+     L. Bonora and C.S. Xiong, Matrix models without scaling limit, Int. J.
+     Mod. Phys. A8 (1993), 2973-2992; Multimatrix models without contin-
+     uum limit, Nucl. Phys. B405 (1993), 191-227.
+     S. Kharchev, A. Marshakov, A. Mironov and A. Morozov, Generalized
+     Kontsevich model versus Toda hierarchy and discrete matrix models,
+     Nucl. Phys. B397 (1993), 339-378.
+
+                                      22
+[32] R. Dijkgraaf, G. Moore and R. Plesser, The partition function of 2D
+     string theory, Nucl. Phys. B394 (1991), 356-382.
+
+[33] A. Marshakov, On the string ﬁeld theory for c ≤ 1, in Pathways to
+     Fundamental Theories, Geteborg, Sweden, 1992 (World Scientiﬁc, Sin-
+     gapore, 1993).
+
+[34] T. Nakatsu, On the string equation at c = 1, Mod. Phys. Lett. A9
+     (1994), 3313-3324.
+
+[35] T. Nakatsu, K. Takasaki and S. Tsujimaru, Quantum and Classical
+     . . . [6].
+
+[36] D. Ghoshal and S. Mukhi, Topological Landau-Ginzburg model of two-
+     dimensional string theory, Nucl. Phy. B425 (1994), 173-190.
+
+[37] A. Hanany, Y. Oz and R. Plesser, Topological Landau-Ginzburg formu-
+     lation and integrable structure of 2d string theory, Nucl. Phys. B425
+     (1994), 150-172.
+
+[38] T. Eguchi and H. Kanno, Toda lattice hierarchy and the topological
+     description of c = 1 string theory, Phys. Lett. B331 (1994), 330-334.
+
+[39] K. Takasaki, Dispersionless Toda hierarchy . . . [6].
+
+[40] L. Bonora and C.S. Xiong, Two-matrix model and c = 1 string theory,
+     Phys. Lett. B347 (1995), 41-48; Extended Toda lattice hierarchy, ex-
+     tended two-matrix model and c = 1 string theory, Nucl. Phys. B434
+     (1995), 408-444.
+
+[41] T. Eguchi and S.-K. Yang, The topological CP 1 model and the large N
+     matrix integral, Mod. Phys. Lett. A9 (1994), 2893-2902.
+
+[42] H. Kanno and Y. Ohta, Topological strings with scaling violation and
+     Toda lattice hierarchy, Nucl. Phys. B442 (1995), 179-204.
+
+[43] T. Eguchi, K. Hori and S.-K. Yang, Topological sigma models and large
+     N matrix integral, UT-700, hep-th/9503017.
+
+
+
+
+                                       23
+[44] S. Aoyama and Y. Kodama, Topological conformal ﬁeld theory with a
+     rational W potential and the dispersionless KP hierarchy, Mod. Phys.
+     Lett. A9 (1994), 2481; Topological Landau-Ginzburg theory with a ra-
+     tional potential and the dispersionless KP hierarchy, hep-th/9505122.
+
+[45] K. Takaski, Toda lattice hierarchy . . . [6].
+
+[46] H. Flaschka and A.C. Newell, Monodromy- and spectrum-preserving
+     deformations I, Commun. Math. Phys. 76 (1980), 65-116.
+     M. Mimbo, T. Miwa and K. Ueno, Monodromy preserving deformations
+     of linear ordinary diﬀerential equations with rational coeﬃcients I and
+     II, Physica 2D (1981), 306-352, 407-448.
+     T. Miwa, Painlevè property of monodromy preserving equations and the
+     analyticity of τ -functions, Publ. RIMS 17 (1981), 703-721.
+
+[47] G. Moore, Geometry of the string equations, Commun. Math. Phys.
+     133 (1990), 261-304; Matrix models of 2D gravity and isomonodromic
+     deformation, in: Common Trends in Mathematics and Quantum Field
+     Theories, Prog. Theor. Phys. Suppl. 102 (1990), 255-285.
+
+[48] B.A. Dubrovin, Integrable systems in topological ﬁeld theory, Nucl.
+     Phys. B379 (1992), 627-689; Geometry of 2D topological ﬁeld theories,
+     SISSA-89/94/FM, hep-th/9407018.
+
+[49] See the following reviews and references cited therein:
+     B.A. Dubrovin and S.P. Novikov, Hydrodynamics of weakly deformed
+     soliton lattices: Diﬀerential geometry and Hamiltonian theory, Russ.
+     Math. Surveys 44:6 (1989), 35-124.
+     P.D. Lax, C.D. Levermore and S. Venakides, The generation and propa-
+     gation of oscillations in dispersive initial value problems and their limit-
+     ing behavior, in: Important Developments in Soliton Theory, A.S. Fokas
+     and V.E. Zakharov (eds.), Series in Nonlinear Dynamics (Springer-
+     Verlag, Berlin, 1994).
+
+[50] B.A. Dubrovin, Hamiltonian formalism of Whitham-type hierarchies
+     and topological Landau-Ginsburg models, Commun. Math. Phys. 145
+     (1992), 195-207; Integrable systems in topological ﬁeld theory [48].
+
+
+
+                                        24
+[51] I.M. Krichever, Topological minimal models and soliton equations, Talk
+     at the 1st Sakharov Conference, Moscow 1991; The τ -Function of the
+     universal Whitham hierarchy, matrix models and topological ﬁeld theo-
+     ries, Commun. Pure and Appl. Math. XLVII (1994), 437-475.
+
+[52] A.Gorsky, I. Krichever, A. Marshakov, A. Mironov and A. Morozov, In-
+     tegrability and Seiberg-Witten exact solution, Phys. Lett. B355 (1995),
+     466-474.
+
+
+
+
+                                    25
+

@@ -1,0 +1,1495 @@
+                                              An integrable semi-discretization of the two-component Hunter–Saxton
+                                                                              equation
+
+                                                                 Ayako Horia,∗, Yuta Tanakaa , Ken-ichi Marunob, Yasuhiro Ohtac
+                                          a Department of Pure and Applied Mathematics, School of Fundamental Science and Engineering, Waseda University, 3-4-1
+
+                                                                                Okubo, Shinjuku-ku, Tokyo 169-8555, Japan
+                                           b Department of Applied Mathematics, Faculty of Science and Engineering, Waseda University, 3-4-1 Okubo, Shinjuku-ku,
+
+                                                                                          Tokyo 169-8555, Japan
+                                                      c Department of Mathematics, Kobe University, 1-1 Rokkodai-cho, Nada-ku, Kobe 657-8501, Japan
+arXiv:2606.18701v2 [nlin.SI] 2 Sep 2026
+
+
+
+
+                                          Abstract
+                                          In this paper, we propose an integrable semi-discretization of the two-component Hunter–Saxton (2-HS)
+                                          equation, the short-wave limit of the two-component Camassa–Holm (2-CH) equation. At the continuous
+                                          level, we show that the 2-HS equation can be derived from a new bilinear formulation, distinct from the
+                                          conventional one in the literature, via a pseudo 2-reduction and a hodograph transformation. For the semi-
+                                          discrete construction, we ﬁrst discretize the underlying bilinear equations in the spatial direction. We then
+                                          impose the pseudo 2-reduction and apply a discrete hodograph transformation to obtain the semi-discrete
+                                          system in the physical variables. To the best of our knowledge, the resulting system is the ﬁrst integrable
+                                          semi-discretization that preserves the two-component structure of the 2-HS equation. We construct the
+                                          N-soliton solutions of the continuous and semi-discrete systems in Wronskian and Casoratian forms, respec-
+                                          tively. The integrability of the semi-discrete system is inherited from the underlying integrable hierarchy
+                                          and is further veriﬁed by a Lax pair.
+                                          Keywords: integrable semi-discretization, two-component Hunter–Saxton equation, short-wave limit of the
+                                          two-component Camassa–Holm equation, hodograph transformation
+
+
+
+                                          1. Introduction
+
+                                              The study of discrete integrable systems has progressed signiﬁcantly since the mid-1970s, following the
+                                          pioneering work of Hirota and of Ablowitz and Ladik. Hirota developed the bilinear and τ -function ap-
+                                          proach, which enables soliton equations to be discretized while preserving their solution structures, and
+                                          successfully applied it to equations such as the KdV and sine-Gordon equations [1, 2, 3, 4, 5]. In particular,
+                                          Hirota proposed the discrete analogue of a generalized Toda equation (DAGTE) [6], which is now known
+                                          as the discrete Kadomtsev-Petviashvili (KP) equation. Subsequently, within the Sato-theoretic framework,
+                                          the algebraic structures of these discrete equations were extensively studied by Date, Jimbo, and Miwa
+                                          [7, 8, 9, 10, 11]. In this context, Miwa introduced a key change of variables, now known as the Miwa
+                                          transformation, which provides a direct connection between continuous and discrete integrable systems, and
+                                          showed that the discrete KP equation, also referred to as the Hirota-Miwa equation, serves as a master equa-
+                                          tion for integrable hierarchies [12]. Independently, Ablowitz and Ladik introduced a method of integrable
+                                          discretization based on the AKNS-type linear eigenvalue problem and successfully constructed integrable
+                                          discretizations of equations such as the nonlinear Schrödinger equation [13, 14, 15, 16, 17].
+                                              As the study of discrete integrable systems progressed, several additional approaches to integrable dis-
+                                          cretization were proposed. For example, in the 1980s, the direct linearization method was introduced by
+
+                                            ∗ Corresponding author
+
+                                             Email address: ayako0903@akane.waseda.jp (Ayako Hori)
+Nijhoﬀ, Capel, Quispel, et al. [18, 19]. Furthermore, Suris developed a systematic approach to integrable
+discretization based on Lax matrices and Hamiltonian structures using Miura-type transformations (local-
+izing changes of variables) to construct local discrete equations of motion from non-local ones [20]. For a
+comprehensive historical account of discrete integrable systems, see Suris [20] and Hietarinta-Joshi-Nijhoﬀ
+[21].
+    It is well known that there exist soliton equations associated with Wadati-Konno-Ichikawa (WKI)-type
+linear eigenvalue problems [22, 23]. Ishimori, as well as Wadati and Sogo, showed that soliton equations
+in the WKI class can be transformed into soliton equations associated with AKNS-type linear eigenvalue
+problems through a hodograph transformation, also known as a reciprocal transformation [24, 25, 26, 27].
+Many WKI-type soliton equations possess singular solutions, and their integrable discretizations have long
+been considered diﬃcult. However, by incorporating a discrete hodograph transformation, some of the
+present authors have constructed integrable discretizations of soliton equations with singularities [28, 29, 30,
+31, 32, 33, 34].
+    A prominent example of such equations is the Camassa–Holm (CH) equation. The CH equation
+                              ut + 2κ2 ux − utxx + 3uux = 2ux uxx + uuxxx ,                                 (1)
+where κ is a constant, was derived as a model equation for shallow-water waves [35, 36]. This equation
+is known to admit peakon solutions when κ = 0, while for κ 6= 0 it possesses cuspon and smooth soliton
+solutions. Because of the singularities of cuspon and peakon solutions, an integrable discretization of the CH
+equation had not been constructed. Subsequently, some of the present authors succeeded in discretizing the
+CH equation in a spatial direction by reducing it to the bilinear form of the extended 2D Toda lattice hierar-
+chy through a hodograph transformation and applying Hirota’s bilinear method with the discrete hodograph
+transformation [28]. The discretization automatically reﬁnes the mesh in regions where the solution varies
+rapidly, so that the resulting integrable semi-discrete equation serves as a self-adaptive moving-mesh scheme.
+The same authors also conﬁrmed its eﬀectiveness as a numerical scheme [37].
+    Taking the short-wave limit of the CH equation (1) reduces it to the Hunter–Saxton (HS) equation:
+                                  utxx − 2κ2 ux + 2ux uxx + uuxxx = 0.                                      (2)
+In the case of κ = 0, the HS equation (2) reduces to the classical HS equation, which is a model for weakly
+nonlinear orientation waves in massive nematic liquid crystals [38]. Hunter and Zheng investigated the bi-
+Hamiltonian structure and the Lax pair, thereby demonstrating the integrability of the classical HS equation
+[39]. They also studied the global existence of weak solutions and related properties in their subsequent
+works [40, 41].
+    In the present paper, we study the two-component HS (2-HS) equation
+                                utxx − 2κ2 ux − 2ux uxx − uuxxx = −µρρx ,
+                            
+                                                                                                         (3)
+                                ρt − (ρu)x = 0,
+
+which is a two-component generalization of the HS equation (2). The parameter κ2 is a non-negative real
+number, and µ is a non-zero real number. Historically, a system equivalent to the κ = 0 case of (3) already
+appeared as the scaling limit of the dual Ito system in the work of Olver and Rosenau [42], although
+it was not identiﬁed there by the name 2-HS. Pavlov later formulated the system explicitly as the two-
+component Hunter–Saxton system, related it to the Gurevich–Zybin system and the ﬁrst negative ﬂow of
+the two-component Harry–Dym hierarchy, and gave a scalar spectral representation [43]. Aratyn, Gomes,
+and Zimerman subsequently embedded the two-component CH and Dym/HS-type systems in a uniﬁed
+deformation framework and retained the integration constant in the corresponding scalar spectral problem
+[44]. The nonzero linear term in (3) is associated with this integration constant. Subsequent analytical
+and geometric studies include work by Wunsch and collaborators on weak and global solutions in periodic
+settings with κ = 0 [45, 46, 47, 48], by Moon and Liu on wave breaking and global existence [49], and
+by Kohlmann on semidirect-product geometry [50]. Related studies include supersymmetric extensions of
+the CH and HS equations [51] and solitary-wave solutions of a generalized two-component Hunter–Saxton
+system [52].
+                                                       2
+   The 2-HS equation (3) can be obtained as the short-wave limit of the 2-CH equation [42, 44, 53, 54, 55]
+                               
+                                mt − umx − 2mux + µρρx = 0,
+                                  ρt − (ρu)x = 0,                                                      (4)
+                                  m = κ2 − u + uxx ,
+                               
+
+which is a two-component generalization of the CH equation (1). The parameter κ2 is a non-negative
+real number, and µ is a non-zero real number. A system equivalent to (4) arose from the tri-Hamiltonian
+dual of the Ito system constructed by Olver and Rosenau [42]. Related bi-Hamiltonian and deformation
+formulations, including the µ = −1 case, were subsequently developed in [44, 53, 54, 55]. From a physical
+perspective, it has been shown that the 2-CH equation (4) with µ = 1 and κ = 0 can be derived from the
+fully nonlinear Green-Naghdi equations, a shallow water model [56]. In the case of ρ = 0, the 2-CH equation
+(4) reduces, up to the sign convention for u, to the CH equation (1).
+    Now, we take the short-wave limit of the 2-CH equation (4) to derive the 2-HS equation (3). Following
+the procedure in [29], we introduce the time and space variables τ and ξ
+
+                                            τ = ǫt,        ξ = ǫ−1 x,                                     (5)
+
+where ǫ is a small positive parameter. We expand u and ρ in powers of ǫ as
+
+                        u = ǫ2 (u0 + ǫu1 + ǫ2 u2 + · · · ),       ρ = ǫ(ρ0 + ǫρ1 + ǫ2 ρ2 + · · · ),       (6)
+
+where ui and ρi (i = 0, 1, 2, · · · ) are functions of ξ and τ . From (5), we obtain
+
+                                              ∂t = ǫ∂τ ,      ∂x = ǫ−1 ∂ξ .                               (7)
+
+Substituting (6) and (7) into the ﬁrst and second equations of (4), we obtain the following PDEs for u0 and
+ρ0 at the lowest order in ǫ:
+
+                             u0,τ ξξ − 2κ2 u0,ξ − 2u0,ξ u0,ξξ − u0 u0,ξξξ = −µρ0 ρ0,ξ ,                   (8)
+
+                                                ρ0,τ − (u0 ρ0 )ξ = 0.                                     (9)
+Rewriting the variables as u0 → u, ρ0 → ρ, ξ → x, and τ → t in (8) and (9), we obtain the 2-HS equation
+(3).
+    For κ 6= 0, the coeﬃcient 2κ2 in (3) can be normalized to 4 by scaling x, t, and ρ. For the case µ<0,
+writing µ = −c2 with c > 0, we use the normalized form
+
+                                utxx − 4ux − 2ux uxx − uuxxx = c2 ρρx ,
+                              
+                                                                                                      (10)
+                                ρt = (ρu)x ,
+
+where c is a positive constant. Integrating (10) with respect to x under the boundary conditions u(x, t) → 0
+and ρ(x, t) → 1 as |x| → ∞ yields
+                             
+                                               1           c2      c2
+                                 utx − uuxx − u2x − 4u − ρ2 +         = 0,
+                             
+                                                                                                         (11)
+                              ρ = (ρu) . 2                 2       2
+                                  t       x
+
+
+Hereafter, we refer to (11) as the 2-HS equation. For the normalized 2-HS equation (10), particularly in the
+ﬁeld of integrable systems, a set of bilinear equations was derived through a 2-reduction from the extended
+two-dimensional Toda lattice equation, which coincides with the bilinear form of the CH equation, and the
+N-soliton solution was constructed in Wronskian form [57]. Furthermore, Matsuno constructed the N-soliton
+solution of the 2-HS equation (3) for µ = 1 by taking the short-wave limit of the N-soliton solution of the
+
+
+                                                              3
+two-component Camassa–Holm (2-CH) equation [58]. More speciﬁcally, Theorem 2.1 of Lou, Feng, and Yao
+[57] can be written in the present notation as
+                                  1             
+                                 
+                                    2 DX DT − 1 f · f = −gh,
+                                 
+                                 
+                                 
+                                     1
+                                       DT + 1 g · h = f 2 ,
+                                              
+                                     c                                                           (12)
+                                 
+                                 
+                                 
+                                     DX DT + 2c DT + cDX g · h = 0.
+                                 
+                                                           
+
+Since the bilinear system (12) is invariant under (c, g, h) → (−c, h, g), the restriction c > 0 entails no loss
+of generality. This formulation uses three tau-functions f , g, and h, together with the dependent variable
+transformation
+                                                                 f2
+                                         u = (log f )T T ,   ρ=     ,                                     (13)
+                                                                 gh
+and the hodograph transformation
+
+                                         x = X − (log f )T ,    t = T.                                    (14)
+
+    As mentioned above, the bilinear form obtained in the previous study [57] coincides with the conventional
+bilinear form of the CH equation, and the integrable semi-discretization of the CH equation (1) has already
+been successfully established [28]. However, an integrable semi-discrete analogue that preserves the two-
+component structure of the 2-HS equation has not yet been constructed. To address this problem, it is useful
+to introduce a new bilinear representation distinct from the conventional CH-type formulation used in [57].
+In this paper, we derive a new bilinear form of the 2-HS equation and use this new formulation, together
+with Hirota’s discretization method and the discrete hodograph transformation, to construct an integrable
+semi-discrete analogue of (11). In contrast to the CH-type formulation (12)–(14), our approach is based on
+a two-tau formulation with only f and g, and after reduction it leads to the bilinear equations
+
+                                    (DT2 + cDT )g · f = 0,
+                                 
+                                                                                                         (15)
+                                    (DX (DT2 + cDT ) − 4DT )g · f = 0,
+
+together with the dependent variable transformation
+                                  g                                        1
+                             ψ=     ,     u = (log f )T T ,    ρ=                  ,                      (16)
+                                  f                                 1 − (log f )XT
+and the hodograph transformation
+
+                                        dX = ρ dx + ρu dt,     dT = dt.                                   (17)
+
+Thus, the diﬀerence is not only in the bilinear equations themselves, but also in the underlying tau-function
+structure and the associated dependent variable transformation. From the viewpoint of Sato theory, the
+integrability of the proposed semi-discrete system is built into its construction: the determinant identities
+underlying the bilinear equations are Plücker relations for the Wronskian and Casoratian tau functions
+arising from the integrable hierarchy, and the pseudo 2-reduction is imposed at the tau-function level. The
+discrete hodograph transformation then carries this structure to the semi-discrete system in the physical
+variables. The principal novelty of the present work is therefore the construction, through the new two-tau
+formulation and the discrete hodograph transformation, of the ﬁrst integrable semi-discrete analogue of (11)
+that preserves its two-component structure. The Lax pair is presented as an additional direct veriﬁcation of
+the inherited integrability in the physical variables, rather than as the primary basis for the construction.
+    This paper is structured as follows. In Section 2, we derive a new bilinear formulation of the 2-HS
+equation, distinct from the conventional bilinear form of Lou, Feng, and Yao [57], through a pseudo 2-
+reduction and show that it leads to the 2-HS equation via a hodograph transformation. We also construct
+its N-soliton solution in Wronskian form and present examples of one- and two-soliton interactions. In
+                                                        4
+Section 3, we discretize this new bilinear formulation in the spatial direction, derive an integrable semi-
+discrete analogue of the 2-HS equation, construct its N-soliton solution in Casoratian form, and present
+examples of one- and two-soliton interactions. In Section 4, we construct a matrix Lax representation for
+the semi-discrete system and derive its scalar counterpart. We then take the continuous limit of the matrix
+Lax pair and show that, after scalar reduction, it reproduces the known scalar Lax representation of the
+continuous 2-HS equation. Finally, in Section 5, we conclude the paper and discuss future directions.
+
+2. Bilinear equations and determinant solutions of the 2-HS equation
+
+    In this section, we introduce a new bilinear form of the 2-HS equation, distinct from the conventional
+CH-type bilinear form obtained by Lou, Feng, and Yao [57], and construct its N-soliton solution. For
+clarity, we emphasize here that the conventional formulation in [57] is a three-tau CH-type system (12) with
+the dependent variable transformation (13), whereas the present paper uses a genuinely diﬀerent two-tau
+formulation based on f and g only. This new two-tau structure is the key feature that enables the subsequent
+semi-discretization in Section 3 while preserving the two-component nature of the 2-HS equation.
+    Throughout this paper, DX , DT , and DS denote the Hirota bilinear diﬀerential operators deﬁned by
+      l
+     DX DTm DSr g · f = (∂X − ∂X ′ )l (∂T − ∂T ′ )m (∂S − ∂S ′ )r g(X, T, S)f (X ′, T ′ , S ′ ) X ′ =X,T ′ =T,S ′ =S .                (18)
+
+Lemma 1. The bilinear equations
+
+                                           (DT2 + DS )g · f = 0,
+                             
+                                                                                                                                      (19)
+                                           (DX (DT2 + DS ) − 4DT )g · f = 0,
+
+admit the Wronskian solution
+                                                                            (n)       (n+1)                     (n+N −1)
+                                                                          ϕ1        ϕ1             ···       ϕ1
+                                                                             (n)     (n+1)                    (n+N −1)
+                                                                          ϕ2        ϕ2             ···       ϕ2
+                          f = τ0 ,     g = τ1 ,            τn =            ..          ..          ..            ..               ,   (20)
+                                                                            .           .             .           .
+                                                                            (n)       (n+1)                     (n+N −1)
+                                                                          ϕN        ϕN             ···       ϕN
+        (n)      (n)
+where ϕi      = ϕi (X, T, S) satisﬁes the following linear dispersion relations
+                               (n)                                  (n)                                   (n)
+                            ∂ϕi    (n+1)                    ∂ϕi                    (n−1)           ∂ϕi                (n−2)
+                                = ϕi     ,                                = ϕi             ,                    = ϕi          .       (21)
+                             ∂X                              ∂T                                     ∂S
+                                                (n)
+In particular, the speciﬁc choice of ϕi               given by
+
+                               (n)             pi X+ p1 T + 12 S+ξi,0                  qi X+ q1 T + 12 S+ηi,0
+                             ϕi      = pni e           i    p
+                                                                i            + qin e           i       q
+                                                                                                        i          ,                  (22)
+
+satisﬁes the linear dispersion relations and yields the N-soliton solutions, where ξi,0 and ηi,0 are arbitrary
+phase constants.
+Proof. For simplicity, we introduce the following notation
+                                                                          (m )        (m )                   (m )
+                                                                     ϕ1 1           ϕ1 2       ···          ϕ1 N
+                                                                      (m )           (m )                      (m )
+                                                                     ϕ2 1           ϕ2 2       ···          ϕ2 N
+                                |m1 , m2 , · · · , mN | =              ..             ..        ..           ..        .              (23)
+                                                                        .              .           .          .
+                                                                          (m )        (m )                   (m )
+                                                                     ϕN 1           ϕN 2       ···          ϕN N
+
+In this notation, τn is rewritten as
+
+                                                  τn = |n, n + 1, · · · , n + N − 1|.                                                 (24)
+                                                                            5
+We prove that the above τn satisﬁes the bilinear equations (19). We obtain the following derivative formulas:
+
+                                                       ∂X τn = |n, · · · , n + N − 2, n + N |,                                             (25)
+                                                      ∂T τn = |n − 1, n + 1, · · · , n + N − 1|,                                           (26)
+
+                     ∂S τn = |n − 2, n + 1, · · · , n + N − 1| − |n − 1, n, n + 2, · · · , n + N − 1|,                                     (27)
+
+                    ∂T2 τn = |n − 2, n + 1, · · · , n + N − 1| + |n − 1, n, n + 2, · · · , n + N − 1|,                                     (28)
+
+                      ∂X ∂T τn = |n − 1, n + 1, · · · , n + N − 2, n + N | + |n, · · · , n + N − 1|,                                       (29)
+
+         ∂X ∂S τn = |n − 2, n + 1, · · · , n + N − 2, n + N | − |n − 1, n, n + 2, · · · , n + N − 2, n + N |,                              (30)
+
+∂X ∂T2 τn = |n − 2, n + 1, · · · , n + N − 2, n + N | + |n − 1, n, n + 2, · · · , n + N − 2, n + N | + 2|n − 1, n + 1, · · · , n + N − 1|, (31)
+
+   First, we show that τn satisﬁes the ﬁrst equation of (19). Now, we introduce an identity for the 2N × 2N
+determinant:
+                 n−1 n            n+2           ···       n+N −1      n+1                          ∅                 n+N
+                                                                                                                             = 0.          (32)
+                 n−1 n                                ∅               n+1 n+2                ···       n+N −1        n+N
+Applying the Laplace expansion to the left-hand side yields an algebraic bilinear identity for determinants
+        |n − 1, n, n + 2, · · · , n + N − 1| × |n + 1, · · · , n + N | − |n − 1, n + 1, · · · , n + N − 1| × |n, n + 2, · · · , n + N |
+              +|n, · · · , n + N − 1| × |n − 1, n + 2, · · · , n + N | = 0.                                                                (33)
+
+Using (26)–(28), (33) can be rewritten as
+                           (∂T2 − ∂S )τn × τn+1 − 2∂T τn × ∂T τn+1 + τn × (∂T2 + ∂S )τn+1 = 0.                                             (34)
+By setting n = 0, f = τ0 , and g = τ1 in (34), the ﬁrst bilinear equation of (19) is obtained.
+   Next, we show that τn satisﬁes the second equation of (19). We introduce identities for the 2N × 2N
+determinants
+              n+1       n+2           ···       n+N −1 n+N +1 n−1 n                                             ∅
+                                                                                                                              = 0,         (35)
+              n+1                           ∅          n+N +1 n−1 n                            n+2        ···       n+N −1
+and
+    n−1      n    n+2       ···       n+N −2              n+N     n+1                    ∅                 n+N −1        ∅
+                                                                                                                                    = 0.   (36)
+    n−1      n                    ∅                        ∅      n+1     n+2      ···       n+N −2        n+N −1       n+N
+Applying the Laplace expansion to the left-hand sides yields algebraic bilinear identities for determinants
+                         |n + 1, · · · , n + N − 1, n + N + 1| × |n − 1, n, n + 2, · · · , n + N − 1|
+                               − |n, n + 2, · · · , n + N − 1, n + N + 1| × |n − 1, n + 1, · · · , n + N − 1|                              (37)
+                               + |n, · · · , n + N − 1| × |n − 1, n + 2, · · · , n + N − 1, n + N + 1| = 0,
+and
+                              |n − 1, n, n + 2, · · · , n + N − 2, n + N | × |n + 1, · · · , n + N |
+                                       − |n − 1, n + 1, · · · , n + N − 2, n + N | × |n, n + 2, · · · , n + N |                            (38)
+                                       + |n − 1, n + 2, · · · , n + N | × |n, · · · , n + N − 2, n + N | = 0.
+Subtracting (38) from (37) and using (25)–(31), we obtain
+      4(τn+1 × ∂T τn − τn × ∂T τn+1 ) − ∂X τn × (∂S τn+1 + ∂T2 τn+1 ) − ∂X τn+1 × (∂S τn − ∂T2 τn ) + τn+1 × (∂X ∂S τn − ∂X ∂T2 τn )
+           +τn × (∂X ∂S τn+1 + ∂X ∂T2 τn+1 ) + 2(∂T τn+1 × ∂X ∂T τn − ∂T τn × ∂X ∂T τn+1 ) = 0.                                             (39)
+
+By setting n = 0, f = τ0 , and g = τ1 in (39), the second bilinear equation of (19) is obtained.
+                                                                          6
+    To obtain the soliton solutions of the 2-HS equation, we impose the pseudo 2-reduction on the Wronskian
+solution in Lemma 1 by requiring
+                                                  1    1
+                                                     +    = c,                                         (40)
+                                                  pi   qi
+for each pair of soliton parameters pi and qi in (22). With f = τ0 and g = τ1 as in Lemma 1, this reduction
+yields the following bilinear identities:
+                                              DS g · f    = cDT g · f,
+                                           DX DS g · f    = cDX DT g · f.                              (41)
+Using these identities in the bilinear equations (19), we obtain the following bilinear equations
+                                     (DT2 + cDT )g · f = 0,
+                                  
+                                     (DX (DT2 + cDT ) − 4DT )g · f = 0.
+After obtaining these reduced bilinear equations, the S-dependence can be absorbed into the phase constants,
+and we ﬁx S = 0 in the reduced τ -functions.
+Theorem 1. The 2-HS equation
+                       
+                                       1          c2    c2
+                           utx − uuxx − u2x − 4u − ρ2 +    = 0,
+                       
+                        ρ = (ρu) , 2             2     2
+                                 t           x
+
+is derived from a set of bilinear equations
+                                     (DT2 + cDT )g · f = 0,
+                                  
+                                                                                                       (42)
+                                     (DX (DT2 + cDT ) − 4DT )g · f = 0,
+through the hodograph transformation
+                                           dX = ρdx + ρudt,       dT = dt,                             (43)
+and the dependent variable transformation
+                                     g                                       1
+                               ψ=      ,     u = (log f )T T ,   ρ=                  .                 (44)
+                                     f                                1 − (log f )XT
+Proof. Dividing the bilinear equations (42) by f 2 , we obtain
+                               2
+                                D g·f        DT g · f
+                               T 2      +c            = 0,
+                              
+                              
+                                   f           f2                                                      (45)
+                                      2
+                               DX DT g · f + c DX DT g · f − 4 DT g · f = 0,
+                              
+                                     f2               f2          f2
+                              
+
+i.e.,
+                               
+      g                      g    g
+             + 2 (log f )T T + c        = 0,
+
+
+     f T T                f  f T
+
+                                                                                    
+      g                        g                    g         g                     g       g
+              + 2 (log f )T T      + 4 (log f )XT        +c         + 2 (log f )XT      −4      = 0.
+
+
+      f XT T                   f X                  f T       f XT                  f       f T
+
+                                                                                                 (46)
+Applying the dependent variable transformation (44), we can rewrite (46) as
+                  
+                   ψT T + 2uψ + cψT =  0,                          
+                                              1                      1                           (47)
+                   ψXT T + 2uψX + 4 1 −          ψT + c ψXT + 2 1 −     ψ − 4ψT = 0.
+                                              ρ                      ρ
+                                                           7
+Next, we eliminate ψ from (47). Subtracting the X-derivative of the ﬁrst equation of (47) from the second
+equation of (47), we have
+                                       ψT       ρ     1      1
+                                           = − uX + ρc − c.                                           (48)
+                                        ψ       2     2      2
+From the ﬁrst equation of (47), we obtain
+                                                              2
+                                         ψT                 ψT                   ψT
+                                                    +                 + 2u + c      = 0.                  (49)
+                                         ψ      T           ψ                    ψ
+
+Substituting (48) into (49) and rearranging, we have
+
+                                   1                               c2    c2
+                     ρT uX + ρuXT − (ρuX )2 + c(ρ2 uX − ρT ) − 4u − ρ2 +    = 0.                          (50)
+                                   2                               2     2
+Now, we obtain the conservation law                               
+                                                                 1
+                                                    uX =      1−     ,                                    (51)
+                                                                 ρ T
+from the dependent variable transformation (44) and it leads to
+
+                                                        ρT = ρ2 u X .                                     (52)
+
+Substituting (52) into (50), we have
+
+                                           1              c2    c2
+                                  (ρuX )T − (ρuX )2 − 4u − ρ2 +    = 0.                                   (53)
+                                           2              2     2
+Applying the diﬀerential law
+                                                    1
+                                          ∂X =        ∂x ,       ∂T = ∂t − u∂x ,                          (54)
+                                                    ρ
+which is derived from the hodograph transformation (43), to (51) and (53), we obtain
+                            
+                                            1           c2      c2
+                               utx − uuxx − u2x − 4u − ρ2 +        = 0,
+                            
+                             ρ = (ρu) , 2              2       2
+                                t       x
+
+
+which is exactly the 2-HS equation (11).
+Example 1. The reduced Wronskian τ -functions yield the explicit one- and two-soliton solutions of the
+2-HS equation through the dependent variable transformation
+                                                                               1
+                                     u = (log f )T T ,           ρ=                    ,                  (55)
+                                                                        1 − (log f )XT
+and the hodograph transformation
+                                              x = X − (log f )T ,           t = T.                        (56)
+
+
+
+One-soliton: The τ -functions for the one-soliton solution are given below.
+                                                                                            p1 ξ1 −η1
+                   f = eξ1 + eη1 ∝ 1 + eξ1 −η1 ,            g = p1 eξ1 + q1 eη1 ∝ 1 +          e      ,   (57)
+                                                                                            q1
+where
+                                              1                                      1
+                               ξ1 = p1 X +       T + ξ1,0 ,           η1 = q1 X +       T + η1,0 .        (58)
+                                              p1                                     q1
+                                                                  8
+The parameters p1 and q1 satisfy p11 + q11 = c.
+This yields the one-soliton solution of the 2-HS equation
+                                             2                                              −1
+                                                                         (p1 − q1 )2
+                                                                    
+                                   p1 − q1             θ                                   θ
+                          u=                      sech2 ,      ρ=     1+             sech2       ,                      (59)
+                                    2p1 q1             2                   4p1 q1          2
+
+                                                            1 + tanh 2θ
+                                         x=X−                ′,   t = T,                                   (60)
+                                             p1 1 + tanh θ−θ
+                                                           2
+                                                   
+                                            1     1                                 p1
+                      θ = (p1 − q1 ) X +       −      T + ξ1,0 − η1,0 , θ′ = log ,                          (61)
+                                            p1   q1                                 q1
+                                                                            2
+             p1                                                       cp1 −2
+where q1 = −1+cp1
+                  . The amplitude   of the u-component   soliton is    2p1      , and its velocity in the (X, T )
+plane is cpp12−1 .
+             1
+   Figure 1 shows the one-soliton solution for t = 0. The soliton moves to the right along the x-axis as time
+progresses.
+
+
+
+
+Figure 1: The one-soliton solution of the two-component Hunter–Saxton equation (red (lower) line: u, blue (upper) line: ρ).
+The parameters are p1 = 5, c = 1, η1,0 = ξ1,0 = 0.
+
+
+Two-soliton: The τ -functions for the two-soliton solution are given below. In writing the proportional
+forms, we ﬁrst remove common gauge factors, which do not aﬀect u or ρ because these variables are deﬁned
+by logarithmic derivatives of the τ -functions. The nonzero coeﬃcients of the two one-soliton exponential
+terms are then absorbed into shifts of the arbitrary phase constants, whereas the resulting interaction
+coeﬃcient is retained.
+
+                      f = (p2 − p1 )eξ1 +ξ2 + (q2 − p1 )eξ1 +η2 + (p2 − q1 )eξ2 +η1 + (q2 − q1 )eη1 +η2
+                                                     (p2 − p1 )(q2 − q1 ) ξ1 +ξ2 −η1 −η2
+                          ∝ 1 + eξ1 −η1 + eξ2 −η2 +                       e              ,                              (62)
+                                                     (q2 − p1 )(p2 − q1 )
+
+
+            g = p1 p2 (p2 − p1 )eξ1 +ξ2 + p1 q2 (q2 − p1 )eξ1 +η2 + p2 q1 (p2 − q1 )eξ2 +η1 + q1 q2 (q2 − q1 )eη1 +η2
+                         p1           p2            p1 p2 (p2 − p1 )(q2 − q1 ) ξ1 +ξ2 −η1 −η2
+                ∝ 1 + eξ1 −η1 + eξ2 −η2 +                                      e              ,                         (63)
+                         q1            q2           q1 q2 (q2 − p1 )(p2 − q1 )
+                                                                 9
+where
+                                   1                         1
+                          ξi = pi X + T + ξi,0 , ηi = qi X + T + ηi,0 for i = 1, 2.                    (64)
+                                   pi                        qi
+The parameters pi and qi satisfy p1i + q1i = c for i = 1, 2.
+    Figure 2 shows the two-soliton interaction of u and ρ. Both solitons move to the right along the x-axis
+as time progresses.
+
+
+
+
+Figure 2: The two-soliton interaction of the 2-HS equation (red (lower) line: u, blue (upper) line: ρ). The param-
+eters are p1 = 1.1, p2 = 1.25, c = 1, ξ1,0 = 12 log ((q1 − p2 )(q1 − q2 )), η1,0 = 12 log ((p2 − p1 )(q2 − p1 )) + πi, ξ2,0 =
+1
+2
+  log ((q2 − p1 )(q1 − q2 )), η2,0 = 21 log ((p2 − p1 )(q1 − p2 )).
+
+
+Remark 1. In the case of the one-soliton solution with c > 0, u is a smooth soliton if p1 > 1c , whereas u is
+a loop soliton if p1 < 1c . However, in the latter case, ρ diverges. Therefore, we restrict the parameters so
+that both u and ρ remain smooth, leading to the condition p1 > 1c . Similarly, in the case of the two-soliton
+solution, the parameters are restricted to p1 , p2 > 1c .
+Remark 2. In the limit c → 0, (42) reduces to the bilinear equations of the HS equation. For the loop-soliton
+branch, taking the same limit yields the cuspon solution of the HS equation. Details are described in the
+Appendix.
+
+3. An integrable semi-discrete analogue of the 2-HS equation
+Lemma 2. The bilinear equations
+                                         (DT2 + DS )gk · fk = 0
+                             
+                                                                                                                        (65)
+                                         (DT2 + DS − 2aDT )gk · fk−1 = 0
+                                                             10
+where k is a discrete site index and a is a lattice parameter, admit the Casoratian solution
+                                                                              (n)          (n+1)                         (n+N −1)
+                                                                             ϕ1 (k)       ϕ1     (k)          ···      ϕ1        (k)
+                                                                              (n)          (n+1)                        (n+N −1)
+                                                                             ϕ2 (k)       ϕ2     (k)          ···      ϕ2        (k)
+                fk = τ0 (k),      gk = τ1 (k),             τn (k) =               ..               ..         ..                   .. ,                 (66)
+                                                                                   .                .            .                  .
+                                                                              (n)          (n+1)                         (n+N −1)
+                                                                             ϕN (k)       ϕN       (k)        ···      ϕN               (k)
+         (n)          (n)
+where ϕi (k) = ϕi (k, T, S) satisﬁes the following linear dispersion relations
+                                                     (n)           (n)
+                                                   ϕi (k) − ϕi (k − 1)    (n+1)
+                                                                       = ϕi     (k),                                                                    (67)
+                                                            a
+and
+                                           (n)                                      (n)
+                                       ∂ϕi (k)    (n−1)                           ∂ϕi (k)    (n−2)
+                                               = ϕi     (k),                              = ϕi     (k).                                                 (68)
+                                         ∂T                                         ∂S
+                                                    (n)
+In particular, the speciﬁc choice of ϕi (k) given by
+                                                              1
+                           (n)                                    T + 12 S+ξi,0                                1
+                                                                                                                    T + 12 S+ηi,0
+                          ϕi (k) = pni (1 − api )−k e pi             p
+                                                                         i          + qin (1 − aqi )−k e qi            q
+                                                                                                                        i           ,                   (69)
+
+satisﬁes the linear dispersion relations and yields the N-soliton solution.
+Proof. For simplicity, we introduce the following notation
+                                                                    (m )              (m )                      (m )
+                                                                  ϕ1 1 (k)          ϕ1 2 (k)       ···        ϕ1 N (k)
+                                                                   (m )              (m )                      (m )
+                                                                  ϕ2 1 (k)          ϕ2 2 (k)       ···        ϕ2 N (k)
+                           |m1 k , m2 k , · · · , mN k | =              ..                ..       ..            ..    .                                (70)
+                                                                         .                 .          .           .
+                                                                    (m )              (m )                      (m )
+                                                                  ϕN 1 (k)          ϕN 2 (k)       ···        ϕN N (k)
+
+In this notation, τn (k) is rewritten as
+
+                                                  τn (k) = |nk , n + 1k , · · · , n + N − 1k |.                                                         (71)
+
+The proof of the ﬁrst equation of (65) is the same as for the continuous case. We prove that τn (k) satisﬁes
+the second equation of (65).
+
+                                       ∂T τn (k) = |n − 1k , n + 1k , · · · , n + N − 1k |,                                                             (72)
+
+
+             ∂S τn (k) = |n − 2k , n + 1k , · · · , n + N − 1k | − |n − 1k , nk , n + 2k , · · · , n + N − 1k |,                                        (73)
+
+
+             ∂T2 τn (k) = |n − 2k , n + 1k , · · · , n + N − 1k | + |n − 1k , nk , n + 2k , · · · , n + N − 1k |.                                       (74)
+   Let us introduce an identity for the 2N × 2N determinant
+      nk−1     n + 1k−1     n + 2k−1    ···       n + N − 1k−1       n − 1k−1                             ∅                             n + Nk
+                                                                                                                                                 = 0.   (75)
+      nk−1     n + 1k−1                       ∅                      n − 1k−1         n + 2k−1      ···       n + N − 1k−1              n + Nk
+
+Applying the Laplace expansion to the left-hand side yields an algebraic bilinear identity for determinants
+
+                |nk−1 , · · · , n + N − 1k−1 | × |n − 1k−1 , n + 2k−1 , · · · , n + Nk |
+                     − |n − 1k−1 , n + 1k−1 , · · · , n + N − 1k−1 | × |nk−1 , n + 2k−1 , · · · , n + Nk |                                              (76)
+                     + |n − 1k−1 , nk−1 , n + 2k−1 , · · · , n + N − 1k−1 | × |n + 1k−1 , · · · , n + Nk | = 0.
+
+                                                                             11
+By imposing the linear dispersion relation (67), (76) reduces to
+
+             |nk−1 , · · · , n + N − 1k−1 | × |n − 1k , n + 2k , · · · , n + Nk |
+                   − a|nk−1 , · · · , n + N − 1k−1 | × |nk , n + 2k , · · · , n + Nk |
+                   − |n − 1k−1 , n + 1k−1 , · · · , n + N − 1k−1 | × |nk , n + 2k , · · · , n + Nk |          (77)
+                   + a|n − 1k−1 , n + 1k−1 , · · · , n + N − 1k−1 | × |n + 1k , · · · , n + Nk |
+                   + |n − 1k−1 , nk−1 , n + 2k−1 , · · · , n + N − 1k−1 | × |n + 1k , · · · , n + Nk | = 0.
+
+From (72)–(74) and (77), we obtain
+
+               ∂T2 τn (k − 1) × τn+1 (k) + τn (k − 1) × ∂T2 τn+1 (k) − 2∂T τn (k − 1) × ∂T τn+1 (k)
+                      + ∂S τn+1 (k) × τn (k − 1) − ∂S τn (k − 1) × τn+1 (k)                                   (78)
+                     − 2a(∂T τn+1 (k) × τn (k − 1) − τn+1 (k) × ∂T τn (k − 1)) = 0.
+
+By setting n = 0, fk = τ0 (k) and gk = τ1 (k) in (78), the second equation of (65) is obtained.
+
+
+   To obtain the soliton solutions of the semi-discrete 2-HS equation, we impose the pseudo 2-reduction on
+the Casoratian solution in Lemma 2 by requiring
+                                                   1    1
+                                                      +    = c,                                               (79)
+                                                   pi   qi
+for each pair of soliton parameters pi and qi in (69). With fk = τ0 (k) and gk = τ1 (k) as in Lemma 2, this
+reduction yields the following bilinear identities:
+
+                                             DS g k · fk   =     cDT gk · fk ,
+                                          DS gk · fk−1     =     cDT gk · fk−1 .                              (80)
+
+Using these identities in the bilinear equations (65), we obtain the following bilinear equations
+
+                                     (DT2 + cDT )gk · fk = 0,
+                                  
+                                     (DT2 + cDT − 2aDT )gk · fk−1 = 0.
+After obtaining these reduced bilinear equations, the S-dependence can be absorbed into the phase constants,
+and we ﬁx S = 0 in the reduced τ -functions.
+Theorem 2. The semi-discrete analogue of the 2-HS equation
+               d                     uk − uk−1
+                   (uk − uk−1 ) = −              ((uk − uk−1 ) + (δk − a)(c − a − δk ))
+                dT                         δk
+              
+              
+              
+              
+                          1
+              
+              
+                              ((uk − uk−1 ) + (δk − a)(c − a − δk ))2 + 4uk δk
+              
+                     +
+                        2δk                                                                                   (81)
+                      − c ((uk − uk−1 ) + (δk − a)(c − a − δk )) − (uk − uk−1 )(2δk − c),
+              
+              
+              
+              
+              
+                dx
+              
+              
+               k = −u ,
+              
+                            k
+                 dT
+is derived from a set of bilinear equations
+                                     (DT2 + cDT )gk · fk = 0,
+                                  
+                                                                                                              (82)
+                                     (DT2 + cDT − 2aDT )gk · fk−1 = 0,
+through the dependent variable transformation
+                                                                                         
+                               gk                                1      1              fk
+                           ψk = ,        uk = (log fk )T T ,        =1−           log        ,                (83)
+                               fk                                ρk     a             fk−1 T
+                                                            12
+together with the discrete hodograph transformation
+                                                                     k
+                                                                     X a
+                                                xk = x0 (T ) +                   ,                     (84)
+                                                                            ρl
+                                                                      l=1
+
+where the left-edge mesh point satisﬁes the consistency condition
+
+                                                 dx0 (T )
+                                                          = −u0 (T ).                                  (85)
+                                                   dT
+Here, δk = xk − xk−1 , and uk denotes the value of u at xk .
+Proof. Dividing the ﬁrst and second equations of (82) by fk2 and fk fk−1 , respectively, we obtain
+                             2
+                                D gk · fk     DT g k · fk
+                             T 2          +c             = 0,
+                            
+                            
+                                   fk             fk2
+                                                                                                       (86)
+                                D2 gk · fk−1             DT gk · fk−1
+                             T              + (c − 2a)               = 0.
+                            
+                            
+                                  fk fk−1                  fk fk−1
+
+The equations (86) are rewritten as
+                                          
+        gk                        gk         gk
+                 + 2 (log f  )        +   c         = 0,
+    
+                            k TT
+    
+        f                         f          f
+    
+    
+    
+         k  T T                    k          k T                                     !
+                                                                                   2
+                                                                                  fk,T
+                                                        
+     gk
+                        gk         fk,T gk      fk,T    fk−1,T      gk fk,T T
+                 +2              +                    −           +            − 2                     (87)
+       fk T T           fk T          fk2        fk      fk−1       fk    fk      fk
+                                                     !
+                                        2          2
+                                      fk−1,T     fk,T
+                                                                                        
+    
+             gk                                                        gk     gk        fk
+            +      (log fk−1 )T T + 2          − 2       + (c − 2a)          +      log         = 0.
+    
+    
+              fk                       fk−1       fk                    fk T   fk       fk−1 T
+    
+    
+
+Applying the dependent variable transformation (83), we can reduce (87) to
+                
+                 ψk,T T + 2uk ψk + cψk,T = 0,
+                                          1
+                
+                
+                
+                 ψ
+                    k,T T + 2aψk,T  1−        + ψk (uk + uk−1 )
+                                         ρk                                                            (88)
+                                       2                              
+                                     1                                 1
+                
+                
+                           2
+                        +a ψk 1 −          + (c − 2a) ψk,T + aψk 1 −         = 0.
+                
+                
+                
+                                    ρk                                 ρk
+
+Subtracting the ﬁrst equation from the second equation of (88), we obtain
+                                                                       
+                                                   1                    1
+                          (uk−1 − uk )ψk + 2a 1 −      ψk,T + ca 1 −        ψk
+                                                  ρk                   ρk
+                                                                     2
+                                                   1                   1
+                               −2a ψk,T + a 1 −        ψk + a2 1 −           ψk = 0.                   (89)
+                                                  ρk                   ρk
+
+Dividing (89) by ψk and rearranging, we have
+                                                                 
+                      ψk,T    ρk                     1             1
+                           =      uk−1 − uk + ac 1 −      − a2 1 − 2    .                              (90)
+                       ψk     2a                     ρk           ρk
+
+Dividing the ﬁrst equation of (88) by ψk yields
+                                                            2
+                                     ψk,T               ψk,T                         ψk,T
+                                                +                   + 2uk + c             = 0,         (91)
+                                      ψk    T            ψk                           ψk
+
+                                                               13
+and substituting (90) into (91), we have
+                                                              
+                   ρk                            1      2       1
+                        (uk−1 − uk ) + ac 1 −        −a 1− 2
+                   2a                           ρk              ρk     T
+                                                                     2
+                           ρk                          1               1
+                       +        (uk−1 − uk ) + ac 1 −       − a2 1 − 2                                      (92)
+                           2a                          ρk              ρk
+                                                                            
+                                   ρk                          1               1
+                       + 2uk + c       (uk−1 − uk ) + ac 1 −        − a2 1 − 2       = 0.
+                                   2a                          ρk             ρk
+The integral form of the hodograph transformation is given by
+                                                          Z X
+                                     1                           1
+                               Z
+                           x=              dX = x0 (T ) +              dX̄,                                 (93)
+                                  ρ(X, T )                 0  ρ(X̄, T)
+where x0 (T ) is an integration function determined at the left-hand edge (x = x0 (T )). Discretizing (93) in the
+spatial direction gives the discrete hodograph transformation (84) stated in Theorem 2, where ρk = ρ(Xk , T )
+with Xk = ka.
+   Introducing a mesh interval
+                                               δk := xk − xk−1 ,                                             (94)
+we obtain
+                                                          a
+                                                    δk =    ,                                               (95)
+                                                         ρk
+from the discrete hodograph transformation (84). Substituting (95) into (92), we have
+                                                                  
+                         1
+                            ((uk−1 − uk ) + (a − δk )(c − a − δk ))
+                        2δk                                          T
+                                                                          2
+                                 1
+                            +       ((uk−1 − uk ) + (a − δk )(c − a − δk ))                                 (96)
+                                2δk
+                                                                                   
+                                          1
+                            + 2uk + c        ((uk−1 − uk ) + (a − δk )(c − a − δk )) = 0,
+                                         2δk
+i.e.,
+                                          δk,T
+                        (uk − uk−1 )T =        ((uk − uk−1 ) + (δk − a)(c − a − δk ))
+                                           δk
+                                1                                                                           (97)
+                             +     ((uk − uk−1 ) + (δk − a)(c − a − δk ))2 + 4uk δk
+                               2δk
+                             − c((uk − uk−1 ) + (δk − a)(c − a − δk )) + δk,T (2δk − c).
+From the dependent variable transformation (83), we have
+                                                 
+                               1        1        fk         1
+                                    =−      log          = − (uk − uk−1 ).                                  (98)
+                              ρk T      a       fk−1 T T    a
+Using (95), (98) can be rewritten as
+                                               dδk
+                                                   = uk−1 − uk .                                            (99)
+                                               dT
+Substituting (99) into (97), we obtain
+                   d                       uk − uk−1
+                       (uk − uk−1 ) = −              ((uk − uk−1 ) + (δk − a)(c − a − δk ))
+                   dT                          δk
+                  
+                  
+                  
+                              1
+                  
+                  
+                                                                       2
+                         +       ((uk − uk−1 ) + (δk − a)(c − a − δk )) + 4uk δk
+                            2δk                                                                            (100)
+                          − c ((uk − uk−1 ) + (δk − a)(c − a − δk )) − (uk − uk−1 )(2δk − c),
+                  
+                  
+                  
+                  
+                  
+                   dδk = −u + u
+                  
+                  
+                  
+                                k     k−1 .
+                     dT
+                                                        14
+   Now, diﬀerentiating the integral form of the hodograph transformation (93) with respect to T , we have
+                    Z X                            Z X
+∂x   ∂x0 (T )    ∂          1           ∂x0 (T )        ∂                  ∂x0 (T )
+   =          +                  dX̄ =           −          u(X̄, T )dX̄ =          − (u(X, T ) − u(0, T )).(101)
+∂T      ∂T      ∂T 0 ρ(X̄, T )            ∂T        0  ∂ X̄                  ∂T
+                                                                                                ∂x
+This calculation employs the conservation law (51). The diﬀerential law (54) leads to              = −u(X, T ).
+                                                                                                ∂T
+Therefore, we obtain the evolution equation for x0 from (101),
+                                                    ∂x0 (T )
+                                                             = −u(0, T ).                                    (102)
+                                                      ∂T
+Following [59], we refer to (102) as the hodograph consistency condition.
+    Since δk = xk − xk−1 , the second equation of (100) gives
+                                         dxk   dxk−1
+                                             −       = −uk + uk−1 .                                          (103)
+                                         dT     dT
+Hence,
+
+                                                xk,T + uk = C(T ),                                           (104)
+
+where C(T ) is independent of k. Thus, the evolution equation for the mesh intervals determines the mesh
+velocities only up to a k-independent function. Evaluating (104) at k = 0 and using the consistency condition
+(102), we obtain C(T ) = 0. Therefore, (104) reduces to
+                                                     dxk
+                                                         = −uk .                                             (105)
+                                                     dT
+Together with the ﬁrst equation of (100), equation (105) yields the semi-discrete 2-HS equation (81).
+   Dividing the ﬁrst equation of the semi-discrete analogue of the 2-HS equation (81) by δk , we obtain
+                                                                          
+    (uk − uk−1 )T        uk − uk−1 uk − uk−1
+                  =−                              + (1 − ρk ) (c − a − δk )
+          δk                 δk           δk
+                              2
+                                                                                                           
+            1 (uk − uk−1 )        2(δk − a)(c − a − δk )(uk − uk−1 )                    2
+                                                                                                         2
+         +                      +                                     +   1  − 2ρ k + ρ k   (c − a − δ k )    (106)
+            2        δk2                          δk2
+                                                          
+                     uk − uk−1                                  uk − uk−1
+         + 4uk − c                + (1 − ρk ) (c − a − δk ) −               (2δk − c).
+                           δk                                       δk
+Since
+                                                                        (uk − uk−1 )2
+                                               
+                            d       uk − uk−1           (uk − uk−1 )T
+                                                    =                 +               ,                      (107)
+                           dT           δk                   δk              δk2
+equation (106) is rewritten as
+                    
+     d    uk − uk−1         uk − uk−1
+                        =−             (1 − ρk ) (c − a − δk )
+    dT        δk                δk
+            1 (uk − uk−1 )2
+                                                                                                  
+                                 2(δk − a)(c − a − δk )(uk − uk−1 )                 2
+                                                                                                2
+         +                     +                                     + 1 − 2ρk + ρk (c − a − δk )            (108)
+            2        δk2                          δk2
+                                                         
+                      uk − uk−1                                uk − uk−1
+         + 4uk − c               + (1 − ρk ) (c − a − δk ) −             (2δk − c).
+                          δk                                       δk
+Taking the continuous limit a → 0       (δk → 0) in (108), we have
+                                    1 2
+                                      u + 2ux (1 − ρ)c + c2 (1 − 2ρ + ρ2 ) + 4u − c(ux + c(1 − ρ)) + cux , (109)
+                                                                          
+ (∂t − u∂x )ux = −cux (1 − ρ) +
+                                    2 x
+                                                       15
+because
+                              d   d    dxk d
+                                =    +        → ∂t − u∂x                   for       a → 0.                         (110)
+                             dT   dt   dT dxk
+Rearranging (109), it follows that
+
+                                                       1 2 c2     ρ2 c 2
+                                     (∂t − u∂x )ux =     ux −   +        + 4u,                                      (111)
+                                                       2      2    2
+i.e.,
+                                            u2x        c2     c2
+                                                − 4u − ρ2 +
+                                     utx − uuxx −                  = 0,                        (112)
+                                             2         2       2
+which is the ﬁrst equation of (11). The mesh equation (99), together with δk = a/ρk in (95), has the
+continuous limit                     
+                                     1
+                                         = −uX ,      ρT = ρ2 u X .                            (113)
+                                     ρ T
+Using ∂T = ∂t − u∂x and ∂X = ρ−1 ∂x , this relation becomes ρt = (ρu)x , the second equation of (11). Thus
+the continuous limit of the semi-discrete system reproduces the full 2-HS system.
+Example 2. The reduced Casoratian τ -functions yield the explicit one- and two-soliton solutions of the
+semi-discrete 2-HS equation through the dependent variable transformation
+                                                                     
+                                                  1       1        fk
+                              uk = (log fk )T T ,    =1−      log        ,                        (114)
+                                                  ρk      a       fk−1 T
+
+and the discrete hodograph transformation
+                                                                    k
+                                                                    X a
+                                               xk = x0 (T ) +                  .                                    (115)
+                                                                          ρl
+                                                                    l=1
+
+
+
+
+One-soliton: The τ -functions for the one-soliton solution are given below.
+                                                                                            −k
+                                                                                   1 − ap1
+                  fk = (1 − ap1 )−k eξ1 + (1 − aq1 )−k eη1 ∝ 1 +                                   eξ1 −η1 ,        (116)
+                                                                                   1 − aq1
+
+                                                                                                 −k
+                                                                               p1       1 − ap1
+               gk = p1 (1 − ap1 )−k eξ1 + q1 (1 − aq1 )−k eη1 ∝ 1 +                                     eξ1 −η1 ,   (117)
+                                                                               q1       1 − aq1
+
+where
+                                             1                           1
+                                      ξ1 =      T + ξ1,0 ,        η1 =      T + η1,0 .                              (118)
+                                             p1                          q1
+The parameters p1 and q1 satisfy p11 + q11 = c.
+   Figure 3 shows the one-soliton solution for t = 0. The soliton moves to the right along the x-axis as time
+progresses.
+
+
+
+
+                                                             16
+Figure 3: The one-soliton solution of the semi-discrete 2-HS equation (red dots: uk , blue dots: ρk ). The parameters are
+p1 = 5, c = 1, η1,0 = ξ1,0 = 0, a = 0.005.
+
+
+
+Two-soliton: The τ -functions for the two-soliton solution are given below. As in the continuous case, we
+write them in the following proportional forms:
+
+            fk = (p2 − p1 )(1 − ap1 )−k (1 − ap2 )−k eξ1 +ξ2 + (q2 − p1 )(1 − ap1 )−k (1 − aq2 )−k eξ1 +η2
+                  + (p2 − q1 )(1 − ap2 )−k (1 − aq1 )−k eξ2 +η1 + (q2 − q1 )(1 − aq1 )−k (1 − aq2 )−k eη1 +η2
+                                  −k                       −k
+                          1 − ap1         ξ1 −η1     1 − ap2
+                  ∝1+                   e        +                 eξ2 −η2
+                          1 − aq1                    1 − aq2
+                                                  −k             −k
+                    (p2 − p1 )(q2 − q1 ) 1 − ap1           1 − ap2
+                  +                                                      eξ1 +ξ2 −η1 −η2 ,
+                    (q2 − p1 )(p2 − q1 ) 1 − aq1           1 − aq2
+
+        gk = p1 p2 (p2 − p1 )(1 − ap1 )−k (1 − ap2 )−k eξ1 +ξ2 + p1 q2 (q2 − p1 )(1 − ap1 )−k (1 − aq2 )−k eξ1 +η2
+             + p2 q1 (p2 − q1 )(1 − ap2 )−k (1 − aq1 )−k eξ2 +η1 + q1 q2 (q2 − q1 )(1 − aq1 )−k (1 − aq2 )−k eη1 +η2
+                                  −k                          −k
+                     p1 1 − ap1           ξ1 −η1   p2 1 − ap2
+             ∝1+                        e        +                     eξ2 −η2
+                     q1 1 − aq1                    q2 1 − aq2
+                                                    −k            −k
+               p1 p2 (p2 − p1 )(q2 − q1 ) 1 − ap1            1 − ap2
+             +                                                             eξ1 +ξ2 −η1 −η2 ,
+               q1 q2 (q2 − p1 )(p2 − q1 ) 1 − aq1            1 − aq2
+where
+                                         1                      1
+                                  ξi =      T + ξi,0 ,   ηi =      T + ηi,0   for   i = 1, 2.                          (119)
+                                         pi                     qi
+The parameters pi and qi satisfy p1i + q1i = c for i = 1, 2.
+    Figure 4 shows the two-soliton interaction of uk and ρk . Both solitons move to the right along the x-axis
+as time progresses.
+
+4. Lax representation and continuous limit
+
+    In this section, we ﬁrst present a 2 × 2 matrix Lax pair for the semi-discrete 2-HS equation and derive
+its scalar reduction. We then take the continuous limit of the matrix Lax pair and derive the corresponding
+                                                                17
+Figure 4: The two-soliton interaction of the semi-discrete 2-HS equation (red dots: uk , blue dots: ρk ). The parameters
+are p1 = 1.1, p2 = 1.25, c = 1, a = 0.005, ξ1,0 = 21 log ((q1 − p2 )(q1 − q2 )), η1,0 = 21 log ((p2 − p1 )(q2 − p1 )) + πi, ξ2,0 =
+1
+2
+  log ((q2 − p1 )(q1 − q2 )), η2,0 = 21 log ((p2 − p1 )(q1 − p2 )).
+
+
+continuous scalar Lax pair. Finally, we show that the resulting scalar Lax pair agrees with the known
+representation of Aratyn et al. [44].
+
+4.1. Matrix Lax pair
+Proposition 1 (Matrix Lax pair). Let
+
+                                           α := a(a − c),           ∆(λ) := 1 − αλ.                                        (120)
+
+Assume that λ 6= 0, ∆(λ) 6= 0, and δk 6= 0 for all k. Then the semi-discrete 2-HS equation (81) admits the
+Lax pair
+                                                           ∂Ψk
+                                   Ψk = Uk (λ)Ψk−1 ,              = Vk (λ)Ψk ,                      (121)
+                                                            ∂T
+where λ is a T -independent spectral parameter, Ψk = Ψk (T, λ) is a two-component vector, and
+                                                                        
+                                                         0             1
+                                    Vk (λ) =             c2      1      ,                         (122)
+                                                  −2uk +     +         0
+                                                           4     2λ
+                                                                                              
+                              1 + λ δk2 + uk − uk−1 − α
+                                                          
+                   1                                                          2λδk
+       Uk (λ) =                 λ                                                             .   (123)
+                                    (α − δk2 )2 − (uk − uk−1 )2     1 + λ δk2 − uk + uk−1 − α
+                                                                
+                 ∆(λ)    δk +
+                               2δk
+                                                               18
+The compatibility condition
+                                         ∂Uk
+                                              + Uk Vk−1 − Vk Uk = 0                                     (124)
+                                         ∂T
+is equivalent to the ﬁrst equation of (81) together with δk,T = uk−1 − uk . Together with δk = xk − xk−1
+and the hodograph consistency condition x0,T = −u0 , these equations are equivalent to the full semi-discrete
+2-HS system (81).
+Proof. Substituting (122) and (123) into (124) and clearing the common denominator ∆(λ), the (1, 2)-entry
+gives
+                                            δk,T = uk−1 − uk .                                      (125)
+Using this relation, the (1, 1)-entry reduces exactly to the ﬁrst equation of (81), while the (2, 1)- and (2, 2)-
+entries give no additional conditions. Thus the zero-curvature condition is equivalent to the ﬁrst equation
+of (81) together with (125). As shown in (103)–(105), equation (125), together with δk = xk − xk−1 and the
+hodograph consistency condition x0,T = −u0 , yields xk,T = −uk . Hence, under the hodograph consistency
+condition, (124) is equivalent to the semi-discrete 2-HS system (81).
+   Since ∆(λ) is independent of k and T , it can be absorbed by a scalar gauge transformation and therefore
+does not aﬀect the zero-curvature condition.
+
+4.2. Scalar Lax pair
+    Eliminating the second component of the matrix eigenfunction gives a scalar Lax pair. Write
+                                                    
+                                                     φk
+                                             Ψk =         ,                                                (126)
+                                                     χk
+
+and introduce
+             Ak = 1 + λ δk2 + uk − uk−1 − α ,
+                                             
+                                                          Bk = 2λδk ,
+                           λ n          2
+                                                       o                                       (127)
+                                α − δk2 − (uk − uk−1 )2 , Ek = 1 + λ δk2 − uk + uk−1 − α .
+                                                                                       
+              C k = δk +
+                          2δk
+
+Thus Uk = ∆(λ)−1 A     k Bk
+                            
+                      Ck Ek .
+   The ﬁrst row of the time equation gives χk = φk,T . On the other hand, the ﬁrst row of the spatial
+equation at the lattice point k + 1 gives
+                                                  ∆(λ)φk+1 − Ak+1 φk
+                                          χk =                       .                                     (128)
+                                                        Bk+1
+Equating these two expressions for χk gives the scalar time evolution
+                                                  ∆(λ)φk+1 − Ak+1 φk
+                                         φk,T =                      .                                     (129)
+                                                        Bk+1
+To obtain the scalar spatial problem, substitute (128) and its k → k − 1 shift into the second row of the
+spatial equation ∆(λ)χk = Ck φk−1 + Ek χk−1 . Using
+
+                                 Ak Ek − Bk Ck = P (λ),       P (λ) := 1 − 2αλ,                            (130)
+
+we obtain the scalar spatial equation.
+
+                          ∆(λ)2
+                                                             
+                                                  Ak+1   Ek              P (λ)
+                                φk+1 − ∆(λ)            +          φk +         φk−1 = 0.                   (131)
+                          Bk+1                    Bk+1   Bk               Bk
+
+Under the assumptions of Proposition 1, (129) and (131) are equivalent to the scalar reduction of the matrix
+Lax pair. Their compatibility follows from the matrix zero-curvature condition.
+                                                        19
+4.3. Continuous limit and comparison with the Aratyn-Gomes-Zimerman scalar Lax pair
+    We now take the continuous limit a → 0 of the matrix Lax pair. Let Xk = ka and identify Ψk (T, λ) with
+a smooth vector Ψ(X, T, λ). Using
+                          a
+                   δk =      ,    uk − uk−1 = auX + O(a2 ),        ∆(λ) = 1 + acλ + O(a2 ),              (132)
+                          ρk
+we obtain
+                                                                                2λ
+                                                                                   
+                                                                        λuX
+                  Uk (λ) = I + aL̃(λ) + O(a2 ),     L̃(λ) =  1 λρ
+                                                                                ρ .                    (133)
+                                                                                    
+                                                                    c2 − u2X
+                                                                             
+                                                                +              −λuX
+                                                              ρ   2
+Hence the continuous limit of (121) is
+                                                                                       
+                                                                           0           1
+                   ΨX = L̃(λ)Ψ,        ΨT = V (λ)Ψ,         V (λ) =       c2    1      .               (134)
+                                                                     −2u +    +        0
+                                                                            4   2λ
+Using the diﬀerential law (54), writing Ψ̂(x, t, λ) = Ψ(X, T, λ) gives the Lax pair in the physical variables,
+
+                                   Ψ̂x = L(λ)Ψ̂,      (∂t − u∂x )Ψ̂ = V (λ)Ψ̂,                           (135)
+
+where
+                                                    λux              2λ
+                                                                          !
+                                    L(λ) =      λ 2 2                    .                           (136)
+                                                   c ρ − u2x −λux
+                                                            
+                                             1+
+                                                2
+To obtain the scalar Lax pair corresponding to the continuous limit, write the two-component eigenfunction
+as Ψ̂ = (φ, χ)T . The spatial equations are
+
+                                     φx = λux φ + 2λχ,
+                                                                                                         (137)
+                                                            
+                                                λ 2 2
+                                                   c ρ − u2x φ − λux χ.
+                                                            
+                                     χx = 1 +
+                                                2
+The ﬁrst equation gives
+                                  1     1                    1      1       1
+                            χ=      φx − ux φ,     χx =        φxx − uxx φ − ux φx .                     (138)
+                                 2λ     2                   2λ      2       2
+On the other hand, substituting the ﬁrst relation in (138) into the second equation of (137) yields
+
+                                                  λc2 ρ2
+                                                        
+                                                               1
+                                     χx = 1 +              φ − ux φx .                                   (139)
+                                                    2          2
+Comparing these two expressions for χx gives the scalar spatial spectral problem. Moreover, the ﬁrst row
+of the time equation in (135) is φt − uφx = χ. Substitution of (138) gives the scalar time evolution. Thus,
+we obtain the scalar Lax pair
+                                                                       
+                                                                      1         1
+                     φxx = λ(uxx + 2) + c2 λ2 ρ2 φ,
+                            
+                                                          φt = u +        φx − ux φ.                  (140)
+                                                                     2λ         2
+   A scalar Lax representation for the continuous 2-HS equation was given by Aratyn, Gomes, and Zimerman
+(AGZ) [44] in their uniﬁed deformation framework for the two-component CH and Dym/HS-type systems.
+To avoid confusion with the coeﬃcients µ and κ in (3) and (4), we attach the subscript A to the parameters
+and ﬁelds in the AGZ formulation. Their Lax pair reads
+                      2                                                 
+                       µA                 2 2                     1               1
+               Φxx =       − MA ΛA + RA    ΛA Φ,       Φt = −         + UA Φx + (UA )x Φ,            (141)
+                        4                                       2ΛA               2
+                                                       20
+where
+                                                              κA
+                                           MA = µ2A UA − (UA )xx +
+                                                                 .                                (142)
+                                                               2
+Here, κA /2 is an integration constant. In the Dym/HS reduction µA = 0, this term remains in the spatial
+spectral problem and accounts for the nonzero linear term in the present 2-HS equation. Indeed, setting
+µA = 0 and making the identiﬁcation
+
+                             UA = −u,           ΛA = −λ,            RA = cρ,             κA = 4,         (143)
+
+the scalar Lax pair of Aratyn et al. reduces exactly to (140). Hence the continuous limit of the present
+semi-discrete Lax pair reproduces the known scalar Lax representation of the 2-HS equation.
+
+5. Conclusion
+
+    In this paper, we have constructed an integrable semi-discrete analogue of the 2-HS equation, the short-
+wave limit of the 2-CH equation. In Section 2, we introduced a new set of bilinear equations, distinct from
+the conventional CH-type bilinear form of Lou, Feng, and Yao [57], and showed that, through a pseudo
+2-reduction and a hodograph transformation, these bilinear equations lead to the 2-HS equation. We also
+constructed the N-soliton solutions in Wronskian form, and examples of one- and two-soliton solutions were
+presented. In Section 3, we discretized this new bilinear formulation in the spatial direction, constructed the
+N-soliton solutions in Casoratian form, and presented the semi-discrete one- and two-soliton solutions. By
+applying the discrete hodograph transformation and the dependent variable transformation, we derived an
+integrable semi-discrete analogue of the 2-HS equation. In Section 4, we constructed a matrix Lax pair for
+the semi-discrete system, derived the corresponding scalar Lax pair, and showed that the continuous limit
+of the matrix Lax pair yields, after scalar reduction, the known scalar Lax representation of the continuous
+2-HS equation. To the best of our knowledge, this is the ﬁrst integrable semi-discretization that preserves the
+two-component structure of the 2-HS equation. In the Sato-theoretic sense, its integrability is inherited from
+the underlying hierarchy through the bilinear tau-function construction, the pseudo 2-reduction, and the
+discrete hodograph transformation. The Lax pair complements this construction by providing an additional
+direct conﬁrmation of the integrable structure in the physical variables.
+    Future work includes constructing a fully discrete integrable analogue of the 2-HS equation, as well as
+integrable spatial discretizations of related systems, such as the 2-CH equation.
+
+Appendix A. Cuspon solutions of the Hunter–Saxton equation
+
+    Taking the limit c → 0 in the bilinear equations (42), with the parameter constraint (40) reducing to the
+2-reduction qi = −pi , we obtain the bilinear equations of the HS equation
+                                       2
+                                         DT g · f = 0,
+                                                                                                        (A.1)
+                                         (DX DT2 − 4DT )g · f = 0.
+
+The bilinear equations (A.1) admit the N-soliton solution, expressed as
+                                                              (n)    (n+1)                (n+N −1)
+                                                            ϕ1      ϕ1           ···     ϕ1
+                                                              (n)    (n+1)                (n+N −1)
+                                                            ϕ2      ϕ2           ···     ϕ2
+                       f = τ0 ,    g = τ1 ,          τn =    ..        ..         ..         ..      ,   (A.2)
+                                                              .         .            .        .
+                                                              (n)    (n+1)                (n+N −1)
+                                                            ϕN      ϕN           ···     ϕN
+
+where
+                             (n)          p X+ p1 T +ξi,0                 −pi X− p1 T +ηi,0
+                           ϕi      = pni e i     i          + (−pi )n e            i          .          (A.3)
+
+                                                             21
+The N-cuspon solution of the HS equation is given through the following dependent variable and hodograph
+transformations:
+                                                                                     1
+                   u = (log f )T T ,    x = X − (log f )T ,     t = T,   ρ=                  .                  (A.4)
+                                                                              1 − (log f )XT
+Following the same procedure as in Theorem 1, the bilinear equations (A.1) lead to
+                                                1
+                                       (ρuX )T − (ρuX )2 − 4u = 0.                                              (A.5)
+                                                2
+Applying the diﬀerential law (54), (A.5) is rewritten as
+                                                     1
+                                         utx − uuxx − u2x − 4u = 0.                                             (A.6)
+                                                     2
+Diﬀerentiating this equation with respect to x, we obtain
+                                       utxx − 4ux − 2ux uxx − uuxxx = 0,                                        (A.7)
+which is exactly the HS equation (2) under the change u → −u and the choice κ2 = 2.
+   The one- and two-cuspon solutions are obtained by taking the limit c → 0 in the 2-HS soliton formulas,
+with the constraint (40) reducing to qi = −pi . In what follows, we present examples of the one- and two-
+cuspon solutions. For N = 1, the one-cuspon solution is
+                                                                 
+                             1      2          1      ξ1,0 − η1,0
+                         u = 2 sech p1 X + T +                     ,
+                             p1               p1           2
+                                                                                                  (A.8)
+                                  1                 1       ξ1,0 − η1,0
+                         x=X−         tanh p1 X + T +                     , t = T.
+                                  p1               p1            2
+
+
+
+
+            Figure A.1: One-cuspon solution of the HS equation. The parameters are p1 = 12 , ξ1,0 = η1,0 = 0.
+
+   Figure A.1 shows the one-cuspon solution. Its amplitude is 1/p21 , and its velocity in the (X, T ) plane is
+−1/p21. Figure A.2 shows the two-cuspon interaction.
+   The one- and two-cuspon solutions propagate to the left along the x-axis as time progresses. Moreover,
+the N-cuspon solution (A.2)–(A.4) is consistent with the N-cuspon solution of the HS equation presented in
+the previous study [29].
+                                                           22
+Figure A.2: Two-cuspon interaction of the HS equation. The parameters are p1 = 21 , p2 = 23 , ξ1,0 = η1,0 = η2,0 = 0, ξ2,0 = πi.
+
+
+CRediT authorship contribution statement
+   Ayako Hori: Conceptualization, Methodology, Formal analysis, Investigation, Validation, Visualization,
+Writing–original draft, Writing–review & editing. Yuta Tanaka: Conceptualization, Methodology, Formal
+analysis, Validation, Writing–review & editing. Ken-ichi Maruno: Conceptualization, Methodology, For-
+mal analysis, Validation, Supervision, Writing–review & editing. Yasuhiro Ohta: Conceptualization,
+Methodology, Formal analysis, Validation, Writing–review & editing.
+
+Declaration of competing interest
+   The authors declare that they have no known competing ﬁnancial interests or personal relationships that
+could have appeared to inﬂuence the work reported in this paper.
+
+Data availability
+   No data were used for the research described in this article.
+
+Declaration of generative AI and AI-assisted technologies in the manuscript preparation pro-
+cess
+   During the preparation of this work, the authors used OpenAI’s GPT-5.6 (via Codex) to assist with
+language editing, the identiﬁcation of potentially relevant prior literature and the checking of historical con-
+                                                              23
+text, and the development of algebraic and symbolic computation programs for REDUCE and Mathematica
+used to verify the Lax pair calculations. The authors independently consulted the original publications and
+veriﬁed the citations and historical statements. After using this tool, the authors reviewed and edited the
+content as needed and take full responsibility for the content of the publication.
+
+Acknowledgements
+
+   This work was partially supported by JSPS KAKENHI Grant Numbers JP22K03441, JP23K22407, and
+JP26K06919, and by Waseda University Grants for Special Research Projects.
+
+References
+
+ [1] Hirota R 1977 Nonlinear partial diﬀerence equations. I. A diﬀerence analogue of the Korteweg-de Vries
+     equation J. Phys. Soc. Jpn. 43 1424–1433
+ [2] Hirota R 1977 Nonlinear partial diﬀerence equations. II. Discrete–time Toda equation J. Phys. Soc.
+     Jpn. 43 2074–2078
+ [3] Hirota R 1977 Nonlinear partial diﬀerence equations. III. Discrete sine–Gordon equation J. Phys. Soc.
+     Jpn. 43 2079–2086
+ [4] Hirota R 1978 Nonlinear partial diﬀerence equations. IV. Bäcklund transformation for the discrete-time
+     Toda equation J. Phys. Soc. Jpn. 45 321–332
+ [5] Hirota R 1979 Nonlinear partial diﬀerence equations. V. Nonlinear equations reducible to linear equa-
+     tions J. Phys. Soc. Jpn. 46 312–319
+ [6] Hirota R 1981 Discrete analogue of a generalized Toda equation J. Phys. Soc. Jpn. 50 3785–3791
+ [7] Date E, Jimbo M and Miwa T 1982 Method for Generating Discrete Soliton Equations. I J. Phys. Soc.
+     Jpn. 51 4116–4124
+ [8] Date E, Jimbo M and Miwa T 1982 Method for Generating Discrete Soliton Equations. II J. Phys. Soc.
+     Jpn. 51 4125–4131
+ [9] Date E, Jimbo M and Miwa T 1983 Method for Generating Discrete Soliton Equations. III J. Phys. Soc.
+     Jpn. 52 388–393
+[10] Date E, Jimbo M and Miwa T 1983 Method for Generating Discrete Soliton Equations. IV J. Phys.
+     Soc. Jpn. 52 761–765
+[11] Date E, Jimbo M and Miwa T 1983 Method for Generating Discrete Soliton Equations. V J. Phys. Soc.
+     Jpn. 52 766–771
+[12] Miwa T 1982 On Hirota’s Diﬀerence Equations Proc. Japan Acad. Ser. A, Math. Sci. 58 9–12
+[13] Ablowitz M J and Ladik J F 1975 Nonlinear diﬀerential-diﬀerence equations J. Math. Phys. 16 598–603
+[14] Ablowitz M J and Ladik J F 1976 Nonlinear diﬀerential-diﬀerence equations and Fourier analysis J.
+     Math. Phys. 17 1011–1018
+[15] Ablowitz M J and Ladik J F 1976 A nonlinear diﬀerence scheme and inverse scattering Stud. Appl.
+     Math. 55 213–229
+[16] Ablowitz M J and Ladik J F 1977 On the solution of a class of nonlinear partial diﬀerence equations
+     Stud. Appl. Math. 57 1–12
+
+                                                    24
+[17] Ablowitz M J and Segur H 1981 Solitons and the Inverse Scattering Transform (Philadelphia: Society
+     for Industrial and Applied Mathematics)
+[18] Quispel G R W, Nijhoﬀ F W, Capel H W and Linden J V D 1984 Linear Integral Equations and
+     Nonlinear Diﬀerence-Diﬀerence Equations Physica A 125 344–380
+[19] Nijhoﬀ F W, Capel H W, Wiersma G L and Quispel G R W 1984 Linearizing Integral Transform and
+     Partial Diﬀerence Equations Phys. Lett. A 103 293–297
+[20] Suris Y B 2003 The Problem of Integrable Discretization: Hamiltonian Approach (Basel: Springer)
+[21] Hietarinta J, Joshi N and Nijhoﬀ F W 2016 Discrete Systems and Integrability (Cambridge: Cambridge
+     University Press)
+[22] Wadati M, Konno K and Ichikawa Y 1979 New integrable nonlinear evolution equations J. Phys. Soc.
+     Jpn. 47 1698–1700
+[23] Konno K, Ichikawa Y and Wadati M 1981 A loop soliton propagating along a stretched rope J. Phys.
+     Soc. Jpn. 50 1025–1026
+[24] Ishimori Y 1981 On the modiﬁed Korteweg-de Vries soliton and the loop soliton J. Phys. Soc. Jpn. 50
+     2471–2472
+[25] Ishimori Y 1982 A relationship between the Ablowitz-Kaup-Newell-Segur and Wadati-Konno-Ichikawa
+     schemes of the inverse scattering method J. Phys. Soc. Jpn. 51 3036–3041
+[26] Wadati M and Sogo K 1983 Gauge transformations in soliton theory J. Phys. Soc. Jpn. 52 394–398
+[27] Rogers C and Schief W K 2002 Bäcklund and Darboux Transformations: Geometry and Modern Appli-
+     cations in Soliton Theory (Cambridge: Cambridge University Press)
+[28] Ohta Y, Maruno K and Feng B F 2008 An integrable semi-discretization of the Camassa–Holm equation
+     and its determinant solution J. Phys. A: Math. Theor. 41 355205
+[29] Feng B F, Maruno K and Ohta Y 2010 Integrable discretizations for the short-wave model of the
+     Camassa–Holm equation J. Phys. A: Math. Theor. 43 265202
+[30] Feng B F, Maruno K and Ohta Y 2010 Integrable discretizations of the short pulse equation J. Phys.
+     A: Math. Theor. 43 085203
+[31] Feng B F, Inoguchi J, Kajiwara K, Maruno K and Ohta Y 2013 Integrable discretizations of the Dym
+     equation Front. Math. China 8 1017–1029
+[32] Feng B F, Maruno K and Ohta Y 2014 Self-adaptive moving mesh schemes for short pulse type equations
+     and their Lax pairs Pac. J. Math. Ind. 6 8
+[33] Feng B F, Maruno K and Ohta Y 2015 Integrable semi-discretizations of the reduced Ostrovsky equation
+     J. Phys. A: Math. Theor. 48 135203
+[34] Feng B F, Maruno K and Ohta Y 2017 An integrable semi-discrete Degasperis-Procesi equation Non-
+     linearity 30 2246–2267
+[35] Camassa R and Holm D D 1993 An integrable shallow water equation with peaked solitons Phys. Rev.
+     Lett. 71 1661–1664
+[36] Camassa R, Holm D D and Hyman J M 1994 A new integrable shallow water equation Adv. Appl.
+     Mech. 31 1–33
+
+
+                                                   25
+[37] Feng B F, Maruno K and Ohta Y 2010 A self-adaptive moving mesh method for the Camassa–Holm
+     equation J. Comput. Appl. Math. 235 229–243
+[38] Hunter J K and Saxton R 1991 Dynamics of director ﬁelds SIAM J. Appl. Math. 51 1498–1521
+[39] Hunter J K and Zheng Y 1994 On a completely integrable nonlinear hyperbolic variational equation
+     Physica D 79 361–386
+[40] Hunter J K and Zheng Y 1995 On a nonlinear hyperbolic variational equation: I. Global existence of
+     weak solutions. Arch. Rat. Mech. Anal. 129 305–353
+[41] Hunter J K and Zheng Y 1995 On a nonlinear hyperbolic variational equation: II. The zero-viscosity
+     and dispersion limits. Arch. Rat. Mech. Anal. 129 355–383
+[42] Olver P J and Rosenau P 1996 Tri-Hamiltonian duality between solitons and solitary-wave solutions
+     having compact support Phys. Rev. E 53 1900–1906
+[43] Pavlov M V 2005 The Gurevich–Zybin system J. Phys. A: Math. Gen. 38 3823–3840
+[44] Aratyn H, Gomes J F and Zimerman A H 2006 On negative ﬂows of the AKNS hierarchy and a class of
+     deformations of a bihamiltonian structure of hydrodynamic type J. Phys. A: Math. Gen. 39 1099–1114
+[45] Wunsch M 2009 On the Hunter–Saxton system Discrete Contin. Dyn. Syst. Ser. B 12 647–656
+[46] Wunsch M 2010 The generalized Hunter–Saxton system SIAM J. Math. Anal. 42 1286–1304
+[47] Wunsch M 2011 Weak geodesic ﬂow on a semidirect product and global solutions to the periodic
+     Hunter–Saxton system Nonlinear Anal. Theory Methods Appl. 74 4951–4960
+[48] Wu H and Wunsch M 2012 Global existence for the generalized two-component Hunter–Saxton system
+     J. Math. Fluid Mech. 14 455–469
+[49] Moon B and Liu Y 2012 Wave breaking and global existence for the generalized periodic two-component
+     Hunter–Saxton system J. Diﬀer. Equ. 253 319–355
+[50] Kohlmann M 2011 The curvature of semidirect product groups associated with two-component Hunter–
+     Saxton systems J. Phys. A: Math. Theor. 44 225203
+[51] Lenells J and Lechtenfeld O 2009 On the N = 2 supersymmetric Camassa–Holm and Hunter–Saxton
+     equations J. Math. Phys. 50 012704
+[52] Moon B 2013 Solitary wave solutions of the generalized two-component Hunter–Saxton system Nonlin-
+     ear Anal. 89 242–249
+[53] Liu S Q and Zhang Y 2005 Deformations of semisimple bihamiltonian structures of hydrodynamic type
+     J. Geom. Phys. 54 427–453
+[54] Falqui G 2006 On a Camassa–Holm type equation with two dependent variables J. Phys. A: Math.
+     Gen. 39 327–342
+[55] Chen M, Liu S Q and Zhang Y 2006 A two-component generalization of the Camassa–Holm equation
+     and its solutions Lett. Math. Phys. 75 1–15
+[56] Constantin A and Ivanov R I 2008 On an Integrable Two-Component Camassa–Holm Shallow Water
+     System Phys. Lett. A 372 7129–7132
+[57] Lou S, Feng B F and Yao R 2016 Multi-soliton solution to the two-component Hunter–Saxton equation
+     Wave Motion 65 17–28
+
+                                                  26
+[58] Matsuno Y 2017 Multisoliton solutions of the two-component Camassa–Holm system and their reduc-
+     tions J. Phys. A: Math. Theor. 50 345202
+[59] Hori A, Maruno K, Ohta Y and Feng B F 2025 Integrable self-adaptive moving mesh schemes for multi-
+     component short pulse type equations with nonzero boundary values arXiv preprint arXiv:2507.03880
+
+
+
+
+                                                  27
+

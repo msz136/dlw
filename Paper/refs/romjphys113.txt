@@ -1,0 +1,483 @@
+v.2.4r20231012 *2023.10.13#7c0f35d8
+
+
+        DERIVATION OF LUMP SOLUTIONS TO INTEGRABLE (2+1)- AND
+          (3+1)-DIMENSIONAL EXTENDED KDV AND KP EQUATIONS
+
+
+             WEAAM ALHEJAILI1 , ABDUL-MAJID WAZWAZ2 , S. A. EL-TANTAWY3,4
+   1
+       Department of Mathematical Sciences, College of Science, Princess Nourah bint Abdulrahman
+                        University, P.O. Box 84428, Riyadh 11671, Saudi Arabia
+                                     E-mail: waalhejali@pnu.edu.sa
+             2
+               Department of Mathematics, Saint Xavier University, Chicago, IL 60655, USA
+                                        E-mail: wazwaz@sxu.edu
+        3
+          Department of Physics, Faculty of Science, Port Said University, Port Said 42521, Egypt
+                                     E-mail: tantawy@sci.psu.edu.eg
+        4
+          Research Center for Physics (RCP), Department of Physics, Faculty of Science and Arts,
+                      Al-Mikhwah, Al-Baha University, Kingdom of Saudi Arabia
+                                         Received May 29, 2023
+
+                 Abstract. In this study, we investigate the lump solutions for both integrable
+          (2+1)- and (3+1)-dimensional extended KdV and KP equations using symbolic com-
+          putation with Maple and the Hirota bilinear (HB) form. For each integrable model, we
+          create positive quadratic function solutions to the HB equation. Graphs of the derived
+          lump solutions are displayed with the proper parameter values.
+                 Key words: Extended KdV equation; extended KP equation; lump solutions;
+                            multiple soliton solutions; Painlevé analysis.
+                 DOI: https://doi.org/10.59277/RomJPhys.2023.68.113
+
+
+                                         1. INTRODUCTION
+
+      Integrable equations disclose real characteristics as well as being useful for
+the investigation of the mysterious nature of nonlinear phenomena [1–16]. These
+equations provide both qualitative and quantitative characteristics of various natural
+phenomena, including but not limited to fluid mediums, plasma physics, excitations
+of ultra-cold atoms in Bose-Einstein condensates, and wave propagation in shallow
+water areas. Consequently, the investigation of integrable models has emerged as a
+prominent area of research in the realm of nonlinear scientific disciplines. Research
+on fully integrable equations is thriving both in the theoretical and experimental do-
+mains of the scientific literature [17–41].
+      The (2+1)-dimensional Korteweg-de Vries (KdV) equation reads
+                                   vt + vxxx + 3(v∂y−1 vx )x = 0.                                  (1)
+For x = y, Eq. (1) reduces to the standard KdV equation. Note that for v(x, y, t) =
+uy (x, y, t), Eq. (1) becomes
+                                   uty + uxxxy + 3(uy ux )x = 0.                                   (2)
+Romanian Journal of Physics 68, 113 (2023)
+Article no. 113            Weaam Alhejaili, Abdul-Majid Wazwaz, S. A. El-Tantawy      2
+
+
+       By utilizing the concept of the weak Lax pair, this equation was derived for
+the first time by Boiti et al. [1]. Also, Eq. (1) is commonly referred to as the
+Boiti-Leon-Manna-Pempinelli equation. It has been demonstrated to exhibit various
+characteristics such as the presence of Lax pair, an infinite number of conservation
+laws, integrability properties, and multiple soliton solutions. Various approaches
+have been extensively examined to explore alternative solutions for this model [1–
+15]. Moreover, this equation has been shown to possess families of localized solu-
+tions. Furthermore, at x = y, this equation can be simplified to the conventional KdV
+equation.
+       In Ref. [2], we extended Eq. (1) to the following two (2+1)- and (3+1)-
+dimensional KdV equations, respectively,
+                  vt + vxxx + (v∂y−1 vx )x + (∂y−1 vxx ) + (∂y−1 vyy ) = 0,         (3)
+and
+           vt + vxxx + (v∂y−1 vx )x + (∂y−1 vxx ) + (∂y−1 vyy ) + (∂y−1 vyz ) = 0. (4)
+The Painlevé test was used to confirm that the two extended Eqs. (3) and (4) are
+fully integrable. In Ref. [2], multiple soliton solutions (SSs) were obtained for both
+models (3) and (4).
+       Moreover, in our work [3], we introduced two integrable (2+1)- and (3+1)-
+dimensional extensions of the Kadomtsev–Petviashvili (KP) equation given by
+                         (ut + 6uux + uxxx )x − uyy + uxx = 0,                      (5)
+and
+                        (ut + 6uux + uxxx )x − uyy + uxz = 0,                        (6)
+respectively. The KP extensions (5) and (6) were confirmed to be Painlevé integrable
+with multiple soliton solutions for each model.
+      As previously mentioned, both KdV and KP extensions are fully integrable,
+allowing for the investigation of multiple SSs in each model. As is well-known, soli-
+tons (solitary waves) are identified as exponentially localized solutions in all space-
+directions. Nonetheless, an alternative category of exact solutions, known as lump
+solutions (LSs), has been extensively examined. In comparison to SSs, the LSs are
+distinct types of rational function solutions that are confined in all space directions.
+These solutions experience rational decay towards an asymptotic value and exhibit
+uniform velocity during the motion [6–24]. Nonlinear patterns appearing in a shallow
+water surface with high surface tension are described by the solutions called lumps.
+When surface tension dominates over a shallow water surface, nonlinear patterns can
+be described as lumps [10–16]. Additionally, lumps interact with each other with-
+out scattering, only experiencing a parallel change in the asymptotic motion [16–29].
+There has been an increasing interest in the utilization of lump or lump-type solutions
+to address various types of nonlinear equations.
+       (c) RJP68(Nos. 7-8), ID 113-1 (2023) v.2.4r20231012 *2023.10.13#7c0f35d8
+3    Derivation of lump solutions to integrable extended KdV and KP equations   Article no. 113
+
+
+       The investigation of lumps, breathers, and freak or rogue waves [(FWs) or
+(RWs)] has experienced significant expansion and garnered increased interest within
+the nonlinear scientific disciplines and engineering domains. Solitons, breathers,
+lumps, and RWs are categorized as discrete forms of nonlinear localized waves.
+Solitons are a type of wave that is both localized and stable. In contrast, RWs and
+breathers are localized structures that possess unstable characteristics. Concerning
+solutions in the form of rational functions, the solutions of lump-type demonstrate
+localization in nearly all directions within space. RWs, which are characterized by
+their sudden appearance and disappearance without a trace [42, 43], are spatially and
+temporally localized waveforms that have been implicated in a multitude of mar-
+itime catastrophes. In recent years, numerous investigations have been carried out on
+the distinct features of RWs in a variety of physical systems, particularly in plasma
+physics and optical fibers. This type of wave has been investigated based on the
+study of modulational instability (MI) of a nonlinear Schrödinger (NLS) equation
+[44–48]. Moreover, there are many studies about this type of wave in the framework
+of KdV-type equation [49–51].
+       The objective of this study is to supplement our previous research endeavors in
+Refs. [2, 3], wherein we conducted the Painlevé test and formally obtained multiple
+SSs for each equation. In order to advance the study of the extended KdV and KP
+Eqs. (3)–(6), the proposed approach involves the utilization of symbolic computation
+via Maple software, as well as the application of Hirota’s bilinear (HB) form for
+analysis. This methodology aims to formally derive LSs for the (2+1)- and (3+1)-
+dimensional extended KdV and KP Eqs. (3)–(6). Moreover, some obtained LSs will
+be presented graphically.
+
+
+               2. LUMPS FOR THE (2+1)-DIMENSIONAL KdV EQUATION
+
+
+    In Eq. (3), for v(x, y, t) = uy (x, y, t), the following extended (2+1)-dimensional
+KdV equation is obtained
+                        uty + uxxxy + (uy ux )x + uxx + uyy = 0.                           (7)
+     To derive LSs for Eq. (7), we first transform Eq. (7) into a bilinear equation in
+operators form
+                       Dt Dy + Dx3 Dy + Dx2 + Dy2 f · f = 0.
+                                                   
+                                                                                   (8)
+Here, Dt and Dt indicate the HB derivative operators. According to Eq. (8) and by
+using u(x, y, t) = 6(ln f (x, y, t))x , then Eq. (7) is transformed to
+             (f fty − ft fy ) + (f fxxxy − 3fx fxxy + 3fxx fxy − fxxx fy )
+                                                                            (9)
+             +(f fxx − fx fx ) + (f fyy − fy fy ) = 0.
+      (c) RJP68(Nos. 7-8), ID 113-1 (2023) v.2.4r20231012 *2023.10.13#7c0f35d8
+Article no. 113           Weaam Alhejaili, Abdul-Majid Wazwaz, S. A. El-Tantawy                 4
+
+
+        To obtain the LSs for Eq. (7), the following assumptions are considered
+
+                             g = a1 x + a2 y + a3 t + a4 ,
+                             h = a5 x + a6 y + a7 t + a8 ,                                   (10)
+                             f = g 2 + h2 + a9 ,
+
+where aj , 1 ≤ j ≤ 9 are real variables that will be identified later. Now, by inserting
+Eq. (10) into Eq. (9), we finally get a polynomial in (x, y, t) variables. By following
+the same procedures as in Refs. [1–10], we finally, get the values of parameters aj .
+Thus we get the following set of equations restricting the various parameters:
+
+             ai = ai &i = 1, 2, 4, 5, 6, 8,
+                                a (a21 +a22 −a25 +a26 )+2a1 a5 a6
+                    a3 = − 2                    a22 +a26
+                                                                     ,
+                             a6 (a21 +a22 −a25 +a26 )−2a1 a2 a5                              (11)
+                    a7 =                    a22 +a26
+                                                                  ,
+                                (a21 +a25 )(a22 +a26 )(a1 a2 +a5 a6 )
+                    a9 =     −            (a1 a6 −a2 a5 )2
+                                                                      , a1 a2 + a5 a6 < 0,
+
+which must fulfill the following determinant condition
+
+                                           a1 a5
+                                  ∆=                    ̸= 0.                                (12)
+                                           a2 a6
+
+Also the condition a9 > 0 must be satisfied to ensure a well-defined function f (x, y, t)
+that is positive and localizes u(x, y, t) in all space-directions. By inserting the ob-
+tained parameters given in Eq. (11) into Eq. (10), we get the class of positive
+quadratic function solutions (PQFSs). This, in turn, will give a class of LSs to Eq. (7)
+by using u = (6 ln f (x, t))x where f, g, and h are defined in Eq. (10). Furthermore,
+the obtained LSs u(x, y, t) → 0 if and only if g 2 + h2 → ∞.
+       For example, selecting
+
+                   a1 = 1, a2 = −2, a4 = 2, a5 = 1, a6 = −1, a8 = 2,                         (13)
+
+gives
+
+                                      12       9
+                               a3 =      , a7 = , a9 = 90.                                   (14)
+                                       5       5
+
+      Recall that v = uy and by using the selected values for the parameters we obtain
+the following LS:
+                                                                     !
+                                6 425 t + 4 x − 6 y + 8
+                                                       
+              v=                       2                    2        .          (15)
+                      12 t                    9
+                       5 + x − 2 y + 2 + 5 t + x − y + 2 + 90 y
+        (c) RJP68(Nos. 7-8), ID 113-1 (2023) v.2.4r20231012 *2023.10.13#7c0f35d8
+5     Derivation of lump solutions to integrable extended KdV and KP equations                Article no. 113
+
+
+                3. LUMPS FOR THE (3+1)-DIMENSIONAL KdV EQUATION
+
+     Using v(x, y, z, t) = uy (x, y, z, t) in Eq. (4), the following extended (3+1)-
+dimensional KdV equation is obtained
+                      uty + uxxxy + (uy ux )x + uxx + uyy + uyz = 0.                                    (16)
+      Equation (16) is Painlevé integrable as proved in Ref. [2]. Moreover, multiple
+real and multiple complex SSs were furnished in Ref. [2]. By following the same
+methodology as we did above and transform Eq. (16) into a bilinear equation in the
+following operators form, we can derive LSs:
+                   Dt Dy + Dx3 Dy + Dx2 + Dy2 + Dy Dz f · f = 0.
+                                                         
+                                                                                (17)
+Here, DR , are as defined earlier, where R = x, y, z, t. Accordingly, Eq. (16) is
+transformed to the following form using u(x, y, z, t) = 6(ln f (x, y, z, t))x :
+                 (f fty − ft fy ) + (f fxxxy − 3fx fxxy + 3fxx fxy − fxxx fy )
+                                                                                                        (18)
+                 +(f fxx − fx fx ) + (f fyy − fy fy ) + (f fyz − fy fz ) = 0.
+       To obtain the LSs for Eq. (16), the following assumptions are introduced
+                           g = a1 x + a2 y + a3 z + a4 t + a5 ,
+                           h = a6 x + a7 y + a8 z + a9 t + a10 ,                                        (19)
+                           f = g 2 + h2 + a11 ,
+where aj , 1 ≤ j ≤ 11 are real parameters to be determined.
+       Now, by inserting Eq. (19) into Eq. (18), we finally obtain a polynomial of
+(x, y, z, t) variables. By following the same methodology used above, the values of
+the parameters aj , 1 ≤ j ≤ 11 can be obtained. Following the same process as before,
+we arrive at the following set of equations that constrain the various parameters:
+                ai = ai &i = 1, 2, 4, 5, 6, 7, 9, 10
+                                      a (a21 −a26 +a27 )+a4 (a22 +a27 )+(2a1 a6 a7 +a32 )
+                         a3 = − 2                            a22 +a27
+                                                                                          ,
+                                        2    2    2     2         2    2
+                                   a7 (a1 −a2 −a6 +a7 )−a9 (a2 +a7 )−2a1 a2 a6                          (20)
+                         a8 =                            a22 +a27
+                                                                                    ,
+                                          2    2    2     2
+                                      3(a +a )(a +a )(a a +a a )
+                        a11 =      − 1 6(a1 a2 7 −a7 2 a61)22 5 6 ,
+which must fulfill the following determinant condition
+                                              a1 a6
+                                     ∆=                     ̸= 0                                        (21)
+                                              a2 a7
+and
+                                    a1 a2 + a5 a6 < 0,                            (22)
+to force a11 > 0 to ensure a well-defined function f (x, y, z, t) that is positive and
+localizes u(x, y, z, t) in all space-directions. The obtained parameters given in Eq.
+       (c) RJP68(Nos. 7-8), ID 113-1 (2023) v.2.4r20231012 *2023.10.13#7c0f35d8
+Article no. 113             Weaam Alhejaili, Abdul-Majid Wazwaz, S. A. El-Tantawy        6
+
+
+(20) can generate the class of PQFSs by substituting Eq. (20) into Eq. (19). This, in
+turn will give a class of LSs to Eq. (16) by using u = (6 ln f (x, y, z, t))x , where f, g,
+and h are given Eq. (19). In addition, the obtained LSs u(x, y, z, t) → 0 if and only
+if g 2 + h2 → ∞.
+        For example, by considering a1 = 1, a2 = 2, a4 = 2, a5 = 1, a6 = 2, a7 = −2,
+a9 = 1, a10 = 2, with v(x, y, z, t) = uy (x, y, z, t), we get
+                                    9      3          20
+                             a3 = − , a8 = , a11 = ,                                  (23)
+                                    4      4          3
+which lead to the following LS:
+                                                                     !
+                              6 10x − 4y − 23 z + 8t + 10
+                                                         
+        v=                            2                       2       .             (24)
+                x + 2y − 49 z + 2t + 1 + 2x − 2y + 43 z + t + 2 + 20
+                                                                  3   y
+
+
+
+
+                   Fig. 1 – Profile of the LS for −50 ≤ x, z ≤ 50, y = 10, t = 0.
+
+
+
+
+                  4. LUMPS FOR THE (2+1)-DIMENSIONAL KP EQUATION
+
+       The extended integrable (2+1)-dimensional KP equation reads
+                          (ut + 6uux + uxxx )x − uyy + uxx = 0,                       (25)
+where this extension is obtained by including the linear term uxx to the standard
+KP equation. This equation was introduced in Ref. [3], where its integrability was
+emphasized and multiple SSs were derived. In a similar manner to the previously
+presented analysis, LSs can be derived. Consequently, Eq. (25) can be transformed
+into a bilinear equation in the following operators form
+                           Dt Dx + Dx4 + Dx2 − Dy2 f · f = 0,
+                                                   
+                                                                               (26)
+       (c) RJP68(Nos. 7-8), ID 113-1 (2023) v.2.4r20231012 *2023.10.13#7c0f35d8
+7    Derivation of lump solutions to integrable extended KdV and KP equations     Article no. 113
+
+
+where Dt , Dx and Dy are the HB derivative operators.
+     By using u(x, y, t) = 6(ln f (x, y, t))xx , then Eq. (25) can be transformed to
+(f ftx −ft fx )+(f fxxxx −4fx fxxx +3fxx fxx )+(f fxx −fx fx )−(f fyy −fy fy ) = 0.
+                                                                                (27)
+       To obtain the LSs for Eq. (25), we will use the same assumptions given in Eq.
+(10) and by following the same procedures, we can get the values of the parameters
+aj , 1 ≤ j ≤ 9. Thus, we arrive at the following set of equations that constrain the
+various parameters:
+                      ai = ai &i = 1, 2, 4, 5, 6, 8,
+                                           a (a21 −a22 +a25 +a26 )−2a2 a5 a6
+                               a3 = − 1                  a21 +a25
+                                                                              ,
+                                           a5 (a21 +a22 +a25 −a26 )−2a1 a2 a6               (28)
+                               a7 =      −               a21 +a25
+                                                                              ,
+                                           (a21 +a25 )3
+                               a9 =      (a1 a6 −a2 a5 )2
+                                                          ,
+which must fulfill the following determinant condition
+                                                       a1 a5
+                         ∆ = (a1 a6 − a2 a5 ) =                     ̸= 0.                   (29)
+                                                       a2 a6
+       Also the condition a9 > 0 must be satisfied to ensure a well-defined function
+f (x, y, t) that is positive and localizes u(x, y, t) in all space-directions. By inserting
+the obtained parameters given in Eq. (28) into Eq. (10), we get the class of PQFSs.
+This, in turn, will give a class of LSs to Eq. (25) by using u = (6 ln f (x, t))x . For
+example, by using a1 = 1, a2 = 2, a4 = 2, a5 = 1, a6 = 4, a8 = 2, we get
+                                  a3 = 1, a7 = 13, a9 = 6.                                  (30)
+      Accordingly, the following LS is obtained
+                                                    8
+                   u(x, y, t) =       (x+2y+t+2)2 +(x+4y+13t+2)2 +6
+                                             2(24x+12y+28t+8)2                              (31)
+                                 −    ((x+2y+t+2)2 +(x+4y+13t+2)2 +6)2
+                                                                       .
+
+
+                5. LUMPS FOR THE (3+1)-DIMENSIONAL KP EQUATION
+
+      The extended (3+1)-dimensional KP equation reads
+                         (ut + 6uux + uxxx )x − uyy + uxz = 0,                              (32)
+where we added the linear term uxz to the standard KP equation.
+      Equation (32) is Painlevé integrable as proved in Ref. [3]. Moreover, multiple
+real and multiple complex SSs were furnished in Ref. [3] by using the simplified
+Hirota’s method for real and complex structures.
+      (c) RJP68(Nos. 7-8), ID 113-1 (2023) v.2.4r20231012 *2023.10.13#7c0f35d8
+Article no. 113             Weaam Alhejaili, Abdul-Majid Wazwaz, S. A. El-Tantawy             8
+
+
+
+
+                                  !
+            Fig. 2 – Profile of the density curve for −50 ≤ x ≤ 50, −30 ≤ y ≤ 30, t = 1.
+
+      To find the LSs for Eq. (32), we follow the previous analysis and we transform
+Eq. (32) into a bilinear equation in operators form
+                         Dt Dx + Dx4 − Dy2 + Dx Dz f · f = 0.
+                                                    
+                                                                                 (33)
+Now, using Eq. (33) with u(x, y, z, t) = 2(ln f (x, y, z, t))xx , thus Eq. (32) can be
+transformed to
+                       (f ftx − ft fx ) + (f fxxxx − 4fx fxxx + 3fxx fxx )
+                                                                                           (34)
+                  +(f fxx − fx fx )(f fyy − fy fy ) + (f fxz − fx fz ) = 0.
+      To obtain the LSs for Eq. (32), we will use the assumptions given in Eq. (19)
+and in a similar manner to the previously presented analysis, we can get the values of
+the parameters aj , 1 ≤ j ≤ 11. Following the same procedures as before, we arrive at
+the following set of equations that constrain the various parameters:
+                     ai = ai &i = 1, 2, 4, 5, 6, 7, 8, 10,
+                                            a (a21 +a26 )−a1 (a22 −a27 )−2a2 a6 a7
+                              a3 = − 4                       a21 +a26
+                                                                                   ,
+                                         a8 (a21 +a26 )+a6 (a22 −a27 )−2a1 a2 a7           (35)
+                              a9 =                       a21 +a26
+                                                                                 ,
+                                           3(a21 +a26 )3
+                             a11 =       (a1 a7 −a2 a6 )2
+                                                          ,
+which must fulfill the following determinant condition
+                                                          a1 a6
+                           ∆ = (a1 a7 − a2 a6 ) =                      ̸= 0                (36)
+                                                          a2 a7
+and
+                                    a1 ̸= 0 and a6 ̸= 0,                            (37)
+to guarantee a11 > 0 and to ensure a well-defined function f (x, y, z, t) that is posi-
+tive and localizes u(x, y, z, t) in all space-directions. Now, by inserting the obtained
+parameters given in Eq. (35) into Eq. (19), we get the class of PQFSs. This, in turn,
+will give a class of LSs to Eq. (32) by using u = (6 ln f (x, y, z, t))xx . For example,
+by using the values a1 = 1, a2 = 2, a4 = 2, a5 = 1, a6 = 2, a7 = 1, a8 = 2, a10 = 2, we
+       (c) RJP68(Nos. 7-8), ID 113-1 (2023) v.2.4r20231012 *2023.10.13#7c0f35d8
+9     Derivation of lump solutions to integrable extended KdV and KP equations       Article no. 113
+
+
+get
+                                 1         12         125
+                            a3 = , a8 = − , a11 =         .                                    (38)
+                                 5          5          3
+       Accordingly, the following LS is obtained (see Figs. 1 and 2)
+                                                       20
+             u(x, y, z, t) =      (x+2y+ 15 z+2t+1)2 +(2x+y+2z− 12 t+2)2 + 125
+                                                                 5          3
+                                                         42z 28
+                                              2(10x+8y+ 5 − 5 t+10)2                           (39)
+                             −    ((x+2y+ 51 z+2t+1)2 +(2x+y+2z− 12 t+2)2 + 125 )2
+                                                                                   .
+                                                                  5          3
+
+
+
+                                         6. DISCUSSION
+
+      In the paper, we studied the integrable (2+1)- and (3+1)-dimensional extended
+KdV and KP equations. Using symbolic computation and Hirota’s bilinear form, we
+derived positive quadratic function solutions to the corresponding bilinear equation
+for each distinct model. The obtained positive quadratic function solutions generate
+families of lump solutions to these equations by using the related dependent variable
+transformation for each equation. The lump solutions contain free distinct parame-
+ters, with sufficient restricted conditions for each examined equation, to guarantee
+the existence of these solutions. Using suitable values of the parameters involved,
+graphs of the obtained solutions are also reported.
+      Acknowledgements. The authors extend their appreciation to the Deputyship for Research &
+Innovation, Ministry of Education in Saudi Arabia for funding this research work through the project
+number RI-44-0146.
+
+
+                                          REFERENCES
+
+ 1. M. Boiti, J. Leon, M. Manna, and F. Pempinelli, Inverse Probl. 2, 271–279 (1986).
+ 2. A. M. Wazwaz, Nuclear Physics B 954, 115009 (2020).
+ 3. A. M. Wazwaz, Cent. Eur. J. Phys. 9(1), 49–56 (2011).
+ 4. A. M. Wazwaz, International J. Numerical Methods for Heat and Fluid Flow 30(2), 996–1008
+    (2019).
+ 5. G. Q. Xu and A. M. Wazwaz, Nonlinear Dynamics 98, 1379–1390 (2019).
+ 6. R. Hirota, The Direct Method in Soliton Theory, Cambridge University Press, Cambridge (2004).
+ 7. R. Hirota, Progress of Theoretical Physics 52(5), 1498–1512 (1974).
+ 8. Q. Zhou and Q. Zhu, Waves in Random and Complex Media 25(1), 52–59 (2014).
+ 9. W. Hereman and A. Nuseir, Mathematics and Computers in Simulation 43, 13–27 (1997).
+10. G. Q. Xu, Appl. Math. Lett. 97, 81–87 (2019).
+11. L. J. Zhang and C. M. Khalique, Nonlinear Dyn. 87, 1985–1993 (2017).
+12. S. A. Khuri, Chaos, Solitons & Fractals 26, 25–32 (2005).
+13. S. A. Khuri, Chaos, Solitons & Fractals 36, 1181–1188 (2008).
+14. D. Baleanu and A. Fernandez, Mathematics 7(9), 830 (2019).
+15. M. Adel, D. Baleanu, U. Sadiya, M. Arefin, M. Hafiz Uddin, M. A. Elamin, and M. S. Osman,
+    Results in Physics 38, 105661 (2022).
+       (c) RJP68(Nos. 7-8), ID 113-1 (2023) v.2.4r20231012 *2023.10.13#7c0f35d8
+Article no. 113              Weaam Alhejaili, Abdul-Majid Wazwaz, S. A. El-Tantawy               10
+
+
+16. P. J. Olver, J. Math. Phys. 18 (6), 1212–1215 (1977).
+17. C. M. Khalique, Pramana J. Phys. 80, 413–427 (2013).
+18. H. Leblond and D. Mihalache, Phys. Rep. 523, 61–126 (2013).
+19. S. Chen, P. Grelu, D. Mihalache, and F. Baronio, Rom. Rep. Phys. 68, 1407–1424 (2016).
+20. D. Mihalache, Rom. Rep. Phys. 67, 1383–1400 (2015).
+21. B. A. Malomed and D. Mihalache, Rom. J. Phys. 64, 106 (2019).
+22. K. R. Adem and C. M. Khalique, Nonlinear Analysis: Real World Applications 13, 1692–1702
+    (2012).
+23. A. M. Wazwaz, Partial Differential Equations and Solitary Waves Theory, Springer, Berlin (2009).
+24. A. M. Wazwaz, International Journal of Numerical Methods for Heat & Fluid Flow 30(3), 1379–
+    1387 (2019).
+25. A. M. Wazwaz, International Journal of Numerical Methods for Heat and Fluid Flow 29 (6), 2093–
+    2102 (2019).
+26. A. M. Wazwaz, Optik 182, 605–610 (2019).
+27. A. M. Wazwaz, Comput. Fluids 93, 41–45 (2014).
+28. A. M. Wazwaz and L. Kaur, Nonlinear Dynamics 97, 83–94 (2019).
+29. M. S. Osman, Computers & Mathematics with Applications 75(1), 1–6 (2018).
+30. D. Mihalache, Rom. Rep. Phys. 73, 403 (2021).
+31. Xin-Yi Gao, Yong-Jiang Guo, and Wen-Rui Shan, Rom. J. Phys. 66, 110 (2021).
+32. Y. Ye, L. Bu, C. Pan, S. Chen, D. Mihalache, and F. Baronio, Rom. Rep. Phys. 73, 117 (2021).
+33. M. Wang and B. Tian, Rom. J. Phys. 66, 119 (2021).
+34. B. A. Malomed, Symmetry 14, 1565 (2022).
+35. Lahib Ibrahim Zaidan, Sukaina Al-Bairmani, and M. T. Darvishi, Rom. J. Phys. 67, 111 (2022).
+36. L. Kaur and A. M. Wazwaz, Rom. Rep. Phys. 74, 108 (2022).
+37. N.H. Aljahdaly, H.A. Ashi, A.M. Wazwaz, and S.A. El-Tantawi, Rom. Rep. Phys. 74, 109 (2022).
+38. F. Yuan, Rom. Rep. Phys. 74, 121 (2022).
+39. C.-C. Hu, B. Tian, D.-Y. Yang, and S.-H. Liu, Rom. J. Phys. 67, 107 (2022).
+40. B. A. Malomed, Multidimensional Solitons, AIP Publishing, Melville (2022).
+41. B. A. Malomed, Low Temperature Physics 48, 856–895 (2022).
+42. N. Akhmediev, A. Ankiewicz, and M. Taki, Phys. Lett. A 373, 675–678 (2009).
+43. N. Akhmediev, Frontiers in Physics 8, 612318 (2021).
+44. S.A. El-Tantawy, Alvaro H. Salas, Haifa A. Alyousef, and M.R. Alharthi, Chaos, Solitons & Frac-
+    tals 163, 112612 (2022).
+45. S.A. El-Tantawy, R.A. Alharbey, Alvaro H. Salas, Chaos, Solitons & Fractals 155, 111776 (2022).
+46. S.A. El-Tantawy, Shaukat Ali Shan, Naseem Akhtar, and A.T. Elgendy, Chaos, Solitons & Fractals
+    113, 356–364 (2018).
+47. Noufe H Aljahdaly, S.A. El-Tantawy, A.-M. Wazwaz, and H.A. Ashi, Journal of Taibah University
+    for Science 15, 971–983 (2021).
+48. S.A. El-Tantawy, Alvaro H. Salas, and M.R. Alharthi, Frontiers in Physics 9, 580224 (2021).
+49. S. A. El-Tantawy and A.-M. Wazwaz, Physics of Plasmas 25, 092105 (2018).
+50. W. Albalawi, S. A. El-Tantawy, and Alvaro H Salas, Results in Physics 30, 104847 (2021).
+51. S. A. El-Tantawy, S. Ali, R. Maroof, A.-M. Wazwaz, and S. K. El-Labany, Indian Journal of
+    Physics 91, 939–946 (2017).
+
+
+
+
+       (c) RJP68(Nos. 7-8), ID 113-1 (2023) v.2.4r20231012 *2023.10.13#7c0f35d8
+

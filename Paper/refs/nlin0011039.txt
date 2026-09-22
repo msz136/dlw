@@ -1,0 +1,644 @@
+                                                                                            Submitted to Funct. Anal. Appl.
+
+
+                                                   On the relation between multifield and
+                                                   multidimensional integrable equations
+arXiv:nlin/0011039v1 [nlin.SI] 21 Nov 2000
+
+
+
+
+                                                                             V.E. Adler
+
+                                                  Ufa Institute of Mathematics, 112 Chernyshevsky str.,
+                                                                    Ufa 450077, Russia
+                                                                 e-mail: adler@imat.rb.ru
+
+
+                                                                               Abstract
+                                                      The new examples are found of the constraints which link the 1+2-
+                                                  dimensional and multifield integrable equations and lattices. The vec-
+                                                  tor and matrix generalizations of the Nonlinear Schrödinger equation
+                                                  and the Ablowitz-Ladik lattice are considered among the other multi-
+                                                  field models. It is demonstrated that using of the symmetries belong-
+                                                  ing to the hierarchies of these equations leads, in particular, to the
+                                                  KP equation and twodimensional analogs of the dressing chain, Toda
+                                                  lattice and dispersive long waves equations. In these examples the
+                                                  multifield equation and its symmetry have meaning of the Lax pair
+                                                  for the corresponding twodimensional equation under some compati-
+                                                  ble constraint between field variables and eigenfunctions.
+
+
+                                             1    Introduction. Vector NLS equation
+                                             Let us consider the vector generalization of the Nonlinear Schrödinger equa-
+                                             tion (NLS) [1, 2] and its third order symmetry:
+
+                                                           ψy = ψxx + 2hψ, ϕiψ,      −ϕy = ϕxx + 2hψ, ϕiϕ,                 (1)
+                                                                 ψt = ψxxx + 3hψ, ϕiψx + 3hψx , ϕiψ,
+                                                                                                                           (2)
+                                                                 ϕt = ϕxxx + 3hψ, ϕiϕx + 3hψ, ϕx iϕ
+
+                                             where ψ, ϕ ∈ RN and the brackets h , i denote scalar product. It is an easy
+                                             exercise to check that the quantities
+
+                                                               u = −2hψ, ϕi,     q = 2hψ, ϕx i − 2hψx , ϕi                 (3)
+solve, in virtue of these equations and independently on the dimension N,
+the Kadomtsev-Petviashvili equation (KP)
+                      4ut = uxxx − 6uux + 3qy ,       qx = uy .                    (4)
+This observation was done in the papers [3, 4] for the first time. It reduces the
+problem of solving of the 1+2-dimensional equation to the simpler problem of
+construction of the common solution of the pair of 1+1-dimensional systems,
+although of the large size. Apparently, this trick is a sort of nonlinear analog
+of the separation of variables method. It is rather effective and even the
+simlest case N = 1 have brought to some new exact solutions of KP [5].
+    We mention also the further contributions [6, 7, 8, 9]. Within this ap-
+proach eqs. (1), (2) are treated as the pair of the formally conjugated auxiliary
+linear problems for the KP equation
+                 ψy = ψxx − uψ,            −ϕy = ϕxx − uϕ,                         (5)
+              3     3                                 3     3
+   ψt = ψxxx − uψx − (ux + q)ψ,            ϕt = ϕxxx − uϕx − (ux − q)ϕ             (6)
+              2     4                                 2     4
+and the relations (3) are treated as the constraint between the potential and
+the eigenfunctions, which is consistent with the dynamics on y and t. Bearing
+this interpretation in mind we always denote the multifield variables (vectors
+or matrices) as ψ, ϕ.
+    If the 1+2-dimensional equation is given then the finding of the corre-
+sponding 1+1-dimensional systems can be rather nontrivial task, even if the
+L − A-pair is known. Several solutions can exist. For example, it turns out
+that eqs. (4) – (6) admit also other compatible constraint:
+                                            hψ, ϕx ihψx , ϕi
+                        u = 2hψx , ϕx i − 2                  ,
+                                              hψ, ϕi + 1
+                                          hψ, ϕx ix hψx , ϕi − hψ, ϕx ihψx , ϕix
+      q = 2hψxx , ϕx i − 2hψx , ϕxx i + 2
+                                                       hψ, ϕi + 1
+                         hψ, ϕx ihψx , ϕi(hψ, ϕx i − hψx , ϕi)
+                      +2
+                                     (hψ, ϕi + 1)2
+(its origin will be explained in Section 5). One more representation for the
+KP equation is given in the Example 3 below, but in this case the equations
+for ψ and ϕ are not conjugated.
+    On the other hand, now we know a large number of separate examples
+and the whole classes of integrable multifield equations (see, e.g. the papers
+[2, 10, 11, 12, 13, 14, 15, 16] and the review [17]) and the natural question
+arize, which 1+2-dimensional equations are related to them. One of the goals
+of this paper is to obtain some new examples of such relation.
+
+                                          2
+    Our second goal is to apply this approach to the differential-difference
+equations (lattices). For example, let us consider the lattice generated by
+iterations of the Bäcklund transformation (BT) for the equation (1):
+
+        ψx = ψ1 + βψ + hψ, ϕ1iψ,         −ϕx = ϕ−1 + β−1 ϕ + hψ−1 , ϕiϕ,        (7)
+
+where βj are arbitrary scalar parameters [18, 19]. Here and further on, when
+working with the lattices, we omit for short the dummy integer subscript j,
+so that ψ means ψj , ψ1 means ψj+1 and so on.
+    One obtains, after introducing the quantities
+
+        f = −hψ, ϕ1 i − β,    p = hψ, ϕ1,x i − hψx , ϕ1 i + hψ, ϕ1 i2 − β 2 ,
+
+the well known Miura-type transformations [20, 21]
+
+                 u1 = u + 2fx ,    u = f 2 − fx + p,     px = fy
+
+which connect eq. (4) with the modified Kadomtsev-Petviashvili equation
+(mKP)
+
+                  4ft = fxxx − 6(f 2 + p)fx + 3py ,     px = fy .               (8)
+
+The variables f, p satisfy the lattice
+
+                   f1,x + fx = f12 − f 2 + p1 − p,     px = fy .                (9)
+
+Investigation in this direction can be useful for constructing of the explicit
+solutions of 1+2-dimensional equations (however, it falls beyond the scope
+of the prersent paper). Let us recall that if the dependence on y is neglected
+then eq. (4) turns into the Korteweg-de Vries equation (KdV), and the lattice
+(9) turns into the dressing chain. It was proved in [22] that the dressing chain
+under the periodicity condition fj = fj+K is a completely integrable finite-
+dimensional Hamiltonian system, and all the k-gap solutions of KdV can be
+derived from it at K = 2k + 1. In the two-dimensional case, some large class
+of the KP solutions can be obtained under the periodic condition ψj = ψj+K ,
+ϕj = ϕj+K for the lattice (7) which brings to the Hamiltonian system with
+KN degrees of freedom. The question if all algebraic-geometric solutions of
+KP can be obtained in such a way remains open. The multisoliton solutions
+can be constructed also by means of the nonlinear superposition principle for
+the lattice (7) [19].
+    The twodimensional examples considered in this paper include several
+KP- and mKP-like equations, dispersive long waves equations and, in the
+discrete case, the twodimensional dressing chain and Toda lattice. Moreover,
+
+                                          3
+the matrix versions of these equations are considered. On the other hand
+we have the vector and matrix generalizations of NLS, modified NLS and
+derivative NLS. Probably, most beautiful example is related to the vector
+generalization of the Ablowitz-Ladik lattice which was introduced recently in
+the papers [23]. It should be mentioned that the scalar Ablowitz-Ladik lattice
+has been already used for constructing of the solutions of 1+2-dimensional
+equation [24]. As a rule, the order of nonlinear terms in multifield equations
+is odd, however exceptions are possible (see the last Section).
+
+
+2    Jordan NLS
+We start from the further generalizations of NLS which were proved to be
+integrable in [12]. These system are of the form
+
+                ψy = ψxx + 2{ψϕψ},            −ϕy = ϕxx + 2{ϕψϕ}         (10)
+
+where the braces denote triple product which satisfies the axioms of the
+Jordan pair:
+                             {abc} = {cba},
+                                                                         (11)
+             {ab{cde}} − {cd{abe}} = {{abc}de} − {c{bad}e}.
+Below we consider only the vector and matrix examples which correspond to
+the following, most important, rules of multiplication:
+
+           2{abc} = ha, bic + hc, bia,         a, b, c ∈ RN ,            (12)
+            {abc} = ha, bic + hc, bia − ha, cib,    a, b, c ∈ RN ,       (13)
+           2{abc} = abc + cba,       a, c ∈ MatM,N , b ∈ MatN,M .        (14)
+
+Nevertheless, it is convenient to formulate some statements in general alge-
+braic terms. In particular, the eq. (10) admits the third order symmetry
+
+               ψt = ψxxx + 6{ψϕψx },          ϕt = ϕxxx + 6{ϕψϕx }       (15)
+
+and the Bäcklund transformation [18, 19]
+
+        ψx = ψ1 + βψ + {ψϕ1 ψ},          −ϕx = ϕ−1 + β−1 ϕ + {ϕψ−1 ϕ}.   (16)
+
+Example 1. Obviously, the example discussed in Introduction corresponds
+to the multiplication (12) which is the particular case of the matrix multi-
+plication (14) at M = 1. In the general case consider the matrix NLS
+
+                  ψy = ψxx + 2ψϕψ,            −ϕy = ϕxx + 2ϕψϕ
+
+                                          4
+where ψ ∈ MatM,N , ϕ ∈ MatN,M . Let us introduce the M × M matrices
+
+                   u = −2ψϕ, q = 2ψϕx − 2ψx ϕ,
+         f = −ψϕ1 − βIM , p = ψϕ1,x − ψx ϕ1 + ψϕ1 ψϕ1 − β 2 IM
+
+where IM is the identity matrix, then using the symmetry (15) yields the
+matrix KP equation (here and below the square brackets denote commutator
+[a, b] = ab − ba)
+
+             4ut = uxxx − 3(uux + ux u − qy + [q, u]),     qx = uy          (17)
+
+while the lattice (16) yields the Bäcklund transformation
+
+                       u1 = u + 2fx , u = f 2 − fx + p,
+               f1,x + fx = f12 − f 2 + p1 − p, px = fy + [p, f ].
+
+It should be stressed that, in contrast to the scalar case, the matrix f does
+not satisfy the matrix mKP equation.
+
+Example 2. The version of the vector NLS equation related to the multi-
+plication (13) was introduced in [25] for the first time:
+
+    ψy = ψxx + 2hψ, ϕiψ − hψ, ψiϕ,      −ϕy = ϕxx + 2hψ, ϕiϕ − hϕ, ϕiψ.
+
+In this example the quantities
+
+   u = −4hψ, ϕi,    v = 2hψ, ψi,    w = 2hϕ, ϕi,    q = 4hψ, ϕx i − 4hψx , ϕi
+
+satisfy, in virtue of (15), the 1+2-dimensional system
+
+               4ut = uxxx − 6uux + 3qy + 6(vw)x,         qx = uy ,
+              −2vt = vxxx − 3vxy − 3uvx + 3vq,
+              −2wt = wxxx + 3wxy − 3uwx − 3wq
+
+which generalize KP (reduction vw = 0).
+    In conclusion we notice that actually the equation (10) admits the infinite
+hierarchy of the higher symmetry (it can be constructed, for example, by
+means of the recursion operator [12]) and using them instead of (15) brings
+to the higher symmetries of the corresponding KP-like equations. In some
+sense this solves the problem of nonlocalities which is a serious technical
+obstacle in the theory of twodimensional equations. However, we always
+consider only the simplest representatives of the integrable hierarchies in the
+further examples.
+
+                                       5
+3    Derivative NLS
+There are two different scalar systems known under the name of the derivative
+NLS equation:
+                                             
+          ψy = ψxx + 2(ψ 2 ϕ)x ,                 ψy = ψxx + 2ψϕψx ,
+                             2        and
+         −ϕy = ϕxx − 2(ψϕ )x                    −ψy = ϕxx − 2ψϕϕx
+
+which were introduced in the papers [26] and [27] correspondingly. They
+are related by differential substitution. In the multifield case the difference
+becomes more deep: the first system admits the natural generalization in
+the Jordan pairs, as NLS, while the second one is generalized in associative
+algebras. We consider the second version first.
+
+Theorem 1 (Olver, Sokolov[15]) Let ψ, ϕ belong to an associative alge-
+bra, then the system
+
+                 ψy = ψxx + 2ψx ϕψ,        ϕy = −ϕxx + 2ϕψϕx               (18)
+
+possesses the third order symmetry
+
+                ψt = ψxxx + 3ψxx ϕψ + 3ψx ϕψx + 3ψx ϕψϕψ,
+                                                                           (19)
+                ϕt = ϕxxx − 3ϕψϕxx − 3ϕx ψϕx + 3ϕψϕψϕx .
+
+    We need some extension of this result. Namely, it is easy to see that
+actually the associativity of multiplication is sufficient, without the require-
+ment that ψ, ϕ belong to the same space. In particular, we consider the
+case ψ ∈ MatM,N , ϕ ∈ MatN,M . Apparently, the equations (18), (19) can be
+treated as an auxiliary linear problem in two ways, one leads to the matrix
+KP and another one to matrix mKP equation.
+
+Example 3. Let us consider M × M matrices
+
+                u = −2ψx ϕ,    q = 2ψx ϕx − 2ψxx ϕ − 4ψx ϕψϕ
+
+then ψ satisfy equations of the form
+                                           3     3
+             ψy = ψxx − uψ,     ψt = ψxxx − uψx − (ux + q)ψ
+                                           2     4
+and, in virtue of their consistency, u and q satisfy eq. (17). In particular, a
+new representation of the scalar KP arise at M = 1.
+
+
+                                       6
+Example 4. Now let us consider the N × N matrices
+                         f = ϕψ,      p = ϕψx − ϕx ψ + f 2 .
+They satisfy the matrix mKP equation
+4ft = fxxx + 3([fxx , f ] − 2f fx f + py + [p, f 2 ] + fx p + pfx ),   fy = px + [p, f ]
+                                                                                  (20)
+in virtue of (18), (19)
+    Next, let us discuss the multifield analogs of the Kaup-Newell system.
+They were studied, e.g. in [10, 28].
+Theorem 2 Let triple product { } satisfy axioms (11) then the system
+                ψy = ψxx + 2{ψϕψ}x ,           ϕy = −ϕxx + 2{ϕψϕ}x                 (21)
+admits the symmetry of third order
+                    ψt = (ψxx + 6{ψϕψx } + 6{ψ{ϕψϕ}ψ})x ,
+                                                                                   (22)
+                    ϕt = (ϕxx − 6{ϕψϕx } + 6{ϕ{ψϕψ}ϕ})x .
+   This statement was proved in [28] in the case of the Jordan triple systems,
+but, as before, it remains valid also for the Jordan pairs, that is when ψ and
+ϕ belong to the different spaces. We just write down the resulting two-
+dimensional equations.
+
+Example 5. In the case of multiplication (14) the matrices
+                         f = ϕψ,      p = ϕψx − ϕx ψ + 3f 2
+solve, in virtue of (21), (22) the same equation (20). This coincidence, al-
+though unexpected at a first glance, is easily explained if one consider the
+corresponding auxiliary linear problems, which are formally conjugated.
+
+Example 6. In the case of multiplication (13) the quantities
+f = −2hψ, ϕi, g = hψ, ψi, h = hϕ, ϕi, p = 2hψ, ϕx i − 2hψx , ϕi − 3f 2 + 6gh
+satisfy the system of equations
+               4ft = fxxx + 3(p − 2gh)y + 6(gxx h − ghxx )
+                            − 2(6f gh + f 3 )x − 6pfx , px = fy
+              −2gt = gxxx − 3gxy + 6f (gy − gxx ) + 3(g(p − fx ))x
+                            + 6g 2hx + 6gf fx + 9gx f 2 ,
+              −2ht = hxxx + 3hxy + 6f (hy + hxx ) + 3(h(p + fx ))x
+                            + 6h2 gx + 6hf fx + 9hx f 2
+which is reduced to mKP (8) at gh = 0.
+
+                                           7
+4    Modified Jordan NLS
+Let us consider the lattice (16), assuming βj = 0 for sake of simplicity, and
+make renaming ψ = ψ̃, ϕ1 = ϕ̃. This give rise to the differential substitution
+
+                        ψ = ψ̃,    ϕ = −ϕ̃x − {ϕ̃ψ̃ ϕ̃}
+
+and one can easily see that eq. (10) can be rewritten in new variables. The
+result is the modified Jordan NLS (the tilde is omitted) [29]
+
+                   ψy = ψxx − 2{ψϕx ψ} − 2{ψ{ϕψϕ}ψ},
+                                                                         (23)
+                  −ϕy = ϕxx + 2{ϕψx ϕ} − 2{ϕ{ψϕψ}ϕ}
+
+and the chain of its Bäcklund transformations
+
+                 ψx = ψ1 + {ψϕψ},      −ϕx = ϕ−1 + {ϕψϕ}.                (24)
+
+We will not rewrite the symmetry (15) since it is clear without calculations
+that the resulting twodimensional equations are exactly the same as in the
+Section 2 and the difference is only in the formulae which define the con-
+straints between potential and eigenfunctions.
+    The new examples arise if one consider the time with a “negative number”
+from the hierarchy of eq. (23) symmetries.
+
+Theorem 3 For any Jordan pair equations (23) define the symmetry of the
+following hyperbolic system
+
+               ψxz = 2{ψϕψz } − ψ,      ϕxz = −2{ϕψϕz } − ϕ.             (25)
+
+The proof is straightforward and use only identities (11).
+
+Example 7. If multiplication is defined by formula (12) then eqs. (23),
+(25) take the form
+
+                     ψy = ψxx − 2(hψ, ϕx i + hψ, ϕi2 )ψ,
+                                                                         (26)
+                    −ϕy = ϕxx + 2(hψx , ϕi − hψ, ϕi2)ϕ,
+ ψxz = hψ, ϕiψz + (hψz , ϕi − 1)ψ,    ϕxz = −hψ, ϕiϕz − (hψ, ϕz i + 1)ϕ. (27)
+
+In virtue of them the quantities
+
+              u = hψ, ϕi,   v = hψz , ϕi − 1,   q = hψ, ϕx i + u2
+
+
+
+                                       8
+satisfy the well known two-dimensional generalization of the dispersive long
+waves equations (DLW) [30, 31, 32]
+
+             uy = (ux + u2 − 2q)x ,     −vt = (vx − 2uv)x ,         qz = vx .         (28)
+
+The lattice (24) takes form
+
+                  ψx = ψ1 + hψ, ϕiψ,         −ϕx = ϕ−1 + hψ, ϕiϕ
+
+and is the member of the hierarchy which was studied in details in the paper
+[33]. In particular, it was proved there that this lattice admits the symmetry
+of the form
+                              ψ−1                           ϕ1
+                   ψz =                 ,       −ϕz =                .                (29)
+                          hψ−1 , ϕi − 1                 hψ, ϕ1 i − 1
+
+One can easily check that this pair of lattices define the BT for the system
+(27). Moreover, the variables u, v satisfy the two-dimensional Toda lattice
+
+                        uz = v − v1 ,       vx = v(u − u−1 ),                         (30)
+
+which define the BT for the system (28) [35, 34].
+
+Example 8. Analogs of the lattice (29) exist for other Jordan pairs as well.
+Let ψ ∈ MatM,N , ϕ ∈ MatN,M , then the following differentiations commute
+in the matrix case (14):
+
+                 ψx = ψ1 + ψϕψ, −ϕx = ϕ−1 + ϕψϕ,
+           ψz = (ψ−1 ϕ − IM )−1 ψ−1 , −ϕz = ϕ1 (ψϕ1 − IM )−1 ,
+     ψy = ψxx − 2ψϕx ψ − 2ψϕψϕψ, −ϕy = ϕxx + 2ϕψx ϕ − 2ϕψϕψϕ
+
+and the matrices of the M × M size
+
+   u = ψϕ,     v = ψz ϕ − IM = (ψ−1 ϕ − IM )−1 ,           q = ψϕx + u2 = −ψϕ−1
+
+satisfy the nonabelian twodimensional DLW equations and Toda lattice [35]
+
+ uy = uxx + 2(ux u − qx + [u, q]), −vy = vxx − 2(uv)x − 2[v, q],                qz = vx ,
+                      uz = v − v1 , vx = uv − vu−1 .
+
+
+
+
+                                            9
+5     Vector Ablowitz-Ladik lattice
+Probably one of the most beautiful examples is related to the multifield
+Ablowitz-Ladik lattices. It yields the same twodimensional equations as in
+the previous section, but is more symmetric.
+
+Theorem 4 Let ψ ∈ MatM,N , ϕ ∈ MatN,M then the lattices
+                                  
+          ψx = ψ−1 + ψ−1 ϕψ,           ψz = ψ1 + ψϕψ1 ,
+                                                                            (31)
+        −ϕx = ϕ1 + ϕψϕ1 ,            −ϕz = ϕ−1 + ϕ−1 ψϕ
+
+commute and the variables ψ, ϕ satisfy the following system in virtue of these
+lattices:
+                   ψxz = ψx ϕ(ψϕ + IM )−1 ψz + ψϕψ + ψ,
+                                                                            (32)
+                   ϕxz = ϕz (ψϕ + IM )−1 ψϕx + ϕψϕ + ϕ.
+
+    In the scalar case the sum of the flows (31) and the dilation symmetry
+ψτ = −2ψ, ϕτ = 2ϕ is the Ablowitz-Ladik lattice [36] and (32) is Pohlmeyer-
+Lund-Regge system (this observation due to [37]). The second order sym-
+metries of the eq. (31) hierarchy is nothing but derivative NLS equations
+(cf (18)):
+
+               ψy = ψxx + 2ψx ϕ1 ψ, ϕy = −ϕxx + 2ϕψ−1 ϕx ,                  (33)
+               ψη = ψzz + 2ψϕ−1 ψz , ϕη = −ϕzz + 2ϕz ψ1 ϕ.                  (34)
+
+Of course, one should eliminate the variables ψ±1 , ϕ±1 in virtue of the lattices
+in order two treat these equations as higher symmetries of the system (32).
+    I will consider only the vector case M = 1 :
+                                       
+           ψx = ψ−1 + hψ−1 , ϕiψ,           ψz = ψ1 + hψ, ϕiψ1 ,
+                                                                            (35)
+         −ϕx = ϕ1 + hψ, ϕ1 iϕ,            −ϕz = ϕ−1 + hψ, ϕiϕ−1 ,
+                   
+                                hψx , ϕi
+                    ψxz =               ψz + hψ, ϕiψ + ψ,
+                   
+                   
+                              hψ, ϕi + 1                                    (36)
+                                hψ, ϕx i
+                    ϕxz =               ϕz + hψ, ϕiϕ + ϕ.
+                   
+                   
+                              hψ, ϕi + 1
+
+Now the sum of the lattices (35) (plus dilation symmetry) defines the so-called
+“asymmetric discretization of vector NLS” introduced in [23]. It should be
+mentioned that another discretization was considered in these papers as well,
+which can be obtained by summing the second lattice (35) and the lattice
+symmetric with respect to reflection j → −j. Integrability of this version was
+
+                                       10
+established in [38], however the question about the structure of the higher
+symmetries remains open.
+    The quantities
+
+                 v = hψ, ϕi + 1,     u = −hψ, ϕ1 i = hψ, ϕx i/v
+
+satisfy the Toda lattice (30) in virtue of (35). In order to reproduce the
+DLW equations, it is sufficient to consider the symmetries (33), (34). First
+one takes the form
+                                                                   hψ, ϕx ihψx , ϕi
+    ψy = ψxx − 2qψ,    −ϕy = ϕxx − 2qϕ,         q = hψx , ϕx i −
+                                                                     hψ, ϕi + 1
+
+after elimination of ψ−1 , ϕ1 and brings to eq. (28), up to the change of
+the sign of y. Notice, that this formula coincide, up to the renaming of
+the potential, with the auxiliary linear problem (5) for KP. It can be easily
+proved that the form of the second auxiliary problem (6) is uniquely derived
+from the compatibility condition and yields the third order symmetry of the
+system (36). This gives the new example of the constraint for KP, which was
+displayed in Introduction.
+    The symmetry (34) is rewritten as follows
+
+                          hψ, ϕz i                           hψz , ϕi
+          ψη = ψzz − 2              ψz ,    ϕη = −ϕzz + 2              ϕz
+                         hψ, ϕi + 1                         hψ, ϕi + 1
+
+and denoting p = hψz , ϕi/v one obtains another equation from the DLW
+hierarchy:
+
+           uη = uzz − 2vz + 2puz ,     vη = −(vz − 2pv)z ,     px = u z .
+
+
+6     Concluding examples
+Notice, that the order of nonlinear terms was odd for all examples of mul-
+tifield equations considered above, while the constraints were defined by ex-
+pressions with even order products of ψ-functions. Here we present two
+examples with the different structure of nonlinearities.
+
+Example 9. Let us consider the generalization of the KdV equation which
+corresponds to the Jordan algebra DN [13]:
+
+    uy = uxxx + 3(u2 − hψ, ψi)x ,    ψy = ψxxx + 6(uψ)x ,      u ∈ R, ψ ∈ RN .
+
+
+                                           11
+It possesses the fifth order symmetry
+
+   ut = uxxxxx + 5(2uuxx + u2x + 2u3 − 6uhψ, ψi − 2hψ, ψxx i − hψx , ψx i)x ,
+   ψt = ψxxxxx + 10(uψxx + ux ψx + uxx ψ + 3u2 ψ − hψ, ψiψ)x
+
+and the quantities
+
+                     v = 6u,   q = 6uxx + 18u2 − 18hψ, ψi
+
+satisfy, in virtue of these equations, the twodimensional generalization of
+Sawada-Kotera equation [39]
+
+−9vt = vxxxxx + 5(vvxxx + vx vxx + v 2 vx − vxxy − vvy − qvx − qy ),     qx = vy .
+
+Example 10. The equation
+
+                          ψy = ψxx + 2ψψx + [ψ, ψ 2 ]
+
+on arbitrary left-symmetric algebra was proved to be integrable in [11]. It
+admits the infinite hierarchy of higher symmetries, simplest one is of the form
+
+         ψt = ψxxx + 3(ψψxx + ψx2 + [ψ, ψψx ] + ψ(ψx ψ)) + [ψ, ψψ 2 ].
+
+This equation is a multifield generalization of Burgers equation and is lin-
+earizable via Cole-Hopf type substitution.
+    An example of left-symmetric multiplication is given by formula
+
+                     ψϕ = hψ, ciϕ + hψ, ϕic,    ψ, ϕ, c ∈ Rn
+
+where vector c is fixed. One can check that in this case the quantities
+
+                      u = hψ, ci,   q = |c|2 |ψ|2 + ux + u2
+
+solve equation
+
+   −2ut = uxxx + 6(uuxx + u2x + 2u2 ux ) − 3uxy − 6uuy − 6qux ,        qx = uy .
+
+Of course this equation is linearizable as well: the Cole-Hopf transformation
+2u = vx /v, 2q = vy /v links it with the linear equation 2vt = 3vxy − vxxx .
+
+Acknowledgements. I am grateful to S.V. Manakov who drew my atten-
+tion to the paper [5] and B.G. Konopelchenko, A.B. Shabat and R.I. Yamilov
+for useful discussions and remarks. This work was supported by grants
+RFBR-99-01-00431 and INTAS-99-01782.
+
+                                       12
+References
+ [1] Manakov S.V. On the theory of two-dimensional stationary self-focusing
+     of electromagnetic waves. Soviet Physics JETP, 38, No. 2, 248–253
+     (1974).
+ [2] Fordy A.P., Kulish P.P. Nonlinear Schrödinger equations and simple
+     Lie algebras. Commun. Math. Phys., 89, No. 3, 427–443 (1983).
+ [3] Konopelchenko B.G., Strampp W. The AKNS hierarchy as symmetry
+     constraint of the KP hierarchy, Inverse Problems, 7, L17–L24 (1991).
+ [4] Konopelchenko B., Sidorenko J., Strampp W. (1+1)-dimensional inte-
+     grable systems as symmetry constraints of (2+1)-dimensional systems.
+     Phys. Lett. A 157, No. 1, 17–21 (1991).
+ [5] Cheng Y., Li Y. The constraint of the Kadomtsev-Petviashvili equation
+     and its special solutions. Phys. Lett. A, 157, No. 1, 22–26 (1991).
+ [6] Cheng Y., Li Y. Constraints of the 2+1 dimensional integrable soliton
+     systems. J. Phys. A, 25, No. 2, 419-431 (1992).
+ [7] Xu B., Li Y. (1+1)-dimensional Hamiltonian systems as symmetry con-
+     straints of the Kadomtsev-Petviashvili equation. J. Phys. A, 25, No. 10,
+     2957–2968 (1992).
+ [8] Konopelchenko B.G., Strampp W. Reductions of (2+1)-dimensional in-
+     tegrable systems via mixed potential-eigenfunction constraints. J. Phys.
+     A, 25, 4399–4411 (1992).
+ [9] Konopelchenko B.G., Strampp W. New reductions of the Kadomtsev-
+     Petviashvili and two-dimensional Toda lattice hierarchies via symmetry
+     constraints, J. Math. Phys., 33, 3676–3686 (1992).
+[10] Fordy A.P. Derivative nonlinear Schrödinger equations and Hermitian
+     symmetric spaces. J. Phys. A, 17, 1235–1245 (1984).
+[11] Svinolupov S.I. On the analogues of the Burgers equation. Phys. Lett.
+     A, 135, No. 1, 32 (1989).
+[12] Svinolupov S.I. Generalized Schrödinger equations and Jordan pairs.
+     Commun. Math. Phys., 143, 559–575 (1992).
+[13] Svinolupov S.I. Jordan algebras and integrable systems. Funct. Anal.
+     Appl., 27, No. 4, 40–53 (1993).
+[14] Svinolupov S.I., Sokolov V.V. Vector and matrix generalizations of clas-
+     sical integrable equations. Theor. Math. Phys. 100, No. 2, 959–962
+     (1994).
+
+
+                                     13
+[15] Olver P.J., Sokolov V.V. Integrable evolution equations on associative
+     algebras. Commun. Math. Phys., 193, 245–268 (1998).
+[16] Olver P.J., Sokolov V.V. Non-abelian integrable systems of the deriva-
+     tive nonlinear Schrödinger type. Inverse Problems, 14, No. 6, L5–L8
+     (1998).
+[17] Habibullin I.T., Sokolov V.V., Yamilov R.I. Multi-component integrable
+     systems and nonassociative structures. Proc. of Workshop on Nonlinear
+     Physics, World Scientific Publ., 1996, pp. 139–168.
+[18] Svinolupov S.I., Yamilov R.I. The multi-field Schrödinger lattices. Phys.
+     Lett. A, 160, 548–552 (1991).
+[19] Adler V.E. Nonlinear superposition formula for Jordan NLS equations.
+     Phys. Lett. A, 190, 53–58 (1994).
+[20] Konopelchenko B.G. On the gauge-invariant description of the evolution
+     equations integrable by Gelfand-Dikij spectral problems. Phys. Lett. A,
+     92, 323–327 (1982).
+[21] Jimbo M., Miwa T. Publ. RIMS, 19, No. 3, 943 (1983).
+[22] Veselov A.P., Shabat A.B. Dressing chain and spectral theory of
+     Schrödinger operators. Funct. Anal. Appl., 27, No. 2, 81–96 (1993).
+[23] Ablowitz M.J., Ohta Y., Trubatch A.D. On Discretizations of the Vector
+     Nonlinear Schrödinger Equation, solv-int/9810014; On Integrability
+     and Chaos in Discrete Systems. Chaos, Solitons & Fractals, 11, No. 1-3,
+     159–169 (2000) [solv-int/9810020].
+[24] Vekslerchik V.E. The Davey-Stewartson equation and the Ablowitz-
+     Ladik hierarchy. Inverse Problems, 12, No. 6, 1057 (1996).
+[25] Kulish P.P., Sklyanin E.K. O(N)-invariant nonlinear Schrödinger equa-
+     tion — a new completely integrable system. Phys. Lett. A, 84, No. 7,
+     349–352 (1981).
+[26] Kaup D.J., Newell A.C. An exact solution for a derivative nonlinear
+     Schrödinger equation. J. Math. Phys., 19, 798–801 (1978).
+[27] Chen H.H., Lee Y.C., Liu C.S. Integrability of nonlinear Hamiltonian
+     systems by inverse scattering method. Physica Scripta, 20, 490–492
+     (1979).
+[28] Adler V.E., Svinolupov S.I., Yamilov R.I. Multi-component Volterra
+     and Toda type integrable equations. Phys. Lett. A, 254, 24–36 (1999).
+[29] Ablowitz M.J., Segur H. Solitons and the Inverse Scattering Transform.
+     Philadelphia, PA: SIAM, 1981.
+
+                                      14
+[30] Boiti M., Leon J.J.-P., Pempinelli F. Integrable two-dimensional gen-
+     eralisation of the sine- and sinh-Gordon equations. Inverse Problems, 3,
+     No. 1, 37–49 (1987).
+[31] Boiti M., Leon J.J.-P., Pempinelli F. Spectral transform for a two spa-
+     tial dimension extension of the dispersive long wave equation. Inverse
+     Problems, 3, No. 3, 371–387 (1987).
+[32] Konopelchenko B.G. The two-dimensional second-order differential spec-
+     tral problem: compatibility conditions, general BTs and integrable equa-
+     tions. Inverse Problems, 4, No. 1, 151–163 (1988).
+[33] Merola I., Ragnisco O., Zhang T.G. A novel hierarchy of integrable lat-
+     tices. Inverse Problems, 10, No. 6, 1315-1334 (1994). [solv-int/9401005]
+[34] Shabat A.B., Yamilov R.I. To transformation theory of two-dimensional
+     integrable systems. Phys. Lett. A, 227, 15–23 (1997).
+[35] Konopelchenko B.G. The nonabelian 1+1-dimensional Toda lattice as
+     the periodic fixed point of the Laplace transform for the 2+1-dimensional
+     integrable system. Phys. Lett. A, 156, 221–222 (1991).
+[36] Ablowitz M.J., Ladik J.F. Nonlinear differential-difference equations and
+     Fourier analysis. J. Math. Phys. 17, No. 6, 1011–1018 (1976).
+[37] Shabat A.B., Yamilov R.I. Symmetries of nonlinear chains. Leningrad
+     Math. J. 2, No. 2, 377–400 (1991).
+[38] Tsuchida T., Ujino H., Wadati M. Integrable semi-discretization of the
+     coupled nonlinear Schrodinger equations. J. Phys. A, 32, No. 11, 2239–
+     2262 (1999).
+[39] Sawada K., Kotera T. A method for finding n-soliton solutions of the
+     KdV equation and KdV-like equations. Prog. Theor. Phys., 51, 1355–
+     1367 (1974).
+
+
+
+
+                                     15
+

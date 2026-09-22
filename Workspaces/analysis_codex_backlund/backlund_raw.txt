@@ -1,0 +1,13 @@
+parsed records: 385
+text fields containing Backlund: 19
+
+by record type: {'event_msg': 13, 'response_item': 6}
+
+====================================================================================================
+[ord 33] event_msg  2026-09-17T06:22:31.752Z   field=.payload.item.stdout
+----------------------------------------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\msz\ѧ������\analysis_codex_backlund\extract_backlund.py", line 57, in <module>
+    print(s if len(s) < 6000 else s[:6000] + f"\n...[truncated, total {len(s)} chars]")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'gbk' codec can't encode character '\u2217' in position 269: illegal multibyte sequence

@@ -1,0 +1,702 @@
+                                          Gauge-invariant description of several (2+1)-dimensional
+                                                 integrable nonlinear evolution equations
+                                                                 V. G. Dubrovsky and A. V. Gramolin
+                                                            Novosibirsk State Technical University, Novosibirsk, Russia
+                                                             E-mail: dubrovsky@academ.org and gramolin@gmail.com
+arXiv:0907.3205v1 [nlin.SI] 20 Jul 2009
+
+
+
+
+                                                                                    Abstract
+                                                   We obtain new gauge-invariant forms of two-dimensional integrable systems of non-
+                                               linear equations: the Sawada–Kotera and Kaup–Kuperschmidt system, the generalized
+                                               system of dispersive long waves, and the Nizhnik–Veselov–Novikov system. We show
+                                               how these forms imply both new and well-known two-dimensional integrable nonlin-
+                                               ear equations: the Sawada–Kotera equation, Kaup–Kuperschmidt equation, dispersive
+                                               long-wave system, Nizhnik–Veselov–Novikov equation, and modified Nizhnik–Veselov–
+                                               Novikov equation. We consider Miura-type transformations between nonlinear equa-
+                                               tions in different gauges.
+
+
+                                          Keywords: Sawada–Kotera equation, Kaup–Kuperschmidt equation, generalized dispersive
+                                          long-wave equation, Davey–Stewartson equation, Nizhnik–Veselov–Novikov equation
+
+
+                                          1    Introduction
+                                          The fundamental methods based on gauge transformations and the concept of gauge in-
+                                          variance are currently widely used in physics and mathematics, in particular, in the theory
+                                          of integrable nonlinear equations. The first applications of these methods in the theory of
+                                          integrable nonlinear equations were proposed in [1–7] (also see [8–13] and the references
+                                          therein).
+                                              A great many gauge-equivalent pairs of integrable models have been found. In the one-
+                                          dimensional case, these include the nonlinear Schrödinger equation and Heisenberg ferromag-
+                                          net equation, the equations describing the massive Thirring model and the two-dimensional
+                                          relativistic field theory, and the Korteweg–de Vries (KdV) and modified KdV (mKdV) equa-
+                                          tions. In the two-dimensional case, the currently most widely known gauge-equivalent pairs
+                                          of equations are the Kadomtsev–Petviashvili (KP) and modified KP (mKP) equations and
+                                          the Davey–Stewartson and Ishimori equations (see [8–14] and the references therein).
+                                              We introduce the required terms and illustrate the unifying role of gauge transformations
+                                          and gauge invariance with the well-known example of the interaction between a charged
+                                          spinless particle and an external electromagnetic field with the vector and scalar potentials
+                                           ~ r, t) and ψ(~r, t),
+                                          A(~
+                                                                                              
+                                                                                     b      ~ 2
+                                                                                     p~ − q A
+                                                                             i~ψt =             ψ + qφψ,                          (1.1)
+                                                                                        2m
+
+                                                                                        1
+where b        ~ is the particle momentum operator. The particle coupling to external fields
+       ~p = −i~∇
+has the well-known gauge-invariant form.
+    From the standpoint of the inverse scattering method, Eq. (1.1) is an auxiliary linear
+problem: a linear partial differential equation with variable coefficients for the wave func-
+tion ψ. Under the gauge transformation
+                                                                     
+                            ′     −1             ′         iχ(~r, t)q
+                     ψ → ψ = g ψ,         ψ = gψ = exp                  ψ′,             (1.2)
+                                                               ~
+
+                                               ~ and φ are transformed as
+Eq. (1.1) preserves its form if the potentials A
+
+                            ~′ = A
+                          ~→A
+                          A          ~
+                                 ~ − ∇χ,            φ → φ′ = φ + χt .                     (1.3)
+
+    Eliminating the gauge function χ from (1.3), we obtain the relations
+
+                                                       ∂A~′         ~
+                     ~ ×A
+                    [∇           ~ × A],
+                        ~ ′ ] = [∇   ~        ~ ′−
+                                             −∇φ               ~ − ∂A ,
+                                                            = −∇φ                         (1.4)
+                                                        ∂t         ∂t
+which mean that the quantities
+                                                             ~
+                            ~ def
+                            B = [∇    ~
+                                  ~ × A],         ~ def
+                                                  E     ~ − ∂A ,
+                                                    = −∇φ                                 (1.5)
+                                                            ∂t
+
+which are well known in electrodynamics as the magnetic field induction B     ~ and electric
+               ~
+field strength E, are invariants of gauge transformations. Moreover, definitions (1.5) for the
+invariants B~ and E~ imply the subsystem of equations
+
+                                                              ~
+                              ~ =∇
+                           divB     ~ = 0,
+                                 ~ ·B                  ~ = − ∂B ,
+                                                    ~ ×E
+                                                    ∇                                     (1.6)
+                                                             ∂t
+which is a (sourceless) subsystem of the fundamental system of Maxwell equations. Thus,
+starting from the principle of local gauge invariance, we can obtain the gauge-invariant non-
+stationary Schrödinger equation for a charged spinless particle in an external electromagnetic
+                            ~ and E,
+field, the gauge invariants B       ~ and a (sourceless) subsystem of fundamental Maxwell
+equations. Similar considerations are applicable to the case of integrable nonlinear equations.
+
+
+2     Gauge-invariant integrable system of KP and mKP
+      equations
+We illustrate the methods based on the notion of gauge invariance with the well-known
+example of an integrable system of nonlinear KP and mKP equations. Auxiliary linear
+problems for the KP and mKP equations are particular cases of the following linear problems
+(with the respective gauges C (u0 6= 0, u1 = 0) and C (u0 = 0, u1 6= 0) for the KP and mKP
+equations):
+                                                      
+                        L1 ψ = σ∂y + ∂x2 + u1 ∂x + u0 ψ = 0,                           (2.1)
+                                         3      2
+                                                            
+                        L2 ψ = ∂t + 4∂x + v2 ∂x + v1 ∂x + v0 ψ = 0,                    (2.2)
+
+
+                                              2
+where the constant values σ = i or σ 2 = −1 and σ = 1 or σ 2 = 1 respectively correspond to
+the cases of KP–I or mKP–I and KP–II or mKP–II equations. Because of (2.1) and (2.2), the
+compatibility condition in the Lax form [L1 , L2 ] = 0 leads to a system of evolution equations
+for the field variables u1 and u0 [5, 7],
+                                3
+                  u1t + u1xxx − u21 u1x − 3σu1x ∂x−1 u1y + 3σ 2 ∂x−1 u1yy +
+                                2                  
+                       + 6u0xx − 6σu0y + 6 u0 u1 x − 2v0x = 0,
+                                                                                          (2.3)
+                                                        3
+                  u0t + 4σu0xxx + 6u0 u0x + 6u1u0xx + u21 u0x + 3u0x u1x −
+                                                        2
+                       − 3σu0x ∂x−1 u1y − u1 v0x − v0xx − σv0y = 0.
+
+For the gauge C (u0 6= 0, u1 = 0) with the choice of the variable v0 = 3u0x − 3σ∂x−1 u0y ,
+system (2.3) implies the KP equation [1, 15]
+
+                            u0t + u0xxx + 6u0 u0x + 3σ 2 ∂x−1 u0yy = 0.                   (2.4)
+
+For the gauge C (u0 = 0, u1 6= 0) with the choice of the variable v0 = const, system (2.3)
+implies the mKP equation
+                                3
+                   u1t + u1xxx − u21 u1x − 3σu1x ∂x−1 u1y + 3σ 2 ∂x−1 u1yy = 0.           (2.5)
+                                2
+System of equations (2.3) is called the system of KP–mKP equations.
+   In terms of the pure gauge variable ρ and the invariant w0 of the gauge transformations
+ψ → ψ ′ = g −1 ψ determined by the expressions
+                                     ρx                  1     1     σ
+                  u1 (x, y, t) = 2      ,       w0 = u0 − u1x − u21 − ∂x−1 u1y ,          (2.6)
+                                     ρ                   2     4     2
+
+system of equations (2.3) becomes
+
+                     ρt + 4ρxxx + 6ρx w0 + 3ρw0x − 3σ∂x−1 w0y − ρv0 = 0,                  (2.7)
+                     w0t + w0xxx + 6w0 w0x + 3σ 2 ∂x−1 w0yy = 0.                          (2.8)
+
+    System (2.7), (2.8) is the manifestly gauge-invariant form of system of KP–mKP equa-
+tions (2.3). This system has the following structure. It contains gauge-invariant KP equa-
+tion (2.8) for the gauge invariant w0 and Eq. (2.7) for the pure gauge variable ρ with ad-
+ditional terms containing the gauge invariant w0 and the additional field variable v0 . If the
+invariant is zero, w0 = 0, then KP–mKP system (2.7), (2.8) reduces to the linear evolution
+equation for the pure gauge variable ρ:
+
+                                            ρt + 4ρxxx − ρv0 = 0.                         (2.9)
+
+   We use the gauge invariant w0 to obtain the Miura-type transformation from Eq. (2.8),
+                                        1     1     σ
+                             w0 = u0 = − u1x − u21 − ∂x−1 u1y ,                         (2.10)
+                                        2     4     2
+
+
+
+                                                     3
+which relates the solutions u0 (for the gauge C (u0 6= 0, u1 = 0)) and u1 (for the gauge
+C (u0 = 0, u1 6= 0)) of KP equations (2.4) and mKP equations (2.5). This also follows from
+Eq. (2.8) written for the gauges C (u0 6= 0, u1 = 0) and C (u0 = 0, u1 6= 0):
+  u0t + u0xxx + 6u0 u0x + 3σ 2 ∂x−1 u0yy =
+    1      1                            3                                     
+ −     ∂x + u1 + σ∂x−1 ∂y u1t + u1xxx − u21 u1x − 3σu1x ∂x−1 u1y + 3σ 2 ∂x−1 u1yy = 0. (2.11)
+    2       2                              2
+    We stress that the separation of the physical and the pure gauge degrees of freedom in
+integrable nonlinear equations and their gauge-invariant formulation can be used to study
+the structure of these equations and the relations between their different gauge-equivalent
+realizations.
+
+
+3    Manifestly gauge-invariant integrable system of
+     two-dimensional Kaup–Kuperschmidt and Sawada–
+     Kotera equations
+In this section, we briefly discuss the results obtained up to now concerning the
+manifestly gauge-invariant formulation of two-dimensional integrable generalizations
+of the Kaup–Kuperschmidt (2DKK) and Sawada–Kotera (2DSK) nonlinear equa-
+tions.   The auxiliary linear problems for these equations are particular cases (in
+the gauge C (u2 = 0, u1 6= 0, u0 = u1x /2) for the 2DKK equation and in the gauge
+C (u2 = 0, u1 6= 0, u0 = 0) for the 2DSK equation) of the problems [7]
+                                                           
+                  L1 ψ = σ∂y + ∂x3 + u2 ∂x2 + u1 ∂x + u0 ψ = 0,
+                                                                                 (3.1)
+                  L2 ψ = ∂t + κ∂x5 + v4 ∂x4 + v3 ∂x3 + v2 ∂x2 + v1 ∂x + v0 ψ = 0.
+    In terms of the pure gauge variable ρ and the invariants w0 and w1 of the gauge trans-
+formations ψ → ψ ′ = g −1ψ given by the expressions
+                             ρx                           1
+                       u2 = 3 ,         w1 = u1 − u2x − u22 ,                        (3.2)
+                              ρ                           3
+                                   1        1          2      σ
+                       w0 = u0 − u1 u2 − u2xx + u32 − ∂x−1 u2y ,                     (3.3)
+                                   3        3         27      3
+we obtain the manifestly gauge-invariant integrable system of 2DKK–2DSK nonlinear equa-
+tions
+                       5               5            5         10
+  ρt + κρxxxxx − ρv0 + κ ρxx w1 x + κ ρx w0 x + κρx w12 + κρx w1xx +
+                       3                3             9          9
+           10         10             5                5
+        + κρw0xx + κρw0 w1 − κσρx ∂x−1 w1y − κσρ∂x−1 w0y = 0,                        (3.4)
+           9           9             9                9
+         1           5                5              5           10
+  w1t − κw1xxxxx − κ w1 w1xx x − κ w0 w1x x − κw12 w1x + κw0 w0x −
+         9           9                 3               9            3
+           5          5             5 2 −1            5
+        − κσw1xxy − κσw1 w1y + κσ ∂x w1yy − κσw1x ∂x−1 w1y = 0,                      (3.5)
+           9          9             9                 9
+         1           5                5               5             5    
+  w0t − κw0xxxxx − κ w0 w1 xxx − κ w0 w1xx x + κ w0 w0x x − κ w0 w12 x −
+         9           9                 9                3              9
+           5          10              5             5 2 −1           5
+        − κσw0xxy − κσw0 w1y − κσw1 w0y + κσ ∂x w0yy − κσw0x ∂x−1 w1y = 0. (3.6)
+           9           9              9             9                9
+
+                                             4
+This system consists of gauge-invariant system of equations (3.5), (3.6) for the gauge invari-
+ants w0 and w1 and Eq. (3.4) for the pure gauge variable ρ with additional terms containing
+the gauge invariants w0 and w1 and the additional variable v0 . For the zero-valued invariants
+w0 = 0 and w1 = 0, the 2DKK–2DSK system given by (3.5) and (3.6) reduces to the linear
+evolution equation for the pure gauge variable ρ:
+
+                                    ρt + κρxxxxx − ρv0 = 0.                                 (3.7)
+
+Gauge-invariant system of equations (3.5), (3.6) for the invariants w0 and w1 coincides in
+form with the system obtained in [7]. This system admits the following reductions:
+    1. In the case w0 = 0, we obtain an equation for the invariant w1 exactly coinciding with
+       the 2DSK equation [7, 16].
+
+    2. In the case w0 = w1x /2, we obtain an equation for the invariant w1 exactly coinciding
+       with the 2DKK equation [7, 16].
+
+Obviously, the 2DKK and 2DSK equations, as equations belonging to different sets of in-
+variants, are not gauge-equivalent to each other.
+
+
+4     A manifestly gauge-invariant integrable two-
+      dimensional generalized dispersive long-wave system
+The gauge-invariant formulation of integrable systems of nonlinear equations can be obtained
+in all cases where the gauge freedom is taken into account in the corresponding auxiliary
+linear problems. In [17], such a formulation was obtained for the auxiliary linear problems
+                              2
+                                                     
+                    L1 ψ = ∂ξη   + u1 ∂ξ + v1 ∂η + u0 ψ = 0,                            (4.1)
+                                      2        2
+                                                                    
+                    L2 ψ = ∂t + κ1 ∂ξ + κ2 ∂η + ũ1 ∂ξ + ṽ1 ∂η + v0 ψ = 0,             (4.2)
+
+where κ1 and κ2 are constants, ξ = x+ σy and η = x−σy are spatial variables, σ 2 = ±1, and
+the derivatives are ∂ξ = ∂/∂ξ, ∂η = ∂/∂η, ∂ξ2 = ∂ 2 /∂ξ 2 , etc. Such a choice of auxiliary linear
+problems (4.1) and (4.2) leads to the well-known two-dimensional generalized dispersive
+long-wave (2DgDLW) equation [18], the system of Davey–Stewartson (DS) equations [19],
+their reductions, and some other equations. All the listed well-known integrable nonlinear
+equations were previously obtained from the compatibility condition for auxiliary linear
+problems (4.1) and (4.2) in the form of the Manakov triad representation [20]
+
+                                         [L1 , L2 ] = BL1 .                                 (4.3)
+
+   To obtain the manifestly gauge-invariant formulation of the corresponding integrable
+                                                                                           e2 ,
+system of nonlinear equations, it is convenient to use the classical gauge invariants w2 , w
+and w1 ,
+                              def
+                           w2 = u0 − u1ξ − u1 v1 = u′0 − u′1ξ − u′1 v1′ ,
+                              def
+                           e2 = u0 − v1η − u1 v1 = u′0 − v1η
+                           w                              ′
+                                                             − u′1 v1′ ,                    (4.4)
+                              def                   ′
+                           w1 = u1ξ − v1η = u′1ξ − v1η ,
+
+                                                 5
+and the pure gauge variable ρ related to the field variable u1 (ξ, η, t) as
+                                              def
+                                          u1 = (log ρ)η .                                         (4.5)
+The variable ρ corresponds to the pure gauge degrees of freedom and is transformed according
+to the simple law ρ → ρ′ = gρ under the gauge transformations ψ → ψ ′ = g −1 ψ.
+    We note that the invariants w2 and we2 in auxiliary problem (4.1) are the Laplace invari-
+ants h = w2 and k = w  e2 for the corresponding classical differential equation (see, e.g., the
+well-known Forsyth monograph on differential equations [21]).
+    In the case under study with auxiliary linear problem (4.2) determining the time evolu-
+tion, the corresponding integrable system of nonlinear equations in terms of the variables ρ,
+w1 , and w2 becomes
+  ρt = −κ1 ρξξ − κ2 ρηη − 2κ1 ρ∂η−1 w2ξ + 2κ2 ρη ∂ξ−1 w1 + v0 ρ,                                  (4.6)
+                                                                                            
+  w1t = −κ1 w1ξξ + κ2 w1ηη − 2κ1 w2ξξ + 2κ2 w2ηη − 2κ1 w1 ∂η−1 w1 ξ + 2κ2 w1 ∂ξ−1 w1 η ,          (4.7)
+                                                            
+  w2t = κ1 w2ξξ − κ2 w2ηη − 2κ1 w2 ∂η−1 w1 ξ + 2κ2 w2 ∂ξ−1 w1 η .                                 (4.8)
+Gauge-invariant subsystem (4.7), (4.8) for the invariants w1 = u1ξ − v1η and
+w2 = u0 − u1ξ − u1 v1 of system of equations (4.6)–(4.8) with u1 = 0, v1 = −q/2,
+and u0 = (1 + r − qη )/4 in terms of the variables q and r becomes
+                                        κ1 2 
+            qt = −κ1 ∂η−1 rξξ + κ2 rη −      q ξ + κ2 qη ∂ξ−1 qη ,
+                                         2                                          (4.9)
+            rt = −κ1 qξ + κ2 ∂ξ−1 qηη − κ1 qηξξ + κ2 qηηη − κ1 rq ξ + κ2 r∂ξ−1 qη η .
+In the particular case where κ2 = 0, system of equations (4.9) reduces to the well-known
+integrable 2DgDLW system [18]
+                                                κ1 2 
+                                qtη = −κ1 rξξ −    q ξη ,
+                                                2                                  (4.10)
+                                rtξ = −κ1 qr + q + qξη ξξ .
+In the one-dimensional limit ξ = η, system (4.9) (κ1 − κ2 = 1) and system (4.10) (κ1 = 1)
+reduce to the well-known dispersive long-wave equation (see, e.g., [22]). Therefore, integrable
+system of nonlinear equations (4.6)–(4.8) can be called the 2DgDLW system.
+    Integrable system (4.6)–(4.8) in terms of the variables φ = log ρ, w1 , and w2 becomes
+  φt = −κ1 φξξ − κ2 φηη − κ1 (φξ )2 − κ2 (φη )2 − 2κ1 ∂η−1 w2ξ + 2κ2 φη ∂ξ−1 w1 + v0 ,   (4.11)
+                                                                                      
+  w1t = −κ1 w1ξξ − κ2 w1ηη − 2κ1 w2ξξ + 2κ2 w2ηη − 2κ1 w1 ∂η−1 w1 ξ + 2κ2 w1 ∂ξ−1 w1 η , (4.12)
+                                                               
+  w2t = κ1 w2ξξ − κ2 w2ηη − 2κ1 w2 ∂η−1 w1 ξ + 2κ2 w2 ∂ξ−1 w1 η .                        (4.13)
+                                                                               e2 = w2 + w1
+   Integrable system (4.6)–(4.8) in terms of the variables φ = log ρ, w2 , and w
+becomes more symmetric,
+     φt = −κ1 φξξ − κ2 φηη − κ1 (φξ )2 − κ2 (φη )2 − 2κ1 ∂η−1 w2ξ + 2κ2 φη ∂ξ−1 w1 + v0 ,        (4.14)
+                                                                                   
+     w2t = κ1 w2ξξ − κ2 w2ηη − 2κ1 w2 ∂η−1 (w e2 − w2 ) ξ + 2κ2 w2 ∂ξ−1 (w e2 − w2 ) η ,         (4.15)
+                                                                                     
+     w
+     e2t = −κ1 w          e2ηη − 2κ1 w
+                e2ξξ + κ2 w            e2 ∂η−1 (w
+                                                e2 − w2 ) ξ + 2κ2 w e2 ∂ξ−1 (w
+                                                                             e2 − w2 ) η .       (4.16)
+    All the mutually equivalent integrable systems of 2DgDLW nonlinear equations consid-
+ered above, (4.6)–(4.8), (4.11)–(4.13), and (4.14)–(4.16) have the following common charac-
+teristic gauge structure:
+
+                                                    6
+  a. They contain manifestly gauge-invariant subsystems (4.7), (4.8) and (4.12), (4.13)
+     of nonlinear equations for the gauge invariants w1 and w2 (or, equivalently, subsys-
+                                                        e2 ).
+     tem (4.15), (4.16) for the gauge invariants w2 and w
+
+   b. They contain Eq. (4.6) for the pure gauge variable ρ (or Eq. (4.11) for the variable
+      φ = log ρ), which satisfies a simple transformation law ρ → ρ′ = gρ with additional
+      terms containing the gauge invariants and the additional field variable v0 .
+Such a structure of the 2DgDLW system reflects a significant gauge freedom in auxiliary
+linear problems (4.1) and (4.2).
+    We consider several particular gauges of systems of 2DgDLW equations (4.6)–(4.8),
+(4.11)–(4.13), and (4.14)–(4.16). We let C (u1 , v1 , u0 ) denote the gauge in general posi-
+tion. In the gauge C (u1 = φη , v1 = φξ , u0 = φξη + φξ φη ), which by definitions (4.4) of the
+invariants corresponds to the zero values of the invariants w1 and w2 ,
+
+               w1 = u1ξ − v1η = 0,       w2 = u0 − u1ξ − u1 v1 = 0,       e2 = 0,
+                                                                          w                (4.17)
+
+system of 2DgDLW equations (4.14)–(4.16) reduces to the two-dimensional Bürgers equation
+in potential form
+                   φt = −κ1 φξξ − κ2 φηη − κ1 (φξ )2 − κ2 (φη )2 + v0 ,            (4.18)
+or, in terms of the variable ρ related to the Hopf–Cole transformation φ = log ρ, to the linear
+diffusion equation
+                                   ρt = −κ1 ρξξ − κ2 ρηη + v0 ρ.                         (4.19)
+It follows from the above construction that Eq. (4.18) (or Eq. (4.19)) is the compatibility
+condition for auxiliary problems (4.1) and (4.2) in Lax form,
+
+                                    [L1 , L2 ] = B(w1 )L1 ≡ 0.                             (4.20)
+
+   In another simple gauge, C (u1 = φη , v1 = 0, u0 = 0), which by definitions (4.4) corre-
+sponds to the invariants
+
+                            w1 = φξη ,      w2 = −φξη ,      e2 = 0,
+                                                             w                             (4.21)
+
+system of 2DgDLW equations (4.14)–(4.16) again reduces to the single Bürgers-type equation
+in potential form
+                    φt = κ1 φξξ − κ2 φηη − κ1 (φξ )2 + κ2 (φη )2 + v0 .              (4.22)
+This equation can be linearized by the Hopf–Cole transformation φ = − log ρ to the corre-
+sponding linear equation
+                                 ρt = κ1 ρξξ − κ2 ρηη − ρv0 .                      (4.23)
+    In the gauge C (u1 = 0, v1 = −qξ /q, u0 = p q), it follows from (4.4) that the invariants w1 ,
+         e2 are given by the expressions
+w2 , and w
+                                                                           
+                 w1 = log q ξη ,     w2 = u0 = p q,         e2 = p q + log q ξη ,
+                                                            w                              (4.24)
+
+the variable ρ according to (4.5) has a constant value, and the variable φ is equal to zero.
+According to (4.14), for the variable v0 , we have
+                                                               
+                             v0 = −2κ1 ∂η−1 w2ξ = −2κ1 ∂η−1 p q ξ .                   (4.25)
+
+                                                7
+After some calculations in the case under study, system of 2DgDLW equations (4.14)–(4.16)
+implies the well-known system of DS equations [19] for the variables p and q:
+                                                                          
+                   pt = κ1 pξξ − κ2 pηη + 2κ1 p ∂η−1 p q ξ − 2κ2 p ∂ξ−1 p q η ,
+                                                                                 (4.26)
+                   qt = −κ1 qξξ + κ2 qηη − 2κ1 q ∂η−1 p q ξ + 2κ2 q ∂ξ−1 p q η .
+
+   In the gauge C (u1 = pη , v1 = qξ , u0 = pη qξ ), it follows from (4.4) that the invariants can
+be expressed in terms of the variables q and p as
+                           w1 = pξη − qξη ,     w2 = −pξη ,     e2 = −qξη .
+                                                                w                            (4.27)
+We substitute w1 , w2 , and w e2 given by (4.27) in system (4.14)–(4.16) and obtain three
+equations for the variables p and q. Equation (4.14) for φ ≡ p implies the first equation
+                     pt = κ1 pξξ − κ2 pηη − κ1 (pξ )2 + κ2 (pη )2 − 2κ2 pη qη + v0 .         (4.28)
+The other two equations follow from Eqs. (4.15) and (4.16) for the invariants w2 and w    e2 and
+can be expressed in terms of the variables p and q as
+                                                                                     
+      pt = κ1 pξξ − κ2 pηη − κ1 (pξ )2 + κ2 (pη )2 + 2κ1 ∂η−1 pξη qξ − 2κ2 ∂ξ−1 pξη qη ,   (4.29)
+                                       2          2         −1
+                                                                             −1
+                                                                                        
+      qt = −κ1 qξξ + κ2 qηη + κ1 (qξ ) − κ2 (qη ) − 2κ1 ∂η qξη pξ + 2κ2 ∂ξ qξη pη .        (4.30)
+Equations (4.28) and (4.29) are compatible under the choice of the variable
+                                                                
+                           v0 = 2κ1 ∂η−1 pξη qξ + 2κ2 ∂ξ−1 qξη pη .                          (4.31)
+In this case, system of three equations (4.28)–(4.30) reduces to system of two equations (4.29)
+and (4.30), which contains the derivatives pξη qξ , pξη qη , etc., in nonlocal terms.
+    Similarly, in the gauge C (u1 = pη , v1 = qξ , u0 = 0), it follows from (4.4) that the invari-
+                   e2 can be expressed as
+ants w1 , w2 , and w
+                 w1 = pξη − qξη ,       w2 = −pξη − pη qξ ,        e2 = −qξη − pη qξ .
+                                                                   w                         (4.32)
+Equation (4.11) for φ ≡ p with (4.32) taken into account becomes
+                                                                                 
+        pt = κ1 pξξ − κ2 pηη − κ1 (pξ )2 + κ2 (pη )2 − 2κ2 pη qη + 2κ1 ∂η−1 pη qξ ξ + v0 .   (4.33)
+
+Substituting expressions (4.32) for w1 and w2 , we transform Eq. (4.12) as
+                                                                 2
+                  pt − qt = κ1 p + q ξξ − κ2 p + q ηη − κ1 pξ − qξ +
+                                     2                                
+                        + κ2 pη − qη + 2κ1 ∂η−1 pη qξ ξ − 2κ2 ∂ξ−1 pη qξ η .                 (4.34)
+
+Subtracting Eq. (4.34) from (4.33), we obtain the evolution equation for the variable q:
+                                   2       2                          
+      qt = −κ1 qξξ + κ2 qηη + κ1 qξ − κ2 qη − 2κ1 pξ qξ + 2κ2 ∂ξ−1 pη qξ η + v0 .     (4.35)
+
+It follows from (4.32) that Eq. (4.13) for the invariant w2 in terms of the variables p and q
+becomes
+                                                               
+               pξη + pη qξ t = κ1 pξη + pη qξ ξξ − κ2 pξη + pη qξ ηη −
+                                                                                 
+                   − 2κ1 (pξη + pη qξ )(pξ − qξ ) ξ + 2κ2 (pξη + pη qξ )(pη − qη ) η .  (4.36)
+
+
+                                                   8
+Equations (4.34)–(4.36) are compatible if the variable v0 satisfies the relation
+
+                                  v0ξη + pη v0ξ + qξ v0η = 0.                           (4.37)
+
+In the case where v0 ≡ 0, system of three equations (4.34)–(4.36) implies the equivalent
+system of two equations
+                                        2      2                           
+            pt = κ1 pξξ − κ2 pηη − κ1 pξ + κ2 pη − 2κ2 pη qη + 2κ1 ∂η−1 pη qξ ξ ,
+                                         2      2                               (4.38)
+            qt = −κ1 qξξ + κ2 qηη + κ1 qξ − κ2 qη − 2κ1 pξ qξ + 2κ2 ∂ξ−1 pη qξ η .
+
+This system of equations was first obtained in a different context in [23].
+   To conclude this section, we discuss Miura-type transformations between different sys-
+tems of nonlinear second-order DS-type equations obtained above in different gauges. For
+convenience, we let P ≡ p and Q ≡ q denote the solutions of system of nonlinear DS-type
+equations (4.26). We use the invariants w1 and w2 to obtain the relations between the
+variables P and Q of DS system (4.26) and the variables p and q of system (4.29), (4.30):
+                                 
+                     w1 = log Q ξη = pξη − qξη ,      w2 = P Q = −pξη .              (4.39)
+
+Relation (4.39) implies the corresponding Miura-type transformation
+
+                                Q = ep−q ,     P = −pξη eq−p .                          (4.40)
+
+    Quite similarly, for the pair of systems of DS-type equations (4.26) and (4.38), we obtain
+                               
+                  w1 = log Q ξη = pξη − qξη ,       w2 = P Q = −pξη − pη qξ .           (4.41)
+
+From (4.41), we also obtain a Miura-type transformation between the corresponding solutions
+                                                           
+                           Q = ep−q ,     P = − pξη + pη qξ eq−p .                   (4.42)
+
+    Transformations (4.40) and (4.42) permit obtaining solutions of the well-known system
+of DS equations (4.26) from the corresponding solutions of systems of Eqs. (4.29), (4.30),
+and (4.38). Therefore, these transformations are Miura-type transformations between the
+solutions of gauge-equivalent systems of second-order DS-type equations.
+
+
+5     Manifestly gauge-invariant system of integrable
+      Nizhnik–Veselov–Novikov equations
+We consider the results recently obtained in [17] concerning the gauge-invariant formulation
+of two-dimensional nonlinear evolution equations integrable using the two auxiliary linear
+problems
+                      2
+                                             
+            L1 ψ = ∂ξη   + u1 ∂ξ + v1 ∂η + u0 ψ = 0,                                   (5.1)
+                              3        3      2      2
+                                                                            
+            L2 ψ = ∂t + κ1 ∂ξ + κ2 ∂η + u2 ∂ξ + v2 ∂η + ũ1 ∂ξ + ṽ1 ∂η + v0 ψ = 0,    (5.2)
+
+where κ1 and κ2 are constants, ξ = x + σy and η = x − σy are spatial coordinates, and
+σ 2 = ±1.
+
+                                              9
+    We use the compatibility condition in the Manakov triad form [20] (see (4.3)) to reduce
+auxiliary linear problems (5.1) and (5.2) to the previously obtained and well-known Nizhnik–
+Veselov–Novikov (NVN) equations and to some other equations [24–27] (also see [12,13] and
+the references therein).
+    In the case under study, just as for the system of 2DgDLW equations, formulas (4.4)
+and (4.5) give the field variables, the classical invariants w2 and w1 , and the pure gauge
+variable ρ, which are convenient for the gauge-invariant formulation. In the case of auxiliary
+linear problem (5.2), the first invariant w1 is equal to zero (w1 ≡ 0), and the corresponding
+integrable system of nonlinear equations [17] in terms of the variables ρ and w2 has the form
+
+              ρt = −κ1 ρξξξ − κ2 ρηηη − 3κ1 ρξ ∂η−1 w2ξ − 3κ2 ρη ∂ξ−1 w2η + v0 ρ,            (5.3)
+                                                                                 
+              w2t = −κ1 w2ξξξ − κ2 w2ηηη − 3κ1 w2 ∂η−1 w2ξ ξ − 3κ2 w2 ∂ξ−1 w2η η .           (5.4)
+
+System of equations (5.3), (5.4) in terms of the variables φ = log ρ and w2 becomes
+
+            φt = −κ1 φξξξ − κ2 φηηη − κ1 (φξ )3 − κ2 (φη )3 − 3κ1 φξ φξξ − 3κ2 φη φηη −
+                 − 3κ1 φξ ∂η−1 w2ξ − 3κ2 φη ∂ξ−1 w2η + v0 ,                                  (5.5)
+                                                                               
+            w2t = −κ1 w2ξξξ − κ2 w2ηηη − 3κ1 w2 ∂η−1 w2ξ ξ − 3κ2 w2 ∂ξ−1 w2η η .             (5.6)
+
+    Equation (5.4) (or (5.6)) for the gauge invariant w2 = u0 − u1ξ − u1 v1 of the last two
+systems exactly coincides in form with the well-known NVN equation [24, 25]
+                                                                        
+                  ut = −κ1 uξξξ − κ2 uηηη − 3κ1 u∂η−1 uξ ξ − 3κ2 u∂ξ−1 uη η .          (5.7)
+
+Integrable system (5.3), (5.4) (or (5.5), (5.6)) can therefore be called the system of NVN
+equations.
+    Integrable system of NVN equations (5.3), (5.4) (or (5.5), (5.6)) has the following gauge
+structure:
+
+  a. It contains manifestly gauge-invariant equation (5.4) (or (5.6)) for the invariant w2 .
+
+   b. It contains Eq. (5.3) (or (5.5)) for the pure gauge variable ρ (or φ) with some additional
+      terms containing the gauge invariant w2 and the additional field variable v0 used in
+      auxiliary linear problem (5.2).
+
+    For w2 = 0, system of NVN equations (5.3), (5.4) (or (5.5), (5.6)) reduces to the single
+linear equation
+                             ρt = −κ1 ρξξξ − κ2 ρηηη + v0 ρ.                           (5.8)
+In terms of the variable φ = log ρ, linear equation (5.8) looks like the third-order Bürgers
+equation
+
+          φt = −κ1 φξξξ − κ2 φηηη − κ1 (φξ )3 − κ2 (φη )3 − 3κ1 φξ φξξ − 3κ2 φη φηη + v0 ,   (5.9)
+
+which is linearized by the substitution φ = log ρ and is hence C-integrable.
+   We let C (φ, u0 , v0 ) denote the gauge corresponding to the nonzero field variables u1 = φη ,
+v1 = φξ , u0 , and v0 of auxiliary linear problems (5.1) and (5.2) and hence to system of NVN
+equations (5.5), (5.6) in general position. In different gauges, the NVN system implies
+
+
+                                                10
+different gauge-equivalent integrable nonlinear equations. The solutions of these equations
+are related by Miura-type transformations.
+    For example, in the gauge C (0, u0 , 0), system of NVN equations (5.5), (5.6) reduces to
+the well-known NVN equation [24, 25] for the field variable u0 :
+                                                                              
+               u0t = −κ1 u0ξξξ − κ2 u0ηηη − 3κ1 u0 ∂η−1 u0ξ ξ − 3κ2 u0 ∂ξ−1 u0η η .   (5.10)
+
+   In another gauge, C (φ, 0, v0 ), NVN system (5.5), (5.6) becomes
+
+              φt = −κ1 φξξξ − κ2 φηηη − κ1 (φξ )3 − κ2 (φη )3 +
+                                                             
+                   + 3κ1 φξ ∂η−1 φξ φη ξ + 3κ2 φη ∂ξ−1 φξ φη η + v0 ,                         (5.11)
+                 2
+                                           2
+                                                                h
+               ∂ξη + φη ∂ξ + φξ ∂η φt = ∂ξη   + φη ∂ξ + φξ ∂η −κ1 φξξξ − κ2 φηηη −
+                                                                                    i
+                   − κ1 (φξ )3 − κ2 (φη )3 + 3κ1 φξ ∂η−1 φξ φη ξ + 3κ2 φη ∂ξ−1 φξ φη η .      (5.12)
+
+By (5.11) and (5.12), NVN system (5.5), (5.6) in the gauge C (φ, 0, v0) reduces to the system
+of equations
+
+                       φt = −κ1 φξξξ − κ2 φηηη − κ1 (φξ )3 − κ2 (φη )3 +
+                                                                     
+                            + 3κ1 φξ ∂η−1 φξ φη ξ + 3κ2 φη ∂ξ−1 φξ φη η + v0 ,                (5.13)
+                          2
+                                           
+                        ∂ξη + φη ∂ξ + φξ ∂η v0 = 0.
+
+For v0 = 0, system of equations (5.13) reduces to the well-known modified NVN (mNVN)
+equation
+                                                                                         
+ φt = −κ1 φξξξ − κ2 φηηη − κ1 (φξ )3 − κ2 (φη )3 + 3κ1 φξ ∂η−1 φξ φη ξ + 3κ2 φη ∂ξ−1 φξ φη η , (5.14)
+
+which was first obtained in a different context by Konopelchenko [26]. We note that mNVN
+equation (5.14) differs from the mNVN equation obtained by Bogdanov [27]. The new system
+of equations (5.13) can also be called a system of mNVN equations.
+    Obviously, the solutions u0 and φ of NVN equations (5.10) and mNVN equations (5.14)
+are related by the Miura-type transformation
+
+                                         u0 = −φξη − φξ φη                                    (5.15)
+
+through the gauge invariant w2 = u0 = −φξη − φξ φη (calculated in the different gauges
+C (0, u0, 0) and C (φ, 0, 0)).
+   In the one-dimensional limit with coinciding derivatives ∂ξ = ∂η , mNVN equation (5.14)
+reduces to mKdV equation in potential form
+
+                                     φt = −κ φξξξ + 2κ(φξ )3 ,                                (5.16)
+
+where κ = κ1 + κ2 . In terms of the variable v1 = φξ , this is the mKdV equation
+
+                                     v1t = −κ v1ξξξ + 6κ v12 v1ξ .                            (5.17)
+
+
+
+
+                                                  11
+6    Conclusion
+The ideas of gauge invariance are currently widely used in the theory of integrable nonlin-
+ear equations. A manifestly gauge-invariant formulation of integrable systems of nonlinear
+equations can be given in all cases where the gauge freedom is properly taken into account
+in the corresponding auxiliary linear problems.
+
+Acknowledgments. This work is supported by the Analytic Departmental Goal-Oriented
+Program of the Russian Federation Ministry of Science and Education “Development of
+the Higher School Potential (2009–2010)” (Grant No. 2.1.1/1958) and Novosibirsk State
+Technical University (Grant in Basic Research 2008–2009).
+
+
+References
+ [1] V. E. Zakharov and A. B. Shabat, Funct. Anal. Appl., 8, 226–235 (1974).
+
+ [2] E. A. Kuznetsov and A. V. Mikhailov, Theor. Math. Phys., 30, 193–200 (1977).
+
+ [3] V. E. Zakharov and A. V. Mikhailov, Sov. Phys. JETP, 47, 1017–1027 (1978).
+
+ [4] V. E. Zakharov and L. A. Takhtadzhyan, Theor. Math. Phys., 38, 17–23 (1979).
+
+ [5] B. G. Konopelchenko, Phys. Lett. A, 92, 323–327 (1982).
+
+ [6] B. G. Konopelchenko and V. G. Dubrovsky, Phys. Lett. A, 95, 457–462 (1983).
+
+ [7] B. G. Konopelchenko and V. G. Dubrovsky, Ann. Phys., 156, 265–302 (1984).
+
+ [8] V. E. Zakharov, S. V. Manakov, S. P. Novikov, and L. P. Pitaevskii, Theory of Solitons:
+     The Inverse Scattering Method [in Russian], Nauka, Moscow (1980); English transl.,
+     Plenum, New York (1984).
+
+ [9] L. A. Takhtadzhyan and L. D. Faddeev, Hamiltonian Approach in the Theory of
+     Solitons [in Russian], Nauka, Moscow (1986); English transl.: L. D. Faddeev and
+     L. A. Takhtadzhyan, The Hamiltonian Methods in the Theory of Solitons, Berlin,
+     Springer (1987).
+
+[10] M. J. Ablowitz and P. A. Clarkson, Solitons, Nonlinear Evolution Equations, and In-
+     verse Scattering (London Math. Soc. Lect. Note Ser., Vol. 149), Cambridge Univ. Press,
+     Cambridge (1991).
+
+[11] B. G. Konopelchenko, Nonlinear Integrable Equations: Recursion Operators, Group-
+     Theoretical and Hamiltonian Structures of Soliton Equations (Lect. Notes Phys.,
+     Vol. 270), Springer, Berlin (1987).
+
+[12] B. G. Konopelchenko, Introduction to Multidimensional Integrable Equations: The In-
+     verse Spectral Transform in 2+1 Dimensions, Plenum, New York (1992).
+
+[13] B. G. Konopelchenko, Solitons in Multidimensions: Inverse Spectral Transform Method,
+     World Scientific, Singapore (1993).
+
+                                            12
+[14] B. G. Konopelchenko and C. Rogers, “Bäcklund and reciprocal transformations: Gauge
+     connections,” in: Nonlinear Equations in the Applied Sciences (Math. Sci. Engrg.,
+     Vol. 185, W. F. Ames and C. Rogers, eds.), Acad. Press, New York (1992), pp. 317–362.
+
+[15] V. S. Dryuma, JETP Lett., 19, 387–388 (1974).
+
+[16] B. G. Konopelchenko and V. G. Dubrovsky, Phys. Lett. A, 102, 15–17 (1984).
+
+[17] V. G. Dubrovsky and A. V. Gramolin, J. Phys. A, 41, 275208 (2008). Also available as
+     arXiv:0802.2334.
+
+[18] M. Boiti, J. J. P. Leon and F. Pempinelli, Inverse Problems, 3, 371–387 (1987).
+
+[19] A. Davey and K. Stewartson, Proc. Roy. Soc. London Ser. A, 338, 101–110, (1974).
+
+[20] S. V. Manakov, Russ. Math. Surveys, 31, 245–246 (1976).
+
+[21] A. R. Forsyth, Theory of Differential Equations, Vol. 6, Cambridge Univ. Press, Cam-
+     bridge (1906).
+
+[22] L. J. F. Broer, Appl. Sci. Res., 31, 377–395 (1975).
+
+[23] B. G. Konopelchenko, Inverse Problems, 4, 151–163 (1988).
+
+[24] L. P. Nizhnik, Sov. Phys. Dokl., 25, 706–708 (1980).
+
+[25] A. P. Veselov and S. P. Novikov, Sov. Math. Dokl., 30, 588–591 (1984).
+
+[26] B. G. Konopelchenko, Rev. Math. Phys., 2, 399–440 (1990).
+
+[27] L. V. Bogdanov, Theor. Math. Phys., 70, 219–223 (1987).
+
+
+
+
+                                             13
+

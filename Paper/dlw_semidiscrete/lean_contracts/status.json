@@ -1,0 +1,606 @@
+{
+  "date": "2026-09-22",
+  "contracts_sha256": "e70876c538d52939b030e7813a6b1c60917a79e56e28b29146d22df8da98d656",
+  "typecheck": {
+    "status": "PASSED",
+    "exit_code": 0,
+    "entry": "_lean_shared/Check-Lean.ps1 -Root Workspaces/lean_contracts/proofs -File .../Main.lean",
+    "output": "PASSED: 39 local module(s).",
+    "run_id": "20260922_221626_2fd722e0",
+    "source_hashes_verified": true,
+    "fixed": "runtime.json 的 workspace 与 lean_paths 已由旧 C:/Users/msz/学术内容 重指向 C:/Users/msz/aca（原文备份为 runtime.json.bak_pre_aca_migration）。此次修改只改路径，未改工具链、Mathlib 提交或任何证明语义。",
+    "interface_revision": "2026-09-22 原始 Contracts.lean 在 PowBound 处写作 0<|h|，被 Lean 词法器读成 <| 管道算子，文件无法通过类型检查。已按 README 第 4 条提交最小词法差异 0 < |h|；数学内容不变。原字节备份在 Trash/lean_contracts_pre_syntax_fix_20260922/Contracts.lean.orig（SHA-256 40a624c2…）。",
+    "note": "编译器返回 0 只表示证明项类型检查通过，不自动审计假设是否非空、是否就是目标。"
+  },
+  "historical_run": "20260919_121058_ca947c8e",
+  "historical_modules": [
+    {
+      "file": "lean-toda/TodaFormalization/DLWDiscretePair.lean",
+      "name": "DLWDiscretePair.lean",
+      "recorded_sha256": "9128186f1a386e555ed682f5193c48eb2b8b17fc46b8a070abebee48c51c3716",
+      "current_sha256": "9128186f1a386e555ed682f5193c48eb2b8b17fc46b8a070abebee48c51c3716",
+      "matches": true,
+      "historical_passed": true,
+      "run": "20260919_121058_ca947c8e"
+    },
+    {
+      "file": "lean-toda/TodaFormalization/DLWContinuum.lean",
+      "name": "DLWContinuum.lean",
+      "recorded_sha256": "b26bfff6937816a641617bd27435aa6790ee1dc671224ead8fbc95f117de955f",
+      "current_sha256": "b26bfff6937816a641617bd27435aa6790ee1dc671224ead8fbc95f117de955f",
+      "matches": true,
+      "historical_passed": true,
+      "run": "20260919_121058_ca947c8e"
+    },
+    {
+      "file": "lean-toda/TodaFormalization/DLWContinuumRate.lean",
+      "name": "DLWContinuumRate.lean",
+      "recorded_sha256": "fbc735fef4d6357a7673d75c49a3936e5f214f97e30f9ef06c05760eecec1a38",
+      "current_sha256": "fbc735fef4d6357a7673d75c49a3936e5f214f97e30f9ef06c05760eecec1a38",
+      "matches": true,
+      "historical_passed": true,
+      "run": "20260919_121058_ca947c8e"
+    },
+    {
+      "file": "lean-toda/TodaFormalization/DLWSemidiscrete.lean",
+      "name": "DLWSemidiscrete.lean",
+      "recorded_sha256": "f88e750f80dcc1d1fa146461e1080c9364b8f1a0624b893ce6289999b75152bb",
+      "current_sha256": "f88e750f80dcc1d1fa146461e1080c9364b8f1a0624b893ce6289999b75152bb",
+      "matches": true,
+      "historical_passed": true,
+      "run": "20260919_121058_ca947c8e"
+    },
+    {
+      "file": "lean-toda/TodaFormalization/DLWOneSoliton.lean",
+      "name": "DLWOneSoliton.lean",
+      "recorded_sha256": "12d88216efbc9f5ea8c2fa2d890d91657e16b811e2f98b8916fac455d70541fc",
+      "current_sha256": "12d88216efbc9f5ea8c2fa2d890d91657e16b811e2f98b8916fac455d70541fc",
+      "matches": true,
+      "historical_passed": true,
+      "run": "20260919_121058_ca947c8e"
+    },
+    {
+      "file": "lean-toda/TodaFormalization/DLWStaggered.lean",
+      "name": "DLWStaggered.lean",
+      "recorded_sha256": "8e5ffc5d87ec6fb6dff66b49ebe11d40980e421a6b8c29fe8a74484bad379b65",
+      "current_sha256": "8e5ffc5d87ec6fb6dff66b49ebe11d40980e421a6b8c29fe8a74484bad379b65",
+      "matches": true,
+      "historical_passed": true,
+      "run": "20260919_121058_ca947c8e"
+    },
+    {
+      "file": "lean-toda/TodaFormalization/DLW.lean",
+      "name": "DLW.lean",
+      "recorded_sha256": "9dc546e95abe1f511266446ff7a23a16514d6ce7fceae13287846038c5151d6c",
+      "current_sha256": "9dc546e95abe1f511266446ff7a23a16514d6ce7fceae13287846038c5151d6c",
+      "matches": true,
+      "historical_passed": true,
+      "run": "20260919_121058_ca947c8e"
+    }
+  ],
+  "proof_root": "Workspaces/lean_contracts/proofs",
+  "verification_run": "Workspaces/lean_contracts/proofs/.lean-runs/20260922_221626_2fd722e0/result.json",
+  "partial": {},
+  "conditional_bridges": {
+    "C08": "c08_of_c07 : C07 → C08",
+    "C16": "c16_of_c07 : C07 → C16 (uses proved C09)"
+  },
+  "proved_count": 32,
+  "unproved_count": 0,
+  "proved": {
+    "C22": {
+      "file": "PkgC22Complete.lean",
+      "theorem": "c22_proved",
+      "note": "将实际 Gram 插值改写为正的偶解析延拓；u 的一阶误差导数为零，h·v 的误差前三阶 jet 为零。紧性给出统一步长和导数界，分别得到一致二阶/三阶余项，再除 h，严格完成任意固定物理盒上的 u/v 二阶界。"
+    },
+    "C23": {
+      "file": "PkgC23Complete.lean",
+      "theorem": "c23_proved",
+      "note": "连续 y 流通过行列式换序接入 C07；在合法辅助参数曲线上对实际 γ 因子和行列式求导，得到 Bₐ(τ₁ᵧ,τ₀)=2Dₓ，再与第一式的 y 导数组合，完成两条 ContinuousPair 方程。"
+    },
+    "C07": {
+      "file": "PkgC07Complete.lean",
+      "theorem": "c07_proved",
+      "note": "任意 N、整数层/格点的实际 Gram 双线性链。行列式一阶/二阶微分与秩一更新给出 Plücker 恒等式；用特征多项式有限根和连续性消除可逆性限制，再接实际矩阵元的 x/t 导数与分离因子。没有 Reservoir 前提。"
+    },
+    "C08": {
+      "file": "PkgGramComplete.lean",
+      "theorem": "c08_proved",
+      "note": "将已证明的 C07 接入两壁移位桥，完成冻结的有限 h 双线性对。"
+    },
+    "C16": {
+      "file": "PkgGramComplete.lean",
+      "theorem": "c16_proved",
+      "note": "使用真实 C08、C09 正性与 C15 物理变换，完成任意 N Gram 物理场解 N1/N2 的完整终点。"
+    },
+    "N01": {
+      "file": "PkgRK4Complete.lean",
+      "theorem": "n01_proved",
+      "note": "Euler、一般非线性含时间依赖 RK4、梯形的一步缺陷阶全部完成。RK4 使用时间增广、真实四级导数与四阶 Taylor 多项式匹配，余项给出 PowBound 5；不等于实际求解器全局收敛或浮点程序认证。"
+    },
+    "C18": {
+      "file": "PkgC18Complete.lean",
+      "theorem": "c18_proved",
+      "note": "真实非线性残差乘 h 后作光滑延拓，前 0/1/2 阶误差 jet 为零，三阶余项除 h 给出二阶一致性。第一式在 y−h/2 比较，第二式在 y 比较。"
+    },
+    "C09": {
+      "file": "PkgC09Complete.lean",
+      "theorem": "c09_proved",
+      "note": "任意 N 的 Cauchy 主子式正性与 det(I+K) 展开；从 PositiveData 推出合法分母、F/G 严格正性及联合光滑性。"
+    },
+    "C01": {
+      "file": "PkgContinuous.lean",
+      "theorem": "c01_proved",
+      "note": "含一条 Mathlib 原本没有的混合偏导交换引理（由 ContDiffAt.isSymmSndFDerivAt 与 fderiv/deriv 桥接搭出）。"
+    },
+    "C02": {
+      "file": "PkgC02.lean",
+      "theorem": "c02_proved",
+      "note": "乘子只有 ±1：c1=2·∂ₓ∂ᵧR、c2=2·∂ₓ∂ᵧR−2·∂ₓS，R、S 由 ContinuousPair 逼零。旧记录里那条 E2=β_y(S_xx+(D_x)²+D_t+2aD_x)+2B_x 形式是错的（把 (x,t) 与 (x,y,t) 的对象混在一起），文件里已标明并给出正确的 (I)(II)。"
+    },
+    "C03": {
+      "file": "PkgTrivial.lean",
+      "theorem": "c03_proved",
+      "note": ""
+    },
+    "C04": {
+      "file": "PkgGramEntry.lean",
+      "theorem": "c04_proved",
+      "note": ""
+    },
+    "C05": {
+      "file": "PkgGramEntry.lean",
+      "theorem": "c05_proved",
+      "note": ""
+    },
+    "C06": {
+      "file": "PkgGramEntry.lean",
+      "theorem": "c06_proved",
+      "note": ""
+    },
+    "C10": {
+      "file": "PkgGramEntry.lean",
+      "theorem": "c10_proved",
+      "note": ""
+    },
+    "C11": {
+      "file": "PkgC11.lean",
+      "theorem": "c11_proved",
+      "note": "两式由同一次二阶 Taylor 展开给出：固定 y，令 Φ(s)=bil (a+s)(slice f y)(slice g (y+s))，则半和式误差 =(h²/8)Φ″(0)+(R(h/2)+R(−h/2))/2、半差式误差 =(R(h/2)−R(−h/2))/h，R 为 PowBound 3 的 Taylor 余项。复用了 PkgNumeric 的 powBound_taylor_poly。"
+    },
+    "C14": {
+      "file": "PkgNonlinear.lean",
+      "theorem": "c14_proved",
+      "note": "两个合取项各自闭合：normA+normC 与 normA−normC 先降到格点 jet，再用 lxx/ lx 交换律与移位引理把两边归约到同一批原子，最后 ring（字段 h≠0）。不含方程假设，故比蕴含式更强。"
+    },
+    "C15": {
+      "file": "PkgNonlinear.lean",
+      "theorem": "c15_proved",
+      "note": "SemiPair 逐点给出 normA=normC=0（zero_div），于是 lx 0=0、dm h 0=0、d0 h 0=0，c14_proved 直接把两个分量压成 0。"
+    },
+    "C12": {
+      "file": "PkgQuotientRate.lean",
+      "theorem": "c12_proved",
+      "note": "显式常数 C=1/(2|P|³)、ε=|P|/2；走中值定理而不是浮点判零。"
+    },
+    "C17": {
+      "file": "PkgC17.lean",
+      "theorem": "c17_proved",
+      "note": "第一个合取项是对所有 h（含 h=0）成立的<b>精确恒等式</b>：physU∘sample = sample∘interpU、physV∘sample = sample∘interpV，纯格点脚标算术、不需要任何分析。第二个合取项把两个误差都归约成一元 Taylor 余项的对称差：(interpU−cu) = −2·((R_B(h/2)+R_B(−h/2))/2) − (h²/4)·B″(y)；(interpV−cv) = (7/2)·(R_B(h/2)−R_B(−h/2))/h − (3/2)·(R_B(3h/2)−R_B(−3h/2))/(3h) + 2·(R_A(h)−R_A(−h))/(2h)，其中 B′ 项因 4−1/2−3/2−2=0、A′ 项因 2−2=0 精确相消。陷阱：interpV−cv 的恒等式在 h=0 处为<b>假</b>（Lean 的 /0=0），故只能走 c11_powBound_congr_ne 而非 powBound_congr。"
+    },
+    "C13": {
+      "file": "PkgQuotientRate.lean",
+      "theorem": "c13_proved",
+      "note": ""
+    },
+    "C21": {
+      "file": "PkgTrivial.lean",
+      "theorem": "c21_proved",
+      "note": ""
+    },
+    "C24": {
+      "file": "PkgQuotientRate.lean",
+      "theorem": "c24_proved",
+      "note": "整数幂由 exp(j·log χ) 与 χ^j 在 χ>0 下互转。"
+    },
+    "C19": {
+      "file": "PkgLattice.lean",
+      "theorem": "c19_proved",
+      "note": "守恒律由纯格点算子恒等式闭合；第二式是定义展开即得。"
+    },
+    "C20": {
+      "file": "PkgLattice.lean",
+      "theorem": "c20_proved",
+      "note": "只用第一式；周期求和让差分项望远镜消去，剩下 ∂ₓ²Σv=0。"
+    },
+    "C25": {
+      "file": "PkgLattice.lean",
+      "theorem": "c25_proved",
+      "note": "先把残差写成 ε·linear + ε²·quad，再对 ε 在 0 处求导。"
+    },
+    "N02": {
+      "file": "PkgTrivial.lean",
+      "theorem": "n02_proved",
+      "note": ""
+    },
+    "N03": {
+      "file": "PkgTrivial.lean",
+      "theorem": "n03_proved",
+      "note": ""
+    },
+    "N04": {
+      "file": "PkgTrivial.lean",
+      "theorem": "n04_proved",
+      "note": ""
+    },
+    "N05": {
+      "file": "PkgTrivial.lean",
+      "theorem": "n05_proved",
+      "note": ""
+    },
+    "N06": {
+      "file": "PkgTrivial.lean",
+      "theorem": "n06_proved",
+      "note": ""
+    },
+    "N07": {
+      "file": "PkgTrivial.lean",
+      "theorem": "n07_proved",
+      "note": ""
+    }
+  },
+  "contracts": [
+    {
+      "id": "C01",
+      "title": "连续第二式的真实导数桥",
+      "owner": "A",
+      "dependencies": "无",
+      "status": "PROVED",
+      "evidence": "PkgContinuous.lean :: c01_proved",
+      "claim": "由 Bₐ(f,g)=0，把 DᵧBₐ−4Dₓ=0 化为 Bₐ(f,gᵧ)+2Dₓ=0。",
+      "review": "不能仅假设两个无解释标量满足所需关系；必须证明乘积法则和混合导数交换。",
+      "prior": "DLW.six_iff_M1 / dy_reduction 只覆盖标量代数。"
+    },
+    {
+      "id": "C02",
+      "title": "连续双线性 → 连续物理 DLW",
+      "owner": "A",
+      "dependencies": "C01",
+      "status": "PROVED",
+      "evidence": "PkgC02.lean :: c02_proved",
+      "claim": "在联合光滑、正 τ 下，物理 u,v 满足 λ=−2 的连续两式。",
+      "review": "cu/cv 与 c1/c2 必须保持实际导数定义；不覆盖任意 λ。",
+      "prior": "已证明（PkgC02.lean）。乘子只有 ±1：<code>c1 = 2·∂ₓ∂ᵧR</code>、<code>c2 = 2·∂ₓ∂ᵧR − 2·∂ₓS</code>；桥接式为 <code>cbil a f g = (f·g)·R</code>、<code>chx f g = (f·g)·Bₓ</code>、<code>2·cbil a f (sy g) = (f·g)·(E2 − 4Bₓ)</code>；<code>ContinuousPair</code> 经 <code>c02_hyp_from_ContinuousPair</code> 给出 <code>cbil a f g = 0 ∧ cbil a f (sy g) + 2·chx f g = 0</code>，于是 R=0、E2=0、S=0。<b>更正</b>：早期记录里把第二条标量假设写成 <code>E2 = β_y(S_xx+(D_x)²+D_t+2aD_x)+2B_x</code> 是错的（<code>β_y</code> 混用了 (x,t) 与 (x,y,t) 对象），文件 docstring 已逐字写出正确的 (I)(II) 并把旧式标为 WRONG；<code>cdybil − 4·chx = sy(cbil a f g) − 2(cbil a f (sy g) + 2·chx)</code> 是精确恒等式（λ=−2 为常数，余项是导数而非 R 的函数倍），所以 E+2Bₓ=0 是**推出**的，不是假设。"
+    },
+    {
+      "id": "C03",
+      "title": "限定模板中的半格距参数",
+      "owner": "A",
+      "dependencies": "无",
+      "status": "PROVED",
+      "evidence": "PkgTrivial.lean :: c03_proved",
+      "claim": "在指定二壁模板的全系数匹配和中心条件下，偏移只能是 ±h/2。",
+      "review": "不能把“模板内唯一”扩展为所有可能离散化的唯一性。",
+      "prior": "wall_parameters / offset_gap_forced 等已有旧证明。"
+    },
+    {
+      "id": "C04",
+      "title": "参数移位 = 格点移位：实际矩阵元",
+      "owner": "B",
+      "dependencies": "无",
+      "status": "PROVED",
+      "evidence": "PkgGramEntry.lean :: c04_proved",
+      "claim": "任意整数 n,j 的完整 Gram 矩阵元，在两种参数—格点组合下相等。",
+      "review": "矩阵包含 δᵢₖ；整数负幂要求基底非零；不引入混合 y 相位。",
+      "prior": "staggered_entry_identity 已有 n=1 有理因子证明。"
+    },
+    {
+      "id": "C05",
+      "title": "参数—格点恒等式提升到任意 N",
+      "owner": "B",
+      "dependencies": "C04",
+      "status": "PROVED",
+      "evidence": "PkgGramEntry.lean :: c05_proved",
+      "claim": "τₙ(j;a−h/2)=τₙ(j+n;a+h/2)，τ 是固定的 det(I+K)。",
+      "review": "不能只证明任意两个已假定相等矩阵的行列式相等。",
+      "prior": "tau1_det_staggered 的矩阵未含完整 I+K，需接入新定义。"
+    },
+    {
+      "id": "C06",
+      "title": "Gram 的导数和层更新",
+      "owner": "B",
+      "dependencies": "无",
+      "status": "PROVED",
+      "evidence": "PkgGramEntry.lean :: c06_proved",
+      "claim": "实际矩阵元的 x/t 导数、n→n+1 更新均等于固定显式表达式。",
+      "review": "不是把 dx,dxx,dt 当自由变量的代数检查；求导要接到 exp。",
+      "prior": "本冻结端点已由所列证明包完成。"
+    },
+    {
+      "id": "C07",
+      "title": "固定参数的任意 N 双线性链",
+      "owner": "B",
+      "dependencies": "C06",
+      "status": "PROVED",
+      "evidence": "PkgC07Complete.lean :: c07_proved",
+      "claim": "对实际 τ：Bₛ τₙ₊₁·τₙ=0，任意 N,n,j。",
+      "review": "最终定理不能假设 Reservoir；若用逆矩阵，必须消除中途可逆性限制或明确缩小结论。",
+      "prior": "旧 T2 的 reservoir 是假设，本项是核心缺口。2026-09-22 用 fractions.Fraction（无浮点）在 N=1..4、j=0..2、n=0..2、三组参数上按实际指数向量合并检验，全部合并系数精确为 Fraction(0)：这些有限参数样例通过精确检查，<b>不构成任意 N 命题的证明</b>；任意 N 的完整行列式证明现已由 PkgC07Complete 验收。"
+    },
+    {
+      "id": "C08",
+      "title": "离散双线性对的精确性",
+      "owner": "B",
+      "dependencies": "C05,C07",
+      "status": "PROVED",
+      "evidence": "PkgGramComplete.lean :: c08_proved",
+      "claim": "由已定义 F=τ₁(a−h/2)、G=τ₀ 得到两条真正的有限 h 方程。",
+      "review": "是同一个 F 同时满足两壁；不是两份不相干 τ。",
+      "prior": "旧 T2 没有把 Res 与实际 bil/tau 接起来。"
+    },
+    {
+      "id": "C09",
+      "title": "正参数区间的无零点与光滑性",
+      "owner": "B",
+      "dependencies": "Gram 定义",
+      "status": "PROVED",
+      "evidence": "PkgC09Complete.lean :: c09_proved",
+      "claim": "PositiveData 推出合法分母、F/G>0 和真实函数的联合光滑性。",
+      "review": "任意 N；严格排序与振幅正性要留在假设中，不把正性当输入重复输出。",
+      "prior": "PkgC09Complete.lean 已完成完整 Lean 端点；原 PkgC09.lean 草稿保留但不导入。"
+    },
+    {
+      "id": "C10",
+      "title": "两孤子归一化相互作用系数",
+      "owner": "B",
+      "dependencies": "Gram 定义",
+      "status": "PROVED",
+      "evidence": "PkgGramEntry.lean :: c10_proved",
+      "claim": "实际 N=2 行列式等于 1+e₀+e₁+A₁₂e₀e₁，A₁₂ 不含 h。",
+      "review": "这还不是实际峰位的散射相移定理；后者需渐近分离和定位。",
+      "prior": "旧两指数代数材料不能直接替代本端点。"
+    },
+    {
+      "id": "C11",
+      "title": "连续双线性 → 格点算子的二阶一致性",
+      "owner": "C",
+      "dependencies": "C01",
+      "status": "PROVED",
+      "evidence": "PkgC11.lean :: c11_proved",
+      "claim": "二壁半和趋于 Bₐ，除 h 的差趋于 Bₐ(f,gᵧ)+2Dₓ；误差各 O(h²)。",
+      "review": "取固定物理 y；对光滑函数的真实余项证明，不是截断多项式的 ring。",
+      "prior": "已证明（PkgC11.lean）。固定 y 令 Φ(s)=bil (a+s)(slice f y)(slice g (y+s))，两式共用同一次二阶 Taylor 展开：半和式误差 =(h²/8)Φ″(0)+(R(h/2)+R(−h/2))/2、半差式误差 =(R(h/2)−R(−h/2))/h，其中 R 是 PowBound 3 的 Taylor 余项（来自 PkgNumeric 的 powBound_taylor_poly）。bil 的 σ（斜对称）项在对称化中精确相消，因此无需单独的 bil 有界性。"
+    },
+    {
+      "id": "C12",
+      "title": "格点对数速率的二阶误差",
+      "owner": "C",
+      "dependencies": "无",
+      "status": "PROVED",
+      "evidence": "PkgQuotientRate.lean :: c12_proved",
+      "claim": "log λₕ(P)/h−1/P=O(h²)，P≠0。",
+      "review": "旧 Tendsto 只给极限；还要补阶数与邻域分母控制。",
+      "prior": "lattice_rate_tendsto、centred_exact 已有证明。"
+    },
+    {
+      "id": "C13",
+      "title": "归一化 Hirota 商恒等式",
+      "owner": "D",
+      "dependencies": "导数语义",
+      "status": "PROVED",
+      "evidence": "PkgQuotientRate.lean :: c13_proved",
+      "claim": "B/(fg) 等于对数和的二阶导数、对数差的一阶项和平方项。",
+      "review": "正 f,g、联合光滑不可删；平方项系数为 +1。",
+      "prior": "符号计算只作辅助；实际函数的冻结目标已由 Lean 证明。"
+    },
+    {
+      "id": "C14",
+      "title": "双线性残差 → 非线性残差",
+      "owner": "D",
+      "dependencies": "C13",
+      "status": "PROVED",
+      "evidence": "PkgNonlinear.lean :: c14_proved",
+      "claim": "在不假设方程成立时，给出 N1/N2 与归一化 A,C 残差的精确恒等式。",
+      "review": "此处最适合拦截符号/系数/位点错误；不能把 A=C=0 提前塞入本目标。",
+      "prior": "已证明（PkgNonlinear.lean，两个合取项都闭合，且不假设方程成立，故强于蕴含式）。路线：由 C13 的局部版本得 normA+normC=Φ+lxx Z、normA−normC=−lxx V+lx U·lx V+lt V+(2a)•lx V−h•lx U，再证 lt u+lx(H)=lx Φ、lxx(mm v−(h²/4)•lap(dm u))=dm h(lx(lxx Z))、lxx(d0 u+(h²/4)•lap W)=d0 h(lx(lxx Z))−(4/h)•lx(lxx V)、lt v=(4/h)•lx(lt V)+d0 h(lt u)，最后用 lxx/lx 交换与移位引理把两侧归约到同一批三阶 x-导数原子后 <code>ring</code>。此前 Agent 的手推在识别式 (2) 的最后两项符号上出过错（正确为 <code>+ (2a)•lx V − h•lx U</code>），已按 <code>Contracts.lean</code> 更正。"
+    },
+    {
+      "id": "C15",
+      "title": "离散双线性 → 离散非线性",
+      "owner": "D",
+      "dependencies": "C14",
+      "status": "PROVED",
+      "evidence": "PkgNonlinear.lean :: c15_proved",
+      "claim": "同一正光滑 F,G 满足 SemiPair，推出 physU/physV 满足 NonlinearPair。",
+      "review": "是正实全局版本的单向推论；不偷偷宣称周期全局等价。",
+      "prior": "已证明（PkgNonlinear.lean）。<code>SemiPair</code> 逐点给出 normA=normC=0（<code>zero_div</code>），于是 <code>lx 0=0</code>、<code>dm h 0=0</code>、<code>d0 h 0=0</code>，<code>c14_proved</code> 直接把两个分量压成 0。注意 C15 无法绕过 C14，故两者同时闭合。"
+    },
+    {
+      "id": "C16",
+      "title": "Gram 解确实解非线性系统",
+      "owner": "D",
+      "dependencies": "C08,C09,C15",
+      "status": "PROVED",
+      "evidence": "PkgGramComplete.lean :: c16_proved",
+      "claim": "PositiveData 下，实际任意 N Gram 解经物理变换满足 N1/N2。",
+      "review": "集成 theorem 的 type 不应再带“假设 N1/N2 成立”。",
+      "prior": "核心最终验收之一，现已完整证明。"
+    },
+    {
+      "id": "C17",
+      "title": "交错观测位置与物理变换二阶极限",
+      "owner": "C",
+      "dependencies": "C13",
+      "status": "PROVED",
+      "evidence": "PkgC17.lean :: c17_proved",
+      "claim": "离散物理场等于插值表达式在 F 位点的采样，并以二阶趋于连续 u/v。",
+      "review": "先证精确位置对应，再证明渐近误差；不能把 G 与 F 当同点。",
+      "prior": "已证明（PkgC17.lean）：采样恒等式对所有 h 精确成立；两个 O(h²) 估计由一元 Taylor 余项的对称差给出，A′/B′ 项精确相消。"
+    },
+    {
+      "id": "C18",
+      "title": "非线性格点方程的二阶一致性",
+      "owner": "C",
+      "dependencies": "差分算子与微积分",
+      "status": "PROVED",
+      "evidence": "PkgC18Complete.lean :: c18_proved",
+      "claim": "真实光滑场代入 N1/N2，分别对连续 c1(y−h/2)、c2(y) 的残差 O(h²)。",
+      "review": "这是方程一致性，不是数值解收敛，也不是非线性稳定。",
+      "prior": "数学报告已有符号/Taylor 证据；Lean 待证。"
+    },
+    {
+      "id": "C19",
+      "title": "局部守恒律",
+      "owner": "D",
+      "dependencies": "C15 可用于 Gram 实例",
+      "status": "PROVED",
+      "evidence": "PkgLattice.lean :: c19_proved",
+      "claim": "N1/N2 推出 W 与 v 的局部散度方程，通量 JW/JV 固定。",
+      "review": "不能把逐点密度不变当作守恒律；积分版还需边界与微积分桥。",
+      "prior": "已由 PkgLattice.lean 的 c19_proved 完成。"
+    },
+    {
+      "id": "C20",
+      "title": "周期求和只能给相容约束",
+      "owner": "D",
+      "dependencies": "差分求和",
+      "status": "PROVED",
+      "evidence": "PkgLattice.lean :: c20_proved",
+      "claim": "在周期格点上，N1/N2 推出 ∂ₓ²Σv=0。",
+      "review": "这里没有 ūₜ；不能据此制造平均模态演化。",
+      "prior": "新验收目标。"
+    },
+    {
+      "id": "C21",
+      "title": "平均模态自由度的明确见证",
+      "owner": "D",
+      "dependencies": "N1/N2 定义",
+      "status": "PROVED",
+      "evidence": "PkgTrivial.lean :: c21_proved",
+      "claim": "任意光滑时间函数 c(t)，uⱼ=c(t),vⱼ=0 都满足系统。",
+      "review": "用于拒绝没有基值条件却宣称唯一演化的数值实现。",
+      "prior": "新验收目标。"
+    },
+    {
+      "id": "C22",
+      "title": "精确 Gram 物理场的紧盒一致二阶收敛",
+      "owner": "C",
+      "dependencies": "C09,C12,C17,C24",
+      "status": "PROVED",
+      "evidence": "PkgC22Complete.lean :: c22_proved",
+      "claim": "固定正则数据，在任意有界 x,y,t 盒上，有限 h 物理场与连续解误差 ≤C h²。",
+      "review": "C 与 h 无关；须控制求导后的误差及 τ 的下界；单点相位极限不够。",
+      "prior": "已由解析延拓、奇偶性和紧集统一 Taylor 界完成；不是一般初值收敛定理。"
+    },
+    {
+      "id": "C23",
+      "title": "连续 Gram 解接到连续起点",
+      "owner": "A",
+      "dependencies": "Gram 定义",
+      "status": "PROVED",
+      "evidence": "PkgC23Complete.lean :: c23_proved",
+      "claim": "固定连续 τ₁/τ₀ 真正满足 ContinuousPair。",
+      "review": "禁止将原文事实当 Lean 公理；一般 N 的导数/行列式证明要补齐。",
+      "prior": "旧 N=1 代数残差只作辅助。"
+    },
+    {
+      "id": "C24",
+      "title": "Gram 连续插值与整数格点完全一致",
+      "owner": "C",
+      "dependencies": "C09",
+      "status": "PROVED",
+      "evidence": "PkgQuotientRate.lean :: c24_proved",
+      "claim": "带 offset=1/2 的 F 插值和 offset=0 的 G 插值采样后严格回到 F/G。",
+      "review": "整数幂转 log/exp 需要 χ>0；不能忘记 F 的半格偏移。",
+      "prior": "新验收目标。"
+    },
+    {
+      "id": "C25",
+      "title": "真实非线性系统的零背景线性化",
+      "owner": "D",
+      "dependencies": "N1/N2 与微积分",
+      "status": "PROVED",
+      "evidence": "PkgLattice.lean :: c25_proved",
+      "claim": "对扰动幅度 ε 求导，得到固定 linearN1/linearN2。",
+      "review": "这是 Fourier 色散桥的前置；尚未证明模态增长式 (S)。",
+      "prior": "新验收目标。"
+    },
+    {
+      "id": "N01",
+      "title": "Euler / RK4 / 梯形的一步缺陷阶",
+      "owner": "E",
+      "dependencies": "实际有限维光滑 ODE",
+      "status": "PROVED",
+      "evidence": "PkgRK4Complete.lean :: n01_proved",
+      "claim": "Euler 缺陷 O(Δt²)、RK4 O(Δt⁵)、梯形方程残差 O(Δt³)。",
+      "review": "不是直接得到全局 1/4/2 阶；边界驱动须纳入时变 RHS。",
+      "prior": "新目标；还需与实际 DLW x 离散的 RHS 连接。"
+    },
+    {
+      "id": "N02",
+      "title": "有限步误差递推界",
+      "owner": "E",
+      "dependencies": "无",
+      "status": "PROVED",
+      "evidence": "PkgTrivial.lean :: n02_proved",
+      "claim": "从 eₙ₊₁≤q eₙ+η 推出 qⁿe₀+ηΣqⁱ 上界。",
+      "review": "算法实现者还必须证明实际一步稳定因子 q 与缺陷 η 的界；不能直接假定最终误差。",
+      "prior": "条件工具，不是 DLW 稳定性证明。"
+    },
+    {
+      "id": "N03",
+      "title": "模型误差与求解误差分离",
+      "owner": "E",
+      "dependencies": "有限维范数",
+      "status": "PROVED",
+      "evidence": "PkgTrivial.lean :: n03_proved",
+      "claim": "对连续参照的总误差 ≤ 数值对有限 h 的误差 + 有限 h 对连续解的误差。",
+      "review": "两个参照必须在同一物理网格，两个分项各有证据。",
+      "prior": "基础工具目标。"
+    },
+    {
+      "id": "N04",
+      "title": "有限样本数值误差证书",
+      "owner": "E",
+      "dependencies": "经证明的参考值区间",
+      "status": "PROVED",
+      "evidence": "PkgTrivial.lean :: n04_proved",
+      "claim": "计算值、区间端点、阈值为有理数；真值有证明的包含关系，推出每个样本的误差界。",
+      "review": "仅有 CSV 或小数打印不够；区间包住真值的证明不能缺失；仅有限样本。",
+      "prior": "证书规则目标；本轮没有实际数据证书。"
+    },
+    {
+      "id": "N05",
+      "title": "开放链基值重构",
+      "owner": "E",
+      "dependencies": "无",
+      "status": "PROVED",
+      "evidence": "PkgTrivial.lean :: n05_proved",
+      "claim": "从 p=δ₋u 和左端基值 b 重构，严格恢复差分与基值。",
+      "review": "实际 b(x,t)、幽灵点与时间阶段的来源需在实现里另验。",
+      "prior": "基础重构目标。"
+    },
+    {
+      "id": "N06",
+      "title": "正增长模态不会被准确积分消除",
+      "owner": "E",
+      "dependencies": "标量测试方程",
+      "status": "PROVED",
+      "evidence": "PkgTrivial.lean :: n06_proved",
+      "claim": "g>0,Δt>0 时 Euler 放大因子与精确 exp 放大因子都大于 1。",
+      "review": "不允许以“放大因子大于 1”单独判数值格式失败。",
+      "prior": "标量诊断，不是完整 Fourier 模态证明。"
+    },
+    {
+      "id": "N07",
+      "title": "线性误差预算条件",
+      "owner": "E",
+      "dependencies": "正实 seed/tolerance",
+      "status": "PROVED",
+      "evidence": "PkgTrivial.lean :: n07_proved",
+      "claim": "gT≤log(tolerance/seed) 推出 seed exp(gT)≤tolerance。",
+      "review": "实际系统的 g、初始/每步误差 seed 需另证；不是非线性有效时间保证。",
+      "prior": "条件估计目标。"
+    }
+  ]
+}

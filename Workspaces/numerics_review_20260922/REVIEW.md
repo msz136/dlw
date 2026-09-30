@@ -10,7 +10,7 @@
 
 ## 1. [P1] 连续参照误用了移位后的时间相位
 
-位置：`Paper/dlw_semidiscrete/numerics/lib/gramtau.py:333`，同样问题在 339、404 行。
+位置：`Workspaces/dlw_semidiscrete/numerics/lib/gramtau.py:333`，同样问题在 339、404 行。
 
 代码定义 P=p−a、Q=q+a，却令时间指数为 Q²−P²。有限 h Gram 解及该函数自身注释要求时间指数保持 q²−p²。两者相差 2a(p+q)，因此当前参照相当于额外作了 x→x+2at 的平移，却继续代入原坐标下的方程。t=0 时错误被隐藏，恰好 E1 全部使用 t=0。
 

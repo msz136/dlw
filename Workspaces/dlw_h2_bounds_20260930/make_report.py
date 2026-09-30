@@ -1,0 +1,261 @@
+"""Render the fixed-grid coefficient study from the new exact bounds."""
+from pathlib import Path
+import json
+
+HERE=Path(__file__).resolve().parent
+read=lambda name:json.loads((HERE/name).read_text(encoding='utf-8'))
+single=read('single_bounds.json')
+two=read('two_strip_bounds.json')
+rem=read('remainder_bounds.json')
+velocity=read('velocity_bounds.json')
+
+residual_rows=[]
+for case in ('A','B','C'):
+    for model in ('SD','FD'):
+        values=[]
+        for i in (1,2):
+            key=model+'_R'+str(i)
+            interval=single['cases'][case]['residual'][key]['abs_bound'] if case!='C' else two['bounds'][key]['bound']
+            values.append('['+', '.join(interval)+']')
+        residual_rows.append('| '+case+' | '+('SD / SD2' if model=='SD' else 'FD')+' | '+' | '.join(values)+' |')
+finite_rows=[]
+for case in ('A','B'):
+    for model in ('SD','FD'):
+        for i in (1,2):
+            key=model+'_R'+str(i)
+            rr=rem['cases'][case]
+            coeff=float(single['cases'][case]['residual'][key]['abs_bound'][0])
+            percent=100*float(rr['M'][key]['upper'])/64/coeff
+            finite_rows.append(f"| {case} | {model} | {i} | {rr['M'][key]['upper']} | [{', '.join(rr['normalized_finite_h_residual_bound'][key])}] | ≤{percent:.4f}% |")
+velocity_rows=[]
+for case in ('A','B'):
+    for model in ('SD','FD'):
+        if case=='A' and model=='SD':
+            ub=single['cases'][case]['equal_initial_velocity'][model+'_u']['bound']
+        else:ub=velocity[case+'_'+model+'_u']['bound']
+        vb=single['cases'][case]['residual'][model+'_R2']['abs_bound']
+        velocity_rows.append('| '+case+' | '+('SD / SD2' if model=='SD' else 'FD')+' | ['+', '.join(ub)+'] | ['+', '.join(vb)+'] |')
+
+body=r'''# DLW 固定网格的空间二阶系数及上下界
+
+2026年9月30日。承接当前首页的 A、B、C 参数和已有修正方程、误差传播报告。本文直接接受已有演化结果，只新增解析系数及其包围计算。
+
+本次得到了三组原文参数下空间方程残差的二阶系数上下界；单孤子还得到了有限格距的四阶余项界，以及共同物理初值下场误差首项的初始增长率。演化到指定时间的场误差系数仍需传播算子控制。三个量的区别决定了这些数字能用于哪一种误差估计。
+
+## 1 比较对象和误差系数
+
+记 $h=h_y$。本次只研究 $y$ 方向半离散，$x,t$ 导数保持解析，不引入 Euler、RK4 或 $x$ 差分的误差。固定的是物理网格，随 $h$ 加密保持相同物理区域。当前实现的 $x$ 内部差分为四阶，不能把“空间二阶”理解成两个方向都二阶。
+
+连续方程为
+
+$$u_{yt}+v_{xx}+[(u+2a)u_y]_x=0,\qquad v_t+u_{xxy}+[(u+2a)v-4u]_x=0.$$
+
+SD 来自 Report 式（7）—（8）；SD2 为式（21）—（22）的 $Q,R,M$ 形式。在非零变量、相容规范和物理初边值下，保留解析 $x,t$ 导数，两者给出同一个有限 $h$ 的物理方程。因此它们的纯 $y$ 二阶系数相同。若相应初边值问题的解唯一，其共同物理初值下的半离散物理解也相同。
+
+实际全离散 SD/SD2 的差异需要计入 $x$ 差分的乘积法则缺陷、非线性换元后的时间算法和闭合；本次系数并不为三个实现路线分别指定三个独立的纯 $y$ 模型。
+
+本文分别使用以下定义：
+
+- 方程残差系数 $R_i$：连续真解代入离散方程后为 $h^2R_i+O(h^4)$。
+- 场误差系数 $a_f(T)$：若匹配初边值问题具有光滑展开，$f_h-f=h^2a_f+o(h^2)$。
+- 精确孤子族系数 $g_f$：同谱连续孤子与有限 $h$ 精确孤子之间的差；初始时刻通常已非零。
+
+已有报告精确算出了第一种和特定第三种系数，并在旧配置上研究了误差传播。本次首先给第一种系数做全波形包围，再推进到第二种的初始增长率。
+
+## 2 方程残差系数可以精确到什么程度
+
+令 $w=v-u_y$。第一条方程在交错节点的中间展开，第二条在原节点展开。使用连续方程消去零阶残差后，已有推导给出
+
+$$
+R_1^{SD}=\frac1{32}\partial_{xy}(w-4)^2+\frac1{12}v_{xxyy}-\frac14u_{xxyyy},
+$$
+
+$$
+R_2^{SD}=\frac1{32}\partial_{xy}(w-4)^2+\frac12\partial_x(u_yu_{yy})+\frac14v_{xxyy}-\frac1{12}u_{xxyyy},
+$$
+
+$$R_1^{FD}=\frac1{12}v_{xxyy},\qquad R_2^{FD}=\frac16u_{xxyyy}.$$
+
+这些是显式系数，不是对加密曲线拟合出来的常数。两条方程的系数分别比较，不能把它们相加当作双场误差。
+
+原文参数为 A：$(a,p,q)=(2,1,2)$；B：$(2,4,-3)$；C：$a=2$、$(p_1,q_1)=(6,-5)$、$(p_2,q_2)=(4,-3)$，均为单位权重和零初相位。
+
+下表是新计算得到的区间，上下端采用向外舍入。A/B 覆盖完整 $x$ 波形，且与 $y,t$ 的平移无关。C 的区间同时适用于 $x\in[-10,10]$、连续 $y\in[-1.5,1.5]$、每个 $t\in[0,.01]$ 上的最大值；它不是仅对某几个点采样得到的范围。
+
+| 参数 | 方案 | $\|R_1\|_\infty$ 的上下界 | $\|R_2\|_\infty$ 的上下界 |
+|---|---|---:|---:|
+__RESIDUAL_ROWS__
+
+A 的 SD 第一式残差系数比 FD 大约 6.49 倍，第二式却约为 FD 的 0.67 倍。B/C 的两式均为 SD 大于 FD。这里的结论针对残差注入，不直接决定最终 $u,v$ 排名。尤其 A 中残差第一式较大与当前首页的终点 SD 总误差较小可以同时成立。
+
+### 2.1 单孤子如何获得极窄区间
+
+单孤子记
+
+$$k=p+q,\qquad \ell=\frac1{p-a}+\frac1{q+a},\qquad \gamma=-\frac{p-a}{q+a}>0,$$
+
+$$z=kx+(q^2-p^2)t+\log(1/k)+\ell y,\qquad s=\frac1{1+e^{-z}},\qquad F(s)=\frac{\gamma s}{1+(\gamma-1)s}.$$
+
+则
+
+$$u=2k(F-s),\qquad v=2k\ell D(F+s),\qquad D=s(1-s)\frac{d}{ds}.$$
+
+全部残差系数成为 $s\in[0,1]$ 上的有理函数；分母在该区间非零。它们的最大绝对值只可能位于端点或导数分子多项式的实根。用精确有理数隔离全部实根，再对每个根区间作有理区间求值，即可给出上表宽度 $10^{-12}$ 的包围。本次没有以浮点优化器给出的单个局部极值冒充全局上界。
+
+### 2.2 二孤子如何保留相互作用
+
+C 的两相位为 $z_1=x-11t-y/12$、$z_2=x-7t-y/2$，交互系数为 $4/3$。令 $r=\operatorname{sigmoid}(z_1)$、$s=\operatorname{sigmoid}(z_2)$。将正的四项 $\tau$ 函数除以 $(1+e^{z_1})(1+e^{z_2})$ 后，得到
+
+$$G=1+\frac13rs,\qquad F=1+\frac13r+s+\frac{11}{9}rs.$$
+
+求导算子为 $D_x=r(1-r)\partial_r+s(1-s)\partial_s$、$D_y=-r(1-r)\partial_r/12-s(1-s)\partial_s/2$。由此构造完整相互作用残差，仍是正分母的双变量有理函数。
+
+在 $[0,1]^2$ 上使用精确有理 Bernstein 系数比包围，并自适应二等分。若分子和分母在相同 Bernstein 基下的系数为 $n_{ij},d_{ij}$ 且 $d_{ij}>0$，则 $N/D$ 是 $n_{ij}/d_{ij}$ 的正权重平均，因此这些系数比的极值严格包住整块区域。下界由块内的精确有理见证点提供。
+
+此外，本次检查了每个下界见证点在每个 $t\in[0,.01]$ 都可以对应到上述物理评价区域内部。全相位上界与物理区域内见证点共同保证表中 C 的区间适用于该物理区域。此处 $y$ 是连续条带；24 个中点层的离散最大值可以更小，不能不加说明把该下界转用于有限层采样。
+
+## 3 有限格距下二阶首项能保证多准
+
+只写 $O(h^4)$ 不给常数，尚不能判断 $h=1/8$ 是否足够细。本次还对两组单孤子给出了
+
+$$\|\mathcal R_i(h)-h^2R_i\|_\infty\le M_i h^4,\qquad 0<h\le1/8.$$
+
+这里 $\mathcal R_i(h)$ 是连续真解代入完整有限 $h$ 方程得到的残差。$M_i$ 是由全波形导数上界和 Taylor 积分余项构造的保守上界。因此
+
+$$
+\max\{0,\|R_i\|_\infty-M_i h^2\}
+\le\frac{\|\mathcal R_i(h)\|_\infty}{h^2}
+\le\|R_i\|_\infty+M_i h^2.
+$$
+
+下表在 $h=1/8$ 取值。“保证偏差”相对于 $h^2\|R_i\|_\infty$，不是相对于实际场误差。
+
+| 参数 | 方案 | 方程 | $M_i$ 的上界 | $\|\mathcal R_i(h)\|_\infty/h^2$ 的上下界 | 二阶首项保证偏差 |
+|---|---|---|---:|---:|---:|
+__FINITE_ROWS__
+
+这使“二阶系数”变成了实际格距上的定量估计。例如 A 的 SD 第一式，在当前格距下首项保证偏差不超过约 0.83%；B 的 SD 两式不超过约 0.33% 和 0.92%。格距减半后，表中相对首项的余项上界减为四分之一。
+
+FD 的余项尤其简单：
+
+$$M_1^{FD}=\frac1{480}\|v_{xxyyyy}\|_\infty,\qquad M_2^{FD}=\frac1{120}\|u_{xxyyyyy}\|_\infty.$$
+
+第一式使用连续关系 $(u_t+(u^2/2+2au)_x)_y=-v_{xx}$，使残差成为端点平均与区间平均之差。它的 $h^2$ 项为 $v_{xxyy}/12$，积分余项为上述 $h^4/480$ 界。第二式直接使用中心差商的积分余项。
+
+SD 的余项还要控制 $W=v-\delta_0u$ 与 $w=v-u_y$ 的区别。本次没有用 $W=w$ 替换掉这项，而是使用 $\|\partial_x^i\partial_y^j(W-w)\|_\infty\le h^2\|\partial_x^i\partial_y^{j+3}u\|_\infty/6$，连同非线性乘积余项一起包围。具体可计算公式见第 6 节。
+
+## 4 共同初值下场误差系数能算到哪一步
+
+若在相容初边值和某个存在传播控制的光滑解空间中有
+
+$$u_h=u+h^2a_u+o(h^2),\qquad v_h=v+h^2a_v+o(h^2),$$
+
+则已有修正方程推出
+
+$$
+(a_u)_{yt}+(a_v)_{xx}+\partial_x[(u+2a)(a_u)_y+u_y a_u]=-R_1,
+$$
+
+$$
+(a_v)_t+(a_u)_{xxy}+\partial_x[(u+2a)a_v+(v-4)a_u]=-R_2.
+$$
+
+共同物理初值给出 $a_u(0)=a_v(0)=0$。若左侧基值 $u(x,y_0,t)$ 为共同精确值，取 $y_0=-1.5$，则
+
+$$b_u:=\partial_ta_u(0)=-\int_{y_0}^{y}R_1(x,\eta,0)\,d\eta,\qquad b_v:=\partial_ta_v(0)=-R_2(x,y,0).$$
+
+所以短时间内 $a_f(T)=Tb_f+O(T^2)$。这已经是共同初值问题的场误差首项初始增长率，不只是方程残差。
+
+这里 $R_1=\partial_y B$，其中
+
+$$B^{SD}=\partial_x\frac{(w-4)^2}{32}+\frac1{12}v_{xxy}-\frac14u_{xxyy},\qquad B^{FD}=\frac1{12}v_{xxy}.$$
+
+因此 $b_u=-B(x,y,0)+B(x,y_0,0)$，可以精确保留两端的有符号差。用有理函数的极值包围和 Bernstein 包围得到：
+
+| 参数 | 方案 | $\|b_u\|_\infty$ 的上下界 | $\|b_v\|_\infty$ 的上下界 |
+|---|---|---:|---:|
+__VELOCITY_ROWS__
+
+本表使用完整 $x$ 波形及连续 $y\in[-1.5,1.5]$。A 的 SD $u$ 初始注入约为 FD 的 3.46 倍，$v$ 初始注入则更小；B 的 SD 两场初始注入均较大。这是纯 $y$、匹配初值问题的理论信号，不能直接替代包含 $x$ 差分、插值、边界与时间算法的首页总误差。
+
+### 4.1 如何进一步给有限时间系数上下界
+
+将上面的受迫线性方程写为 $a_t=\mathcal L(t)a+b(t)$。如果在指定空间或固定有限维截断中证明传播算子满足 $\|\Phi(t,s)\|\le K e^{\mu(t-s)}$，且 $\|b(t)\|\le M$，则共同初值下
+
+$$\|a(T)\|\le KM\frac{e^{\mu T}-1}{\mu},$$
+
+$\mu=0$ 时按极限取 $KMT$。这是可用的条件上界，但直接逐项取绝对值通常偏松。
+
+更精确的路线是先计算有符号近似 $\widehat a$，再包围它满足受迫方程的缺陷 $d=\widehat a_t-\mathcal L\widehat a-b$。有
+
+$$\eta(T)=Ke^{\mu T}\|a(0)-\widehat a(0)\|+K\int_0^T e^{\mu(T-s)}\|d(s)\|ds,$$
+
+$$\max\{0,\|\widehat a_f(T)\|_\infty-\eta_f(T)\}\le\|a_f(T)\|_\infty\le\|\widehat a_f(T)\|_\infty+\eta_f(T).$$
+
+这里可直接采用包含物理输出的范数；若在其他状态范数中证明传播界，还需乘物理输出算子常数。这个区间会保留误差抵消，并能比较 SD 与 FD 的系数。已有误差传播报告在旧配置上展示了有符号预测的高准确度，但尚未为当前 A/B/C 建立这些严格的连续时间缺陷与传播包围。
+
+更短时的路线是证明 $\sup_{0\le t\le T}\|a_f''(t)\|_\infty\le B_f$，于是
+
+$$\max\{0,T\|b_f\|_\infty-B_fT^2/2\}\le\|a_f(T)\|_\infty\le T\|b_f\|_\infty+B_fT^2/2.$$
+
+本次已把 $\|b_f\|$ 算成很窄的区间，还没有计算当前匹配初边值问题的经包围 $B_f$，因此没有将这些短时斜率直接宣布为 $T=.01$ 的场误差系数上下界。
+
+### 4.2 为什么还需要稳定性条件
+
+空间残差为二阶，只解决一致性。零背景的连续线性化模态有
+
+$$\lambda_\pm=-2ia\xi\pm\sqrt{\xi^4+4\xi^3/\eta}.$$
+
+固定非零 $\eta$、$|\xi|\to\infty$ 时存在增长率约 $\xi^2$ 的分支。因此不能在任意光滑数据的普通最大范数中，直接假定一个与所有空间频率无关的温和传播常数。固定频率截断、特定可控解类或其他合适函数空间需要分别处理。
+
+既有 PARAMETRIC_THEORY.md 已给有限维问题的保守常数和特定相容闭合的改进；那些闭合和参数范围要逐项与当前问题对应。固定网格上的系数包围与所有方向加密后的网格一致收敛定理仍是不同目标。
+
+## 5 已有精确孤子族报告怎样用于当前问题
+
+旧修正方程报告给出的单孤子 $h^2$ 场系数包含相位变化、$F$ 系数变化、物理变量提取三部分。它满足受迫线性化方程，所以可以作为该方程的一个特解 $g$；但它通常满足 $g(0)\ne0$，边界误差也未必为零。
+
+当前共同物理初值问题应写 $a=g+z$，其中 $z$ 解齐次线性化方程，初值为 $-g(0)$，边界为 $-g$ 的边界值。这样才能把旧解析结果接到当前问题。直接取 $\|g(T)\|$ 会遗漏这项初边值纠正，不能成为当前演化误差的下界。
+
+也不存在对全部 DLW 解通用的非零二阶系数下界：常值背景可以没有这些残差；传播后的系数还可能发生抵消。上表的正下界依赖明确参数、明确对象和明确区域。若参数逼近谱极点，相关高阶导数和二阶系数会增大，也不存在无参数条件的统一小上界。
+
+建议下一步继续固定网格，以当前共同初值、共同边界为准，计算 A/B/C 的受迫线性系数 $a_u,a_v$，先保留有符号误差场；选择固定频率截断或其他可控表示，建立传播和时间积分缺陷界，再用三档独立 $h_y$ 对照其渐近预测。后者是对新系数理论的实验检验，不需要重新核查已有结果。
+
+## 6 四阶余项界的具体构造和文件
+
+本节给出上一节余项常数的可复算构造。所有范数均为全波形最大范数。记 $g=(w-4)^2/32$、$H=1/8$，并定义
+
+$$E_{ij}=\|\partial_x^i\partial_y^{j+3}u\|_\infty/6.$$
+
+对 $W-w$ 引入的非线性差，除以 $h^2$ 后可以取统一上界
+
+$$
+N=\frac1{16}\left[
+\|w_y\|E_{10}+\|w-4\|E_{11}+E_{01}\|w_x\|+E_{00}\|w_{xy}\|
++H^2(E_{01}E_{10}+E_{00}E_{11})\right].
+$$
+
+中心差分非线性乘积余项取
+
+$$P=\frac1{120}\left[\|\partial_x\partial_y^5(u^2/2)\|+\|u_x\|\|u_{yyyyy}\|+\|u\|\|u_{xyyyyy}\|\right].$$
+
+于是
+
+$$M_1^{SD}=M_1^{FD}+\|g_{xyyy}\|/24+N+\|u_{xxyyyyy}\|/32,$$
+
+$$M_2^{SD}=M_2^{FD}+P+\|g_{xyyy}\|/6+N+\|w_{xxyyyy}\|/48+\|u_{xxyyyyy}\|/24.$$
+
+公式来自 Taylor 积分余项、中心平均和二阶差分的正核表示。代码中的每个导数范数再由单变量有理函数的全局极值包围求得。60 位高精度有限 $h$ 残差检查在三档格距及所测相位上全部位于这些界内；该抽样检查用于检验新计算，严格界来自上述解析余项和精确有理包围。
+
+- `single_bounds.py`、`single_bounds.json`：单孤子残差、原函数和精确孤子族系数的有理根包围。
+- `bernstein.py`：双变量有理函数的精确有理 Bernstein 分块上界与内部见证下界。
+- `velocity_bounds.py`、`velocity_bounds.json`：共同初值下的单孤子场误差系数初始增长率。
+- `two_coefficients.py`、`two_bounds.json`、`two_strip_bounds.py`、`two_strip_bounds.json`：二孤子完整相互作用残差及物理区域内的见证认证。
+- `remainder_bounds.py`、`remainder_bounds.json`：单孤子有限 $h$ 四阶余项常数。
+- `validate_new_bounds.py`、`validate_two_coefficients.py`、`validation.json`：60 位单孤子有限格距检查、55 位二孤子独立解析求导和包围引擎检查，未读取旧数值轨道。
+- `make_report.py`：由上述新数据生成本文。
+
+既有基础报告：[空间二阶修正方程](../dlw_modified_equation_20260926/REPORT.md)、[误差传播和优势邻域](../dlw_advantage_regions_20260926/REPORT.md)、[有限维参数相关界](../dlw_semidiscrete/numerics/PARAMETRIC_THEORY.md)、[当前首页正文](../gsg_project/dlw_report/_src/index.md)。本次没有新增非线性 PDE 演化，没有改变当前首页或 Lean 工程。
+'''
+body=body.replace('__RESIDUAL_ROWS__','\n'.join(residual_rows)).replace('__FINITE_ROWS__','\n'.join(finite_rows)).replace('__VELOCITY_ROWS__','\n'.join(velocity_rows))
+(HERE/'REPORT.md').write_text(body,encoding='utf-8')
+print('Saved REPORT.md')

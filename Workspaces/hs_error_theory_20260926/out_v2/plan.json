@@ -1,0 +1,1267 @@
+{
+  "configuration": {
+    "p": [
+      8.0,
+      11.0,
+      14.0,
+      18.0,
+      22.0
+    ],
+    "times": [
+      0.0,
+      0.0625,
+      0.125,
+      0.25,
+      0.5
+    ],
+    "routes": [
+      "integrable_original",
+      "integrable_calibrated",
+      "difference_matched",
+      "difference_fixed",
+      "difference_rm"
+    ],
+    "primary_region": "peak",
+    "peak_definition": "|theta| <= 1",
+    "core": [
+      -2,
+      2
+    ],
+    "primary_method": "rk4",
+    "primary_n": 400,
+    "primary_dt": 0.003125,
+    "evaluation_points": [
+      16001,
+      32001
+    ],
+    "c_phys": 1.0,
+    "lambda_adjustment": false,
+    "hypothesis": "p >= 10.89898 gives peak RHS coefficient ratio <= 0.5; solution errors tested separately",
+    "scope": "deterministic theory-guided extension, no statistical inference"
+  },
+  "plan": {
+    "p8_integrable_original_rk4_n400_dt0.003125_L4": {
+      "p": 8.0,
+      "route": "integrable_original",
+      "method": "rk4",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "main"
+    },
+    "p8_integrable_original_rk4_n800_dt0.003125_L4": {
+      "p": 8.0,
+      "route": "integrable_original",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "space_control"
+    },
+    "p8_integrable_original_rk4_n800_dt0.0015625_L4": {
+      "p": 8.0,
+      "route": "integrable_original",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "time_control"
+    },
+    "p8_integrable_original_euler_n400_dt0.003125_L4": {
+      "p": 8.0,
+      "route": "integrable_original",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "euler"
+    },
+    "p8_integrable_original_euler_n400_dt0.0015625_L4": {
+      "p": 8.0,
+      "route": "integrable_original",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "euler_half"
+    },
+    "p8_integrable_original_rk4_n500_dt0.003125_L5": {
+      "p": 8.0,
+      "route": "integrable_original",
+      "method": "rk4",
+      "n": 500,
+      "dt": 0.003125,
+      "halfwidth": 5.0,
+      "purpose": "domain_control"
+    },
+    "p8_integrable_calibrated_rk4_n400_dt0.003125_L4": {
+      "p": 8.0,
+      "route": "integrable_calibrated",
+      "method": "rk4",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "main"
+    },
+    "p8_integrable_calibrated_rk4_n800_dt0.003125_L4": {
+      "p": 8.0,
+      "route": "integrable_calibrated",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "space_control"
+    },
+    "p8_integrable_calibrated_rk4_n800_dt0.0015625_L4": {
+      "p": 8.0,
+      "route": "integrable_calibrated",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "time_control"
+    },
+    "p8_integrable_calibrated_euler_n400_dt0.003125_L4": {
+      "p": 8.0,
+      "route": "integrable_calibrated",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "euler"
+    },
+    "p8_integrable_calibrated_euler_n400_dt0.0015625_L4": {
+      "p": 8.0,
+      "route": "integrable_calibrated",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "euler_half"
+    },
+    "p8_integrable_calibrated_rk4_n500_dt0.003125_L5": {
+      "p": 8.0,
+      "route": "integrable_calibrated",
+      "method": "rk4",
+      "n": 500,
+      "dt": 0.003125,
+      "halfwidth": 5.0,
+      "purpose": "domain_control"
+    },
+    "p8_difference_matched_rk4_n400_dt0.003125_L4": {
+      "p": 8.0,
+      "route": "difference_matched",
+      "method": "rk4",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "main"
+    },
+    "p8_difference_matched_rk4_n800_dt0.003125_L4": {
+      "p": 8.0,
+      "route": "difference_matched",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "space_control"
+    },
+    "p8_difference_matched_rk4_n800_dt0.0015625_L4": {
+      "p": 8.0,
+      "route": "difference_matched",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "time_control"
+    },
+    "p8_difference_matched_euler_n400_dt0.003125_L4": {
+      "p": 8.0,
+      "route": "difference_matched",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "euler"
+    },
+    "p8_difference_matched_euler_n400_dt0.0015625_L4": {
+      "p": 8.0,
+      "route": "difference_matched",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "euler_half"
+    },
+    "p8_difference_matched_rk4_n500_dt0.003125_L5": {
+      "p": 8.0,
+      "route": "difference_matched",
+      "method": "rk4",
+      "n": 500,
+      "dt": 0.003125,
+      "halfwidth": 5.0,
+      "purpose": "domain_control"
+    },
+    "p8_difference_fixed_rk4_n400_dt0.003125_L4": {
+      "p": 8.0,
+      "route": "difference_fixed",
+      "method": "rk4",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "main"
+    },
+    "p8_difference_fixed_rk4_n800_dt0.003125_L4": {
+      "p": 8.0,
+      "route": "difference_fixed",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "space_control"
+    },
+    "p8_difference_fixed_rk4_n800_dt0.0015625_L4": {
+      "p": 8.0,
+      "route": "difference_fixed",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "time_control"
+    },
+    "p8_difference_fixed_euler_n400_dt0.003125_L4": {
+      "p": 8.0,
+      "route": "difference_fixed",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "euler"
+    },
+    "p8_difference_fixed_euler_n400_dt0.0015625_L4": {
+      "p": 8.0,
+      "route": "difference_fixed",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "euler_half"
+    },
+    "p8_difference_fixed_rk4_n500_dt0.003125_L5": {
+      "p": 8.0,
+      "route": "difference_fixed",
+      "method": "rk4",
+      "n": 500,
+      "dt": 0.003125,
+      "halfwidth": 5.0,
+      "purpose": "domain_control"
+    },
+    "p8_difference_rm_rk4_n400_dt0.003125_L4": {
+      "p": 8.0,
+      "route": "difference_rm",
+      "method": "rk4",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "main"
+    },
+    "p8_difference_rm_rk4_n800_dt0.003125_L4": {
+      "p": 8.0,
+      "route": "difference_rm",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "space_control"
+    },
+    "p8_difference_rm_rk4_n800_dt0.0015625_L4": {
+      "p": 8.0,
+      "route": "difference_rm",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "time_control"
+    },
+    "p8_difference_rm_euler_n400_dt0.003125_L4": {
+      "p": 8.0,
+      "route": "difference_rm",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "euler"
+    },
+    "p8_difference_rm_euler_n400_dt0.0015625_L4": {
+      "p": 8.0,
+      "route": "difference_rm",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "euler_half"
+    },
+    "p8_difference_rm_rk4_n500_dt0.003125_L5": {
+      "p": 8.0,
+      "route": "difference_rm",
+      "method": "rk4",
+      "n": 500,
+      "dt": 0.003125,
+      "halfwidth": 5.0,
+      "purpose": "domain_control"
+    },
+    "p11_integrable_original_rk4_n400_dt0.003125_L4": {
+      "p": 11.0,
+      "route": "integrable_original",
+      "method": "rk4",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "main"
+    },
+    "p11_integrable_original_rk4_n800_dt0.003125_L4": {
+      "p": 11.0,
+      "route": "integrable_original",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "space_control"
+    },
+    "p11_integrable_original_rk4_n800_dt0.0015625_L4": {
+      "p": 11.0,
+      "route": "integrable_original",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "time_control"
+    },
+    "p11_integrable_original_euler_n400_dt0.003125_L4": {
+      "p": 11.0,
+      "route": "integrable_original",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "euler"
+    },
+    "p11_integrable_original_euler_n400_dt0.0015625_L4": {
+      "p": 11.0,
+      "route": "integrable_original",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "euler_half"
+    },
+    "p11_integrable_calibrated_rk4_n400_dt0.003125_L4": {
+      "p": 11.0,
+      "route": "integrable_calibrated",
+      "method": "rk4",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "main"
+    },
+    "p11_integrable_calibrated_rk4_n800_dt0.003125_L4": {
+      "p": 11.0,
+      "route": "integrable_calibrated",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "space_control"
+    },
+    "p11_integrable_calibrated_rk4_n800_dt0.0015625_L4": {
+      "p": 11.0,
+      "route": "integrable_calibrated",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "time_control"
+    },
+    "p11_integrable_calibrated_euler_n400_dt0.003125_L4": {
+      "p": 11.0,
+      "route": "integrable_calibrated",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "euler"
+    },
+    "p11_integrable_calibrated_euler_n400_dt0.0015625_L4": {
+      "p": 11.0,
+      "route": "integrable_calibrated",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "euler_half"
+    },
+    "p11_difference_matched_rk4_n400_dt0.003125_L4": {
+      "p": 11.0,
+      "route": "difference_matched",
+      "method": "rk4",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "main"
+    },
+    "p11_difference_matched_rk4_n800_dt0.003125_L4": {
+      "p": 11.0,
+      "route": "difference_matched",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "space_control"
+    },
+    "p11_difference_matched_rk4_n800_dt0.0015625_L4": {
+      "p": 11.0,
+      "route": "difference_matched",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "time_control"
+    },
+    "p11_difference_matched_euler_n400_dt0.003125_L4": {
+      "p": 11.0,
+      "route": "difference_matched",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "euler"
+    },
+    "p11_difference_matched_euler_n400_dt0.0015625_L4": {
+      "p": 11.0,
+      "route": "difference_matched",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "euler_half"
+    },
+    "p11_difference_fixed_rk4_n400_dt0.003125_L4": {
+      "p": 11.0,
+      "route": "difference_fixed",
+      "method": "rk4",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "main"
+    },
+    "p11_difference_fixed_rk4_n800_dt0.003125_L4": {
+      "p": 11.0,
+      "route": "difference_fixed",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "space_control"
+    },
+    "p11_difference_fixed_rk4_n800_dt0.0015625_L4": {
+      "p": 11.0,
+      "route": "difference_fixed",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "time_control"
+    },
+    "p11_difference_fixed_euler_n400_dt0.003125_L4": {
+      "p": 11.0,
+      "route": "difference_fixed",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "euler"
+    },
+    "p11_difference_fixed_euler_n400_dt0.0015625_L4": {
+      "p": 11.0,
+      "route": "difference_fixed",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "euler_half"
+    },
+    "p11_difference_rm_rk4_n400_dt0.003125_L4": {
+      "p": 11.0,
+      "route": "difference_rm",
+      "method": "rk4",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "main"
+    },
+    "p11_difference_rm_rk4_n800_dt0.003125_L4": {
+      "p": 11.0,
+      "route": "difference_rm",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "space_control"
+    },
+    "p11_difference_rm_rk4_n800_dt0.0015625_L4": {
+      "p": 11.0,
+      "route": "difference_rm",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "time_control"
+    },
+    "p11_difference_rm_euler_n400_dt0.003125_L4": {
+      "p": 11.0,
+      "route": "difference_rm",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "euler"
+    },
+    "p11_difference_rm_euler_n400_dt0.0015625_L4": {
+      "p": 11.0,
+      "route": "difference_rm",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "euler_half"
+    },
+    "p14_integrable_original_rk4_n400_dt0.003125_L4": {
+      "p": 14.0,
+      "route": "integrable_original",
+      "method": "rk4",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "main"
+    },
+    "p14_integrable_original_rk4_n800_dt0.003125_L4": {
+      "p": 14.0,
+      "route": "integrable_original",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "space_control"
+    },
+    "p14_integrable_original_rk4_n800_dt0.0015625_L4": {
+      "p": 14.0,
+      "route": "integrable_original",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "time_control"
+    },
+    "p14_integrable_original_euler_n400_dt0.003125_L4": {
+      "p": 14.0,
+      "route": "integrable_original",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "euler"
+    },
+    "p14_integrable_original_euler_n400_dt0.0015625_L4": {
+      "p": 14.0,
+      "route": "integrable_original",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "euler_half"
+    },
+    "p14_integrable_calibrated_rk4_n400_dt0.003125_L4": {
+      "p": 14.0,
+      "route": "integrable_calibrated",
+      "method": "rk4",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "main"
+    },
+    "p14_integrable_calibrated_rk4_n800_dt0.003125_L4": {
+      "p": 14.0,
+      "route": "integrable_calibrated",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "space_control"
+    },
+    "p14_integrable_calibrated_rk4_n800_dt0.0015625_L4": {
+      "p": 14.0,
+      "route": "integrable_calibrated",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "time_control"
+    },
+    "p14_integrable_calibrated_euler_n400_dt0.003125_L4": {
+      "p": 14.0,
+      "route": "integrable_calibrated",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "euler"
+    },
+    "p14_integrable_calibrated_euler_n400_dt0.0015625_L4": {
+      "p": 14.0,
+      "route": "integrable_calibrated",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "euler_half"
+    },
+    "p14_difference_matched_rk4_n400_dt0.003125_L4": {
+      "p": 14.0,
+      "route": "difference_matched",
+      "method": "rk4",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "main"
+    },
+    "p14_difference_matched_rk4_n800_dt0.003125_L4": {
+      "p": 14.0,
+      "route": "difference_matched",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "space_control"
+    },
+    "p14_difference_matched_rk4_n800_dt0.0015625_L4": {
+      "p": 14.0,
+      "route": "difference_matched",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "time_control"
+    },
+    "p14_difference_matched_euler_n400_dt0.003125_L4": {
+      "p": 14.0,
+      "route": "difference_matched",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "euler"
+    },
+    "p14_difference_matched_euler_n400_dt0.0015625_L4": {
+      "p": 14.0,
+      "route": "difference_matched",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "euler_half"
+    },
+    "p14_difference_fixed_rk4_n400_dt0.003125_L4": {
+      "p": 14.0,
+      "route": "difference_fixed",
+      "method": "rk4",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "main"
+    },
+    "p14_difference_fixed_rk4_n800_dt0.003125_L4": {
+      "p": 14.0,
+      "route": "difference_fixed",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "space_control"
+    },
+    "p14_difference_fixed_rk4_n800_dt0.0015625_L4": {
+      "p": 14.0,
+      "route": "difference_fixed",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "time_control"
+    },
+    "p14_difference_fixed_euler_n400_dt0.003125_L4": {
+      "p": 14.0,
+      "route": "difference_fixed",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "euler"
+    },
+    "p14_difference_fixed_euler_n400_dt0.0015625_L4": {
+      "p": 14.0,
+      "route": "difference_fixed",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "euler_half"
+    },
+    "p14_difference_rm_rk4_n400_dt0.003125_L4": {
+      "p": 14.0,
+      "route": "difference_rm",
+      "method": "rk4",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "main"
+    },
+    "p14_difference_rm_rk4_n800_dt0.003125_L4": {
+      "p": 14.0,
+      "route": "difference_rm",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "space_control"
+    },
+    "p14_difference_rm_rk4_n800_dt0.0015625_L4": {
+      "p": 14.0,
+      "route": "difference_rm",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "time_control"
+    },
+    "p14_difference_rm_euler_n400_dt0.003125_L4": {
+      "p": 14.0,
+      "route": "difference_rm",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "euler"
+    },
+    "p14_difference_rm_euler_n400_dt0.0015625_L4": {
+      "p": 14.0,
+      "route": "difference_rm",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "euler_half"
+    },
+    "p18_integrable_original_rk4_n400_dt0.003125_L4": {
+      "p": 18.0,
+      "route": "integrable_original",
+      "method": "rk4",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "main"
+    },
+    "p18_integrable_original_rk4_n800_dt0.003125_L4": {
+      "p": 18.0,
+      "route": "integrable_original",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "space_control"
+    },
+    "p18_integrable_original_rk4_n800_dt0.0015625_L4": {
+      "p": 18.0,
+      "route": "integrable_original",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "time_control"
+    },
+    "p18_integrable_original_euler_n400_dt0.003125_L4": {
+      "p": 18.0,
+      "route": "integrable_original",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "euler"
+    },
+    "p18_integrable_original_euler_n400_dt0.0015625_L4": {
+      "p": 18.0,
+      "route": "integrable_original",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "euler_half"
+    },
+    "p18_integrable_calibrated_rk4_n400_dt0.003125_L4": {
+      "p": 18.0,
+      "route": "integrable_calibrated",
+      "method": "rk4",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "main"
+    },
+    "p18_integrable_calibrated_rk4_n800_dt0.003125_L4": {
+      "p": 18.0,
+      "route": "integrable_calibrated",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "space_control"
+    },
+    "p18_integrable_calibrated_rk4_n800_dt0.0015625_L4": {
+      "p": 18.0,
+      "route": "integrable_calibrated",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "time_control"
+    },
+    "p18_integrable_calibrated_euler_n400_dt0.003125_L4": {
+      "p": 18.0,
+      "route": "integrable_calibrated",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "euler"
+    },
+    "p18_integrable_calibrated_euler_n400_dt0.0015625_L4": {
+      "p": 18.0,
+      "route": "integrable_calibrated",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "euler_half"
+    },
+    "p18_difference_matched_rk4_n400_dt0.003125_L4": {
+      "p": 18.0,
+      "route": "difference_matched",
+      "method": "rk4",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "main"
+    },
+    "p18_difference_matched_rk4_n800_dt0.003125_L4": {
+      "p": 18.0,
+      "route": "difference_matched",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "space_control"
+    },
+    "p18_difference_matched_rk4_n800_dt0.0015625_L4": {
+      "p": 18.0,
+      "route": "difference_matched",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "time_control"
+    },
+    "p18_difference_matched_euler_n400_dt0.003125_L4": {
+      "p": 18.0,
+      "route": "difference_matched",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "euler"
+    },
+    "p18_difference_matched_euler_n400_dt0.0015625_L4": {
+      "p": 18.0,
+      "route": "difference_matched",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "euler_half"
+    },
+    "p18_difference_fixed_rk4_n400_dt0.003125_L4": {
+      "p": 18.0,
+      "route": "difference_fixed",
+      "method": "rk4",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "main"
+    },
+    "p18_difference_fixed_rk4_n800_dt0.003125_L4": {
+      "p": 18.0,
+      "route": "difference_fixed",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "space_control"
+    },
+    "p18_difference_fixed_rk4_n800_dt0.0015625_L4": {
+      "p": 18.0,
+      "route": "difference_fixed",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "time_control"
+    },
+    "p18_difference_fixed_euler_n400_dt0.003125_L4": {
+      "p": 18.0,
+      "route": "difference_fixed",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "euler"
+    },
+    "p18_difference_fixed_euler_n400_dt0.0015625_L4": {
+      "p": 18.0,
+      "route": "difference_fixed",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "euler_half"
+    },
+    "p18_difference_rm_rk4_n400_dt0.003125_L4": {
+      "p": 18.0,
+      "route": "difference_rm",
+      "method": "rk4",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "main"
+    },
+    "p18_difference_rm_rk4_n800_dt0.003125_L4": {
+      "p": 18.0,
+      "route": "difference_rm",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "space_control"
+    },
+    "p18_difference_rm_rk4_n800_dt0.0015625_L4": {
+      "p": 18.0,
+      "route": "difference_rm",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "time_control"
+    },
+    "p18_difference_rm_euler_n400_dt0.003125_L4": {
+      "p": 18.0,
+      "route": "difference_rm",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "euler"
+    },
+    "p18_difference_rm_euler_n400_dt0.0015625_L4": {
+      "p": 18.0,
+      "route": "difference_rm",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "euler_half"
+    },
+    "p22_integrable_original_rk4_n400_dt0.003125_L4": {
+      "p": 22.0,
+      "route": "integrable_original",
+      "method": "rk4",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "main"
+    },
+    "p22_integrable_original_rk4_n800_dt0.003125_L4": {
+      "p": 22.0,
+      "route": "integrable_original",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "space_control"
+    },
+    "p22_integrable_original_rk4_n800_dt0.0015625_L4": {
+      "p": 22.0,
+      "route": "integrable_original",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "time_control"
+    },
+    "p22_integrable_original_euler_n400_dt0.003125_L4": {
+      "p": 22.0,
+      "route": "integrable_original",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "euler"
+    },
+    "p22_integrable_original_euler_n400_dt0.0015625_L4": {
+      "p": 22.0,
+      "route": "integrable_original",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "euler_half"
+    },
+    "p22_integrable_original_rk4_n500_dt0.003125_L5": {
+      "p": 22.0,
+      "route": "integrable_original",
+      "method": "rk4",
+      "n": 500,
+      "dt": 0.003125,
+      "halfwidth": 5.0,
+      "purpose": "domain_control"
+    },
+    "p22_integrable_calibrated_rk4_n400_dt0.003125_L4": {
+      "p": 22.0,
+      "route": "integrable_calibrated",
+      "method": "rk4",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "main"
+    },
+    "p22_integrable_calibrated_rk4_n800_dt0.003125_L4": {
+      "p": 22.0,
+      "route": "integrable_calibrated",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "space_control"
+    },
+    "p22_integrable_calibrated_rk4_n800_dt0.0015625_L4": {
+      "p": 22.0,
+      "route": "integrable_calibrated",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "time_control"
+    },
+    "p22_integrable_calibrated_euler_n400_dt0.003125_L4": {
+      "p": 22.0,
+      "route": "integrable_calibrated",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "euler"
+    },
+    "p22_integrable_calibrated_euler_n400_dt0.0015625_L4": {
+      "p": 22.0,
+      "route": "integrable_calibrated",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "euler_half"
+    },
+    "p22_integrable_calibrated_rk4_n500_dt0.003125_L5": {
+      "p": 22.0,
+      "route": "integrable_calibrated",
+      "method": "rk4",
+      "n": 500,
+      "dt": 0.003125,
+      "halfwidth": 5.0,
+      "purpose": "domain_control"
+    },
+    "p22_difference_matched_rk4_n400_dt0.003125_L4": {
+      "p": 22.0,
+      "route": "difference_matched",
+      "method": "rk4",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "main"
+    },
+    "p22_difference_matched_rk4_n800_dt0.003125_L4": {
+      "p": 22.0,
+      "route": "difference_matched",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "space_control"
+    },
+    "p22_difference_matched_rk4_n800_dt0.0015625_L4": {
+      "p": 22.0,
+      "route": "difference_matched",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "time_control"
+    },
+    "p22_difference_matched_euler_n400_dt0.003125_L4": {
+      "p": 22.0,
+      "route": "difference_matched",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "euler"
+    },
+    "p22_difference_matched_euler_n400_dt0.0015625_L4": {
+      "p": 22.0,
+      "route": "difference_matched",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "euler_half"
+    },
+    "p22_difference_matched_rk4_n500_dt0.003125_L5": {
+      "p": 22.0,
+      "route": "difference_matched",
+      "method": "rk4",
+      "n": 500,
+      "dt": 0.003125,
+      "halfwidth": 5.0,
+      "purpose": "domain_control"
+    },
+    "p22_difference_fixed_rk4_n400_dt0.003125_L4": {
+      "p": 22.0,
+      "route": "difference_fixed",
+      "method": "rk4",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "main"
+    },
+    "p22_difference_fixed_rk4_n800_dt0.003125_L4": {
+      "p": 22.0,
+      "route": "difference_fixed",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "space_control"
+    },
+    "p22_difference_fixed_rk4_n800_dt0.0015625_L4": {
+      "p": 22.0,
+      "route": "difference_fixed",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "time_control"
+    },
+    "p22_difference_fixed_euler_n400_dt0.003125_L4": {
+      "p": 22.0,
+      "route": "difference_fixed",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "euler"
+    },
+    "p22_difference_fixed_euler_n400_dt0.0015625_L4": {
+      "p": 22.0,
+      "route": "difference_fixed",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "euler_half"
+    },
+    "p22_difference_fixed_rk4_n500_dt0.003125_L5": {
+      "p": 22.0,
+      "route": "difference_fixed",
+      "method": "rk4",
+      "n": 500,
+      "dt": 0.003125,
+      "halfwidth": 5.0,
+      "purpose": "domain_control"
+    },
+    "p22_difference_rm_rk4_n400_dt0.003125_L4": {
+      "p": 22.0,
+      "route": "difference_rm",
+      "method": "rk4",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "main"
+    },
+    "p22_difference_rm_rk4_n800_dt0.003125_L4": {
+      "p": 22.0,
+      "route": "difference_rm",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "space_control"
+    },
+    "p22_difference_rm_rk4_n800_dt0.0015625_L4": {
+      "p": 22.0,
+      "route": "difference_rm",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "time_control"
+    },
+    "p22_difference_rm_euler_n400_dt0.003125_L4": {
+      "p": 22.0,
+      "route": "difference_rm",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purpose": "euler"
+    },
+    "p22_difference_rm_euler_n400_dt0.0015625_L4": {
+      "p": 22.0,
+      "route": "difference_rm",
+      "method": "euler",
+      "n": 400,
+      "dt": 0.0015625,
+      "halfwidth": 4.0,
+      "purpose": "euler_half"
+    },
+    "p22_difference_rm_rk4_n500_dt0.003125_L5": {
+      "p": 22.0,
+      "route": "difference_rm",
+      "method": "rk4",
+      "n": 500,
+      "dt": 0.003125,
+      "halfwidth": 5.0,
+      "purpose": "domain_control"
+    }
+  },
+  "source_hashes": {
+    "hs_conserved_mesh_20260925\\run_parameter_calibration.py": "f75fa7353a5650f616f703e3f33fc5f840cec7689e5abe4dc76d732b71fa3c66",
+    "hs_conserved_mesh_20260925\\run_time_methods.py": "ebe1464ebce52c514d79edcb6544f3bc70130b15adb498b27a0ad90aa7fa767e",
+    "hs_conserved_mesh_20260925\\run_mesh_comparison.py": "e2f93d0042f0924f9c7689cee9f7da6d24626b2b4486a799844f0a6f3794d8fb",
+    "hs_numerics_plan\\hs_solver.py": "f02e47fd59dfc3edc07eb94d8c25e37064980f4087096546dc88b41767fe7e5d",
+    "hs_numerics_plan\\hs_exact.py": "6a89a8050dec9e3daeff3dff2b69e08e6562b20328e32b200641862ed9a0af2f",
+    "run_designed_cases.py": "8a9f5797d6c878f2d6db44a30c509b5668b4e90f7b3e4cade24a5155f5fc1804"
+  }
+}

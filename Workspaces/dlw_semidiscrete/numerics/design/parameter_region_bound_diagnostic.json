@@ -1,0 +1,76 @@
+{
+  "scope": "rows diagnose a continuous-time semidiscrete ODE bound; separate real-arithmetic RK4 one-step proof below",
+  "identity": "partial_nu r(0) = S*(partial_x-D1) Zbar(0)",
+  "center": {
+    "S": 3.0,
+    "g": 3.0,
+    "nu": 0.0,
+    "x_c": 0.0
+  },
+  "h": 0.125,
+  "L": 40.0,
+  "T": 0.01,
+  "method": "finite-h Gram, SD, quadratic extrapolated y ghost",
+  "rows": [
+    {
+      "nx": 64,
+      "K_global": 182.82359447004606,
+      "exp_KT": 6.222899431615201,
+      "initial_state_residual": 0.20903215728789087,
+      "initial_velocity_sensitivity": 0.38031942520545575,
+      "velocity_identity_secant_gap": 7.847495986368358e-10,
+      "residual_cap_for_1e_minus_3_at_T": 0.018263078669363657,
+      "cap_to_initial_residual_ratio": 0.08736970859565266,
+      "optimistic_time_ceiling_from_initial_residual": 0.0020561618711725832
+    },
+    {
+      "nx": 128,
+      "K_global": 392.4378801843318,
+      "exp_KT": 50.62162223128079,
+      "initial_state_residual": 0.15235041266271088,
+      "initial_velocity_sensitivity": 0.11514117766359405,
+      "velocity_identity_secant_gap": 2.057401193855668e-09,
+      "residual_cap_for_1e_minus_3_at_T": 0.0041262294368919475,
+      "cap_to_initial_residual_ratio": 0.027083808732615785,
+      "optimistic_time_ceiling_from_initial_residual": 0.0021706221407122505
+    },
+    {
+      "nx": 256,
+      "K_global": 969.1957603686635,
+      "exp_KT": 16186.900834738302,
+      "initial_state_residual": 0.023709314704359663,
+      "initial_velocity_sensitivity": 0.01031060387658117,
+      "velocity_identity_secant_gap": 5.591741882027268e-09,
+      "residual_cap_for_1e_minus_3_at_T": 3.1241223976274296e-05,
+      "cap_to_initial_residual_ratio": 0.0013176772237339137,
+      "optimistic_time_ceiling_from_initial_residual": 0.0032045458170032013
+    },
+    {
+      "nx": 512,
+      "K_global": 2675.6715207373272,
+      "exp_KT": 417151460477.5686,
+      "initial_state_residual": 0.0018222362717823515,
+      "initial_velocity_sensitivity": 0.0007137131391126705,
+      "velocity_identity_secant_gap": 1.3511763506668384e-08,
+      "residual_cap_for_1e_minus_3_at_T": 3.3465123937568453e-12,
+      "cap_to_initial_residual_ratio": 1.8364865443511235e-09,
+      "optimistic_time_ceiling_from_initial_residual": 0.002482594762354868
+    }
+  ],
+  "source_sha256": "d001583a4e52ec5986a306773e0a97f609c5e03f3921d041d97951b15b7ef4e1",
+  "theoretical_one_step_certificate": {
+    "scope": "real-arithmetic one-step RK4; whole design domain; h=1/8, nx=512, Lx=40",
+    "tau": 7e-09,
+    "H_flux_bound": 170.15056645507812,
+    "F_P_bound": 67764.193215,
+    "F_W_bound": 11850.4704,
+    "K_bound": 2700,
+    "C_bound": 56,
+    "reference_time_derivative_bound": 1000,
+    "stage_rhs_bound": 69000,
+    "stage_tube_radius": 0.001,
+    "state_error_bound": 0.00049,
+    "normalized_field_error_bound": 0.0009391666666666667,
+    "proof": "PARAMETER_REGION_ERROR_REPORT.md section 9; certificate inequalities checked with exact rational arithmetic, analytic sigmoid bounds proved in report; does not enclose floating-point solver roundoff"
+  }
+}

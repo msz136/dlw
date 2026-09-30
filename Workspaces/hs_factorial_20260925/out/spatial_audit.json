@@ -1,0 +1,201 @@
+{
+  "reference": "continuous exact 2HS single soliton",
+  "method": "fixed-step DOP853 eighth-order main step",
+  "time": 0.25,
+  "core": [
+    -2,
+    2
+  ],
+  "rows": [
+    {
+      "space": "integrable_moving",
+      "edges": 200,
+      "a_or_dx": 0.04,
+      "dt": 0.00625,
+      "seconds": 0.24086790008004755,
+      "core": {
+        "u_linf": 0.02316191690663472,
+        "rho_linf": 0.0013111657997818549,
+        "u_l2": 0.010485673635099824,
+        "rho_l2": 0.0007183559426745819,
+        "u_reconstruction_floor": 7.584414422889818e-08,
+        "rho_reconstruction_floor": 1.4461909547680563e-07
+      },
+      "native": {
+        "u_linf": 0.05830865207445192,
+        "rho_linf": 0.0013104166766677583,
+        "rho_location": "edges, exact cell averages"
+      },
+      "min_spacing": 0.03995260308456729
+    },
+    {
+      "space": "ordinary_moving",
+      "edges": 200,
+      "a_or_dx": 0.04,
+      "dt": 0.00625,
+      "seconds": 0.2455724999308586,
+      "core": {
+        "u_linf": 6.0310252401342065e-05,
+        "rho_linf": 6.915572019039473e-06,
+        "u_l2": 3.1486569014358455e-05,
+        "rho_l2": 3.16851084195102e-06,
+        "u_reconstruction_floor": 7.591641283666295e-08,
+        "rho_reconstruction_floor": 1.4469776454806293e-07
+      },
+      "native": {
+        "u_linf": 0.00015408706111387372,
+        "rho_linf": 6.919031574126322e-06,
+        "rho_location": "edges, exact cell averages"
+      },
+      "min_spacing": 0.04000002556476468
+    },
+    {
+      "space": "fixed_difference",
+      "edges": 200,
+      "a_or_dx": 0.04,
+      "dt": 0.00625,
+      "seconds": 1.6154760000063106,
+      "core": {
+        "u_linf": 2.539035755588781e-06,
+        "rho_linf": 2.3141393686976208e-05,
+        "u_l2": 1.6166356953710486e-06,
+        "rho_l2": 1.0915445080641083e-05,
+        "u_reconstruction_floor": 1.3001101056842046e-08,
+        "rho_reconstruction_floor": 5.249546386476567e-08
+      },
+      "native": {
+        "u_linf": 2.530851715646515e-06,
+        "rho_linf": 2.3127790123811387e-05,
+        "rho_location": "nodes, point values"
+      },
+      "min_spacing": 0.03999999999999915
+    },
+    {
+      "space": "integrable_moving",
+      "edges": 400,
+      "a_or_dx": 0.02,
+      "dt": 0.00625,
+      "seconds": 0.2640782999806106,
+      "core": {
+        "u_linf": 0.011496504084335397,
+        "rho_linf": 0.0006507292178815627,
+        "u_l2": 0.005204223550574606,
+        "rho_l2": 0.00035650769254768906,
+        "u_reconstruction_floor": 4.7386649465464e-09,
+        "rho_reconstruction_floor": 9.060089678492034e-09
+      },
+      "native": {
+        "u_linf": 0.028959417531747318,
+        "rho_linf": 0.0006506756270497904,
+        "rho_location": "edges, exact cell averages"
+      },
+      "min_spacing": 0.0199882157415511
+    },
+    {
+      "space": "ordinary_moving",
+      "edges": 400,
+      "a_or_dx": 0.02,
+      "dt": 0.00625,
+      "seconds": 0.21528040000703186,
+      "core": {
+        "u_linf": 1.5085252586710413e-05,
+        "rho_linf": 1.7295793468541376e-06,
+        "u_l2": 7.874260788602064e-06,
+        "rho_l2": 7.901069932626793e-07,
+        "u_reconstruction_floor": 4.7344031472995596e-09,
+        "rho_reconstruction_floor": 9.083956475919308e-09
+      },
+      "native": {
+        "u_linf": 3.8541636379799046e-05,
+        "rho_linf": 1.7299179277951993e-06,
+        "rho_location": "edges, exact cell averages"
+      },
+      "min_spacing": 0.020000012303655366
+    },
+    {
+      "space": "fixed_difference",
+      "edges": 400,
+      "a_or_dx": 0.02,
+      "dt": 0.00625,
+      "seconds": 1.1881923000328243,
+      "core": {
+        "u_linf": 6.340054460665656e-07,
+        "rho_linf": 5.792122452663584e-06,
+        "u_l2": 4.0337353731741497e-07,
+        "rho_l2": 2.730754385095862e-06,
+        "u_reconstruction_floor": 8.075803498153178e-10,
+        "rho_reconstruction_floor": 3.2457443399636077e-09
+      },
+      "native": {
+        "u_linf": 6.334917274745944e-07,
+        "rho_linf": 5.788439060072648e-06,
+        "rho_location": "nodes, point values"
+      },
+      "min_spacing": 0.019999999999999574
+    },
+    {
+      "space": "integrable_moving",
+      "edges": 800,
+      "a_or_dx": 0.01,
+      "dt": 0.00625,
+      "seconds": 0.18098689999897033,
+      "core": {
+        "u_linf": 0.005727210990064138,
+        "rho_linf": 0.00032415164832944043,
+        "u_l2": 0.0025925013663110137,
+        "rho_l2": 0.00017758679615923094,
+        "u_reconstruction_floor": 2.9164287651539667e-10,
+        "rho_reconstruction_floor": 5.574383177275877e-10
+      },
+      "native": {
+        "u_linf": 0.014431054591026088,
+        "rho_linf": 0.0003241324353221442,
+        "rho_location": "edges, exact cell averages"
+      },
+      "min_spacing": 0.009997065068651575
+    },
+    {
+      "space": "ordinary_moving",
+      "edges": 800,
+      "a_or_dx": 0.01,
+      "dt": 0.00625,
+      "seconds": 0.19007180002517998,
+      "core": {
+        "u_linf": 3.771790475997662e-06,
+        "rho_linf": 4.3262896487483715e-07,
+        "u_l2": 1.9687290272608483e-06,
+        "rho_l2": 1.9740224996016678e-07,
+        "u_reconstruction_floor": 2.910689744783923e-10,
+        "rho_reconstruction_floor": 5.558212778922211e-10
+      },
+      "native": {
+        "u_linf": 9.636651835746453e-06,
+        "rho_linf": 4.3264989824098876e-07,
+        "rho_location": "edges, exact cell averages"
+      },
+      "min_spacing": 0.010000006036541578
+    },
+    {
+      "space": "fixed_difference",
+      "edges": 800,
+      "a_or_dx": 0.01,
+      "dt": 0.00625,
+      "seconds": 1.325904699973762,
+      "core": {
+        "u_linf": 1.584624033171278e-07,
+        "rho_linf": 1.4483277467336464e-06,
+        "u_l2": 1.0079476505125455e-07,
+        "rho_l2": 6.828069637715026e-07,
+        "u_reconstruction_floor": 5.0371394555437377e-11,
+        "rho_reconstruction_floor": 2.0249502075131431e-10
+      },
+      "native": {
+        "u_linf": 1.5842191242176895e-07,
+        "rho_linf": 1.4483277467336464e-06,
+        "rho_location": "nodes, point values"
+      },
+      "min_spacing": 0.009999999999999787
+    }
+  ],
+  "script_sha256": "bc342793745539c3d23b5bd2070f67cc039bf1729dc694cafb10f1f235dc6f36"
+}

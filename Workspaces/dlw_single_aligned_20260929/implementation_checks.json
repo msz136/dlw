@@ -1,0 +1,650 @@
+{
+  "reference_checks": [
+    {
+      "case": "fig1a",
+      "continuous": false,
+      "derivative": false,
+      "error": 2.930988785010413e-14
+    },
+    {
+      "case": "fig1a",
+      "continuous": false,
+      "derivative": true,
+      "error": 1.318944953254686e-13
+    },
+    {
+      "case": "fig1a",
+      "continuous": true,
+      "derivative": false,
+      "error": 2.4027275394994385e-15
+    },
+    {
+      "case": "fig1a",
+      "continuous": true,
+      "derivative": true,
+      "error": 9.279794814520681e-15
+    },
+    {
+      "case": "fig1b",
+      "continuous": false,
+      "derivative": false,
+      "error": 7.993605777301127e-15
+    },
+    {
+      "case": "fig1b",
+      "continuous": false,
+      "derivative": true,
+      "error": 5.834221994405198e-14
+    },
+    {
+      "case": "fig1b",
+      "continuous": true,
+      "derivative": false,
+      "error": 1.1102230246251565e-16
+    },
+    {
+      "case": "fig1b",
+      "continuous": true,
+      "derivative": true,
+      "error": 1.7850304567801345e-15
+    }
+  ],
+  "initial_checks": [
+    {
+      "spec": {
+        "method": "RK4",
+        "case": "fig1a",
+        "model": "SD2",
+        "mesh": "fixed",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0
+      },
+      "physical_field_difference": 3.116682962277519e-13,
+      "node_difference": 0.0,
+      "max_lift_residual": 5.1066465164244806e-14,
+      "initial_field_errors": {
+        "u": 5.068161644126789e-14,
+        "v": 3.116682962277519e-13
+      },
+      "min_Q": 0.2500184698021517,
+      "max_Q": 1.0000001237176885,
+      "far_jump_range": [
+        -0.74998149926614,
+        -0.7499814064801728
+      ],
+      "analytic_jump": -0.75
+    },
+    {
+      "spec": {
+        "method": "RK4",
+        "case": "fig1a",
+        "model": "SD2",
+        "mesh": "moving",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0
+      },
+      "physical_field_difference": 4.947233964447807e-13,
+      "node_difference": 0.0,
+      "max_lift_residual": 3.574489927492987e-14,
+      "initial_field_errors": {
+        "u": 3.5105559613101856e-14,
+        "v": 4.947233964447807e-13
+      },
+      "min_Q": 0.2499997196192451,
+      "max_Q": 1.0000000000000007,
+      "far_jump_range": [
+        -0.7500002607077051,
+        -0.7499929816302482
+      ],
+      "analytic_jump": -0.75
+    },
+    {
+      "spec": {
+        "method": "RK4",
+        "case": "fig1b",
+        "model": "SD2",
+        "mesh": "fixed",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0
+      },
+      "physical_field_difference": 2.1329990902518697e-13,
+      "node_difference": 0.0,
+      "max_lift_residual": 4.12645021262778e-14,
+      "initial_field_errors": {
+        "u": 4.056876236511684e-14,
+        "v": 2.1329990904173059e-13
+      },
+      "min_Q": 0.9999999991856967,
+      "max_Q": 1.9999997013826516,
+      "far_jump_range": [
+        0.9999996991773967,
+        0.9999997019016802
+      ],
+      "analytic_jump": 1.0
+    },
+    {
+      "spec": {
+        "method": "RK4",
+        "case": "fig1b",
+        "model": "SD2",
+        "mesh": "moving",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0
+      },
+      "physical_field_difference": 1.2508601123285174e-13,
+      "node_difference": 0.0,
+      "max_lift_residual": 3.035237547304343e-14,
+      "initial_field_errors": {
+        "u": 2.9211998241759326e-14,
+        "v": 1.2508601123285174e-13
+      },
+      "min_Q": 0.9999999993014762,
+      "max_Q": 1.9999999845313117,
+      "far_jump_range": [
+        0.999999862312142,
+        0.9999999849826211
+      ],
+      "analytic_jump": 1.0
+    },
+    {
+      "spec": {
+        "method": "RK4",
+        "case": "fig1a",
+        "model": "SD2",
+        "mesh": "fixed",
+        "variant": "x_half",
+        "nx": 512,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 6.25e-05,
+        "T": 0.02,
+        "eval_half": 10.0
+      },
+      "physical_field_difference": 3.960072817039285e-13,
+      "node_difference": 0.0,
+      "max_lift_residual": 5.995176027590204e-14,
+      "initial_field_errors": {
+        "u": 6.110638677010459e-14,
+        "v": 3.960072817039285e-13
+      },
+      "min_Q": 0.2500011803400544,
+      "max_Q": 1.0000000000000007,
+      "far_jump_range": [
+        -0.7499988196599423,
+        -0.7499988196599392
+      ],
+      "analytic_jump": -0.75
+    },
+    {
+      "spec": {
+        "method": "RK4",
+        "case": "fig1a",
+        "model": "SD2",
+        "mesh": "moving",
+        "variant": "x_half",
+        "nx": 512,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 6.25e-05,
+        "T": 0.02,
+        "eval_half": 10.0
+      },
+      "physical_field_difference": 7.579123244311702e-13,
+      "node_difference": 0.0,
+      "max_lift_residual": 1.634684365000696e-13,
+      "initial_field_errors": {
+        "u": 1.6483430610282572e-13,
+        "v": 7.579123244311702e-13
+      },
+      "min_Q": 0.24999997443534933,
+      "max_Q": 1.0000000000000007,
+      "far_jump_range": [
+        -0.7500000119602476,
+        -0.7499995548343318
+      ],
+      "analytic_jump": -0.75
+    },
+    {
+      "spec": {
+        "method": "RK4",
+        "case": "fig1b",
+        "model": "SD2",
+        "mesh": "fixed",
+        "variant": "x_half",
+        "nx": 512,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 6.25e-05,
+        "T": 0.02,
+        "eval_half": 10.0
+      },
+      "physical_field_difference": 7.883808913286499e-13,
+      "node_difference": 0.0,
+      "max_lift_residual": 8.762274080866868e-14,
+      "initial_field_errors": {
+        "u": 8.913264412066997e-14,
+        "v": 7.88380891333613e-13
+      },
+      "min_Q": 0.9999999996165735,
+      "max_Q": 1.9999999754239113,
+      "far_jump_range": [
+        0.9999999725625857,
+        0.9999999757212414
+      ],
+      "analytic_jump": 1.0
+    },
+    {
+      "spec": {
+        "method": "RK4",
+        "case": "fig1b",
+        "model": "SD2",
+        "mesh": "moving",
+        "variant": "x_half",
+        "nx": 512,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 6.25e-05,
+        "T": 0.02,
+        "eval_half": 10.0
+      },
+      "physical_field_difference": 1.9969394457002847e-12,
+      "node_difference": 0.0,
+      "max_lift_residual": 1.02932579205453e-13,
+      "initial_field_errors": {
+        "u": 1.0269865567026856e-13,
+        "v": 1.9969394456887042e-12
+      },
+      "min_Q": 0.9999999999999993,
+      "max_Q": 1.9999999941812183,
+      "far_jump_range": [
+        0.9999999830960689,
+        0.9999999937951496
+      ],
+      "analytic_jump": 1.0
+    },
+    {
+      "spec": {
+        "method": "RK4",
+        "case": "fig1a",
+        "model": "SD2",
+        "mesh": "fixed",
+        "variant": "y_half",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.0625,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0
+      },
+      "physical_field_difference": 4.0545293992307483e-13,
+      "node_difference": 0.0,
+      "max_lift_residual": 3.4636387452895344e-14,
+      "initial_field_errors": {
+        "u": 3.4577179952975855e-14,
+        "v": 4.0545293992307483e-13
+      },
+      "min_Q": 0.25001847031703767,
+      "max_Q": 1.0000001228938793,
+      "far_jump_range": [
+        -0.7499814989572201,
+        -0.7499814067890949
+      ],
+      "analytic_jump": -0.75
+    },
+    {
+      "spec": {
+        "method": "RK4",
+        "case": "fig1a",
+        "model": "SD2",
+        "mesh": "moving",
+        "variant": "y_half",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.0625,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0
+      },
+      "physical_field_difference": 7.0116582651106e-13,
+      "node_difference": 0.0,
+      "max_lift_residual": 6.233583243868326e-14,
+      "initial_field_errors": {
+        "u": 6.184057032078876e-14,
+        "v": 7.0116582651106e-13
+      },
+      "min_Q": 0.24999971789121464,
+      "max_Q": 1.0000000000000009,
+      "far_jump_range": [
+        -0.750000261990243,
+        -0.7499927944744046
+      ],
+      "analytic_jump": -0.75
+    },
+    {
+      "spec": {
+        "method": "RK4",
+        "case": "fig1b",
+        "model": "SD2",
+        "mesh": "fixed",
+        "variant": "y_half",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.0625,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0
+      },
+      "physical_field_difference": 1.296656022686068e-12,
+      "node_difference": 0.0,
+      "max_lift_residual": 3.347694212032053e-14,
+      "initial_field_errors": {
+        "u": 3.3062458858510696e-14,
+        "v": 1.2966560227125378e-12
+      },
+      "min_Q": 0.9999999991596948,
+      "max_Q": 1.9999997013820712,
+      "far_jump_range": [
+        0.9999996990765228,
+        0.9999997019033495
+      ],
+      "analytic_jump": 1.0
+    },
+    {
+      "spec": {
+        "method": "RK4",
+        "case": "fig1b",
+        "model": "SD2",
+        "mesh": "moving",
+        "variant": "y_half",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.0625,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0
+      },
+      "physical_field_difference": 7.047210568896435e-13,
+      "node_difference": 0.0,
+      "max_lift_residual": 4.6226640923108416e-14,
+      "initial_field_errors": {
+        "u": 4.571493319219305e-14,
+        "v": 7.047210568830261e-13
+      },
+      "min_Q": 0.9999999992683445,
+      "max_Q": 1.999999984551097,
+      "far_jump_range": [
+        0.9999998591476886,
+        0.9999999849616836
+      ],
+      "analytic_jump": 1.0
+    },
+    {
+      "spec": {
+        "method": "RK4",
+        "case": "fig1a",
+        "model": "SD2",
+        "mesh": "fixed",
+        "variant": "domain_double",
+        "nx": 512,
+        "L": 80.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0
+      },
+      "physical_field_difference": 2.889325919865401e-13,
+      "node_difference": 0.0,
+      "max_lift_residual": 7.326927921789823e-14,
+      "initial_field_errors": {
+        "u": 7.223314799663502e-14,
+        "v": 2.889325919865401e-13
+      },
+      "min_Q": 0.25001846980215103,
+      "max_Q": 1.0000001237176914,
+      "far_jump_range": [
+        -0.7499814992661409,
+        -0.7499814064801728
+      ],
+      "analytic_jump": -0.75
+    },
+    {
+      "spec": {
+        "method": "RK4",
+        "case": "fig1a",
+        "model": "SD2",
+        "mesh": "moving",
+        "variant": "domain_double",
+        "nx": 512,
+        "L": 80.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0
+      },
+      "physical_field_difference": 2.26195493332087e-13,
+      "node_difference": 0.0,
+      "max_lift_residual": 3.761696525663072e-14,
+      "initial_field_errors": {
+        "u": 3.965545680248824e-14,
+        "v": 2.26195493332087e-13
+      },
+      "min_Q": 0.24999972237465654,
+      "max_Q": 1.0000000000000009,
+      "far_jump_range": [
+        -0.7500002469416305,
+        -0.7499932352571618
+      ],
+      "analytic_jump": -0.75
+    },
+    {
+      "spec": {
+        "method": "RK4",
+        "case": "fig1b",
+        "model": "SD2",
+        "mesh": "fixed",
+        "variant": "domain_double",
+        "nx": 512,
+        "L": 80.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0
+      },
+      "physical_field_difference": 2.225338632547947e-13,
+      "node_difference": 0.0,
+      "max_lift_residual": 1.3505232777876895e-14,
+      "initial_field_errors": {
+        "u": 1.198052649072503e-14,
+        "v": 2.225338632553117e-13
+      },
+      "min_Q": 0.9999999999999776,
+      "max_Q": 1.9999997080217546,
+      "far_jump_range": [
+        0.9999997080217131,
+        0.9999997080217424
+      ],
+      "analytic_jump": 1.0
+    },
+    {
+      "spec": {
+        "method": "RK4",
+        "case": "fig1b",
+        "model": "SD2",
+        "mesh": "moving",
+        "variant": "domain_double",
+        "nx": 512,
+        "L": 80.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0
+      },
+      "physical_field_difference": 1.8461648225789884e-13,
+      "node_difference": 0.0,
+      "max_lift_residual": 1.3233683625931553e-14,
+      "initial_field_errors": {
+        "u": 1.2895331232953139e-14,
+        "v": 1.8461680751855059e-13
+      },
+      "min_Q": 0.9999999986737064,
+      "max_Q": 1.9999999907916768,
+      "far_jump_range": [
+        0.9999998739013585,
+        0.9999999907916761
+      ],
+      "analytic_jump": 1.0
+    }
+  ],
+  "boundary_checks": [
+    {
+      "case": "fig1a",
+      "mesh": "fixed",
+      "derivative_errors": [
+        4.2751082673930796e-09,
+        1.0704495068125652e-09
+      ],
+      "lower_u_error": 6.394408599331297e-15
+    },
+    {
+      "case": "fig1a",
+      "mesh": "moving",
+      "derivative_errors": [
+        4.223022376237395e-09,
+        1.0544458639571985e-09
+      ],
+      "lower_u_error": 1.3949301405996292e-14
+    },
+    {
+      "case": "fig1b",
+      "mesh": "fixed",
+      "derivative_errors": [
+        7.130436374680471e-08,
+        1.7772740168453538e-08
+      ],
+      "lower_u_error": 2.0822971209287734e-14
+    },
+    {
+      "case": "fig1b",
+      "mesh": "moving",
+      "derivative_errors": [
+        7.154407843934507e-08,
+        1.806019445105278e-08
+      ],
+      "lower_u_error": 1.903410812694462e-14
+    }
+  ],
+  "kernel_checks": [
+    {
+      "case": "fig1a",
+      "moving": false,
+      "nx": 256,
+      "Q": 0.017462253151907137,
+      "R": 0.06995398044648038
+    },
+    {
+      "case": "fig1a",
+      "moving": false,
+      "nx": 512,
+      "Q": 0.0012991506367328598,
+      "R": 0.005196430423711984
+    },
+    {
+      "case": "fig1a",
+      "moving": false,
+      "nx": 1024,
+      "Q": 8.322980426417326e-05,
+      "R": 0.0003332887200726553,
+      "Q_order": 3.964324666705062,
+      "R_order": 3.9626765387374867
+    },
+    {
+      "case": "fig1a",
+      "moving": true,
+      "nx": 256,
+      "Q": 0.018834253291646952,
+      "R": 0.07546887464664098
+    },
+    {
+      "case": "fig1a",
+      "moving": true,
+      "nx": 512,
+      "Q": 0.0014224346857193981,
+      "R": 0.005694706557509255
+    },
+    {
+      "case": "fig1a",
+      "moving": true,
+      "nx": 1024,
+      "Q": 9.122915302989254e-05,
+      "R": 0.000365477142068249,
+      "Q_order": 3.962723676054526,
+      "R_order": 3.961768419175957
+    },
+    {
+      "case": "fig1b",
+      "moving": false,
+      "nx": 256,
+      "Q": 5.571797188763661e-05,
+      "R": 3.450224749768083e-05
+    },
+    {
+      "case": "fig1b",
+      "moving": false,
+      "nx": 512,
+      "Q": 3.528740397440444e-06,
+      "R": 2.176199398462586e-06
+    },
+    {
+      "case": "fig1b",
+      "moving": false,
+      "nx": 1024,
+      "Q": 2.2114494035996302e-07,
+      "R": 1.363225781148003e-07,
+      "Q_order": 3.9960891578734925,
+      "R_order": 3.996714322250038
+    },
+    {
+      "case": "fig1b",
+      "moving": true,
+      "nx": 256,
+      "Q": 6.128719732156895e-05,
+      "R": 3.7854302491258096e-05
+    },
+    {
+      "case": "fig1b",
+      "moving": true,
+      "nx": 512,
+      "Q": 3.88361701930684e-06,
+      "R": 2.388344475523496e-06
+    },
+    {
+      "case": "fig1b",
+      "moving": true,
+      "nx": 1024,
+      "Q": 2.433352206399064e-07,
+      "R": 1.4999222242018106e-07,
+      "Q_order": 3.9963838792551383,
+      "R_order": 3.9930513349056915
+    }
+  ]
+}

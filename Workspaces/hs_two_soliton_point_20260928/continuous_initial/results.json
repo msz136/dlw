@@ -1,0 +1,77 @@
+{
+  "configuration": {
+    "p": [
+      1.1,
+      1.25
+    ],
+    "q": [
+      10.999999999999991,
+      5.0
+    ],
+    "c": 1.0,
+    "a": 0.005,
+    "n": 1600,
+    "normalized_phase": [
+      1.8718021769015913,
+      1.8718021769015913
+    ],
+    "shift": -0.2909090909090909,
+    "X_bounds": [
+      -4,
+      4
+    ],
+    "evaluation_bounds": [
+      -2.5,
+      1.5
+    ],
+    "dt": 0.003125,
+    "times": [
+      -3.0,
+      -1.5,
+      0.0,
+      1.5,
+      3.0
+    ],
+    "source_sha256": "98eab7fed6fe19e399dd49389e704d50418ac3266256298e9ec11fba12bad44d",
+    "reference_sha256": "6a89a8050dec9e3daeff3dff2b69e08e6562b20328e32b200641862ed9a0af2f",
+    "solver_sha256": "f02e47fd59dfc3edc07eb94d8c25e37064980f4087096546dc88b41767fe7e5d"
+  },
+  "results": {
+    "sd": {
+      "status": "failed",
+      "error": "StepFailure: Nonfinite state or nonpositive mesh edge",
+      "last_time": -1.6843750000000524,
+      "min_edge": 1.4715428581591576e-05,
+      "metrics": {
+        "-3.0": {
+          "u": 5.49486899661944e-06,
+          "rho": 2.13676041730948e-05
+        }
+      },
+      "profile": "sd_profiles.npz",
+      "profile_sha256": "524ed2956454c05518243180aa570369c2735d1cfe54e628eb120935ddb71024"
+    },
+    "fd": {
+      "status": "failed",
+      "error": "StepFailure: Nonfinite state or nonpositive mesh edge",
+      "last_time": 0.5843749999999999,
+      "min_edge": 1.3613103307037905e-05,
+      "metrics": {
+        "-3.0": {
+          "u": 5.49486899661944e-06,
+          "rho": 2.13676041730948e-05
+        },
+        "-1.5": {
+          "u": 0.00013803702640588565,
+          "rho": 0.00016477132778691672
+        },
+        "0.0": {
+          "u": 0.15202274338685115,
+          "rho": 0.041810224482224045
+        }
+      },
+      "profile": "fd_profiles.npz",
+      "profile_sha256": "46bd1e60a17e63d55d8f2efb73bea937fbd354e6d1c9a3f971b1c82f522bca4e"
+    }
+  }
+}

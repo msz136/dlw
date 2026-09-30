@@ -3,7 +3,7 @@ from pathlib import Path
 import json
 
 root=Path(__file__).resolve().parents[2]
-num=root/'Paper/dlw_semidiscrete/numerics'
+num=root/'Workspaces/dlw_semidiscrete/numerics'
 data=json.loads((num/'out/e2_e3_self_convergence.json').read_text(encoding='utf-8'))
 assert data['passed'] and len(data['studies'])==6
 rows=[]
@@ -59,7 +59,7 @@ p=root/'AGENTS.md'
 s=p.read_text(encoding='utf-8')
 first,rest=s.split('\n',1)
 banner='''
-> **2026-09-22（数值继续实施）：E2/E3 自身时间自收敛已补齐。** 两个 h（1/4、1/8）× Euler/RK4/梯形，固定 nx=256、T=0.05、相同初态与时变边界，n=4/8/16/32/64 共 30 次推进完成。比较相邻时间网格的 P/W/u/v，六组末级观测阶通过与 1/4/2 相差小于 0.35 的验收；原先“E2/E3 自身时间阶未测出”的记录已成为历史。真实末级阶见 [数值报告](Paper/dlw_semidiscrete/numerics/REPORT.md)，不能把有限观测当作阶数定理。日志与源码哈希 `out/e2_e3_self_convergence*.{txt,json}`；复现 `python -u run_all.py e2e3time`。最终 **40 项回归 + 17 项产物检查**。求解器散射、非线性长期稳定与程序级 Lean 认证仍未完成。
+> **2026-09-22（数值继续实施）：E2/E3 自身时间自收敛已补齐。** 两个 h（1/4、1/8）× Euler/RK4/梯形，固定 nx=256、T=0.05、相同初态与时变边界，n=4/8/16/32/64 共 30 次推进完成。比较相邻时间网格的 P/W/u/v，六组末级观测阶通过与 1/4/2 相差小于 0.35 的验收；原先“E2/E3 自身时间阶未测出”的记录已成为历史。真实末级阶见 [数值报告](Workspaces/dlw_semidiscrete/numerics/REPORT.md)，不能把有限观测当作阶数定理。日志与源码哈希 `out/e2_e3_self_convergence*.{txt,json}`；复现 `python -u run_all.py e2e3time`。最终 **40 项回归 + 17 项产物检查**。求解器散射、非线性长期稳定与程序级 Lean 认证仍未完成。
 '''
 p.write_text(first+'\n'+banner+rest,encoding='utf-8')
 print(table)

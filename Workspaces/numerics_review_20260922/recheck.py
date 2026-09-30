@@ -4,7 +4,7 @@ import ast,json,sys,hashlib
 from pathlib import Path
 import numpy as np
 root=Path(__file__).resolve().parents[2]
-num=root/'Paper/dlw_semidiscrete/numerics'
+num=root/'Workspaces/dlw_semidiscrete/numerics'
 sys.path.insert(0,str(num/'lib'))
 from gramtau import ContRef
 from solver import XGrid

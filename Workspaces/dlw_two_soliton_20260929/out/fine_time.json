@@ -1,0 +1,325 @@
+{
+  "plan": [
+    {
+      "case": "fig4",
+      "model": "SD",
+      "mesh": "moving",
+      "variant": "x_half_time_half",
+      "nx": 512,
+      "L": 40.0,
+      "h": 0.125,
+      "dt": 3.125e-05,
+      "T": 0.02,
+      "eval_half": 10.0
+    },
+    {
+      "case": "fig4",
+      "model": "SD2",
+      "mesh": "moving",
+      "variant": "x_half_time_half",
+      "nx": 512,
+      "L": 40.0,
+      "h": 0.125,
+      "dt": 3.125e-05,
+      "T": 0.02,
+      "eval_half": 10.0
+    },
+    {
+      "case": "fig4",
+      "model": "FD",
+      "mesh": "moving",
+      "variant": "x_half_time_half",
+      "nx": 512,
+      "L": 40.0,
+      "h": 0.125,
+      "dt": 3.125e-05,
+      "T": 0.02,
+      "eval_half": 10.0
+    }
+  ],
+  "sources": {
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_two_soliton_20260929\\refine_time.py": "9c4974334329f3728b3ef83d62230b927dd7ba5944d973684dee78e48da6cfa6",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_two_soliton_20260929\\run_experiments.py": "68c0eee2508c164a7c42c6feeefcfb6a89ea7efa6bb9231087d8a73458a97f00",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_two_soliton_20260929\\reference.py": "e8f244d0d1910093e9b44ed4ffae8a34721be92a2debc8db2f03c33ff6b5f582",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_two_soliton_20260929\\models.py": "937da5fb7a359603a7d500389e3d4ac0cb8b4413ba313dfbb9cd76516b26dce4",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_sd2_20260929\\sd2.py": "d9d9e75d92c9a41c0452fb44a29bd20db2bf97caca57744ed37840d81c67ca1c"
+  },
+  "runs": [
+    {
+      "spec": {
+        "case": "fig4",
+        "model": "SD",
+        "mesh": "moving",
+        "variant": "x_half_time_half",
+        "nx": 512,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 3.125e-05,
+        "T": 0.02,
+        "eval_half": 10.0
+      },
+      "status": "completed",
+      "reached": 0.02,
+      "reason": "",
+      "moved_steps": 640,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 4.279490935510388e-06,
+            "v": 3.93514029117803e-06
+          },
+          "nodal_errors": {
+            "u": 1.1102230246251565e-16,
+            "v": 1.7763568394002505e-15
+          },
+          "min_J": 0.6263509191105667,
+          "min_monitor": 1.000000000979799,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.001,
+          "errors": {
+            "u": 3.943743820356005e-05,
+            "v": 2.0793802863128263e-05
+          },
+          "nodal_errors": {
+            "u": 3.951990355410828e-05,
+            "v": 2.009126336410816e-05
+          },
+          "min_J": 0.6262695059095803,
+          "min_monitor": 1.0000000009864909,
+          "max_displacement": 0.0005554115161801043
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 0.00019840759794487184,
+            "v": 0.00010174123900230647
+          },
+          "nodal_errors": {
+            "u": 0.00019843251676321394,
+            "v": 0.00010138583189656103
+          },
+          "min_J": 0.6259605400976397,
+          "min_monitor": 1.0000000010186125,
+          "max_displacement": 0.002760342634951507
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 0.00040028283098281214,
+            "v": 0.00023548088414826474
+          },
+          "nodal_errors": {
+            "u": 0.0004002843841430792,
+            "v": 0.00023223406663008817
+          },
+          "min_J": 0.6256123305968198,
+          "min_monitor": 1.0000000005381438,
+          "max_displacement": 0.005478419148741032
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 0.0022801421306495318,
+            "v": 0.0023842217421883305
+          },
+          "nodal_errors": {
+            "u": 0.0022185265528023024,
+            "v": 0.0023216626084927583
+          },
+          "min_J": 0.6250399799031,
+          "min_monitor": 0.9999999921900631,
+          "max_displacement": 0.010784737714801318
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_two_soliton_20260929\\out\\fig4_SD_moving_x_half_time_half.npz",
+      "profile_sha256": "2d991ee110a3b470f7096de0d91410288e37722130dc27518e6d325ba4acb539"
+    },
+    {
+      "spec": {
+        "case": "fig4",
+        "model": "SD2",
+        "mesh": "moving",
+        "variant": "x_half_time_half",
+        "nx": 512,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 3.125e-05,
+        "T": 0.02,
+        "eval_half": 10.0
+      },
+      "status": "completed",
+      "reached": 0.02,
+      "reason": "",
+      "moved_steps": 640,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 6.263039953746663e-05,
+            "v": 0.00014203016229386023
+          },
+          "nodal_errors": {
+            "u": 5.84075780927229e-05,
+            "v": 0.00014066417222569072
+          },
+          "min_J": 0.6263509191105667,
+          "min_monitor": 1.0000000009797991,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.001,
+          "errors": {
+            "u": 3.912847218856541e-05,
+            "v": 0.00012644611057233135
+          },
+          "nodal_errors": {
+            "u": 3.9102672410029626e-05,
+            "v": 0.00012591285667973295
+          },
+          "min_J": 0.626269497978327,
+          "min_monitor": 1.0000000004575156,
+          "max_displacement": 0.0005554075128934022
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 0.0001691358551465516,
+            "v": 0.0001528986032175439
+          },
+          "nodal_errors": {
+            "u": 0.00016905611980755353,
+            "v": 0.00015278237156413077
+          },
+          "min_J": 0.625960491476631,
+          "min_monitor": 0.9999999998605863,
+          "max_displacement": 0.0027603211134673566
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 0.0003616222141569203,
+            "v": 0.0002820673177701405
+          },
+          "nodal_errors": {
+            "u": 0.00036056072167478526,
+            "v": 0.00028166696720877127
+          },
+          "min_J": 0.6256121841470715,
+          "min_monitor": 0.9999999944267969,
+          "max_displacement": 0.005478371077779376
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 0.01796300436843723,
+            "v": 0.01504055264677917
+          },
+          "nodal_errors": {
+            "u": 0.0179384742151234,
+            "v": 0.01332592331145932
+          },
+          "min_J": 0.6249936586068112,
+          "min_monitor": 0.9999999060640259,
+          "max_displacement": 0.010784607803195345
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_two_soliton_20260929\\out\\fig4_SD2_moving_x_half_time_half.npz",
+      "profile_sha256": "9cc4a8dba2abd4929bfadfeadb7b379d95aff1209dc0a458bb83d3b30700d5ed"
+    },
+    {
+      "spec": {
+        "case": "fig4",
+        "model": "FD",
+        "mesh": "moving",
+        "variant": "x_half_time_half",
+        "nx": 512,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 3.125e-05,
+        "T": 0.02,
+        "eval_half": 10.0
+      },
+      "status": "completed",
+      "reached": 0.02,
+      "reason": "",
+      "moved_steps": 640,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 4.279490935510388e-06,
+            "v": 3.93514029117803e-06
+          },
+          "nodal_errors": {
+            "u": 1.1102230246251565e-16,
+            "v": 0.0
+          },
+          "min_J": 0.6263509191105667,
+          "min_monitor": 1.000000000979799,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.001,
+          "errors": {
+            "u": 1.3302877293286386e-05,
+            "v": 2.9545255455953878e-05
+          },
+          "nodal_errors": {
+            "u": 1.1999246263494356e-05,
+            "v": 2.777578716584017e-05
+          },
+          "min_J": 0.6262695498574475,
+          "min_monitor": 1.0000000009813779,
+          "max_displacement": 0.0005554108647290446
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 6.032535662736649e-05,
+            "v": 0.00014082729201758681
+          },
+          "nodal_errors": {
+            "u": 6.032535927458227e-05,
+            "v": 0.00014025674078643746
+          },
+          "min_J": 0.6259616154008254,
+          "min_monitor": 1.000000001011184,
+          "max_displacement": 0.002760324918249124
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 0.00012538511264481578,
+            "v": 0.0002888024930860489
+          },
+          "nodal_errors": {
+            "u": 0.00012503284055287445,
+            "v": 0.0002878756679360883
+          },
+          "min_J": 0.6256165529225173,
+          "min_monitor": 1.000000000546423,
+          "max_displacement": 0.005478341578738499
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 0.0024289534049593,
+            "v": 0.0023209324469495307
+          },
+          "nodal_errors": {
+            "u": 0.002426761918002729,
+            "v": 0.0020157929730775237
+          },
+          "min_J": 0.6250572298008068,
+          "min_monitor": 0.9999999928418012,
+          "max_displacement": 0.01078438100601159
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_two_soliton_20260929\\out\\fig4_FD_moving_x_half_time_half.npz",
+      "profile_sha256": "7504040701428d41dce9300e3990e01d5598b35408fd5b01897e278c5581d10a"
+    }
+  ]
+}

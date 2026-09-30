@@ -11,8 +11,9 @@ Trash/
 
 # 数值实验的原始产物（体积大、可重跑复现）：
 # u/v/exact 全场快照 JSON、npz 二进制场缓存、日志、图……全部由
-# Paper/dlw_semidiscrete/numerics/ 下的脚本重跑生成，不入库
-Paper/dlw_semidiscrete/numerics/out/
+# Workspaces/dlw_semidiscrete/numerics/ 下的脚本重跑生成，不入库
+Workspaces/dlw_semidiscrete/numerics/out/
+Workspaces/dlw_semidiscrete/numerics/.research_deps/
 
 # Lean 构建产物与运行日志
 .lake/
@@ -42,3 +43,28 @@ Desktop.ini
 desktop.ini
 *~
 *.bak_pre_*
+
+# 数值全场快照仅保存在本地
+*.npz
+*.npy
+*.h5
+*.hdf5
+*.vtk
+*.vtu
+
+# 图片、图形产物仅保存在本地（根报告已内嵌所需图片）
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.svg
+*.bmp
+*.tif
+*.tiff
+*.ico
+Workspaces/**/*.pdf
+
+# HTML 仅提交根目录用户报告；子目录页面及 HTML 模板留在本地
+*.html
+!/*.html

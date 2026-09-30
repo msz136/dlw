@@ -5,7 +5,7 @@ for key in ['OPENBLAS_NUM_THREADS','OMP_NUM_THREADS','MKL_NUM_THREADS']:
 import ast, hashlib, json, sys
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]
-NUM=ROOT/'Paper/dlw_semidiscrete/numerics'
+NUM=ROOT/'Workspaces/dlw_semidiscrete/numerics'
 sys.path.insert(0,str(NUM/'lib'))
 import numpy as np
 import mpmath as mp

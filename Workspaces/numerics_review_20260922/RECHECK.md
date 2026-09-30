@@ -19,7 +19,7 @@
 
 ### [P1] E6 仍不能称为实际开链求解器的最大增长率
 
-位置：`Paper/dlw_semidiscrete/numerics/experiments/e6_growth.py` 中 `lh2=0.25`、`sigma_roots(abs(kv),l,h)` 和 `kpert_eff`；`e2_e3_solver.py` 的 `gmax_discrete` 有相同建模限制。
+位置：`Workspaces/dlw_semidiscrete/numerics/experiments/e6_growth.py` 中 `lh2=0.25`、`sigma_roots(abs(kv),l,h)` 和 `kpert_eff`；`e2_e3_solver.py` 的 `gmax_discrete` 有相同建模限制。
 
 现在修正了 x 差分波数，但仍把固定格点相位 l 代入无限/周期格点的色散式，没有构造实际开链边界的线性化算子，也未对允许的格点模态取最大值。因此 `g_max_discrete` 是固定 l 下的 x 离散色散估计，不是实际开链全算子的谱上界。REPORT 速览和中心结论仍称其为“硬约束”“唯一的硬限制”，证据不够。
 

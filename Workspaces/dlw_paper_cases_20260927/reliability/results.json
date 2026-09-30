@@ -1,0 +1,5183 @@
+{
+  "plan": [
+    {
+      "case": "fig1a",
+      "model": "structure",
+      "mesh": "fixed",
+      "variant": "base",
+      "nx": 256,
+      "L": 40.0,
+      "h": 0.125,
+      "dt": 0.000125,
+      "T": 0.05
+    },
+    {
+      "case": "fig1a",
+      "model": "structure",
+      "mesh": "fixed",
+      "variant": "time_half",
+      "nx": 256,
+      "L": 40.0,
+      "h": 0.125,
+      "dt": 6.25e-05,
+      "T": 0.05
+    },
+    {
+      "case": "fig1a",
+      "model": "structure",
+      "mesh": "fixed",
+      "variant": "x_half",
+      "nx": 512,
+      "L": 40.0,
+      "h": 0.125,
+      "dt": 0.000125,
+      "T": 0.05
+    },
+    {
+      "case": "fig1a",
+      "model": "structure",
+      "mesh": "fixed",
+      "variant": "y_half",
+      "nx": 256,
+      "L": 40.0,
+      "h": 0.0625,
+      "dt": 0.000125,
+      "T": 0.05
+    },
+    {
+      "case": "fig1a",
+      "model": "structure",
+      "mesh": "fixed",
+      "variant": "y_quarter",
+      "nx": 256,
+      "L": 40.0,
+      "h": 0.03125,
+      "dt": 0.000125,
+      "T": 0.05
+    },
+    {
+      "case": "fig1a",
+      "model": "structure",
+      "mesh": "fixed",
+      "variant": "domain_double",
+      "nx": 512,
+      "L": 80.0,
+      "h": 0.125,
+      "dt": 0.000125,
+      "T": 1.0
+    },
+    {
+      "case": "fig1a",
+      "model": "structure",
+      "mesh": "moving",
+      "variant": "base",
+      "nx": 256,
+      "L": 40.0,
+      "h": 0.125,
+      "dt": 0.000125,
+      "T": 0.05
+    },
+    {
+      "case": "fig1a",
+      "model": "structure",
+      "mesh": "moving",
+      "variant": "time_half",
+      "nx": 256,
+      "L": 40.0,
+      "h": 0.125,
+      "dt": 6.25e-05,
+      "T": 0.05
+    },
+    {
+      "case": "fig1a",
+      "model": "structure",
+      "mesh": "moving",
+      "variant": "x_half",
+      "nx": 512,
+      "L": 40.0,
+      "h": 0.125,
+      "dt": 0.000125,
+      "T": 0.05
+    },
+    {
+      "case": "fig1a",
+      "model": "structure",
+      "mesh": "moving",
+      "variant": "y_half",
+      "nx": 256,
+      "L": 40.0,
+      "h": 0.0625,
+      "dt": 0.000125,
+      "T": 0.05
+    },
+    {
+      "case": "fig1a",
+      "model": "structure",
+      "mesh": "moving",
+      "variant": "y_quarter",
+      "nx": 256,
+      "L": 40.0,
+      "h": 0.03125,
+      "dt": 0.000125,
+      "T": 0.05
+    },
+    {
+      "case": "fig1a",
+      "model": "structure",
+      "mesh": "moving",
+      "variant": "domain_double",
+      "nx": 512,
+      "L": 80.0,
+      "h": 0.125,
+      "dt": 0.000125,
+      "T": 1.0
+    },
+    {
+      "case": "fig1a",
+      "model": "fd",
+      "mesh": "fixed",
+      "variant": "base",
+      "nx": 256,
+      "L": 40.0,
+      "h": 0.125,
+      "dt": 0.000125,
+      "T": 0.05
+    },
+    {
+      "case": "fig1a",
+      "model": "fd",
+      "mesh": "fixed",
+      "variant": "time_half",
+      "nx": 256,
+      "L": 40.0,
+      "h": 0.125,
+      "dt": 6.25e-05,
+      "T": 0.05
+    },
+    {
+      "case": "fig1a",
+      "model": "fd",
+      "mesh": "fixed",
+      "variant": "x_half",
+      "nx": 512,
+      "L": 40.0,
+      "h": 0.125,
+      "dt": 0.000125,
+      "T": 0.05
+    },
+    {
+      "case": "fig1a",
+      "model": "fd",
+      "mesh": "fixed",
+      "variant": "y_half",
+      "nx": 256,
+      "L": 40.0,
+      "h": 0.0625,
+      "dt": 0.000125,
+      "T": 0.05
+    },
+    {
+      "case": "fig1a",
+      "model": "fd",
+      "mesh": "fixed",
+      "variant": "y_quarter",
+      "nx": 256,
+      "L": 40.0,
+      "h": 0.03125,
+      "dt": 0.000125,
+      "T": 0.05
+    },
+    {
+      "case": "fig1a",
+      "model": "fd",
+      "mesh": "fixed",
+      "variant": "domain_double",
+      "nx": 512,
+      "L": 80.0,
+      "h": 0.125,
+      "dt": 0.000125,
+      "T": 1.0
+    },
+    {
+      "case": "fig1a",
+      "model": "fd",
+      "mesh": "moving",
+      "variant": "base",
+      "nx": 256,
+      "L": 40.0,
+      "h": 0.125,
+      "dt": 0.000125,
+      "T": 0.05
+    },
+    {
+      "case": "fig1a",
+      "model": "fd",
+      "mesh": "moving",
+      "variant": "time_half",
+      "nx": 256,
+      "L": 40.0,
+      "h": 0.125,
+      "dt": 6.25e-05,
+      "T": 0.05
+    },
+    {
+      "case": "fig1a",
+      "model": "fd",
+      "mesh": "moving",
+      "variant": "x_half",
+      "nx": 512,
+      "L": 40.0,
+      "h": 0.125,
+      "dt": 0.000125,
+      "T": 0.05
+    },
+    {
+      "case": "fig1a",
+      "model": "fd",
+      "mesh": "moving",
+      "variant": "y_half",
+      "nx": 256,
+      "L": 40.0,
+      "h": 0.0625,
+      "dt": 0.000125,
+      "T": 0.05
+    },
+    {
+      "case": "fig1a",
+      "model": "fd",
+      "mesh": "moving",
+      "variant": "y_quarter",
+      "nx": 256,
+      "L": 40.0,
+      "h": 0.03125,
+      "dt": 0.000125,
+      "T": 0.05
+    },
+    {
+      "case": "fig1a",
+      "model": "fd",
+      "mesh": "moving",
+      "variant": "domain_double",
+      "nx": 512,
+      "L": 80.0,
+      "h": 0.125,
+      "dt": 0.000125,
+      "T": 1.0
+    },
+    {
+      "case": "fig1b",
+      "model": "structure",
+      "mesh": "fixed",
+      "variant": "base",
+      "nx": 256,
+      "L": 40.0,
+      "h": 0.125,
+      "dt": 0.000125,
+      "T": 0.05
+    },
+    {
+      "case": "fig1b",
+      "model": "structure",
+      "mesh": "fixed",
+      "variant": "time_half",
+      "nx": 256,
+      "L": 40.0,
+      "h": 0.125,
+      "dt": 6.25e-05,
+      "T": 0.05
+    },
+    {
+      "case": "fig1b",
+      "model": "structure",
+      "mesh": "fixed",
+      "variant": "x_half",
+      "nx": 512,
+      "L": 40.0,
+      "h": 0.125,
+      "dt": 0.000125,
+      "T": 0.05
+    },
+    {
+      "case": "fig1b",
+      "model": "structure",
+      "mesh": "fixed",
+      "variant": "y_half",
+      "nx": 256,
+      "L": 40.0,
+      "h": 0.0625,
+      "dt": 0.000125,
+      "T": 0.05
+    },
+    {
+      "case": "fig1b",
+      "model": "structure",
+      "mesh": "fixed",
+      "variant": "y_quarter",
+      "nx": 256,
+      "L": 40.0,
+      "h": 0.03125,
+      "dt": 0.000125,
+      "T": 0.05
+    },
+    {
+      "case": "fig1b",
+      "model": "structure",
+      "mesh": "fixed",
+      "variant": "domain_double",
+      "nx": 512,
+      "L": 80.0,
+      "h": 0.125,
+      "dt": 0.000125,
+      "T": 1.0
+    },
+    {
+      "case": "fig1b",
+      "model": "structure",
+      "mesh": "moving",
+      "variant": "base",
+      "nx": 256,
+      "L": 40.0,
+      "h": 0.125,
+      "dt": 0.000125,
+      "T": 0.05
+    },
+    {
+      "case": "fig1b",
+      "model": "structure",
+      "mesh": "moving",
+      "variant": "time_half",
+      "nx": 256,
+      "L": 40.0,
+      "h": 0.125,
+      "dt": 6.25e-05,
+      "T": 0.05
+    },
+    {
+      "case": "fig1b",
+      "model": "structure",
+      "mesh": "moving",
+      "variant": "x_half",
+      "nx": 512,
+      "L": 40.0,
+      "h": 0.125,
+      "dt": 0.000125,
+      "T": 0.05
+    },
+    {
+      "case": "fig1b",
+      "model": "structure",
+      "mesh": "moving",
+      "variant": "y_half",
+      "nx": 256,
+      "L": 40.0,
+      "h": 0.0625,
+      "dt": 0.000125,
+      "T": 0.05
+    },
+    {
+      "case": "fig1b",
+      "model": "structure",
+      "mesh": "moving",
+      "variant": "y_quarter",
+      "nx": 256,
+      "L": 40.0,
+      "h": 0.03125,
+      "dt": 0.000125,
+      "T": 0.05
+    },
+    {
+      "case": "fig1b",
+      "model": "structure",
+      "mesh": "moving",
+      "variant": "domain_double",
+      "nx": 512,
+      "L": 80.0,
+      "h": 0.125,
+      "dt": 0.000125,
+      "T": 1.0
+    },
+    {
+      "case": "fig1b",
+      "model": "fd",
+      "mesh": "fixed",
+      "variant": "base",
+      "nx": 256,
+      "L": 40.0,
+      "h": 0.125,
+      "dt": 0.000125,
+      "T": 0.05
+    },
+    {
+      "case": "fig1b",
+      "model": "fd",
+      "mesh": "fixed",
+      "variant": "time_half",
+      "nx": 256,
+      "L": 40.0,
+      "h": 0.125,
+      "dt": 6.25e-05,
+      "T": 0.05
+    },
+    {
+      "case": "fig1b",
+      "model": "fd",
+      "mesh": "fixed",
+      "variant": "x_half",
+      "nx": 512,
+      "L": 40.0,
+      "h": 0.125,
+      "dt": 0.000125,
+      "T": 0.05
+    },
+    {
+      "case": "fig1b",
+      "model": "fd",
+      "mesh": "fixed",
+      "variant": "y_half",
+      "nx": 256,
+      "L": 40.0,
+      "h": 0.0625,
+      "dt": 0.000125,
+      "T": 0.05
+    },
+    {
+      "case": "fig1b",
+      "model": "fd",
+      "mesh": "fixed",
+      "variant": "y_quarter",
+      "nx": 256,
+      "L": 40.0,
+      "h": 0.03125,
+      "dt": 0.000125,
+      "T": 0.05
+    },
+    {
+      "case": "fig1b",
+      "model": "fd",
+      "mesh": "fixed",
+      "variant": "domain_double",
+      "nx": 512,
+      "L": 80.0,
+      "h": 0.125,
+      "dt": 0.000125,
+      "T": 1.0
+    },
+    {
+      "case": "fig1b",
+      "model": "fd",
+      "mesh": "moving",
+      "variant": "base",
+      "nx": 256,
+      "L": 40.0,
+      "h": 0.125,
+      "dt": 0.000125,
+      "T": 0.05
+    },
+    {
+      "case": "fig1b",
+      "model": "fd",
+      "mesh": "moving",
+      "variant": "time_half",
+      "nx": 256,
+      "L": 40.0,
+      "h": 0.125,
+      "dt": 6.25e-05,
+      "T": 0.05
+    },
+    {
+      "case": "fig1b",
+      "model": "fd",
+      "mesh": "moving",
+      "variant": "x_half",
+      "nx": 512,
+      "L": 40.0,
+      "h": 0.125,
+      "dt": 0.000125,
+      "T": 0.05
+    },
+    {
+      "case": "fig1b",
+      "model": "fd",
+      "mesh": "moving",
+      "variant": "y_half",
+      "nx": 256,
+      "L": 40.0,
+      "h": 0.0625,
+      "dt": 0.000125,
+      "T": 0.05
+    },
+    {
+      "case": "fig1b",
+      "model": "fd",
+      "mesh": "moving",
+      "variant": "y_quarter",
+      "nx": 256,
+      "L": 40.0,
+      "h": 0.03125,
+      "dt": 0.000125,
+      "T": 0.05
+    },
+    {
+      "case": "fig1b",
+      "model": "fd",
+      "mesh": "moving",
+      "variant": "domain_double",
+      "nx": 512,
+      "L": 80.0,
+      "h": 0.125,
+      "dt": 0.000125,
+      "T": 1.0
+    }
+  ],
+  "driver_sha256": "482cbff92d9fc9500c42d8d44266a0e094f01964972164bd316123d7bbd99b58",
+  "runs": [
+    {
+      "spec": {
+        "case": "fig1a",
+        "model": "structure",
+        "mesh": "fixed",
+        "variant": "base",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.05
+      },
+      "status": "completed",
+      "reached": 0.05,
+      "reason": "",
+      "moved_steps": 0,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 0.00022281626407538724,
+            "v": 9.611740328296925e-05
+          },
+          "nodal_errors": {
+            "u": 3.3306690738754696e-16,
+            "v": 1.3322676295501878e-15
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 0.0002864388225602976,
+            "v": 0.0005329917562999498
+          },
+          "nodal_errors": {
+            "u": 0.00023342655043023797,
+            "v": 0.00044984559437910576
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 0.0005424866284184926,
+            "v": 0.0009939744426876729
+          },
+          "nodal_errors": {
+            "u": 0.00047663795181684954,
+            "v": 0.0008934111713805315
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 0.0012517326131622486,
+            "v": 0.002051672802103166
+          },
+          "nodal_errors": {
+            "u": 0.0011715752840220084,
+            "v": 0.0019639089758491934
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 0.007458853020140044,
+            "v": 0.010112759345666689
+          },
+          "nodal_errors": {
+            "u": 0.007054084856711773,
+            "v": 0.009054960180866933
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1a_structure_fixed_base.npz",
+      "profile_sha256": "f3aee71adb189f4fe9388d0d36a63bb2539ac71c0c62987ef3031aceac8087ca"
+    },
+    {
+      "spec": {
+        "case": "fig1a",
+        "model": "structure",
+        "mesh": "fixed",
+        "variant": "time_half",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 6.25e-05,
+        "T": 0.05
+      },
+      "status": "completed",
+      "reached": 0.05,
+      "reason": "",
+      "moved_steps": 0,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 0.00022281626407538724,
+            "v": 9.611740328296925e-05
+          },
+          "nodal_errors": {
+            "u": 3.3306690738754696e-16,
+            "v": 1.3322676295501878e-15
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 0.00028643882256296216,
+            "v": 0.0005329917563032804
+          },
+          "nodal_errors": {
+            "u": 0.00023342655043578908,
+            "v": 0.00044984559438399074
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 0.0005424866284231555,
+            "v": 0.0009939744426963326
+          },
+          "nodal_errors": {
+            "u": 0.0004766379518150732,
+            "v": 0.0008934111713903015
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 0.0012517326131731288,
+            "v": 0.0020516728021251485
+          },
+          "nodal_errors": {
+            "u": 0.001171575284009574,
+            "v": 0.0019639089758707318
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 0.007458853022968448,
+            "v": 0.010112759345967781
+          },
+          "nodal_errors": {
+            "u": 0.007054084857416543,
+            "v": 0.009054960182612204
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1a_structure_fixed_time_half.npz",
+      "profile_sha256": "882c55cc68442084ec889261579352c7ee238116726f8f0e12a9ff1323db2aa0"
+    },
+    {
+      "spec": {
+        "case": "fig1a",
+        "model": "structure",
+        "mesh": "fixed",
+        "variant": "x_half",
+        "nx": 512,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.05
+      },
+      "status": "completed",
+      "reached": 0.05,
+      "reason": "",
+      "moved_steps": 0,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 1.2171342271161123e-05,
+            "v": 5.069526745948849e-06
+          },
+          "nodal_errors": {
+            "u": 6.106226635438361e-16,
+            "v": 1.3322676295501878e-15
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 0.00017231925271898874,
+            "v": 0.00010513788370558608
+          },
+          "nodal_errors": {
+            "u": 0.0001724184078792934,
+            "v": 0.00010178055962484223
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 0.0003416060838812296,
+            "v": 0.00018374462809300773
+          },
+          "nodal_errors": {
+            "u": 0.0003416023004847446,
+            "v": 0.00018034326984728288
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 0.00067652156680853,
+            "v": 0.0004516482014180756
+          },
+          "nodal_errors": {
+            "u": 0.0006765619806663459,
+            "v": 0.00044455303218637887
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999946,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 0.08555375213173644,
+            "v": 0.06417782259666627
+          },
+          "nodal_errors": {
+            "u": 0.0851629982831964,
+            "v": 0.06371021658938791
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999269883,
+          "max_displacement": 0.0
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1a_structure_fixed_x_half.npz",
+      "profile_sha256": "89b8c0a0b478e72222fd4337ec0c04f700665e04a998e649340125ad57fba67a"
+    },
+    {
+      "spec": {
+        "case": "fig1a",
+        "model": "structure",
+        "mesh": "fixed",
+        "variant": "y_half",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.0625,
+        "dt": 0.000125,
+        "T": 0.05
+      },
+      "status": "completed",
+      "reached": 0.05,
+      "reason": "",
+      "moved_steps": 0,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 0.00022279601340757793,
+            "v": 9.618426891266907e-05
+          },
+          "nodal_errors": {
+            "u": 1.3877787807814457e-16,
+            "v": 1.7763568394002505e-15
+          },
+          "min_J": 1.0,
+          "min_R": 1.0,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 0.00036039756320560556,
+            "v": 0.0005197177264597563
+          },
+          "nodal_errors": {
+            "u": 0.00025414221013209115,
+            "v": 0.00044252865643801265
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 0.000589216310185936,
+            "v": 0.0009765551329221633
+          },
+          "nodal_errors": {
+            "u": 0.0005210736568175278,
+            "v": 0.0008999896688801634
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 0.0013454709016527122,
+            "v": 0.0020988460261843755
+          },
+          "nodal_errors": {
+            "u": 0.001223227022787654,
+            "v": 0.002071491331396169
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 0.008595663073260651,
+            "v": 0.01120314891229035
+          },
+          "nodal_errors": {
+            "u": 0.008468397902176905,
+            "v": 0.010617277047905604
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999994,
+          "max_displacement": 0.0
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1a_structure_fixed_y_half.npz",
+      "profile_sha256": "f0a9307aa6f9da7a17c0174c11c6442e210c260f03fdd5d5fb897c5846401c25"
+    },
+    {
+      "spec": {
+        "case": "fig1a",
+        "model": "structure",
+        "mesh": "fixed",
+        "variant": "y_quarter",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.03125,
+        "dt": 0.000125,
+        "T": 0.05
+      },
+      "status": "completed",
+      "reached": 0.05,
+      "reason": "",
+      "moved_steps": 0,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 0.00022285068329863655,
+            "v": 9.619316891096297e-05
+          },
+          "nodal_errors": {
+            "u": 9.43689570931383e-16,
+            "v": 5.329070518200751e-15
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999994,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 0.00038497190567188255,
+            "v": 0.000518789509508899
+          },
+          "nodal_errors": {
+            "u": 0.00026571947539100194,
+            "v": 0.0004422298761750376
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999996,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 0.0006431180650730006,
+            "v": 0.0009775893493393362
+          },
+          "nodal_errors": {
+            "u": 0.0005416164419982383,
+            "v": 0.0009027034915387588
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999996,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 0.0014527862334230424,
+            "v": 0.002117121474381145
+          },
+          "nodal_errors": {
+            "u": 0.001337173969900407,
+            "v": 0.00209369817824534
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999996,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 0.008972071150129768,
+            "v": 0.011482376381681592
+          },
+          "nodal_errors": {
+            "u": 0.00880073347565058,
+            "v": 0.011107434075650513
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999993,
+          "max_displacement": 0.0
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1a_structure_fixed_y_quarter.npz",
+      "profile_sha256": "c5b4c976f4b1777cd6c3241565cce8fd6d240f0f49faeb02e8b9a7a510e14cd3"
+    },
+    {
+      "spec": {
+        "case": "fig1a",
+        "model": "structure",
+        "mesh": "fixed",
+        "variant": "domain_double",
+        "nx": 512,
+        "L": 80.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 1.0
+      },
+      "status": "stopped",
+      "reached": 0.1555,
+      "reason": "nonpositive monitor density",
+      "moved_steps": 0,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 0.00022281626407538724,
+            "v": 9.611740328296925e-05
+          },
+          "nodal_errors": {
+            "u": 3.3306690738754696e-16,
+            "v": 1.3322676295501878e-15
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 0.0002864388225602976,
+            "v": 0.0005329917562999498
+          },
+          "nodal_errors": {
+            "u": 0.00023342655043023797,
+            "v": 0.00044984559437910576
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 0.0005424866284184926,
+            "v": 0.0009939744426876729
+          },
+          "nodal_errors": {
+            "u": 0.00047663795181684954,
+            "v": 0.0008934111713805315
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 0.0012517326131622486,
+            "v": 0.002051672802103166
+          },
+          "nodal_errors": {
+            "u": 0.0011715752840220084,
+            "v": 0.0019639089758491934
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 0.007458853020140044,
+            "v": 0.010112759345666689
+          },
+          "nodal_errors": {
+            "u": 0.007054084856711773,
+            "v": 0.009054960180866933
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.1,
+          "errors": {
+            "u": 0.475912860738289,
+            "v": 0.3554598000406781
+          },
+          "nodal_errors": {
+            "u": 0.42908251831945643,
+            "v": 0.3553863495324461
+          },
+          "min_J": 1.0,
+          "min_R": 0.999999999999972,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.1555,
+          "errors": {
+            "u": 95.24073364088103,
+            "v": 139.23308793685155
+          },
+          "nodal_errors": {
+            "u": 81.55745259282826,
+            "v": 124.23679219219693
+          },
+          "min_J": 1.0,
+          "min_R": 0.006757032252142026,
+          "max_displacement": 0.0
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1a_structure_fixed_domain_double.npz",
+      "profile_sha256": "82efbdacf45f2f7fc37ac80938ac5a1f30b1618de2332076322c35d425080f76"
+    },
+    {
+      "spec": {
+        "case": "fig1a",
+        "model": "structure",
+        "mesh": "moving",
+        "variant": "base",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.05
+      },
+      "status": "completed",
+      "reached": 0.05,
+      "reason": "",
+      "moved_steps": 400,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 8.728642765354344e-05,
+            "v": 7.684358581194761e-05
+          },
+          "nodal_errors": {
+            "u": 2.7755575615628914e-16,
+            "v": 1.3322676295501878e-15
+          },
+          "min_J": 0.6751520134266848,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 0.00016945926999345495,
+            "v": 0.00030650540926657754
+          },
+          "nodal_errors": {
+            "u": 0.0001588816369606505,
+            "v": 0.0002726580193614936
+          },
+          "min_J": 0.6750732689823014,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.001688795247041297
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 0.0003316776715112102,
+            "v": 0.0005969876752056624
+          },
+          "nodal_errors": {
+            "u": 0.0003320177876786623,
+            "v": 0.0005765070399452732
+          },
+          "min_J": 0.6750012438162366,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.0033775370186026055
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 0.0007771928619850765,
+            "v": 0.0013535304168814655
+          },
+          "nodal_errors": {
+            "u": 0.0007743207221149184,
+            "v": 0.0013489281474008408
+          },
+          "min_J": 0.6748786446836079,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0067547061447933085
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 0.007010163661031132,
+            "v": 0.014620369308527392
+          },
+          "nodal_errors": {
+            "u": 0.006798563528395807,
+            "v": 0.014628055956444452
+          },
+          "min_J": 0.6746529763910507,
+          "min_R": 0.9999999999999994,
+          "max_displacement": 0.016889442365710924
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1a_structure_moving_base.npz",
+      "profile_sha256": "ba7b6f09ece61940e11fe411657ba79895e49d6342b6e68629b72612e1b3f237"
+    },
+    {
+      "spec": {
+        "case": "fig1a",
+        "model": "structure",
+        "mesh": "moving",
+        "variant": "time_half",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 6.25e-05,
+        "T": 0.05
+      },
+      "status": "completed",
+      "reached": 0.05,
+      "reason": "",
+      "moved_steps": 800,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 8.728642765354344e-05,
+            "v": 7.684358581194761e-05
+          },
+          "nodal_errors": {
+            "u": 2.7755575615628914e-16,
+            "v": 1.3322676295501878e-15
+          },
+          "min_J": 0.6751520134266848,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 0.00016945926999456518,
+            "v": 0.0003065054092723507
+          },
+          "nodal_errors": {
+            "u": 0.00015888163696153867,
+            "v": 0.00027265801937415013
+          },
+          "min_J": 0.6750732689823014,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.001688795247041245
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 0.00033167767151898175,
+            "v": 0.0005969876752289771
+          },
+          "nodal_errors": {
+            "u": 0.0003320177876866559,
+            "v": 0.0005765070399701422
+          },
+          "min_J": 0.6750012438162365,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.0033775370186025257
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 0.0007771928620463608,
+            "v": 0.0013535304169571827
+          },
+          "nodal_errors": {
+            "u": 0.0007743207221830861,
+            "v": 0.001348928147476558
+          },
+          "min_J": 0.6748786446836079,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.006754706144793437
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 0.007010163682612536,
+            "v": 0.014620369340029304
+          },
+          "nodal_errors": {
+            "u": 0.006798563544295311,
+            "v": 0.014628055986973365
+          },
+          "min_J": 0.6746529763908572,
+          "min_R": 0.9999999999999994,
+          "max_displacement": 0.016889442365786746
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1a_structure_moving_time_half.npz",
+      "profile_sha256": "e271cf340580a53e67bcd838d839189f62132878810105ea0752ac8650861ff4"
+    },
+    {
+      "spec": {
+        "case": "fig1a",
+        "model": "structure",
+        "mesh": "moving",
+        "variant": "x_half",
+        "nx": 512,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.05
+      },
+      "status": "stopped",
+      "reached": 0.03675,
+      "reason": "crossed physical mesh nodes",
+      "moved_steps": 294,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 4.969090605655424e-06,
+            "v": 4.236612922259297e-06
+          },
+          "nodal_errors": {
+            "u": 2.7755575615628914e-16,
+            "v": 1.4988010832439613e-15
+          },
+          "min_J": 0.6749317439522043,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 0.00017978654060724075,
+            "v": 8.370177249927835e-05
+          },
+          "nodal_errors": {
+            "u": 0.00017983177522440386,
+            "v": 8.2065315783586e-05
+          },
+          "min_J": 0.6749861694696055,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0016897093006111967
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 0.0003616341006658086,
+            "v": 0.0001903261512792298
+          },
+          "nodal_errors": {
+            "u": 0.00036143209768835227,
+            "v": 0.00018927676155056083
+          },
+          "min_J": 0.675001205535462,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.003378802764036286
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 0.001298153396394497,
+            "v": 0.0013096584915530673
+          },
+          "nodal_errors": {
+            "u": 0.0012623307153063479,
+            "v": 0.0013110193459495711
+          },
+          "min_J": 0.6748813810813261,
+          "min_R": 0.9999999999999963,
+          "max_displacement": 0.006755013331371204
+        },
+        {
+          "t": 0.03675,
+          "errors": {
+            "u": 561.0206151591277,
+            "v": 591.9531134647707
+          },
+          "nodal_errors": {
+            "u": 196.47862358846416,
+            "v": 504.9476419089622
+          },
+          "min_J": 0.10888635729238294,
+          "min_R": 0.7255351526580465,
+          "max_displacement": 0.036377736163202806
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1a_structure_moving_x_half.npz",
+      "profile_sha256": "7bfc09efad672c5b4d957a9c6133dd8b3c786e306eff45bfe5007522031c8ea4"
+    },
+    {
+      "spec": {
+        "case": "fig1a",
+        "model": "structure",
+        "mesh": "moving",
+        "variant": "y_half",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.0625,
+        "dt": 0.000125,
+        "T": 0.05
+      },
+      "status": "completed",
+      "reached": 0.05,
+      "reason": "",
+      "moved_steps": 400,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 8.744976399732707e-05,
+            "v": 7.685355034237062e-05
+          },
+          "nodal_errors": {
+            "u": 6.661338147750939e-16,
+            "v": 1.7763568394002505e-15
+          },
+          "min_J": 0.6751325461934365,
+          "min_R": 1.0,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 0.00023244074894068767,
+            "v": 0.00030255280827740094
+          },
+          "nodal_errors": {
+            "u": 0.00013843826308779228,
+            "v": 0.0002779813474333981
+          },
+          "min_J": 0.675056455776097,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.001687254461266583
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 0.00041435378848708737,
+            "v": 0.0005888239732358969
+          },
+          "nodal_errors": {
+            "u": 0.0003083356549407057,
+            "v": 0.0005836738234650252
+          },
+          "min_J": 0.6749878233928437,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.003374770413791254
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 0.0009030566251462258,
+            "v": 0.0013491746985951902
+          },
+          "nodal_errors": {
+            "u": 0.0007654114925659261,
+            "v": 0.0013485264152979237
+          },
+          "min_J": 0.6748738033016517,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.006750381071617413
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 0.005647698399097401,
+            "v": 0.011726552690727532
+          },
+          "nodal_errors": {
+            "u": 0.0056179518734404965,
+            "v": 0.011720932922139937
+          },
+          "min_J": 0.674740114870406,
+          "min_R": 0.9999999999999997,
+          "max_displacement": 0.016883228041956494
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1a_structure_moving_y_half.npz",
+      "profile_sha256": "9f6b0386bd09e42385e637c521621ff1147e0073b4244ca67f1663430257be35"
+    },
+    {
+      "spec": {
+        "case": "fig1a",
+        "model": "structure",
+        "mesh": "moving",
+        "variant": "y_quarter",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.03125,
+        "dt": 0.000125,
+        "T": 0.05
+      },
+      "status": "completed",
+      "reached": 0.05,
+      "reason": "",
+      "moved_steps": 400,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 8.746984644214528e-05,
+            "v": 7.686258753247799e-05
+          },
+          "nodal_errors": {
+            "u": 8.326672684688674e-16,
+            "v": 5.329070518200751e-15
+          },
+          "min_J": 0.6751276758584098,
+          "min_R": 0.9999999999999994,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 0.00024833000530177785,
+            "v": 0.00030274119169826363
+          },
+          "nodal_errors": {
+            "u": 0.00015257264003842863,
+            "v": 0.0002792976430194827
+          },
+          "min_J": 0.6750522584464275,
+          "min_R": 0.9999999999999994,
+          "max_displacement": 0.0016868681213372573
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 0.0004455692288349855,
+            "v": 0.0005876484762861178
+          },
+          "nodal_errors": {
+            "u": 0.0003363255198784998,
+            "v": 0.0005853682705245777
+          },
+          "min_J": 0.6749845003585725,
+          "min_R": 0.9999999999999996,
+          "max_displacement": 0.0033740744342571384
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 0.0009620125414950831,
+            "v": 0.001352310279271851
+          },
+          "nodal_errors": {
+            "u": 0.0008179534345031936,
+            "v": 0.0013478936989554935
+          },
+          "min_J": 0.6748727246014133,
+          "min_R": 0.9999999999999996,
+          "max_displacement": 0.0067492822049904175
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 0.005728956258305606,
+            "v": 0.011192721819557994
+          },
+          "nodal_errors": {
+            "u": 0.005698586091213098,
+            "v": 0.011193587573607333
+          },
+          "min_J": 0.6747626080625564,
+          "min_R": 0.9999999999999994,
+          "max_displacement": 0.016881299404957018
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1a_structure_moving_y_quarter.npz",
+      "profile_sha256": "6e8c3fc98b0ea071ca926730700cbe00731c1e2e37cec401cd2828fe30e55ea0"
+    },
+    {
+      "spec": {
+        "case": "fig1a",
+        "model": "structure",
+        "mesh": "moving",
+        "variant": "domain_double",
+        "nx": 512,
+        "L": 80.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 1.0
+      },
+      "status": "stopped",
+      "reached": 0.10362500000000001,
+      "reason": "state magnitude >1000 or nonfinite",
+      "moved_steps": 829,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 8.28341118777054e-05,
+            "v": 7.283761176024584e-05
+          },
+          "nodal_errors": {
+            "u": 3.3306690738754696e-16,
+            "v": 1.6653345369377348e-15
+          },
+          "min_J": 0.6689872110574365,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 0.00016153116075745544,
+            "v": 0.0002878935611720923
+          },
+          "nodal_errors": {
+            "u": 0.00015858135118929084,
+            "v": 0.0002659795844406343
+          },
+          "min_J": 0.668904312123537,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.0016885600520930091
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 0.0003299545718391528,
+            "v": 0.0005667089647003465
+          },
+          "nodal_errors": {
+            "u": 0.00033011935378590707,
+            "v": 0.0005614166837299983
+          },
+          "min_J": 0.6688281081959426,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.003377085657621702
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 0.0007806470751450245,
+            "v": 0.0013128153640082907
+          },
+          "nodal_errors": {
+            "u": 0.0007750222652163075,
+            "v": 0.001310801389605043
+          },
+          "min_J": 0.668697041452746,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.006753885091437126
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 0.007134455218252178,
+            "v": 0.015125337407055683
+          },
+          "nodal_errors": {
+            "u": 0.006975151007974301,
+            "v": 0.01507137961691063
+          },
+          "min_J": 0.6684430073603362,
+          "min_R": 0.9999999999999997,
+          "max_displacement": 0.01688828501665754
+        },
+        {
+          "t": 0.1,
+          "errors": {
+            "u": 42.23318088817429,
+            "v": 61.60199844650203
+          },
+          "nodal_errors": {
+            "u": 41.93049314194201,
+            "v": 57.35860191833467
+          },
+          "min_J": 0.4122143140732101,
+          "min_R": 0.9936207768197958,
+          "max_displacement": 0.06768221019927328
+        },
+        {
+          "t": 0.10362500000000001,
+          "errors": {
+            "u": 421.2591997346963,
+            "v": 1275.5560771275757
+          },
+          "nodal_errors": {
+            "u": 279.276790172254,
+            "v": 890.0695480478246
+          },
+          "min_J": 0.05649021029941537,
+          "min_R": 0.5991629123041684,
+          "max_displacement": 0.1033909197170564
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1a_structure_moving_domain_double.npz",
+      "profile_sha256": "f2b096f998646d7addc167a56bb3f8f79d5163ae5ce859b514b99e18ea645108"
+    },
+    {
+      "spec": {
+        "case": "fig1a",
+        "model": "fd",
+        "mesh": "fixed",
+        "variant": "base",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.05
+      },
+      "status": "completed",
+      "reached": 0.05,
+      "reason": "",
+      "moved_steps": 0,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 0.00022281626407538724,
+            "v": 9.611740328341334e-05
+          },
+          "nodal_errors": {
+            "u": 3.3306690738754696e-16,
+            "v": 0.0
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 0.00043896824653644195,
+            "v": 0.0006187209820014417
+          },
+          "nodal_errors": {
+            "u": 0.0003176765503332124,
+            "v": 0.0005249062255641146
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 0.000771642926272964,
+            "v": 0.0011819604362610647
+          },
+          "nodal_errors": {
+            "u": 0.0006478609731002116,
+            "v": 0.0010925509741575024
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 0.0017744383883553372,
+            "v": 0.0025684163905448365
+          },
+          "nodal_errors": {
+            "u": 0.0016243037723762122,
+            "v": 0.0024664469229973562
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 0.010255803432472899,
+            "v": 0.012870515776120639
+          },
+          "nodal_errors": {
+            "u": 0.01024729903932986,
+            "v": 0.011962487696037138
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1a_fd_fixed_base.npz",
+      "profile_sha256": "a0290ab1cc308c12838b939e830e0858291455754fb26a0c0839f22422d818f1"
+    },
+    {
+      "spec": {
+        "case": "fig1a",
+        "model": "fd",
+        "mesh": "fixed",
+        "variant": "time_half",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 6.25e-05,
+        "T": 0.05
+      },
+      "status": "completed",
+      "reached": 0.05,
+      "reason": "",
+      "moved_steps": 0,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 0.00022281626407538724,
+            "v": 9.611740328341334e-05
+          },
+          "nodal_errors": {
+            "u": 3.3306690738754696e-16,
+            "v": 0.0
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 0.0004389682465395506,
+            "v": 0.0006187209820058825
+          },
+          "nodal_errors": {
+            "u": 0.00031767655034231623,
+            "v": 0.0005249062255665571
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 0.000771642926277627,
+            "v": 0.0011819604362741654
+          },
+          "nodal_errors": {
+            "u": 0.0006478609731195295,
+            "v": 0.0010925509741643857
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 0.001774438388364219,
+            "v": 0.0025684163905932422
+          },
+          "nodal_errors": {
+            "u": 0.0016243037724117393,
+            "v": 0.0024664469230148978
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 0.010255803433231625,
+            "v": 0.012870515776671976
+          },
+          "nodal_errors": {
+            "u": 0.010247299040068825,
+            "v": 0.011962487698000457
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1a_fd_fixed_time_half.npz",
+      "profile_sha256": "5bdf9631fab080f5e87289c0bcaeaa7393878f0693c6cc48de3f1ba2c64014d1"
+    },
+    {
+      "spec": {
+        "case": "fig1a",
+        "model": "fd",
+        "mesh": "fixed",
+        "variant": "x_half",
+        "nx": 512,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.05
+      },
+      "status": "completed",
+      "reached": 0.05,
+      "reason": "",
+      "moved_steps": 0,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 1.2171342271161123e-05,
+            "v": 5.069526745948849e-06
+          },
+          "nodal_errors": {
+            "u": 6.106226635438361e-16,
+            "v": 0.0
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 7.211278933105802e-05,
+            "v": 0.0001475894321978366
+          },
+          "nodal_errors": {
+            "u": 7.121317741765054e-05,
+            "v": 0.0001421300776733858
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 0.00015275768334777062,
+            "v": 0.0003053449673957598
+          },
+          "nodal_errors": {
+            "u": 0.0001465432916045728,
+            "v": 0.0002988828632244367
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 0.0004184134263942596,
+            "v": 0.0007230259923847182
+          },
+          "nodal_errors": {
+            "u": 0.0004103049946988513,
+            "v": 0.0007158922524204137
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999984,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 0.06478687313473896,
+            "v": 0.046206642279663646
+          },
+          "nodal_errors": {
+            "u": 0.06481348532570097,
+            "v": 0.04184698725936431
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999690262,
+          "max_displacement": 0.0
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1a_fd_fixed_x_half.npz",
+      "profile_sha256": "1bd35853fe54cbac75ec97eabf93c90fcd85cabd706d4181c400d41a2e96d7ed"
+    },
+    {
+      "spec": {
+        "case": "fig1a",
+        "model": "fd",
+        "mesh": "fixed",
+        "variant": "y_half",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.0625,
+        "dt": 0.000125,
+        "T": 0.05
+      },
+      "status": "completed",
+      "reached": 0.05,
+      "reason": "",
+      "moved_steps": 0,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 0.00022279601340757793,
+            "v": 9.618426891266907e-05
+          },
+          "nodal_errors": {
+            "u": 1.3877787807814457e-16,
+            "v": 0.0
+          },
+          "min_J": 1.0,
+          "min_R": 1.0,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 0.00040668646472141745,
+            "v": 0.000543333799141843
+          },
+          "nodal_errors": {
+            "u": 0.0002814381261231347,
+            "v": 0.0004537891551594786
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999997,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 0.0006919979056134729,
+            "v": 0.001029770694813692
+          },
+          "nodal_errors": {
+            "u": 0.000573193117867854,
+            "v": 0.0009544179923222096
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 0.0015564219910868538,
+            "v": 0.0022357245998843034
+          },
+          "nodal_errors": {
+            "u": 0.0014385951996369606,
+            "v": 0.002202739690611466
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 0.00935849931502264,
+            "v": 0.011896647030429142
+          },
+          "nodal_errors": {
+            "u": 0.009261885785393886,
+            "v": 0.010991272505636474
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1a_fd_fixed_y_half.npz",
+      "profile_sha256": "898502f75a065b0b3767a7b2dfd55725b3344da893f96bb0405efebbd8f6fdc9"
+    },
+    {
+      "spec": {
+        "case": "fig1a",
+        "model": "fd",
+        "mesh": "fixed",
+        "variant": "y_quarter",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.03125,
+        "dt": 0.000125,
+        "T": 0.05
+      },
+      "status": "completed",
+      "reached": 0.05,
+      "reason": "",
+      "moved_steps": 0,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 0.00022285068329863655,
+            "v": 9.619316891118501e-05
+          },
+          "nodal_errors": {
+            "u": 9.43689570931383e-16,
+            "v": 0.0
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999994,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 0.00039787687929737636,
+            "v": 0.0005246968981582611
+          },
+          "nodal_errors": {
+            "u": 0.0002725562765868439,
+            "v": 0.00043553938912865853
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999994,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 0.0006699617680185899,
+            "v": 0.000990731855332161
+          },
+          "nodal_errors": {
+            "u": 0.0005546583216831102,
+            "v": 0.0009162434410925346
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999993,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 0.001499650353432358,
+            "v": 0.002151441159071732
+          },
+          "nodal_errors": {
+            "u": 0.0013912308231800452,
+            "v": 0.002128257624191221
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999994,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 0.009149008034576411,
+            "v": 0.01165990274868789
+          },
+          "nodal_errors": {
+            "u": 0.008992793805984167,
+            "v": 0.011143624287396792
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999994,
+          "max_displacement": 0.0
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1a_fd_fixed_y_quarter.npz",
+      "profile_sha256": "ba72a8d3f4f0076ce2b5fda2500cc7ed926f5cc93dd0a1cd9627cddeab55feae"
+    },
+    {
+      "spec": {
+        "case": "fig1a",
+        "model": "fd",
+        "mesh": "fixed",
+        "variant": "domain_double",
+        "nx": 512,
+        "L": 80.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 1.0
+      },
+      "status": "stopped",
+      "reached": 0.1555,
+      "reason": "nonpositive monitor density",
+      "moved_steps": 0,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 0.00022281626407538724,
+            "v": 9.611740328341334e-05
+          },
+          "nodal_errors": {
+            "u": 3.3306690738754696e-16,
+            "v": 0.0
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 0.00043896824653644195,
+            "v": 0.0006187209820014417
+          },
+          "nodal_errors": {
+            "u": 0.0003176765503332124,
+            "v": 0.0005249062255641146
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 0.000771642926272964,
+            "v": 0.0011819604362610647
+          },
+          "nodal_errors": {
+            "u": 0.0006478609731002116,
+            "v": 0.0010925509741575024
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 0.0017744383883553372,
+            "v": 0.0025684163905448365
+          },
+          "nodal_errors": {
+            "u": 0.0016243037723762122,
+            "v": 0.0024664469229973562
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 0.010255803432472899,
+            "v": 0.012870515776120639
+          },
+          "nodal_errors": {
+            "u": 0.01024729903932986,
+            "v": 0.011962487696037138
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.1,
+          "errors": {
+            "u": 0.5462704625091768,
+            "v": 0.4195103231851929
+          },
+          "nodal_errors": {
+            "u": 0.5137405799417724,
+            "v": 0.4178953827454588
+          },
+          "min_J": 1.0,
+          "min_R": 0.99999999999999,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.1555,
+          "errors": {
+            "u": 86.53321312859475,
+            "v": 109.41589692319214
+          },
+          "nodal_errors": {
+            "u": 73.53994621687829,
+            "v": 100.92089362384675
+          },
+          "min_J": 1.0,
+          "min_R": 0.005397505011918102,
+          "max_displacement": 0.0
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1a_fd_fixed_domain_double.npz",
+      "profile_sha256": "07029efb37bb3104d908461fb8568245e7d06a2af219688599f430fd14ec7c53"
+    },
+    {
+      "spec": {
+        "case": "fig1a",
+        "model": "fd",
+        "mesh": "moving",
+        "variant": "base",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.05
+      },
+      "status": "completed",
+      "reached": 0.05,
+      "reason": "",
+      "moved_steps": 400,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 8.728642765354344e-05,
+            "v": 7.684358581194761e-05
+          },
+          "nodal_errors": {
+            "u": 2.7755575615628914e-16,
+            "v": 0.0
+          },
+          "min_J": 0.6751520134266848,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 0.00028654254985260863,
+            "v": 0.000403214319349976
+          },
+          "nodal_errors": {
+            "u": 0.0001935775134227491,
+            "v": 0.00037132620535751393
+          },
+          "min_J": 0.6750742883684971,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.001688907045307303
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 0.00052930742648849,
+            "v": 0.0007926553783506041
+          },
+          "nodal_errors": {
+            "u": 0.00042620548700611494,
+            "v": 0.0007726930675699961
+          },
+          "min_J": 0.6750051905979185,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.003378032347717174
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 0.0011601916343113583,
+            "v": 0.0017500709144300242
+          },
+          "nodal_errors": {
+            "u": 0.0010244346568524243,
+            "v": 0.001741815935697888
+          },
+          "min_J": 0.6748939551592773,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0067570310613867
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 0.006101816239219904,
+            "v": 0.011684916041781124
+          },
+          "nodal_errors": {
+            "u": 0.006053486617270121,
+            "v": 0.01144412165012576
+          },
+          "min_J": 0.6748389628377198,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.016907470319377723
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1a_fd_moving_base.npz",
+      "profile_sha256": "0c8f7fdd00c6b49e7779975bb0aa466b7e670386fe9acf817d6c16e7d42e7a60"
+    },
+    {
+      "spec": {
+        "case": "fig1a",
+        "model": "fd",
+        "mesh": "moving",
+        "variant": "time_half",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 6.25e-05,
+        "T": 0.05
+      },
+      "status": "completed",
+      "reached": 0.05,
+      "reason": "",
+      "moved_steps": 800,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 8.728642765354344e-05,
+            "v": 7.684358581194761e-05
+          },
+          "nodal_errors": {
+            "u": 2.7755575615628914e-16,
+            "v": 0.0
+          },
+          "min_J": 0.6751520134266848,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 0.00028654254985416294,
+            "v": 0.00040321431935286256
+          },
+          "nodal_errors": {
+            "u": 0.00019357751342297114,
+            "v": 0.0003713262053608446
+          },
+          "min_J": 0.6750742883684968,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.0016889070453072821
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 0.0005293074264907105,
+            "v": 0.0007926553783630386
+          },
+          "nodal_errors": {
+            "u": 0.00042620548700811334,
+            "v": 0.0007726930675835408
+          },
+          "min_J": 0.6750051905979185,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.003378032347717143
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 0.0011601916343226826,
+            "v": 0.0017500709145057414
+          },
+          "nodal_errors": {
+            "u": 0.0010244346568644147,
+            "v": 0.0017418159357758256
+          },
+          "min_J": 0.6748939551592793,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.006757031061386811
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 0.006101816239729718,
+            "v": 0.011684916061299067
+          },
+          "nodal_errors": {
+            "u": 0.006053486617087378,
+            "v": 0.011444121671567054
+          },
+          "min_J": 0.6748389628381838,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.016907470319417927
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1a_fd_moving_time_half.npz",
+      "profile_sha256": "b4ae978741c029e5380149c7ebb9c418c785a63adf56c6dc85eb79c65e2d3b7f"
+    },
+    {
+      "spec": {
+        "case": "fig1a",
+        "model": "fd",
+        "mesh": "moving",
+        "variant": "x_half",
+        "nx": 512,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.05
+      },
+      "status": "stopped",
+      "reached": 0.036875,
+      "reason": "state magnitude >1000 or nonfinite",
+      "moved_steps": 295,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 4.969090605655424e-06,
+            "v": 4.236612922259297e-06
+          },
+          "nodal_errors": {
+            "u": 2.7755575615628914e-16,
+            "v": 0.0
+          },
+          "min_J": 0.6749317439522043,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 5.3801750966808726e-05,
+            "v": 0.00013004955647244465
+          },
+          "nodal_errors": {
+            "u": 5.200217131795526e-05,
+            "v": 0.00012639256719770842
+          },
+          "min_J": 0.6749873845106293,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0016897362650287262
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 0.00011648773195305218,
+            "v": 0.0002658186852035893
+          },
+          "nodal_errors": {
+            "u": 0.00011172651168034342,
+            "v": 0.00025858073301221474
+          },
+          "min_J": 0.6750051703013467,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0033789657440478956
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 0.0013048952200671593,
+            "v": 0.0011058781280162133
+          },
+          "nodal_errors": {
+            "u": 0.0012570308018557963,
+            "v": 0.0009368605172164202
+          },
+          "min_J": 0.6748964477238405,
+          "min_R": 0.9999999999999991,
+          "max_displacement": 0.006756570960038193
+        },
+        {
+          "t": 0.036875,
+          "errors": {
+            "u": 449.6615835352382,
+            "v": 476.6338673260637
+          },
+          "nodal_errors": {
+            "u": 175.08012161013326,
+            "v": 446.1803801688112
+          },
+          "min_J": 0.12314801469122727,
+          "min_R": 0.7905287402781589,
+          "max_displacement": 0.036821082528826404
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1a_fd_moving_x_half.npz",
+      "profile_sha256": "110fcb4726d101d8b63eb990037c3a9257e61da16d9f0493f56b0f77a5938d14"
+    },
+    {
+      "spec": {
+        "case": "fig1a",
+        "model": "fd",
+        "mesh": "moving",
+        "variant": "y_half",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.0625,
+        "dt": 0.000125,
+        "T": 0.05
+      },
+      "status": "completed",
+      "reached": 0.05,
+      "reason": "",
+      "moved_steps": 400,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 8.744976399732707e-05,
+            "v": 7.685355034237062e-05
+          },
+          "nodal_errors": {
+            "u": 6.661338147750939e-16,
+            "v": 0.0
+          },
+          "min_J": 0.6751325461934365,
+          "min_R": 1.0,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 0.0002617755033746949,
+            "v": 0.00032783062263863627
+          },
+          "nodal_errors": {
+            "u": 0.000166349786831832,
+            "v": 0.0003025707276469447
+          },
+          "min_J": 0.6750567198750763,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.0016872799880963511
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 0.00047410981078765957,
+            "v": 0.0006377890058475444
+          },
+          "nodal_errors": {
+            "u": 0.0003658339251209064,
+            "v": 0.0006326685176716307
+          },
+          "min_J": 0.6749888492915213,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.003374885300654905
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 0.0010259535472987302,
+            "v": 0.0014474655321170538
+          },
+          "nodal_errors": {
+            "u": 0.0008831838651017776,
+            "v": 0.0014472379901195875
+          },
+          "min_J": 0.6748778009622255,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.00675092951180963
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 0.005846365894236927,
+            "v": 0.011281106827156995
+          },
+          "nodal_errors": {
+            "u": 0.005812273400788381,
+            "v": 0.011262951554429357
+          },
+          "min_J": 0.6747874747226135,
+          "min_R": 0.9999999999999996,
+          "max_displacement": 0.016887280978612057
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1a_fd_moving_y_half.npz",
+      "profile_sha256": "4564d580dcd2dc2191207707201dad3734e23e63dc8eed3398f4fda01be4c2b6"
+    },
+    {
+      "spec": {
+        "case": "fig1a",
+        "model": "fd",
+        "mesh": "moving",
+        "variant": "y_quarter",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.03125,
+        "dt": 0.000125,
+        "T": 0.05
+      },
+      "status": "completed",
+      "reached": 0.05,
+      "reason": "",
+      "moved_steps": 400,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 8.746984644214528e-05,
+            "v": 7.686258753247799e-05
+          },
+          "nodal_errors": {
+            "u": 8.326672684688674e-16,
+            "v": 0.0
+          },
+          "min_J": 0.6751276758584098,
+          "min_R": 0.9999999999999994,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 0.00025568731267955336,
+            "v": 0.00030906036872857534
+          },
+          "nodal_errors": {
+            "u": 0.00015959551701749675,
+            "v": 0.00028543628623523
+          },
+          "min_J": 0.6750523257314862,
+          "min_R": 0.9999999999999994,
+          "max_displacement": 0.00168687401629887
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 0.00046051093409471555,
+            "v": 0.0006002985081798862
+          },
+          "nodal_errors": {
+            "u": 0.00035069003824417244,
+            "v": 0.0005976116697279377
+          },
+          "min_J": 0.6749847621434908,
+          "min_R": 0.9999999999999996,
+          "max_displacement": 0.0033741014115368333
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 0.0009927422730211521,
+            "v": 0.001376863667924999
+          },
+          "nodal_errors": {
+            "u": 0.0008477585540316301,
+            "v": 0.001372623363761205
+          },
+          "min_J": 0.6748737443141368,
+          "min_R": 0.9999999999999996,
+          "max_displacement": 0.006749413162313008
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 0.005780080107038454,
+            "v": 0.011191851146672205
+          },
+          "nodal_errors": {
+            "u": 0.005752255212633672,
+            "v": 0.011190571569444696
+          },
+          "min_J": 0.6747742315051282,
+          "min_R": 0.9999999999999994,
+          "max_displacement": 0.016882242580323826
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1a_fd_moving_y_quarter.npz",
+      "profile_sha256": "0cb95237e34b54a57543c501ab6c461d84125f4493f594eb11bd7615a5c2a620"
+    },
+    {
+      "spec": {
+        "case": "fig1a",
+        "model": "fd",
+        "mesh": "moving",
+        "variant": "domain_double",
+        "nx": 512,
+        "L": 80.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 1.0
+      },
+      "status": "stopped",
+      "reached": 0.10575,
+      "reason": "nonpositive mesh Jacobian",
+      "moved_steps": 846,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 8.28341118777054e-05,
+            "v": 7.283761176024584e-05
+          },
+          "nodal_errors": {
+            "u": 3.3306690738754696e-16,
+            "v": 0.0
+          },
+          "min_J": 0.6689872110574365,
+          "min_R": 0.9999999999999998,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 0.0002776515138944724,
+            "v": 0.0003878911886037173
+          },
+          "nodal_errors": {
+            "u": 0.00018461901719635243,
+            "v": 0.00036507214741110516
+          },
+          "min_J": 0.6689053138998009,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.0016886748942988826
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 0.0005154041561750144,
+            "v": 0.0007628422795649126
+          },
+          "nodal_errors": {
+            "u": 0.00040668877644178814,
+            "v": 0.0007588356083949588
+          },
+          "min_J": 0.6688319844705427,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.0033775927476588814
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 0.001131889619532922,
+            "v": 0.0017094128348422721
+          },
+          "nodal_errors": {
+            "u": 0.0009859808178722673,
+            "v": 0.0017088015618265118
+          },
+          "min_J": 0.6687120674503686,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.006756255408196412
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 0.0060373686189389986,
+            "v": 0.011875476007094043
+          },
+          "nodal_errors": {
+            "u": 0.006035219937074565,
+            "v": 0.01183060052687579
+          },
+          "min_J": 0.6686286140371045,
+          "min_R": 0.9999999999999996,
+          "max_displacement": 0.0169065830955401
+        },
+        {
+          "t": 0.1,
+          "errors": {
+            "u": 25.31527068974192,
+            "v": 24.536819615448977
+          },
+          "nodal_errors": {
+            "u": 23.898857898403104,
+            "v": 23.792052383051704
+          },
+          "min_J": 0.5099489038423908,
+          "min_R": 0.9999999999999836,
+          "max_displacement": 0.051769305954659436
+        },
+        {
+          "t": 0.10575,
+          "errors": {
+            "u": 396.31607684149503,
+            "v": 1236.7344402565611
+          },
+          "nodal_errors": {
+            "u": 157.27325274398925,
+            "v": 754.0531276493798
+          },
+          "min_J": 0.020685978848233755,
+          "min_R": 0.6468260295197681,
+          "max_displacement": 0.09236562235197779
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1a_fd_moving_domain_double.npz",
+      "profile_sha256": "f378fadc2534e2002cef6236af83e5c666d64e11d5bb235719791f6e2c338c46"
+    },
+    {
+      "spec": {
+        "case": "fig1b",
+        "model": "structure",
+        "mesh": "fixed",
+        "variant": "base",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.05
+      },
+      "status": "completed",
+      "reached": 0.05,
+      "reason": "",
+      "moved_steps": 0,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 5.060932537492846e-07,
+            "v": 6.039533679280673e-07
+          },
+          "nodal_errors": {
+            "u": 4.163336342344337e-17,
+            "v": 1.6653345369377348e-16
+          },
+          "min_J": 1.0,
+          "min_R": 1.0000000011293957,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 3.9214357028249935e-06,
+            "v": 1.5638779705118289e-06
+          },
+          "nodal_errors": {
+            "u": 3.9185624272075614e-06,
+            "v": 1.3756506286322079e-06
+          },
+          "min_J": 1.0,
+          "min_R": 1.0000000011592356,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 7.835417345947171e-06,
+            "v": 2.934949485333682e-06
+          },
+          "nodal_errors": {
+            "u": 7.833384503663776e-06,
+            "v": 2.7677568161244004e-06
+          },
+          "min_J": 1.0,
+          "min_R": 1.000000001233416,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 1.5605505228610816e-05,
+            "v": 5.735134702089528e-06
+          },
+          "nodal_errors": {
+            "u": 1.5601061352232826e-05,
+            "v": 5.574349979609039e-06
+          },
+          "min_J": 1.0,
+          "min_R": 1.0000000012453174,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 3.826011774774041e-05,
+            "v": 1.4583777420695831e-05
+          },
+          "nodal_errors": {
+            "u": 3.8252907182512175e-05,
+            "v": 1.43739076506888e-05
+          },
+          "min_J": 1.0,
+          "min_R": 0.999999999358965,
+          "max_displacement": 0.0
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1b_structure_fixed_base.npz",
+      "profile_sha256": "dd6d46cea6be61c991a65da15c079d199924102e31e196626a1aed084ddd43aa"
+    },
+    {
+      "spec": {
+        "case": "fig1b",
+        "model": "structure",
+        "mesh": "fixed",
+        "variant": "time_half",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 6.25e-05,
+        "T": 0.05
+      },
+      "status": "completed",
+      "reached": 0.05,
+      "reason": "",
+      "moved_steps": 0,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 5.060932537492846e-07,
+            "v": 6.039533679280673e-07
+          },
+          "nodal_errors": {
+            "u": 4.163336342344337e-17,
+            "v": 1.6653345369377348e-16
+          },
+          "min_J": 1.0,
+          "min_R": 1.0000000011293957,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 3.921435702880505e-06,
+            "v": 1.5638779705118289e-06
+          },
+          "nodal_errors": {
+            "u": 3.918562427263073e-06,
+            "v": 1.3756506282436298e-06
+          },
+          "min_J": 1.0,
+          "min_R": 1.0000000011592356,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 7.835417346002682e-06,
+            "v": 2.9349494851671487e-06
+          },
+          "nodal_errors": {
+            "u": 7.833384503719287e-06,
+            "v": 2.767756815957867e-06
+          },
+          "min_J": 1.0,
+          "min_R": 1.000000001233416,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 1.5605505228610816e-05,
+            "v": 5.735134701922995e-06
+          },
+          "nodal_errors": {
+            "u": 1.5601061352232826e-05,
+            "v": 5.574349980330684e-06
+          },
+          "min_J": 1.0,
+          "min_R": 1.0000000012453174,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 3.8260117749516764e-05,
+            "v": 1.4583777421361965e-05
+          },
+          "nodal_errors": {
+            "u": 3.825290718423302e-05,
+            "v": 1.4373907650133688e-05
+          },
+          "min_J": 1.0,
+          "min_R": 0.999999999358965,
+          "max_displacement": 0.0
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1b_structure_fixed_time_half.npz",
+      "profile_sha256": "1a5f77dbd853e8cc6bb0303fdb92a27eb48c7ec6bf1561b0dfa89579e239e7a5"
+    },
+    {
+      "spec": {
+        "case": "fig1b",
+        "model": "structure",
+        "mesh": "fixed",
+        "variant": "x_half",
+        "nx": 512,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.05
+      },
+      "status": "completed",
+      "reached": 0.05,
+      "reason": "",
+      "moved_steps": 0,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 3.106610974024093e-08,
+            "v": 3.717571772643424e-08
+          },
+          "nodal_errors": {
+            "u": 4.163336342344337e-17,
+            "v": 2.220446049250313e-16
+          },
+          "min_J": 1.0,
+          "min_R": 1.0000000011293957,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 4.642086701811543e-06,
+            "v": 1.6340047186980122e-06
+          },
+          "nodal_errors": {
+            "u": 4.639103913794962e-06,
+            "v": 1.6285554346184838e-06
+          },
+          "min_J": 1.0,
+          "min_R": 1.0000000011812453,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 9.263975595641405e-06,
+            "v": 3.266463749485027e-06
+          },
+          "nodal_errors": {
+            "u": 9.26376555127062e-06,
+            "v": 3.2564440368143543e-06
+          },
+          "min_J": 1.0,
+          "min_R": 1.0000000007022176,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 1.842709069227455e-05,
+            "v": 6.540789555975479e-06
+          },
+          "nodal_errors": {
+            "u": 1.841352323983525e-05,
+            "v": 6.53426243196753e-06
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999896772201,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 4.513371919762088e-05,
+            "v": 1.6525368449982203e-05
+          },
+          "nodal_errors": {
+            "u": 0.009858671492147964,
+            "v": 0.009503497649979337
+          },
+          "min_J": 1.0,
+          "min_R": 0.999882192905048,
+          "max_displacement": 0.0
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1b_structure_fixed_x_half.npz",
+      "profile_sha256": "4c59593d977443afa34297eb9b4e37b041cf7834afd806795233ded67b6814d5"
+    },
+    {
+      "spec": {
+        "case": "fig1b",
+        "model": "structure",
+        "mesh": "fixed",
+        "variant": "y_half",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.0625,
+        "dt": 0.000125,
+        "T": 0.05
+      },
+      "status": "completed",
+      "reached": 0.05,
+      "reason": "",
+      "moved_steps": 0,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 5.062702187474954e-07,
+            "v": 6.041315400717728e-07
+          },
+          "nodal_errors": {
+            "u": 2.7755575615628914e-17,
+            "v": 3.3306690738754696e-16
+          },
+          "min_J": 1.0,
+          "min_R": 1.0000000011298096,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 1.3835875751211368e-06,
+            "v": 5.531256627167025e-07
+          },
+          "nodal_errors": {
+            "u": 1.0153395636480766e-06,
+            "v": 4.1023562169506533e-07
+          },
+          "min_J": 1.0,
+          "min_R": 1.000000001160333,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 2.373854412540677e-06,
+            "v": 9.303007530991891e-07
+          },
+          "nodal_errors": {
+            "u": 2.035833290503497e-06,
+            "v": 8.338541474528505e-07
+          },
+          "min_J": 1.0,
+          "min_R": 1.000000001236775,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 4.370082026805555e-06,
+            "v": 1.7935168806770818e-06
+          },
+          "nodal_errors": {
+            "u": 4.0567799367563495e-06,
+            "v": 1.7190100343733583e-06
+          },
+          "min_J": 1.0,
+          "min_R": 1.0000000012409807,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 1.0519838922584679e-05,
+            "v": 4.779298594326242e-06
+          },
+          "nodal_errors": {
+            "u": 1.010087236619217e-05,
+            "v": 4.720017134585142e-06
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999992770421,
+          "max_displacement": 0.0
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1b_structure_fixed_y_half.npz",
+      "profile_sha256": "b2fb2a4edf7be43c0438542a9b4be5616df044c4206f7c3f92a229d447eb8c7b"
+    },
+    {
+      "spec": {
+        "case": "fig1b",
+        "model": "structure",
+        "mesh": "fixed",
+        "variant": "y_quarter",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.03125,
+        "dt": 0.000125,
+        "T": 0.05
+      },
+      "status": "completed",
+      "reached": 0.05,
+      "reason": "",
+      "moved_steps": 0,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 5.062551383661074e-07,
+            "v": 6.041163955194939e-07
+          },
+          "nodal_errors": {
+            "u": 8.326672684688674e-17,
+            "v": 7.771561172376096e-16
+          },
+          "min_J": 1.0,
+          "min_R": 1.0000000011299128,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 9.700856802852265e-07,
+            "v": 6.27173882716825e-07
+          },
+          "nodal_errors": {
+            "u": 6.826275282811878e-07,
+            "v": 3.468141387963364e-07
+          },
+          "min_J": 1.0,
+          "min_R": 1.0000000011607995,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 1.6032890223782736e-06,
+            "v": 7.683222150167701e-07
+          },
+          "nodal_errors": {
+            "u": 1.3678587380550056e-06,
+            "v": 6.817403944148204e-07
+          },
+          "min_J": 1.0,
+          "min_R": 1.0000000012384027,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 2.94179701931796e-06,
+            "v": 1.4549106843730897e-06
+          },
+          "nodal_errors": {
+            "u": 2.7156978469333737e-06,
+            "v": 1.383507741870016e-06
+          },
+          "min_J": 1.0,
+          "min_R": 1.0000000012386505,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 6.874802944867309e-06,
+            "v": 3.904681008137789e-06
+          },
+          "nodal_errors": {
+            "u": 6.6165574077459155e-06,
+            "v": 3.8225231171473695e-06
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999992355606,
+          "max_displacement": 0.0
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1b_structure_fixed_y_quarter.npz",
+      "profile_sha256": "0797de71f97e5c18c037ca19e8894be5ccd097d287a1e6b196154ef7c86927d6"
+    },
+    {
+      "spec": {
+        "case": "fig1b",
+        "model": "structure",
+        "mesh": "fixed",
+        "variant": "domain_double",
+        "nx": 512,
+        "L": 80.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 1.0
+      },
+      "status": "stopped",
+      "reached": 0.431,
+      "reason": "nonpositive monitor density",
+      "moved_steps": 0,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 5.060932537492846e-07,
+            "v": 6.039533679280673e-07
+          },
+          "nodal_errors": {
+            "u": 4.163336342344337e-17,
+            "v": 1.6653345369377348e-16
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 3.9214357028249935e-06,
+            "v": 1.5638779705118289e-06
+          },
+          "nodal_errors": {
+            "u": 3.9185624272075614e-06,
+            "v": 1.3756506286322079e-06
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 7.835417345947171e-06,
+            "v": 2.934949485333682e-06
+          },
+          "nodal_errors": {
+            "u": 7.833384503663776e-06,
+            "v": 2.7677568161244004e-06
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 1.5605505228610816e-05,
+            "v": 5.735134702089528e-06
+          },
+          "nodal_errors": {
+            "u": 1.5601061352232826e-05,
+            "v": 5.574349979609039e-06
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 3.826011774774041e-05,
+            "v": 1.4583777420695831e-05
+          },
+          "nodal_errors": {
+            "u": 3.8252907182512175e-05,
+            "v": 1.43739076506888e-05
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.1,
+          "errors": {
+            "u": 7.267901198207416e-05,
+            "v": 3.091082431350145e-05
+          },
+          "nodal_errors": {
+            "u": 7.265100239522981e-05,
+            "v": 3.0850509775803836e-05
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999876,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.25,
+          "errors": {
+            "u": 0.0003064568023977629,
+            "v": 0.0003047327686391682
+          },
+          "nodal_errors": {
+            "u": 0.0003061069977241815,
+            "v": 0.0003047455601204868
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999943240383,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.431,
+          "errors": {
+            "u": 95.91416695569467,
+            "v": 246.10478261680143
+          },
+          "nodal_errors": {
+            "u": 88.63424246955111,
+            "v": 239.0504824776288
+          },
+          "min_J": 1.0,
+          "min_R": 0.0025956662489476923,
+          "max_displacement": 0.0
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1b_structure_fixed_domain_double.npz",
+      "profile_sha256": "64871a86b7cf14d521281b369f2fd43e0c4df8468c4101a7802e90413ad21fca"
+    },
+    {
+      "spec": {
+        "case": "fig1b",
+        "model": "structure",
+        "mesh": "moving",
+        "variant": "base",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.05
+      },
+      "status": "completed",
+      "reached": 0.05,
+      "reason": "",
+      "moved_steps": 400,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 3.7005698516612284e-07,
+            "v": 4.418252517179866e-07
+          },
+          "nodal_errors": {
+            "u": 2.7755575615628914e-17,
+            "v": 1.6653345369377348e-16
+          },
+          "min_J": 0.9044585188362098,
+          "min_R": 1.0000000011293957,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 4.230677628114243e-06,
+            "v": 1.6171793330577167e-06
+          },
+          "nodal_errors": {
+            "u": 4.2207634972091235e-06,
+            "v": 1.511606234849694e-06
+          },
+          "min_J": 0.9044788042341363,
+          "min_R": 1.0000000011585177,
+          "max_displacement": 0.0037346878498032716
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 8.41954570207637e-06,
+            "v": 3.1232775912215516e-06
+          },
+          "nodal_errors": {
+            "u": 8.404278587059721e-06,
+            "v": 3.0325937016573157e-06
+          },
+          "min_J": 0.9045401901157231,
+          "min_R": 1.0000000012306032,
+          "max_displacement": 0.007467952539757142
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 1.675763628439242e-05,
+            "v": 6.184102727013752e-06
+          },
+          "nodal_errors": {
+            "u": 1.675624789088115e-05,
+            "v": 6.09094126169385e-06
+          },
+          "min_J": 0.9044645511469491,
+          "min_R": 1.0000000012551669,
+          "max_displacement": 0.014924536039136894
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 4.1052797627672e-05,
+            "v": 1.5617677090296045e-05
+          },
+          "nodal_errors": {
+            "u": 4.105259110165349e-05,
+            "v": 1.55117034971175e-05
+          },
+          "min_J": 0.9044778781284935,
+          "min_R": 0.9999999995488595,
+          "max_displacement": 0.03728795281806241
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1b_structure_moving_base.npz",
+      "profile_sha256": "83606b240f9691735dda537c8077174523edc7c2c1a53d74dc95a0b30a2a7f2e"
+    },
+    {
+      "spec": {
+        "case": "fig1b",
+        "model": "structure",
+        "mesh": "moving",
+        "variant": "time_half",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 6.25e-05,
+        "T": 0.05
+      },
+      "status": "completed",
+      "reached": 0.05,
+      "reason": "",
+      "moved_steps": 800,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 3.7005698516612284e-07,
+            "v": 4.418252517179866e-07
+          },
+          "nodal_errors": {
+            "u": 2.7755575615628914e-17,
+            "v": 1.6653345369377348e-16
+          },
+          "min_J": 0.9044585188362098,
+          "min_R": 1.0000000011293957,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 4.2306776281697545e-06,
+            "v": 1.617179332780161e-06
+          },
+          "nodal_errors": {
+            "u": 4.220763497264635e-06,
+            "v": 1.511606235238272e-06
+          },
+          "min_J": 0.9044788042341363,
+          "min_R": 1.0000000011585177,
+          "max_displacement": 0.0037346878498032746
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 8.419545702187392e-06,
+            "v": 3.12327759066644e-06
+          },
+          "nodal_errors": {
+            "u": 8.404278587115233e-06,
+            "v": 3.0325937011577153e-06
+          },
+          "min_J": 0.9045401901157231,
+          "min_R": 1.0000000012306032,
+          "max_displacement": 0.007467952539757146
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 1.6757636284725486e-05,
+            "v": 6.184102726181084e-06
+          },
+          "nodal_errors": {
+            "u": 1.6756247891214215e-05,
+            "v": 6.090941261305272e-06
+          },
+          "min_J": 0.904464551146949,
+          "min_R": 1.0000000012551669,
+          "max_displacement": 0.014924536039136908
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 4.105279762850467e-05,
+            "v": 1.5617677082024883e-05
+          },
+          "nodal_errors": {
+            "u": 4.105259110265269e-05,
+            "v": 1.551170348784714e-05
+          },
+          "min_J": 0.9044778781284938,
+          "min_R": 0.9999999995488595,
+          "max_displacement": 0.037287952818062436
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1b_structure_moving_time_half.npz",
+      "profile_sha256": "351a9062919a893a3d32061b30a5507cd7f1feb3e8b137bddc6503ed8f9dcbbf"
+    },
+    {
+      "spec": {
+        "case": "fig1b",
+        "model": "structure",
+        "mesh": "moving",
+        "variant": "x_half",
+        "nx": 512,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.05
+      },
+      "status": "completed",
+      "reached": 0.05,
+      "reason": "",
+      "moved_steps": 400,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 2.2845020819506345e-08,
+            "v": 2.735389553754075e-08
+          },
+          "nodal_errors": {
+            "u": 2.7755575615628914e-17,
+            "v": 2.220446049250313e-16
+          },
+          "min_J": 0.90445791765221,
+          "min_R": 1.0000000011293957,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 4.6665071588569695e-06,
+            "v": 1.640828586391141e-06
+          },
+          "nodal_errors": {
+            "u": 4.666484874460419e-06,
+            "v": 1.6373993069751513e-06
+          },
+          "min_J": 0.9044782133420907,
+          "min_R": 1.0000000011838737,
+          "max_displacement": 0.0037346873447417052
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 9.311401389711094e-06,
+            "v": 3.281618287886978e-06
+          },
+          "nodal_errors": {
+            "u": 9.31034923973284e-06,
+            "v": 3.273497212352705e-06
+          },
+          "min_J": 0.9044595805610998,
+          "min_R": 1.0000000007475203,
+          "max_displacement": 0.007467950368598099
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 1.8516917136168765e-05,
+            "v": 6.571580665526433e-06
+          },
+          "nodal_errors": {
+            "u": 1.8516936348966784e-05,
+            "v": 6.567364643883522e-06
+          },
+          "min_J": 0.9044640016866787,
+          "min_R": 0.9999999910776477,
+          "max_displacement": 0.014935615554764636
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 0.0012281890878298451,
+            "v": 0.0011470944195214883
+          },
+          "nodal_errors": {
+            "u": 0.0067849023931485135,
+            "v": 0.0064449924890092785
+          },
+          "min_J": 0.9044777786048146,
+          "min_R": 0.9999182481956277,
+          "max_displacement": 0.037283935645524305
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1b_structure_moving_x_half.npz",
+      "profile_sha256": "6ba08f5e067607d48800d1fd2462cf732c8c4eacfd9bd49112df66bdd1d8985f"
+    },
+    {
+      "spec": {
+        "case": "fig1b",
+        "model": "structure",
+        "mesh": "moving",
+        "variant": "y_half",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.0625,
+        "dt": 0.000125,
+        "T": 0.05
+      },
+      "status": "completed",
+      "reached": 0.05,
+      "reason": "",
+      "moved_steps": 400,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 3.699068896190205e-07,
+            "v": 4.4167612850420923e-07
+          },
+          "nodal_errors": {
+            "u": 3.469446951953614e-17,
+            "v": 3.3306690738754696e-16
+          },
+          "min_J": 0.9044601324472261,
+          "min_R": 1.0000000011298096,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 1.047410356058709e-06,
+            "v": 5.105993007292753e-07
+          },
+          "nodal_errors": {
+            "u": 7.319496085345101e-07,
+            "v": 3.4323941372482736e-07
+          },
+          "min_J": 0.9044806115158268,
+          "min_R": 1.0000000011595898,
+          "max_displacement": 0.003734531182754624
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 1.7644797228877351e-06,
+            "v": 8.295441524808211e-07
+          },
+          "nodal_errors": {
+            "u": 1.4611383787332954e-06,
+            "v": 6.964493161620844e-07
+          },
+          "min_J": 0.904542177509864,
+          "min_R": 1.0000000012338541,
+          "max_displacement": 0.007467641850843007
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 3.2306140514970494e-06,
+            "v": 1.550234267899686e-06
+          },
+          "nodal_errors": {
+            "u": 2.9317021736918747e-06,
+            "v": 1.4202769081927968e-06
+          },
+          "min_J": 0.9044657636971879,
+          "min_R": 1.000000001251049,
+          "max_displacement": 0.014923927956844054
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 7.803563054353813e-06,
+            "v": 3.979538505005653e-06
+          },
+          "nodal_errors": {
+            "u": 7.492090658978157e-06,
+            "v": 3.839268551797392e-06
+          },
+          "min_J": 0.904479000648374,
+          "min_R": 0.9999999994731427,
+          "max_displacement": 0.037286814314858724
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1b_structure_moving_y_half.npz",
+      "profile_sha256": "505350a43fdd1cc6c68b15a9be0c120cacdcef97c5d51483e035fab1d01fb95d"
+    },
+    {
+      "spec": {
+        "case": "fig1b",
+        "model": "structure",
+        "mesh": "moving",
+        "variant": "y_quarter",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.03125,
+        "dt": 0.000125,
+        "T": 0.05
+      },
+      "status": "completed",
+      "reached": 0.05,
+      "reason": "",
+      "moved_steps": 400,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 3.700372001036456e-07,
+            "v": 4.4180811231697703e-07
+          },
+          "nodal_errors": {
+            "u": 9.71445146547012e-17,
+            "v": 6.661338147750939e-16
+          },
+          "min_J": 0.9044605355318039,
+          "min_R": 1.0000000011299128,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 5.823322121734087e-07,
+            "v": 4.774412158403685e-07
+          },
+          "nodal_errors": {
+            "u": 3.918017617010605e-07,
+            "v": 2.612555961012397e-07
+          },
+          "min_J": 0.9044810630169634,
+          "min_R": 1.0000000011600432,
+          "max_displacement": 0.0037344920346949416
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 9.274103004996981e-07,
+            "v": 6.936203204577218e-07
+          },
+          "nodal_errors": {
+            "u": 7.807088614475433e-07,
+            "v": 5.337569797259079e-07
+          },
+          "min_J": 0.9045426740221614,
+          "min_R": 1.0000000012354266,
+          "max_displacement": 0.007467564237857582
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 1.6802729955189832e-06,
+            "v": 1.2471694236237951e-06
+          },
+          "nodal_errors": {
+            "u": 1.5720731849633296e-06,
+            "v": 1.1058045165657227e-06
+          },
+          "min_J": 0.9044660663986761,
+          "min_R": 1.0000000012488295,
+          "max_displacement": 0.014923776151285017
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 4.108641593641993e-06,
+            "v": 3.188226188000076e-06
+          },
+          "nodal_errors": {
+            "u": 4.107898151611833e-06,
+            "v": 3.0433436737919983e-06
+          },
+          "min_J": 0.904479280103237,
+          "min_R": 0.9999999994347908,
+          "max_displacement": 0.037286531015866924
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1b_structure_moving_y_quarter.npz",
+      "profile_sha256": "69a2923f99e06a5108d4a2c88ea067a7afd68bcb135a3cbd46caa4d7718ca652"
+    },
+    {
+      "spec": {
+        "case": "fig1b",
+        "model": "structure",
+        "mesh": "moving",
+        "variant": "domain_double",
+        "nx": 512,
+        "L": 80.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 1.0
+      },
+      "status": "stopped",
+      "reached": 0.275625,
+      "reason": "state magnitude >1000 or nonfinite",
+      "moved_steps": 2205,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 3.6035664946476587e-07,
+            "v": 4.302633463404426e-07
+          },
+          "nodal_errors": {
+            "u": 2.7755575615628914e-17,
+            "v": 1.6653345369377348e-16
+          },
+          "min_J": 0.8988754444747649,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 4.242581044588967e-06,
+            "v": 1.6168966323060197e-06
+          },
+          "nodal_errors": {
+            "u": 4.2328173564532e-06,
+            "v": 1.5148157204714074e-06
+          },
+          "min_J": 0.8988956049268029,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.0037346878770542547
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 8.444016407149757e-06,
+            "v": 3.1263644890699993e-06
+          },
+          "nodal_errors": {
+            "u": 8.429072289539707e-06,
+            "v": 3.038932227472646e-06
+          },
+          "min_J": 0.8989566122480934,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.007467952565341993
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 1.6801518700426676e-05,
+            "v": 6.1937143556733965e-06
+          },
+          "nodal_errors": {
+            "u": 1.6800440871655997e-05,
+            "v": 6.1029084097441455e-06
+          },
+          "min_J": 0.8988808696082298,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.014924535960546253
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 4.11729725299792e-05,
+            "v": 1.5643161801637273e-05
+          },
+          "nodal_errors": {
+            "u": 4.117295530364773e-05,
+            "v": 1.553685301841634e-05
+          },
+          "min_J": 0.8988969032255166,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.03728775975855987
+        },
+        {
+          "t": 0.1,
+          "errors": {
+            "u": 7.894045209771994e-05,
+            "v": 3.2454933497683136e-05
+          },
+          "nodal_errors": {
+            "u": 7.890286768019728e-05,
+            "v": 3.244946519775915e-05
+          },
+          "min_J": 0.8989604480553178,
+          "min_R": 0.9999999999999712,
+          "max_displacement": 0.07421080541455866
+        },
+        {
+          "t": 0.25,
+          "errors": {
+            "u": 4.546390531844384,
+            "v": 7.141941697826624
+          },
+          "nodal_errors": {
+            "u": 4.332392926173762,
+            "v": 6.830685316059135
+          },
+          "min_J": 0.8579427482942402,
+          "min_R": 0.9999999893734433,
+          "max_displacement": 0.18503161273849877
+        },
+        {
+          "t": 0.275625,
+          "errors": {
+            "u": 300.91949832443066,
+            "v": 1459.1381781764455
+          },
+          "nodal_errors": {
+            "u": 163.56201905135245,
+            "v": 1230.5689886681823
+          },
+          "min_J": 0.31215345753248236,
+          "min_R": 0.4529888603309403,
+          "max_displacement": 0.30151839351118725
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1b_structure_moving_domain_double.npz",
+      "profile_sha256": "41120d79394bd32ecabeed1ef73a2c9c3d2955dd8ae773effc4652b66af334b1"
+    },
+    {
+      "spec": {
+        "case": "fig1b",
+        "model": "fd",
+        "mesh": "fixed",
+        "variant": "base",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.05
+      },
+      "status": "completed",
+      "reached": 0.05,
+      "reason": "",
+      "moved_steps": 0,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 5.060932537492846e-07,
+            "v": 6.039533679280673e-07
+          },
+          "nodal_errors": {
+            "u": 4.163336342344337e-17,
+            "v": 0.0
+          },
+          "min_J": 1.0,
+          "min_R": 1.0000000011293957,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 2.25256100705451e-06,
+            "v": 9.68075123508605e-07
+          },
+          "nodal_errors": {
+            "u": 2.240950923770857e-06,
+            "v": 5.872742274148912e-07
+          },
+          "min_J": 1.0,
+          "min_R": 1.0000000011603385,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 4.486662027458621e-06,
+            "v": 1.540057544158202e-06
+          },
+          "nodal_errors": {
+            "u": 4.477575874572981e-06,
+            "v": 1.2177095239374047e-06
+          },
+          "min_J": 1.0,
+          "min_R": 1.0000000012334198,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 8.875818184761464e-06,
+            "v": 2.8401377009101836e-06
+          },
+          "nodal_errors": {
+            "u": 8.874521188029227e-06,
+            "v": 2.6036417629660136e-06
+          },
+          "min_J": 1.0,
+          "min_R": 1.0000000012479402,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 2.195279606542755e-05,
+            "v": 7.720569980218528e-06
+          },
+          "nodal_errors": {
+            "u": 2.192205818452031e-05,
+            "v": 7.71944748290121e-06
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999993727204,
+          "max_displacement": 0.0
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1b_fd_fixed_base.npz",
+      "profile_sha256": "cb4afbdc7ecff30eb1a8851564940ffeabbbd07078acc77885e7caafc70720f8"
+    },
+    {
+      "spec": {
+        "case": "fig1b",
+        "model": "fd",
+        "mesh": "fixed",
+        "variant": "time_half",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 6.25e-05,
+        "T": 0.05
+      },
+      "status": "completed",
+      "reached": 0.05,
+      "reason": "",
+      "moved_steps": 0,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 5.060932537492846e-07,
+            "v": 6.039533679280673e-07
+          },
+          "nodal_errors": {
+            "u": 4.163336342344337e-17,
+            "v": 0.0
+          },
+          "min_J": 1.0,
+          "min_R": 1.0000000011293957,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 2.2525610069989987e-06,
+            "v": 9.680751237306495e-07
+          },
+          "nodal_errors": {
+            "u": 2.2409509236598346e-06,
+            "v": 5.872742271928466e-07
+          },
+          "min_J": 1.0,
+          "min_R": 1.0000000011603385,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 4.486662027292088e-06,
+            "v": 1.5400575438251352e-06
+          },
+          "nodal_errors": {
+            "u": 4.4775758744064476e-06,
+            "v": 1.2177095237153601e-06
+          },
+          "min_J": 1.0,
+          "min_R": 1.0000000012334198,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 8.87581818459493e-06,
+            "v": 2.840137700355072e-06
+          },
+          "nodal_errors": {
+            "u": 8.874521187862694e-06,
+            "v": 2.6036417630215247e-06
+          },
+          "min_J": 1.0,
+          "min_R": 1.0000000012479402,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 2.195279606592715e-05,
+            "v": 7.720569978941771e-06
+          },
+          "nodal_errors": {
+            "u": 2.192205818551951e-05,
+            "v": 7.719447481735475e-06
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999993727204,
+          "max_displacement": 0.0
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1b_fd_fixed_time_half.npz",
+      "profile_sha256": "8e16a1536757f60e86ba3b110a5a1c7863e2b3abadf9c6478fa27ea292f5e5b4"
+    },
+    {
+      "spec": {
+        "case": "fig1b",
+        "model": "fd",
+        "mesh": "fixed",
+        "variant": "x_half",
+        "nx": 512,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.05
+      },
+      "status": "completed",
+      "reached": 0.05,
+      "reason": "",
+      "moved_steps": 0,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 3.106610974024093e-08,
+            "v": 3.717571772643424e-08
+          },
+          "nodal_errors": {
+            "u": 4.163336342344337e-17,
+            "v": 0.0
+          },
+          "min_J": 1.0,
+          "min_R": 1.0000000011293957,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 1.385243840801298e-06,
+            "v": 8.330566351744118e-07
+          },
+          "nodal_errors": {
+            "u": 1.384947743099385e-06,
+            "v": 8.209344621312731e-07
+          },
+          "min_J": 1.0,
+          "min_R": 1.000000001198738,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 2.769999673191137e-06,
+            "v": 1.6678910071954434e-06
+          },
+          "nodal_errors": {
+            "u": 2.7699163985817066e-06,
+            "v": 1.6662098951680804e-06
+          },
+          "min_J": 1.0,
+          "min_R": 1.0000000007146053,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 5.532396564866815e-06,
+            "v": 3.426514855353613e-06
+          },
+          "nodal_errors": {
+            "u": 5.5240824670677036e-06,
+            "v": 3.426514855353613e-06
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999906010297,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 1.3791124064965743e-05,
+            "v": 9.197367205449059e-06
+          },
+          "nodal_errors": {
+            "u": 0.009148533537783046,
+            "v": 0.008908535030677671
+          },
+          "min_J": 1.0,
+          "min_R": 0.9998981796865758,
+          "max_displacement": 0.0
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1b_fd_fixed_x_half.npz",
+      "profile_sha256": "f40fdaee6a1504065a8f6fd71c3d6a9e52e366a0704d39c24ebc36d46f2d787d"
+    },
+    {
+      "spec": {
+        "case": "fig1b",
+        "model": "fd",
+        "mesh": "fixed",
+        "variant": "y_half",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.0625,
+        "dt": 0.000125,
+        "T": 0.05
+      },
+      "status": "completed",
+      "reached": 0.05,
+      "reason": "",
+      "moved_steps": 0,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 5.062702187474954e-07,
+            "v": 6.041315400717728e-07
+          },
+          "nodal_errors": {
+            "u": 2.7755575615628914e-17,
+            "v": 0.0
+          },
+          "min_J": 1.0,
+          "min_R": 1.0000000011298096,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 1.257452700464956e-06,
+            "v": 6.141080681754119e-07
+          },
+          "nodal_errors": {
+            "u": 1.2448488415084391e-06,
+            "v": 1.514353963338877e-07
+          },
+          "min_J": 1.0,
+          "min_R": 1.000000001160888,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 2.5006433460594835e-06,
+            "v": 6.449817406273262e-07
+          },
+          "nodal_errors": {
+            "u": 2.48968127275484e-06,
+            "v": 3.130705871212669e-07
+          },
+          "min_J": 1.0,
+          "min_R": 1.0000000012367711,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 4.956874362249675e-06,
+            "v": 8.88611353444535e-07
+          },
+          "nodal_errors": {
+            "u": 4.952563516735786e-06,
+            "v": 6.746243554345277e-07
+          },
+          "min_J": 1.0,
+          "min_R": 1.0000000012423322,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 1.2160643847902719e-05,
+            "v": 2.296286174208184e-06
+          },
+          "nodal_errors": {
+            "u": 1.2158301406661742e-05,
+            "v": 2.0842425109135476e-06
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999992855771,
+          "max_displacement": 0.0
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1b_fd_fixed_y_half.npz",
+      "profile_sha256": "febeace5e9e22da31b1bc5bd955cc3b55852511e22fb8dbb25cfd4d63ca96752"
+    },
+    {
+      "spec": {
+        "case": "fig1b",
+        "model": "fd",
+        "mesh": "fixed",
+        "variant": "y_quarter",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.03125,
+        "dt": 0.000125,
+        "T": 0.05
+      },
+      "status": "completed",
+      "reached": 0.05,
+      "reason": "",
+      "moved_steps": 0,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 5.062551383661074e-07,
+            "v": 6.041163955194939e-07
+          },
+          "nodal_errors": {
+            "u": 8.326672684688674e-17,
+            "v": 0.0
+          },
+          "min_J": 1.0,
+          "min_R": 1.0000000011299128,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 1.0066258822605256e-06,
+            "v": 6.42787502447284e-07
+          },
+          "nodal_errors": {
+            "u": 9.957542128624652e-07,
+            "v": 2.5678055359801277e-07
+          },
+          "min_J": 1.0,
+          "min_R": 1.0000000011610777,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 2.0077559820808055e-06,
+            "v": 7.545626136695738e-07
+          },
+          "nodal_errors": {
+            "u": 1.9968878880449736e-06,
+            "v": 5.230235116115978e-07
+          },
+          "min_J": 1.0,
+          "min_R": 1.0000000012383983,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 3.99577109716498e-06,
+            "v": 1.1958903498032747e-06
+          },
+          "nodal_errors": {
+            "u": 3.9886128360699935e-06,
+            "v": 1.0982513316548648e-06
+          },
+          "min_J": 1.0,
+          "min_R": 1.0000000012393369,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 9.798037861274977e-06,
+            "v": 3.231313662255264e-06
+          },
+          "nodal_errors": {
+            "u": 9.791142600024116e-06,
+            "v": 3.0976395498649723e-06
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999992402798,
+          "max_displacement": 0.0
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1b_fd_fixed_y_quarter.npz",
+      "profile_sha256": "3a409952265f6643c51c0e61f836f5fdd7c0442b6df5730396fbe77e44662a2b"
+    },
+    {
+      "spec": {
+        "case": "fig1b",
+        "model": "fd",
+        "mesh": "fixed",
+        "variant": "domain_double",
+        "nx": 512,
+        "L": 80.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 1.0
+      },
+      "status": "stopped",
+      "reached": 0.442125,
+      "reason": "nonpositive monitor density",
+      "moved_steps": 0,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 5.060932537492846e-07,
+            "v": 6.039533679280673e-07
+          },
+          "nodal_errors": {
+            "u": 4.163336342344337e-17,
+            "v": 0.0
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 2.25256100705451e-06,
+            "v": 9.68075123508605e-07
+          },
+          "nodal_errors": {
+            "u": 2.240950923770857e-06,
+            "v": 5.872742274148912e-07
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 4.486662027458621e-06,
+            "v": 1.540057544158202e-06
+          },
+          "nodal_errors": {
+            "u": 4.477575874572981e-06,
+            "v": 1.2177095239374047e-06
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 8.875818184761464e-06,
+            "v": 2.8401377009101836e-06
+          },
+          "nodal_errors": {
+            "u": 8.874521188029227e-06,
+            "v": 2.6036417629660136e-06
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 2.195279606542755e-05,
+            "v": 7.720569980218528e-06
+          },
+          "nodal_errors": {
+            "u": 2.192205818452031e-05,
+            "v": 7.71944748290121e-06
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.1,
+          "errors": {
+            "u": 4.157139723398595e-05,
+            "v": 1.8934357960131987e-05
+          },
+          "nodal_errors": {
+            "u": 4.1322785963970876e-05,
+            "v": 1.892546664911121e-05
+          },
+          "min_J": 1.0,
+          "min_R": 0.999999999999997,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.25,
+          "errors": {
+            "u": 0.00031005807208157876,
+            "v": 0.0002849183821467538
+          },
+          "nodal_errors": {
+            "u": 0.0002955476071965779,
+            "v": 0.0002766349550392261
+          },
+          "min_J": 1.0,
+          "min_R": 0.9999999964474335,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.442125,
+          "errors": {
+            "u": 91.47475201253586,
+            "v": 360.80534706020006
+          },
+          "nodal_errors": {
+            "u": 88.43475053513258,
+            "v": 354.05819986828624
+          },
+          "min_J": 1.0,
+          "min_R": 0.008012505949129944,
+          "max_displacement": 0.0
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1b_fd_fixed_domain_double.npz",
+      "profile_sha256": "5ee022bf022d8be16fddffea9901c502b6926be4ba45f6e7b22a25a07e91b3be"
+    },
+    {
+      "spec": {
+        "case": "fig1b",
+        "model": "fd",
+        "mesh": "moving",
+        "variant": "base",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.05
+      },
+      "status": "completed",
+      "reached": 0.05,
+      "reason": "",
+      "moved_steps": 400,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 3.7005698516612284e-07,
+            "v": 4.418252517179866e-07
+          },
+          "nodal_errors": {
+            "u": 2.7755575615628914e-17,
+            "v": 0.0
+          },
+          "min_J": 0.9044585188362098,
+          "min_R": 1.0000000011293957,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 1.7936062968182398e-06,
+            "v": 9.83871433324346e-07
+          },
+          "nodal_errors": {
+            "u": 1.784175175767455e-06,
+            "v": 7.268983988617528e-07
+          },
+          "min_J": 0.9044787989116125,
+          "min_R": 1.000000001159575,
+          "max_displacement": 0.0037346960945516404
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 3.5798707945233765e-06,
+            "v": 1.6975730521839871e-06
+          },
+          "nodal_errors": {
+            "u": 3.563907162829061e-06,
+            "v": 1.484658338490874e-06
+          },
+          "min_J": 0.9045401695942914,
+          "min_R": 1.0000000012305952,
+          "max_displacement": 0.0074679859163290195
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 7.189793720996374e-06,
+            "v": 3.249210693279103e-06
+          },
+          "nodal_errors": {
+            "u": 7.167578217948112e-06,
+            "v": 3.087416300340262e-06
+          },
+          "min_J": 0.9044644575794167,
+          "min_R": 1.0000000012576176,
+          "max_displacement": 0.01492467246009357
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 1.788017882176085e-05,
+            "v": 8.578073683318532e-06
+          },
+          "nodal_errors": {
+            "u": 1.774158053874375e-05,
+            "v": 8.54949096223967e-06
+          },
+          "min_J": 0.9044773007466079,
+          "min_R": 0.9999999995550156,
+          "max_displacement": 0.037288781861013906
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1b_fd_moving_base.npz",
+      "profile_sha256": "9de4f3532c49aee51dd3eb42e96521933ae2a0d98c86c6a1bdeb406162f54299"
+    },
+    {
+      "spec": {
+        "case": "fig1b",
+        "model": "fd",
+        "mesh": "moving",
+        "variant": "time_half",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 6.25e-05,
+        "T": 0.05
+      },
+      "status": "completed",
+      "reached": 0.05,
+      "reason": "",
+      "moved_steps": 800,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 3.7005698516612284e-07,
+            "v": 4.418252517179866e-07
+          },
+          "nodal_errors": {
+            "u": 2.7755575615628914e-17,
+            "v": 0.0
+          },
+          "min_J": 0.9044585188362098,
+          "min_R": 1.0000000011293957,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 1.7936062967627286e-06,
+            "v": 9.838714332688347e-07
+          },
+          "nodal_errors": {
+            "u": 1.784175175711944e-06,
+            "v": 7.268983988062416e-07
+          },
+          "min_J": 0.9044787989116124,
+          "min_R": 1.000000001159575,
+          "max_displacement": 0.0037346960945516447
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 3.5798707944123542e-06,
+            "v": 1.697573052128476e-06
+          },
+          "nodal_errors": {
+            "u": 3.5639071627180385e-06,
+            "v": 1.4846583382688294e-06
+          },
+          "min_J": 0.9045401695942914,
+          "min_R": 1.0000000012305952,
+          "max_displacement": 0.007467985916329025
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 7.189793720774329e-06,
+            "v": 3.249210693279103e-06
+          },
+          "nodal_errors": {
+            "u": 7.167578217726067e-06,
+            "v": 3.08741630022924e-06
+          },
+          "min_J": 0.904464457579417,
+          "min_R": 1.0000000012576176,
+          "max_displacement": 0.014924672460093578
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 1.7880178824536408e-05,
+            "v": 8.578073684373244e-06
+          },
+          "nodal_errors": {
+            "u": 1.7741580541685842e-05,
+            "v": 8.549490957743267e-06
+          },
+          "min_J": 0.9044773007466085,
+          "min_R": 0.9999999995550156,
+          "max_displacement": 0.03728878186101392
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1b_fd_moving_time_half.npz",
+      "profile_sha256": "c479f7f353cc27eac27cc5e6ecd1ba4eadded765c89d8579067f05da0f4c6773"
+    },
+    {
+      "spec": {
+        "case": "fig1b",
+        "model": "fd",
+        "mesh": "moving",
+        "variant": "x_half",
+        "nx": 512,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.05
+      },
+      "status": "completed",
+      "reached": 0.05,
+      "reason": "",
+      "moved_steps": 400,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 2.2845020819506345e-08,
+            "v": 2.735389553754075e-08
+          },
+          "nodal_errors": {
+            "u": 2.7755575615628914e-17,
+            "v": 0.0
+          },
+          "min_J": 0.90445791765221,
+          "min_R": 1.0000000011293957,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 1.3561005543505367e-06,
+            "v": 8.376037916035806e-07
+          },
+          "nodal_errors": {
+            "u": 1.3561005215989574e-06,
+            "v": 8.296338998015074e-07
+          },
+          "min_J": 0.9044782080079006,
+          "min_R": 1.0000000012008436,
+          "max_displacement": 0.0037346955834433745
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 2.710019528562313e-06,
+            "v": 1.683981281253022e-06
+          },
+          "nodal_errors": {
+            "u": 2.708854300037533e-06,
+            "v": 1.6839838016813324e-06
+          },
+          "min_J": 0.9044595577663025,
+          "min_R": 1.0000000007579726,
+          "max_displacement": 0.007467983722889861
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 5.424765651129704e-06,
+            "v": 3.4578287252395867e-06
+          },
+          "nodal_errors": {
+            "u": 5.424616376148439e-06,
+            "v": 3.4568348943331273e-06
+          },
+          "min_J": 0.904463908010763,
+          "min_R": 0.9999999918731043,
+          "max_displacement": 0.014935745619632818
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 0.0011327825912302303,
+            "v": 0.001098169295188356
+          },
+          "nodal_errors": {
+            "u": 0.006303078913243291,
+            "v": 0.006050277588217463
+          },
+          "min_J": 0.9044774048134053,
+          "min_R": 0.9999292315732171,
+          "max_displacement": 0.03728524559945516
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1b_fd_moving_x_half.npz",
+      "profile_sha256": "29d07655739da0f0dc4a89d2084f76c9f554badd6a461e4080ccaf624d876cea"
+    },
+    {
+      "spec": {
+        "case": "fig1b",
+        "model": "fd",
+        "mesh": "moving",
+        "variant": "y_half",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.0625,
+        "dt": 0.000125,
+        "T": 0.05
+      },
+      "status": "completed",
+      "reached": 0.05,
+      "reason": "",
+      "moved_steps": 400,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 3.699068896190205e-07,
+            "v": 4.4167612850420923e-07
+          },
+          "nodal_errors": {
+            "u": 3.469446951953614e-17,
+            "v": 0.0
+          },
+          "min_J": 0.9044601324472261,
+          "min_R": 1.0000000011298096,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 8.271667389925241e-07,
+            "v": 5.291949817243236e-07
+          },
+          "nodal_errors": {
+            "u": 8.043778911837052e-07,
+            "v": 1.3902770068519033e-07
+          },
+          "min_J": 0.9044806101639383,
+          "min_R": 1.0000000011601222,
+          "max_displacement": 0.0037345332599972797
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 1.6263904907276583e-06,
+            "v": 6.477156362372227e-07
+          },
+          "nodal_errors": {
+            "u": 1.6128345562416158e-06,
+            "v": 2.886930196566162e-07
+          },
+          "min_J": 0.9045421722952329,
+          "min_R": 1.0000000012338448,
+          "max_displacement": 0.007467650261485369
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 3.2407389209399007e-06,
+            "v": 9.352100938109231e-07
+          },
+          "nodal_errors": {
+            "u": 3.2306244577284815e-06,
+            "v": 6.088951617355676e-07
+          },
+          "min_J": 0.9044657399715785,
+          "min_R": 1.0000000012523111,
+          "max_displacement": 0.014923962345926826
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 8.045720875704543e-06,
+            "v": 2.2070178388178263e-06
+          },
+          "nodal_errors": {
+            "u": 8.01829475721716e-06,
+            "v": 1.8814686689738735e-06
+          },
+          "min_J": 0.9044788542906141,
+          "min_R": 0.9999999994776443,
+          "max_displacement": 0.03728702336380363
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1b_fd_moving_y_half.npz",
+      "profile_sha256": "56f1401648c02ee940bd0bf8a4ec5b132c227c90d5902cb2eb99b296fb3de9d5"
+    },
+    {
+      "spec": {
+        "case": "fig1b",
+        "model": "fd",
+        "mesh": "moving",
+        "variant": "y_quarter",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.03125,
+        "dt": 0.000125,
+        "T": 0.05
+      },
+      "status": "completed",
+      "reached": 0.05,
+      "reason": "",
+      "moved_steps": 400,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 3.700372001036456e-07,
+            "v": 4.4180811231697703e-07
+          },
+          "nodal_errors": {
+            "u": 9.71445146547012e-17,
+            "v": 0.0
+          },
+          "min_J": 0.9044605355318039,
+          "min_R": 1.0000000011299128,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 6.083899550257676e-07,
+            "v": 5.018577435844662e-07
+          },
+          "nodal_errors": {
+            "u": 5.735943888196537e-07,
+            "v": 2.0453079563331755e-07
+          },
+          "min_J": 0.9044810626775428,
+          "min_R": 1.0000000011603098,
+          "max_displacement": 0.0037344925565908215
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 1.1555644251481922e-06,
+            "v": 6.048753372622784e-07
+          },
+          "nodal_errors": {
+            "u": 1.1480303800937008e-06,
+            "v": 4.168413845206942e-07
+          },
+          "min_J": 0.9045426727131628,
+          "min_R": 1.0000000012354193,
+          "max_displacement": 0.0074675663510092374
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 2.296593892781029e-06,
+            "v": 1.0426110375605369e-06
+          },
+          "nodal_errors": {
+            "u": 2.289202912897359e-06,
+            "v": 8.635562031011901e-07
+          },
+          "min_J": 0.9044660604376471,
+          "min_R": 1.0000000012494699,
+          "max_displacement": 0.014923784791613638
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 5.6925344585345705e-06,
+            "v": 2.6655408916220757e-06
+          },
+          "nodal_errors": {
+            "u": 5.689637966821426e-06,
+            "v": 2.447660914783878e-06
+          },
+          "min_J": 0.9044792433213532,
+          "min_R": 0.9999999994374302,
+          "max_displacement": 0.037286583550426064
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1b_fd_moving_y_quarter.npz",
+      "profile_sha256": "a1890a5440208592561bb3cf0388ea2e02e27688a1dc9bbb61a3113562b1da6d"
+    },
+    {
+      "spec": {
+        "case": "fig1b",
+        "model": "fd",
+        "mesh": "moving",
+        "variant": "domain_double",
+        "nx": 512,
+        "L": 80.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 1.0
+      },
+      "status": "stopped",
+      "reached": 0.27625,
+      "reason": "nonpositive monitor density",
+      "moved_steps": 2210,
+      "history": [
+        {
+          "t": 0.0,
+          "errors": {
+            "u": 3.6035664946476587e-07,
+            "v": 4.302633463404426e-07
+          },
+          "nodal_errors": {
+            "u": 2.7755575615628914e-17,
+            "v": 0.0
+          },
+          "min_J": 0.8988754444747649,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.0
+        },
+        {
+          "t": 0.005,
+          "errors": {
+            "u": 1.7822824757707245e-06,
+            "v": 9.771916277268033e-07
+          },
+          "nodal_errors": {
+            "u": 1.7734441195571549e-06,
+            "v": 7.295080245994789e-07
+          },
+          "min_J": 0.8988955996368329,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.0037346961215346157
+        },
+        {
+          "t": 0.01,
+          "errors": {
+            "u": 3.555723186665638e-06,
+            "v": 1.694540531005373e-06
+          },
+          "nodal_errors": {
+            "u": 3.5401582270666587e-06,
+            "v": 1.4897916740808093e-06
+          },
+          "min_J": 0.8989565918520248,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.007467985940848482
+        },
+        {
+          "t": 0.02,
+          "errors": {
+            "u": 7.142447275731989e-06,
+            "v": 3.2497958861732457e-06
+          },
+          "nodal_errors": {
+            "u": 7.120306153962641e-06,
+            "v": 3.096429833426839e-06
+          },
+          "min_J": 0.8988807767127067,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.014924672377314763
+        },
+        {
+          "t": 0.05,
+          "errors": {
+            "u": 1.776238992667878e-05,
+            "v": 8.591749406816618e-06
+          },
+          "nodal_errors": {
+            "u": 1.762634756813375e-05,
+            "v": 8.57081975941254e-06
+          },
+          "min_J": 0.8988963305200166,
+          "min_R": 0.9999999999999999,
+          "max_displacement": 0.037288589221843624
+        },
+        {
+          "t": 0.1,
+          "errors": {
+            "u": 3.517570160233019e-05,
+            "v": 1.996656530356411e-05
+          },
+          "nodal_errors": {
+            "u": 3.508688203240906e-05,
+            "v": 1.9900609903533706e-05
+          },
+          "min_J": 0.8989581374634145,
+          "min_R": 0.9999999999999878,
+          "max_displacement": 0.0742141374570281
+        },
+        {
+          "t": 0.25,
+          "errors": {
+            "u": 4.21448061304894,
+            "v": 6.5749308093551075
+          },
+          "nodal_errors": {
+            "u": 4.003008902743549,
+            "v": 6.279659827307261
+          },
+          "min_J": 0.8597669595324962,
+          "min_R": 0.9999999968230188,
+          "max_displacement": 0.18448406298977998
+        },
+        {
+          "t": 0.27625,
+          "errors": {
+            "u": 289.73060543978073,
+            "v": 906.244258916102
+          },
+          "nodal_errors": {
+            "u": 113.71529643116179,
+            "v": 905.8124344721679
+          },
+          "min_J": 0.282013004514027,
+          "min_R": 0.33662979584103936,
+          "max_displacement": 0.29610185959394764
+        }
+      ],
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\reliability\\fig1b_fd_moving_domain_double.npz",
+      "profile_sha256": "788b6375e948b34aa7c63b0e148100bb38a07925ed1434c083e0a37522bccd09"
+    }
+  ]
+}

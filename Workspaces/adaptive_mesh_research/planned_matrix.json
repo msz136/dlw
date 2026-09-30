@@ -1,0 +1,6171 @@
+{
+  "protocol": "EXPERIMENT_PROTOCOL.md",
+  "protocol_sha256": "0d5f25db61318d51641abe59a65a7d3a8b5b8b63c4c4e0b1885184e299f15895",
+  "status": "design_only_not_solver_ready",
+  "executed_runs": 0,
+  "blocking_setup": [
+    "E0 common spatial model and boundary implementation",
+    "monitor strengths and event schedule from development",
+    "reference controls and timestep calibration"
+  ],
+  "counts": {
+    "E2": 180,
+    "E2_dt_control": 60,
+    "E3": 216
+  },
+  "cases": [
+    {
+      "id": "HS_DEV_01",
+      "system": "2HS",
+      "c": 1,
+      "p": 3,
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ],
+      "resolutions": [
+        100,
+        200,
+        400
+      ],
+      "resolution_unit": "physical_cells"
+    },
+    {
+      "id": "HS_DEV_02",
+      "system": "2HS",
+      "c": 1,
+      "p": 4,
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ],
+      "resolutions": [
+        100,
+        200,
+        400
+      ],
+      "resolution_unit": "physical_cells"
+    },
+    {
+      "id": "HS_DEV_03",
+      "system": "2HS",
+      "c": 1,
+      "p": 5,
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ],
+      "resolutions": [
+        100,
+        200,
+        400
+      ],
+      "resolution_unit": "physical_cells"
+    },
+    {
+      "id": "HS_DEV_04",
+      "system": "2HS",
+      "c": 1,
+      "p": 6,
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ],
+      "resolutions": [
+        100,
+        200,
+        400
+      ],
+      "resolution_unit": "physical_cells"
+    },
+    {
+      "id": "HS_DEV_05",
+      "system": "2HS",
+      "c": 1,
+      "p": 8,
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ],
+      "resolutions": [
+        100,
+        200,
+        400
+      ],
+      "resolution_unit": "physical_cells"
+    },
+    {
+      "id": "HS_DEV_06",
+      "system": "2HS",
+      "c": 1,
+      "p": 12,
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ],
+      "resolutions": [
+        100,
+        200,
+        400
+      ],
+      "resolution_unit": "physical_cells"
+    },
+    {
+      "id": "DLW_DEV_01",
+      "system": "DLW",
+      "a": 4,
+      "p": 1,
+      "q": 2,
+      "h": 0.125,
+      "x_c": 0,
+      "gram_amplitude": 3,
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ],
+      "resolutions": [
+        64,
+        128,
+        256
+      ],
+      "resolution_unit": "physical_x_points"
+    },
+    {
+      "id": "DLW_DEV_02",
+      "system": "DLW",
+      "a": 4,
+      "p": 2,
+      "q": 3,
+      "h": 0.125,
+      "x_c": 0,
+      "gram_amplitude": 5,
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ],
+      "resolutions": [
+        64,
+        128,
+        256
+      ],
+      "resolution_unit": "physical_x_points"
+    },
+    {
+      "id": "DLW_DEV_03",
+      "system": "DLW",
+      "a": 6,
+      "p": 1,
+      "q": 3,
+      "h": 0.125,
+      "x_c": 0,
+      "gram_amplitude": 4,
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ],
+      "resolutions": [
+        64,
+        128,
+        256
+      ],
+      "resolution_unit": "physical_x_points"
+    },
+    {
+      "id": "DLW_DEV_04",
+      "system": "DLW",
+      "a": 4,
+      "p": 2,
+      "q": 1,
+      "h": 0.125,
+      "x_c": 0,
+      "gram_amplitude": 3,
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ],
+      "resolutions": [
+        64,
+        128,
+        256
+      ],
+      "resolution_unit": "physical_x_points"
+    },
+    {
+      "id": "DLW_DEV_05",
+      "system": "DLW",
+      "a": 2,
+      "p": 1.5,
+      "q": 2,
+      "h": 0.125,
+      "x_c": 0,
+      "gram_amplitude": 3.5,
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ],
+      "resolutions": [
+        64,
+        128,
+        256
+      ],
+      "resolution_unit": "physical_x_points"
+    },
+    {
+      "id": "DLW_DEV_06",
+      "system": "DLW",
+      "a": 3.5,
+      "p": 0.75,
+      "q": 1.5,
+      "h": 0.125,
+      "x_c": 0,
+      "gram_amplitude": 2.25,
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ],
+      "resolutions": [
+        64,
+        128,
+        256
+      ],
+      "resolution_unit": "physical_x_points"
+    }
+  ],
+  "runs": [
+    {
+      "id": "E2_HS_DEV_01_M0_N100",
+      "stage": "E2",
+      "case": "HS_DEV_01",
+      "monitor": "M0",
+      "resolution": 100,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_01_M0_N200",
+      "stage": "E2",
+      "case": "HS_DEV_01",
+      "monitor": "M0",
+      "resolution": 200,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_01_M0_N400",
+      "stage": "E2",
+      "case": "HS_DEV_01",
+      "monitor": "M0",
+      "resolution": 400,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_01_M1_N100",
+      "stage": "E2",
+      "case": "HS_DEV_01",
+      "monitor": "M1",
+      "resolution": 100,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_01_M1_N200",
+      "stage": "E2",
+      "case": "HS_DEV_01",
+      "monitor": "M1",
+      "resolution": 200,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_01_M1_N400",
+      "stage": "E2",
+      "case": "HS_DEV_01",
+      "monitor": "M1",
+      "resolution": 400,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_01_M2_N100",
+      "stage": "E2",
+      "case": "HS_DEV_01",
+      "monitor": "M2",
+      "resolution": 100,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_01_M2_N200",
+      "stage": "E2",
+      "case": "HS_DEV_01",
+      "monitor": "M2",
+      "resolution": 200,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_01_M2_N400",
+      "stage": "E2",
+      "case": "HS_DEV_01",
+      "monitor": "M2",
+      "resolution": 400,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_01_M3_N100",
+      "stage": "E2",
+      "case": "HS_DEV_01",
+      "monitor": "M3",
+      "resolution": 100,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_01_M3_N200",
+      "stage": "E2",
+      "case": "HS_DEV_01",
+      "monitor": "M3",
+      "resolution": 200,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_01_M3_N400",
+      "stage": "E2",
+      "case": "HS_DEV_01",
+      "monitor": "M3",
+      "resolution": 400,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_01_M4_N100",
+      "stage": "E2",
+      "case": "HS_DEV_01",
+      "monitor": "M4",
+      "resolution": 100,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_01_M4_N200",
+      "stage": "E2",
+      "case": "HS_DEV_01",
+      "monitor": "M4",
+      "resolution": 200,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_01_M4_N400",
+      "stage": "E2",
+      "case": "HS_DEV_01",
+      "monitor": "M4",
+      "resolution": 400,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2control_HS_DEV_01_M0",
+      "stage": "E2_dt_control",
+      "case": "HS_DEV_01",
+      "monitor": "M0",
+      "resolution": 200,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_HS_DEV_01_M1",
+      "stage": "E2_dt_control",
+      "case": "HS_DEV_01",
+      "monitor": "M1",
+      "resolution": 200,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_HS_DEV_01_M2",
+      "stage": "E2_dt_control",
+      "case": "HS_DEV_01",
+      "monitor": "M2",
+      "resolution": 200,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_HS_DEV_01_M3",
+      "stage": "E2_dt_control",
+      "case": "HS_DEV_01",
+      "monitor": "M3",
+      "resolution": 200,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_HS_DEV_01_M4",
+      "stage": "E2_dt_control",
+      "case": "HS_DEV_01",
+      "monitor": "M4",
+      "resolution": 200,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2_HS_DEV_02_M0_N100",
+      "stage": "E2",
+      "case": "HS_DEV_02",
+      "monitor": "M0",
+      "resolution": 100,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_02_M0_N200",
+      "stage": "E2",
+      "case": "HS_DEV_02",
+      "monitor": "M0",
+      "resolution": 200,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_02_M0_N400",
+      "stage": "E2",
+      "case": "HS_DEV_02",
+      "monitor": "M0",
+      "resolution": 400,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_02_M1_N100",
+      "stage": "E2",
+      "case": "HS_DEV_02",
+      "monitor": "M1",
+      "resolution": 100,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_02_M1_N200",
+      "stage": "E2",
+      "case": "HS_DEV_02",
+      "monitor": "M1",
+      "resolution": 200,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_02_M1_N400",
+      "stage": "E2",
+      "case": "HS_DEV_02",
+      "monitor": "M1",
+      "resolution": 400,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_02_M2_N100",
+      "stage": "E2",
+      "case": "HS_DEV_02",
+      "monitor": "M2",
+      "resolution": 100,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_02_M2_N200",
+      "stage": "E2",
+      "case": "HS_DEV_02",
+      "monitor": "M2",
+      "resolution": 200,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_02_M2_N400",
+      "stage": "E2",
+      "case": "HS_DEV_02",
+      "monitor": "M2",
+      "resolution": 400,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_02_M3_N100",
+      "stage": "E2",
+      "case": "HS_DEV_02",
+      "monitor": "M3",
+      "resolution": 100,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_02_M3_N200",
+      "stage": "E2",
+      "case": "HS_DEV_02",
+      "monitor": "M3",
+      "resolution": 200,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_02_M3_N400",
+      "stage": "E2",
+      "case": "HS_DEV_02",
+      "monitor": "M3",
+      "resolution": 400,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_02_M4_N100",
+      "stage": "E2",
+      "case": "HS_DEV_02",
+      "monitor": "M4",
+      "resolution": 100,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_02_M4_N200",
+      "stage": "E2",
+      "case": "HS_DEV_02",
+      "monitor": "M4",
+      "resolution": 200,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_02_M4_N400",
+      "stage": "E2",
+      "case": "HS_DEV_02",
+      "monitor": "M4",
+      "resolution": 400,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2control_HS_DEV_02_M0",
+      "stage": "E2_dt_control",
+      "case": "HS_DEV_02",
+      "monitor": "M0",
+      "resolution": 200,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_HS_DEV_02_M1",
+      "stage": "E2_dt_control",
+      "case": "HS_DEV_02",
+      "monitor": "M1",
+      "resolution": 200,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_HS_DEV_02_M2",
+      "stage": "E2_dt_control",
+      "case": "HS_DEV_02",
+      "monitor": "M2",
+      "resolution": 200,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_HS_DEV_02_M3",
+      "stage": "E2_dt_control",
+      "case": "HS_DEV_02",
+      "monitor": "M3",
+      "resolution": 200,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_HS_DEV_02_M4",
+      "stage": "E2_dt_control",
+      "case": "HS_DEV_02",
+      "monitor": "M4",
+      "resolution": 200,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2_HS_DEV_03_M0_N100",
+      "stage": "E2",
+      "case": "HS_DEV_03",
+      "monitor": "M0",
+      "resolution": 100,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_03_M0_N200",
+      "stage": "E2",
+      "case": "HS_DEV_03",
+      "monitor": "M0",
+      "resolution": 200,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_03_M0_N400",
+      "stage": "E2",
+      "case": "HS_DEV_03",
+      "monitor": "M0",
+      "resolution": 400,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_03_M1_N100",
+      "stage": "E2",
+      "case": "HS_DEV_03",
+      "monitor": "M1",
+      "resolution": 100,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_03_M1_N200",
+      "stage": "E2",
+      "case": "HS_DEV_03",
+      "monitor": "M1",
+      "resolution": 200,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_03_M1_N400",
+      "stage": "E2",
+      "case": "HS_DEV_03",
+      "monitor": "M1",
+      "resolution": 400,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_03_M2_N100",
+      "stage": "E2",
+      "case": "HS_DEV_03",
+      "monitor": "M2",
+      "resolution": 100,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_03_M2_N200",
+      "stage": "E2",
+      "case": "HS_DEV_03",
+      "monitor": "M2",
+      "resolution": 200,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_03_M2_N400",
+      "stage": "E2",
+      "case": "HS_DEV_03",
+      "monitor": "M2",
+      "resolution": 400,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_03_M3_N100",
+      "stage": "E2",
+      "case": "HS_DEV_03",
+      "monitor": "M3",
+      "resolution": 100,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_03_M3_N200",
+      "stage": "E2",
+      "case": "HS_DEV_03",
+      "monitor": "M3",
+      "resolution": 200,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_03_M3_N400",
+      "stage": "E2",
+      "case": "HS_DEV_03",
+      "monitor": "M3",
+      "resolution": 400,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_03_M4_N100",
+      "stage": "E2",
+      "case": "HS_DEV_03",
+      "monitor": "M4",
+      "resolution": 100,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_03_M4_N200",
+      "stage": "E2",
+      "case": "HS_DEV_03",
+      "monitor": "M4",
+      "resolution": 200,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_03_M4_N400",
+      "stage": "E2",
+      "case": "HS_DEV_03",
+      "monitor": "M4",
+      "resolution": 400,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2control_HS_DEV_03_M0",
+      "stage": "E2_dt_control",
+      "case": "HS_DEV_03",
+      "monitor": "M0",
+      "resolution": 200,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_HS_DEV_03_M1",
+      "stage": "E2_dt_control",
+      "case": "HS_DEV_03",
+      "monitor": "M1",
+      "resolution": 200,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_HS_DEV_03_M2",
+      "stage": "E2_dt_control",
+      "case": "HS_DEV_03",
+      "monitor": "M2",
+      "resolution": 200,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_HS_DEV_03_M3",
+      "stage": "E2_dt_control",
+      "case": "HS_DEV_03",
+      "monitor": "M3",
+      "resolution": 200,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_HS_DEV_03_M4",
+      "stage": "E2_dt_control",
+      "case": "HS_DEV_03",
+      "monitor": "M4",
+      "resolution": 200,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2_HS_DEV_04_M0_N100",
+      "stage": "E2",
+      "case": "HS_DEV_04",
+      "monitor": "M0",
+      "resolution": 100,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_04_M0_N200",
+      "stage": "E2",
+      "case": "HS_DEV_04",
+      "monitor": "M0",
+      "resolution": 200,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_04_M0_N400",
+      "stage": "E2",
+      "case": "HS_DEV_04",
+      "monitor": "M0",
+      "resolution": 400,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_04_M1_N100",
+      "stage": "E2",
+      "case": "HS_DEV_04",
+      "monitor": "M1",
+      "resolution": 100,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_04_M1_N200",
+      "stage": "E2",
+      "case": "HS_DEV_04",
+      "monitor": "M1",
+      "resolution": 200,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_04_M1_N400",
+      "stage": "E2",
+      "case": "HS_DEV_04",
+      "monitor": "M1",
+      "resolution": 400,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_04_M2_N100",
+      "stage": "E2",
+      "case": "HS_DEV_04",
+      "monitor": "M2",
+      "resolution": 100,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_04_M2_N200",
+      "stage": "E2",
+      "case": "HS_DEV_04",
+      "monitor": "M2",
+      "resolution": 200,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_04_M2_N400",
+      "stage": "E2",
+      "case": "HS_DEV_04",
+      "monitor": "M2",
+      "resolution": 400,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_04_M3_N100",
+      "stage": "E2",
+      "case": "HS_DEV_04",
+      "monitor": "M3",
+      "resolution": 100,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_04_M3_N200",
+      "stage": "E2",
+      "case": "HS_DEV_04",
+      "monitor": "M3",
+      "resolution": 200,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_04_M3_N400",
+      "stage": "E2",
+      "case": "HS_DEV_04",
+      "monitor": "M3",
+      "resolution": 400,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_04_M4_N100",
+      "stage": "E2",
+      "case": "HS_DEV_04",
+      "monitor": "M4",
+      "resolution": 100,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_04_M4_N200",
+      "stage": "E2",
+      "case": "HS_DEV_04",
+      "monitor": "M4",
+      "resolution": 200,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_04_M4_N400",
+      "stage": "E2",
+      "case": "HS_DEV_04",
+      "monitor": "M4",
+      "resolution": 400,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2control_HS_DEV_04_M0",
+      "stage": "E2_dt_control",
+      "case": "HS_DEV_04",
+      "monitor": "M0",
+      "resolution": 200,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_HS_DEV_04_M1",
+      "stage": "E2_dt_control",
+      "case": "HS_DEV_04",
+      "monitor": "M1",
+      "resolution": 200,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_HS_DEV_04_M2",
+      "stage": "E2_dt_control",
+      "case": "HS_DEV_04",
+      "monitor": "M2",
+      "resolution": 200,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_HS_DEV_04_M3",
+      "stage": "E2_dt_control",
+      "case": "HS_DEV_04",
+      "monitor": "M3",
+      "resolution": 200,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_HS_DEV_04_M4",
+      "stage": "E2_dt_control",
+      "case": "HS_DEV_04",
+      "monitor": "M4",
+      "resolution": 200,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2_HS_DEV_05_M0_N100",
+      "stage": "E2",
+      "case": "HS_DEV_05",
+      "monitor": "M0",
+      "resolution": 100,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_05_M0_N200",
+      "stage": "E2",
+      "case": "HS_DEV_05",
+      "monitor": "M0",
+      "resolution": 200,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_05_M0_N400",
+      "stage": "E2",
+      "case": "HS_DEV_05",
+      "monitor": "M0",
+      "resolution": 400,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_05_M1_N100",
+      "stage": "E2",
+      "case": "HS_DEV_05",
+      "monitor": "M1",
+      "resolution": 100,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_05_M1_N200",
+      "stage": "E2",
+      "case": "HS_DEV_05",
+      "monitor": "M1",
+      "resolution": 200,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_05_M1_N400",
+      "stage": "E2",
+      "case": "HS_DEV_05",
+      "monitor": "M1",
+      "resolution": 400,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_05_M2_N100",
+      "stage": "E2",
+      "case": "HS_DEV_05",
+      "monitor": "M2",
+      "resolution": 100,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_05_M2_N200",
+      "stage": "E2",
+      "case": "HS_DEV_05",
+      "monitor": "M2",
+      "resolution": 200,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_05_M2_N400",
+      "stage": "E2",
+      "case": "HS_DEV_05",
+      "monitor": "M2",
+      "resolution": 400,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_05_M3_N100",
+      "stage": "E2",
+      "case": "HS_DEV_05",
+      "monitor": "M3",
+      "resolution": 100,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_05_M3_N200",
+      "stage": "E2",
+      "case": "HS_DEV_05",
+      "monitor": "M3",
+      "resolution": 200,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_05_M3_N400",
+      "stage": "E2",
+      "case": "HS_DEV_05",
+      "monitor": "M3",
+      "resolution": 400,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_05_M4_N100",
+      "stage": "E2",
+      "case": "HS_DEV_05",
+      "monitor": "M4",
+      "resolution": 100,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_05_M4_N200",
+      "stage": "E2",
+      "case": "HS_DEV_05",
+      "monitor": "M4",
+      "resolution": 200,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_05_M4_N400",
+      "stage": "E2",
+      "case": "HS_DEV_05",
+      "monitor": "M4",
+      "resolution": 400,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2control_HS_DEV_05_M0",
+      "stage": "E2_dt_control",
+      "case": "HS_DEV_05",
+      "monitor": "M0",
+      "resolution": 200,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_HS_DEV_05_M1",
+      "stage": "E2_dt_control",
+      "case": "HS_DEV_05",
+      "monitor": "M1",
+      "resolution": 200,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_HS_DEV_05_M2",
+      "stage": "E2_dt_control",
+      "case": "HS_DEV_05",
+      "monitor": "M2",
+      "resolution": 200,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_HS_DEV_05_M3",
+      "stage": "E2_dt_control",
+      "case": "HS_DEV_05",
+      "monitor": "M3",
+      "resolution": 200,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_HS_DEV_05_M4",
+      "stage": "E2_dt_control",
+      "case": "HS_DEV_05",
+      "monitor": "M4",
+      "resolution": 200,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2_HS_DEV_06_M0_N100",
+      "stage": "E2",
+      "case": "HS_DEV_06",
+      "monitor": "M0",
+      "resolution": 100,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_06_M0_N200",
+      "stage": "E2",
+      "case": "HS_DEV_06",
+      "monitor": "M0",
+      "resolution": 200,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_06_M0_N400",
+      "stage": "E2",
+      "case": "HS_DEV_06",
+      "monitor": "M0",
+      "resolution": 400,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_06_M1_N100",
+      "stage": "E2",
+      "case": "HS_DEV_06",
+      "monitor": "M1",
+      "resolution": 100,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_06_M1_N200",
+      "stage": "E2",
+      "case": "HS_DEV_06",
+      "monitor": "M1",
+      "resolution": 200,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_06_M1_N400",
+      "stage": "E2",
+      "case": "HS_DEV_06",
+      "monitor": "M1",
+      "resolution": 400,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_06_M2_N100",
+      "stage": "E2",
+      "case": "HS_DEV_06",
+      "monitor": "M2",
+      "resolution": 100,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_06_M2_N200",
+      "stage": "E2",
+      "case": "HS_DEV_06",
+      "monitor": "M2",
+      "resolution": 200,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_06_M2_N400",
+      "stage": "E2",
+      "case": "HS_DEV_06",
+      "monitor": "M2",
+      "resolution": 400,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_06_M3_N100",
+      "stage": "E2",
+      "case": "HS_DEV_06",
+      "monitor": "M3",
+      "resolution": 100,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_06_M3_N200",
+      "stage": "E2",
+      "case": "HS_DEV_06",
+      "monitor": "M3",
+      "resolution": 200,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_06_M3_N400",
+      "stage": "E2",
+      "case": "HS_DEV_06",
+      "monitor": "M3",
+      "resolution": 400,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_06_M4_N100",
+      "stage": "E2",
+      "case": "HS_DEV_06",
+      "monitor": "M4",
+      "resolution": 100,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_06_M4_N200",
+      "stage": "E2",
+      "case": "HS_DEV_06",
+      "monitor": "M4",
+      "resolution": 200,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2_HS_DEV_06_M4_N400",
+      "stage": "E2",
+      "case": "HS_DEV_06",
+      "monitor": "M4",
+      "resolution": 400,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    },
+    {
+      "id": "E2control_HS_DEV_06_M0",
+      "stage": "E2_dt_control",
+      "case": "HS_DEV_06",
+      "monitor": "M0",
+      "resolution": 200,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_HS_DEV_06_M1",
+      "stage": "E2_dt_control",
+      "case": "HS_DEV_06",
+      "monitor": "M1",
+      "resolution": 200,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_HS_DEV_06_M2",
+      "stage": "E2_dt_control",
+      "case": "HS_DEV_06",
+      "monitor": "M2",
+      "resolution": 200,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_HS_DEV_06_M3",
+      "stage": "E2_dt_control",
+      "case": "HS_DEV_06",
+      "monitor": "M3",
+      "resolution": 200,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_HS_DEV_06_M4",
+      "stage": "E2_dt_control",
+      "case": "HS_DEV_06",
+      "monitor": "M4",
+      "resolution": 200,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2_DLW_DEV_01_M0_N64",
+      "stage": "E2",
+      "case": "DLW_DEV_01",
+      "monitor": "M0",
+      "resolution": 64,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_01_M0_N128",
+      "stage": "E2",
+      "case": "DLW_DEV_01",
+      "monitor": "M0",
+      "resolution": 128,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_01_M0_N256",
+      "stage": "E2",
+      "case": "DLW_DEV_01",
+      "monitor": "M0",
+      "resolution": 256,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_01_M1_N64",
+      "stage": "E2",
+      "case": "DLW_DEV_01",
+      "monitor": "M1",
+      "resolution": 64,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_01_M1_N128",
+      "stage": "E2",
+      "case": "DLW_DEV_01",
+      "monitor": "M1",
+      "resolution": 128,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_01_M1_N256",
+      "stage": "E2",
+      "case": "DLW_DEV_01",
+      "monitor": "M1",
+      "resolution": 256,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_01_M2_N64",
+      "stage": "E2",
+      "case": "DLW_DEV_01",
+      "monitor": "M2",
+      "resolution": 64,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_01_M2_N128",
+      "stage": "E2",
+      "case": "DLW_DEV_01",
+      "monitor": "M2",
+      "resolution": 128,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_01_M2_N256",
+      "stage": "E2",
+      "case": "DLW_DEV_01",
+      "monitor": "M2",
+      "resolution": 256,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_01_M3_N64",
+      "stage": "E2",
+      "case": "DLW_DEV_01",
+      "monitor": "M3",
+      "resolution": 64,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_01_M3_N128",
+      "stage": "E2",
+      "case": "DLW_DEV_01",
+      "monitor": "M3",
+      "resolution": 128,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_01_M3_N256",
+      "stage": "E2",
+      "case": "DLW_DEV_01",
+      "monitor": "M3",
+      "resolution": 256,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_01_M4_N64",
+      "stage": "E2",
+      "case": "DLW_DEV_01",
+      "monitor": "M4",
+      "resolution": 64,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_01_M4_N128",
+      "stage": "E2",
+      "case": "DLW_DEV_01",
+      "monitor": "M4",
+      "resolution": 128,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_01_M4_N256",
+      "stage": "E2",
+      "case": "DLW_DEV_01",
+      "monitor": "M4",
+      "resolution": 256,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2control_DLW_DEV_01_M0",
+      "stage": "E2_dt_control",
+      "case": "DLW_DEV_01",
+      "monitor": "M0",
+      "resolution": 128,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_DLW_DEV_01_M1",
+      "stage": "E2_dt_control",
+      "case": "DLW_DEV_01",
+      "monitor": "M1",
+      "resolution": 128,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_DLW_DEV_01_M2",
+      "stage": "E2_dt_control",
+      "case": "DLW_DEV_01",
+      "monitor": "M2",
+      "resolution": 128,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_DLW_DEV_01_M3",
+      "stage": "E2_dt_control",
+      "case": "DLW_DEV_01",
+      "monitor": "M3",
+      "resolution": 128,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_DLW_DEV_01_M4",
+      "stage": "E2_dt_control",
+      "case": "DLW_DEV_01",
+      "monitor": "M4",
+      "resolution": 128,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2_DLW_DEV_02_M0_N64",
+      "stage": "E2",
+      "case": "DLW_DEV_02",
+      "monitor": "M0",
+      "resolution": 64,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_02_M0_N128",
+      "stage": "E2",
+      "case": "DLW_DEV_02",
+      "monitor": "M0",
+      "resolution": 128,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_02_M0_N256",
+      "stage": "E2",
+      "case": "DLW_DEV_02",
+      "monitor": "M0",
+      "resolution": 256,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_02_M1_N64",
+      "stage": "E2",
+      "case": "DLW_DEV_02",
+      "monitor": "M1",
+      "resolution": 64,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_02_M1_N128",
+      "stage": "E2",
+      "case": "DLW_DEV_02",
+      "monitor": "M1",
+      "resolution": 128,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_02_M1_N256",
+      "stage": "E2",
+      "case": "DLW_DEV_02",
+      "monitor": "M1",
+      "resolution": 256,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_02_M2_N64",
+      "stage": "E2",
+      "case": "DLW_DEV_02",
+      "monitor": "M2",
+      "resolution": 64,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_02_M2_N128",
+      "stage": "E2",
+      "case": "DLW_DEV_02",
+      "monitor": "M2",
+      "resolution": 128,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_02_M2_N256",
+      "stage": "E2",
+      "case": "DLW_DEV_02",
+      "monitor": "M2",
+      "resolution": 256,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_02_M3_N64",
+      "stage": "E2",
+      "case": "DLW_DEV_02",
+      "monitor": "M3",
+      "resolution": 64,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_02_M3_N128",
+      "stage": "E2",
+      "case": "DLW_DEV_02",
+      "monitor": "M3",
+      "resolution": 128,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_02_M3_N256",
+      "stage": "E2",
+      "case": "DLW_DEV_02",
+      "monitor": "M3",
+      "resolution": 256,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_02_M4_N64",
+      "stage": "E2",
+      "case": "DLW_DEV_02",
+      "monitor": "M4",
+      "resolution": 64,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_02_M4_N128",
+      "stage": "E2",
+      "case": "DLW_DEV_02",
+      "monitor": "M4",
+      "resolution": 128,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_02_M4_N256",
+      "stage": "E2",
+      "case": "DLW_DEV_02",
+      "monitor": "M4",
+      "resolution": 256,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2control_DLW_DEV_02_M0",
+      "stage": "E2_dt_control",
+      "case": "DLW_DEV_02",
+      "monitor": "M0",
+      "resolution": 128,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_DLW_DEV_02_M1",
+      "stage": "E2_dt_control",
+      "case": "DLW_DEV_02",
+      "monitor": "M1",
+      "resolution": 128,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_DLW_DEV_02_M2",
+      "stage": "E2_dt_control",
+      "case": "DLW_DEV_02",
+      "monitor": "M2",
+      "resolution": 128,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_DLW_DEV_02_M3",
+      "stage": "E2_dt_control",
+      "case": "DLW_DEV_02",
+      "monitor": "M3",
+      "resolution": 128,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_DLW_DEV_02_M4",
+      "stage": "E2_dt_control",
+      "case": "DLW_DEV_02",
+      "monitor": "M4",
+      "resolution": 128,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2_DLW_DEV_03_M0_N64",
+      "stage": "E2",
+      "case": "DLW_DEV_03",
+      "monitor": "M0",
+      "resolution": 64,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_03_M0_N128",
+      "stage": "E2",
+      "case": "DLW_DEV_03",
+      "monitor": "M0",
+      "resolution": 128,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_03_M0_N256",
+      "stage": "E2",
+      "case": "DLW_DEV_03",
+      "monitor": "M0",
+      "resolution": 256,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_03_M1_N64",
+      "stage": "E2",
+      "case": "DLW_DEV_03",
+      "monitor": "M1",
+      "resolution": 64,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_03_M1_N128",
+      "stage": "E2",
+      "case": "DLW_DEV_03",
+      "monitor": "M1",
+      "resolution": 128,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_03_M1_N256",
+      "stage": "E2",
+      "case": "DLW_DEV_03",
+      "monitor": "M1",
+      "resolution": 256,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_03_M2_N64",
+      "stage": "E2",
+      "case": "DLW_DEV_03",
+      "monitor": "M2",
+      "resolution": 64,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_03_M2_N128",
+      "stage": "E2",
+      "case": "DLW_DEV_03",
+      "monitor": "M2",
+      "resolution": 128,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_03_M2_N256",
+      "stage": "E2",
+      "case": "DLW_DEV_03",
+      "monitor": "M2",
+      "resolution": 256,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_03_M3_N64",
+      "stage": "E2",
+      "case": "DLW_DEV_03",
+      "monitor": "M3",
+      "resolution": 64,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_03_M3_N128",
+      "stage": "E2",
+      "case": "DLW_DEV_03",
+      "monitor": "M3",
+      "resolution": 128,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_03_M3_N256",
+      "stage": "E2",
+      "case": "DLW_DEV_03",
+      "monitor": "M3",
+      "resolution": 256,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_03_M4_N64",
+      "stage": "E2",
+      "case": "DLW_DEV_03",
+      "monitor": "M4",
+      "resolution": 64,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_03_M4_N128",
+      "stage": "E2",
+      "case": "DLW_DEV_03",
+      "monitor": "M4",
+      "resolution": 128,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_03_M4_N256",
+      "stage": "E2",
+      "case": "DLW_DEV_03",
+      "monitor": "M4",
+      "resolution": 256,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2control_DLW_DEV_03_M0",
+      "stage": "E2_dt_control",
+      "case": "DLW_DEV_03",
+      "monitor": "M0",
+      "resolution": 128,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_DLW_DEV_03_M1",
+      "stage": "E2_dt_control",
+      "case": "DLW_DEV_03",
+      "monitor": "M1",
+      "resolution": 128,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_DLW_DEV_03_M2",
+      "stage": "E2_dt_control",
+      "case": "DLW_DEV_03",
+      "monitor": "M2",
+      "resolution": 128,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_DLW_DEV_03_M3",
+      "stage": "E2_dt_control",
+      "case": "DLW_DEV_03",
+      "monitor": "M3",
+      "resolution": 128,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_DLW_DEV_03_M4",
+      "stage": "E2_dt_control",
+      "case": "DLW_DEV_03",
+      "monitor": "M4",
+      "resolution": 128,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2_DLW_DEV_04_M0_N64",
+      "stage": "E2",
+      "case": "DLW_DEV_04",
+      "monitor": "M0",
+      "resolution": 64,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_04_M0_N128",
+      "stage": "E2",
+      "case": "DLW_DEV_04",
+      "monitor": "M0",
+      "resolution": 128,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_04_M0_N256",
+      "stage": "E2",
+      "case": "DLW_DEV_04",
+      "monitor": "M0",
+      "resolution": 256,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_04_M1_N64",
+      "stage": "E2",
+      "case": "DLW_DEV_04",
+      "monitor": "M1",
+      "resolution": 64,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_04_M1_N128",
+      "stage": "E2",
+      "case": "DLW_DEV_04",
+      "monitor": "M1",
+      "resolution": 128,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_04_M1_N256",
+      "stage": "E2",
+      "case": "DLW_DEV_04",
+      "monitor": "M1",
+      "resolution": 256,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_04_M2_N64",
+      "stage": "E2",
+      "case": "DLW_DEV_04",
+      "monitor": "M2",
+      "resolution": 64,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_04_M2_N128",
+      "stage": "E2",
+      "case": "DLW_DEV_04",
+      "monitor": "M2",
+      "resolution": 128,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_04_M2_N256",
+      "stage": "E2",
+      "case": "DLW_DEV_04",
+      "monitor": "M2",
+      "resolution": 256,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_04_M3_N64",
+      "stage": "E2",
+      "case": "DLW_DEV_04",
+      "monitor": "M3",
+      "resolution": 64,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_04_M3_N128",
+      "stage": "E2",
+      "case": "DLW_DEV_04",
+      "monitor": "M3",
+      "resolution": 128,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_04_M3_N256",
+      "stage": "E2",
+      "case": "DLW_DEV_04",
+      "monitor": "M3",
+      "resolution": 256,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_04_M4_N64",
+      "stage": "E2",
+      "case": "DLW_DEV_04",
+      "monitor": "M4",
+      "resolution": 64,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_04_M4_N128",
+      "stage": "E2",
+      "case": "DLW_DEV_04",
+      "monitor": "M4",
+      "resolution": 128,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_04_M4_N256",
+      "stage": "E2",
+      "case": "DLW_DEV_04",
+      "monitor": "M4",
+      "resolution": 256,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2control_DLW_DEV_04_M0",
+      "stage": "E2_dt_control",
+      "case": "DLW_DEV_04",
+      "monitor": "M0",
+      "resolution": 128,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_DLW_DEV_04_M1",
+      "stage": "E2_dt_control",
+      "case": "DLW_DEV_04",
+      "monitor": "M1",
+      "resolution": 128,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_DLW_DEV_04_M2",
+      "stage": "E2_dt_control",
+      "case": "DLW_DEV_04",
+      "monitor": "M2",
+      "resolution": 128,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_DLW_DEV_04_M3",
+      "stage": "E2_dt_control",
+      "case": "DLW_DEV_04",
+      "monitor": "M3",
+      "resolution": 128,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_DLW_DEV_04_M4",
+      "stage": "E2_dt_control",
+      "case": "DLW_DEV_04",
+      "monitor": "M4",
+      "resolution": 128,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2_DLW_DEV_05_M0_N64",
+      "stage": "E2",
+      "case": "DLW_DEV_05",
+      "monitor": "M0",
+      "resolution": 64,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_05_M0_N128",
+      "stage": "E2",
+      "case": "DLW_DEV_05",
+      "monitor": "M0",
+      "resolution": 128,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_05_M0_N256",
+      "stage": "E2",
+      "case": "DLW_DEV_05",
+      "monitor": "M0",
+      "resolution": 256,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_05_M1_N64",
+      "stage": "E2",
+      "case": "DLW_DEV_05",
+      "monitor": "M1",
+      "resolution": 64,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_05_M1_N128",
+      "stage": "E2",
+      "case": "DLW_DEV_05",
+      "monitor": "M1",
+      "resolution": 128,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_05_M1_N256",
+      "stage": "E2",
+      "case": "DLW_DEV_05",
+      "monitor": "M1",
+      "resolution": 256,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_05_M2_N64",
+      "stage": "E2",
+      "case": "DLW_DEV_05",
+      "monitor": "M2",
+      "resolution": 64,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_05_M2_N128",
+      "stage": "E2",
+      "case": "DLW_DEV_05",
+      "monitor": "M2",
+      "resolution": 128,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_05_M2_N256",
+      "stage": "E2",
+      "case": "DLW_DEV_05",
+      "monitor": "M2",
+      "resolution": 256,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_05_M3_N64",
+      "stage": "E2",
+      "case": "DLW_DEV_05",
+      "monitor": "M3",
+      "resolution": 64,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_05_M3_N128",
+      "stage": "E2",
+      "case": "DLW_DEV_05",
+      "monitor": "M3",
+      "resolution": 128,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_05_M3_N256",
+      "stage": "E2",
+      "case": "DLW_DEV_05",
+      "monitor": "M3",
+      "resolution": 256,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_05_M4_N64",
+      "stage": "E2",
+      "case": "DLW_DEV_05",
+      "monitor": "M4",
+      "resolution": 64,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_05_M4_N128",
+      "stage": "E2",
+      "case": "DLW_DEV_05",
+      "monitor": "M4",
+      "resolution": 128,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_05_M4_N256",
+      "stage": "E2",
+      "case": "DLW_DEV_05",
+      "monitor": "M4",
+      "resolution": 256,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2control_DLW_DEV_05_M0",
+      "stage": "E2_dt_control",
+      "case": "DLW_DEV_05",
+      "monitor": "M0",
+      "resolution": 128,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_DLW_DEV_05_M1",
+      "stage": "E2_dt_control",
+      "case": "DLW_DEV_05",
+      "monitor": "M1",
+      "resolution": 128,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_DLW_DEV_05_M2",
+      "stage": "E2_dt_control",
+      "case": "DLW_DEV_05",
+      "monitor": "M2",
+      "resolution": 128,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_DLW_DEV_05_M3",
+      "stage": "E2_dt_control",
+      "case": "DLW_DEV_05",
+      "monitor": "M3",
+      "resolution": 128,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_DLW_DEV_05_M4",
+      "stage": "E2_dt_control",
+      "case": "DLW_DEV_05",
+      "monitor": "M4",
+      "resolution": 128,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2_DLW_DEV_06_M0_N64",
+      "stage": "E2",
+      "case": "DLW_DEV_06",
+      "monitor": "M0",
+      "resolution": 64,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_06_M0_N128",
+      "stage": "E2",
+      "case": "DLW_DEV_06",
+      "monitor": "M0",
+      "resolution": 128,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_06_M0_N256",
+      "stage": "E2",
+      "case": "DLW_DEV_06",
+      "monitor": "M0",
+      "resolution": 256,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_06_M1_N64",
+      "stage": "E2",
+      "case": "DLW_DEV_06",
+      "monitor": "M1",
+      "resolution": 64,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_06_M1_N128",
+      "stage": "E2",
+      "case": "DLW_DEV_06",
+      "monitor": "M1",
+      "resolution": 128,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_06_M1_N256",
+      "stage": "E2",
+      "case": "DLW_DEV_06",
+      "monitor": "M1",
+      "resolution": 256,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_06_M2_N64",
+      "stage": "E2",
+      "case": "DLW_DEV_06",
+      "monitor": "M2",
+      "resolution": 64,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_06_M2_N128",
+      "stage": "E2",
+      "case": "DLW_DEV_06",
+      "monitor": "M2",
+      "resolution": 128,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_06_M2_N256",
+      "stage": "E2",
+      "case": "DLW_DEV_06",
+      "monitor": "M2",
+      "resolution": 256,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_06_M3_N64",
+      "stage": "E2",
+      "case": "DLW_DEV_06",
+      "monitor": "M3",
+      "resolution": 64,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_06_M3_N128",
+      "stage": "E2",
+      "case": "DLW_DEV_06",
+      "monitor": "M3",
+      "resolution": 128,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_06_M3_N256",
+      "stage": "E2",
+      "case": "DLW_DEV_06",
+      "monitor": "M3",
+      "resolution": 256,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_06_M4_N64",
+      "stage": "E2",
+      "case": "DLW_DEV_06",
+      "monitor": "M4",
+      "resolution": 64,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_06_M4_N128",
+      "stage": "E2",
+      "case": "DLW_DEV_06",
+      "monitor": "M4",
+      "resolution": 128,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2_DLW_DEV_06_M4_N256",
+      "stage": "E2",
+      "case": "DLW_DEV_06",
+      "monitor": "M4",
+      "resolution": 256,
+      "method": "rk4",
+      "mesh_policy": "common_rezone",
+      "status": "planned",
+      "dt": null,
+      "spatial_model": "common_model_pending_E0",
+      "times": [
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ]
+    },
+    {
+      "id": "E2control_DLW_DEV_06_M0",
+      "stage": "E2_dt_control",
+      "case": "DLW_DEV_06",
+      "monitor": "M0",
+      "resolution": 128,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_DLW_DEV_06_M1",
+      "stage": "E2_dt_control",
+      "case": "DLW_DEV_06",
+      "monitor": "M1",
+      "resolution": 128,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_DLW_DEV_06_M2",
+      "stage": "E2_dt_control",
+      "case": "DLW_DEV_06",
+      "monitor": "M2",
+      "resolution": 128,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_DLW_DEV_06_M3",
+      "stage": "E2_dt_control",
+      "case": "DLW_DEV_06",
+      "monitor": "M3",
+      "resolution": 128,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E2control_DLW_DEV_06_M4",
+      "stage": "E2_dt_control",
+      "case": "DLW_DEV_06",
+      "monitor": "M4",
+      "resolution": 128,
+      "method": "rk4",
+      "dt": "half_of_matched_E2",
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_01_baseline_euler_L0",
+      "stage": "E3",
+      "case": "HS_DEV_01",
+      "candidate_slot": "baseline",
+      "method": "euler",
+      "dt_level": 0,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_01_baseline_euler_L1",
+      "stage": "E3",
+      "case": "HS_DEV_01",
+      "candidate_slot": "baseline",
+      "method": "euler",
+      "dt_level": 1,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_01_baseline_euler_L2",
+      "stage": "E3",
+      "case": "HS_DEV_01",
+      "candidate_slot": "baseline",
+      "method": "euler",
+      "dt_level": 2,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_01_baseline_heun_L0",
+      "stage": "E3",
+      "case": "HS_DEV_01",
+      "candidate_slot": "baseline",
+      "method": "heun",
+      "dt_level": 0,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_01_baseline_heun_L1",
+      "stage": "E3",
+      "case": "HS_DEV_01",
+      "candidate_slot": "baseline",
+      "method": "heun",
+      "dt_level": 1,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_01_baseline_heun_L2",
+      "stage": "E3",
+      "case": "HS_DEV_01",
+      "candidate_slot": "baseline",
+      "method": "heun",
+      "dt_level": 2,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_01_baseline_rk4_L0",
+      "stage": "E3",
+      "case": "HS_DEV_01",
+      "candidate_slot": "baseline",
+      "method": "rk4",
+      "dt_level": 0,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_01_baseline_rk4_L1",
+      "stage": "E3",
+      "case": "HS_DEV_01",
+      "candidate_slot": "baseline",
+      "method": "rk4",
+      "dt_level": 1,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_01_baseline_rk4_L2",
+      "stage": "E3",
+      "case": "HS_DEV_01",
+      "candidate_slot": "baseline",
+      "method": "rk4",
+      "dt_level": 2,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_01_baseline_rk8_L0",
+      "stage": "E3",
+      "case": "HS_DEV_01",
+      "candidate_slot": "baseline",
+      "method": "rk8",
+      "dt_level": 0,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_01_baseline_rk8_L1",
+      "stage": "E3",
+      "case": "HS_DEV_01",
+      "candidate_slot": "baseline",
+      "method": "rk8",
+      "dt_level": 1,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_01_baseline_rk8_L2",
+      "stage": "E3",
+      "case": "HS_DEV_01",
+      "candidate_slot": "baseline",
+      "method": "rk8",
+      "dt_level": 2,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_01_finalist_1_euler_L0",
+      "stage": "E3",
+      "case": "HS_DEV_01",
+      "candidate_slot": "finalist_1",
+      "method": "euler",
+      "dt_level": 0,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_01_finalist_1_euler_L1",
+      "stage": "E3",
+      "case": "HS_DEV_01",
+      "candidate_slot": "finalist_1",
+      "method": "euler",
+      "dt_level": 1,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_01_finalist_1_euler_L2",
+      "stage": "E3",
+      "case": "HS_DEV_01",
+      "candidate_slot": "finalist_1",
+      "method": "euler",
+      "dt_level": 2,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_01_finalist_1_heun_L0",
+      "stage": "E3",
+      "case": "HS_DEV_01",
+      "candidate_slot": "finalist_1",
+      "method": "heun",
+      "dt_level": 0,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_01_finalist_1_heun_L1",
+      "stage": "E3",
+      "case": "HS_DEV_01",
+      "candidate_slot": "finalist_1",
+      "method": "heun",
+      "dt_level": 1,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_01_finalist_1_heun_L2",
+      "stage": "E3",
+      "case": "HS_DEV_01",
+      "candidate_slot": "finalist_1",
+      "method": "heun",
+      "dt_level": 2,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_01_finalist_1_rk4_L0",
+      "stage": "E3",
+      "case": "HS_DEV_01",
+      "candidate_slot": "finalist_1",
+      "method": "rk4",
+      "dt_level": 0,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_01_finalist_1_rk4_L1",
+      "stage": "E3",
+      "case": "HS_DEV_01",
+      "candidate_slot": "finalist_1",
+      "method": "rk4",
+      "dt_level": 1,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_01_finalist_1_rk4_L2",
+      "stage": "E3",
+      "case": "HS_DEV_01",
+      "candidate_slot": "finalist_1",
+      "method": "rk4",
+      "dt_level": 2,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_01_finalist_1_rk8_L0",
+      "stage": "E3",
+      "case": "HS_DEV_01",
+      "candidate_slot": "finalist_1",
+      "method": "rk8",
+      "dt_level": 0,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_01_finalist_1_rk8_L1",
+      "stage": "E3",
+      "case": "HS_DEV_01",
+      "candidate_slot": "finalist_1",
+      "method": "rk8",
+      "dt_level": 1,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_01_finalist_1_rk8_L2",
+      "stage": "E3",
+      "case": "HS_DEV_01",
+      "candidate_slot": "finalist_1",
+      "method": "rk8",
+      "dt_level": 2,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_01_finalist_2_euler_L0",
+      "stage": "E3",
+      "case": "HS_DEV_01",
+      "candidate_slot": "finalist_2",
+      "method": "euler",
+      "dt_level": 0,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_01_finalist_2_euler_L1",
+      "stage": "E3",
+      "case": "HS_DEV_01",
+      "candidate_slot": "finalist_2",
+      "method": "euler",
+      "dt_level": 1,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_01_finalist_2_euler_L2",
+      "stage": "E3",
+      "case": "HS_DEV_01",
+      "candidate_slot": "finalist_2",
+      "method": "euler",
+      "dt_level": 2,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_01_finalist_2_heun_L0",
+      "stage": "E3",
+      "case": "HS_DEV_01",
+      "candidate_slot": "finalist_2",
+      "method": "heun",
+      "dt_level": 0,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_01_finalist_2_heun_L1",
+      "stage": "E3",
+      "case": "HS_DEV_01",
+      "candidate_slot": "finalist_2",
+      "method": "heun",
+      "dt_level": 1,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_01_finalist_2_heun_L2",
+      "stage": "E3",
+      "case": "HS_DEV_01",
+      "candidate_slot": "finalist_2",
+      "method": "heun",
+      "dt_level": 2,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_01_finalist_2_rk4_L0",
+      "stage": "E3",
+      "case": "HS_DEV_01",
+      "candidate_slot": "finalist_2",
+      "method": "rk4",
+      "dt_level": 0,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_01_finalist_2_rk4_L1",
+      "stage": "E3",
+      "case": "HS_DEV_01",
+      "candidate_slot": "finalist_2",
+      "method": "rk4",
+      "dt_level": 1,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_01_finalist_2_rk4_L2",
+      "stage": "E3",
+      "case": "HS_DEV_01",
+      "candidate_slot": "finalist_2",
+      "method": "rk4",
+      "dt_level": 2,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_01_finalist_2_rk8_L0",
+      "stage": "E3",
+      "case": "HS_DEV_01",
+      "candidate_slot": "finalist_2",
+      "method": "rk8",
+      "dt_level": 0,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_01_finalist_2_rk8_L1",
+      "stage": "E3",
+      "case": "HS_DEV_01",
+      "candidate_slot": "finalist_2",
+      "method": "rk8",
+      "dt_level": 1,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_01_finalist_2_rk8_L2",
+      "stage": "E3",
+      "case": "HS_DEV_01",
+      "candidate_slot": "finalist_2",
+      "method": "rk8",
+      "dt_level": 2,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_03_baseline_euler_L0",
+      "stage": "E3",
+      "case": "HS_DEV_03",
+      "candidate_slot": "baseline",
+      "method": "euler",
+      "dt_level": 0,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_03_baseline_euler_L1",
+      "stage": "E3",
+      "case": "HS_DEV_03",
+      "candidate_slot": "baseline",
+      "method": "euler",
+      "dt_level": 1,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_03_baseline_euler_L2",
+      "stage": "E3",
+      "case": "HS_DEV_03",
+      "candidate_slot": "baseline",
+      "method": "euler",
+      "dt_level": 2,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_03_baseline_heun_L0",
+      "stage": "E3",
+      "case": "HS_DEV_03",
+      "candidate_slot": "baseline",
+      "method": "heun",
+      "dt_level": 0,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_03_baseline_heun_L1",
+      "stage": "E3",
+      "case": "HS_DEV_03",
+      "candidate_slot": "baseline",
+      "method": "heun",
+      "dt_level": 1,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_03_baseline_heun_L2",
+      "stage": "E3",
+      "case": "HS_DEV_03",
+      "candidate_slot": "baseline",
+      "method": "heun",
+      "dt_level": 2,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_03_baseline_rk4_L0",
+      "stage": "E3",
+      "case": "HS_DEV_03",
+      "candidate_slot": "baseline",
+      "method": "rk4",
+      "dt_level": 0,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_03_baseline_rk4_L1",
+      "stage": "E3",
+      "case": "HS_DEV_03",
+      "candidate_slot": "baseline",
+      "method": "rk4",
+      "dt_level": 1,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_03_baseline_rk4_L2",
+      "stage": "E3",
+      "case": "HS_DEV_03",
+      "candidate_slot": "baseline",
+      "method": "rk4",
+      "dt_level": 2,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_03_baseline_rk8_L0",
+      "stage": "E3",
+      "case": "HS_DEV_03",
+      "candidate_slot": "baseline",
+      "method": "rk8",
+      "dt_level": 0,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_03_baseline_rk8_L1",
+      "stage": "E3",
+      "case": "HS_DEV_03",
+      "candidate_slot": "baseline",
+      "method": "rk8",
+      "dt_level": 1,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_03_baseline_rk8_L2",
+      "stage": "E3",
+      "case": "HS_DEV_03",
+      "candidate_slot": "baseline",
+      "method": "rk8",
+      "dt_level": 2,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_03_finalist_1_euler_L0",
+      "stage": "E3",
+      "case": "HS_DEV_03",
+      "candidate_slot": "finalist_1",
+      "method": "euler",
+      "dt_level": 0,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_03_finalist_1_euler_L1",
+      "stage": "E3",
+      "case": "HS_DEV_03",
+      "candidate_slot": "finalist_1",
+      "method": "euler",
+      "dt_level": 1,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_03_finalist_1_euler_L2",
+      "stage": "E3",
+      "case": "HS_DEV_03",
+      "candidate_slot": "finalist_1",
+      "method": "euler",
+      "dt_level": 2,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_03_finalist_1_heun_L0",
+      "stage": "E3",
+      "case": "HS_DEV_03",
+      "candidate_slot": "finalist_1",
+      "method": "heun",
+      "dt_level": 0,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_03_finalist_1_heun_L1",
+      "stage": "E3",
+      "case": "HS_DEV_03",
+      "candidate_slot": "finalist_1",
+      "method": "heun",
+      "dt_level": 1,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_03_finalist_1_heun_L2",
+      "stage": "E3",
+      "case": "HS_DEV_03",
+      "candidate_slot": "finalist_1",
+      "method": "heun",
+      "dt_level": 2,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_03_finalist_1_rk4_L0",
+      "stage": "E3",
+      "case": "HS_DEV_03",
+      "candidate_slot": "finalist_1",
+      "method": "rk4",
+      "dt_level": 0,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_03_finalist_1_rk4_L1",
+      "stage": "E3",
+      "case": "HS_DEV_03",
+      "candidate_slot": "finalist_1",
+      "method": "rk4",
+      "dt_level": 1,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_03_finalist_1_rk4_L2",
+      "stage": "E3",
+      "case": "HS_DEV_03",
+      "candidate_slot": "finalist_1",
+      "method": "rk4",
+      "dt_level": 2,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_03_finalist_1_rk8_L0",
+      "stage": "E3",
+      "case": "HS_DEV_03",
+      "candidate_slot": "finalist_1",
+      "method": "rk8",
+      "dt_level": 0,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_03_finalist_1_rk8_L1",
+      "stage": "E3",
+      "case": "HS_DEV_03",
+      "candidate_slot": "finalist_1",
+      "method": "rk8",
+      "dt_level": 1,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_03_finalist_1_rk8_L2",
+      "stage": "E3",
+      "case": "HS_DEV_03",
+      "candidate_slot": "finalist_1",
+      "method": "rk8",
+      "dt_level": 2,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_03_finalist_2_euler_L0",
+      "stage": "E3",
+      "case": "HS_DEV_03",
+      "candidate_slot": "finalist_2",
+      "method": "euler",
+      "dt_level": 0,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_03_finalist_2_euler_L1",
+      "stage": "E3",
+      "case": "HS_DEV_03",
+      "candidate_slot": "finalist_2",
+      "method": "euler",
+      "dt_level": 1,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_03_finalist_2_euler_L2",
+      "stage": "E3",
+      "case": "HS_DEV_03",
+      "candidate_slot": "finalist_2",
+      "method": "euler",
+      "dt_level": 2,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_03_finalist_2_heun_L0",
+      "stage": "E3",
+      "case": "HS_DEV_03",
+      "candidate_slot": "finalist_2",
+      "method": "heun",
+      "dt_level": 0,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_03_finalist_2_heun_L1",
+      "stage": "E3",
+      "case": "HS_DEV_03",
+      "candidate_slot": "finalist_2",
+      "method": "heun",
+      "dt_level": 1,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_03_finalist_2_heun_L2",
+      "stage": "E3",
+      "case": "HS_DEV_03",
+      "candidate_slot": "finalist_2",
+      "method": "heun",
+      "dt_level": 2,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_03_finalist_2_rk4_L0",
+      "stage": "E3",
+      "case": "HS_DEV_03",
+      "candidate_slot": "finalist_2",
+      "method": "rk4",
+      "dt_level": 0,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_03_finalist_2_rk4_L1",
+      "stage": "E3",
+      "case": "HS_DEV_03",
+      "candidate_slot": "finalist_2",
+      "method": "rk4",
+      "dt_level": 1,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_03_finalist_2_rk4_L2",
+      "stage": "E3",
+      "case": "HS_DEV_03",
+      "candidate_slot": "finalist_2",
+      "method": "rk4",
+      "dt_level": 2,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_03_finalist_2_rk8_L0",
+      "stage": "E3",
+      "case": "HS_DEV_03",
+      "candidate_slot": "finalist_2",
+      "method": "rk8",
+      "dt_level": 0,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_03_finalist_2_rk8_L1",
+      "stage": "E3",
+      "case": "HS_DEV_03",
+      "candidate_slot": "finalist_2",
+      "method": "rk8",
+      "dt_level": 1,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_03_finalist_2_rk8_L2",
+      "stage": "E3",
+      "case": "HS_DEV_03",
+      "candidate_slot": "finalist_2",
+      "method": "rk8",
+      "dt_level": 2,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_05_baseline_euler_L0",
+      "stage": "E3",
+      "case": "HS_DEV_05",
+      "candidate_slot": "baseline",
+      "method": "euler",
+      "dt_level": 0,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_05_baseline_euler_L1",
+      "stage": "E3",
+      "case": "HS_DEV_05",
+      "candidate_slot": "baseline",
+      "method": "euler",
+      "dt_level": 1,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_05_baseline_euler_L2",
+      "stage": "E3",
+      "case": "HS_DEV_05",
+      "candidate_slot": "baseline",
+      "method": "euler",
+      "dt_level": 2,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_05_baseline_heun_L0",
+      "stage": "E3",
+      "case": "HS_DEV_05",
+      "candidate_slot": "baseline",
+      "method": "heun",
+      "dt_level": 0,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_05_baseline_heun_L1",
+      "stage": "E3",
+      "case": "HS_DEV_05",
+      "candidate_slot": "baseline",
+      "method": "heun",
+      "dt_level": 1,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_05_baseline_heun_L2",
+      "stage": "E3",
+      "case": "HS_DEV_05",
+      "candidate_slot": "baseline",
+      "method": "heun",
+      "dt_level": 2,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_05_baseline_rk4_L0",
+      "stage": "E3",
+      "case": "HS_DEV_05",
+      "candidate_slot": "baseline",
+      "method": "rk4",
+      "dt_level": 0,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_05_baseline_rk4_L1",
+      "stage": "E3",
+      "case": "HS_DEV_05",
+      "candidate_slot": "baseline",
+      "method": "rk4",
+      "dt_level": 1,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_05_baseline_rk4_L2",
+      "stage": "E3",
+      "case": "HS_DEV_05",
+      "candidate_slot": "baseline",
+      "method": "rk4",
+      "dt_level": 2,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_05_baseline_rk8_L0",
+      "stage": "E3",
+      "case": "HS_DEV_05",
+      "candidate_slot": "baseline",
+      "method": "rk8",
+      "dt_level": 0,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_05_baseline_rk8_L1",
+      "stage": "E3",
+      "case": "HS_DEV_05",
+      "candidate_slot": "baseline",
+      "method": "rk8",
+      "dt_level": 1,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_05_baseline_rk8_L2",
+      "stage": "E3",
+      "case": "HS_DEV_05",
+      "candidate_slot": "baseline",
+      "method": "rk8",
+      "dt_level": 2,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_05_finalist_1_euler_L0",
+      "stage": "E3",
+      "case": "HS_DEV_05",
+      "candidate_slot": "finalist_1",
+      "method": "euler",
+      "dt_level": 0,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_05_finalist_1_euler_L1",
+      "stage": "E3",
+      "case": "HS_DEV_05",
+      "candidate_slot": "finalist_1",
+      "method": "euler",
+      "dt_level": 1,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_05_finalist_1_euler_L2",
+      "stage": "E3",
+      "case": "HS_DEV_05",
+      "candidate_slot": "finalist_1",
+      "method": "euler",
+      "dt_level": 2,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_05_finalist_1_heun_L0",
+      "stage": "E3",
+      "case": "HS_DEV_05",
+      "candidate_slot": "finalist_1",
+      "method": "heun",
+      "dt_level": 0,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_05_finalist_1_heun_L1",
+      "stage": "E3",
+      "case": "HS_DEV_05",
+      "candidate_slot": "finalist_1",
+      "method": "heun",
+      "dt_level": 1,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_05_finalist_1_heun_L2",
+      "stage": "E3",
+      "case": "HS_DEV_05",
+      "candidate_slot": "finalist_1",
+      "method": "heun",
+      "dt_level": 2,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_05_finalist_1_rk4_L0",
+      "stage": "E3",
+      "case": "HS_DEV_05",
+      "candidate_slot": "finalist_1",
+      "method": "rk4",
+      "dt_level": 0,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_05_finalist_1_rk4_L1",
+      "stage": "E3",
+      "case": "HS_DEV_05",
+      "candidate_slot": "finalist_1",
+      "method": "rk4",
+      "dt_level": 1,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_05_finalist_1_rk4_L2",
+      "stage": "E3",
+      "case": "HS_DEV_05",
+      "candidate_slot": "finalist_1",
+      "method": "rk4",
+      "dt_level": 2,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_05_finalist_1_rk8_L0",
+      "stage": "E3",
+      "case": "HS_DEV_05",
+      "candidate_slot": "finalist_1",
+      "method": "rk8",
+      "dt_level": 0,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_05_finalist_1_rk8_L1",
+      "stage": "E3",
+      "case": "HS_DEV_05",
+      "candidate_slot": "finalist_1",
+      "method": "rk8",
+      "dt_level": 1,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_05_finalist_1_rk8_L2",
+      "stage": "E3",
+      "case": "HS_DEV_05",
+      "candidate_slot": "finalist_1",
+      "method": "rk8",
+      "dt_level": 2,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_05_finalist_2_euler_L0",
+      "stage": "E3",
+      "case": "HS_DEV_05",
+      "candidate_slot": "finalist_2",
+      "method": "euler",
+      "dt_level": 0,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_05_finalist_2_euler_L1",
+      "stage": "E3",
+      "case": "HS_DEV_05",
+      "candidate_slot": "finalist_2",
+      "method": "euler",
+      "dt_level": 1,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_05_finalist_2_euler_L2",
+      "stage": "E3",
+      "case": "HS_DEV_05",
+      "candidate_slot": "finalist_2",
+      "method": "euler",
+      "dt_level": 2,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_05_finalist_2_heun_L0",
+      "stage": "E3",
+      "case": "HS_DEV_05",
+      "candidate_slot": "finalist_2",
+      "method": "heun",
+      "dt_level": 0,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_05_finalist_2_heun_L1",
+      "stage": "E3",
+      "case": "HS_DEV_05",
+      "candidate_slot": "finalist_2",
+      "method": "heun",
+      "dt_level": 1,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_05_finalist_2_heun_L2",
+      "stage": "E3",
+      "case": "HS_DEV_05",
+      "candidate_slot": "finalist_2",
+      "method": "heun",
+      "dt_level": 2,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_05_finalist_2_rk4_L0",
+      "stage": "E3",
+      "case": "HS_DEV_05",
+      "candidate_slot": "finalist_2",
+      "method": "rk4",
+      "dt_level": 0,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_05_finalist_2_rk4_L1",
+      "stage": "E3",
+      "case": "HS_DEV_05",
+      "candidate_slot": "finalist_2",
+      "method": "rk4",
+      "dt_level": 1,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_05_finalist_2_rk4_L2",
+      "stage": "E3",
+      "case": "HS_DEV_05",
+      "candidate_slot": "finalist_2",
+      "method": "rk4",
+      "dt_level": 2,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_05_finalist_2_rk8_L0",
+      "stage": "E3",
+      "case": "HS_DEV_05",
+      "candidate_slot": "finalist_2",
+      "method": "rk8",
+      "dt_level": 0,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_05_finalist_2_rk8_L1",
+      "stage": "E3",
+      "case": "HS_DEV_05",
+      "candidate_slot": "finalist_2",
+      "method": "rk8",
+      "dt_level": 1,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_HS_DEV_05_finalist_2_rk8_L2",
+      "stage": "E3",
+      "case": "HS_DEV_05",
+      "candidate_slot": "finalist_2",
+      "method": "rk8",
+      "dt_level": 2,
+      "resolution": 200,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_01_baseline_euler_L0",
+      "stage": "E3",
+      "case": "DLW_DEV_01",
+      "candidate_slot": "baseline",
+      "method": "euler",
+      "dt_level": 0,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_01_baseline_euler_L1",
+      "stage": "E3",
+      "case": "DLW_DEV_01",
+      "candidate_slot": "baseline",
+      "method": "euler",
+      "dt_level": 1,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_01_baseline_euler_L2",
+      "stage": "E3",
+      "case": "DLW_DEV_01",
+      "candidate_slot": "baseline",
+      "method": "euler",
+      "dt_level": 2,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_01_baseline_heun_L0",
+      "stage": "E3",
+      "case": "DLW_DEV_01",
+      "candidate_slot": "baseline",
+      "method": "heun",
+      "dt_level": 0,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_01_baseline_heun_L1",
+      "stage": "E3",
+      "case": "DLW_DEV_01",
+      "candidate_slot": "baseline",
+      "method": "heun",
+      "dt_level": 1,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_01_baseline_heun_L2",
+      "stage": "E3",
+      "case": "DLW_DEV_01",
+      "candidate_slot": "baseline",
+      "method": "heun",
+      "dt_level": 2,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_01_baseline_rk4_L0",
+      "stage": "E3",
+      "case": "DLW_DEV_01",
+      "candidate_slot": "baseline",
+      "method": "rk4",
+      "dt_level": 0,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_01_baseline_rk4_L1",
+      "stage": "E3",
+      "case": "DLW_DEV_01",
+      "candidate_slot": "baseline",
+      "method": "rk4",
+      "dt_level": 1,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_01_baseline_rk4_L2",
+      "stage": "E3",
+      "case": "DLW_DEV_01",
+      "candidate_slot": "baseline",
+      "method": "rk4",
+      "dt_level": 2,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_01_baseline_rk8_L0",
+      "stage": "E3",
+      "case": "DLW_DEV_01",
+      "candidate_slot": "baseline",
+      "method": "rk8",
+      "dt_level": 0,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_01_baseline_rk8_L1",
+      "stage": "E3",
+      "case": "DLW_DEV_01",
+      "candidate_slot": "baseline",
+      "method": "rk8",
+      "dt_level": 1,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_01_baseline_rk8_L2",
+      "stage": "E3",
+      "case": "DLW_DEV_01",
+      "candidate_slot": "baseline",
+      "method": "rk8",
+      "dt_level": 2,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_01_finalist_1_euler_L0",
+      "stage": "E3",
+      "case": "DLW_DEV_01",
+      "candidate_slot": "finalist_1",
+      "method": "euler",
+      "dt_level": 0,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_01_finalist_1_euler_L1",
+      "stage": "E3",
+      "case": "DLW_DEV_01",
+      "candidate_slot": "finalist_1",
+      "method": "euler",
+      "dt_level": 1,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_01_finalist_1_euler_L2",
+      "stage": "E3",
+      "case": "DLW_DEV_01",
+      "candidate_slot": "finalist_1",
+      "method": "euler",
+      "dt_level": 2,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_01_finalist_1_heun_L0",
+      "stage": "E3",
+      "case": "DLW_DEV_01",
+      "candidate_slot": "finalist_1",
+      "method": "heun",
+      "dt_level": 0,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_01_finalist_1_heun_L1",
+      "stage": "E3",
+      "case": "DLW_DEV_01",
+      "candidate_slot": "finalist_1",
+      "method": "heun",
+      "dt_level": 1,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_01_finalist_1_heun_L2",
+      "stage": "E3",
+      "case": "DLW_DEV_01",
+      "candidate_slot": "finalist_1",
+      "method": "heun",
+      "dt_level": 2,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_01_finalist_1_rk4_L0",
+      "stage": "E3",
+      "case": "DLW_DEV_01",
+      "candidate_slot": "finalist_1",
+      "method": "rk4",
+      "dt_level": 0,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_01_finalist_1_rk4_L1",
+      "stage": "E3",
+      "case": "DLW_DEV_01",
+      "candidate_slot": "finalist_1",
+      "method": "rk4",
+      "dt_level": 1,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_01_finalist_1_rk4_L2",
+      "stage": "E3",
+      "case": "DLW_DEV_01",
+      "candidate_slot": "finalist_1",
+      "method": "rk4",
+      "dt_level": 2,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_01_finalist_1_rk8_L0",
+      "stage": "E3",
+      "case": "DLW_DEV_01",
+      "candidate_slot": "finalist_1",
+      "method": "rk8",
+      "dt_level": 0,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_01_finalist_1_rk8_L1",
+      "stage": "E3",
+      "case": "DLW_DEV_01",
+      "candidate_slot": "finalist_1",
+      "method": "rk8",
+      "dt_level": 1,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_01_finalist_1_rk8_L2",
+      "stage": "E3",
+      "case": "DLW_DEV_01",
+      "candidate_slot": "finalist_1",
+      "method": "rk8",
+      "dt_level": 2,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_01_finalist_2_euler_L0",
+      "stage": "E3",
+      "case": "DLW_DEV_01",
+      "candidate_slot": "finalist_2",
+      "method": "euler",
+      "dt_level": 0,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_01_finalist_2_euler_L1",
+      "stage": "E3",
+      "case": "DLW_DEV_01",
+      "candidate_slot": "finalist_2",
+      "method": "euler",
+      "dt_level": 1,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_01_finalist_2_euler_L2",
+      "stage": "E3",
+      "case": "DLW_DEV_01",
+      "candidate_slot": "finalist_2",
+      "method": "euler",
+      "dt_level": 2,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_01_finalist_2_heun_L0",
+      "stage": "E3",
+      "case": "DLW_DEV_01",
+      "candidate_slot": "finalist_2",
+      "method": "heun",
+      "dt_level": 0,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_01_finalist_2_heun_L1",
+      "stage": "E3",
+      "case": "DLW_DEV_01",
+      "candidate_slot": "finalist_2",
+      "method": "heun",
+      "dt_level": 1,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_01_finalist_2_heun_L2",
+      "stage": "E3",
+      "case": "DLW_DEV_01",
+      "candidate_slot": "finalist_2",
+      "method": "heun",
+      "dt_level": 2,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_01_finalist_2_rk4_L0",
+      "stage": "E3",
+      "case": "DLW_DEV_01",
+      "candidate_slot": "finalist_2",
+      "method": "rk4",
+      "dt_level": 0,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_01_finalist_2_rk4_L1",
+      "stage": "E3",
+      "case": "DLW_DEV_01",
+      "candidate_slot": "finalist_2",
+      "method": "rk4",
+      "dt_level": 1,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_01_finalist_2_rk4_L2",
+      "stage": "E3",
+      "case": "DLW_DEV_01",
+      "candidate_slot": "finalist_2",
+      "method": "rk4",
+      "dt_level": 2,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_01_finalist_2_rk8_L0",
+      "stage": "E3",
+      "case": "DLW_DEV_01",
+      "candidate_slot": "finalist_2",
+      "method": "rk8",
+      "dt_level": 0,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_01_finalist_2_rk8_L1",
+      "stage": "E3",
+      "case": "DLW_DEV_01",
+      "candidate_slot": "finalist_2",
+      "method": "rk8",
+      "dt_level": 1,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_01_finalist_2_rk8_L2",
+      "stage": "E3",
+      "case": "DLW_DEV_01",
+      "candidate_slot": "finalist_2",
+      "method": "rk8",
+      "dt_level": 2,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_03_baseline_euler_L0",
+      "stage": "E3",
+      "case": "DLW_DEV_03",
+      "candidate_slot": "baseline",
+      "method": "euler",
+      "dt_level": 0,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_03_baseline_euler_L1",
+      "stage": "E3",
+      "case": "DLW_DEV_03",
+      "candidate_slot": "baseline",
+      "method": "euler",
+      "dt_level": 1,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_03_baseline_euler_L2",
+      "stage": "E3",
+      "case": "DLW_DEV_03",
+      "candidate_slot": "baseline",
+      "method": "euler",
+      "dt_level": 2,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_03_baseline_heun_L0",
+      "stage": "E3",
+      "case": "DLW_DEV_03",
+      "candidate_slot": "baseline",
+      "method": "heun",
+      "dt_level": 0,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_03_baseline_heun_L1",
+      "stage": "E3",
+      "case": "DLW_DEV_03",
+      "candidate_slot": "baseline",
+      "method": "heun",
+      "dt_level": 1,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_03_baseline_heun_L2",
+      "stage": "E3",
+      "case": "DLW_DEV_03",
+      "candidate_slot": "baseline",
+      "method": "heun",
+      "dt_level": 2,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_03_baseline_rk4_L0",
+      "stage": "E3",
+      "case": "DLW_DEV_03",
+      "candidate_slot": "baseline",
+      "method": "rk4",
+      "dt_level": 0,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_03_baseline_rk4_L1",
+      "stage": "E3",
+      "case": "DLW_DEV_03",
+      "candidate_slot": "baseline",
+      "method": "rk4",
+      "dt_level": 1,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_03_baseline_rk4_L2",
+      "stage": "E3",
+      "case": "DLW_DEV_03",
+      "candidate_slot": "baseline",
+      "method": "rk4",
+      "dt_level": 2,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_03_baseline_rk8_L0",
+      "stage": "E3",
+      "case": "DLW_DEV_03",
+      "candidate_slot": "baseline",
+      "method": "rk8",
+      "dt_level": 0,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_03_baseline_rk8_L1",
+      "stage": "E3",
+      "case": "DLW_DEV_03",
+      "candidate_slot": "baseline",
+      "method": "rk8",
+      "dt_level": 1,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_03_baseline_rk8_L2",
+      "stage": "E3",
+      "case": "DLW_DEV_03",
+      "candidate_slot": "baseline",
+      "method": "rk8",
+      "dt_level": 2,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_03_finalist_1_euler_L0",
+      "stage": "E3",
+      "case": "DLW_DEV_03",
+      "candidate_slot": "finalist_1",
+      "method": "euler",
+      "dt_level": 0,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_03_finalist_1_euler_L1",
+      "stage": "E3",
+      "case": "DLW_DEV_03",
+      "candidate_slot": "finalist_1",
+      "method": "euler",
+      "dt_level": 1,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_03_finalist_1_euler_L2",
+      "stage": "E3",
+      "case": "DLW_DEV_03",
+      "candidate_slot": "finalist_1",
+      "method": "euler",
+      "dt_level": 2,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_03_finalist_1_heun_L0",
+      "stage": "E3",
+      "case": "DLW_DEV_03",
+      "candidate_slot": "finalist_1",
+      "method": "heun",
+      "dt_level": 0,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_03_finalist_1_heun_L1",
+      "stage": "E3",
+      "case": "DLW_DEV_03",
+      "candidate_slot": "finalist_1",
+      "method": "heun",
+      "dt_level": 1,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_03_finalist_1_heun_L2",
+      "stage": "E3",
+      "case": "DLW_DEV_03",
+      "candidate_slot": "finalist_1",
+      "method": "heun",
+      "dt_level": 2,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_03_finalist_1_rk4_L0",
+      "stage": "E3",
+      "case": "DLW_DEV_03",
+      "candidate_slot": "finalist_1",
+      "method": "rk4",
+      "dt_level": 0,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_03_finalist_1_rk4_L1",
+      "stage": "E3",
+      "case": "DLW_DEV_03",
+      "candidate_slot": "finalist_1",
+      "method": "rk4",
+      "dt_level": 1,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_03_finalist_1_rk4_L2",
+      "stage": "E3",
+      "case": "DLW_DEV_03",
+      "candidate_slot": "finalist_1",
+      "method": "rk4",
+      "dt_level": 2,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_03_finalist_1_rk8_L0",
+      "stage": "E3",
+      "case": "DLW_DEV_03",
+      "candidate_slot": "finalist_1",
+      "method": "rk8",
+      "dt_level": 0,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_03_finalist_1_rk8_L1",
+      "stage": "E3",
+      "case": "DLW_DEV_03",
+      "candidate_slot": "finalist_1",
+      "method": "rk8",
+      "dt_level": 1,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_03_finalist_1_rk8_L2",
+      "stage": "E3",
+      "case": "DLW_DEV_03",
+      "candidate_slot": "finalist_1",
+      "method": "rk8",
+      "dt_level": 2,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_03_finalist_2_euler_L0",
+      "stage": "E3",
+      "case": "DLW_DEV_03",
+      "candidate_slot": "finalist_2",
+      "method": "euler",
+      "dt_level": 0,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_03_finalist_2_euler_L1",
+      "stage": "E3",
+      "case": "DLW_DEV_03",
+      "candidate_slot": "finalist_2",
+      "method": "euler",
+      "dt_level": 1,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_03_finalist_2_euler_L2",
+      "stage": "E3",
+      "case": "DLW_DEV_03",
+      "candidate_slot": "finalist_2",
+      "method": "euler",
+      "dt_level": 2,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_03_finalist_2_heun_L0",
+      "stage": "E3",
+      "case": "DLW_DEV_03",
+      "candidate_slot": "finalist_2",
+      "method": "heun",
+      "dt_level": 0,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_03_finalist_2_heun_L1",
+      "stage": "E3",
+      "case": "DLW_DEV_03",
+      "candidate_slot": "finalist_2",
+      "method": "heun",
+      "dt_level": 1,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_03_finalist_2_heun_L2",
+      "stage": "E3",
+      "case": "DLW_DEV_03",
+      "candidate_slot": "finalist_2",
+      "method": "heun",
+      "dt_level": 2,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_03_finalist_2_rk4_L0",
+      "stage": "E3",
+      "case": "DLW_DEV_03",
+      "candidate_slot": "finalist_2",
+      "method": "rk4",
+      "dt_level": 0,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_03_finalist_2_rk4_L1",
+      "stage": "E3",
+      "case": "DLW_DEV_03",
+      "candidate_slot": "finalist_2",
+      "method": "rk4",
+      "dt_level": 1,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_03_finalist_2_rk4_L2",
+      "stage": "E3",
+      "case": "DLW_DEV_03",
+      "candidate_slot": "finalist_2",
+      "method": "rk4",
+      "dt_level": 2,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_03_finalist_2_rk8_L0",
+      "stage": "E3",
+      "case": "DLW_DEV_03",
+      "candidate_slot": "finalist_2",
+      "method": "rk8",
+      "dt_level": 0,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_03_finalist_2_rk8_L1",
+      "stage": "E3",
+      "case": "DLW_DEV_03",
+      "candidate_slot": "finalist_2",
+      "method": "rk8",
+      "dt_level": 1,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_03_finalist_2_rk8_L2",
+      "stage": "E3",
+      "case": "DLW_DEV_03",
+      "candidate_slot": "finalist_2",
+      "method": "rk8",
+      "dt_level": 2,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_05_baseline_euler_L0",
+      "stage": "E3",
+      "case": "DLW_DEV_05",
+      "candidate_slot": "baseline",
+      "method": "euler",
+      "dt_level": 0,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_05_baseline_euler_L1",
+      "stage": "E3",
+      "case": "DLW_DEV_05",
+      "candidate_slot": "baseline",
+      "method": "euler",
+      "dt_level": 1,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_05_baseline_euler_L2",
+      "stage": "E3",
+      "case": "DLW_DEV_05",
+      "candidate_slot": "baseline",
+      "method": "euler",
+      "dt_level": 2,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_05_baseline_heun_L0",
+      "stage": "E3",
+      "case": "DLW_DEV_05",
+      "candidate_slot": "baseline",
+      "method": "heun",
+      "dt_level": 0,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_05_baseline_heun_L1",
+      "stage": "E3",
+      "case": "DLW_DEV_05",
+      "candidate_slot": "baseline",
+      "method": "heun",
+      "dt_level": 1,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_05_baseline_heun_L2",
+      "stage": "E3",
+      "case": "DLW_DEV_05",
+      "candidate_slot": "baseline",
+      "method": "heun",
+      "dt_level": 2,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_05_baseline_rk4_L0",
+      "stage": "E3",
+      "case": "DLW_DEV_05",
+      "candidate_slot": "baseline",
+      "method": "rk4",
+      "dt_level": 0,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_05_baseline_rk4_L1",
+      "stage": "E3",
+      "case": "DLW_DEV_05",
+      "candidate_slot": "baseline",
+      "method": "rk4",
+      "dt_level": 1,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_05_baseline_rk4_L2",
+      "stage": "E3",
+      "case": "DLW_DEV_05",
+      "candidate_slot": "baseline",
+      "method": "rk4",
+      "dt_level": 2,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_05_baseline_rk8_L0",
+      "stage": "E3",
+      "case": "DLW_DEV_05",
+      "candidate_slot": "baseline",
+      "method": "rk8",
+      "dt_level": 0,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_05_baseline_rk8_L1",
+      "stage": "E3",
+      "case": "DLW_DEV_05",
+      "candidate_slot": "baseline",
+      "method": "rk8",
+      "dt_level": 1,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_05_baseline_rk8_L2",
+      "stage": "E3",
+      "case": "DLW_DEV_05",
+      "candidate_slot": "baseline",
+      "method": "rk8",
+      "dt_level": 2,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_05_finalist_1_euler_L0",
+      "stage": "E3",
+      "case": "DLW_DEV_05",
+      "candidate_slot": "finalist_1",
+      "method": "euler",
+      "dt_level": 0,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_05_finalist_1_euler_L1",
+      "stage": "E3",
+      "case": "DLW_DEV_05",
+      "candidate_slot": "finalist_1",
+      "method": "euler",
+      "dt_level": 1,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_05_finalist_1_euler_L2",
+      "stage": "E3",
+      "case": "DLW_DEV_05",
+      "candidate_slot": "finalist_1",
+      "method": "euler",
+      "dt_level": 2,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_05_finalist_1_heun_L0",
+      "stage": "E3",
+      "case": "DLW_DEV_05",
+      "candidate_slot": "finalist_1",
+      "method": "heun",
+      "dt_level": 0,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_05_finalist_1_heun_L1",
+      "stage": "E3",
+      "case": "DLW_DEV_05",
+      "candidate_slot": "finalist_1",
+      "method": "heun",
+      "dt_level": 1,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_05_finalist_1_heun_L2",
+      "stage": "E3",
+      "case": "DLW_DEV_05",
+      "candidate_slot": "finalist_1",
+      "method": "heun",
+      "dt_level": 2,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_05_finalist_1_rk4_L0",
+      "stage": "E3",
+      "case": "DLW_DEV_05",
+      "candidate_slot": "finalist_1",
+      "method": "rk4",
+      "dt_level": 0,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_05_finalist_1_rk4_L1",
+      "stage": "E3",
+      "case": "DLW_DEV_05",
+      "candidate_slot": "finalist_1",
+      "method": "rk4",
+      "dt_level": 1,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_05_finalist_1_rk4_L2",
+      "stage": "E3",
+      "case": "DLW_DEV_05",
+      "candidate_slot": "finalist_1",
+      "method": "rk4",
+      "dt_level": 2,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_05_finalist_1_rk8_L0",
+      "stage": "E3",
+      "case": "DLW_DEV_05",
+      "candidate_slot": "finalist_1",
+      "method": "rk8",
+      "dt_level": 0,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_05_finalist_1_rk8_L1",
+      "stage": "E3",
+      "case": "DLW_DEV_05",
+      "candidate_slot": "finalist_1",
+      "method": "rk8",
+      "dt_level": 1,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_05_finalist_1_rk8_L2",
+      "stage": "E3",
+      "case": "DLW_DEV_05",
+      "candidate_slot": "finalist_1",
+      "method": "rk8",
+      "dt_level": 2,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_05_finalist_2_euler_L0",
+      "stage": "E3",
+      "case": "DLW_DEV_05",
+      "candidate_slot": "finalist_2",
+      "method": "euler",
+      "dt_level": 0,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_05_finalist_2_euler_L1",
+      "stage": "E3",
+      "case": "DLW_DEV_05",
+      "candidate_slot": "finalist_2",
+      "method": "euler",
+      "dt_level": 1,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_05_finalist_2_euler_L2",
+      "stage": "E3",
+      "case": "DLW_DEV_05",
+      "candidate_slot": "finalist_2",
+      "method": "euler",
+      "dt_level": 2,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_05_finalist_2_heun_L0",
+      "stage": "E3",
+      "case": "DLW_DEV_05",
+      "candidate_slot": "finalist_2",
+      "method": "heun",
+      "dt_level": 0,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_05_finalist_2_heun_L1",
+      "stage": "E3",
+      "case": "DLW_DEV_05",
+      "candidate_slot": "finalist_2",
+      "method": "heun",
+      "dt_level": 1,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_05_finalist_2_heun_L2",
+      "stage": "E3",
+      "case": "DLW_DEV_05",
+      "candidate_slot": "finalist_2",
+      "method": "heun",
+      "dt_level": 2,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_05_finalist_2_rk4_L0",
+      "stage": "E3",
+      "case": "DLW_DEV_05",
+      "candidate_slot": "finalist_2",
+      "method": "rk4",
+      "dt_level": 0,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_05_finalist_2_rk4_L1",
+      "stage": "E3",
+      "case": "DLW_DEV_05",
+      "candidate_slot": "finalist_2",
+      "method": "rk4",
+      "dt_level": 1,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_05_finalist_2_rk4_L2",
+      "stage": "E3",
+      "case": "DLW_DEV_05",
+      "candidate_slot": "finalist_2",
+      "method": "rk4",
+      "dt_level": 2,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_05_finalist_2_rk8_L0",
+      "stage": "E3",
+      "case": "DLW_DEV_05",
+      "candidate_slot": "finalist_2",
+      "method": "rk8",
+      "dt_level": 0,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_05_finalist_2_rk8_L1",
+      "stage": "E3",
+      "case": "DLW_DEV_05",
+      "candidate_slot": "finalist_2",
+      "method": "rk8",
+      "dt_level": 1,
+      "resolution": 128,
+      "status": "planned"
+    },
+    {
+      "id": "E3_DLW_DEV_05_finalist_2_rk8_L2",
+      "stage": "E3",
+      "case": "DLW_DEV_05",
+      "candidate_slot": "finalist_2",
+      "method": "rk8",
+      "dt_level": 2,
+      "resolution": 128,
+      "status": "planned"
+    }
+  ],
+  "confirmation": {
+    "status": "not_generated_not_evaluated",
+    "cases_per_system": 30,
+    "phase_offsets_per_case": 3,
+    "seed": 2026092502,
+    "requires": "freeze algorithm and protocol before generation"
+  }
+}

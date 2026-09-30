@@ -9,7 +9,7 @@
 | E1 x 积分端点错误 | 两端点半权重；恒等于 1 的场在指定区域 L2=3；二阶趋势仍成立。 |
 | E5 索引、初态和周期积分 | 正确取 j=0；先记 t=0；使用 dx 求和；核对最终时间、停止原因、P/W 有限值。 |
 
-当前主报告：[REPORT.md](../../Paper/dlw_semidiscrete/numerics/REPORT.md)。
-日志、源码及产物哈希：[final_validation_manifest.json](../../Paper/dlw_semidiscrete/numerics/out/final_validation_manifest.json)。
+当前主报告：[REPORT.md](../../Workspaces/dlw_semidiscrete/numerics/REPORT.md)。
+日志、源码及产物哈希：[final_validation_manifest.json](../../Workspaces/dlw_semidiscrete/numerics/out/final_validation_manifest.json)。
 
 本轮不声称 E2/E3 时间阶、求解器两孤子散射、非线性长期稳定性或全部 Lean 命题已完成。Lean 继续工作将单独记录，不混用数值与证明的验收状态。

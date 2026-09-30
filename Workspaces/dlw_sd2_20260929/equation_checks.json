@@ -1,0 +1,139 @@
+{
+  "description": "Eq21 -> Eq7 manufactured-field check, and actual SD2 RHS against finite-h exact tau Q/R derivatives. Four-order x residual decay; not a proof of integrability of the fully discrete scheme.",
+  "rows": [
+    {
+      "nx": 64,
+      "moving": false,
+      "eq7_first": 0.00018527897448095132,
+      "eq7_second": 7.243533563829063e-07
+    },
+    {
+      "nx": 128,
+      "moving": false,
+      "eq7_first": 1.1940688013023504e-05,
+      "eq7_second": 4.570545357809874e-08
+    },
+    {
+      "nx": 256,
+      "moving": false,
+      "eq7_first": 7.49293723956157e-07,
+      "eq7_second": 2.8627654274915315e-09,
+      "eq7_first_order": 3.994210788135898,
+      "eq7_second_order": 3.996884950916785
+    },
+    {
+      "nx": 64,
+      "moving": true,
+      "eq7_first": 0.0001957626209800889,
+      "eq7_second": 1.2998605142464092e-06
+    },
+    {
+      "nx": 128,
+      "moving": true,
+      "eq7_first": 1.2465519663162894e-05,
+      "eq7_second": 8.21312252652362e-08
+    },
+    {
+      "nx": 256,
+      "moving": true,
+      "eq7_first": 7.825900281144271e-07,
+      "eq7_second": 5.148291890022527e-09,
+      "eq7_first_order": 3.993542489687629,
+      "eq7_second_order": 3.9957650641972573
+    }
+  ],
+  "finite_h_exact_rhs": [
+    {
+      "case": "fig1a",
+      "moving": false,
+      "nx": 256,
+      "q_rhs_error": 0.017462253151906637,
+      "r_rhs_error": 0.06995398044673151
+    },
+    {
+      "case": "fig1a",
+      "moving": false,
+      "nx": 512,
+      "q_rhs_error": 0.0012991506367364125,
+      "r_rhs_error": 0.005196430423430876
+    },
+    {
+      "case": "fig1a",
+      "moving": false,
+      "nx": 1024,
+      "q_rhs_error": 8.32298043449975e-05,
+      "r_rhs_error": 0.0003332887196370038,
+      "q_rhs_error_order": 3.9643246653080095,
+      "r_rhs_error_order": 3.962676540545231
+    },
+    {
+      "case": "fig1a",
+      "moving": true,
+      "nx": 256,
+      "q_rhs_error": 0.018834253291644287,
+      "r_rhs_error": 0.07546887464619734
+    },
+    {
+      "case": "fig1a",
+      "moving": true,
+      "nx": 512,
+      "q_rhs_error": 0.0014224346857402703,
+      "r_rhs_error": 0.00569470655706561
+    },
+    {
+      "case": "fig1a",
+      "moving": true,
+      "nx": 1024,
+      "q_rhs_error": 9.122915314846436e-05,
+      "r_rhs_error": 0.0003654771424008718,
+      "q_rhs_error_order": 3.9627236742006047,
+      "r_rhs_error_order": 3.9617684177505588
+    },
+    {
+      "case": "fig1b",
+      "moving": false,
+      "nx": 256,
+      "q_rhs_error": 5.571797188963501e-05,
+      "r_rhs_error": 3.45022474905754e-05
+    },
+    {
+      "case": "fig1b",
+      "moving": false,
+      "nx": 512,
+      "q_rhs_error": 3.528740449842971e-06,
+      "r_rhs_error": 2.1761994011271213e-06
+    },
+    {
+      "case": "fig1b",
+      "moving": false,
+      "nx": 1024,
+      "q_rhs_error": 2.211449396938292e-07,
+      "r_rhs_error": 1.3632261075535723e-07,
+      "q_rhs_error_order": 3.9960891836435057,
+      "r_rhs_error_order": 3.996713978583128
+    },
+    {
+      "case": "fig1b",
+      "moving": true,
+      "nx": 256,
+      "q_rhs_error": 6.1287197321791e-05,
+      "r_rhs_error": 3.785430250546895e-05
+    },
+    {
+      "case": "fig1b",
+      "moving": true,
+      "nx": 512,
+      "q_rhs_error": 3.8836170368483636e-06,
+      "r_rhs_error": 2.388344514381302e-06
+    },
+    {
+      "case": "fig1b",
+      "moving": true,
+      "nx": 1024,
+      "q_rhs_error": 2.4333516668306743e-07,
+      "r_rhs_error": 1.4999219544176157e-07,
+      "q_rhs_error_order": 3.996384205672883,
+      "r_rhs_error_order": 3.993051617869027
+    }
+  ]
+}

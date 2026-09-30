@@ -1,0 +1,160 @@
+{
+  "profiles_verified": 48,
+  "acceptance_definition": "Every tested configuration error <=1% of initial exact field peak; every field change from base on common points <=0.1% of same peak",
+  "accepted": [
+    {
+      "case": "fig1a",
+      "model": "structure",
+      "mesh": "fixed",
+      "passing_sample_times": [
+        0.005,
+        0.01,
+        0.02
+      ]
+    },
+    {
+      "case": "fig1a",
+      "model": "structure",
+      "mesh": "moving",
+      "passing_sample_times": [
+        0.005,
+        0.01,
+        0.02
+      ]
+    },
+    {
+      "case": "fig1a",
+      "model": "fd",
+      "mesh": "fixed",
+      "passing_sample_times": [
+        0.005,
+        0.01,
+        0.02
+      ]
+    },
+    {
+      "case": "fig1a",
+      "model": "fd",
+      "mesh": "moving",
+      "passing_sample_times": [
+        0.005,
+        0.01,
+        0.02
+      ]
+    },
+    {
+      "case": "fig1b",
+      "model": "structure",
+      "mesh": "fixed",
+      "passing_sample_times": [
+        0.005,
+        0.01,
+        0.02,
+        0.05
+      ]
+    },
+    {
+      "case": "fig1b",
+      "model": "structure",
+      "mesh": "moving",
+      "passing_sample_times": [
+        0.005,
+        0.01,
+        0.02
+      ]
+    },
+    {
+      "case": "fig1b",
+      "model": "fd",
+      "mesh": "fixed",
+      "passing_sample_times": [
+        0.005,
+        0.01,
+        0.02,
+        0.05
+      ]
+    },
+    {
+      "case": "fig1b",
+      "model": "fd",
+      "mesh": "moving",
+      "passing_sample_times": [
+        0.005,
+        0.01,
+        0.02
+      ]
+    }
+  ],
+  "common_passing_sample_times": [
+    0.005,
+    0.01,
+    0.02
+  ],
+  "domain_double_t1_success": 0,
+  "domain_double_stop_times": [
+    {
+      "case": "fig1a",
+      "model": "structure",
+      "mesh": "fixed",
+      "reached": 0.1555,
+      "status": "stopped",
+      "reason": "nonpositive monitor density"
+    },
+    {
+      "case": "fig1a",
+      "model": "structure",
+      "mesh": "moving",
+      "reached": 0.10362500000000001,
+      "status": "stopped",
+      "reason": "state magnitude >1000 or nonfinite"
+    },
+    {
+      "case": "fig1a",
+      "model": "fd",
+      "mesh": "fixed",
+      "reached": 0.1555,
+      "status": "stopped",
+      "reason": "nonpositive monitor density"
+    },
+    {
+      "case": "fig1a",
+      "model": "fd",
+      "mesh": "moving",
+      "reached": 0.10575,
+      "status": "stopped",
+      "reason": "nonpositive mesh Jacobian"
+    },
+    {
+      "case": "fig1b",
+      "model": "structure",
+      "mesh": "fixed",
+      "reached": 0.431,
+      "status": "stopped",
+      "reason": "nonpositive monitor density"
+    },
+    {
+      "case": "fig1b",
+      "model": "structure",
+      "mesh": "moving",
+      "reached": 0.275625,
+      "status": "stopped",
+      "reason": "state magnitude >1000 or nonfinite"
+    },
+    {
+      "case": "fig1b",
+      "model": "fd",
+      "mesh": "fixed",
+      "reached": 0.442125,
+      "status": "stopped",
+      "reason": "nonpositive monitor density"
+    },
+    {
+      "case": "fig1b",
+      "model": "fd",
+      "mesh": "moving",
+      "reached": 0.27625,
+      "status": "stopped",
+      "reason": "nonpositive monitor density"
+    }
+  ]
+}

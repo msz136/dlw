@@ -1,0 +1,41 @@
+﻿case,model,mesh,nx,dt,reached,status,reason,moved_steps,max_displacement,t1_under_1pct_both
+fig1a,structure,fixed,32,0.0005,1.0,completed,,0,0.0,False
+fig1a,structure,fixed,64,0.0005,0.8055,stopped,nonpositive monitor density,0,0.0,False
+fig1a,structure,fixed,128,0.0005,0.358,stopped,nonpositive monitor density,0,0.0,False
+fig1a,structure,fixed,256,0.000125,0.1555,stopped,nonpositive monitor density,0,0.0,False
+fig1a,structure,moving,32,0.0005,1.0,completed,,2000,0.37634483178852135,False
+fig1a,structure,moving,64,0.0005,0.5705,stopped,state magnitude >1000 or nonfinite,1141,0.6216915618020724,False
+fig1a,structure,moving,128,0.0005,0.2565,stopped,state magnitude >1000 or nonfinite,513,0.24239599361305392,False
+fig1a,structure,moving,256,0.000125,0.105,stopped,state magnitude >1000 or nonfinite,840,0.1063866942856474,False
+fig1a,fd,fixed,32,0.0005,1.0,completed,,0,0.0,False
+fig1a,fd,fixed,64,0.0005,0.8075,stopped,nonpositive monitor density,0,0.0,False
+fig1a,fd,fixed,128,0.0005,0.36,stopped,nonpositive monitor density,0,0.0,False
+fig1a,fd,fixed,256,0.000125,0.1555,stopped,nonpositive monitor density,0,0.0,False
+fig1a,fd,moving,32,0.0005,1.0,completed,,2000,0.3829688162314116,False
+fig1a,fd,moving,64,0.0005,0.5720000000000001,stopped,nonpositive mesh Jacobian,1144,0.6305193854483004,False
+fig1a,fd,moving,128,0.0005,0.246,stopped,state magnitude >1000 or nonfinite,492,0.2712130009683871,False
+fig1a,fd,moving,256,0.000125,0.107,stopped,state magnitude >1000 or nonfinite,856,0.09039070122329018,False
+fig1b,structure,fixed,32,0.0005,1.0,completed,,0,0.0,False
+fig1b,structure,fixed,64,0.0005,1.0,completed,,0,0.0,False
+fig1b,structure,fixed,128,0.0005,0.8435,stopped,nonpositive monitor density,0,0.0,False
+fig1b,structure,fixed,256,0.000125,0.291,stopped,nonpositive monitor density,0,0.0,False
+fig1b,structure,moving,32,0.0005,1.0,completed,,2000,0.4685989295541273,False
+fig1b,structure,moving,64,0.0005,1.0,completed,,2000,0.45895376611392524,False
+fig1b,structure,moving,128,0.0005,0.8255,stopped,crossed physical mesh nodes,1651,0.5935960198122148,False
+fig1b,structure,moving,256,0.000125,0.29025,stopped,state magnitude >1000 or nonfinite,2322,0.315996149610303,False
+fig1b,fd,fixed,32,0.0005,1.0,completed,,0,0.0,False
+fig1b,fd,fixed,64,0.0005,1.0,completed,,0,0.0,False
+fig1b,fd,fixed,128,0.0005,0.846,stopped,nonpositive monitor density,0,0.0,False
+fig1b,fd,fixed,256,0.000125,0.295125,stopped,nonpositive monitor density,0,0.0,False
+fig1b,fd,moving,32,0.0005,1.0,completed,,2000,0.46867634186747725,False
+fig1b,fd,moving,64,0.0005,1.0,completed,,2000,0.4591113366953743,False
+fig1b,fd,moving,128,0.0005,0.8195,stopped,nonpositive monitor density,1639,0.5387753460730174,False
+fig1b,fd,moving,256,0.000125,0.29,stopped,nonpositive monitor density,2320,0.32603927104270514,False
+fig1a,structure,fixed,32,0.00025,1.0,completed,,0,0.0,False
+fig1a,structure,moving,32,0.00025,1.0,completed,,4000,0.37634483178842176,False
+fig1a,fd,fixed,32,0.00025,1.0,completed,,0,0.0,False
+fig1a,fd,moving,32,0.00025,1.0,completed,,4000,0.38296881623130696,False
+fig1b,structure,fixed,32,0.00025,1.0,completed,,0,0.0,False
+fig1b,structure,moving,32,0.00025,1.0,completed,,4000,0.4685989295540815,False
+fig1b,fd,fixed,32,0.00025,1.0,completed,,0,0.0,False
+fig1b,fd,moving,32,0.00025,1.0,completed,,4000,0.46867634186743157,False

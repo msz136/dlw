@@ -1,0 +1,86 @@
+{
+  "configuration": {
+    "p": [
+      1.1,
+      1.25
+    ],
+    "q": [
+      10.999999999999991,
+      5.0
+    ],
+    "c": 1.0,
+    "a": 0.005,
+    "n": 1600,
+    "initial_condition": "same finite-a exact lattice state for both methods",
+    "normalized_phase": [
+      1.8718021769015913,
+      1.8718021769015913
+    ],
+    "shift": -0.2909090909090909,
+    "X_bounds": [
+      -4,
+      4
+    ],
+    "evaluation_bounds": [
+      -2.5,
+      1.5
+    ],
+    "dt": 0.003125,
+    "times": [
+      -3.0,
+      -1.5,
+      0.0,
+      1.5,
+      3.0
+    ],
+    "source_sha256": "a60445124c17d5769cdbbf3c7096fadd7b9fc02edad3a82e1c00d753909b7dd4",
+    "reference_sha256": "6a89a8050dec9e3daeff3dff2b69e08e6562b20328e32b200641862ed9a0af2f",
+    "solver_sha256": "f02e47fd59dfc3edc07eb94d8c25e37064980f4087096546dc88b41767fe7e5d"
+  },
+  "results": {
+    "sd": {
+      "status": "completed",
+      "error": "",
+      "last_time": 3.0,
+      "min_edge": 0.00498601575506738,
+      "metrics": {
+        "-3.0": {
+          "u": 0.0011838626611214084,
+          "rho": 0.007584358112203482
+        },
+        "-1.5": {
+          "u": 0.0012750319082721479,
+          "rho": 0.007628224990365029
+        },
+        "0.0": {
+          "u": 0.0014594325710468384,
+          "rho": 0.007724984207209462
+        },
+        "1.5": {
+          "u": 0.0017872935609087523,
+          "rho": 0.007628212109136057
+        },
+        "3.0": {
+          "u": 0.0020768819357790957,
+          "rho": 0.0075839175864858555
+        }
+      },
+      "profile": "sd_profiles.npz",
+      "profile_sha256": "df47eac6bb8c316bc3ae18ce1154e7fb29e3f1f3a4e747daafa264b3829baf7f"
+    },
+    "fd": {
+      "status": "failed",
+      "error": "StepFailure: Nonfinite state or nonpositive mesh edge",
+      "last_time": -1.6093750000000513,
+      "min_edge": 0.005000002994314847,
+      "metrics": {
+        "-3.0": {
+          "u": 0.0011838626611214084,
+          "rho": 0.007584358112203482
+        }
+      },
+      "profile": "fd_profiles.npz",
+      "profile_sha256": "ba2e39cd35a10f3d658f161976a3eb1e2182fe78aa9fd233142e439a2521309c"
+    }
+  }
+}

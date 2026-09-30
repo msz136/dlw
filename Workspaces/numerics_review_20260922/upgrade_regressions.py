@@ -1,5 +1,5 @@
 from pathlib import Path
-root=Path(__file__).resolve().parents[2]/'Paper/dlw_semidiscrete/numerics'
+root=Path(__file__).resolve().parents[2]/'Workspaces/dlw_semidiscrete/numerics'
 p=root/'experiments/check_regressions.py';s=p.read_text(encoding='utf-8')
 a=s.index('# ---------------------------------------------------------------- defect 2');b=s.index('\nprint()\n',a)
 s=s[:a]+'''# Live-source checks: no experiment top-level execution and no JSON writes.

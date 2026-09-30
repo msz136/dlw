@@ -1,0 +1,3861 @@
+{
+  "plan": {
+    "P6_fd_fixed_pilot": {
+      "case": "P6",
+      "route": "fd",
+      "branch": "fixed",
+      "phase": "pilot",
+      "h": 0.125,
+      "nx": 512,
+      "L": 40.0,
+      "yhalf": 1.5,
+      "dt": 1.25e-05,
+      "T": 0.01
+    },
+    "P6_fd_minus_pilot": {
+      "case": "P6",
+      "route": "fd",
+      "branch": "minus",
+      "phase": "pilot",
+      "h": 0.125,
+      "nx": 512,
+      "L": 40.0,
+      "yhalf": 1.5,
+      "dt": 1.25e-05,
+      "T": 0.01
+    },
+    "P6_fd_plus_pilot": {
+      "case": "P6",
+      "route": "fd",
+      "branch": "plus",
+      "phase": "pilot",
+      "h": 0.125,
+      "nx": 512,
+      "L": 40.0,
+      "yhalf": 1.5,
+      "dt": 1.25e-05,
+      "T": 0.01
+    },
+    "P6_sd_fixed_pilot": {
+      "case": "P6",
+      "route": "sd",
+      "branch": "fixed",
+      "phase": "pilot",
+      "h": 0.125,
+      "nx": 512,
+      "L": 40.0,
+      "yhalf": 1.5,
+      "dt": 1.25e-05,
+      "T": 0.01
+    },
+    "P6_sd_minus_pilot": {
+      "case": "P6",
+      "route": "sd",
+      "branch": "minus",
+      "phase": "pilot",
+      "h": 0.125,
+      "nx": 512,
+      "L": 40.0,
+      "yhalf": 1.5,
+      "dt": 1.25e-05,
+      "T": 0.01
+    },
+    "P6_sd_plus_pilot": {
+      "case": "P6",
+      "route": "sd",
+      "branch": "plus",
+      "phase": "pilot",
+      "h": 0.125,
+      "nx": 512,
+      "L": 40.0,
+      "yhalf": 1.5,
+      "dt": 1.25e-05,
+      "T": 0.01
+    },
+    "P10_fd_fixed_pilot": {
+      "case": "P10",
+      "route": "fd",
+      "branch": "fixed",
+      "phase": "pilot",
+      "h": 0.125,
+      "nx": 512,
+      "L": 40.0,
+      "yhalf": 1.5,
+      "dt": 1.25e-05,
+      "T": 0.01
+    },
+    "P10_fd_minus_pilot": {
+      "case": "P10",
+      "route": "fd",
+      "branch": "minus",
+      "phase": "pilot",
+      "h": 0.125,
+      "nx": 512,
+      "L": 40.0,
+      "yhalf": 1.5,
+      "dt": 1.25e-05,
+      "T": 0.01
+    },
+    "P10_fd_plus_pilot": {
+      "case": "P10",
+      "route": "fd",
+      "branch": "plus",
+      "phase": "pilot",
+      "h": 0.125,
+      "nx": 512,
+      "L": 40.0,
+      "yhalf": 1.5,
+      "dt": 1.25e-05,
+      "T": 0.01
+    },
+    "P10_sd_fixed_pilot": {
+      "case": "P10",
+      "route": "sd",
+      "branch": "fixed",
+      "phase": "pilot",
+      "h": 0.125,
+      "nx": 512,
+      "L": 40.0,
+      "yhalf": 1.5,
+      "dt": 1.25e-05,
+      "T": 0.01
+    },
+    "P10_sd_minus_pilot": {
+      "case": "P10",
+      "route": "sd",
+      "branch": "minus",
+      "phase": "pilot",
+      "h": 0.125,
+      "nx": 512,
+      "L": 40.0,
+      "yhalf": 1.5,
+      "dt": 1.25e-05,
+      "T": 0.01
+    },
+    "P10_sd_plus_pilot": {
+      "case": "P10",
+      "route": "sd",
+      "branch": "plus",
+      "phase": "pilot",
+      "h": 0.125,
+      "nx": 512,
+      "L": 40.0,
+      "yhalf": 1.5,
+      "dt": 1.25e-05,
+      "T": 0.01
+    }
+  },
+  "source_hashes": {
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_branch_mesh_euler_20260926\\model.py": "3a48779b9eb2a0b70f386b04f0d7eba243b001592ae6dd2a220edc01d9dbe19a",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_branch_mesh_euler_20260926\\run.py": "6c2ec2b40877bb2a9131066f22ed3d4eadba30217c9a77cd104765852565de92",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_coefficient_euler_20260926\\model.py": "95fd5a677928d73a282fea65cd0496fafb45aca9175764166fdc5956465f69d2",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_semidiscrete\\numerics\\lib\\moving_mesh.py": "c8f411f162c2fe568c2a1eb844bf82e632675213115a25e000f065df6e3609b5",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_semidiscrete\\numerics\\lib\\parametric_open.py": "1d85192a22ae7a949bf763ee9738c4cd3c55e5f87fb8469ff3415f08ca1a8719",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_semidiscrete\\numerics\\lib\\parametric.py": "8d4450605a3d6a4b2257fa66625afa4363709c137bc99b677b337abfc9fc71f7",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_semidiscrete\\numerics\\lib\\dynamics.py": "8957bed3621135bafb39f505ace2ff8d365ce05839320476d32849b34b95bc9d",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_semidiscrete\\numerics\\lib\\solver.py": "2f0444e680cdd23de441fc462d3afa5eef1677160323d61a7dd6695bc8e27f51"
+  },
+  "configuration": {
+    "cases": {
+      "P1": {
+        "a": 4.0,
+        "p": 1.0,
+        "q": 2.0,
+        "rho": 3.0
+      },
+      "P2": {
+        "a": 4.0,
+        "p": 2,
+        "q": 3,
+        "rho": 5
+      },
+      "P3": {
+        "a": 3,
+        "p": 1.0,
+        "q": 2.0,
+        "rho": 3.0
+      },
+      "P4": {
+        "a": 6,
+        "p": 1.0,
+        "q": 2.0,
+        "rho": 3.0
+      },
+      "P5": {
+        "a": 4.0,
+        "p": 0.5,
+        "q": 1,
+        "rho": 1.5
+      },
+      "P6": {
+        "a": 4.0,
+        "p": 1,
+        "q": 3,
+        "rho": 4
+      },
+      "P7": {
+        "a": 4.0,
+        "p": 2,
+        "q": 1,
+        "rho": 3
+      },
+      "P10": {
+        "a": 2,
+        "p": 1.5,
+        "q": 2,
+        "rho": 3.5
+      }
+    },
+    "integrator": "explicit Euler for P,v and mesh simultaneously",
+    "moving_rule": "same finite-h branch monitor and flux on FD/SD: X_t=(Q-Q_left)/R, every Euler step",
+    "initial_mesh": "equal mass of same monitor on common continuous physical initial fields",
+    "density_strength": 1.0,
+    "spatial_coefficients": {
+      "c": 0.0,
+      "kappa": 0.0
+    },
+    "mesh": "all y layers share x=xi+s, fixed y; x endpoints pinned and periodic computational stencil",
+    "discretization": "fourth-order mapped x D1=J^-1 Dxi, D2=D1(D1); second-order staggered y",
+    "reference": "continuous u,v with unchanged a,p,q,rho; no finite-h exact reference",
+    "evaluation": "common physical x in [-10,10), same y core |y|<1.5; mapped Fourier upsample and dense cubic evaluation",
+    "scope": "deterministic short-time total physical-field errors; no long-time or population significance claim"
+  },
+  "rows": {
+    "P6_fd_fixed_pilot": {
+      "spec": {
+        "case": "P6",
+        "route": "fd",
+        "branch": "fixed",
+        "phase": "pilot",
+        "h": 0.125,
+        "nx": 512,
+        "L": 40.0,
+        "yhalf": 1.5,
+        "dt": 1.25e-05,
+        "T": 0.01
+      },
+      "status": "completed",
+      "steps": 800,
+      "seconds": 2.6534688000101596,
+      "snapshots": {
+        "0.005": {
+          "errors": {
+            "u": 0.00014748063849800985,
+            "v": 5.498262763026229e-05
+          },
+          "evaluation_double": {
+            "u": 0.00014748063849800985,
+            "v": 5.498262763026229e-05
+          },
+          "reconstruction_double": {
+            "u": 0.00014748063849800985,
+            "v": 5.498262763026229e-05
+          },
+          "nodal_errors": {
+            "u": 0.0001474806384977878,
+            "v": 5.373947759590436e-05
+          }
+        },
+        "0.01": {
+          "errors": {
+            "u": 0.0003653767599520741,
+            "v": 0.00014368729762992416
+          },
+          "evaluation_double": {
+            "u": 0.0003653767599520741,
+            "v": 0.00014368729762992416
+          },
+          "reconstruction_double": {
+            "u": 0.0003653767599520741,
+            "v": 0.00014368729762992416
+          },
+          "nodal_errors": {
+            "u": 0.00033467315366619843,
+            "v": 0.00013837252301074354
+          }
+        }
+      },
+      "initial_hash": "386eaba7526eae4ce9a56077580ecc1a9251ab96699d9abbb8d35e1fc68128b2",
+      "initial_nodal_error": 0.0,
+      "initial_output_error": {
+        "u": 3.6837199957062694e-13,
+        "v": 2.382538610845586e-13
+      },
+      "geometry": [
+        {
+          "t": 0.0,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999994,
+          "max_R": 1.189394578764827,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.18375763763324016,
+          "physical_conservation_residual": 0.0002977958926677349
+        },
+        {
+          "t": 0.0005,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1893956319845258,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.18375868586137645,
+          "physical_conservation_residual": 0.00029829708940459776
+        },
+        {
+          "t": 0.001,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1893950838208256,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.18375814029560833,
+          "physical_conservation_residual": 0.000298765748826868
+        },
+        {
+          "t": 0.0015,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1893929380234245,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.18375600466786324,
+          "physical_conservation_residual": 0.0002991990779417364
+        },
+        {
+          "t": 0.002,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.189389198478865,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.18375228284626366,
+          "physical_conservation_residual": 0.0002995949335833914
+        },
+        {
+          "t": 0.0025,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.189383869179496,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.18374697880423785,
+          "physical_conservation_residual": 0.0002999518435101989
+        },
+        {
+          "t": 0.003,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1893769541991772,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.1837400965963376,
+          "physical_conservation_residual": 0.0003002690373907768
+        },
+        {
+          "t": 0.0035,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1893684576750687,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.1837316403401159,
+          "physical_conservation_residual": 0.0003005464885284803
+        },
+        {
+          "t": 0.004,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1893583837949302,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.18372161420348498,
+          "physical_conservation_residual": 0.0003007849671952667
+        },
+        {
+          "t": 0.0045000000000000005,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.189346736789439,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.18371002239707201,
+          "physical_conservation_residual": 0.00030098610660508895
+        },
+        {
+          "t": 0.005,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1893335209291318,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.18369686917117378,
+          "physical_conservation_residual": 0.00030115248259671157
+        },
+        {
+          "t": 0.0055000000000000005,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1893187405256394,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.18368215881698702,
+          "physical_conservation_residual": 0.0003012877083105603
+        },
+        {
+          "t": 0.006,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1893023999369694,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.1836658956718653,
+          "physical_conservation_residual": 0.0003013965451761913
+        },
+        {
+          "t": 0.006500000000000001,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.189284503576659,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.18364808412842848,
+          "physical_conservation_residual": 0.0003014850318799889
+        },
+        {
+          "t": 0.007,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1892650559266864,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.18362872864741298,
+          "physical_conservation_residual": 0.00030156063282710255
+        },
+        {
+          "t": 0.007500000000000001,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1892440615540893,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.1836078337742122,
+          "physical_conservation_residual": 0.00030163240806263536
+        },
+        {
+          "t": 0.008,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1892215251313252,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.1835854041591387,
+          "physical_conservation_residual": 0.00030171120665112294
+        },
+        {
+          "t": 0.0085,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1891974514604338,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.1835614445814744,
+          "physical_conservation_residual": 0.0003018098856648055
+        },
+        {
+          "t": 0.009000000000000001,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1891718455011653,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.18353595997746308,
+          "physical_conservation_residual": 0.0003019435572843565
+        },
+        {
+          "t": 0.0095,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1891447124032657,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.1835089554724445,
+          "physical_conservation_residual": 0.00030212986630956395
+        },
+        {
+          "t": 0.01,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1891160575431945,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.18348043641739742,
+          "physical_conservation_residual": 0.00030238930111375906
+        }
+      ],
+      "steps_with_nonzero_mesh_velocity": 0,
+      "max_mesh_velocity": 0.0,
+      "max_displacement_since_initial": 0.0,
+      "minimum_J": 1.0,
+      "minimum_spacing": 0.078125,
+      "max_state": 0.7287308802957184,
+      "reference_endpoint_field_and_time_derivative_mismatch": 9.62900121886492e-34,
+      "profile": "profiles\\P6_fd_fixed_pilot.npz",
+      "profile_sha256": "f56247067cc1e04699becb55d180fb2c11ca5a660ec6f1ea38118af1bd332771"
+    },
+    "P6_fd_minus_pilot": {
+      "spec": {
+        "case": "P6",
+        "route": "fd",
+        "branch": "minus",
+        "phase": "pilot",
+        "h": 0.125,
+        "nx": 512,
+        "L": 40.0,
+        "yhalf": 1.5,
+        "dt": 1.25e-05,
+        "T": 0.01
+      },
+      "status": "completed",
+      "steps": 800,
+      "seconds": 2.627556600025855,
+      "snapshots": {
+        "0.005": {
+          "errors": {
+            "u": 7.140851702502893e-05,
+            "v": 2.9480637457557357e-05
+          },
+          "evaluation_double": {
+            "u": 7.140851702502893e-05,
+            "v": 2.9480637457557357e-05
+          },
+          "reconstruction_double": {
+            "u": 7.140849034570351e-05,
+            "v": 2.9480609059495677e-05
+          },
+          "nodal_errors": {
+            "u": 7.034851267317954e-05,
+            "v": 2.9409103552646698e-05
+          }
+        },
+        "0.01": {
+          "errors": {
+            "u": 0.00019974721433357878,
+            "v": 7.666821762342124e-05
+          },
+          "evaluation_double": {
+            "u": 0.00019974721433357878,
+            "v": 7.671114476537344e-05
+          },
+          "reconstruction_double": {
+            "u": 0.00019974720395610213,
+            "v": 7.66682159635268e-05
+          },
+          "nodal_errors": {
+            "u": 0.00019789679039661223,
+            "v": 7.627903297546812e-05
+          }
+        }
+      },
+      "initial_hash": "972af953bb1c008601652c26fe263eb9958421ed5feea31f3bb7b8c4b232d9cf",
+      "initial_nodal_error": 0.0,
+      "initial_output_error": {
+        "u": 1.7710721778030347e-11,
+        "v": 6.117439887987075e-12
+      },
+      "geometry": [
+        {
+          "t": 0.0,
+          "min_J": 0.8447798929420903,
+          "min_spacing": 0.06605718355443599,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.189394578775653,
+          "mass": 40.19047673074206,
+          "relative_equidistribution_defect": 1.4636955461666545e-05,
+          "physical_conservation_residual": 0.00029959822869535246
+        },
+        {
+          "t": 0.0005,
+          "min_J": 0.8447798832378368,
+          "min_spacing": 0.06605496566767588,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.1893947035258758,
+          "mass": 40.19047672932949,
+          "relative_equidistribution_defect": 1.4730390140327287e-05,
+          "physical_conservation_residual": 0.00029922239609664336
+        },
+        {
+          "t": 0.001,
+          "min_J": 0.8447806397264912,
+          "min_spacing": 0.06605274593184694,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.1893937507230306,
+          "mass": 40.190476727916945,
+          "relative_equidistribution_defect": 1.4824829941417761e-05,
+          "physical_conservation_residual": 0.00029883459116575306
+        },
+        {
+          "t": 0.0015,
+          "min_J": 0.844782162208169,
+          "min_spacing": 0.06605058538675913,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.1893917206549725,
+          "mass": 40.19047672650446,
+          "relative_equidistribution_defect": 1.4920275658969473e-05,
+          "physical_conservation_residual": 0.00029843582506233757
+        },
+        {
+          "t": 0.002,
+          "min_J": 0.8447844503975833,
+          "min_spacing": 0.0660484840231919,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.1893886137356038,
+          "mass": 40.19047672509199,
+          "relative_equidistribution_defect": 1.5016728046379768e-05,
+          "physical_conservation_residual": 0.0002980274157987073
+        },
+        {
+          "t": 0.0025,
+          "min_J": 0.8447875039251547,
+          "min_spacing": 0.06604644182600576,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.189384430503276,
+          "mass": 40.190476723679566,
+          "relative_equidistribution_defect": 1.5114187790654654e-05,
+          "physical_conservation_residual": 0.0002976110430239487
+        },
+        {
+          "t": 0.003,
+          "min_J": 0.844791322338435,
+          "min_spacing": 0.06604445877464929,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.18937917161873,
+          "mass": 40.190476722267164,
+          "relative_equidistribution_defect": 1.5212655481322557e-05,
+          "physical_conservation_residual": 0.00029718880971263406
+        },
+        {
+          "t": 0.0035,
+          "min_J": 0.8447959051037195,
+          "min_spacing": 0.06604253484365304,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.189372837862733,
+          "mass": 40.19047672085479,
+          "relative_equidistribution_defect": 1.5312131542044582e-05,
+          "physical_conservation_residual": 0.0002970078267418852
+        },
+        {
+          "t": 0.004,
+          "min_J": 0.8448012516077663,
+          "min_spacing": 0.0660406700031147,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.1893654301335355,
+          "mass": 40.190476719442465,
+          "relative_equidistribution_defect": 1.541261614446121e-05,
+          "physical_conservation_residual": 0.0002976515328438345
+        },
+        {
+          "t": 0.0045000000000000005,
+          "min_J": 0.8448073611595748,
+          "min_spacing": 0.0660388642191821,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.1893569494442002,
+          "mass": 40.190476718030155,
+          "relative_equidistribution_defect": 1.5514109088066164e-05,
+          "physical_conservation_residual": 0.00029831358880999526
+        },
+        {
+          "t": 0.005,
+          "min_J": 0.844814232992217,
+          "min_spacing": 0.06603711745454316,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.18934739691981,
+          "mass": 40.19047671661785,
+          "relative_equidistribution_defect": 1.561826974949554e-05,
+          "physical_conservation_residual": 0.00029899758460114056
+        },
+        {
+          "t": 0.0055000000000000005,
+          "min_J": 0.8448218662647453,
+          "min_spacing": 0.06603542966893343,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.1893367737945157,
+          "mass": 40.19047671520559,
+          "relative_equidistribution_defect": 1.5780259085662607e-05,
+          "physical_conservation_residual": 0.0002997073636951675
+        },
+        {
+          "t": 0.006,
+          "min_J": 0.84483026006424,
+          "min_spacing": 0.06603380081967598,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.1893250814083227,
+          "mass": 40.19047671379333,
+          "relative_equidistribution_defect": 1.5942890049691627e-05,
+          "physical_conservation_residual": 0.00030044698958256455
+        },
+        {
+          "t": 0.006500000000000001,
+          "min_J": 0.8448394134080994,
+          "min_spacing": 0.06603223086226942,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.1893123212034666,
+          "mass": 40.1904767123811,
+          "relative_equidistribution_defect": 1.6106173054142303e-05,
+          "physical_conservation_residual": 0.0003012206957413166
+        },
+        {
+          "t": 0.007,
+          "min_J": 0.8448493252467162,
+          "min_spacing": 0.06603071975104424,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.18929849472016,
+          "mass": 40.19047671096888,
+          "relative_equidistribution_defect": 1.6270120105188468e-05,
+          "physical_conservation_residual": 0.00030203281510979285
+        },
+        {
+          "t": 0.007500000000000001,
+          "min_J": 0.8448599944667343,
+          "min_spacing": 0.06602926743991037,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.1892836035914327,
+          "mass": 40.19047670955668,
+          "relative_equidistribution_defect": 1.6434744783300204e-05,
+          "physical_conservation_residual": 0.00030288768343328387
+        },
+        {
+          "t": 0.008,
+          "min_J": 0.8448714198951377,
+          "min_spacing": 0.06602787388322386,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1892676495366912,
+          "mass": 40.19047670814448,
+          "relative_equidistribution_defect": 1.6600062160199158e-05,
+          "physical_conservation_residual": 0.000303789510277902
+        },
+        {
+          "t": 0.0085,
+          "min_J": 0.8448836003044873,
+          "min_spacing": 0.06602653903680436,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1892506343535467,
+          "mass": 40.1904767067323,
+          "relative_equidistribution_defect": 1.676608864764617e-05,
+          "physical_conservation_residual": 0.0003047422097622876
+        },
+        {
+          "t": 0.009000000000000001,
+          "min_J": 0.8448965344197041,
+          "min_spacing": 0.06602526285914137,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.189232559907323,
+          "mass": 40.19047670532011,
+          "relative_equidistribution_defect": 1.6932841748307226e-05,
+          "physical_conservation_residual": 0.00030574918156028863
+        },
+        {
+          "t": 0.0095,
+          "min_J": 0.8449102209268906,
+          "min_spacing": 0.06602404531283362,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1892134281175581,
+          "mass": 40.19047670390794,
+          "relative_equidistribution_defect": 1.7100339685383048e-05,
+          "physical_conservation_residual": 0.0003068130305344807
+        },
+        {
+          "t": 0.01,
+          "min_J": 0.8449246584847946,
+          "min_spacing": 0.06602288636631276,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.189193240940607,
+          "mass": 40.19047670249577,
+          "relative_equidistribution_defect": 1.7268600878805884e-05,
+          "physical_conservation_residual": 0.0003079352112341227
+        }
+      ],
+      "steps_with_nonzero_mesh_velocity": 800,
+      "max_mesh_velocity": 0.31850441189488193,
+      "max_displacement_since_initial": 0.0031838799039116436,
+      "minimum_J": 0.8447797923036853,
+      "minimum_spacing": 0.06602288636631276,
+      "max_state": 0.7287492290981223,
+      "reference_endpoint_field_and_time_derivative_mismatch": 9.62900121886492e-34,
+      "profile": "profiles\\P6_fd_minus_pilot.npz",
+      "profile_sha256": "08ff9103c36519f5407ca727ffc73da6d88ffeed63af8c4e718b08b51a12ebac"
+    },
+    "P6_fd_plus_pilot": {
+      "spec": {
+        "case": "P6",
+        "route": "fd",
+        "branch": "plus",
+        "phase": "pilot",
+        "h": 0.125,
+        "nx": 512,
+        "L": 40.0,
+        "yhalf": 1.5,
+        "dt": 1.25e-05,
+        "T": 0.01
+      },
+      "status": "completed",
+      "steps": 800,
+      "seconds": 2.752540500019677,
+      "snapshots": {
+        "0.005": {
+          "errors": {
+            "u": 4.92500042403865e-05,
+            "v": 2.91071224147732e-05
+          },
+          "evaluation_double": {
+            "u": 4.92500042403865e-05,
+            "v": 2.91071224147732e-05
+          },
+          "reconstruction_double": {
+            "u": 4.924980546050506e-05,
+            "v": 2.910715286930099e-05
+          },
+          "nodal_errors": {
+            "u": 4.8019578594349355e-05,
+            "v": 2.7585223709269968e-05
+          }
+        },
+        "0.01": {
+          "errors": {
+            "u": 9.826620901765004e-05,
+            "v": 5.889726065488876e-05
+          },
+          "evaluation_double": {
+            "u": 9.845708464339964e-05,
+            "v": 5.918648708980179e-05
+          },
+          "reconstruction_double": {
+            "u": 9.826606445639818e-05,
+            "v": 5.88973343293997e-05
+          },
+          "nodal_errors": {
+            "u": 9.605753599606359e-05,
+            "v": 5.775088129189587e-05
+          }
+        }
+      },
+      "initial_hash": "0157dc6183c55eed132b31ea3b12b6597435474f6d9ade8dc32522a46b60771d",
+      "initial_nodal_error": 0.0,
+      "initial_output_error": {
+        "u": 1.8814283464507753e-11,
+        "v": 6.309841538154615e-12
+      },
+      "geometry": [
+        {
+          "t": 0.0,
+          "min_J": 0.8449928605586976,
+          "min_spacing": 0.06601986393144099,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.1890947527143156,
+          "mass": 40.19047673066726,
+          "relative_equidistribution_defect": 1.4588833890716302e-05,
+          "physical_conservation_residual": 0.00045951851408774363
+        },
+        {
+          "t": 0.0005,
+          "min_J": 0.8450111668886187,
+          "min_spacing": 0.06601900715800646,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1890687750953015,
+          "mass": 40.19047672925339,
+          "relative_equidistribution_defect": 1.4406321043658465e-05,
+          "physical_conservation_residual": 0.00046016407990120273
+        },
+        {
+          "t": 0.001,
+          "min_J": 0.845030229325062,
+          "min_spacing": 0.06601820922023227,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1890417348845745,
+          "mass": 40.19047672783952,
+          "relative_equidistribution_defect": 1.4223977177874048e-05,
+          "physical_conservation_residual": 0.00046080035583352663
+        },
+        {
+          "t": 0.0015,
+          "min_J": 0.845050047575753,
+          "min_spacing": 0.06601747011931419,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.1890136326421419,
+          "mass": 40.190476726425636,
+          "relative_equidistribution_defect": 1.4041805889375425e-05,
+          "physical_conservation_residual": 0.00046142257729257785
+        },
+        {
+          "t": 0.002,
+          "min_J": 0.8450706213320531,
+          "min_spacing": 0.06601678985634701,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1889844689587734,
+          "mass": 40.19047672501175,
+          "relative_equidistribution_defect": 1.3859812565408802e-05,
+          "physical_conservation_residual": 0.0004620265313905886
+        },
+        {
+          "t": 0.0025,
+          "min_J": 0.8450919502644889,
+          "min_spacing": 0.06601616843204416,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999994,
+          "max_R": 1.1889542444619938,
+          "mass": 40.19047672359786,
+          "relative_equidistribution_defect": 1.3678004146200351e-05,
+          "physical_conservation_residual": 0.00046260853831293913
+        },
+        {
+          "t": 0.003,
+          "min_J": 0.845114034016888,
+          "min_spacing": 0.06601560584640581,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999994,
+          "max_R": 1.1889229598240285,
+          "mass": 40.19047672218397,
+          "relative_equidistribution_defect": 1.3496388886036215e-05,
+          "physical_conservation_residual": 0.0004631654284368153
+        },
+        {
+          "t": 0.0035,
+          "min_J": 0.8451368721990246,
+          "min_spacing": 0.06601510209833875,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999994,
+          "max_R": 1.188890615771857,
+          "mass": 40.190476720770064,
+          "relative_equidistribution_defect": 1.3314976123224298e-05,
+          "physical_conservation_residual": 0.0004636945189099295
+        },
+        {
+          "t": 0.004,
+          "min_J": 0.84516046437764,
+          "min_spacing": 0.06601465718523156,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999994,
+          "max_R": 1.1888572130995492,
+          "mass": 40.190476719356155,
+          "relative_equidistribution_defect": 1.313377605360877e-05,
+          "physical_conservation_residual": 0.00046419358953764256
+        },
+        {
+          "t": 0.0045000000000000005,
+          "min_J": 0.8451848100656764,
+          "min_spacing": 0.0660142711024875,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999994,
+          "max_R": 1.1888227526831139,
+          "mass": 40.190476717942246,
+          "relative_equidistribution_defect": 1.295279950763728e-05,
+          "physical_conservation_residual": 0.00046466085983772054
+        },
+        {
+          "t": 0.005,
+          "min_J": 0.845209908709514,
+          "min_spacing": 0.06601394384301928,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999994,
+          "max_R": 1.188787235498149,
+          "mass": 40.190476716528316,
+          "relative_equidistribution_defect": 1.2772057727650221e-05,
+          "physical_conservation_residual": 0.00046509496725299915
+        },
+        {
+          "t": 0.0055000000000000005,
+          "min_J": 0.8452357596739666,
+          "min_spacing": 0.06601367539670877,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999993,
+          "max_R": 1.1887506626406434,
+          "mass": 40.1904767151144,
+          "relative_equidistribution_defect": 1.2591562150499058e-05,
+          "physical_conservation_residual": 0.00046549494840243677
+        },
+        {
+          "t": 0.006,
+          "min_J": 0.845262362224732,
+          "min_spacing": 0.06601346574983671,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999993,
+          "max_R": 1.188713035351332,
+          "mass": 40.19047671370046,
+          "relative_equidistribution_defect": 1.2411324180616745e-05,
+          "physical_conservation_residual": 0.00046586022183772724
+        },
+        {
+          "t": 0.006500000000000001,
+          "min_J": 0.8452897155079422,
+          "min_spacing": 0.06601331488448994,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999993,
+          "max_R": 1.188674355044119,
+          "mass": 40.19047671228652,
+          "relative_equidistribution_defect": 1.2231354959979512e-05,
+          "physical_conservation_residual": 0.00046619057433906763
+        },
+        {
+          "t": 0.007,
+          "min_J": 0.8453178185263934,
+          "min_spacing": 0.0660132227779546,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999993,
+          "max_R": 1.1886346233391396,
+          "mass": 40.190476710872574,
+          "relative_equidistribution_defect": 1.2051665130075051e-05,
+          "physical_conservation_residual": 0.0004664861501214035
+        },
+        {
+          "t": 0.007500000000000001,
+          "min_J": 0.8453466701119596,
+          "min_spacing": 0.06601318940210904,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999993,
+          "max_R": 1.1885938421011517,
+          "mass": 40.19047670945861,
+          "relative_equidistribution_defect": 1.1884199383249694e-05,
+          "physical_conservation_residual": 0.0004667474423662443
+        },
+        {
+          "t": 0.008,
+          "min_J": 0.8453527410436829,
+          "min_spacing": 0.0660132147228342,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999992,
+          "max_R": 1.1885847703866044,
+          "mass": 40.19047670804465,
+          "relative_equidistribution_defect": 1.1950691049422701e-05,
+          "physical_conservation_residual": 0.00046697528740467786
+        },
+        {
+          "t": 0.0085,
+          "min_J": 0.8453245319096432,
+          "min_spacing": 0.06601329869946673,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999991,
+          "max_R": 1.188624214480134,
+          "mass": 40.19047670663067,
+          "relative_equidistribution_defect": 1.201733537103955e-05,
+          "physical_conservation_residual": 0.00046717086082394277
+        },
+        {
+          "t": 0.009000000000000001,
+          "min_J": 0.8452970715624056,
+          "min_spacing": 0.06601344128432823,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999989,
+          "max_R": 1.1886626081936487,
+          "mass": 40.19047670521669,
+          "relative_equidistribution_defect": 1.2084114995647433e-05,
+          "physical_conservation_residual": 0.0004673356745244217
+        },
+        {
+          "t": 0.0095,
+          "min_J": 0.845270361269636,
+          "min_spacing": 0.06601364242237676,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999987,
+          "max_R": 1.1886999495818367,
+          "mass": 40.19047670380269,
+          "relative_equidistribution_defect": 1.2151013305428116e-05,
+          "physical_conservation_residual": 0.0004674715736797119
+        },
+        {
+          "t": 0.01,
+          "min_J": 0.8452444025440761,
+          "min_spacing": 0.06601390205104149,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999983,
+          "max_R": 1.1887362363633003,
+          "mass": 40.190476702388686,
+          "relative_equidistribution_defect": 1.2218014522336063e-05,
+          "physical_conservation_residual": 0.0004675807315088071
+        }
+      ],
+      "steps_with_nonzero_mesh_velocity": 800,
+      "max_mesh_velocity": 0.31806368161919363,
+      "max_displacement_since_initial": 0.0031762771827308547,
+      "minimum_J": 0.8449928605586976,
+      "minimum_spacing": 0.06601318926559113,
+      "max_state": 0.7287203842247069,
+      "reference_endpoint_field_and_time_derivative_mismatch": 9.62900121886492e-34,
+      "profile": "profiles\\P6_fd_plus_pilot.npz",
+      "profile_sha256": "dc9ed85939c1eb5ff6552a751269d2a7293e69d93861560becad87459328429d"
+    },
+    "P6_sd_fixed_pilot": {
+      "spec": {
+        "case": "P6",
+        "route": "sd",
+        "branch": "fixed",
+        "phase": "pilot",
+        "h": 0.125,
+        "nx": 512,
+        "L": 40.0,
+        "yhalf": 1.5,
+        "dt": 1.25e-05,
+        "T": 0.01
+      },
+      "status": "completed",
+      "steps": 800,
+      "seconds": 3.0895906999940053,
+      "snapshots": {
+        "0.005": {
+          "errors": {
+            "u": 0.00012995148178784888,
+            "v": 5.2153100073892844e-05
+          },
+          "evaluation_double": {
+            "u": 0.00012995148178784888,
+            "v": 5.224851934304553e-05
+          },
+          "reconstruction_double": {
+            "u": 0.00012995148178784888,
+            "v": 5.2153100073892844e-05
+          },
+          "nodal_errors": {
+            "u": 0.00012995148178762683,
+            "v": 5.2153100073892844e-05
+          }
+        },
+        "0.01": {
+          "errors": {
+            "u": 0.0003250392601266139,
+            "v": 0.00013535383903384712
+          },
+          "evaluation_double": {
+            "u": 0.0003250392601266139,
+            "v": 0.00013535383903384712
+          },
+          "reconstruction_double": {
+            "u": 0.0003250392601266139,
+            "v": 0.00013535383903384712
+          },
+          "nodal_errors": {
+            "u": 0.00030121396208748763,
+            "v": 0.0001314287551540394
+          }
+        }
+      },
+      "initial_hash": "386eaba7526eae4ce9a56077580ecc1a9251ab96699d9abbb8d35e1fc68128b2",
+      "initial_nodal_error": 0.0,
+      "initial_output_error": {
+        "u": 3.6837199957062694e-13,
+        "v": 2.382538610845586e-13
+      },
+      "geometry": [
+        {
+          "t": 0.0,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999994,
+          "max_R": 1.189394578764827,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.18375763763324016,
+          "physical_conservation_residual": 1.8510073571129415e-14
+        },
+        {
+          "t": 0.0005,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1893955245079817,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.18375857889419978,
+          "physical_conservation_residual": 1.851454307948303e-14
+        },
+        {
+          "t": 0.001,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1893948746172867,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.1837579320835554,
+          "physical_conservation_residual": 1.8605156914811927e-14
+        },
+        {
+          "t": 0.0015,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1893926325847413,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.18375570067675673,
+          "physical_conservation_residual": 1.925561030253258e-14
+        },
+        {
+          "t": 0.002,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1893888020416792,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.1837518882879272,
+          "physical_conservation_residual": 1.8786438663114617e-14
+        },
+        {
+          "t": 0.0025,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1893833867266257,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.18374649863787385,
+          "physical_conservation_residual": 1.8747917125413664e-14
+        },
+        {
+          "t": 0.003,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.1893763904599834,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.18373953552889355,
+          "physical_conservation_residual": 1.8752476993869406e-14
+        },
+        {
+          "t": 0.0035,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1893678171248558,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.183731002825686,
+          "physical_conservation_residual": 1.875705514215844e-14
+        },
+        {
+          "t": 0.004,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1893576706534263,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.18372090444179867,
+          "physical_conservation_residual": 1.884777803265973e-14
+        },
+        {
+          "t": 0.0045000000000000005,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1893459550184007,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.1837092443311097,
+          "physical_conservation_residual": 1.9498340893093748e-14
+        },
+        {
+          "t": 0.005,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1893326742290908,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.18369602648392935,
+          "physical_conservation_residual": 1.9029279146227816e-14
+        },
+        {
+          "t": 0.0055000000000000005,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1893178323318232,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.18368125492740695,
+          "physical_conservation_residual": 1.899086792320949e-14
+        },
+        {
+          "t": 0.006,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1893014334144112,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.18366493372998272,
+          "physical_conservation_residual": 1.8995538530764947e-14
+        },
+        {
+          "t": 0.006500000000000001,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1892834816145141,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.18364706700970612,
+          "physical_conservation_residual": 1.9000227844851795e-14
+        },
+        {
+          "t": 0.007,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1892639811317665,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.18362765894630795,
+          "physical_conservation_residual": 1.9091062330125177e-14
+        },
+        {
+          "t": 0.007500000000000001,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1892429362436516,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.18360671379699922,
+          "physical_conservation_residual": 1.836371494116353e-14
+        },
+        {
+          "t": 0.008,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1892203513251196,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.18358423591599582,
+          "physical_conservation_residual": 1.789476565382829e-14
+        },
+        {
+          "t": 0.0085,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.189196230872061,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.18356022977788067,
+          "physical_conservation_residual": 1.785646732611642e-14
+        },
+        {
+          "t": 0.009000000000000001,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1891705795287764,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.1835347000049432,
+          "physical_conservation_residual": 1.786125126701317e-14
+        },
+        {
+          "t": 0.0095,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1891434021196694,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.18350765139872305,
+          "physical_conservation_residual": 1.786605435473161e-14
+        },
+        {
+          "t": 0.01,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1891147036854492,
+          "mass": 40.19047619047619,
+          "relative_equidistribution_defect": 0.1834790889760396,
+          "physical_conservation_residual": 1.7957003056179035e-14
+        }
+      ],
+      "steps_with_nonzero_mesh_velocity": 0,
+      "max_mesh_velocity": 0.0,
+      "max_displacement_since_initial": 0.0,
+      "minimum_J": 1.0,
+      "minimum_spacing": 0.078125,
+      "max_state": 0.728728495994974,
+      "reference_endpoint_field_and_time_derivative_mismatch": 9.62900121886492e-34,
+      "profile": "profiles\\P6_sd_fixed_pilot.npz",
+      "profile_sha256": "8708e653207a87aad1d7c830b8b3b9dd0b39fc4f76cc0faf79d493441dc0a8a6"
+    },
+    "P10_fd_fixed_pilot": {
+      "spec": {
+        "case": "P10",
+        "route": "fd",
+        "branch": "fixed",
+        "phase": "pilot",
+        "h": 0.125,
+        "nx": 512,
+        "L": 40.0,
+        "yhalf": 1.5,
+        "dt": 1.25e-05,
+        "T": 0.01
+      },
+      "status": "completed",
+      "steps": 800,
+      "seconds": 2.4022976000560448,
+      "snapshots": {
+        "0.005": {
+          "errors": {
+            "u": 0.0004316083456776809,
+            "v": 0.0022242678234238866
+          },
+          "evaluation_double": {
+            "u": 0.00043212751808185956,
+            "v": 0.0022263601991401316
+          },
+          "reconstruction_double": {
+            "u": 0.0004316083456776809,
+            "v": 0.0022242678234238866
+          },
+          "nodal_errors": {
+            "u": 0.00043098857792234213,
+            "v": 0.0022233332718917254
+          }
+        },
+        "0.01": {
+          "errors": {
+            "u": 0.0010178223536434494,
+            "v": 0.004769506191284911
+          },
+          "evaluation_double": {
+            "u": 0.0010193925606021281,
+            "v": 0.004769506191284911
+          },
+          "reconstruction_double": {
+            "u": 0.0010178223536434494,
+            "v": 0.004769506191284023
+          },
+          "nodal_errors": {
+            "u": 0.0010178223536434494,
+            "v": 0.004769506191284911
+          }
+        }
+      },
+      "initial_hash": "62b813e784a5c15ab111bd5f32f1dc03bbd17cd02210a9a173cbcac075bee565",
+      "initial_nodal_error": 7.216449660063518e-16,
+      "initial_output_error": {
+        "u": 3.552713678800501e-15,
+        "v": 7.016609515630989e-14
+      },
+      "geometry": [
+        {
+          "t": 0.0,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621582187969554,
+          "mass": 41.75,
+          "relative_equidistribution_defect": 0.9757204491467837,
+          "physical_conservation_residual": 0.008927353205154975
+        },
+        {
+          "t": 0.0005,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621568708157145,
+          "mass": 41.75,
+          "relative_equidistribution_defect": 0.9757191576677506,
+          "physical_conservation_residual": 0.008938788351280813
+        },
+        {
+          "t": 0.001,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.062155392098178,
+          "mass": 41.75,
+          "relative_equidistribution_defect": 0.9757177409323863,
+          "physical_conservation_residual": 0.008950192981694027
+        },
+        {
+          "t": 0.0015,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621537798697323,
+          "mass": 41.75,
+          "relative_equidistribution_defect": 0.9757161962823784,
+          "physical_conservation_residual": 0.008961576625695633
+        },
+        {
+          "t": 0.002,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.062152031493391,
+          "mass": 41.75,
+          "relative_equidistribution_defect": 0.975714521191273,
+          "physical_conservation_residual": 0.00897294886394523
+        },
+        {
+          "t": 0.0025,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621501444678936,
+          "mass": 41.749999999999986,
+          "relative_equidistribution_defect": 0.9757127132626531,
+          "physical_conservation_residual": 0.008984319389430562
+        },
+        {
+          "t": 0.003,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.06214811642733,
+          "mass": 41.75,
+          "relative_equidistribution_defect": 0.9757107702297774,
+          "physical_conservation_residual": 0.008995698070041191
+        },
+        {
+          "t": 0.0035,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621459451424298,
+          "mass": 41.75,
+          "relative_equidistribution_defect": 0.975708689956819,
+          "physical_conservation_residual": 0.009007095013385591
+        },
+        {
+          "t": 0.004,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.062143628523602,
+          "mass": 41.749999999999986,
+          "relative_equidistribution_defect": 0.9757064704417748,
+          "physical_conservation_residual": 0.009018520634114569
+        },
+        {
+          "t": 0.0045000000000000005,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621411646258734,
+          "mass": 41.75,
+          "relative_equidistribution_defect": 0.975704109821196,
+          "physical_conservation_residual": 0.009029985724513134
+        },
+        {
+          "t": 0.005,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621385516558486,
+          "mass": 41.75,
+          "relative_equidistribution_defect": 0.9757016063768611,
+          "physical_conservation_residual": 0.009041501528681217
+        },
+        {
+          "t": 0.0055000000000000005,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.062135787980813,
+          "mass": 41.749999999999986,
+          "relative_equidistribution_defect": 0.9756989585444922,
+          "physical_conservation_residual": 0.009053079820796117
+        },
+        {
+          "t": 0.006,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.062132872140162,
+          "mass": 41.75,
+          "relative_equidistribution_defect": 0.9756961649247062,
+          "physical_conservation_residual": 0.009064732988228963
+        },
+        {
+          "t": 0.006500000000000001,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621298028592934,
+          "mass": 41.75,
+          "relative_equidistribution_defect": 0.975693224296329,
+          "physical_conservation_residual": 0.009076474119707356
+        },
+        {
+          "t": 0.007,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.062126579066187,
+          "mass": 41.75,
+          "relative_equidistribution_defect": 0.9756901356322751,
+          "physical_conservation_residual": 0.009088317099507581
+        },
+        {
+          "t": 0.007500000000000001,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.062123199910855,
+          "mass": 41.75,
+          "relative_equidistribution_defect": 0.9756868981181845,
+          "physical_conservation_residual": 0.009100276707855015
+        },
+        {
+          "t": 0.008,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.062119664787928,
+          "mass": 41.75,
+          "relative_equidistribution_defect": 0.9756835111740627,
+          "physical_conservation_residual": 0.00911236872851734
+        },
+        {
+          "t": 0.0085,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.062115973362638,
+          "mass": 41.75,
+          "relative_equidistribution_defect": 0.9756799744791742,
+          "physical_conservation_residual": 0.00912461006389792
+        },
+        {
+          "t": 0.009000000000000001,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.062112125600519,
+          "mass": 41.75,
+          "relative_equidistribution_defect": 0.9756762880004972,
+          "physical_conservation_residual": 0.009137018858426493
+        },
+        {
+          "t": 0.0095,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621081218011708,
+          "mass": 41.75,
+          "relative_equidistribution_defect": 0.9756724520250739,
+          "physical_conservation_residual": 0.009149614630900138
+        },
+        {
+          "t": 0.01,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621039626364963,
+          "mass": 41.749999999999986,
+          "relative_equidistribution_defect": 0.9756684671966436,
+          "physical_conservation_residual": 0.00916241841632176
+        }
+      ],
+      "steps_with_nonzero_mesh_velocity": 0,
+      "max_mesh_velocity": 0.0,
+      "max_displacement_since_initial": 0.0,
+      "minimum_J": 1.0,
+      "minimum_spacing": 0.078125,
+      "max_state": 4.728403106511658,
+      "reference_endpoint_field_and_time_derivative_mismatch": 1.5025780974549791e-28,
+      "profile": "profiles\\P10_fd_fixed_pilot.npz",
+      "profile_sha256": "23dc9901c56cb3d85c09024178b5d17f0c610c1aeaf7e8d0f36d1d392696dcc9"
+    },
+    "P6_sd_minus_pilot": {
+      "spec": {
+        "case": "P6",
+        "route": "sd",
+        "branch": "minus",
+        "phase": "pilot",
+        "h": 0.125,
+        "nx": 512,
+        "L": 40.0,
+        "yhalf": 1.5,
+        "dt": 1.25e-05,
+        "T": 0.01
+      },
+      "status": "completed",
+      "steps": 800,
+      "seconds": 2.8382388999452814,
+      "snapshots": {
+        "0.005": {
+          "errors": {
+            "u": 6.150509223790124e-05,
+            "v": 2.61936164304144e-05
+          },
+          "evaluation_double": {
+            "u": 6.150509223790124e-05,
+            "v": 2.627652397446667e-05
+          },
+          "reconstruction_double": {
+            "u": 6.150502816115733e-05,
+            "v": 2.619360555267125e-05
+          },
+          "nodal_errors": {
+            "u": 5.9723338233563794e-05,
+            "v": 2.6214978232075303e-05
+          }
+        },
+        "0.01": {
+          "errors": {
+            "u": 0.00015869391918599263,
+            "v": 6.753076369292454e-05
+          },
+          "evaluation_double": {
+            "u": 0.00015869391918599263,
+            "v": 6.753076369292454e-05
+          },
+          "reconstruction_double": {
+            "u": 0.0001586939152113942,
+            "v": 6.753073680432209e-05
+          },
+          "nodal_errors": {
+            "u": 0.00015513791199128768,
+            "v": 6.634244984538018e-05
+          }
+        }
+      },
+      "initial_hash": "972af953bb1c008601652c26fe263eb9958421ed5feea31f3bb7b8c4b232d9cf",
+      "initial_nodal_error": 0.0,
+      "initial_output_error": {
+        "u": 1.7710721778030347e-11,
+        "v": 6.117439887987075e-12
+      },
+      "geometry": [
+        {
+          "t": 0.0,
+          "min_J": 0.8447798929420903,
+          "min_spacing": 0.06605718355443599,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.189394578775653,
+          "mass": 40.19047673074206,
+          "relative_equidistribution_defect": 1.4636955461666545e-05,
+          "physical_conservation_residual": 1.4295059353260953e-14
+        },
+        {
+          "t": 0.0005,
+          "min_J": 0.844779880827055,
+          "min_spacing": 0.06605496550514564,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.1893945958114334,
+          "mass": 40.19047672932936,
+          "relative_equidistribution_defect": 1.4636972625048372e-05,
+          "physical_conservation_residual": 1.437863136302521e-14
+        },
+        {
+          "t": 0.001,
+          "min_J": 0.8447806301015104,
+          "min_spacing": 0.06605274528557703,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.189393541397679,
+          "mass": 40.19047672791669,
+          "relative_equidistribution_defect": 1.4637440387099687e-05,
+          "physical_conservation_residual": 1.4376476552399998e-14
+        },
+        {
+          "t": 0.0015,
+          "min_J": 0.8447821407761591,
+          "min_spacing": 0.06605058395359946,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.1893914155250467,
+          "mass": 40.19047672650403,
+          "relative_equidistribution_defect": 1.4638358767804505e-05,
+          "physical_conservation_residual": 1.437431309886318e-14
+        },
+        {
+          "t": 0.002,
+          "min_J": 0.8447844127703708,
+          "min_spacing": 0.06604848151751451,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.1893882183183981,
+          "mass": 40.19047672509142,
+          "relative_equidistribution_defect": 1.4639727635712418e-05,
+          "physical_conservation_residual": 1.4372140969447224e-14
+        },
+        {
+          "t": 0.0025,
+          "min_J": 0.8447874459139438,
+          "min_spacing": 0.06604643797925619,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.1893839500343242,
+          "mass": 40.19047672367881,
+          "relative_equidistribution_defect": 1.4641546717930609e-05,
+          "physical_conservation_residual": 1.4369960130999565e-14
+        },
+        {
+          "t": 0.003,
+          "min_J": 0.8447912399492299,
+          "min_spacing": 0.06604445333498794,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.1893786110581455,
+          "mass": 40.19047672226624,
+          "relative_equidistribution_defect": 1.4643815597681353e-05,
+          "physical_conservation_residual": 1.5297429618243488e-14
+        },
+        {
+          "t": 0.0035,
+          "min_J": 0.8447957945335024,
+          "min_spacing": 0.06604252757568942,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.189372201900569,
+          "mass": 40.190476720853674,
+          "relative_equidistribution_defect": 1.4646533717632693e-05,
+          "physical_conservation_residual": 1.5215830720646607e-14
+        },
+        {
+          "t": 0.004,
+          "min_J": 0.8448011092414919,
+          "min_spacing": 0.0660406606877387,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.189364723194106,
+          "mass": 40.190476719441136,
+          "relative_equidistribution_defect": 1.4649700380786612e-05,
+          "physical_conservation_residual": 1.517768802464355e-14
+        },
+        {
+          "t": 0.0045000000000000005,
+          "min_J": 0.8448071835680548,
+          "min_spacing": 0.06603885265349786,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.1893561756893,
+          "mass": 40.19047671802862,
+          "relative_equidistribution_defect": 1.4653314752255397e-05,
+          "physical_conservation_residual": 1.5266978037238913e-14
+        },
+        {
+          "t": 0.005,
+          "min_J": 0.8448140169309791,
+          "min_spacing": 0.06603710345191238,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.1893465602507556,
+          "mass": 40.19047671661611,
+          "relative_equidistribution_defect": 1.4657375860149813e-05,
+          "physical_conservation_residual": 1.5271147063379208e-14
+        },
+        {
+          "t": 0.0055000000000000005,
+          "min_J": 0.8448216086739702,
+          "min_spacing": 0.06603541305913797,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.1893358778529088,
+          "mass": 40.190476715203616,
+          "relative_equidistribution_defect": 1.4661882591804343e-05,
+          "physical_conservation_residual": 1.5232473683459144e-14
+        },
+        {
+          "t": 0.006,
+          "min_J": 0.8448299580699071,
+          "min_spacing": 0.0660337814492109,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.1893241295754227,
+          "mass": 40.190476713791135,
+          "relative_equidistribution_defect": 1.4666833697551951e-05,
+          "physical_conservation_residual": 1.6608167536417795e-14
+        },
+        {
+          "t": 0.006500000000000001,
+          "min_J": 0.8448390643244944,
+          "min_spacing": 0.06603220859478105,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.1893113165980118,
+          "mass": 40.190476712378654,
+          "relative_equidistribution_defect": 1.4672227787615455e-05,
+          "physical_conservation_residual": 1.652666864341805e-14
+        },
+        {
+          "t": 0.007,
+          "min_J": 0.8448489265804938,
+          "min_spacing": 0.0660306944679307,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.1892974401944585,
+          "mass": 40.19047671096621,
+          "relative_equidistribution_defect": 1.4678063331441393e-05,
+          "physical_conservation_residual": 1.6488045749208297e-14
+        },
+        {
+          "t": 0.007500000000000001,
+          "min_J": 0.8448595439227705,
+          "min_spacing": 0.06602923904110634,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.1892825017254736,
+          "mass": 40.19047670955374,
+          "relative_equidistribution_defect": 1.4684338658810248e-05,
+          "physical_conservation_residual": 1.6578017129590325e-14
+        },
+        {
+          "t": 0.008,
+          "min_J": 0.8448709153844592,
+          "min_spacing": 0.06602784228819503,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.1892665026299856,
+          "mass": 40.190476708141304,
+          "relative_equidistribution_defect": 1.4691051957393952e-05,
+          "physical_conservation_residual": 1.6582287324795024e-14
+        },
+        {
+          "t": 0.0085,
+          "min_J": 0.8448830399546298,
+          "min_spacing": 0.06602650418578286,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.1892494444143202,
+          "mass": 40.190476706728845,
+          "relative_equidistribution_defect": 1.4698201279861323e-05,
+          "physical_conservation_residual": 1.6543715506170295e-14
+        },
+        {
+          "t": 0.009000000000000001,
+          "min_J": 0.8448959165879274,
+          "min_spacing": 0.06602522471463945,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.1892313286385983,
+          "mass": 40.190476705316414,
+          "relative_equidistribution_defect": 1.4705784542101696e-05,
+          "physical_conservation_residual": 1.7919511314686786e-14
+        },
+        {
+          "t": 0.0095,
+          "min_J": 0.8449095442167751,
+          "min_spacing": 0.06602400386147975,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.1892121568995373,
+          "mass": 40.19047670390396,
+          "relative_equidistribution_defect": 1.4713799536325567e-05,
+          "physical_conservation_residual": 1.7495241932496793e-14
+        },
+        {
+          "t": 0.01,
+          "min_J": 0.8449239217668575,
+          "min_spacing": 0.06602284162106352,
+          "max_spacing": 0.0784970238095255,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.189191930808641,
+          "mass": 40.19047670249152,
+          "relative_equidistribution_defect": 1.4741558548747591e-05,
+          "physical_conservation_residual": 1.7456721788451855e-14
+        }
+      ],
+      "steps_with_nonzero_mesh_velocity": 800,
+      "max_mesh_velocity": 0.31850441189488193,
+      "max_displacement_since_initial": 0.0031838984602269374,
+      "minimum_J": 0.844779791650102,
+      "minimum_spacing": 0.06602284162106352,
+      "max_state": 0.7287485256068664,
+      "reference_endpoint_field_and_time_derivative_mismatch": 9.62900121886492e-34,
+      "profile": "profiles\\P6_sd_minus_pilot.npz",
+      "profile_sha256": "349901f3fafbfc0e74d98417b330b9cd7f6b45f4bbe05c7db491f9d62217ac03"
+    },
+    "P10_fd_minus_pilot": {
+      "spec": {
+        "case": "P10",
+        "route": "fd",
+        "branch": "minus",
+        "phase": "pilot",
+        "h": 0.125,
+        "nx": 512,
+        "L": 40.0,
+        "yhalf": 1.5,
+        "dt": 1.25e-05,
+        "T": 0.01
+      },
+      "status": "completed",
+      "steps": 800,
+      "seconds": 2.3498686999082565,
+      "snapshots": {
+        "0.005": {
+          "errors": {
+            "u": 0.00038517079752664607,
+            "v": 0.0022041444333638083
+          },
+          "evaluation_double": {
+            "u": 0.00038572674178904975,
+            "v": 0.002208058994665585
+          },
+          "reconstruction_double": {
+            "u": 0.0003851707988788977,
+            "v": 0.002204144424760912
+          },
+          "nodal_errors": {
+            "u": 0.00038487389640495806,
+            "v": 0.0021988562771104725
+          }
+        },
+        "0.01": {
+          "errors": {
+            "u": 0.0008911738816403947,
+            "v": 0.00474839255685211
+          },
+          "evaluation_double": {
+            "u": 0.0008928180175225009,
+            "v": 0.00474839255685211
+          },
+          "reconstruction_double": {
+            "u": 0.0008911738629437949,
+            "v": 0.004748392556369829
+          },
+          "nodal_errors": {
+            "u": 0.0008916855554454983,
+            "v": 0.0047007538636432145
+          }
+        }
+      },
+      "initial_hash": "d7bb461facb6ac5de614ff355dc29e2d24e3564f4b5d5336761e4adc81ccff63",
+      "initial_nodal_error": 1.096345236817342e-15,
+      "initial_output_error": {
+        "u": 1.2333467580560864e-11,
+        "v": 2.3280932737179683e-11
+      },
+      "geometry": [
+        {
+          "t": 0.0,
+          "min_J": 0.5061439819107908,
+          "min_spacing": 0.039551726686061356,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621585475203057,
+          "mass": 41.75000090817532,
+          "relative_equidistribution_defect": 8.889643611453835e-06,
+          "physical_conservation_residual": 0.009019275159933837
+        },
+        {
+          "t": 0.0005,
+          "min_J": 0.5061449722768496,
+          "min_spacing": 0.039551901513615303,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.062157181110006,
+          "mass": 41.75000090739948,
+          "relative_equidistribution_defect": 1.2236224537831575e-05,
+          "physical_conservation_residual": 0.00902918984404033
+        },
+        {
+          "t": 0.001,
+          "min_J": 0.5061459677850826,
+          "min_spacing": 0.0395520764485404,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.062155790064807,
+          "mass": 41.75000090662378,
+          "relative_equidistribution_defect": 1.5975353593322694e-05,
+          "physical_conservation_residual": 0.009039166917030828
+        },
+        {
+          "t": 0.0015,
+          "min_J": 0.5061469692270025,
+          "min_spacing": 0.039552251542570485,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621543711161316,
+          "mass": 41.75000090584818,
+          "relative_equidistribution_defect": 1.9712166588914393e-05,
+          "physical_conservation_residual": 0.009049215286857759
+        },
+        {
+          "t": 0.002,
+          "min_J": 0.5061479773656932,
+          "min_spacing": 0.03955242684493018,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.062152921102859,
+          "mass": 41.75000090507272,
+          "relative_equidistribution_defect": 2.3526673601059755e-05,
+          "physical_conservation_residual": 0.009059344175726236
+        },
+        {
+          "t": 0.0025,
+          "min_J": 0.5061489929356418,
+          "min_spacing": 0.039552602402237694,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.062151436971771,
+          "mass": 41.75000090429737,
+          "relative_equidistribution_defect": 2.7636326427771252e-05,
+          "physical_conservation_residual": 0.009069563199423925
+        },
+        {
+          "t": 0.003,
+          "min_J": 0.5061500166422519,
+          "min_spacing": 0.039552778258390854,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621499157792127,
+          "mass": 41.75000090352215,
+          "relative_equidistribution_defect": 3.1740636957433566e-05,
+          "physical_conservation_residual": 0.009079882446158927
+        },
+        {
+          "t": 0.0035,
+          "min_J": 0.5061510491609733,
+          "min_spacing": 0.039552954454430835,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.062148354694265,
+          "mass": 41.75000090274704,
+          "relative_equidistribution_defect": 3.5839495056366744e-05,
+          "physical_conservation_residual": 0.009090312554660862
+        },
+        {
+          "t": 0.004,
+          "min_J": 0.506152091135969,
+          "min_spacing": 0.03955297269967721,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621467510037106,
+          "mass": 41.75000090197203,
+          "relative_equidistribution_defect": 3.993278293656921e-05,
+          "physical_conservation_residual": 0.009100864791387775
+        },
+        {
+          "t": 0.0045000000000000005,
+          "min_J": 0.5061531431782506,
+          "min_spacing": 0.039552957935151414,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621451021191044,
+          "mass": 41.75000090119713,
+          "relative_equidistribution_defect": 4.4020375105757736e-05,
+          "physical_conservation_residual": 0.009111551125333461
+        },
+        {
+          "t": 0.005,
+          "min_J": 0.5061542058631952,
+          "min_spacing": 0.039552944387881386,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.062143405586282,
+          "mass": 41.750000900422336,
+          "relative_equidistribution_defect": 4.810213837025401e-05,
+          "physical_conservation_residual": 0.009122384299612984
+        },
+        {
+          "t": 0.0055000000000000005,
+          "min_J": 0.5061552797273555,
+          "min_spacing": 0.0395529321149641,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.06214165909768,
+          "mass": 41.750000899647674,
+          "relative_equidistribution_defect": 5.217793176648389e-05,
+          "physical_conservation_residual": 0.009133377897358741
+        },
+        {
+          "t": 0.006,
+          "min_J": 0.5061563652644595,
+          "min_spacing": 0.0395529211713007,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621398605078785,
+          "mass": 41.75000089887309,
+          "relative_equidistribution_defect": 5.624760659905803e-05,
+          "physical_conservation_residual": 0.009144546399404985
+        },
+        {
+          "t": 0.006500000000000001,
+          "min_J": 0.5061574629204775,
+          "min_spacing": 0.03955291160927279,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621380078528686,
+          "mass": 41.75000089809862,
+          "relative_equidistribution_defect": 6.031100644743326e-05,
+          "physical_conservation_residual": 0.009155905229671524
+        },
+        {
+          "t": 0.007,
+          "min_J": 0.5061585730876229,
+          "min_spacing": 0.039552903478330015,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.062136099373591,
+          "mass": 41.75000089732423,
+          "relative_equidistribution_defect": 6.436796721542848e-05,
+          "physical_conservation_residual": 0.009167470783188691
+        },
+        {
+          "t": 0.007500000000000001,
+          "min_J": 0.5061596960971219,
+          "min_spacing": 0.039552896824472106,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.062134133544413,
+          "mass": 41.75000089654995,
+          "relative_equidistribution_defect": 6.841831721560165e-05,
+          "physical_conservation_residual": 0.00917926043024192
+        },
+        {
+          "t": 0.008,
+          "min_J": 0.5061608322105742,
+          "min_spacing": 0.039552891689606,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621321091072993,
+          "mass": 41.75000089577576,
+          "relative_equidistribution_defect": 7.246187728893183e-05,
+          "physical_conservation_residual": 0.009191292487432001
+        },
+        {
+          "t": 0.0085,
+          "min_J": 0.5061619816096852,
+          "min_spacing": 0.03955288811075194,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621300251125403,
+          "mass": 41.75000089500167,
+          "relative_equidistribution_defect": 7.649846098822799e-05,
+          "physical_conservation_residual": 0.009203586144659104
+        },
+        {
+          "t": 0.009000000000000001,
+          "min_J": 0.5061631443841417,
+          "min_spacing": 0.03955288611906721,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.062127880967012,
+          "mass": 41.75000089422767,
+          "relative_equidistribution_defect": 8.05278747805227e-05,
+          "physical_conservation_residual": 0.009216161333468198
+        },
+        {
+          "t": 0.0095,
+          "min_J": 0.5061643205173812,
+          "min_spacing": 0.03955288573864682,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.062125676491015,
+          "mass": 41.75000089345375,
+          "relative_equidistribution_defect": 8.454991837691939e-05,
+          "physical_conservation_residual": 0.009229038517995336
+        },
+        {
+          "t": 0.01,
+          "min_J": 0.5061655098700022,
+          "min_spacing": 0.03955288698505106,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621234119847203,
+          "mass": 41.75000089267993,
+          "relative_equidistribution_defect": 8.856438508142439e-05,
+          "physical_conservation_residual": 0.009242238385331725
+        }
+      ],
+      "steps_with_nonzero_mesh_velocity": 800,
+      "max_mesh_velocity": 0.2590285799047364,
+      "max_displacement_since_initial": 0.002587915331829157,
+      "minimum_J": 0.5061439819107908,
+      "minimum_spacing": 0.039551726686061356,
+      "max_state": 4.728491625728073,
+      "reference_endpoint_field_and_time_derivative_mismatch": 1.5025780974549791e-28,
+      "profile": "profiles\\P10_fd_minus_pilot.npz",
+      "profile_sha256": "22afc8204fb3ca2b1906b95ae9c20af2b8e7b1f16201d44547840fe77fb41bab"
+    },
+    "P6_sd_plus_pilot": {
+      "spec": {
+        "case": "P6",
+        "route": "sd",
+        "branch": "plus",
+        "phase": "pilot",
+        "h": 0.125,
+        "nx": 512,
+        "L": 40.0,
+        "yhalf": 1.5,
+        "dt": 1.25e-05,
+        "T": 0.01
+      },
+      "status": "completed",
+      "steps": 800,
+      "seconds": 2.986980300047435,
+      "snapshots": {
+        "0.005": {
+          "errors": {
+            "u": 4.8935910061609356e-05,
+            "v": 3.171613062202816e-05
+          },
+          "evaluation_double": {
+            "u": 4.8935910061609356e-05,
+            "v": 3.179850330470302e-05
+          },
+          "reconstruction_double": {
+            "u": 4.893574989139893e-05,
+            "v": 3.171615852115561e-05
+          },
+          "nodal_errors": {
+            "u": 4.819477762563196e-05,
+            "v": 3.114903135437164e-05
+          }
+        },
+        "0.01": {
+          "errors": {
+            "u": 8.558087812815529e-05,
+            "v": 5.722183566303496e-05
+          },
+          "evaluation_double": {
+            "u": 8.578053265795305e-05,
+            "v": 5.736690150681678e-05
+          },
+          "reconstruction_double": {
+            "u": 8.558085118526293e-05,
+            "v": 5.7221909136040416e-05
+          },
+          "nodal_errors": {
+            "u": 8.2302416287372e-05,
+            "v": 5.633975100327593e-05
+          }
+        }
+      },
+      "initial_hash": "0157dc6183c55eed132b31ea3b12b6597435474f6d9ade8dc32522a46b60771d",
+      "initial_nodal_error": 0.0,
+      "initial_output_error": {
+        "u": 1.8814283464507753e-11,
+        "v": 6.309841538154615e-12
+      },
+      "geometry": [
+        {
+          "t": 0.0,
+          "min_J": 0.8449928605586976,
+          "min_spacing": 0.06601986393144099,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.1890947527143156,
+          "mass": 40.19047673066726,
+          "relative_equidistribution_defect": 1.4588833890716302e-05,
+          "physical_conservation_residual": 1.6260325204247066e-14
+        },
+        {
+          "t": 0.0005,
+          "min_J": 0.8450111654726831,
+          "min_spacing": 0.06601900708490374,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1890690070000678,
+          "mass": 40.19047672925667,
+          "relative_equidistribution_defect": 1.4599678680227157e-05,
+          "physical_conservation_residual": 1.5268448209901226e-14
+        },
+        {
+          "t": 0.001,
+          "min_J": 0.8450302234247092,
+          "min_spacing": 0.06601820891366164,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1890422033223798,
+          "mass": 40.19047672784609,
+          "relative_equidistribution_defect": 1.4610962558281315e-05,
+          "physical_conservation_residual": 1.55194624731033e-14
+        },
+        {
+          "t": 0.0015,
+          "min_J": 0.845050033859308,
+          "min_spacing": 0.06601746940235284,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999997,
+          "max_R": 1.1890143426042787,
+          "mass": 40.19047672643551,
+          "relative_equidistribution_defect": 1.4622684036291744e-05,
+          "physical_conservation_residual": 1.58133129287414e-14
+        },
+        {
+          "t": 0.002,
+          "min_J": 0.8450705961842933,
+          "min_spacing": 0.06601678853442497,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.1889854258257886,
+          "mass": 40.190476725024915,
+          "relative_equidistribution_defect": 1.4634841495109185e-05,
+          "physical_conservation_residual": 1.4992803616796977e-14
+        },
+        {
+          "t": 0.0025,
+          "min_J": 0.8450919097642249,
+          "min_spacing": 0.06601616629172405,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999993,
+          "max_R": 1.1889554540330731,
+          "mass": 40.190476723614324,
+          "relative_equidistribution_defect": 1.4647433165704271e-05,
+          "physical_conservation_residual": 1.532946698759915e-14
+        },
+        {
+          "t": 0.003,
+          "min_J": 0.8451139739121107,
+          "min_spacing": 0.0660156026540065,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999994,
+          "max_R": 1.1889244283500553,
+          "mass": 40.190476722203734,
+          "relative_equidistribution_defect": 1.4660457111181913e-05,
+          "physical_conservation_residual": 1.5194656924613126e-14
+        },
+        {
+          "t": 0.0035,
+          "min_J": 0.8451367878791936,
+          "min_spacing": 0.0660150975983751,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999996,
+          "max_R": 1.18889234999271,
+          "mass": 40.190476720793136,
+          "relative_equidistribution_defect": 1.4673911194362788e-05,
+          "physical_conservation_residual": 1.420264136001809e-14
+        },
+        {
+          "t": 0.004,
+          "min_J": 0.8451603508426289,
+          "min_spacing": 0.0660146510986375,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999994,
+          "max_R": 1.1888592202863195,
+          "mass": 40.19047671938254,
+          "relative_equidistribution_defect": 1.4687793050693898e-05,
+          "physical_conservation_residual": 1.3896347956780159e-14
+        },
+        {
+          "t": 0.0045000000000000005,
+          "min_J": 0.8451846618908101,
+          "min_spacing": 0.0660142631245848,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999993,
+          "max_R": 1.1888250406860135,
+          "mass": 40.19047671797193,
+          "relative_equidistribution_defect": 1.4702100044505784e-05,
+          "physical_conservation_residual": 1.482490925111143e-14
+        },
+        {
+          "t": 0.005,
+          "min_J": 0.8452097200060439,
+          "min_spacing": 0.06601393364118785,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999992,
+          "max_R": 1.1887898128010197,
+          "mass": 40.19047671656132,
+          "relative_equidistribution_defect": 1.4716829221494976e-05,
+          "physical_conservation_residual": 1.5463173724974457e-14
+        },
+        {
+          "t": 0.0055000000000000005,
+          "min_J": 0.8452355240442113,
+          "min_spacing": 0.06601366260770669,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999992,
+          "max_R": 1.1887535384231271,
+          "mass": 40.190476715150716,
+          "relative_equidistribution_defect": 1.473197724854991e-05,
+          "physical_conservation_residual": 1.5415675067197616e-14
+        },
+        {
+          "t": 0.006,
+          "min_J": 0.8452620727109816,
+          "min_spacing": 0.06601344997670949,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999993,
+          "max_R": 1.1887162195599714,
+          "mass": 40.19047671374011,
+          "relative_equidistribution_defect": 1.4747540345583232e-05,
+          "physical_conservation_residual": 1.5882468132300463e-14
+        },
+        {
+          "t": 0.006500000000000001,
+          "min_J": 0.8452893645340551,
+          "min_spacing": 0.06601329569299588,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999992,
+          "max_R": 1.1886778584738673,
+          "mass": 40.190476712329485,
+          "relative_equidistribution_defect": 1.4763514198268268e-05,
+          "physical_conservation_residual": 1.58135047554241e-14
+        },
+        {
+          "t": 0.007,
+          "min_J": 0.8453173978308143,
+          "min_spacing": 0.06601319969242136,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999992,
+          "max_R": 1.1886384577270546,
+          "mass": 40.19047671091887,
+          "relative_equidistribution_defect": 1.4779893855010329e-05,
+          "physical_conservation_residual": 1.5165925742196695e-14
+        },
+        {
+          "t": 0.007500000000000001,
+          "min_J": 0.8453461706706512,
+          "min_spacing": 0.06601316190061926,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999991,
+          "max_R": 1.188598020234384,
+          "mass": 40.19047670950825,
+          "relative_equidistribution_defect": 1.4796673604822175e-05,
+          "physical_conservation_residual": 1.6018397602106128e-14
+        },
+        {
+          "t": 0.008,
+          "min_J": 0.8453525739877181,
+          "min_spacing": 0.06601318223161892,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999989,
+          "max_R": 1.1885881049646967,
+          "mass": 40.19047670809763,
+          "relative_equidistribution_defect": 1.4813846828110044e-05,
+          "physical_conservation_residual": 1.6656556040575354e-14
+        },
+        {
+          "t": 0.0085,
+          "min_J": 0.8453243352976527,
+          "min_spacing": 0.06601326058636203,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999986,
+          "max_R": 1.1886277909916825,
+          "mass": 40.190476706686994,
+          "relative_equidistribution_defect": 1.4831405816595478e-05,
+          "physical_conservation_residual": 1.6608950811717113e-14
+        },
+        {
+          "t": 0.009000000000000001,
+          "min_J": 0.8452968417689616,
+          "min_spacing": 0.06601339685112265,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999983,
+          "max_R": 1.188666432331114,
+          "mass": 40.19047670527637,
+          "relative_equidistribution_defect": 1.4849341555711604e-05,
+          "physical_conservation_residual": 1.7075636769628866e-14
+        },
+        {
+          "t": 0.0095,
+          "min_J": 0.8452700943248537,
+          "min_spacing": 0.06601359089584347,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.999999999999998,
+          "max_R": 1.1887040274856462,
+          "mass": 40.190476703865734,
+          "relative_equidistribution_defect": 1.4867643466143221e-05,
+          "physical_conservation_residual": 1.698513619644182e-14
+        },
+        {
+          "t": 0.01,
+          "min_J": 0.8452440940931165,
+          "min_spacing": 0.066013842572409,
+          "max_spacing": 0.07849702380952728,
+          "min_R": 0.9999999999999977,
+          "max_R": 1.1887405746763333,
+          "mass": 40.190476702455086,
+          "relative_equidistribution_defect": 1.4886299082972343e-05,
+          "physical_conservation_residual": 1.633744900244598e-14
+        }
+      ],
+      "steps_with_nonzero_mesh_velocity": 800,
+      "max_mesh_velocity": 0.31806368161919363,
+      "max_displacement_since_initial": 0.0031761917027772002,
+      "minimum_J": 0.8449928605586976,
+      "minimum_spacing": 0.06601316124720594,
+      "max_state": 0.7287197496266937,
+      "reference_endpoint_field_and_time_derivative_mismatch": 9.62900121886492e-34,
+      "profile": "profiles\\P6_sd_plus_pilot.npz",
+      "profile_sha256": "2eeb34f3b7961f1c06cf736a0bea17ce79b7d7d9ae0081efe2121818773a6a08"
+    },
+    "P10_fd_plus_pilot": {
+      "spec": {
+        "case": "P10",
+        "route": "fd",
+        "branch": "plus",
+        "phase": "pilot",
+        "h": 0.125,
+        "nx": 512,
+        "L": 40.0,
+        "yhalf": 1.5,
+        "dt": 1.25e-05,
+        "T": 0.01
+      },
+      "status": "completed",
+      "steps": 800,
+      "seconds": 2.4531759000383317,
+      "snapshots": {
+        "0.005": {
+          "errors": {
+            "u": 0.00038237683593522753,
+            "v": 0.00206954274720772
+          },
+          "evaluation_double": {
+            "u": 0.00038300544696001637,
+            "v": 0.002071414745187461
+          },
+          "reconstruction_double": {
+            "u": 0.0003823768360211588,
+            "v": 0.0020695430689858796
+          },
+          "nodal_errors": {
+            "u": 0.00038298284574600494,
+            "v": 0.002057343885726759
+          }
+        },
+        "0.01": {
+          "errors": {
+            "u": 0.0008877958214985604,
+            "v": 0.004375549600503348
+          },
+          "evaluation_double": {
+            "u": 0.0008896981467896303,
+            "v": 0.004376649580644987
+          },
+          "reconstruction_double": {
+            "u": 0.0008877957909683154,
+            "v": 0.004375549534050727
+          },
+          "nodal_errors": {
+            "u": 0.0008834208366548246,
+            "v": 0.004356947506489739
+          }
+        }
+      },
+      "initial_hash": "1edd0024240832c2aa41cba362fb639db5ffcde09f1fc2cbcb1aa8167bbf19ba",
+      "initial_nodal_error": 1.5716594692349872e-15,
+      "initial_output_error": {
+        "u": 1.2726708575883094e-11,
+        "v": 2.2990498393937742e-11
+      },
+      "geometry": [
+        {
+          "t": 0.0,
+          "min_J": 0.5063708660387539,
+          "min_spacing": 0.03956026988844108,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0612345362210736,
+          "mass": 41.75000090800201,
+          "relative_equidistribution_defect": 9.325477323018916e-06,
+          "physical_conservation_residual": 0.03195996035866555
+        },
+        {
+          "t": 0.0005,
+          "min_J": 0.5063713334527657,
+          "min_spacing": 0.03956038470805934,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.061239206763718,
+          "mass": 41.75000090723639,
+          "relative_equidistribution_defect": 1.6600362095720023e-05,
+          "physical_conservation_residual": 0.031958325525106634
+        },
+        {
+          "t": 0.001,
+          "min_J": 0.5063717814855566,
+          "min_spacing": 0.03956049809722484,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.061243958175021,
+          "mass": 41.750000906470746,
+          "relative_equidistribution_defect": 2.7603210015159085e-05,
+          "physical_conservation_residual": 0.03195704114564357
+        },
+        {
+          "t": 0.0015,
+          "min_J": 0.5063722098190813,
+          "min_spacing": 0.0395606100332333,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.061248791472509,
+          "mass": 41.75000090570506,
+          "relative_equidistribution_defect": 3.860453036685918e-05,
+          "physical_conservation_residual": 0.03195608692575813
+        },
+        {
+          "t": 0.002,
+          "min_J": 0.506372618130263,
+          "min_spacing": 0.03956072049285331,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0612537076977304,
+          "mass": 41.75000090493934,
+          "relative_equidistribution_defect": 4.9604107124179286e-05,
+          "physical_conservation_residual": 0.03195544687808144
+        },
+        {
+          "t": 0.0025,
+          "min_J": 0.5063730060890239,
+          "min_spacing": 0.03956082945216488,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0612587079224447,
+          "mass": 41.750000904173596,
+          "relative_equidistribution_defect": 6.0601728636866525e-05,
+          "physical_conservation_residual": 0.03195510931707929
+        },
+        {
+          "t": 0.003,
+          "min_J": 0.5063733733561191,
+          "min_spacing": 0.03956093688638018,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.061263793255532,
+          "mass": 41.750000903407816,
+          "relative_equidistribution_defect": 7.159718700666673e-05,
+          "physical_conservation_residual": 0.031955066896408535
+        },
+        {
+          "t": 0.0035,
+          "min_J": 0.5063737195807496,
+          "min_spacing": 0.03956104276964578,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0612689648506692,
+          "mass": 41.75000090264202,
+          "relative_equidistribution_defect": 8.259027747192782e-05,
+          "physical_conservation_residual": 0.03195531669072921
+        },
+        {
+          "t": 0.004,
+          "min_J": 0.5063740443979563,
+          "min_spacing": 0.03956114707482328,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0612742239147566,
+          "mass": 41.75000090187618,
+          "relative_equidistribution_defect": 9.35807978047487e-05,
+          "physical_conservation_residual": 0.03195586032348802
+        },
+        {
+          "t": 0.0045000000000000005,
+          "min_J": 0.506374347425769,
+          "min_spacing": 0.03956124977324671,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0612795717170878,
+          "mass": 41.75000090111033,
+          "relative_equidistribution_defect": 0.00010456854777474156,
+          "physical_conservation_residual": 0.03195670414666418
+        },
+        {
+          "t": 0.005,
+          "min_J": 0.5063746282621202,
+          "min_spacing": 0.03956135083445633,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0612850095992346,
+          "mass": 41.750000900344446,
+          "relative_equidistribution_defect": 0.00011555332853885325,
+          "physical_conservation_residual": 0.031957859475174544
+        },
+        {
+          "t": 0.0055000000000000005,
+          "min_J": 0.506374886481513,
+          "min_spacing": 0.03956145022590507,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.061290538985547,
+          "mass": 41.75000089957854,
+          "relative_equidistribution_defect": 0.00012653494215908445,
+          "physical_conservation_residual": 0.03195934288794783
+        },
+        {
+          "t": 0.006,
+          "min_J": 0.5063751216314629,
+          "min_spacing": 0.03956154791263855,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0612961613941323,
+          "mass": 41.7500008988126,
+          "relative_equidistribution_defect": 0.00013751319101362736,
+          "physical_conservation_residual": 0.03196117660068004
+        },
+        {
+          "t": 0.006500000000000001,
+          "min_J": 0.50637533322874,
+          "min_spacing": 0.03956164385694583,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.06130187844809,
+          "mass": 41.750000898046636,
+          "relative_equidistribution_defect": 0.00014848787731269741,
+          "physical_conservation_residual": 0.0319633889329371
+        },
+        {
+          "t": 0.007,
+          "min_J": 0.5063755207554653,
+          "min_spacing": 0.03956173801798146,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0613076918866278,
+          "mass": 41.75000089728066,
+          "relative_equidistribution_defect": 0.00015945880255563427,
+          "physical_conservation_residual": 0.03196601488474421
+        },
+        {
+          "t": 0.007500000000000001,
+          "min_J": 0.5063756836551516,
+          "min_spacing": 0.03956183035136196,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0613136035755146,
+          "mass": 41.750000896514635,
+          "relative_equidistribution_defect": 0.00017042576703463208,
+          "physical_conservation_residual": 0.031969096857527246
+        },
+        {
+          "t": 0.008,
+          "min_J": 0.5063758213288378,
+          "min_spacing": 0.039561920808739104,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.061319615516013,
+          "mass": 41.7500008957486,
+          "relative_equidistribution_defect": 0.00018138856931426695,
+          "physical_conservation_residual": 0.03197268556398963
+        },
+        {
+          "t": 0.0085,
+          "min_J": 0.5063759331315627,
+          "min_spacing": 0.03956200933735965,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.061325729851021,
+          "mass": 41.750000894982534,
+          "relative_equidistribution_defect": 0.00019234700573167451,
+          "physical_conservation_residual": 0.031976841191221406
+        },
+        {
+          "t": 0.009000000000000001,
+          "min_J": 0.506376018369552,
+          "min_spacing": 0.03956209587962767,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.061331948866442,
+          "mass": 41.750000894216434,
+          "relative_equidistribution_defect": 0.00020330086986863893,
+          "physical_conservation_residual": 0.031981634916031565
+        },
+        {
+          "t": 0.0095,
+          "min_J": 0.5063760762987584,
+          "min_spacing": 0.03956218037269932,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0613382749847253,
+          "mass": 41.7500008934503,
+          "relative_equidistribution_defect": 0.0002142499520729757,
+          "physical_conservation_residual": 0.03198715091664006
+        },
+        {
+          "t": 0.01,
+          "min_J": 0.5063761061257741,
+          "min_spacing": 0.03956226274815544,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0613447107456424,
+          "mass": 41.75000089268414,
+          "relative_equidistribution_defect": 0.00022519403893228596,
+          "physical_conservation_residual": 0.03199348910130623
+        }
+      ],
+      "steps_with_nonzero_mesh_velocity": 800,
+      "max_mesh_velocity": 0.2575169331908914,
+      "max_displacement_since_initial": 0.0025744406035972944,
+      "minimum_J": 0.5063708660387539,
+      "minimum_spacing": 0.03956026988844108,
+      "max_state": 4.728489594249644,
+      "reference_endpoint_field_and_time_derivative_mismatch": 1.5025780974549791e-28,
+      "profile": "profiles\\P10_fd_plus_pilot.npz",
+      "profile_sha256": "f9321b100a49bf9aae36e871ee7bae74e51290198b3e81b887bfb239b8191be2"
+    },
+    "P10_sd_fixed_pilot": {
+      "spec": {
+        "case": "P10",
+        "route": "sd",
+        "branch": "fixed",
+        "phase": "pilot",
+        "h": 0.125,
+        "nx": 512,
+        "L": 40.0,
+        "yhalf": 1.5,
+        "dt": 1.25e-05,
+        "T": 0.01
+      },
+      "status": "completed",
+      "steps": 800,
+      "seconds": 2.707547100028023,
+      "snapshots": {
+        "0.005": {
+          "errors": {
+            "u": 0.0016130110829175592,
+            "v": 0.0012694541932276593
+          },
+          "evaluation_double": {
+            "u": 0.0016139990621661937,
+            "v": 0.0012694541932276593
+          },
+          "reconstruction_double": {
+            "u": 0.0016130110829175592,
+            "v": 0.0012694541932276593
+          },
+          "nodal_errors": {
+            "u": 0.0016102465758700557,
+            "v": 0.001262445397617995
+          }
+        },
+        "0.01": {
+          "errors": {
+            "u": 0.0034116108401611722,
+            "v": 0.0032124856490831633
+          },
+          "evaluation_double": {
+            "u": 0.0034160204931497073,
+            "v": 0.0032213791397479596
+          },
+          "reconstruction_double": {
+            "u": 0.0034116108401611722,
+            "v": 0.0032124856490831633
+          },
+          "nodal_errors": {
+            "u": 0.0034116108401611722,
+            "v": 0.003078360518666834
+          }
+        }
+      },
+      "initial_hash": "62b813e784a5c15ab111bd5f32f1dc03bbd17cd02210a9a173cbcac075bee565",
+      "initial_nodal_error": 7.216449660063518e-16,
+      "initial_output_error": {
+        "u": 3.552713678800501e-15,
+        "v": 7.016609515630989e-14
+      },
+      "geometry": [
+        {
+          "t": 0.0,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621582187969554,
+          "mass": 41.75,
+          "relative_equidistribution_defect": 0.9757204491467837,
+          "physical_conservation_residual": 7.208060758359526e-15
+        },
+        {
+          "t": 0.0005,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621543794651207,
+          "mass": 41.75000000000001,
+          "relative_equidistribution_defect": 0.9757167707450254,
+          "physical_conservation_residual": 1.0935696792557792e-14
+        },
+        {
+          "t": 0.001,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.062150728937911,
+          "mass": 41.75000000000001,
+          "relative_equidistribution_defect": 0.9757132732339262,
+          "physical_conservation_residual": 1.0880185641326534e-14
+        },
+        {
+          "t": 0.0015,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621472642421437,
+          "mass": 41.75,
+          "relative_equidistribution_defect": 0.9757099537649281,
+          "physical_conservation_residual": 1.2323475573339238e-14
+        },
+        {
+          "t": 0.002,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621439822303342,
+          "mass": 41.749999999999986,
+          "relative_equidistribution_defect": 0.9757068093224763,
+          "physical_conservation_residual": 1.1574075031717257e-14
+        },
+        {
+          "t": 0.0025,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621408795957645,
+          "mass": 41.75,
+          "relative_equidistribution_defect": 0.9757038367384572,
+          "physical_conservation_residual": 1.1268763699945339e-14
+        },
+        {
+          "t": 0.003,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.062137952885523,
+          "mass": 41.75,
+          "relative_equidistribution_defect": 0.9757010327046927,
+          "physical_conservation_residual": 1.0436096431476471e-14
+        },
+        {
+          "t": 0.0035,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621351985118257,
+          "mass": 41.75,
+          "relative_equidistribution_defect": 0.9756983937837851,
+          "physical_conservation_residual": 8.297591797172481e-15
+        },
+        {
+          "t": 0.004,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621326127618826,
+          "mass": 41.749999999999986,
+          "relative_equidistribution_defect": 0.9756959164185708,
+          "physical_conservation_residual": 9.606325011218532e-15
+        },
+        {
+          "t": 0.0045000000000000005,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621301918065287,
+          "mass": 41.75,
+          "relative_equidistribution_defect": 0.9756935969403868,
+          "physical_conservation_residual": 1.1405915274764755e-14
+        },
+        {
+          "t": 0.005,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621279317078245,
+          "mass": 41.75,
+          "relative_equidistribution_defect": 0.975691431576359,
+          "physical_conservation_residual": 1.0075273948473296e-14
+        },
+        {
+          "t": 0.0055000000000000005,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.062125828425774,
+          "mass": 41.75000000000001,
+          "relative_equidistribution_defect": 0.9756894164558312,
+          "physical_conservation_residual": 1.0103029524088925e-14
+        },
+        {
+          "t": 0.006,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.062123877824302,
+          "mass": 41.75,
+          "relative_equidistribution_defect": 0.9756875476160976,
+          "physical_conservation_residual": 8.08375231750385e-15
+        },
+        {
+          "t": 0.006500000000000001,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621220756765903,
+          "mass": 41.75,
+          "relative_equidistribution_defect": 0.9756858210075119,
+          "physical_conservation_residual": 8.326672684688674e-15
+        },
+        {
+          "t": 0.007,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621204176698607,
+          "mass": 41.749999999999986,
+          "relative_equidistribution_defect": 0.9756842324980706,
+          "physical_conservation_residual": 7.603034998578185e-15
+        },
+        {
+          "t": 0.007500000000000001,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621188994096626,
+          "mass": 41.75,
+          "relative_equidistribution_defect": 0.9756827778775212,
+          "physical_conservation_residual": 1.4215191523891946e-14
+        },
+        {
+          "t": 0.008,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621175164237164,
+          "mass": 41.75,
+          "relative_equidistribution_defect": 0.9756814528610458,
+          "physical_conservation_residual": 8.475844281673776e-15
+        },
+        {
+          "t": 0.0085,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.062116264165322,
+          "mass": 41.75,
+          "relative_equidistribution_defect": 0.9756802530925244,
+          "physical_conservation_residual": 1.0047518372857667e-14
+        },
+        {
+          "t": 0.009000000000000001,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621151380163556,
+          "mass": 41.75,
+          "relative_equidistribution_defect": 0.9756791741474067,
+          "physical_conservation_residual": 9.618006813468298e-15
+        },
+        {
+          "t": 0.0095,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.06211413328984,
+          "mass": 41.75,
+          "relative_equidistribution_defect": 0.9756782115351759,
+          "physical_conservation_residual": 1.0325074129013956e-14
+        },
+        {
+          "t": 0.01,
+          "min_J": 1.0,
+          "min_spacing": 0.078125,
+          "max_spacing": 0.078125,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621132452320654,
+          "mass": 41.749999999999986,
+          "relative_equidistribution_defect": 0.9756773607013804,
+          "physical_conservation_residual": 9.880984919163893e-15
+        }
+      ],
+      "steps_with_nonzero_mesh_velocity": 0,
+      "max_mesh_velocity": 0.0,
+      "max_displacement_since_initial": 0.0,
+      "minimum_J": 1.0,
+      "minimum_spacing": 0.078125,
+      "max_state": 4.728447719381555,
+      "reference_endpoint_field_and_time_derivative_mismatch": 1.5025780974549791e-28,
+      "profile": "profiles\\P10_sd_fixed_pilot.npz",
+      "profile_sha256": "5daade9e231a8c7339eb116af76bf80e4d24a292e8a9431d7272323a9b9c51ef"
+    },
+    "P10_sd_minus_pilot": {
+      "spec": {
+        "case": "P10",
+        "route": "sd",
+        "branch": "minus",
+        "phase": "pilot",
+        "h": 0.125,
+        "nx": 512,
+        "L": 40.0,
+        "yhalf": 1.5,
+        "dt": 1.25e-05,
+        "T": 0.01
+      },
+      "status": "completed",
+      "steps": 800,
+      "seconds": 2.7809605000074953,
+      "snapshots": {
+        "0.005": {
+          "errors": {
+            "u": 0.0015894758263494957,
+            "v": 0.001364600825669804
+          },
+          "evaluation_double": {
+            "u": 0.0015895771706988526,
+            "v": 0.001364600825669804
+          },
+          "reconstruction_double": {
+            "u": 0.0015894758486956206,
+            "v": 0.0013646008168377577
+          },
+          "nodal_errors": {
+            "u": 0.0015890454397513576,
+            "v": 0.0013631657866195468
+          }
+        },
+        "0.01": {
+          "errors": {
+            "u": 0.0033607080100868103,
+            "v": 0.0036125890482612277
+          },
+          "evaluation_double": {
+            "u": 0.0033607080100868103,
+            "v": 0.0036131431923305257
+          },
+          "reconstruction_double": {
+            "u": 0.0033607080187534333,
+            "v": 0.0036125889941649447
+          },
+          "nodal_errors": {
+            "u": 0.0033338771641071574,
+            "v": 0.0036149347698142265
+          }
+        }
+      },
+      "initial_hash": "d7bb461facb6ac5de614ff355dc29e2d24e3564f4b5d5336761e4adc81ccff63",
+      "initial_nodal_error": 1.096345236817342e-15,
+      "initial_output_error": {
+        "u": 1.2333467580560864e-11,
+        "v": 2.3280932737179683e-11
+      },
+      "geometry": [
+        {
+          "t": 0.0,
+          "min_J": 0.5061439819107908,
+          "min_spacing": 0.039551726686061356,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621585475203057,
+          "mass": 41.75000090817532,
+          "relative_equidistribution_defect": 8.889643611453835e-06,
+          "physical_conservation_residual": 6.572520305780927e-14
+        },
+        {
+          "t": 0.0005,
+          "min_J": 0.5061449337723822,
+          "min_spacing": 0.039551899024417726,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.06215466955779,
+          "mass": 41.7500009073955,
+          "relative_equidistribution_defect": 8.88213995331455e-06,
+          "physical_conservation_residual": 3.649858193455202e-14
+        },
+        {
+          "t": 0.001,
+          "min_J": 0.5061458116570069,
+          "min_spacing": 0.03955206633939349,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.062151093000689,
+          "mass": 41.75000090661571,
+          "relative_equidistribution_defect": 8.874574895956222e-06,
+          "physical_conservation_residual": 4.9737124141469025e-14
+        },
+        {
+          "t": 0.0015,
+          "min_J": 0.5061466162242367,
+          "min_spacing": 0.03955222865302358,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.062147815158903,
+          "mass": 41.75000090583598,
+          "relative_equidistribution_defect": 8.866949903096888e-06,
+          "physical_conservation_residual": 3.5915714846623814e-14
+        },
+        {
+          "t": 0.002,
+          "min_J": 0.5061473481994502,
+          "min_spacing": 0.03955238599487549,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.062144833074521,
+          "mass": 41.75000090505628,
+          "relative_equidistribution_defect": 8.859266435123914e-06,
+          "physical_conservation_residual": 3.3889557826682903e-14
+        },
+        {
+          "t": 0.0025,
+          "min_J": 0.5061480083682731,
+          "min_spacing": 0.03955253840145112,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.062142143544469,
+          "mass": 41.75000090427665,
+          "relative_equidistribution_defect": 8.851525969411078e-06,
+          "physical_conservation_residual": 4.814638271399829e-14
+        },
+        {
+          "t": 0.003,
+          "min_J": 0.506148597572213,
+          "min_spacing": 0.03955268591569447,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.062139743138288,
+          "mass": 41.75000090349702,
+          "relative_equidistribution_defect": 8.843730013530227e-06,
+          "physical_conservation_residual": 3.907985046680551e-14
+        },
+        {
+          "t": 0.0035,
+          "min_J": 0.5061491167053627,
+          "min_spacing": 0.039552814952838224,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.062137628211557,
+          "mass": 41.75000090271743,
+          "relative_equidistribution_defect": 8.835880113688965e-06,
+          "physical_conservation_residual": 2.936539900133539e-14
+        },
+        {
+          "t": 0.004,
+          "min_J": 0.5061495667120643,
+          "min_spacing": 0.0395527459394115,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.062135794915404,
+          "mass": 41.75000090193785,
+          "relative_equidistribution_defect": 8.827977828751443e-06,
+          "physical_conservation_residual": 2.7977620220553945e-14
+        },
+        {
+          "t": 0.0045000000000000005,
+          "min_J": 0.5061499485854533,
+          "min_spacing": 0.03955267108884877,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621342392024316,
+          "mass": 41.750000901158295,
+          "relative_equidistribution_defect": 8.820024785749503e-06,
+          "physical_conservation_residual": 3.2029934260435766e-14
+        },
+        {
+          "t": 0.005,
+          "min_J": 0.5061502633668312,
+          "min_spacing": 0.03955259049454954,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621329568292603,
+          "mass": 41.75000090037875,
+          "relative_equidistribution_defect": 8.812022649240525e-06,
+          "physical_conservation_residual": 3.674838211509268e-14
+        },
+        {
+          "t": 0.0055000000000000005,
+          "min_J": 0.5061505121458321,
+          "min_spacing": 0.039552504252110196,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621319433558454,
+          "mass": 41.7500008995992,
+          "relative_equidistribution_defect": 8.803973133297838e-06,
+          "physical_conservation_residual": 2.631228568361621e-14
+        },
+        {
+          "t": 0.006,
+          "min_J": 0.5061506960613701,
+          "min_spacing": 0.03955241245946877,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.062131194141608,
+          "mass": 41.75000089881966,
+          "relative_equidistribution_defect": 8.795878008061031e-06,
+          "physical_conservation_residual": 4.413136522884997e-14
+        },
+        {
+          "t": 0.006500000000000001,
+          "min_J": 0.506150816303373,
+          "min_spacing": 0.039552315217102584,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621307043383656,
+          "mass": 41.75000089804012,
+          "relative_equidistribution_defect": 8.787739100513114e-06,
+          "physical_conservation_residual": 3.175237850427948e-14
+        },
+        {
+          "t": 0.007,
+          "min_J": 0.506150874115332,
+          "min_spacing": 0.039552212628284206,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621304688799342,
+          "mass": 41.75000089726056,
+          "relative_equidistribution_defect": 8.779558297034029e-06,
+          "physical_conservation_residual": 4.04121180963557e-14
+        },
+        {
+          "t": 0.007500000000000001,
+          "min_J": 0.5061508707977034,
+          "min_spacing": 0.039552104799402084,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621304824682603,
+          "mass": 41.750000896481,
+          "relative_equidistribution_defect": 8.787009984412286e-06,
+          "physical_conservation_residual": 3.447242491461111e-14
+        },
+        {
+          "t": 0.008,
+          "min_J": 0.5061508077122314,
+          "min_spacing": 0.039551991840356036,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.062130739555801,
+          "mass": 41.75000089570141,
+          "relative_equidistribution_defect": 8.796902451591038e-06,
+          "physical_conservation_residual": 2.631228568361621e-14
+        },
+        {
+          "t": 0.0085,
+          "min_J": 0.5061506862872669,
+          "min_spacing": 0.03955187386503891,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621312343238545,
+          "mass": 41.750000894921804,
+          "relative_equidistribution_defect": 8.806732796684535e-06,
+          "physical_conservation_residual": 4.18554080283684e-14
+        },
+        {
+          "t": 0.009000000000000001,
+          "min_J": 0.5061505080241739,
+          "min_spacing": 0.039551750991920424,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.062131960656443,
+          "mass": 41.750000894142175,
+          "relative_equidistribution_defect": 8.81650274353607e-06,
+          "physical_conservation_residual": 2.914335439641036e-14
+        },
+        {
+          "t": 0.0095,
+          "min_J": 0.5061502745049432,
+          "min_spacing": 0.03955162334475248,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621329121092855,
+          "mass": 41.75000089336251,
+          "relative_equidistribution_defect": 8.826213849344455e-06,
+          "physical_conservation_residual": 5.062616992290714e-14
+        },
+        {
+          "t": 0.01,
+          "min_J": 0.5061499874011492,
+          "min_spacing": 0.03955149105342138,
+          "max_spacing": 0.08154296875,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0621340818733085,
+          "mass": 41.75000089258282,
+          "relative_equidistribution_defect": 8.83586753408494e-06,
+          "physical_conservation_residual": 5.6066262743570405e-14
+        }
+      ],
+      "steps_with_nonzero_mesh_velocity": 800,
+      "max_mesh_velocity": 0.2598417989956738,
+      "max_displacement_since_initial": 0.002594711136007463,
+      "minimum_J": 0.5061439819107908,
+      "minimum_spacing": 0.03955149105342138,
+      "max_state": 4.728413693148988,
+      "reference_endpoint_field_and_time_derivative_mismatch": 1.5025780974549791e-28,
+      "profile": "profiles\\P10_sd_minus_pilot.npz",
+      "profile_sha256": "e4b2486c1b655e8b71ba531ad65f3955879415ec160c3702450dc83c7369d7c2"
+    },
+    "P10_sd_plus_pilot": {
+      "spec": {
+        "case": "P10",
+        "route": "sd",
+        "branch": "plus",
+        "phase": "pilot",
+        "h": 0.125,
+        "nx": 512,
+        "L": 40.0,
+        "yhalf": 1.5,
+        "dt": 1.25e-05,
+        "T": 0.01
+      },
+      "status": "completed",
+      "steps": 800,
+      "seconds": 2.7811237000860274,
+      "snapshots": {
+        "0.005": {
+          "errors": {
+            "u": 0.0015936674211811663,
+            "v": 0.0013551306445158673
+          },
+          "evaluation_double": {
+            "u": 0.0015936674211811663,
+            "v": 0.0013551306445158673
+          },
+          "reconstruction_double": {
+            "u": 0.0015936674913334947,
+            "v": 0.0013551306218699821
+          },
+          "nodal_errors": {
+            "u": 0.0015931952135372907,
+            "v": 0.0013552883937819615
+          }
+        },
+        "0.01": {
+          "errors": {
+            "u": 0.003360607289309314,
+            "v": 0.003621369912878869
+          },
+          "evaluation_double": {
+            "u": 0.0033616987706128754,
+            "v": 0.0036304404329996487
+          },
+          "reconstruction_double": {
+            "u": 0.003360607384418346,
+            "v": 0.0036213698959368656
+          },
+          "nodal_errors": {
+            "u": 0.003318020578604308,
+            "v": 0.003615642104626282
+          }
+        }
+      },
+      "initial_hash": "1edd0024240832c2aa41cba362fb639db5ffcde09f1fc2cbcb1aa8167bbf19ba",
+      "initial_nodal_error": 1.5716594692349872e-15,
+      "initial_output_error": {
+        "u": 1.2726708575883094e-11,
+        "v": 2.2990498393937742e-11
+      },
+      "geometry": [
+        {
+          "t": 0.0,
+          "min_J": 0.5063708660387539,
+          "min_spacing": 0.03956026988844108,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0612345362210736,
+          "mass": 41.75000090800201,
+          "relative_equidistribution_defect": 9.325477323018916e-06,
+          "physical_conservation_residual": 4.9904524956900786e-14
+        },
+        {
+          "t": 0.0005,
+          "min_J": 0.5063713778914636,
+          "min_spacing": 0.03956038796121086,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.061232453005703,
+          "mass": 41.750000907229946,
+          "relative_equidistribution_defect": 9.322992554405829e-06,
+          "physical_conservation_residual": 4.488076577047195e-14
+        },
+        {
+          "t": 0.001,
+          "min_J": 0.506371963033021,
+          "min_spacing": 0.03956051138829264,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.06123007147464,
+          "mass": 41.7500009064576,
+          "relative_equidistribution_defect": 9.320735839701833e-06,
+          "physical_conservation_residual": 6.039613253960852e-14
+        },
+        {
+          "t": 0.0015,
+          "min_J": 0.5063726235256649,
+          "min_spacing": 0.03956064032318862,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0612273832361323,
+          "mass": 41.750000905684956,
+          "relative_equidistribution_defect": 9.318728372842422e-06,
+          "physical_conservation_residual": 5.745404152435185e-14
+        },
+        {
+          "t": 0.002,
+          "min_J": 0.506373361545106,
+          "min_spacing": 0.039560774928621645,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.061224379436957,
+          "mass": 41.75000090491204,
+          "relative_equidistribution_defect": 9.316993038410715e-06,
+          "physical_conservation_residual": 3.363842949848095e-14
+        },
+        {
+          "t": 0.0025,
+          "min_J": 0.5063741793920844,
+          "min_spacing": 0.03956091537752726,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0612210507154196,
+          "mass": 41.750000904138815,
+          "relative_equidistribution_defect": 9.315554727384878e-06,
+          "physical_conservation_residual": 4.005443979965273e-14
+        },
+        {
+          "t": 0.003,
+          "min_J": 0.5063750795054359,
+          "min_spacing": 0.03956106185418873,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.061217387148206,
+          "mass": 41.750000903365304,
+          "relative_equidistribution_defect": 9.314440586272177e-06,
+          "physical_conservation_residual": 7.972789095589405e-14
+        },
+        {
+          "t": 0.0035,
+          "min_J": 0.5063760644768793,
+          "min_spacing": 0.03956121455553652,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0612133781902457,
+          "mass": 41.75000090259148,
+          "relative_equidistribution_defect": 9.313680389144707e-06,
+          "physical_conservation_residual": 4.474198789239381e-14
+        },
+        {
+          "t": 0.004,
+          "min_J": 0.5063771370677662,
+          "min_spacing": 0.03956137369264101,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.061209012606592,
+          "mass": 41.75000090181736,
+          "relative_equidistribution_defect": 9.313306905567309e-06,
+          "physical_conservation_residual": 4.7628567756419216e-14
+        },
+        {
+          "t": 0.0045000000000000005,
+          "min_J": 0.5063783002280657,
+          "min_spacing": 0.03956153949243324,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0612042783951967,
+          "mass": 41.75000090104291,
+          "relative_equidistribution_defect": 9.313356334583744e-06,
+          "physical_conservation_residual": 7.710498906021712e-14
+        },
+        {
+          "t": 0.005,
+          "min_J": 0.5063795571179108,
+          "min_spacing": 0.03956171219969562,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.061199162699292,
+          "mass": 41.75000090026815,
+          "relative_equidistribution_defect": 9.313868840732376e-06,
+          "physical_conservation_residual": 3.624878175401136e-14
+        },
+        {
+          "t": 0.0055000000000000005,
+          "min_J": 0.5063809111320544,
+          "min_spacing": 0.03956189207937222,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.061193651707928,
+          "mass": 41.750000899493074,
+          "relative_equidistribution_defect": 9.31488912814249e-06,
+          "physical_conservation_residual": 3.758104938356155e-14
+        },
+        {
+          "t": 0.006,
+          "min_J": 0.5063823659276366,
+          "min_spacing": 0.03956207941926426,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0611877305430353,
+          "mass": 41.750000898717644,
+          "relative_equidistribution_defect": 9.316467102227222e-06,
+          "physical_conservation_residual": 7.199709578520341e-14
+        },
+        {
+          "t": 0.006500000000000001,
+          "min_J": 0.506383925455702,
+          "min_spacing": 0.03956227453318428,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0611813831312418,
+          "mass": 41.75000089794189,
+          "relative_equidistribution_defect": 9.318658680590453e-06,
+          "physical_conservation_residual": 3.991251773527438e-14
+        },
+        {
+          "t": 0.007,
+          "min_J": 0.5063855939969207,
+          "min_spacing": 0.039562477764666815,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.061174592058608,
+          "mass": 41.750000897165776,
+          "relative_equidistribution_defect": 9.321526659888946e-06,
+          "physical_conservation_residual": 7.882583474838611e-14
+        },
+        {
+          "t": 0.007500000000000001,
+          "min_J": 0.5063873762019554,
+          "min_spacing": 0.03956268949135555,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.061167338406456,
+          "mass": 41.75000089638932,
+          "relative_equidistribution_defect": 9.325141780536228e-06,
+          "physical_conservation_residual": 4.138356324290271e-14
+        },
+        {
+          "t": 0.008,
+          "min_J": 0.5063892771368417,
+          "min_spacing": 0.03956291013021007,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.061159601566804,
+          "mass": 41.75000089561248,
+          "relative_equidistribution_defect": 9.329583904871264e-06,
+          "physical_conservation_residual": 6.195044477408373e-14
+        },
+        {
+          "t": 0.0085,
+          "min_J": 0.5063913023335727,
+          "min_spacing": 0.03956314014372053,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999996,
+          "max_R": 2.061151359036665,
+          "mass": 41.75000089483527,
+          "relative_equidistribution_defect": 9.334943416705599e-06,
+          "physical_conservation_residual": 4.518607710224387e-14
+        },
+        {
+          "t": 0.009000000000000001,
+          "min_J": 0.5063934578456879,
+          "min_spacing": 0.03956338004735438,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0611425861919788,
+          "mass": 41.75000089405768,
+          "relative_equidistribution_defect": 9.341322808165131e-06,
+          "physical_conservation_residual": 9.639511411307922e-14
+        },
+        {
+          "t": 0.0095,
+          "min_J": 0.5063957503079817,
+          "min_spacing": 0.03956363041852107,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999997,
+          "max_R": 2.0611332560448026,
+          "mass": 41.7500008932797,
+          "relative_equidistribution_defect": 9.348838518441482e-06,
+          "physical_conservation_residual": 6.444844657949034e-14
+        },
+        {
+          "t": 0.01,
+          "min_J": 0.5063981869982078,
+          "min_spacing": 0.03956389190739884,
+          "max_spacing": 0.08154296875000178,
+          "min_R": 0.9999999999999996,
+          "max_R": 2.0611233389923913,
+          "mass": 41.750000892501276,
+          "relative_equidistribution_defect": 9.357623063976916e-06,
+          "physical_conservation_residual": 6.55586696041155e-14
+        }
+      ],
+      "steps_with_nonzero_mesh_velocity": 800,
+      "max_mesh_velocity": 0.25764213349704146,
+      "max_displacement_since_initial": 0.0025743832499844632,
+      "minimum_J": 0.5063708660387539,
+      "minimum_spacing": 0.03956026988844108,
+      "max_state": 4.728315915861207,
+      "reference_endpoint_field_and_time_derivative_mismatch": 1.5025780974549791e-28,
+      "profile": "profiles\\P10_sd_plus_pilot.npz",
+      "profile_sha256": "0ad184ddb5befb9204c29d5dc11e50de8af0f060267ab1469d74213112d652a4"
+    }
+  }
+}

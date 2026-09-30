@@ -1,0 +1,135 @@
+{
+  "passed": true,
+  "checks": {
+    "fd_fixed_reproduces_original_rhs": {
+      "error": 0.0,
+      "tolerance": 1e-12,
+      "passed": true
+    },
+    "fd_fixed_zero_velocity": {
+      "error": 0.0,
+      "tolerance": 1e-14,
+      "passed": true
+    },
+    "sd_fixed_reproduces_original_rhs": {
+      "error": 0.0,
+      "tolerance": 1e-12,
+      "passed": true
+    },
+    "sd_fixed_zero_velocity": {
+      "error": 0.0,
+      "tolerance": 1e-14,
+      "passed": true
+    },
+    "d1_mapped_fourth_order": {
+      "error": 0.010535624442918223,
+      "tolerance": 0.12,
+      "passed": true
+    },
+    "d2_mapped_fourth_order": {
+      "error": 0.012403025970089132,
+      "tolerance": 0.12,
+      "passed": true
+    },
+    "minus_initial_density_matches_primitive": {
+      "error": 5.551115123125783e-16,
+      "tolerance": 2e-13,
+      "passed": true
+    },
+    "minus_equal_mass_initial_nodes": {
+      "error": 2.220446049250313e-16,
+      "tolerance": 2e-12,
+      "passed": true
+    },
+    "minus_initial_shared_output_u": {
+      "error": 1.7710721778030347e-11,
+      "tolerance": 2e-08,
+      "passed": true
+    },
+    "minus_initial_shared_output_v": {
+      "error": 6.117439887987075e-12,
+      "tolerance": 2e-08,
+      "passed": true
+    },
+    "minus_sd_discrete_flux_identity": {
+      "error": 1.95619074324499e-14,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    "minus_density_time_chain_rule": {
+      "error": 3.065521203446083e-10,
+      "tolerance": 2e-08,
+      "passed": true
+    },
+    "minus_matched_fd_sd_initial_state": {
+      "error": 0.0,
+      "tolerance": 1e-14,
+      "passed": true
+    },
+    "minus_same_mesh_velocity_functional": {
+      "error": 0.0,
+      "tolerance": 1e-13,
+      "passed": true
+    },
+    "plus_initial_density_matches_primitive": {
+      "error": 5.551115123125783e-16,
+      "tolerance": 2e-13,
+      "passed": true
+    },
+    "plus_equal_mass_initial_nodes": {
+      "error": 1.1102230246251565e-16,
+      "tolerance": 2e-12,
+      "passed": true
+    },
+    "plus_initial_shared_output_u": {
+      "error": 1.8814283464507753e-11,
+      "tolerance": 2e-08,
+      "passed": true
+    },
+    "plus_initial_shared_output_v": {
+      "error": 6.309841538154615e-12,
+      "tolerance": 2e-08,
+      "passed": true
+    },
+    "plus_sd_discrete_flux_identity": {
+      "error": 1.625977998076511e-14,
+      "tolerance": 2e-11,
+      "passed": true
+    },
+    "plus_density_time_chain_rule": {
+      "error": 3.326156849947637e-10,
+      "tolerance": 2e-08,
+      "passed": true
+    },
+    "plus_matched_fd_sd_initial_state": {
+      "error": 0.0,
+      "tolerance": 1e-14,
+      "passed": true
+    },
+    "plus_same_mesh_velocity_functional": {
+      "error": 0.0,
+      "tolerance": 1e-13,
+      "passed": true
+    },
+    "ALE_transport_converges_order_four": {
+      "error": 0.04707475915939119,
+      "tolerance": 0.2,
+      "passed": true
+    }
+  },
+  "mapped_d1_errors": [
+    0.00021394667707430592,
+    1.346967453019765e-05,
+    8.433951819153407e-07
+  ],
+  "mapped_d2_errors": [
+    0.0008887564402093595,
+    5.602688292061231e-05,
+    3.516705728401348e-06
+  ],
+  "ALE_transport_errors": [
+    0.0026160572036103835,
+    0.00018515446989578188,
+    1.1955978706595927e-05
+  ]
+}

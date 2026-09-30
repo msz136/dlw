@@ -1,0 +1,239 @@
+{
+  "desktop": {
+    "headings": [
+      "1　实验设计",
+      "2　演化方程与数值递推",
+      "3　空间离散化的比较",
+      "4　时间算法的比较",
+      "5　网格策略的比较",
+      "6　结论",
+      "参考资料"
+    ],
+    "methods": [
+      "2.1　SD",
+      "2.2　SD2",
+      "2.3　FD",
+      "2.4　时间更新与节点运动"
+    ],
+    "tables": 5,
+    "math": 96,
+    "mathErrors": [],
+    "equationNumbers": [
+      "(1)",
+      "(2)",
+      "(3)",
+      "(4)",
+      "(5)",
+      "(6)",
+      "(7)",
+      "(8)",
+      "(9)",
+      "(10)",
+      "(11)",
+      "(12)",
+      "(13)",
+      "(14)",
+      "(15)",
+      "(16)"
+    ],
+    "overflow": false,
+    "equationScroll": [
+      {
+        "number": 1,
+        "scroll": false
+      },
+      {
+        "number": 2,
+        "scroll": false
+      },
+      {
+        "number": 3,
+        "scroll": false
+      },
+      {
+        "number": 4,
+        "scroll": false
+      },
+      {
+        "number": 5,
+        "scroll": false
+      },
+      {
+        "number": 6,
+        "scroll": false
+      },
+      {
+        "number": 7,
+        "scroll": false
+      },
+      {
+        "number": 8,
+        "scroll": false
+      },
+      {
+        "number": 9,
+        "scroll": false
+      },
+      {
+        "number": 10,
+        "scroll": false
+      },
+      {
+        "number": 11,
+        "scroll": false
+      },
+      {
+        "number": 12,
+        "scroll": false
+      },
+      {
+        "number": 13,
+        "scroll": false
+      },
+      {
+        "number": 14,
+        "scroll": false
+      },
+      {
+        "number": 15,
+        "scroll": false
+      },
+      {
+        "number": 16,
+        "scroll": false
+      }
+    ],
+    "rawDollars": 0,
+    "codeBlocks": 0,
+    "tableText": [
+      "算例\t原文图号\t谱参数\t比较范围\n单孤子 A\t图 1(a)\t\n(\n𝑝\n,\n𝑞\n)\n=\n(\n1\n,\n2\n)\n(p,q)=(1,2)\t三离散化 × 两时间法 × 两网格\n单孤子 B\t图 1(b)\t\n(\n𝑝\n,\n𝑞\n)\n=\n(\n4\n,\n−\n3\n)\n(p,q)=(4,−3)\t三离散化 × 两时间法 × 两网格\n二孤子 C\t图 3\t\n(\n𝑝\n1\n,\n𝑞\n1\n)\n=\n(\n6\n,\n−\n5\n)\n(p\n1\n\t​\n\n,q\n1\n\t​\n\n)=(6,−5)；\n(\n𝑝\n2\n,\n𝑞\n2\n)\n=\n(\n4\n,\n−\n3\n)\n(p\n2\n\t​\n\n,q\n2\n\t​\n\n)=(4,−3)\t三离散化 × 两时间法 × 两网格",
+      "对照\t比较因素\t固定条件\n空间离散化\tSD / SD2 / FD\t各自算例、RK4、fixed、空间格距、时间步长\n时间算法\tEuler / RK4\t各自算例与离散化、fixed、空间格距、时间步长\n网格策略\tfixed / moving\t各自算例与离散化、RK4、节点数、时间步长",
+      "算例\tSD：\n𝑢\nu\tSD：\n𝑣\nv\tSD2：\n𝑢\nu\tSD2：\n𝑣\nv\n单孤子 A\t0.703\t0.841\t3.044†\t1.441†\n单孤子 B\t1.746\t1.906\t1.901\t2.373\n二孤子 C\t1.156\t1.775\t1.535\t3.021",
+      "算例\t空间方案\t\n𝑅\n𝑢\n𝐸\n/\n𝑅\nR\nu\nE/R\n\t​\n\n\t\n𝑅\n𝑣\n𝐸\n/\n𝑅\nR\nv\nE/R\n\t​\n\n\n单孤子 A\tSD\t1.002\t0.996\n单孤子 A\tSD2†\t0.996\t0.996\n单孤子 A\tFD\t0.990\t0.996\n单孤子 B\tSD\t1.603\t2.582\n单孤子 B\tSD2\t1.084\t5.944\n单孤子 B\tFD\t1.604\t4.681\n二孤子 C\tSD\t2.036\t4.112\n二孤子 C\tSD2\t1.189\t11.345\n二孤子 C\tFD\t1.473\t7.205",
+      "算例\t空间方案\t\n𝑅\n𝑢\n𝑀\n/\n𝐹\nR\nu\nM/F\n\t​\n\n\t\n𝑅\n𝑣\n𝑀\n/\n𝐹\nR\nv\nM/F\n\t​\n\n\n单孤子 A\tSD\t0.611\t0.601\n单孤子 A\tSD2†\t0.243\t0.464\n单孤子 A\tFD\t0.686\t0.671\n单孤子 B\tSD\t1.075\t1.064\n单孤子 B\tSD2\t1.008\t0.947\n单孤子 B\tFD\t0.798\t1.102\n二孤子 C\tSD\t0.980\t1.071\n二孤子 C\tSD2\t0.828\t0.761\n二孤子 C\tFD\t0.676\t1.101"
+    ],
+    "newSectionText": [
+      "记 \nℎ\n=\nℎ\n𝑦\nh=h\ny\n\t​\n\n，在 \n𝑦\ny 方向定义"
+    ]
+  },
+  "mobile": {
+    "headings": [
+      "1　实验设计",
+      "2　演化方程与数值递推",
+      "3　空间离散化的比较",
+      "4　时间算法的比较",
+      "5　网格策略的比较",
+      "6　结论",
+      "参考资料"
+    ],
+    "methods": [
+      "2.1　SD",
+      "2.2　SD2",
+      "2.3　FD",
+      "2.4　时间更新与节点运动"
+    ],
+    "tables": 5,
+    "math": 96,
+    "mathErrors": [],
+    "equationNumbers": [
+      "(1)",
+      "(2)",
+      "(3)",
+      "(4)",
+      "(5)",
+      "(6)",
+      "(7)",
+      "(8)",
+      "(9)",
+      "(10)",
+      "(11)",
+      "(12)",
+      "(13)",
+      "(14)",
+      "(15)",
+      "(16)"
+    ],
+    "overflow": false,
+    "equationScroll": [
+      {
+        "number": 1,
+        "scroll": true
+      },
+      {
+        "number": 2,
+        "scroll": false
+      },
+      {
+        "number": 3,
+        "scroll": true
+      },
+      {
+        "number": 4,
+        "scroll": false
+      },
+      {
+        "number": 5,
+        "scroll": false
+      },
+      {
+        "number": 6,
+        "scroll": false
+      },
+      {
+        "number": 7,
+        "scroll": true
+      },
+      {
+        "number": 8,
+        "scroll": true
+      },
+      {
+        "number": 9,
+        "scroll": false
+      },
+      {
+        "number": 10,
+        "scroll": true
+      },
+      {
+        "number": 11,
+        "scroll": false
+      },
+      {
+        "number": 12,
+        "scroll": false
+      },
+      {
+        "number": 13,
+        "scroll": false
+      },
+      {
+        "number": 14,
+        "scroll": true
+      },
+      {
+        "number": 15,
+        "scroll": true
+      },
+      {
+        "number": 16,
+        "scroll": false
+      }
+    ],
+    "rawDollars": 0,
+    "codeBlocks": 0,
+    "tableText": [
+      "算例\t原文图号\t谱参数\t比较范围\n单孤子 A\t图 1(a)\t\n(\n𝑝\n,\n𝑞\n)\n=\n(\n1\n,\n2\n)\n(p,q)=(1,2)\t三离散化 × 两时间法 × 两网格\n单孤子 B\t图 1(b)\t\n(\n𝑝\n,\n𝑞\n)\n=\n(\n4\n,\n−\n3\n)\n(p,q)=(4,−3)\t三离散化 × 两时间法 × 两网格\n二孤子 C\t图 3\t\n(\n𝑝\n1\n,\n𝑞\n1\n)\n=\n(\n6\n,\n−\n5\n)\n(p\n1\n\t​\n\n,q\n1\n\t​\n\n)=(6,−5)；\n(\n𝑝\n2\n,\n𝑞\n2\n)\n=\n(\n4\n,\n−\n3\n)\n(p\n2\n\t​\n\n,q\n2\n\t​\n\n)=(4,−3)\t三离散化 × 两时间法 × 两网格",
+      "对照\t比较因素\t固定条件\n空间离散化\tSD / SD2 / FD\t各自算例、RK4、fixed、空间格距、时间步长\n时间算法\tEuler / RK4\t各自算例与离散化、fixed、空间格距、时间步长\n网格策略\tfixed / moving\t各自算例与离散化、RK4、节点数、时间步长",
+      "算例\tSD：\n𝑢\nu\tSD：\n𝑣\nv\tSD2：\n𝑢\nu\tSD2：\n𝑣\nv\n单孤子 A\t0.703\t0.841\t3.044†\t1.441†\n单孤子 B\t1.746\t1.906\t1.901\t2.373\n二孤子 C\t1.156\t1.775\t1.535\t3.021",
+      "算例\t空间方案\t\n𝑅\n𝑢\n𝐸\n/\n𝑅\nR\nu\nE/R\n\t​\n\n\t\n𝑅\n𝑣\n𝐸\n/\n𝑅\nR\nv\nE/R\n\t​\n\n\n单孤子 A\tSD\t1.002\t0.996\n单孤子 A\tSD2†\t0.996\t0.996\n单孤子 A\tFD\t0.990\t0.996\n单孤子 B\tSD\t1.603\t2.582\n单孤子 B\tSD2\t1.084\t5.944\n单孤子 B\tFD\t1.604\t4.681\n二孤子 C\tSD\t2.036\t4.112\n二孤子 C\tSD2\t1.189\t11.345\n二孤子 C\tFD\t1.473\t7.205",
+      "算例\t空间方案\t\n𝑅\n𝑢\n𝑀\n/\n𝐹\nR\nu\nM/F\n\t​\n\n\t\n𝑅\n𝑣\n𝑀\n/\n𝐹\nR\nv\nM/F\n\t​\n\n\n单孤子 A\tSD\t0.611\t0.601\n单孤子 A\tSD2†\t0.243\t0.464\n单孤子 A\tFD\t0.686\t0.671\n单孤子 B\tSD\t1.075\t1.064\n单孤子 B\tSD2\t1.008\t0.947\n单孤子 B\tFD\t0.798\t1.102\n二孤子 C\tSD\t0.980\t1.071\n二孤子 C\tSD2\t0.828\t0.761\n二孤子 C\tFD\t0.676\t1.101"
+    ],
+    "newSectionText": [
+      "记 \nℎ\n=\nℎ\n𝑦\nh=h\ny\n\t​\n\n，在 \n𝑦\ny 方向定义"
+    ]
+  },
+  "tablesUnchanged": true,
+  "numbersContinuous": true,
+  "errors": []
+}

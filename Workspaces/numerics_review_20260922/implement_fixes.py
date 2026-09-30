@@ -1,5 +1,5 @@
 from pathlib import Path
-root=Path(__file__).resolve().parents[2]/'Paper/dlw_semidiscrete/numerics'
+root=Path(__file__).resolve().parents[2]/'Workspaces/dlw_semidiscrete/numerics'
 def edit(name,fn):
     p=root/name;p.write_text(fn(p.read_text(encoding='utf-8')),encoding='utf-8')
 def e1(s):

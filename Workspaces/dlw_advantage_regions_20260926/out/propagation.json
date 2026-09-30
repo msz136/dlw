@@ -1,0 +1,1283 @@
+{
+  "plan": {
+    "P1_main_fd": {
+      "case": "P1",
+      "config": "main",
+      "method": "fd"
+    },
+    "P1_main_original": {
+      "case": "P1",
+      "config": "main",
+      "method": "original"
+    },
+    "P1_main_theory": {
+      "case": "P1",
+      "config": "main",
+      "method": "theory"
+    },
+    "P1_fine_fd": {
+      "case": "P1",
+      "config": "fine",
+      "method": "fd"
+    },
+    "P1_fine_original": {
+      "case": "P1",
+      "config": "fine",
+      "method": "original"
+    },
+    "P1_fine_theory": {
+      "case": "P1",
+      "config": "fine",
+      "method": "theory"
+    },
+    "P2_main_fd": {
+      "case": "P2",
+      "config": "main",
+      "method": "fd"
+    },
+    "P2_main_original": {
+      "case": "P2",
+      "config": "main",
+      "method": "original"
+    },
+    "P2_main_theory": {
+      "case": "P2",
+      "config": "main",
+      "method": "theory"
+    },
+    "P2_fine_fd": {
+      "case": "P2",
+      "config": "fine",
+      "method": "fd"
+    },
+    "P2_fine_original": {
+      "case": "P2",
+      "config": "fine",
+      "method": "original"
+    },
+    "P2_fine_theory": {
+      "case": "P2",
+      "config": "fine",
+      "method": "theory"
+    },
+    "P6_main_fd": {
+      "case": "P6",
+      "config": "main",
+      "method": "fd"
+    },
+    "P6_main_original": {
+      "case": "P6",
+      "config": "main",
+      "method": "original"
+    },
+    "P6_main_theory": {
+      "case": "P6",
+      "config": "main",
+      "method": "theory"
+    },
+    "P6_fine_fd": {
+      "case": "P6",
+      "config": "fine",
+      "method": "fd"
+    },
+    "P6_fine_original": {
+      "case": "P6",
+      "config": "fine",
+      "method": "original"
+    },
+    "P6_fine_theory": {
+      "case": "P6",
+      "config": "fine",
+      "method": "theory"
+    },
+    "P10_main_fd": {
+      "case": "P10",
+      "config": "main",
+      "method": "fd"
+    },
+    "P10_main_original": {
+      "case": "P10",
+      "config": "main",
+      "method": "original"
+    },
+    "P10_main_theory": {
+      "case": "P10",
+      "config": "main",
+      "method": "theory"
+    },
+    "P10_fine_fd": {
+      "case": "P10",
+      "config": "fine",
+      "method": "fd"
+    },
+    "P10_fine_original": {
+      "case": "P10",
+      "config": "fine",
+      "method": "original"
+    },
+    "P10_fine_theory": {
+      "case": "P10",
+      "config": "fine",
+      "method": "theory"
+    }
+  },
+  "source_hashes": {
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_advantage_regions_20260926\\error_model.py": "c0a291d532675c72b8575e0a100e4187a8c170f8cd80f1ae3c2999977d3d0103",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_advantage_regions_20260926\\propagate.py": "f966347281a8723ac2ffc286ba03a6837c4840dbc8705571938c2b66aa1c8802",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_coefficient_euler_20260926\\model.py": "95fd5a677928d73a282fea65cd0496fafb45aca9175764166fdc5956465f69d2"
+  },
+  "rows": {
+    "P1_main_fd": {
+      "spec": {
+        "case": "P1",
+        "config": "main",
+        "method": "fd"
+      },
+      "status": "completed",
+      "metrics": {
+        "u": {
+          "actual": 4.2784218445168776e-05,
+          "predicted": 4.278422535549581e-05,
+          "relative_remainder": 6.608977953633074e-07,
+          "component_norms": {
+            "y": 3.793461486909606e-06,
+            "x": 3.9097571817257277e-05,
+            "time": 1.373491443458414e-07
+          },
+          "signed_components_at_actual_max": {
+            "y": 3.7525766442769373e-06,
+            "x": 3.9097571817257277e-05,
+            "time": -6.592310581636433e-08
+          },
+          "actual_at_max": 4.2784218445168776e-05,
+          "x_y_L2_cosine": 0.8608424066049571
+        },
+        "v": {
+          "actual": 1.402562130886631e-05,
+          "predicted": 1.4025620673177093e-05,
+          "relative_remainder": 9.120961383438332e-07,
+          "component_norms": {
+            "y": 1.7488429027924443e-06,
+            "x": 1.251854245402136e-05,
+            "time": 1.3902615589889584e-07
+          },
+          "signed_components_at_actual_max": {
+            "y": 1.618631387468494e-06,
+            "x": 1.251854245402136e-05,
+            "time": -1.1155316831276032e-07
+          },
+          "actual_at_max": 1.402562130886631e-05,
+          "x_y_L2_cosine": 0.7730478797125182
+        }
+      },
+      "profile": "propagation_P1_main_fd.npz",
+      "profile_sha256": "d1d8602d1469deff6206ab4e504305a16dc15f1c888af71c61499d2a5ed9232a",
+      "actual_source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_coefficient_euler_20260926\\out\\profiles\\P1_fd_c0_k0_main.npz",
+      "actual_source_sha256": "284b4c85008b0da44ca8f08c1ebdbbbe9a8485ba3f0da5471edf6199a4ed3945"
+    },
+    "P1_main_original": {
+      "spec": {
+        "case": "P1",
+        "config": "main",
+        "method": "original"
+      },
+      "status": "completed",
+      "metrics": {
+        "u": {
+          "actual": 2.865002514829129e-05,
+          "predicted": 2.8650027844653495e-05,
+          "relative_remainder": 5.395773604169677e-07,
+          "component_norms": {
+            "y": 1.0876338498487634e-05,
+            "x": 3.917473590215548e-05,
+            "time": 1.3752108002311206e-07
+          },
+          "signed_components_at_actual_max": {
+            "y": -1.0458582305483933e-05,
+            "x": 3.917473590215548e-05,
+            "time": -6.612575179600518e-08
+          },
+          "actual_at_max": 2.865002514829129e-05,
+          "x_y_L2_cosine": -0.340464273223381
+        },
+        "v": {
+          "actual": 1.3164954122180106e-05,
+          "predicted": 1.3164954558431449e-05,
+          "relative_remainder": 6.274789309282084e-07,
+          "component_norms": {
+            "y": 3.550788784457795e-06,
+            "x": 1.2568600982646683e-05,
+            "time": 1.3904534366268397e-07
+          },
+          "signed_components_at_actual_max": {
+            "y": -2.487400877312982e-06,
+            "x": -1.0597938759271822e-05,
+            "time": -7.961492190215631e-08
+          },
+          "actual_at_max": -1.3164954122180106e-05,
+          "x_y_L2_cosine": 0.07942212370098327
+        }
+      },
+      "profile": "propagation_P1_main_original.npz",
+      "profile_sha256": "a4be32ae4bdc2704295768641469ae087fffa14fcabf39cd6920631af1a01996",
+      "actual_source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_coefficient_euler_20260926\\out\\profiles\\P1_sd_c0_k0_main.npz",
+      "actual_source_sha256": "f3ceedaefd0c2ef619794f7f64e464fb577e43b0fcf497c2898d7937afa83387"
+    },
+    "P1_main_theory": {
+      "spec": {
+        "case": "P1",
+        "config": "main",
+        "method": "theory"
+      },
+      "status": "completed",
+      "metrics": {
+        "u": {
+          "actual": 3.781949550130115e-05,
+          "predicted": 3.781949744969985e-05,
+          "relative_remainder": 5.955783184577513e-07,
+          "component_norms": {
+            "y": 4.4268252798985855e-06,
+            "x": 3.9167832570844386e-05,
+            "time": 1.3752093243580403e-07
+          },
+          "signed_components_at_actual_max": {
+            "y": -1.2822137436630785e-06,
+            "x": 3.9167832570844386e-05,
+            "time": -6.612137725940782e-08
+          },
+          "actual_at_max": 3.781949550130115e-05,
+          "x_y_L2_cosine": 0.14174328094887606
+        },
+        "v": {
+          "actual": 1.3344522875269327e-05,
+          "predicted": 1.3344522897494994e-05,
+          "relative_remainder": 7.487461742257516e-07,
+          "component_norms": {
+            "y": 2.6134515169281308e-06,
+            "x": 1.2568060457559202e-05,
+            "time": 1.3904680878497318e-07
+          },
+          "signed_components_at_actual_max": {
+            "y": -1.5832464007932664e-06,
+            "x": -1.1667452153687154e-05,
+            "time": -9.382434295906198e-08
+          },
+          "actual_at_max": -1.3344522875269327e-05,
+          "x_y_L2_cosine": 0.07637798698832957
+        }
+      },
+      "profile": "propagation_P1_main_theory.npz",
+      "profile_sha256": "d1ca0df77ee7fbd5defdb992faf5a6c54df919fb759107043667e16185b2b696",
+      "actual_source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_coefficient_euler_20260926\\out\\profiles\\P1_sd_c0.0424865_k0.00844852_main.npz",
+      "actual_source_sha256": "af5e8dce9e4060bc77e0433f30701826a0a322408cfa3b8d7ac1bd2f359f17a4"
+    },
+    "P1_fine_fd": {
+      "spec": {
+        "case": "P1",
+        "config": "fine",
+        "method": "fd"
+      },
+      "status": "completed",
+      "metrics": {
+        "u": {
+          "actual": 6.324998127693604e-06,
+          "predicted": 6.325002342666164e-06,
+          "relative_remainder": 1.2328099268458042e-06,
+          "component_norms": {
+            "y": 3.8144801164369084e-06,
+            "x": 2.5612645454859716e-06,
+            "time": 6.869088748880114e-08
+          },
+          "signed_components_at_actual_max": {
+            "y": 3.8123390893852583e-06,
+            "x": 2.5520890131047085e-06,
+            "time": -3.9425759601757164e-08
+          },
+          "actual_at_max": 6.324998127693604e-06,
+          "x_y_L2_cosine": 0.8549753486916933
+        },
+        "v": {
+          "actual": 2.492471638748661e-06,
+          "predicted": 2.492473221056809e-06,
+          "relative_remainder": 5.810123949519174e-06,
+          "component_norms": {
+            "y": 1.7556101421683896e-06,
+            "x": 8.478915452441586e-07,
+            "time": 6.954416157215361e-08
+          },
+          "signed_components_at_actual_max": {
+            "y": 1.730693565957077e-06,
+            "x": 8.13913599043733e-07,
+            "time": -5.2133943944001306e-08
+          },
+          "actual_at_max": 2.492471638748661e-06,
+          "x_y_L2_cosine": 0.76225755845162
+        }
+      },
+      "profile": "propagation_P1_fine_fd.npz",
+      "profile_sha256": "5bf57880ec67d89a5f12b5b4360f7b1076cf9254403cc55917be63a199df1321",
+      "actual_source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_coefficient_euler_20260926\\out\\profiles\\P1_fd_c0_k0_fine_time.npz",
+      "actual_source_sha256": "774df3ae5375303ccb6a19a9d5c2e45023d3df4462f9352190efbc35fff7c3f8"
+    },
+    "P2_main_fd": {
+      "spec": {
+        "case": "P2",
+        "config": "main",
+        "method": "fd"
+      },
+      "status": "completed",
+      "metrics": {
+        "u": {
+          "actual": 0.0025217171835865138,
+          "predicted": 0.0025217110923260776,
+          "relative_remainder": 4.422105607631626e-05,
+          "component_norms": {
+            "y": 0.00019154556451374602,
+            "x": 0.002332136754110052,
+            "time": 2.1224061719823548e-06
+          },
+          "signed_components_at_actual_max": {
+            "y": 0.00019154556451374602,
+            "x": 0.002332136754110052,
+            "time": -1.9713326042395453e-06
+          },
+          "actual_at_max": 0.0025217171835865138,
+          "x_y_L2_cosine": 0.8918942566386734
+        },
+        "v": {
+          "actual": 0.001751390343745829,
+          "predicted": 0.0017513831526732133,
+          "relative_remainder": 4.661242381757347e-05,
+          "component_norms": {
+            "y": 0.00013903031540477673,
+            "x": 0.0016144724543829007,
+            "time": 1.2198378523526607e-06
+          },
+          "signed_components_at_actual_max": {
+            "y": 0.00013791583383532675,
+            "x": 0.0016144724543829007,
+            "time": -1.005499931535117e-06
+          },
+          "actual_at_max": 0.001751390343745829,
+          "x_y_L2_cosine": 0.8645717849136022
+        }
+      },
+      "profile": "propagation_P2_main_fd.npz",
+      "profile_sha256": "3996bffe6e315a5c754e8890b7695f8cbf885b2af5c383938a6fef918c0cebbe",
+      "actual_source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_coefficient_euler_20260926\\out\\profiles\\P2_fd_c0_k0_main.npz",
+      "actual_source_sha256": "54eeae7fceaa53c48f47650a07e1fa40d31b55e642f2b8b8e4a3de6a872d4907"
+    },
+    "P1_fine_original": {
+      "spec": {
+        "case": "P1",
+        "config": "fine",
+        "method": "original"
+      },
+      "status": "completed",
+      "metrics": {
+        "u": {
+          "actual": 8.862779887985894e-06,
+          "predicted": 8.862777194951554e-06,
+          "relative_remainder": 1.0885258219104988e-06,
+          "component_norms": {
+            "y": 1.0891097709221903e-05,
+            "x": 2.567832734796077e-06,
+            "time": 6.871909869599001e-08
+          },
+          "signed_components_at_actual_max": {
+            "y": -1.0457154728014579e-05,
+            "x": 1.6572626670363254e-06,
+            "time": -6.288513397330248e-08
+          },
+          "actual_at_max": -8.862779887985894e-06,
+          "x_y_L2_cosine": -0.3355314283824604
+        },
+        "v": {
+          "actual": 3.727256930319278e-06,
+          "predicted": 3.7272528518854125e-06,
+          "relative_remainder": 4.0890830216868875e-06,
+          "component_norms": {
+            "y": 3.5529797200249432e-06,
+            "x": 8.529851262719491e-07,
+            "time": 6.964405499270718e-08
+          },
+          "signed_components_at_actual_max": {
+            "y": -3.3573878831474765e-06,
+            "x": -3.4856600197494377e-07,
+            "time": -2.129896676299257e-08
+          },
+          "actual_at_max": -3.727256930319278e-06,
+          "x_y_L2_cosine": 0.07364932066190975
+        }
+      },
+      "profile": "propagation_P1_fine_original.npz",
+      "profile_sha256": "dec542d7a98f9f03494cc96a0d07d4840a71e6fe358a1a0538dd079061596072",
+      "actual_source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_coefficient_euler_20260926\\out\\profiles\\P1_sd_c0_k0_fine_time.npz",
+      "actual_source_sha256": "7f05a33d730f527e7294173167ae74db4b73e7af548f716d5a56e64cdcb12481"
+    },
+    "P1_fine_theory": {
+      "spec": {
+        "case": "P1",
+        "config": "fine",
+        "method": "theory"
+      },
+      "status": "completed",
+      "metrics": {
+        "u": {
+          "actual": 5.487597571685043e-06,
+          "predicted": 5.487594842011244e-06,
+          "relative_remainder": 2.5044552473255265e-06,
+          "component_norms": {
+            "y": 4.42064231657282e-06,
+            "x": 2.5673983941834793e-06,
+            "time": 6.871902515532758e-08
+          },
+          "signed_components_at_actual_max": {
+            "y": -4.417425809268912e-06,
+            "x": -1.124320651493224e-06,
+            "time": 5.41516185288471e-08
+          },
+          "actual_at_max": -5.487597571685043e-06,
+          "x_y_L2_cosine": 0.13777356526125056
+        },
+        "v": {
+          "actual": 2.948643258782191e-06,
+          "predicted": 2.9486418018513722e-06,
+          "relative_remainder": 5.273049153599929e-06,
+          "component_norms": {
+            "y": 2.623364352356209e-06,
+            "x": 8.529495714014975e-07,
+            "time": 6.96446862542157e-08
+          },
+          "signed_components_at_actual_max": {
+            "y": -2.5366679855335647e-06,
+            "x": -3.8894385113125287e-07,
+            "time": -2.3029965186554517e-08
+          },
+          "actual_at_max": -2.948643258782191e-06,
+          "x_y_L2_cosine": 0.0705438537119326
+        }
+      },
+      "profile": "propagation_P1_fine_theory.npz",
+      "profile_sha256": "4db0076173b9182151d3e2b6a346b2aef1df843bc0f483ffd4b4457f4159a1e0",
+      "actual_source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_coefficient_euler_20260926\\out\\profiles\\P1_sd_c0.0424865_k0.00844852_fine_time.npz",
+      "actual_source_sha256": "c20d1b96587daad359706630b453393e2aca11962d27bb1959034ff2607ed7d5"
+    },
+    "P2_main_original": {
+      "spec": {
+        "case": "P2",
+        "config": "main",
+        "method": "original"
+      },
+      "status": "completed",
+      "metrics": {
+        "u": {
+          "actual": 0.002022191446720445,
+          "predicted": 0.002022174611340537,
+          "relative_remainder": 3.648161893015923e-05,
+          "component_norms": {
+            "y": 0.00034231760722585876,
+            "x": 0.0023629955648307396,
+            "time": 2.1270418804654696e-06
+          },
+          "signed_components_at_actual_max": {
+            "y": -0.00033884172337584825,
+            "x": 0.0023629955648307396,
+            "time": -1.979336420873466e-06
+          },
+          "actual_at_max": 0.002022191446720445,
+          "x_y_L2_cosine": -0.5927324473292055
+        },
+        "v": {
+          "actual": 0.0015856688032924726,
+          "predicted": 0.0015856678538057017,
+          "relative_remainder": 3.6897049918989673e-05,
+          "component_norms": {
+            "y": 0.00013990722136591983,
+            "x": 0.0016480683403766493,
+            "time": 1.2190128692303613e-06
+          },
+          "signed_components_at_actual_max": {
+            "y": -6.137109903258776e-05,
+            "x": 0.0016480683403766493,
+            "time": -1.029527526380861e-06
+          },
+          "actual_at_max": 0.0015856688032924726,
+          "x_y_L2_cosine": -0.5831085362823238
+        }
+      },
+      "profile": "propagation_P2_main_original.npz",
+      "profile_sha256": "f346142a71dcd39837dc986f9afc4ec9d3c38ccdc78457770bc51944e5d7df21",
+      "actual_source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_coefficient_euler_20260926\\out\\profiles\\P2_sd_c0_k0_main.npz",
+      "actual_source_sha256": "cdbae28f35896adbedf4ff84c74428b5ed7f8299763d6651540e3dcba916f026"
+    },
+    "P2_main_theory": {
+      "spec": {
+        "case": "P2",
+        "config": "main",
+        "method": "theory"
+      },
+      "status": "completed",
+      "metrics": {
+        "u": {
+          "actual": 0.0020891000930678416,
+          "predicted": 0.0020890807565435415,
+          "relative_remainder": 3.775270340413312e-05,
+          "component_norms": {
+            "y": 0.00036392064980275517,
+            "x": 0.0023628240114268173,
+            "time": 2.127028713899135e-06
+          },
+          "signed_components_at_actual_max": {
+            "y": -0.00027176407060221534,
+            "x": 0.0023628240114268173,
+            "time": -1.9792905875795663e-06
+          },
+          "actual_at_max": 0.0020891000930678416,
+          "x_y_L2_cosine": -0.5224351648485868
+        },
+        "v": {
+          "actual": 0.0015866379359912308,
+          "predicted": 0.0015866368557031127,
+          "relative_remainder": 3.79813696262658e-05,
+          "component_norms": {
+            "y": 0.00014540622212395125,
+            "x": 0.001647977440684434,
+            "time": 1.219039800822542e-06
+          },
+          "signed_components_at_actual_max": {
+            "y": -6.0311185401496875e-05,
+            "x": 0.001647977440684434,
+            "time": -1.0295395678455207e-06
+          },
+          "actual_at_max": 0.0015866379359912308,
+          "x_y_L2_cosine": -0.5896447063845304
+        }
+      },
+      "profile": "propagation_P2_main_theory.npz",
+      "profile_sha256": "e57484645f34bf581ab63625b5166a069d35cf429e47f60b8ac20e5f051601fc",
+      "actual_source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_coefficient_euler_20260926\\out\\profiles\\P2_sd_c0.0424865_k0.00844852_main.npz",
+      "actual_source_sha256": "6b2b96f4f5a81fbc809107f85e53ec6e1b0a32f4e0152a66c1420496e197632c"
+    },
+    "P2_fine_fd": {
+      "spec": {
+        "case": "P2",
+        "config": "fine",
+        "method": "fd"
+      },
+      "status": "completed",
+      "metrics": {
+        "u": {
+          "actual": 0.00041757959081678564,
+          "predicted": 0.000417588104484258,
+          "relative_remainder": 5.589865646621083e-05,
+          "component_norms": {
+            "y": 0.00020220264503714367,
+            "x": 0.000241034194546801,
+            "time": 1.0631558313000447e-06
+          },
+          "signed_components_at_actual_max": {
+            "y": 0.00018627724408492512,
+            "x": 0.00023209906736071812,
+            "time": -7.882069613852619e-07
+          },
+          "actual_at_max": 0.00041757959081678564,
+          "x_y_L2_cosine": 0.7778115763773931
+        },
+        "v": {
+          "actual": 0.00039802361666807506,
+          "predicted": 0.0003980238406088713,
+          "relative_remainder": 5.894198985647499e-05,
+          "component_norms": {
+            "y": 0.00016255470416430296,
+            "x": 0.00023672677995724743,
+            "time": 6.111484854351005e-07
+          },
+          "signed_components_at_actual_max": {
+            "y": 0.00016255470416430296,
+            "x": 0.00023597184649151856,
+            "time": -5.027100469502017e-07
+          },
+          "actual_at_max": 0.00039802361666807506,
+          "x_y_L2_cosine": 0.7033858701998614
+        }
+      },
+      "profile": "propagation_P2_fine_fd.npz",
+      "profile_sha256": "7967ff7220f8504259a61e56f5ddc94d5730fac7069efd7e211d0adc05d2e3aa",
+      "actual_source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_coefficient_euler_20260926\\out\\profiles\\P2_fd_c0_k0_fine_time.npz",
+      "actual_source_sha256": "de4f0dc577bc448e885dae8a4f429709b698c86f8e116483db74fefa64401e96"
+    },
+    "P6_main_fd": {
+      "spec": {
+        "case": "P6",
+        "config": "main",
+        "method": "fd"
+      },
+      "status": "completed",
+      "metrics": {
+        "u": {
+          "actual": 0.00036537675995340635,
+          "predicted": 0.00036537688454715725,
+          "relative_remainder": 7.026632582517372e-06,
+          "component_norms": {
+            "y": 1.4998288474351299e-05,
+            "x": 0.00035205812092501044,
+            "time": 1.8436484914629455e-06
+          },
+          "signed_components_at_actual_max": {
+            "y": 1.4642322827609629e-05,
+            "x": 0.00035205812092501044,
+            "time": -1.3235592529803414e-06
+          },
+          "actual_at_max": 0.00036537675995340635,
+          "x_y_L2_cosine": 0.854526575285101
+        },
+        "v": {
+          "actual": 0.00014368729762848087,
+          "predicted": 0.0001436872533247901,
+          "relative_remainder": 8.391429643387299e-06,
+          "component_norms": {
+            "y": 7.929719623544075e-06,
+            "x": 0.0001374675172346238,
+            "time": 1.5268332227763052e-06
+          },
+          "signed_components_at_actual_max": {
+            "y": 7.429601995833226e-06,
+            "x": 0.0001374675172346238,
+            "time": -1.2098657807667999e-06
+          },
+          "actual_at_max": 0.00014368729762848087,
+          "x_y_L2_cosine": 0.7535936784569408
+        }
+      },
+      "profile": "propagation_P6_main_fd.npz",
+      "profile_sha256": "97d86eab3cf399a79e51b23a089d8f108b86b1dddaff22d6310e7848fc094951",
+      "actual_source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_coefficient_euler_20260926\\out\\profiles\\P6_fd_c0_k0_main.npz",
+      "actual_source_sha256": "09a65a7b3a838be516a905ecff50b961554672da6cbac5e8828c0b068ba3b0d5"
+    },
+    "P2_fine_original": {
+      "spec": {
+        "case": "P2",
+        "config": "fine",
+        "method": "original"
+      },
+      "status": "completed",
+      "metrics": {
+        "u": {
+          "actual": 0.0003517187831363344,
+          "predicted": 0.00035172379665824785,
+          "relative_remainder": 4.39371096848844e-05,
+          "component_norms": {
+            "y": 0.0003394845373731899,
+            "x": 0.00024811836885388404,
+            "time": 1.0646622119251344e-06
+          },
+          "signed_components_at_actual_max": {
+            "y": 0.00031508111322156655,
+            "x": 3.58187482562344e-05,
+            "time": 8.239351804469417e-07
+          },
+          "actual_at_max": 0.0003517187831363344,
+          "x_y_L2_cosine": -0.4261486688070135
+        },
+        "v": {
+          "actual": 0.0001903228969177828,
+          "predicted": 0.00019032303386712316,
+          "relative_remainder": 8.967882224743726e-05,
+          "component_norms": {
+            "y": 0.00023020270375445577,
+            "x": 0.00025385692303006374,
+            "time": 6.108864964413422e-07
+          },
+          "signed_components_at_actual_max": {
+            "y": -6.301450369055559e-05,
+            "x": 0.00025385692303006374,
+            "time": -5.193854726070318e-07
+          },
+          "actual_at_max": 0.0001903228969177828,
+          "x_y_L2_cosine": -0.3466138233805009
+        }
+      },
+      "profile": "propagation_P2_fine_original.npz",
+      "profile_sha256": "176e1169aa2ca7d30c6b4ee34e4de0f32a08c10fb947a8838d93b4626f972621",
+      "actual_source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_coefficient_euler_20260926\\out\\profiles\\P2_sd_c0_k0_fine_time.npz",
+      "actual_source_sha256": "4ac58ae1c50befc88c6860df0ffa81f6abd5ec6f4fcfb9a7267e22a398ae6196"
+    },
+    "P2_fine_theory": {
+      "spec": {
+        "case": "P2",
+        "config": "fine",
+        "method": "theory"
+      },
+      "status": "completed",
+      "metrics": {
+        "u": {
+          "actual": 0.0003942022828589131,
+          "predicted": 0.0003942083242328912,
+          "relative_remainder": 4.190845778993872e-05,
+          "component_norms": {
+            "y": 0.00037928851779505193,
+            "x": 0.0002481044299978482,
+            "time": 1.0646600783552106e-06
+          },
+          "signed_components_at_actual_max": {
+            "y": 0.0003538153293270155,
+            "x": 3.952211959788069e-05,
+            "time": 8.708753079950003e-07
+          },
+          "actual_at_max": 0.0003942022828589131,
+          "x_y_L2_cosine": -0.3854944199062545
+        },
+        "v": {
+          "actual": 0.0001941342232254506,
+          "predicted": 0.00019413275258297613,
+          "relative_remainder": 8.622514717238571e-05,
+          "component_norms": {
+            "y": 0.00023550189599363602,
+            "x": 0.0002538492925014069,
+            "time": 6.108986049612269e-07
+          },
+          "signed_components_at_actual_max": {
+            "y": 0.00023337308516788437,
+            "x": -3.897235063519316e-05,
+            "time": -2.67981950159183e-07
+          },
+          "actual_at_max": 0.0001941342232254506,
+          "x_y_L2_cosine": -0.3506740066914138
+        }
+      },
+      "profile": "propagation_P2_fine_theory.npz",
+      "profile_sha256": "ac06802498b204441ccbccf71a100f92e822f505b488e82965766d62a1848119",
+      "actual_source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_coefficient_euler_20260926\\out\\profiles\\P2_sd_c0.0424865_k0.00844852_fine_time.npz",
+      "actual_source_sha256": "e06d86ef10a651166008b0bf4601509f169ce5b779f2c70e72ba0f7232ea106a"
+    },
+    "P6_main_original": {
+      "spec": {
+        "case": "P6",
+        "config": "main",
+        "method": "original"
+      },
+      "status": "completed",
+      "metrics": {
+        "u": {
+          "actual": 0.0003250392601281682,
+          "predicted": 0.00032503915197359246,
+          "relative_remainder": 6.443514260768531e-06,
+          "component_norms": {
+            "y": 3.108074969967595e-05,
+            "x": 0.0003538373287477288,
+            "time": 1.847496501937353e-06
+          },
+          "signed_components_at_actual_max": {
+            "y": -2.7468664679121383e-05,
+            "x": 0.0003538373287477288,
+            "time": -1.3295121425325452e-06
+          },
+          "actual_at_max": 0.0003250392601281682,
+          "x_y_L2_cosine": -0.31892230232135216
+        },
+        "v": {
+          "actual": 0.00013535383903240383,
+          "predicted": 0.0001353537935181522,
+          "relative_remainder": 7.3855085615189244e-06,
+          "component_norms": {
+            "y": 1.0645413869574944e-05,
+            "x": 0.0001389774093292556,
+            "time": 1.5272021249046956e-06
+          },
+          "signed_components_at_actual_max": {
+            "y": -2.3961407501219334e-06,
+            "x": 0.0001389774093292556,
+            "time": -1.2274749360813997e-06
+          },
+          "actual_at_max": 0.00013535383903240383,
+          "x_y_L2_cosine": -0.11197079270172546
+        }
+      },
+      "profile": "propagation_P6_main_original.npz",
+      "profile_sha256": "31baacb576d83e23b05fe3f29e9b9fea269f251d30a1418011993ca643e4df2a",
+      "actual_source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_coefficient_euler_20260926\\out\\profiles\\P6_sd_c0_k0_main.npz",
+      "actual_source_sha256": "d749382fa8a9b0cddf0c2928b1d4770044e26d0d5994ec047a86cec6c47b3b6c"
+    },
+    "P6_main_theory": {
+      "spec": {
+        "case": "P6",
+        "config": "main",
+        "method": "theory"
+      },
+      "status": "completed",
+      "metrics": {
+        "u": {
+          "actual": 0.0003464391762943997,
+          "predicted": 0.00034643901921548655,
+          "relative_remainder": 6.70411942078552e-06,
+          "component_norms": {
+            "y": 1.7200616436626602e-05,
+            "x": 0.0003537881060428356,
+            "time": 1.8474992693855202e-06
+          },
+          "signed_components_at_actual_max": {
+            "y": -6.0196359280480215e-06,
+            "x": 0.0003537881060428356,
+            "time": -1.3294509468185784e-06
+          },
+          "actual_at_max": 0.0003464391762943997,
+          "x_y_L2_cosine": 0.08611973834482593
+        },
+        "v": {
+          "actual": 0.00013613899839881594,
+          "predicted": 0.00013613894968470664,
+          "relative_remainder": 7.8012607089017e-06,
+          "component_norms": {
+            "y": 1.0308842259766948e-05,
+            "x": 0.0001389674432890964,
+            "time": 1.5272272367745863e-06
+          },
+          "signed_components_at_actual_max": {
+            "y": -1.6010049985495555e-06,
+            "x": 0.0001389674432890964,
+            "time": -1.227488480940089e-06
+          },
+          "actual_at_max": 0.00013613899839881594,
+          "x_y_L2_cosine": -0.08485361893122212
+        }
+      },
+      "profile": "propagation_P6_main_theory.npz",
+      "profile_sha256": "777164d96c96f8a1e52ec68147f7582c5af5462429fbbff9f5a9aec45dcdab13",
+      "actual_source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_coefficient_euler_20260926\\out\\profiles\\P6_sd_c0.0424865_k0.00844852_main.npz",
+      "actual_source_sha256": "8a978a431c1322442df808c35baf713ed872f0b316619eec4cbe074647f846ae"
+    },
+    "P6_fine_fd": {
+      "spec": {
+        "case": "P6",
+        "config": "fine",
+        "method": "fd"
+      },
+      "status": "completed",
+      "metrics": {
+        "u": {
+          "actual": 4.204239750471572e-05,
+          "predicted": 4.204244317863665e-05,
+          "relative_remainder": 2.317555233447921e-06,
+          "component_norms": {
+            "y": 1.5752260617816134e-05,
+            "x": 2.714827010240082e-05,
+            "time": 9.250662913218778e-07
+          },
+          "signed_components_at_actual_max": {
+            "y": 1.560761169414145e-05,
+            "x": 2.714827010240082e-05,
+            "time": -7.134386183497155e-07
+          },
+          "actual_at_max": 4.204239750471572e-05,
+          "x_y_L2_cosine": 0.8392293083716502
+        },
+        "v": {
+          "actual": 1.8940089036134644e-05,
+          "predicted": 1.8940093846434104e-05,
+          "relative_remainder": 3.306777070138041e-06,
+          "component_norms": {
+            "y": 8.212477879061225e-06,
+            "x": 1.1588517858245125e-05,
+            "time": 7.649513784156139e-07
+          },
+          "signed_components_at_actual_max": {
+            "y": 8.058756111506312e-06,
+            "x": 1.147420449891355e-05,
+            "time": -5.928667640967789e-07
+          },
+          "actual_at_max": 1.8940089036134644e-05,
+          "x_y_L2_cosine": 0.7252284826142187
+        }
+      },
+      "profile": "propagation_P6_fine_fd.npz",
+      "profile_sha256": "2f90619de1a666df4f13b0666ede1d5fa2a7649df8295fb69587426588e5caea",
+      "actual_source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_coefficient_euler_20260926\\out\\profiles\\P6_fd_c0_k0_fine_time.npz",
+      "actual_source_sha256": "56a8a3f82fd04f1818d303284a6ac9479a7572d0bbcf2eb059fabaa4e0824d34"
+    },
+    "P6_fine_original": {
+      "spec": {
+        "case": "P6",
+        "config": "fine",
+        "method": "original"
+      },
+      "status": "completed",
+      "metrics": {
+        "u": {
+          "actual": 2.9996436412105254e-05,
+          "predicted": 2.9996424340527345e-05,
+          "relative_remainder": 1.182744112170469e-06,
+          "component_norms": {
+            "y": 3.149574053548144e-05,
+            "x": 2.7383652927566575e-05,
+            "time": 9.270365793082043e-07
+          },
+          "signed_components_at_actual_max": {
+            "y": -1.609013978348566e-05,
+            "x": -1.3119022260564429e-05,
+            "time": -7.872622964772564e-07
+          },
+          "actual_at_max": -2.9996436412105254e-05,
+          "x_y_L2_cosine": -0.32774333506819237
+        },
+        "v": {
+          "actual": 1.1707169132679773e-05,
+          "predicted": 1.1707175184286053e-05,
+          "relative_remainder": 2.9567364977476177e-06,
+          "component_norms": {
+            "y": 1.0637654764039384e-05,
+            "x": 1.1802844169533662e-05,
+            "time": 7.651734210867376e-07
+          },
+          "signed_components_at_actual_max": {
+            "y": -9.135246016763667e-06,
+            "x": -2.3990180421490637e-06,
+            "time": -1.7291112526229962e-07
+          },
+          "actual_at_max": -1.1707169132679773e-05,
+          "x_y_L2_cosine": -0.14650852763336344
+        }
+      },
+      "profile": "propagation_P6_fine_original.npz",
+      "profile_sha256": "ed2f0598b4b94bddf38e499b3ba2ec913095a48f449b0f46cd07850101b161a4",
+      "actual_source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_coefficient_euler_20260926\\out\\profiles\\P6_sd_c0_k0_fine_time.npz",
+      "actual_source_sha256": "eb304b0fc1f0efccc4faf2751949c82ad202106ea4dbd4499ff4702f86f14d9d"
+    },
+    "P10_main_fd": {
+      "spec": {
+        "case": "P10",
+        "config": "main",
+        "method": "fd"
+      },
+      "status": "completed",
+      "metrics": {
+        "u": {
+          "actual": 0.0010178223536434494,
+          "predicted": 0.0010178169217846284,
+          "relative_remainder": 2.1175787421142585e-05,
+          "component_norms": {
+            "y": 0.000882652988663883,
+            "x": 0.00014166041705323512,
+            "time": 3.434177597438078e-07
+          },
+          "signed_components_at_actual_max": {
+            "y": 0.000882652988663883,
+            "x": 0.00013542749115414186,
+            "time": -2.635580329524817e-07
+          },
+          "actual_at_max": 0.0010178223536434494,
+          "x_y_L2_cosine": 0.766931111109889
+        },
+        "v": {
+          "actual": 0.004769506191284911,
+          "predicted": 0.004769511436119347,
+          "relative_remainder": 2.2768395376478203e-05,
+          "component_norms": {
+            "y": 0.004371689882457881,
+            "x": 0.0004079145438229478,
+            "time": 2.46341991299117e-07
+          },
+          "signed_components_at_actual_max": {
+            "y": 0.004371689882457881,
+            "x": 0.00039806732152299025,
+            "time": -2.4576786241205997e-07
+          },
+          "actual_at_max": 0.004769506191284911,
+          "x_y_L2_cosine": 0.868802144240643
+        }
+      },
+      "profile": "propagation_P10_main_fd.npz",
+      "profile_sha256": "08c1510d67d7509f27851ef78b19c6391f99dbb467749587e7c7c8953afb23d9",
+      "actual_source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_coefficient_euler_20260926\\out\\profiles\\P10_fd_c0_k0_main.npz",
+      "actual_source_sha256": "08f027f8e53e19b3627ac487ed0444d4ef1994f6d877724e92442287864fc5b3"
+    },
+    "P6_fine_theory": {
+      "spec": {
+        "case": "P6",
+        "config": "fine",
+        "method": "theory"
+      },
+      "status": "completed",
+      "metrics": {
+        "u": {
+          "actual": 2.5195371712971593e-05,
+          "predicted": 2.519537723914963e-05,
+          "relative_remainder": 1.682290838086381e-06,
+          "component_norms": {
+            "y": 1.854486493704159e-05,
+            "x": 2.7380394318770323e-05,
+            "time": 9.270362011489338e-07
+          },
+          "signed_components_at_actual_max": {
+            "y": -7.639601537137314e-06,
+            "x": -1.685688822489302e-05,
+            "time": -6.988874773413404e-07
+          },
+          "actual_at_max": -2.5195371712971593e-05,
+          "x_y_L2_cosine": 0.02184006803155823
+        },
+        "v": {
+          "actual": 1.1431565002939514e-05,
+          "predicted": 1.1431561866633753e-05,
+          "relative_remainder": 3.298509617699246e-06,
+          "component_norms": {
+            "y": 1.0315699571051057e-05,
+            "x": 1.1802225265456733e-05,
+            "time": 7.651864575332312e-07
+          },
+          "signed_components_at_actual_max": {
+            "y": -8.860286325305147e-06,
+            "x": -2.398377001589376e-06,
+            "time": -1.7289853962820608e-07
+          },
+          "actual_at_max": -1.1431565002939514e-05,
+          "x_y_L2_cosine": -0.12426798444681174
+        }
+      },
+      "profile": "propagation_P6_fine_theory.npz",
+      "profile_sha256": "83edb99d1c4f7ee3ab7deee22b85d8d29aaad3d9297c2389ace39f3f049a7cad",
+      "actual_source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_coefficient_euler_20260926\\out\\profiles\\P6_sd_c0.0424865_k0.00844852_fine_time.npz",
+      "actual_source_sha256": "2d5c16178277b94ba041d1f10c7781907a9ada5cb650c1d5a6c3c028a9af1c17"
+    },
+    "P10_main_theory": {
+      "spec": {
+        "case": "P10",
+        "config": "main",
+        "method": "theory"
+      },
+      "status": "completed",
+      "metrics": {
+        "u": {
+          "actual": 0.0034553146480507113,
+          "predicted": 0.003455314631866359,
+          "relative_remainder": 4.220102590657262e-05,
+          "component_norms": {
+            "y": 0.0034126328535570172,
+            "x": 0.00016190898037796603,
+            "time": 3.43488704673253e-07
+          },
+          "signed_components_at_actual_max": {
+            "y": 0.0034126328535570172,
+            "x": 4.2409980918524894e-05,
+            "time": 2.7179739081664346e-07
+          },
+          "actual_at_max": 0.0034553146480507113,
+          "x_y_L2_cosine": -0.1511370224984778
+        },
+        "v": {
+          "actual": 0.0032317548250837547,
+          "predicted": 0.0032314843895706576,
+          "relative_remainder": 0.00010645168985525203,
+          "component_norms": {
+            "y": 0.003490026823266873,
+            "x": 0.0004870735751719384,
+            "time": 2.524111286766959e-07
+          },
+          "signed_components_at_actual_max": {
+            "y": 0.003490026823266873,
+            "x": -0.0002583562203343966,
+            "time": -1.862133689240526e-07
+          },
+          "actual_at_max": 0.0032317548250837547,
+          "x_y_L2_cosine": -0.41818063419409623
+        }
+      },
+      "profile": "propagation_P10_main_theory.npz",
+      "profile_sha256": "88e0b4875a2c4baf5c52c96a6d1ecb77b21b999809f524948fc4ee14bba4b2ac",
+      "actual_source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_coefficient_euler_20260926\\out\\profiles\\P10_sd_c0.0424865_k0.00844852_main.npz",
+      "actual_source_sha256": "55bcd159b6b93df327cb999c46db3f76feec4404e33671cb2eadfd7a859f3e05"
+    },
+    "P10_main_original": {
+      "spec": {
+        "case": "P10",
+        "config": "main",
+        "method": "original"
+      },
+      "status": "completed",
+      "metrics": {
+        "u": {
+          "actual": 0.00341161084016095,
+          "predicted": 0.0034116080723047373,
+          "relative_remainder": 4.2091669248945874e-05,
+          "component_norms": {
+            "y": 0.0033689359783990154,
+            "x": 0.00016190415485978034,
+            "time": 3.434888424100383e-07
+          },
+          "signed_components_at_actual_max": {
+            "y": 0.0033689359783990154,
+            "x": 4.2400298207547754e-05,
+            "time": 2.7179569817414907e-07
+          },
+          "actual_at_max": 0.00341161084016095,
+          "x_y_L2_cosine": -0.15677521127297186
+        },
+        "v": {
+          "actual": 0.003212485649086716,
+          "predicted": 0.003212220207581284,
+          "relative_remainder": 0.00010648162269782553,
+          "component_norms": {
+            "y": 0.0034707862597240166,
+            "x": 0.000487109888378876,
+            "time": 2.5241118365740395e-07
+          },
+          "signed_components_at_actual_max": {
+            "y": 0.0034707862597240166,
+            "x": -0.0002583798406789782,
+            "time": -1.8621147085968988e-07
+          },
+          "actual_at_max": 0.003212485649086716,
+          "x_y_L2_cosine": -0.4189688555899993
+        }
+      },
+      "profile": "propagation_P10_main_original.npz",
+      "profile_sha256": "6cac81e50b4166b340f230b3f98bb641994e804c4d21d99920533ca1a3c26de6",
+      "actual_source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_coefficient_euler_20260926\\out\\profiles\\P10_sd_c0_k0_main.npz",
+      "actual_source_sha256": "abda61fb49974dfec56dcd6806ccacdbfbeac08fde7f6cecd6fe27d7abf0d4c4"
+    },
+    "P10_fine_fd": {
+      "spec": {
+        "case": "P10",
+        "config": "fine",
+        "method": "fd"
+      },
+      "status": "completed",
+      "metrics": {
+        "u": {
+          "actual": 0.0008962400304755036,
+          "predicted": 0.0008962368133120844,
+          "relative_remainder": 2.2115854141272702e-05,
+          "component_norms": {
+            "y": 0.0008874272467948275,
+            "x": 9.522880702613334e-06,
+            "time": 1.7172832016957558e-07
+          },
+          "signed_components_at_actual_max": {
+            "y": 0.0008874272467948275,
+            "x": 8.941080498207842e-06,
+            "time": -1.315139809509869e-07
+          },
+          "actual_at_max": 0.0008962400304755036,
+          "x_y_L2_cosine": 0.7557124980779831
+        },
+        "v": {
+          "actual": 0.004429307495411372,
+          "predicted": 0.004429228960945236,
+          "relative_remainder": 2.2340681935836697e-05,
+          "component_norms": {
+            "y": 0.004400633693977198,
+            "x": 2.870257629876048e-05,
+            "time": 1.2344834317725925e-07
+          },
+          "signed_components_at_actual_max": {
+            "y": 0.004400633693977198,
+            "x": 2.870257629876048e-05,
+            "time": -1.0730933161100482e-07
+          },
+          "actual_at_max": 0.004429307495411372,
+          "x_y_L2_cosine": 0.8543687453129493
+        }
+      },
+      "profile": "propagation_P10_fine_fd.npz",
+      "profile_sha256": "90e826335c5dc94cb7e22f02e10407695b63ad106dc7060ca73e957759f9db4e",
+      "actual_source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_coefficient_euler_20260926\\out\\profiles\\P10_fd_c0_k0_fine_time.npz",
+      "actual_source_sha256": "4b8e17f91d2ed6061bc4d8e3ac8c579679145447045dcfa8f8c75c548992e7ce"
+    },
+    "P10_fine_theory": {
+      "spec": {
+        "case": "P10",
+        "config": "fine",
+        "method": "theory"
+      },
+      "status": "completed",
+      "metrics": {
+        "u": {
+          "actual": 0.003409696960555042,
+          "predicted": 0.003409713792993274,
+          "relative_remainder": 4.754703413068172e-05,
+          "component_norms": {
+            "y": 0.0034064288955518605,
+            "x": 1.091220395754916e-05,
+            "time": 1.7179249429068585e-07
+          },
+          "signed_components_at_actual_max": {
+            "y": 0.0034064288955518605,
+            "x": 3.1490456535328732e-06,
+            "time": 1.3585178788045288e-07
+          },
+          "actual_at_max": 0.003409696960555042,
+          "x_y_L2_cosine": -0.14331617986166703
+        },
+        "v": {
+          "actual": 0.0036455268932611418,
+          "predicted": 0.0036450812160101183,
+          "relative_remainder": 0.00012985136704282466,
+          "component_norms": {
+            "y": 0.003664407895741831,
+            "x": 3.563329938725129e-05,
+            "time": 1.2653790647708177e-07
+          },
+          "signed_components_at_actual_max": {
+            "y": 0.003664407895741831,
+            "x": -1.923358981688471e-05,
+            "time": -9.308991482840258e-08
+          },
+          "actual_at_max": 0.0036455268932611418,
+          "x_y_L2_cosine": -0.4086039197463312
+        }
+      },
+      "profile": "propagation_P10_fine_theory.npz",
+      "profile_sha256": "9db33d8f0712115b26b08ffb325e86a20149a0ab9d21b34672aae51e32d572f6",
+      "actual_source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_coefficient_euler_20260926\\out\\profiles\\P10_sd_c0.0424865_k0.00844852_fine_time.npz",
+      "actual_source_sha256": "88f199b83e0a84f9082da6f74c9719cba731f9d0121957c8529674bcf357c232"
+    },
+    "P10_fine_original": {
+      "spec": {
+        "case": "P10",
+        "config": "fine",
+        "method": "original"
+      },
+      "status": "completed",
+      "metrics": {
+        "u": {
+          "actual": 0.0033660162113420267,
+          "predicted": 0.003366030144858755,
+          "relative_remainder": 4.741744320209369e-05,
+          "component_norms": {
+            "y": 0.003362745889102146,
+            "x": 1.0912089036291159e-05,
+            "time": 1.717925722365315e-07
+          },
+          "signed_components_at_actual_max": {
+            "y": 0.003362745889102146,
+            "x": 3.1484047983127915e-06,
+            "time": 1.3585095829643752e-07
+          },
+          "actual_at_max": 0.0033660162113420267,
+          "x_y_L2_cosine": -0.14858773295819622
+        },
+        "v": {
+          "actual": 0.003625222574798137,
+          "predicted": 0.0036247824865456323,
+          "relative_remainder": 0.00012974257583201062,
+          "component_norms": {
+            "y": 0.003644110205527203,
+            "x": 3.563520102952592e-05,
+            "time": 1.265379247106401e-07
+          },
+          "signed_components_at_actual_max": {
+            "y": 0.003644110205527203,
+            "x": -1.9234630056270834e-05,
+            "time": -9.308892530004526e-08
+          },
+          "actual_at_max": 0.003625222574798137,
+          "x_y_L2_cosine": -0.4093724549921801
+        }
+      },
+      "profile": "propagation_P10_fine_original.npz",
+      "profile_sha256": "0d2cff5990e95c466678337009e17dd2044c8d7640064f1c7f341b18ba7ed9e2",
+      "actual_source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_coefficient_euler_20260926\\out\\profiles\\P10_sd_c0_k0_fine_time.npz",
+      "actual_source_sha256": "3361e0c87a7e6f9363fa5ef4065b102f16fc898e9c904a7be662680f1a0b31a5"
+    }
+  }
+}

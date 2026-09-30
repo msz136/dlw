@@ -1,0 +1,150 @@
+{
+  "status": "passed",
+  "precision_digits": 60,
+  "checks": [
+    {
+      "name": "Bernstein polynomial with exact interior maximum 1",
+      "gap": 0.0
+    },
+    {
+      "name": "Bernstein rational function with exact corner maximum 23/30",
+      "gap": 8.053255172591197e-07
+    },
+    {
+      "name": "A finite-h analytic residuals inside derived h^4 bounds",
+      "max_fraction_of_bound": 0.9997198379156109,
+      "sampled_h4_coefficients": [
+        {
+          "h": "0.125",
+          "max_remainder_over_h4": {
+            "SD_R1": 0.4643355079698773,
+            "SD_R2": 0.810301284817756,
+            "FD_R1": 0.015653141273620847,
+            "FD_R2": 0.16829953431013475
+          }
+        },
+        {
+          "h": "0.0625",
+          "max_remainder_over_h4": {
+            "SD_R1": 0.4653925871582638,
+            "SD_R2": 0.8138920952433971,
+            "FD_R1": 0.015663336570639366,
+            "FD_R2": 0.16846586653358522
+          }
+        },
+        {
+          "h": "0.03125",
+          "max_remainder_over_h4": {
+            "SD_R1": 0.4656574302181029,
+            "SD_R2": 0.8147932237260382,
+            "FD_R1": 0.015665886782532727,
+            "FD_R2": 0.16850748795185053
+          }
+        }
+      ]
+    },
+    {
+      "name": "B finite-h analytic residuals inside derived h^4 bounds",
+      "max_fraction_of_bound": 0.9772529100273485,
+      "sampled_h4_coefficients": [
+        {
+          "h": "0.125",
+          "max_remainder_over_h4": {
+            "SD_R1": 0.0012222935008936525,
+            "SD_R2": 0.0022994604198851008,
+            "FD_R1": 0.00016414933011516463,
+            "FD_R2": 0.0007043800931039692
+          }
+        },
+        {
+          "h": "0.0625",
+          "max_remainder_over_h4": {
+            "SD_R1": 0.0012237391297681402,
+            "SD_R2": 0.0023061690981065765,
+            "FD_R1": 0.00016417128866742613,
+            "FD_R2": 0.0007047493485012818
+          }
+        },
+        {
+          "h": "0.03125",
+          "max_remainder_over_h4": {
+            "SD_R1": 0.0012241010839285488,
+            "SD_R2": 0.002307850842895205,
+            "FD_R1": 0.00016417677887846716,
+            "FD_R2": 0.0007048417068514051
+          }
+        }
+      ]
+    }
+  ],
+  "meaning": "New numerical sanity checks of the exact-arithmetic enclosure and analytic Taylor bound derivation; sampled checks are not the proof of the supremum.",
+  "two_soliton_independent_derivatives": {
+    "precision_digits": 55,
+    "comparisons": [
+      {
+        "point": [
+          ".13",
+          ".37"
+        ],
+        "coefficient": "SD_R1",
+        "absolute_difference": "3.1861838e-57"
+      },
+      {
+        "point": [
+          ".13",
+          ".37"
+        ],
+        "coefficient": "SD_R2",
+        "absolute_difference": "1.2744735e-57"
+      },
+      {
+        "point": [
+          ".13",
+          ".37"
+        ],
+        "coefficient": "FD_R1",
+        "absolute_difference": "1.5930919e-58"
+      },
+      {
+        "point": [
+          ".13",
+          ".37"
+        ],
+        "coefficient": "FD_R2",
+        "absolute_difference": "7.9654596e-58"
+      },
+      {
+        "point": [
+          "-.43",
+          "-.81"
+        ],
+        "coefficient": "SD_R1",
+        "absolute_difference": "2.8675654e-57"
+      },
+      {
+        "point": [
+          "-.43",
+          "-.81"
+        ],
+        "coefficient": "SD_R2",
+        "absolute_difference": "3.1861838e-58"
+      },
+      {
+        "point": [
+          "-.43",
+          "-.81"
+        ],
+        "coefficient": "FD_R1",
+        "absolute_difference": "1.5134373e-57"
+      },
+      {
+        "point": [
+          "-.43",
+          "-.81"
+        ],
+        "coefficient": "FD_R2",
+        "absolute_difference": "7.9654596e-58"
+      }
+    ]
+  }
+}

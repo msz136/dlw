@@ -1,0 +1,73 @@
+{
+  "math_expressions": 124,
+  "original_metric_difference": 2.220446049250313e-16,
+  "source_configuration": {
+    "p": 5.0,
+    "c_phys": 1.0,
+    "q": 1.25,
+    "xi0": 0.0,
+    "eta0": 0.0,
+    "coordinate_shift": -0.8,
+    "a": 0.005,
+    "n": 1600,
+    "X_bounds": [
+      -4,
+      4
+    ],
+    "initial_physical_bounds": [
+      -4.799999816458664,
+      3.799999816458664
+    ],
+    "evaluation_bounds": [
+      -2.5,
+      1.5
+    ],
+    "methods": [
+      "euler",
+      "heun",
+      "rk4",
+      "rk8"
+    ],
+    "dts": [
+      0.003125,
+      0.0015625
+    ],
+    "times": [
+      0.0,
+      0.25,
+      0.5
+    ],
+    "source_hashes": {
+      "hs_conserved_mesh_20260925\\run_parameter_calibration.py": "f75fa7353a5650f616f703e3f33fc5f840cec7689e5abe4dc76d732b71fa3c66",
+      "hs_conserved_mesh_20260925\\run_time_methods.py": "ebe1464ebce52c514d79edcb6544f3bc70130b15adb498b27a0ad90aa7fa767e",
+      "hs_conserved_mesh_20260925\\run_mesh_comparison.py": "e2f93d0042f0924f9c7689cee9f7da6d24626b2b4486a799844f0a6f3794d8fb",
+      "hs_numerics_plan\\hs_solver.py": "f02e47fd59dfc3edc07eb94d8c25e37064980f4087096546dc88b41767fe7e5d",
+      "hs_numerics_plan\\hs_exact.py": "6a89a8050dec9e3daeff3dff2b69e08e6562b20328e32b200641862ed9a0af2f"
+    },
+    "driver_sha256": "c48a851af2416c502215f2a02a63515b99acde8d8a34d755703fe7efc93d9ac2",
+    "four_scheme_driver_sha256": "6cd9d4f8b574ea34f7e633986ae9c9536b1786bf7cbd3fcf8639c45e439db82b",
+    "html_sha256": "840663ff044c3a4ab059307499b2d513568db7af962cf40304d42fc4c7bc9a58"
+  },
+  "evaluation_bounds": [
+    -1,
+    1
+  ],
+  "evaluation_points": 32001,
+  "metrics": {
+    "S1": {
+      "u": 0.010012749796509766,
+      "rho": 0.0011496748742060303
+    },
+    "S4": {
+      "u": 9.399310918062342e-07,
+      "rho": 3.046420677166317e-06
+    }
+  },
+  "schemes": [
+    "S1",
+    "S4"
+  ],
+  "method": "rk4",
+  "time": 0.5,
+  "dt": 0.003125
+}

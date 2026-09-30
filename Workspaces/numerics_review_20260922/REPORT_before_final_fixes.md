@@ -23,7 +23,7 @@
 ## 0. 复现方式
 
 ```powershell
-cd C:\Users\msz\aca\Paper\dlw_semidiscrete\numerics
+cd C:\Users\msz\aca\Workspaces\dlw_semidiscrete\numerics
 python -u experiments/check_regressions.py   # 24 项回归检查（先跑这个）
 python -u run_all.py            # 全量
 python -u run_all.py e0 e1      # 只跑指定实验

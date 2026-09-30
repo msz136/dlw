@@ -1,7 +1,7 @@
 """Validate regenerated artifacts and capture the exact final source hashes."""
 from pathlib import Path
 import json,math,hashlib
-N=Path(__file__).resolve().parents[2]/'Paper/dlw_semidiscrete/numerics'
+N=Path(__file__).resolve().parents[2]/'Workspaces/dlw_semidiscrete/numerics'
 def load(name):return json.loads((N/'out'/name).read_text(encoding='utf-8'))
 checks=[]
 def check(label,condition):

@@ -1,0 +1,1214 @@
+{
+  "source_hashes": {
+    "hs_conserved_mesh_20260925\\run_parameter_calibration.py": "f75fa7353a5650f616f703e3f33fc5f840cec7689e5abe4dc76d732b71fa3c66",
+    "hs_conserved_mesh_20260925\\run_time_methods.py": "ebe1464ebce52c514d79edcb6544f3bc70130b15adb498b27a0ad90aa7fa767e",
+    "hs_conserved_mesh_20260925\\run_mesh_comparison.py": "e2f93d0042f0924f9c7689cee9f7da6d24626b2b4486a799844f0a6f3794d8fb",
+    "hs_numerics_plan\\hs_solver.py": "f02e47fd59dfc3edc07eb94d8c25e37064980f4087096546dc88b41767fe7e5d",
+    "hs_numerics_plan\\hs_exact.py": "6a89a8050dec9e3daeff3dff2b69e08e6562b20328e32b200641862ed9a0af2f"
+  },
+  "configuration": {
+    "physical_c": 1.0,
+    "p": [
+      5.0,
+      12.0
+    ],
+    "times": [
+      0.25,
+      0.5
+    ],
+    "core": [
+      -2.0,
+      2.0
+    ],
+    "evaluation_points": 8001,
+    "routes": [
+      "integrable_original",
+      "integrable_calibrated",
+      "difference_rho",
+      "difference_rm",
+      "difference_fixed",
+      "difference_matched"
+    ],
+    "methods": [
+      "euler",
+      "heun",
+      "rk4",
+      "rk8"
+    ],
+    "scope": "deterministic representative cases, no statistical claim"
+  },
+  "plan": {
+    "p5_integrable_original_rk4_n200_dt0.003125_L4": {
+      "p": 5.0,
+      "route": "integrable_original",
+      "method": "rk4",
+      "n": 200,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purposes": [
+        "space"
+      ]
+    },
+    "p5_integrable_original_rk4_n400_dt0.003125_L4": {
+      "p": 5.0,
+      "route": "integrable_original",
+      "method": "rk4",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purposes": [
+        "space"
+      ]
+    },
+    "p5_integrable_original_rk4_n800_dt0.003125_L4": {
+      "p": 5.0,
+      "route": "integrable_original",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purposes": [
+        "space"
+      ]
+    },
+    "p5_integrable_calibrated_rk4_n200_dt0.003125_L4": {
+      "p": 5.0,
+      "route": "integrable_calibrated",
+      "method": "rk4",
+      "n": 200,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purposes": [
+        "space"
+      ]
+    },
+    "p5_integrable_calibrated_rk4_n400_dt0.003125_L4": {
+      "p": 5.0,
+      "route": "integrable_calibrated",
+      "method": "rk4",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purposes": [
+        "space"
+      ]
+    },
+    "p5_integrable_calibrated_rk4_n800_dt0.003125_L4": {
+      "p": 5.0,
+      "route": "integrable_calibrated",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purposes": [
+        "space"
+      ]
+    },
+    "p5_difference_matched_rk4_n200_dt0.003125_L4": {
+      "p": 5.0,
+      "route": "difference_matched",
+      "method": "rk4",
+      "n": 200,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purposes": [
+        "space"
+      ]
+    },
+    "p5_difference_matched_rk4_n400_dt0.003125_L4": {
+      "p": 5.0,
+      "route": "difference_matched",
+      "method": "rk4",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purposes": [
+        "space"
+      ]
+    },
+    "p5_difference_matched_rk4_n800_dt0.003125_L4": {
+      "p": 5.0,
+      "route": "difference_matched",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purposes": [
+        "space"
+      ]
+    },
+    "p12_integrable_original_rk4_n200_dt0.003125_L4": {
+      "p": 12.0,
+      "route": "integrable_original",
+      "method": "rk4",
+      "n": 200,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purposes": [
+        "space"
+      ]
+    },
+    "p12_integrable_original_rk4_n400_dt0.003125_L4": {
+      "p": 12.0,
+      "route": "integrable_original",
+      "method": "rk4",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purposes": [
+        "space"
+      ]
+    },
+    "p12_integrable_original_rk4_n800_dt0.003125_L4": {
+      "p": 12.0,
+      "route": "integrable_original",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purposes": [
+        "space"
+      ]
+    },
+    "p12_integrable_calibrated_rk4_n200_dt0.003125_L4": {
+      "p": 12.0,
+      "route": "integrable_calibrated",
+      "method": "rk4",
+      "n": 200,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purposes": [
+        "space"
+      ]
+    },
+    "p12_integrable_calibrated_rk4_n400_dt0.003125_L4": {
+      "p": 12.0,
+      "route": "integrable_calibrated",
+      "method": "rk4",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purposes": [
+        "space"
+      ]
+    },
+    "p12_integrable_calibrated_rk4_n800_dt0.003125_L4": {
+      "p": 12.0,
+      "route": "integrable_calibrated",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purposes": [
+        "space"
+      ]
+    },
+    "p12_difference_matched_rk4_n200_dt0.003125_L4": {
+      "p": 12.0,
+      "route": "difference_matched",
+      "method": "rk4",
+      "n": 200,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purposes": [
+        "space"
+      ]
+    },
+    "p12_difference_matched_rk4_n400_dt0.003125_L4": {
+      "p": 12.0,
+      "route": "difference_matched",
+      "method": "rk4",
+      "n": 400,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purposes": [
+        "space"
+      ]
+    },
+    "p12_difference_matched_rk4_n800_dt0.003125_L4": {
+      "p": 12.0,
+      "route": "difference_matched",
+      "method": "rk4",
+      "n": 800,
+      "dt": 0.003125,
+      "halfwidth": 4.0,
+      "purposes": [
+        "space"
+      ]
+    }
+  },
+  "rows": {
+    "p5_integrable_original_rk4_n200_dt0.003125_L4": {
+      "spec": {
+        "p": 5.0,
+        "route": "integrable_original",
+        "method": "rk4",
+        "n": 200,
+        "dt": 0.003125,
+        "halfwidth": 4.0,
+        "purposes": [
+          "space"
+        ]
+      },
+      "a": 0.04,
+      "C": 1.0,
+      "c_phys": 1.0,
+      "initial_errors": {
+        "u": 0.00012585788263048958,
+        "rho": 0.00043132069589180144
+      },
+      "initial_x_bounds": [
+        -4.299999816458664,
+        4.299999816458669
+      ],
+      "initial_state_sha256": "98b3db7c234e0a5ede407ef2d421438c28bfeea90ed6fe1f48ea6e4f81f483bc",
+      "status": "completed",
+      "seconds": 0.21958430006634444,
+      "snapshots": {
+        "0.25": {
+          "errors": {
+            "u": 0.026103205271778507,
+            "rho": 0.0013617271660545383
+          },
+          "eval_16001": {
+            "u": 0.026103205271778507,
+            "rho": 0.0013617271660545383
+          }
+        },
+        "0.5": {
+          "errors": {
+            "u": 0.11416187641280287,
+            "rho": 0.009697514426237008
+          },
+          "eval_16001": {
+            "u": 0.11416187641280287,
+            "rho": 0.009697514426237008
+          }
+        }
+      },
+      "min_h": 0.03909960431271138,
+      "min_rho": 0.6402022918767887,
+      "min_Rm": null,
+      "rhs_calls": 640,
+      "profile": "profiles\\p5_integrable_original_rk4_n200_dt0.003125_L4.npz"
+    },
+    "p5_integrable_original_rk4_n400_dt0.003125_L4": {
+      "spec": {
+        "p": 5.0,
+        "route": "integrable_original",
+        "method": "rk4",
+        "n": 400,
+        "dt": 0.003125,
+        "halfwidth": 4.0,
+        "purposes": [
+          "space"
+        ]
+      },
+      "a": 0.02,
+      "C": 1.0,
+      "c_phys": 1.0,
+      "initial_errors": {
+        "u": 3.1594970291259905e-05,
+        "rho": 0.00010795749213710071
+      },
+      "initial_x_bounds": [
+        -4.299999816458664,
+        4.299999816458666
+      ],
+      "initial_state_sha256": "3097c82ce1d64d7b5b92376997b06aa36f683d9542dd40ec7c1837ff946638e9",
+      "status": "completed",
+      "seconds": 0.228546499973163,
+      "snapshots": {
+        "0.25": {
+          "errors": {
+            "u": 0.012955400363032058,
+            "rho": 0.00064769367132822
+          },
+          "eval_16001": {
+            "u": 0.012955400363032058,
+            "rho": 0.00064769367132822
+          }
+        },
+        "0.5": {
+          "errors": {
+            "u": 0.05656642075960709,
+            "rho": 0.004797119249955628
+          },
+          "eval_16001": {
+            "u": 0.05656642075960709,
+            "rho": 0.004797119249955628
+          }
+        }
+      },
+      "min_h": 0.019774285123668283,
+      "min_rho": 0.6400401772622866,
+      "min_Rm": null,
+      "rhs_calls": 640,
+      "profile": "profiles\\p5_integrable_original_rk4_n400_dt0.003125_L4.npz"
+    },
+    "p5_integrable_original_rk4_n800_dt0.003125_L4": {
+      "spec": {
+        "p": 5.0,
+        "route": "integrable_original",
+        "method": "rk4",
+        "n": 800,
+        "dt": 0.003125,
+        "halfwidth": 4.0,
+        "purposes": [
+          "space"
+        ]
+      },
+      "a": 0.01,
+      "C": 1.0,
+      "c_phys": 1.0,
+      "initial_errors": {
+        "u": 7.902813236038142e-06,
+        "rho": 2.6997342469581298e-05
+      },
+      "initial_x_bounds": [
+        -4.299999816458664,
+        4.299999816458675
+      ],
+      "initial_state_sha256": "396c6a65fb172c3ae9d83089eada2cf2c39bd8e50ba2174c32f84f71b5a6c2f2",
+      "status": "completed",
+      "seconds": 0.2341345000313595,
+      "snapshots": {
+        "0.25": {
+          "errors": {
+            "u": 0.006453933275323408,
+            "rho": 0.00032329458582169845
+          },
+          "eval_16001": {
+            "u": 0.006453933275323408,
+            "rho": 0.00032329458582169845
+          }
+        },
+        "0.5": {
+          "errors": {
+            "u": 0.02815538638670631,
+            "rho": 0.002384221777023132
+          },
+          "eval_16001": {
+            "u": 0.02815538638670631,
+            "rho": 0.002384221777023132
+          }
+        }
+      },
+      "min_h": 0.009943498174810007,
+      "min_rho": 0.6400084758658097,
+      "min_Rm": null,
+      "rhs_calls": 640,
+      "profile": "profiles\\p5_integrable_original_rk4_n800_dt0.003125_L4.npz"
+    },
+    "p5_integrable_calibrated_rk4_n200_dt0.003125_L4": {
+      "spec": {
+        "p": 5.0,
+        "route": "integrable_calibrated",
+        "method": "rk4",
+        "n": 200,
+        "dt": 0.003125,
+        "halfwidth": 4.0,
+        "purposes": [
+          "space"
+        ]
+      },
+      "a": 0.04,
+      "C": 1.0407996802557444,
+      "c_phys": 1.0,
+      "initial_errors": {
+        "u": 0.00012585788263048958,
+        "rho": 0.00043132069589180144
+      },
+      "initial_x_bounds": [
+        -4.299999816458664,
+        4.299999816458669
+      ],
+      "initial_state_sha256": "98b3db7c234e0a5ede407ef2d421438c28bfeea90ed6fe1f48ea6e4f81f483bc",
+      "status": "completed",
+      "seconds": 0.22136989992577583,
+      "snapshots": {
+        "0.25": {
+          "errors": {
+            "u": 0.000387659471268856,
+            "rho": 0.0004409341940642131
+          },
+          "eval_16001": {
+            "u": 0.000387659471268856,
+            "rho": 0.0004409341940642131
+          }
+        },
+        "0.5": {
+          "errors": {
+            "u": 0.0016838764100138145,
+            "rho": 0.0004864233210788438
+          },
+          "eval_16001": {
+            "u": 0.0016838764100138145,
+            "rho": 0.0004864233210788438
+          }
+        }
+      },
+      "min_h": 0.039986564614868776,
+      "min_rho": 0.6401099593697291,
+      "min_Rm": null,
+      "rhs_calls": 640,
+      "profile": "profiles\\p5_integrable_calibrated_rk4_n200_dt0.003125_L4.npz"
+    },
+    "p5_integrable_calibrated_rk4_n400_dt0.003125_L4": {
+      "spec": {
+        "p": 5.0,
+        "route": "integrable_calibrated",
+        "method": "rk4",
+        "n": 400,
+        "dt": 0.003125,
+        "halfwidth": 4.0,
+        "purposes": [
+          "space"
+        ]
+      },
+      "a": 0.02,
+      "C": 1.020199980003999,
+      "c_phys": 1.0,
+      "initial_errors": {
+        "u": 3.1594970291259905e-05,
+        "rho": 0.00010795749213710071
+      },
+      "initial_x_bounds": [
+        -4.299999816458664,
+        4.299999816458666
+      ],
+      "initial_state_sha256": "3097c82ce1d64d7b5b92376997b06aa36f683d9542dd40ec7c1837ff946638e9",
+      "status": "completed",
+      "seconds": 0.23481880000326782,
+      "snapshots": {
+        "0.25": {
+          "errors": {
+            "u": 9.660201494762256e-05,
+            "rho": 0.00011036143716636193
+          },
+          "eval_16001": {
+            "u": 9.660201494762256e-05,
+            "rho": 0.00011036143716636193
+          }
+        },
+        "0.5": {
+          "errors": {
+            "u": 0.00042056870047437324,
+            "rho": 0.00012173162700113149
+          },
+          "eval_16001": {
+            "u": 0.00042056870047437324,
+            "rho": 0.00012173162700113149
+          }
+        }
+      },
+      "min_h": 0.01999832807564026,
+      "min_rho": 0.640027110391425,
+      "min_Rm": null,
+      "rhs_calls": 640,
+      "profile": "profiles\\p5_integrable_calibrated_rk4_n400_dt0.003125_L4.npz"
+    },
+    "p5_integrable_calibrated_rk4_n800_dt0.003125_L4": {
+      "spec": {
+        "p": 5.0,
+        "route": "integrable_calibrated",
+        "method": "rk4",
+        "n": 800,
+        "dt": 0.003125,
+        "halfwidth": 4.0,
+        "purposes": [
+          "space"
+        ]
+      },
+      "a": 0.01,
+      "C": 1.0100499987500624,
+      "c_phys": 1.0,
+      "initial_errors": {
+        "u": 7.902813236038142e-06,
+        "rho": 2.6997342469581298e-05
+      },
+      "initial_x_bounds": [
+        -4.299999816458664,
+        4.299999816458675
+      ],
+      "initial_state_sha256": "396c6a65fb172c3ae9d83089eada2cf2c39bd8e50ba2174c32f84f71b5a6c2f2",
+      "status": "completed",
+      "seconds": 0.25379889993928373,
+      "snapshots": {
+        "0.25": {
+          "errors": {
+            "u": 2.418369025579143e-05,
+            "rho": 2.759836433452456e-05
+          },
+          "eval_16001": {
+            "u": 2.4183925506703172e-05,
+            "rho": 2.759836433452456e-05
+          }
+        },
+        "0.5": {
+          "errors": {
+            "u": 0.00010517453987793238,
+            "rho": 3.04403683888399e-05
+          },
+          "eval_16001": {
+            "u": 0.00010517453987793238,
+            "rho": 3.04403683888399e-05
+          }
+        }
+      },
+      "min_h": 0.009999797656520811,
+      "min_rho": 0.6400067562823027,
+      "min_Rm": null,
+      "rhs_calls": 640,
+      "profile": "profiles\\p5_integrable_calibrated_rk4_n800_dt0.003125_L4.npz"
+    },
+    "p5_difference_matched_rk4_n200_dt0.003125_L4": {
+      "spec": {
+        "p": 5.0,
+        "route": "difference_matched",
+        "method": "rk4",
+        "n": 200,
+        "dt": 0.003125,
+        "halfwidth": 4.0,
+        "purposes": [
+          "space"
+        ]
+      },
+      "a": 0.04,
+      "C": 1.0,
+      "c_phys": 1.0,
+      "initial_errors": {
+        "u": 0.00012585788263048958,
+        "rho": 0.00043132069589180144
+      },
+      "initial_x_bounds": [
+        -4.299999816458664,
+        4.299999816458669
+      ],
+      "initial_state_sha256": "98b3db7c234e0a5ede407ef2d421438c28bfeea90ed6fe1f48ea6e4f81f483bc",
+      "status": "completed",
+      "seconds": 0.24837569997180253,
+      "snapshots": {
+        "0.25": {
+          "errors": {
+            "u": 0.0001404241514298965,
+            "rho": 0.0004244403818794984
+          },
+          "eval_16001": {
+            "u": 0.00014042913373439603,
+            "rho": 0.0004244403818794984
+          }
+        },
+        "0.5": {
+          "errors": {
+            "u": 0.0002340302649768074,
+            "rho": 0.0004026261860005098
+          },
+          "eval_16001": {
+            "u": 0.0002340302649768074,
+            "rho": 0.0004026261860005098
+          }
+        }
+      },
+      "min_h": 0.04000002200053699,
+      "min_rho": 0.6400919209534262,
+      "min_Rm": null,
+      "rhs_calls": 640,
+      "profile": "profiles\\p5_difference_matched_rk4_n200_dt0.003125_L4.npz"
+    },
+    "p5_difference_matched_rk4_n400_dt0.003125_L4": {
+      "spec": {
+        "p": 5.0,
+        "route": "difference_matched",
+        "method": "rk4",
+        "n": 400,
+        "dt": 0.003125,
+        "halfwidth": 4.0,
+        "purposes": [
+          "space"
+        ]
+      },
+      "a": 0.02,
+      "C": 1.0,
+      "c_phys": 1.0,
+      "initial_errors": {
+        "u": 3.1594970291259905e-05,
+        "rho": 0.00010795749213710071
+      },
+      "initial_x_bounds": [
+        -4.299999816458664,
+        4.299999816458666
+      ],
+      "initial_state_sha256": "3097c82ce1d64d7b5b92376997b06aa36f683d9542dd40ec7c1837ff946638e9",
+      "status": "completed",
+      "seconds": 0.2373625000473112,
+      "snapshots": {
+        "0.25": {
+          "errors": {
+            "u": 3.518229947438445e-05,
+            "rho": 0.00010623184043689893
+          },
+          "eval_16001": {
+            "u": 3.518229947438445e-05,
+            "rho": 0.00010623184043689893
+          }
+        },
+        "0.5": {
+          "errors": {
+            "u": 5.90143502299307e-05,
+            "rho": 0.00010076245710233245
+          },
+          "eval_16001": {
+            "u": 5.9027608353136546e-05,
+            "rho": 0.00010076245710233245
+          }
+        }
+      },
+      "min_h": 0.020000010589466096,
+      "min_rho": 0.640021489856198,
+      "min_Rm": null,
+      "rhs_calls": 640,
+      "profile": "profiles\\p5_difference_matched_rk4_n400_dt0.003125_L4.npz"
+    },
+    "p5_difference_matched_rk4_n800_dt0.003125_L4": {
+      "spec": {
+        "p": 5.0,
+        "route": "difference_matched",
+        "method": "rk4",
+        "n": 800,
+        "dt": 0.003125,
+        "halfwidth": 4.0,
+        "purposes": [
+          "space"
+        ]
+      },
+      "a": 0.01,
+      "C": 1.0,
+      "c_phys": 1.0,
+      "initial_errors": {
+        "u": 7.902813236038142e-06,
+        "rho": 2.6997342469581298e-05
+      },
+      "initial_x_bounds": [
+        -4.299999816458664,
+        4.299999816458675
+      ],
+      "initial_state_sha256": "396c6a65fb172c3ae9d83089eada2cf2c39bd8e50ba2174c32f84f71b5a6c2f2",
+      "status": "completed",
+      "seconds": 0.23202689993195236,
+      "snapshots": {
+        "0.25": {
+          "errors": {
+            "u": 8.790304542108385e-06,
+            "rho": 2.6565580327653215e-05
+          },
+          "eval_16001": {
+            "u": 8.797191729470466e-06,
+            "rho": 2.6565580327653215e-05
+          }
+        },
+        "0.5": {
+          "errors": {
+            "u": 1.4751898048190196e-05,
+            "rho": 2.51972422715685e-05
+          },
+          "eval_16001": {
+            "u": 1.4754826644231543e-05,
+            "rho": 2.51972422715685e-05
+          }
+        }
+      },
+      "min_h": 0.010000005195652225,
+      "min_rho": 0.6400051628378951,
+      "min_Rm": null,
+      "rhs_calls": 640,
+      "profile": "profiles\\p5_difference_matched_rk4_n800_dt0.003125_L4.npz"
+    },
+    "p12_integrable_original_rk4_n200_dt0.003125_L4": {
+      "spec": {
+        "p": 12.0,
+        "route": "integrable_original",
+        "method": "rk4",
+        "n": 200,
+        "dt": 0.003125,
+        "halfwidth": 4.0,
+        "purposes": [
+          "space"
+        ]
+      },
+      "a": 0.04,
+      "C": 1.0,
+      "c_phys": 1.0,
+      "initial_errors": {
+        "u": 0.0019877256404206844,
+        "rho": 0.004512566379752669
+      },
+      "initial_x_bounds": [
+        -4.416666666666667,
+        4.416666666666647
+      ],
+      "initial_state_sha256": "aa2f9c1cf43432916254f9d8efbbdd23f0014d84251f98cd122d5504f2edafeb",
+      "status": "completed",
+      "seconds": 0.2299683999735862,
+      "snapshots": {
+        "0.25": {
+          "errors": {
+            "u": 0.03095027865591974,
+            "rho": 0.0063429175533531446
+          },
+          "eval_16001": {
+            "u": 0.03095027865591974,
+            "rho": 0.0063429175533531446
+          }
+        },
+        "0.5": {
+          "errors": {
+            "u": 0.13164807331541442,
+            "rho": 0.020075589572461805
+          },
+          "eval_16001": {
+            "u": 0.13164807331541442,
+            "rho": 0.020075589572461805
+          }
+        }
+      },
+      "min_h": 0.03889046720779808,
+      "min_rho": 0.3068069329679465,
+      "min_Rm": null,
+      "rhs_calls": 640,
+      "profile": "profiles\\p12_integrable_original_rk4_n200_dt0.003125_L4.npz"
+    },
+    "p12_integrable_original_rk4_n400_dt0.003125_L4": {
+      "spec": {
+        "p": 12.0,
+        "route": "integrable_original",
+        "method": "rk4",
+        "n": 400,
+        "dt": 0.003125,
+        "halfwidth": 4.0,
+        "purposes": [
+          "space"
+        ]
+      },
+      "a": 0.02,
+      "C": 1.0,
+      "c_phys": 1.0,
+      "initial_errors": {
+        "u": 0.0005115222263584462,
+        "rho": 0.001139947960303811
+      },
+      "initial_x_bounds": [
+        -4.416666666666667,
+        4.416666666666647
+      ],
+      "initial_state_sha256": "1d9332648032ef0c47f6aec8feea4ecb55581b6e96b2480af2eb0387559f9b26",
+      "status": "completed",
+      "seconds": 0.32878009998239577,
+      "snapshots": {
+        "0.25": {
+          "errors": {
+            "u": 0.01503152220918561,
+            "rho": 0.002187357702053472
+          },
+          "eval_16001": {
+            "u": 0.01503152220918561,
+            "rho": 0.0021874355987110405
+          }
+        },
+        "0.5": {
+          "errors": {
+            "u": 0.06378990128865537,
+            "rho": 0.009801359584435176
+          },
+          "eval_16001": {
+            "u": 0.06378990128865537,
+            "rho": 0.009801359584435176
+          }
+        }
+      },
+      "min_h": 0.01972741783777044,
+      "min_rho": 0.30581595747453777,
+      "min_Rm": null,
+      "rhs_calls": 640,
+      "profile": "profiles\\p12_integrable_original_rk4_n400_dt0.003125_L4.npz"
+    },
+    "p12_integrable_original_rk4_n800_dt0.003125_L4": {
+      "spec": {
+        "p": 12.0,
+        "route": "integrable_original",
+        "method": "rk4",
+        "n": 800,
+        "dt": 0.003125,
+        "halfwidth": 4.0,
+        "purposes": [
+          "space"
+        ]
+      },
+      "a": 0.01,
+      "C": 1.0,
+      "c_phys": 1.0,
+      "initial_errors": {
+        "u": 0.00012880673954090982,
+        "rho": 0.00028720203392301746
+      },
+      "initial_x_bounds": [
+        -4.416666666666667,
+        4.4166666666666545
+      ],
+      "initial_state_sha256": "08658700e7ee71950a78e7dccf32ab8040f25db4db764dc87dc7a7aa14604a3e",
+      "status": "completed",
+      "seconds": 0.27220250002574176,
+      "snapshots": {
+        "0.25": {
+          "errors": {
+            "u": 0.007405133898975161,
+            "rho": 0.0009051183046854261
+          },
+          "eval_16001": {
+            "u": 0.007405133898975161,
+            "rho": 0.0009051397898997005
+          }
+        },
+        "0.5": {
+          "errors": {
+            "u": 0.03139163575368624,
+            "rho": 0.004837111807292294
+          },
+          "eval_16001": {
+            "u": 0.03139163575368624,
+            "rho": 0.004839042067247279
+          }
+        }
+      },
+      "min_h": 0.009932474453234077,
+      "min_rho": 0.30561424531752424,
+      "min_Rm": null,
+      "rhs_calls": 640,
+      "profile": "profiles\\p12_integrable_original_rk4_n800_dt0.003125_L4.npz"
+    },
+    "p12_integrable_calibrated_rk4_n200_dt0.003125_L4": {
+      "spec": {
+        "p": 12.0,
+        "route": "integrable_calibrated",
+        "method": "rk4",
+        "n": 200,
+        "dt": 0.003125,
+        "halfwidth": 4.0,
+        "purposes": [
+          "space"
+        ]
+      },
+      "a": 0.04,
+      "C": 1.0407996802557444,
+      "c_phys": 1.0,
+      "initial_errors": {
+        "u": 0.0019877256404206844,
+        "rho": 0.004512566379752669
+      },
+      "initial_x_bounds": [
+        -4.416666666666667,
+        4.416666666666647
+      ],
+      "initial_state_sha256": "aa2f9c1cf43432916254f9d8efbbdd23f0014d84251f98cd122d5504f2edafeb",
+      "status": "completed",
+      "seconds": 0.2301001000450924,
+      "snapshots": {
+        "0.25": {
+          "errors": {
+            "u": 0.0017637254243382952,
+            "rho": 0.004615023115168593
+          },
+          "eval_16001": {
+            "u": 0.0017637254243382952,
+            "rho": 0.004615023115168593
+          }
+        },
+        "0.5": {
+          "errors": {
+            "u": 0.007472709751233836,
+            "rho": 0.004971891546440399
+          },
+          "eval_16001": {
+            "u": 0.007472709751233836,
+            "rho": 0.004971939435807482
+          }
+        }
+      },
+      "min_h": 0.03993583399551996,
+      "min_rho": 0.30642428752170786,
+      "min_Rm": null,
+      "rhs_calls": 640,
+      "profile": "profiles\\p12_integrable_calibrated_rk4_n200_dt0.003125_L4.npz"
+    },
+    "p12_integrable_calibrated_rk4_n400_dt0.003125_L4": {
+      "spec": {
+        "p": 12.0,
+        "route": "integrable_calibrated",
+        "method": "rk4",
+        "n": 400,
+        "dt": 0.003125,
+        "halfwidth": 4.0,
+        "purposes": [
+          "space"
+        ]
+      },
+      "a": 0.02,
+      "C": 1.020199980003999,
+      "c_phys": 1.0,
+      "initial_errors": {
+        "u": 0.0005115222263584462,
+        "rho": 0.001139947960303811
+      },
+      "initial_x_bounds": [
+        -4.416666666666667,
+        4.416666666666647
+      ],
+      "initial_state_sha256": "1d9332648032ef0c47f6aec8feea4ecb55581b6e96b2480af2eb0387559f9b26",
+      "status": "completed",
+      "seconds": 0.24816349998582155,
+      "snapshots": {
+        "0.25": {
+          "errors": {
+            "u": 0.0004418137863088605,
+            "rho": 0.0011646652211040331
+          },
+          "eval_16001": {
+            "u": 0.0004418137863088605,
+            "rho": 0.0011646652211040331
+          }
+        },
+        "0.5": {
+          "errors": {
+            "u": 0.0018712449244419622,
+            "rho": 0.0012744830099679083
+          },
+          "eval_16001": {
+            "u": 0.0018712449244419622,
+            "rho": 0.001274568632769757
+          }
+        }
+      },
+      "min_h": 0.01999192856511689,
+      "min_rho": 0.30576743776644066,
+      "min_Rm": null,
+      "rhs_calls": 640,
+      "profile": "profiles\\p12_integrable_calibrated_rk4_n400_dt0.003125_L4.npz"
+    },
+    "p12_integrable_calibrated_rk4_n800_dt0.003125_L4": {
+      "spec": {
+        "p": 12.0,
+        "route": "integrable_calibrated",
+        "method": "rk4",
+        "n": 800,
+        "dt": 0.003125,
+        "halfwidth": 4.0,
+        "purposes": [
+          "space"
+        ]
+      },
+      "a": 0.01,
+      "C": 1.0100499987500624,
+      "c_phys": 1.0,
+      "initial_errors": {
+        "u": 0.00012880673954090982,
+        "rho": 0.00028720203392301746
+      },
+      "initial_x_bounds": [
+        -4.416666666666667,
+        4.4166666666666545
+      ],
+      "initial_state_sha256": "08658700e7ee71950a78e7dccf32ab8040f25db4db764dc87dc7a7aa14604a3e",
+      "status": "completed",
+      "seconds": 0.2589498999295756,
+      "snapshots": {
+        "0.25": {
+          "errors": {
+            "u": 0.00011050914785148317,
+            "rho": 0.00029310407234012237
+          },
+          "eval_16001": {
+            "u": 0.00011050914785148317,
+            "rho": 0.0002931315954264879
+          }
+        },
+        "0.5": {
+          "errors": {
+            "u": 0.00046800715378193293,
+            "rho": 0.0003192904487706594
+          },
+          "eval_16001": {
+            "u": 0.00046800715378193293,
+            "rho": 0.0003193740407755885
+          }
+        }
+      },
+      "min_h": 0.0099989885463557,
+      "min_rho": 0.30560823095701667,
+      "min_Rm": null,
+      "rhs_calls": 640,
+      "profile": "profiles\\p12_integrable_calibrated_rk4_n800_dt0.003125_L4.npz"
+    },
+    "p12_difference_matched_rk4_n200_dt0.003125_L4": {
+      "spec": {
+        "p": 12.0,
+        "route": "difference_matched",
+        "method": "rk4",
+        "n": 200,
+        "dt": 0.003125,
+        "halfwidth": 4.0,
+        "purposes": [
+          "space"
+        ]
+      },
+      "a": 0.04,
+      "C": 1.0,
+      "c_phys": 1.0,
+      "initial_errors": {
+        "u": 0.0019877256404206844,
+        "rho": 0.004512566379752669
+      },
+      "initial_x_bounds": [
+        -4.416666666666667,
+        4.416666666666647
+      ],
+      "initial_state_sha256": "aa2f9c1cf43432916254f9d8efbbdd23f0014d84251f98cd122d5504f2edafeb",
+      "status": "completed",
+      "seconds": 0.25922499992884696,
+      "snapshots": {
+        "0.25": {
+          "errors": {
+            "u": 0.002389377291836331,
+            "rho": 0.004499023329868623
+          },
+          "eval_16001": {
+            "u": 0.002389377291836331,
+            "rho": 0.004499023329868623
+          }
+        },
+        "0.5": {
+          "errors": {
+            "u": 0.005763618438059202,
+            "rho": 0.004372886149963229
+          },
+          "eval_16001": {
+            "u": 0.005763618438059202,
+            "rho": 0.004372966332252204
+          }
+        }
+      },
+      "min_h": 0.03999999999999915,
+      "min_rho": 0.306339360550184,
+      "min_Rm": null,
+      "rhs_calls": 640,
+      "profile": "profiles\\p12_difference_matched_rk4_n200_dt0.003125_L4.npz"
+    },
+    "p12_difference_matched_rk4_n400_dt0.003125_L4": {
+      "spec": {
+        "p": 12.0,
+        "route": "difference_matched",
+        "method": "rk4",
+        "n": 400,
+        "dt": 0.003125,
+        "halfwidth": 4.0,
+        "purposes": [
+          "space"
+        ]
+      },
+      "a": 0.02,
+      "C": 1.0,
+      "c_phys": 1.0,
+      "initial_errors": {
+        "u": 0.0005115222263584462,
+        "rho": 0.001139947960303811
+      },
+      "initial_x_bounds": [
+        -4.416666666666667,
+        4.416666666666647
+      ],
+      "initial_state_sha256": "1d9332648032ef0c47f6aec8feea4ecb55581b6e96b2480af2eb0387559f9b26",
+      "status": "completed",
+      "seconds": 0.23544519999995828,
+      "snapshots": {
+        "0.25": {
+          "errors": {
+            "u": 0.0006064864215469257,
+            "rho": 0.0011354249171305897
+          },
+          "eval_16001": {
+            "u": 0.0006064864215469257,
+            "rho": 0.0011354249171305897
+          }
+        },
+        "0.5": {
+          "errors": {
+            "u": 0.0014470008631053968,
+            "rho": 0.0011138589753059702
+          },
+          "eval_16001": {
+            "u": 0.0014470008631053968,
+            "rho": 0.0011138589753059702
+          }
+        }
+      },
+      "min_h": 0.01999999999999913,
+      "min_rho": 0.30573330554380945,
+      "min_Rm": null,
+      "rhs_calls": 640,
+      "profile": "profiles\\p12_difference_matched_rk4_n400_dt0.003125_L4.npz"
+    },
+    "p12_difference_matched_rk4_n800_dt0.003125_L4": {
+      "spec": {
+        "p": 12.0,
+        "route": "difference_matched",
+        "method": "rk4",
+        "n": 800,
+        "dt": 0.003125,
+        "halfwidth": 4.0,
+        "purposes": [
+          "space"
+        ]
+      },
+      "a": 0.01,
+      "C": 1.0,
+      "c_phys": 1.0,
+      "initial_errors": {
+        "u": 0.00012880673954090982,
+        "rho": 0.00028720203392301746
+      },
+      "initial_x_bounds": [
+        -4.416666666666667,
+        4.4166666666666545
+      ],
+      "initial_state_sha256": "08658700e7ee71950a78e7dccf32ab8040f25db4db764dc87dc7a7aa14604a3e",
+      "status": "completed",
+      "seconds": 0.23740390001330525,
+      "snapshots": {
+        "0.25": {
+          "errors": {
+            "u": 0.00015183204664956373,
+            "rho": 0.00028555573000937917
+          },
+          "eval_16001": {
+            "u": 0.00015183204664956373,
+            "rho": 0.00028563523816410585
+          }
+        },
+        "0.5": {
+          "errors": {
+            "u": 0.00036213671898611076,
+            "rho": 0.00027935204645135325
+          },
+          "eval_16001": {
+            "u": 0.00036213671898611076,
+            "rho": 0.00027935204645135325
+          }
+        }
+      },
+      "min_h": 0.009999999999999343,
+      "min_rho": 0.30559686415746457,
+      "min_Rm": null,
+      "rhs_calls": 640,
+      "profile": "profiles\\p12_difference_matched_rk4_n800_dt0.003125_L4.npz"
+    }
+  }
+}

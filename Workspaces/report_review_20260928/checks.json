@@ -1,0 +1,102 @@
+{
+  "symbolic": {
+    "eq6_sum": true,
+    "eq6_difference": true,
+    "eq8_first_spatial_identity": true,
+    "eq8_second_spatial_identity": true,
+    "eq9e_bracket": true,
+    "eq9h": true,
+    "eq9j": true,
+    "paper_2hs_eq100_vs_implemented": true
+  },
+  "continuous_pde_residuals": [
+    {
+      "case": "one",
+      "X": "-0.3",
+      "t": "0.0",
+      "pde_u": "0.0",
+      "pde_rho": "0.0"
+    },
+    {
+      "case": "one",
+      "X": "0.2",
+      "t": "0.5",
+      "pde_u": "0.0",
+      "pde_rho": "0.0"
+    },
+    {
+      "case": "two",
+      "X": "-0.3",
+      "t": "0.0",
+      "pde_u": "0.0",
+      "pde_rho": "3.186183822264904554057760795535423611182209110385237572e-58"
+    },
+    {
+      "case": "two",
+      "X": "0.2",
+      "t": "0.5",
+      "pde_u": "-5.097894115623847286492417272856677777891534576616380115e-57",
+      "pde_rho": "0.0"
+    }
+  ],
+  "metrics": [
+    {
+      "case": "one",
+      "scheme": "S1",
+      "field": "u",
+      "error": 0.010012749796509754,
+      "difference": 1.214306433183765e-17
+    },
+    {
+      "case": "one",
+      "scheme": "S1",
+      "field": "rho",
+      "error": 0.0011496748742060303,
+      "difference": 0.0
+    },
+    {
+      "case": "one",
+      "scheme": "S4",
+      "field": "u",
+      "error": 9.399310918478676e-07,
+      "difference": 4.163336342344337e-17
+    },
+    {
+      "case": "one",
+      "scheme": "S4",
+      "field": "rho",
+      "error": 3.046420677166317e-06,
+      "difference": 0.0
+    },
+    {
+      "case": "two",
+      "scheme": "S1",
+      "field": "u",
+      "error": 0.03450850312633234,
+      "difference": 0.0
+    },
+    {
+      "case": "two",
+      "scheme": "S1",
+      "field": "rho",
+      "error": 0.003993212856966077,
+      "difference": 0.0
+    },
+    {
+      "case": "two",
+      "scheme": "S4",
+      "field": "u",
+      "error": 9.634527271124016e-07,
+      "difference": 0.0
+    },
+    {
+      "case": "two",
+      "scheme": "S4",
+      "field": "rho",
+      "error": 3.1699951051900044e-06,
+      "difference": 0.0
+    }
+  ],
+  "source_sha256": "fe258174092fca7f23f0eed6c228818220b14e21cf1ca15f136b8da564664669",
+  "html_sha256": "efa85c79392dc2f1930f161014ca781e34d28caf142e9776de1a8bd3cb82d032"
+}

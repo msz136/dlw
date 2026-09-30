@@ -1,0 +1,702 @@
+{
+  "status": "completed",
+  "added_half_width": 1,
+  "rows": [
+    {
+      "p": 3,
+      "space": "integrable_moving",
+      "method": "rk8",
+      "dt": 0.00625,
+      "a_or_dx": 0.02,
+      "half_width": 12.0,
+      "edges": 1200,
+      "initial_x_left": -12.166666661590007,
+      "initial_x_right": 12.16666666158999,
+      "initial_nodes_in_fwhm": 117,
+      "status": "completed",
+      "reached": 0.25,
+      "seconds": 0.16260689997579902,
+      "accepted": 40,
+      "rejected": 0,
+      "failure_reason": "",
+      "observations": {
+        "0.25": {
+          "native": {
+            "u_linf": 0.14673962909542987,
+            "rho_linf": 0.0016134891102369542
+          },
+          "mesh": {
+            "left": -12.166666661995915,
+            "right": 12.15840535823764,
+            "min_spacing": 0.01996778237044849,
+            "max_spacing": 0.022494910051539096,
+            "min_rho": 0.889090018772118,
+            "max_rho": 1.0016134806035941
+          },
+          "windows": {
+            "legacy_core": {
+              "u_linf": 0.008335169328764276,
+              "rho_linf": 0.0002716816403696143,
+              "u_l2": 0.004057487408052052,
+              "rho_l2": 0.0001956023069532375,
+              "u_scaled_linf": 0.30006609583551386,
+              "rho_scaled_linf": 0.0024451347633265273,
+              "joint_scaled_linf": 0.30006609583551386,
+              "u_reconstruction_floor": 5.1264926331784366e-11,
+              "rho_reconstruction_floor": 1.1829870416590893e-10
+            },
+            "wave_window": {
+              "u_linf": 0.05030526519466601,
+              "rho_linf": 0.0007340992433884086,
+              "u_l2": 0.016801962062670095,
+              "rho_l2": 0.0003008122521693628,
+              "u_scaled_linf": 1.810989547007976,
+              "rho_scaled_linf": 0.006606893190495675,
+              "joint_scaled_linf": 1.810989547007976,
+              "u_reconstruction_floor": 5.1593875005639944e-11,
+              "rho_reconstruction_floor": 1.2170287000401458e-10
+            }
+          }
+        }
+      }
+    },
+    {
+      "p": 3,
+      "space": "ordinary_moving",
+      "method": "rk8",
+      "dt": 0.00625,
+      "a_or_dx": 0.02,
+      "half_width": 12.0,
+      "edges": 1200,
+      "initial_x_left": -12.166666661590007,
+      "initial_x_right": 12.16666666158999,
+      "initial_nodes_in_fwhm": 117,
+      "status": "completed",
+      "reached": 0.25,
+      "seconds": 0.16373999998904765,
+      "accepted": 40,
+      "rejected": 0,
+      "failure_reason": "",
+      "observations": {
+        "0.25": {
+          "native": {
+            "u_linf": 4.409537984263498e-06,
+            "rho_linf": 1.1045099590489826e-07
+          },
+          "mesh": {
+            "left": -12.166666661995915,
+            "right": 12.166666989012331,
+            "min_spacing": 0.020000000142246344,
+            "max_spacing": 0.022499912506345674,
+            "min_rho": 0.8888923454417602,
+            "max_rho": 0.9999999928876829
+          },
+          "windows": {
+            "legacy_core": {
+              "u_linf": 9.988787467336835e-07,
+              "rho_linf": 1.105701210590837e-07,
+              "u_l2": 5.965976148288002e-07,
+              "rho_l2": 5.923165093149119e-08,
+              "u_scaled_linf": 3.59596348824126e-05,
+              "rho_scaled_linf": 9.95131089531753e-07,
+              "joint_scaled_linf": 3.59596348824126e-05,
+              "u_reconstruction_floor": 5.171930245184697e-11,
+              "rho_reconstruction_floor": 1.2051115660938194e-10
+            },
+            "wave_window": {
+              "u_linf": 9.988777513562919e-07,
+              "rho_linf": 1.1057996984753515e-07,
+              "u_l2": 3.677402950716705e-07,
+              "rho_l2": 3.307106067269615e-08,
+              "u_scaled_linf": 3.59595990488265e-05,
+              "rho_scaled_linf": 9.95219728627816e-07,
+              "joint_scaled_linf": 3.59595990488265e-05,
+              "u_reconstruction_floor": 5.135885813856156e-11,
+              "rho_reconstruction_floor": 1.210106459481608e-10
+            }
+          }
+        }
+      }
+    },
+    {
+      "p": 3,
+      "space": "fixed_difference",
+      "method": "rk8",
+      "dt": 0.00625,
+      "a_or_dx": 0.02,
+      "half_width": 12.0,
+      "edges": 1200,
+      "initial_x_left": -12.0,
+      "initial_x_right": 12.0,
+      "initial_nodes_in_fwhm": 129,
+      "status": "completed",
+      "reached": 0.25,
+      "seconds": 1.62542910000775,
+      "accepted": 40,
+      "rejected": 0,
+      "failure_reason": "",
+      "observations": {
+        "0.25": {
+          "native": {
+            "u_linf": 1.000386121094432e-07,
+            "rho_linf": 4.212720691176841e-07
+          },
+          "mesh": {
+            "left": -12.0,
+            "right": 12.0,
+            "min_spacing": 0.019999999999999574,
+            "max_spacing": 0.020000000000003126,
+            "min_rho": 0.8888897730674934,
+            "max_rho": 0.9999999910039529
+          },
+          "windows": {
+            "legacy_core": {
+              "u_linf": 1.0005132450308096e-07,
+              "rho_linf": 4.21343666956453e-07,
+              "u_l2": 6.245809308334785e-08,
+              "rho_l2": 2.7117783914937317e-07,
+              "u_scaled_linf": 3.601847682110914e-06,
+              "rho_scaled_linf": 3.792093002608075e-06,
+              "joint_scaled_linf": 3.792093002608075e-06,
+              "u_reconstruction_floor": 3.253139077563638e-11,
+              "rho_reconstruction_floor": 9.396394773375505e-11
+            },
+            "wave_window": {
+              "u_linf": 1.0004964536014516e-07,
+              "rho_linf": 4.2134361155632405e-07,
+              "u_l2": 3.765979470247173e-08,
+              "rho_l2": 1.4131619904619482e-07,
+              "u_scaled_linf": 3.6017872329652248e-06,
+              "rho_scaled_linf": 3.7920925040069147e-06,
+              "joint_scaled_linf": 3.7920925040069147e-06,
+              "u_reconstruction_floor": 3.225568076525853e-11,
+              "rho_reconstruction_floor": 9.327061345487664e-11
+            }
+          }
+        }
+      }
+    },
+    {
+      "p": 5,
+      "space": "integrable_moving",
+      "method": "rk8",
+      "dt": 0.00625,
+      "a_or_dx": 0.02,
+      "half_width": 7.5,
+      "edges": 750,
+      "initial_x_left": -7.799999999999634,
+      "initial_x_right": 7.799999999999623,
+      "initial_nodes_in_fwhm": 47,
+      "status": "completed",
+      "reached": 0.25,
+      "seconds": 0.16216649999842048,
+      "accepted": 40,
+      "rejected": 0,
+      "failure_reason": "",
+      "observations": {
+        "0.25": {
+          "native": {
+            "u_linf": 0.08010925600932131,
+            "rho_linf": 0.0011848425822814646
+          },
+          "mesh": {
+            "left": -7.7999999999996765,
+            "right": 7.794677943674787,
+            "min_spacing": 0.019976331192197702,
+            "max_spacing": 0.03122903033270992,
+            "min_rho": 0.6404297471590591,
+            "max_rho": 1.0011848425806809
+          },
+          "windows": {
+            "legacy_core": {
+              "u_linf": 0.012955188598078333,
+              "rho_linf": 0.0006507297884982277,
+              "u_l2": 0.006188107500969877,
+              "rho_l2": 0.0003718510855976727,
+              "u_scaled_linf": 0.14394653997864815,
+              "rho_scaled_linf": 0.0018075827458284104,
+              "joint_scaled_linf": 0.14394653997864815,
+              "u_reconstruction_floor": 4.738664988179764e-09,
+              "rho_reconstruction_floor": 9.060086569867565e-09
+            },
+            "wave_window": {
+              "u_linf": 0.027108779367145192,
+              "rho_linf": 0.0006507285962342735,
+              "u_l2": 0.010904568466029102,
+              "rho_l2": 0.00034961787132517427,
+              "u_scaled_linf": 0.3012086596349466,
+              "rho_scaled_linf": 0.0018075794339840932,
+              "joint_scaled_linf": 0.3012086596349466,
+              "u_reconstruction_floor": 4.724856228488505e-09,
+              "rho_reconstruction_floor": 8.730423606273519e-09
+            }
+          }
+        }
+      }
+    },
+    {
+      "p": 5,
+      "space": "ordinary_moving",
+      "method": "rk8",
+      "dt": 0.00625,
+      "a_or_dx": 0.02,
+      "half_width": 7.5,
+      "edges": 750,
+      "initial_x_left": -7.799999999999634,
+      "initial_x_right": 7.799999999999623,
+      "initial_nodes_in_fwhm": 47,
+      "status": "completed",
+      "reached": 0.25,
+      "seconds": 0.15883269999176264,
+      "accepted": 40,
+      "rejected": 0,
+      "failure_reason": "",
+      "observations": {
+        "0.25": {
+          "native": {
+            "u_linf": 0.00010876126600616849,
+            "rho_linf": 1.7299168396656128e-06
+          },
+          "mesh": {
+            "left": -7.7999999999996765,
+            "right": 7.80000732846666,
+            "min_spacing": 0.02000000000002401,
+            "max_spacing": 0.031244813805979953,
+            "min_rho": 0.6401062308834177,
+            "max_rho": 0.9999999999987996
+          },
+          "windows": {
+            "legacy_core": {
+              "u_linf": 1.687960160566646e-05,
+              "rho_linf": 1.7295782634985102e-06,
+              "u_l2": 9.006539140659265e-06,
+              "rho_l2": 8.000077518814302e-07,
+              "u_scaled_linf": 0.00018755112895184957,
+              "rho_scaled_linf": 4.804384065273639e-06,
+              "joint_scaled_linf": 0.00018755112895184957,
+              "u_reconstruction_floor": 4.734403133421772e-09,
+              "rho_reconstruction_floor": 9.083957808186938e-09
+            },
+            "wave_window": {
+              "u_linf": 3.599106459160388e-05,
+              "rho_linf": 1.7295135994466193e-06,
+              "u_l2": 1.4614615495136247e-05,
+              "rho_l2": 6.443921247632769e-07,
+              "u_scaled_linf": 0.00039990071768448754,
+              "rho_scaled_linf": 4.804204442907276e-06,
+              "joint_scaled_linf": 0.00039990071768448754,
+              "u_reconstruction_floor": 4.706646725138874e-09,
+              "rho_reconstruction_floor": 8.673074924914204e-09
+            }
+          }
+        }
+      }
+    },
+    {
+      "p": 5,
+      "space": "fixed_difference",
+      "method": "rk8",
+      "dt": 0.00625,
+      "a_or_dx": 0.02,
+      "half_width": 7.5,
+      "edges": 750,
+      "initial_x_left": -7.5,
+      "initial_x_right": 7.5,
+      "initial_nodes_in_fwhm": 69,
+      "status": "completed",
+      "reached": 0.25,
+      "seconds": 1.4174486000556499,
+      "accepted": 40,
+      "rejected": 0,
+      "failure_reason": "",
+      "observations": {
+        "0.25": {
+          "native": {
+            "u_linf": 9.206361304379962e-07,
+            "rho_linf": 5.79359205921115e-06
+          },
+          "mesh": {
+            "left": -7.5,
+            "right": 7.5,
+            "min_spacing": 0.019999999999999574,
+            "max_spacing": 0.02000000000000135,
+            "min_rho": 0.6399999236450478,
+            "max_rho": 1.0000000096480097
+          },
+          "windows": {
+            "legacy_core": {
+              "u_linf": 9.212434953428938e-07,
+              "rho_linf": 5.797227197179566e-06,
+              "u_l2": 6.246382723591452e-07,
+              "rho_l2": 2.7467608190936903e-06,
+              "u_scaled_linf": 1.0236038837143266e-05,
+              "rho_scaled_linf": 1.6103408881054352e-05,
+              "joint_scaled_linf": 1.6103408881054352e-05,
+              "u_reconstruction_floor": 8.075803636931056e-10,
+              "rho_reconstruction_floor": 3.2457443399636077e-09
+            },
+            "wave_window": {
+              "u_linf": 9.21154259765633e-07,
+              "rho_linf": 5.797130644524806e-06,
+              "u_l2": 5.03044373359448e-07,
+              "rho_l2": 1.922638445088895e-06,
+              "u_scaled_linf": 1.0235047330729257e-05,
+              "rho_scaled_linf": 1.6103140679235572e-05,
+              "joint_scaled_linf": 1.6103140679235572e-05,
+              "u_reconstruction_floor": 7.905793519835669e-10,
+              "rho_reconstruction_floor": 3.2374890546194024e-09
+            }
+          }
+        }
+      }
+    },
+    {
+      "p": 12,
+      "space": "integrable_moving",
+      "method": "rk8",
+      "dt": 0.00625,
+      "a_or_dx": 0.02,
+      "half_width": 6.0,
+      "edges": 600,
+      "initial_x_left": -6.416666666666667,
+      "initial_x_right": 6.416666666666663,
+      "initial_nodes_in_fwhm": 17,
+      "status": "completed",
+      "reached": 0.25,
+      "seconds": 0.1553909000940621,
+      "accepted": 40,
+      "rejected": 0,
+      "failure_reason": "",
+      "observations": {
+        "0.25": {
+          "native": {
+            "u_linf": 0.06384670634027947,
+            "rho_linf": 0.00175646861830836
+          },
+          "mesh": {
+            "left": -6.416666666666667,
+            "right": 6.412130810860588,
+            "min_spacing": 0.01997877843921013,
+            "max_spacing": 0.06525076554386498,
+            "min_rho": 0.3065098138435625,
+            "max_rho": 1.001062205122022
+          },
+          "windows": {
+            "legacy_core": {
+              "u_linf": 0.015031460997358878,
+              "rho_linf": 0.001760018634635152,
+              "u_l2": 0.0072430743792802,
+              "rho_l2": 0.0005645074841981859,
+              "u_scaled_linf": 0.08658121534478712,
+              "rho_scaled_linf": 0.002534426833874619,
+              "joint_scaled_linf": 0.08658121534478712,
+              "u_reconstruction_floor": 3.26982712295365e-07,
+              "rho_reconstruction_floor": 1.7411439512393656e-06
+            },
+            "wave_window": {
+              "u_linf": 0.019802186318882784,
+              "rho_linf": 0.0017600532436879979,
+              "u_l2": 0.008891135587610455,
+              "rho_l2": 0.0005107469419484224,
+              "u_scaled_linf": 0.11406059319676483,
+              "rho_scaled_linf": 0.0025344766709107167,
+              "joint_scaled_linf": 0.11406059319676483,
+              "u_reconstruction_floor": 3.263818759702275e-07,
+              "rho_reconstruction_floor": 1.7509060817877398e-06
+            }
+          }
+        }
+      }
+    },
+    {
+      "p": 12,
+      "space": "ordinary_moving",
+      "method": "rk8",
+      "dt": 0.00625,
+      "a_or_dx": 0.02,
+      "half_width": 6.0,
+      "edges": 600,
+      "initial_x_left": -6.416666666666667,
+      "initial_x_right": 6.416666666666663,
+      "initial_nodes_in_fwhm": 17,
+      "status": "completed",
+      "reached": 0.25,
+      "seconds": 0.1535506999352947,
+      "accepted": 40,
+      "rejected": 0,
+      "failure_reason": "",
+      "observations": {
+        "0.25": {
+          "native": {
+            "u_linf": 0.0014944980987692238,
+            "rho_linf": 3.5014927981968924e-05
+          },
+          "mesh": {
+            "left": -6.416666666666667,
+            "right": 6.416773015666357,
+            "min_spacing": 0.019999999999999574,
+            "max_spacing": 0.06530089965769595,
+            "min_rho": 0.30627449399378875,
+            "max_rho": 1.0000000000000213
+          },
+          "windows": {
+            "legacy_core": {
+              "u_linf": 0.00034987867066789457,
+              "rho_linf": 3.5934525689285124e-05,
+              "u_l2": 0.00017195051351219374,
+              "rho_l2": 1.2718394184964637e-05,
+              "u_scaled_linf": 0.0020153011430470726,
+              "rho_scaled_linf": 5.1745716992570574e-05,
+              "joint_scaled_linf": 0.0020153011430470726,
+              "u_reconstruction_floor": 3.274300428568466e-07,
+              "rho_reconstruction_floor": 1.7643998746486034e-06
+            },
+            "wave_window": {
+              "u_linf": 0.00046146294565089477,
+              "rho_linf": 3.59561925717955e-05,
+              "u_l2": 0.00020903245386853355,
+              "rho_l2": 1.1557750698852349e-05,
+              "u_scaled_linf": 0.0026580265669491534,
+              "rho_scaled_linf": 5.177691730338551e-05,
+              "joint_scaled_linf": 0.0026580265669491534,
+              "u_reconstruction_floor": 3.264986037643247e-07,
+              "rho_reconstruction_floor": 1.766729851193638e-06
+            }
+          }
+        }
+      }
+    },
+    {
+      "p": 12,
+      "space": "fixed_difference",
+      "method": "rk8",
+      "dt": 0.00625,
+      "a_or_dx": 0.02,
+      "half_width": 6.0,
+      "edges": 600,
+      "initial_x_left": -6.0,
+      "initial_x_right": 6.0,
+      "initial_nodes_in_fwhm": 45,
+      "status": "completed",
+      "reached": 0.25,
+      "seconds": 1.234807400032878,
+      "accepted": 40,
+      "rejected": 0,
+      "failure_reason": "",
+      "observations": {
+        "0.25": {
+          "native": {
+            "u_linf": 2.633811357593413e-05,
+            "rho_linf": 7.166367675448537e-05
+          },
+          "mesh": {
+            "left": -6.0,
+            "right": 6.0,
+            "min_spacing": 0.019999999999999574,
+            "max_spacing": 0.02000000000000135,
+            "min_rho": 0.30555492519916955,
+            "max_rho": 1.0
+          },
+          "windows": {
+            "legacy_core": {
+              "u_linf": 2.6338113575906374e-05,
+              "rho_linf": 7.207919482443703e-05,
+              "u_l2": 1.0305592247685015e-05,
+              "rho_l2": 2.0308112409608026e-05,
+              "u_scaled_linf": 0.0001517075341972207,
+              "rho_scaled_linf": 0.0001037940405471893,
+              "joint_scaled_linf": 0.0001517075341972207,
+              "u_reconstruction_floor": 2.4877478976143008e-08,
+              "rho_reconstruction_floor": 2.7436642813238876e-07
+            },
+            "wave_window": {
+              "u_linf": 2.6340130599482314e-05,
+              "rho_linf": 7.209616331105284e-05,
+              "u_l2": 9.009195628175717e-06,
+              "rho_l2": 1.7359505213542453e-05,
+              "u_scaled_linf": 0.0001517191522530181,
+              "rho_scaled_linf": 0.00010381847516791608,
+              "joint_scaled_linf": 0.0001517191522530181,
+              "u_reconstruction_floor": 2.4691547657190727e-08,
+              "rho_reconstruction_floor": 2.7015250281259284e-07
+            }
+          }
+        }
+      }
+    },
+    {
+      "p": 20,
+      "space": "integrable_moving",
+      "method": "rk8",
+      "dt": 0.00625,
+      "a_or_dx": 0.02,
+      "half_width": 6.0,
+      "edges": 600,
+      "initial_x_left": -6.45,
+      "initial_x_right": 6.449999999999991,
+      "initial_nodes_in_fwhm": 9,
+      "status": "completed",
+      "reached": 0.25,
+      "seconds": 0.15662399993743747,
+      "accepted": 40,
+      "rejected": 0,
+      "failure_reason": "",
+      "observations": {
+        "0.25": {
+          "native": {
+            "u_linf": 0.06493372601688278,
+            "rho_linf": 0.002883036869129385
+          },
+          "mesh": {
+            "left": -6.45,
+            "right": 6.445392757853933,
+            "min_spacing": 0.01997846602410884,
+            "max_spacing": 0.10490032707173932,
+            "min_rho": 0.19065717484677033,
+            "max_rho": 1.0010778593243932
+          },
+          "windows": {
+            "legacy_core": {
+              "u_linf": 0.015129682488249576,
+              "rho_linf": 0.0028978997482907998,
+              "u_l2": 0.007307434798118867,
+              "rho_l2": 0.0006876634169422013,
+              "u_scaled_linf": 0.07471448142345469,
+              "rho_scaled_linf": 0.003577654010235555,
+              "joint_scaled_linf": 0.07471448142345469,
+              "u_reconstruction_floor": 2.8580445613490824e-06,
+              "rho_reconstruction_floor": 2.6044384367263085e-05
+            },
+            "wave_window": {
+              "u_linf": 0.018059723621143216,
+              "rho_linf": 0.0028975573279375055,
+              "u_l2": 0.008326569519123445,
+              "rho_l2": 0.0006341115491847263,
+              "u_scaled_linf": 0.08918382035132452,
+              "rho_scaled_linf": 0.003577231269058649,
+              "joint_scaled_linf": 0.08918382035132452,
+              "u_reconstruction_floor": 2.8502505811378587e-06,
+              "rho_reconstruction_floor": 2.6045604996860483e-05
+            }
+          }
+        }
+      }
+    },
+    {
+      "p": 20,
+      "space": "ordinary_moving",
+      "method": "rk8",
+      "dt": 0.00625,
+      "a_or_dx": 0.02,
+      "half_width": 6.0,
+      "edges": 600,
+      "initial_x_left": -6.45,
+      "initial_x_right": 6.449999999999991,
+      "initial_nodes_in_fwhm": 9,
+      "status": "completed",
+      "reached": 0.25,
+      "seconds": 0.15781410003546625,
+      "accepted": 40,
+      "rejected": 0,
+      "failure_reason": "",
+      "observations": {
+        "0.25": {
+          "native": {
+            "u_linf": 0.0053324118253942395,
+            "rho_linf": 0.0002182649392173941
+          },
+          "mesh": {
+            "left": -6.45,
+            "right": 6.450378539919877,
+            "min_spacing": 0.019999999999999445,
+            "max_spacing": 0.10499679578889641,
+            "min_rho": 0.1904820032814281,
+            "max_rho": 1.0000000000000278
+          },
+          "windows": {
+            "legacy_core": {
+              "u_linf": 0.0012384392419929964,
+              "rho_linf": 0.00023058305136081092,
+              "u_l2": 0.0006056882159117528,
+              "rho_l2": 5.3575028821006916e-05,
+              "u_scaled_linf": 0.0061157493431752905,
+              "rho_scaled_linf": 0.0002846704337787789,
+              "joint_scaled_linf": 0.0061157493431752905,
+              "u_reconstruction_floor": 2.862260712194198e-06,
+              "rho_reconstruction_floor": 2.6232176382257055e-05
+            },
+            "wave_window": {
+              "u_linf": 0.0014787993172803624,
+              "rho_linf": 0.00023119447152453176,
+              "u_l2": 0.0006869948814236298,
+              "rho_l2": 4.953038479311054e-05,
+              "u_scaled_linf": 0.007302712677927715,
+              "rho_scaled_linf": 0.00028542527348707626,
+              "joint_scaled_linf": 0.007302712677927715,
+              "u_reconstruction_floor": 2.8564651219920023e-06,
+              "rho_reconstruction_floor": 2.624193598471658e-05
+            }
+          }
+        }
+      }
+    },
+    {
+      "p": 20,
+      "space": "fixed_difference",
+      "method": "rk8",
+      "dt": 0.00625,
+      "a_or_dx": 0.02,
+      "half_width": 6.0,
+      "edges": 600,
+      "initial_x_left": -6.0,
+      "initial_x_right": 6.0,
+      "initial_nodes_in_fwhm": 41,
+      "status": "completed",
+      "reached": 0.25,
+      "seconds": 0.5733733000233769,
+      "accepted": 40,
+      "rejected": 0,
+      "failure_reason": "",
+      "observations": {
+        "0.25": {
+          "native": {
+            "u_linf": 7.811557169521907e-05,
+            "rho_linf": 0.00023416354581740073
+          },
+          "mesh": {
+            "left": -6.0,
+            "right": 6.0,
+            "min_spacing": 0.019999999999999574,
+            "max_spacing": 0.02000000000000135,
+            "min_rho": 0.1900315764877655,
+            "max_rho": 1.00000000754153
+          },
+          "windows": {
+            "legacy_core": {
+              "u_linf": 7.81155716951358e-05,
+              "rho_linf": 0.00023908474541300961,
+              "u_l2": 2.9808010954194318e-05,
+              "rho_l2": 5.1722290508095834e-05,
+              "u_scaled_linf": 0.0003857559096056089,
+              "rho_scaled_linf": 0.00029516635236174024,
+              "joint_scaled_linf": 0.0003857559096056089,
+              "u_reconstruction_floor": 1.3716896525226008e-07,
+              "rho_reconstruction_floor": 2.7622410874172942e-06
+            },
+            "wave_window": {
+              "u_linf": 7.81179641762414e-05,
+              "rho_linf": 0.00023932261248504894,
+              "u_l2": 2.7459268639676567e-05,
+              "rho_l2": 4.6568203688004674e-05,
+              "u_scaled_linf": 0.00038576772432711795,
+              "rho_scaled_linf": 0.0002954600154136406,
+              "joint_scaled_linf": 0.00038576772432711795,
+              "u_reconstruction_floor": 1.3690925418710642e-07,
+              "rho_reconstruction_floor": 2.7569981507769015e-06
+            }
+          }
+        }
+      }
+    }
+  ]
+}

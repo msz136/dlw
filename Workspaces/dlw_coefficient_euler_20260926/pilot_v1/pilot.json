@@ -1,0 +1,355 @@
+{
+  "plan": {
+    "P1_fd_c0_k0_main": {
+      "case": "P1",
+      "route": "fd",
+      "c": 0.0,
+      "kappa": 0.0,
+      "purpose": "main",
+      "h": 0.125,
+      "nx": 256,
+      "dt": 1.25e-05,
+      "L": 20.0,
+      "yhalf": 1.5
+    },
+    "P1_sd_c0_k0_main": {
+      "case": "P1",
+      "route": "sd",
+      "c": 0.0,
+      "kappa": 0.0,
+      "purpose": "main",
+      "h": 0.125,
+      "nx": 256,
+      "dt": 1.25e-05,
+      "L": 20.0,
+      "yhalf": 1.5
+    },
+    "P10_fd_c0_k0_main": {
+      "case": "P10",
+      "route": "fd",
+      "c": 0.0,
+      "kappa": 0.0,
+      "purpose": "main",
+      "h": 0.125,
+      "nx": 256,
+      "dt": 1.25e-05,
+      "L": 20.0,
+      "yhalf": 1.5
+    },
+    "P10_sd_c0_k0_main": {
+      "case": "P10",
+      "route": "sd",
+      "c": 0.0,
+      "kappa": 0.0,
+      "purpose": "main",
+      "h": 0.125,
+      "nx": 256,
+      "dt": 1.25e-05,
+      "L": 20.0,
+      "yhalf": 1.5
+    }
+  },
+  "source_hashes": {
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_coefficient_euler_20260926\\model.py": "95fd5a677928d73a282fea65cd0496fafb45aca9175764166fdc5956465f69d2",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_coefficient_euler_20260926\\run.py": "a7da41b222493e4262c892e5de1f624cc53320bfab684334ed03640bca01c7fa",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_semidiscrete\\numerics\\lib\\parametric.py": "8d4450605a3d6a4b2257fa66625afa4363709c137bc99b677b337abfc9fc71f7",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_semidiscrete\\numerics\\lib\\parametric_open.py": "1d85192a22ae7a949bf763ee9738c4cd3c55e5f87fb8469ff3415f08ca1a8719",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_semidiscrete\\numerics\\lib\\dynamics.py": "8957bed3621135bafb39f505ace2ff8d365ce05839320476d32849b34b95bc9d",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_semidiscrete\\numerics\\lib\\solver.py": "2f0444e680cdd23de441fc462d3afa5eef1677160323d61a7dd6695bc8e27f51"
+  },
+  "configuration": {
+    "cases": {
+      "P1": {
+        "a": 4.0,
+        "p": 1.0,
+        "q": 2.0,
+        "rho": 3.0
+      },
+      "P2": {
+        "a": 4.0,
+        "p": 2,
+        "q": 3,
+        "rho": 5
+      },
+      "P3": {
+        "a": 3,
+        "p": 1.0,
+        "q": 2.0,
+        "rho": 3.0
+      },
+      "P4": {
+        "a": 6,
+        "p": 1.0,
+        "q": 2.0,
+        "rho": 3.0
+      },
+      "P5": {
+        "a": 4.0,
+        "p": 0.5,
+        "q": 1,
+        "rho": 1.5
+      },
+      "P6": {
+        "a": 4.0,
+        "p": 1,
+        "q": 3,
+        "rho": 4
+      },
+      "P7": {
+        "a": 4.0,
+        "p": 2,
+        "q": 1,
+        "rho": 3
+      },
+      "P10": {
+        "a": 2,
+        "p": 1.5,
+        "q": 2,
+        "rho": 3.5
+      }
+    },
+    "coefs": [
+      -0.125,
+      0.0,
+      0.125
+    ],
+    "times": [
+      0.005,
+      0.01
+    ],
+    "dt": 1.25e-05,
+    "integrator": "explicit Euler in shared P,v state",
+    "x_stencil": "fourth-order central D1, D2=D1 composed with D1",
+    "state": "P=delta_minus u and physical v, identical initial state for all routes",
+    "reference": "continuous exact solution, unchanged physical a and common boundary",
+    "boundary": "analytic left base/ghost, right ghost extrapolates perturbation quadratically relative to common exact background",
+    "evaluation": "Linf on fixed y nodes in (-1.5,1.5), x in [-10,10), x interpolation to 4nx checked against 8nx",
+    "scope": "deterministic short-time comparison, no long-time or statistical claim"
+  },
+  "rows": {
+    "P1_fd_c0_k0_main": {
+      "spec": {
+        "case": "P1",
+        "route": "fd",
+        "c": 0.0,
+        "kappa": 0.0,
+        "purpose": "main",
+        "h": 0.125,
+        "nx": 256,
+        "dt": 1.25e-05,
+        "L": 20.0,
+        "yhalf": 1.5
+      },
+      "status": "completed",
+      "snapshots": {
+        "0.005": {
+          "errors": {
+            "u": 2.0042009705623087e-05,
+            "v": 6.177436100429645e-06
+          },
+          "eval_double": {
+            "u": 2.0042009705623087e-05,
+            "v": 6.177436100429645e-06
+          },
+          "nodal_errors": {
+            "u": 2.0042009705845132e-05,
+            "v": 6.114585809458006e-06
+          }
+        },
+        "0.01": {
+          "errors": {
+            "u": 4.2784218445168776e-05,
+            "v": 1.402562130886631e-05
+          },
+          "eval_double": {
+            "u": 4.2784218445168776e-05,
+            "v": 1.402562130886631e-05
+          },
+          "nodal_errors": {
+            "u": 4.1331766624796984e-05,
+            "v": 1.3918116807010161e-05
+          }
+        }
+      },
+      "steps": 800,
+      "seconds": 0.46129470004234463,
+      "initial_state_sha256": "53779f3576c5b0f36b716afdba837b3f1035e79467772a8949d9465442e3c1d1",
+      "initial_field_error": 0.0,
+      "A": 4.0,
+      "r": 1.0,
+      "sminus": 3.9375,
+      "splus": 4.0625,
+      "max_state": 0.485281795374668,
+      "profile": "profiles\\P1_fd_c0_k0_main.npz",
+      "profile_sha256": "284b4c85008b0da44ca8f08c1ebdbbbe9a8485ba3f0da5471edf6199a4ed3945"
+    },
+    "P1_sd_c0_k0_main": {
+      "spec": {
+        "case": "P1",
+        "route": "sd",
+        "c": 0.0,
+        "kappa": 0.0,
+        "purpose": "main",
+        "h": 0.125,
+        "nx": 256,
+        "dt": 1.25e-05,
+        "L": 20.0,
+        "yhalf": 1.5
+      },
+      "status": "completed",
+      "snapshots": {
+        "0.005": {
+          "errors": {
+            "u": 1.3142052332160148e-05,
+            "v": 6.630521630524022e-06
+          },
+          "eval_double": {
+            "u": 1.314935203655665e-05,
+            "v": 6.632366240932885e-06
+          },
+          "nodal_errors": {
+            "u": 1.3142052332160148e-05,
+            "v": 6.503460499129865e-06
+          }
+        },
+        "0.01": {
+          "errors": {
+            "u": 2.865002514829129e-05,
+            "v": 1.3164954122180106e-05
+          },
+          "eval_double": {
+            "u": 2.865002514829129e-05,
+            "v": 1.319047386388883e-05
+          },
+          "nodal_errors": {
+            "u": 2.8073443839593537e-05,
+            "v": 1.2894661748918956e-05
+          }
+        }
+      },
+      "steps": 800,
+      "seconds": 0.6552752000279725,
+      "initial_state_sha256": "53779f3576c5b0f36b716afdba837b3f1035e79467772a8949d9465442e3c1d1",
+      "initial_field_error": 0.0,
+      "A": 4.0,
+      "r": 1.0,
+      "sminus": 3.9375,
+      "splus": 4.0625,
+      "max_state": 0.4852823599136502,
+      "profile": "profiles\\P1_sd_c0_k0_main.npz",
+      "profile_sha256": "f3ceedaefd0c2ef619794f7f64e464fb577e43b0fcf497c2898d7937afa83387"
+    },
+    "P10_fd_c0_k0_main": {
+      "spec": {
+        "case": "P10",
+        "route": "fd",
+        "c": 0.0,
+        "kappa": 0.0,
+        "purpose": "main",
+        "h": 0.125,
+        "nx": 256,
+        "dt": 1.25e-05,
+        "L": 20.0,
+        "yhalf": 1.5
+      },
+      "status": "completed",
+      "snapshots": {
+        "0.005": {
+          "errors": {
+            "u": 0.00043160834567790296,
+            "v": 0.0022242678234238866
+          },
+          "eval_double": {
+            "u": 0.0004321275180820816,
+            "v": 0.0022263601991392434
+          },
+          "nodal_errors": {
+            "u": 0.00043098857792234213,
+            "v": 0.0022233332718917254
+          }
+        },
+        "0.01": {
+          "errors": {
+            "u": 0.0010178223536434494,
+            "v": 0.004769506191284911
+          },
+          "eval_double": {
+            "u": 0.0010193925606030163,
+            "v": 0.004769506191284911
+          },
+          "nodal_errors": {
+            "u": 0.0010178223536434494,
+            "v": 0.004769506191284911
+          }
+        }
+      },
+      "steps": 800,
+      "seconds": 0.5131669999100268,
+      "initial_state_sha256": "e7b9c70ae50ad4b0a93980d1c9a1c528500c17dea6e2556279b50770e986fa3c",
+      "initial_field_error": 7.216449660063518e-16,
+      "A": 2.0,
+      "r": 1.0,
+      "sminus": 1.9375,
+      "splus": 2.0625,
+      "max_state": 4.728403106511658,
+      "profile": "profiles\\P10_fd_c0_k0_main.npz",
+      "profile_sha256": "08f027f8e53e19b3627ac487ed0444d4ef1994f6d877724e92442287864fc5b3"
+    },
+    "P10_sd_c0_k0_main": {
+      "spec": {
+        "case": "P10",
+        "route": "sd",
+        "c": 0.0,
+        "kappa": 0.0,
+        "purpose": "main",
+        "h": 0.125,
+        "nx": 256,
+        "dt": 1.25e-05,
+        "L": 20.0,
+        "yhalf": 1.5
+      },
+      "status": "completed",
+      "snapshots": {
+        "0.005": {
+          "errors": {
+            "u": 0.0016130110829177813,
+            "v": 0.0012694541932281034
+          },
+          "eval_double": {
+            "u": 0.0016139990621666378,
+            "v": 0.0012694541932281034
+          },
+          "nodal_errors": {
+            "u": 0.0016102465758700557,
+            "v": 0.001262445397617995
+          }
+        },
+        "0.01": {
+          "errors": {
+            "u": 0.00341161084016095,
+            "v": 0.003212485649086716
+          },
+          "eval_double": {
+            "u": 0.0034160204931492633,
+            "v": 0.003221379139750624
+          },
+          "nodal_errors": {
+            "u": 0.0034116108401611722,
+            "v": 0.003078360518666834
+          }
+        }
+      },
+      "steps": 800,
+      "seconds": 0.6578637999482453,
+      "initial_state_sha256": "e7b9c70ae50ad4b0a93980d1c9a1c528500c17dea6e2556279b50770e986fa3c",
+      "initial_field_error": 7.216449660063518e-16,
+      "A": 2.0,
+      "r": 1.0,
+      "sminus": 1.9375,
+      "splus": 2.0625,
+      "max_state": 4.728447719381555,
+      "profile": "profiles\\P10_sd_c0_k0_main.npz",
+      "profile_sha256": "abda61fb49974dfec56dcd6806ccacdbfbeac08fde7f6cecd6fe27d7abf0d4c4"
+    }
+  }
+}

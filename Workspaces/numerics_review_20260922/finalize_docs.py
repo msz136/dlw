@@ -1,7 +1,7 @@
 from pathlib import Path
 import json,hashlib
 ROOT=Path(__file__).resolve().parents[2]
-N=ROOT/'Paper/dlw_semidiscrete/numerics'
+N=ROOT/'Workspaces/dlw_semidiscrete/numerics'
 def load(f):return json.loads((N/'out'/f).read_text(encoding='utf-8'))
 e1=load('e1_continuum.json');e5=load('e5_conservation.json');e6=load('e6_growth.json');e7=load('e7_fd_baseline.json')
 old=Path(__file__).with_name('REPORT_before_final_fixes.md')

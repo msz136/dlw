@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DLW：由离散双线性方程到两种非线性形式的 Lean 证明</title>
+<meta name="description" content="从共同的离散双线性起点，严格推出Report的u/ω系统与Q/R/M系统及物理重构。">
+<style>@@KATEX_CSS@@</style>
+<style>
+:root{color-scheme:light;--ink:#191919;--muted:#555;--line:#b8b8b8}*{box-sizing:border-box}
+body{margin:0;background:#fff;color:var(--ink);font-family:"Times New Roman","SimSun",serif;font-size:17px;line-height:1.85}
+main{max-width:960px;margin:46px auto 70px;padding:0 38px}header{text-align:center;border-bottom:1px solid #444;padding-bottom:21px}
+h1{font-size:28px;font-weight:600;line-height:1.5;margin:0 0 9px}.date{font-size:14px;color:var(--muted);margin:0}
+h2{font-size:21px;font-weight:600;line-height:1.55;margin:32px 0 12px}p{margin:13px 0}a{color:#254357;text-underline-offset:3px}
+.abstract{margin:23px 0}.eq{margin:17px 0;overflow-x:auto;overflow-y:hidden;padding:4px 0}.katex{font-size:1.06em}
+.katex-display{margin:.7em 0}.katex-display>.katex{width:max-content;min-width:100%}.katex-display>.katex>.katex-html{padding:0 2.5em}.proposition{border-top:1px solid var(--line);padding-top:4px;margin-top:25px}
+.proof{font-size:16px}.proof-title{font-weight:600}.evidence{font-size:14px;color:var(--muted);border-top:1px solid #555;margin-top:31px;padding-top:15px}
+.evidence p{margin:9px 0}.source{overflow-wrap:anywhere}.source code{font-size:13px;font-family:Consolas,monospace}
+table{width:100%;table-layout:fixed;border-collapse:collapse;font-size:14px;margin:14px 0;border-top:1px solid #333;border-bottom:1px solid #333}
+td code{overflow-wrap:anywhere}
+th,td{padding:8px 10px;text-align:left;vertical-align:top}th{font-weight:600;border-bottom:1px solid #777}tbody tr+tr td{border-top:1px solid #ddd}
+@media(max-width:650px){body{font-size:16px}main{padding:0 19px;margin:25px auto 46px}h1{font-size:23px}h2{font-size:19px}.katex{font-size:1em}table{font-size:13px}th,td{padding:7px 5px}.proof{font-size:15px}}
+@media print{main{max-width:none;margin:0;padding:0}a{color:inherit}.eq{overflow:visible}.proposition{break-inside:avoid}}
+</style></head><body><main>
+<header><h1>DLW：离散双线性方程的<br>两种非线性形式及 Lean 证明</h1><p class="date">2026年10月2日</p></header>
+<p class="abstract"><strong>摘要。</strong>从同一组有限格距双线性方程出发，严格推出 <a href="../Report.html">Report</a> 的 \(u,\omega\) 两场系统，以及 \(Q,R,M\) 系统与物理 \(u,v\) 重构。两条推导均已落实为实际实函数及其导数的 Lean 定理。以下列出共同假设、完整结论与证明中的关键残差恒等式。</p>
+
+<section id="assumptions"><h2>1　共同起点</h2>
+<p>固定 \(a\in\mathbb R\)、\(h\ne0\)。对每个 \(j\in\mathbb Z\)，\(F_j,G_j:\mathbb R^2\to(0,\infty)\) 是关于 \((x,t)\) 的全域联合实解析函数，并满足</p>
+<div class="eq">\[
+\begin{gathered}
+B_{a-h/2}F_j\cdot G_j=0,\qquad B_{a+h/2}F_j\cdot G_{j+1}=0,\\
+B_s=D_x^2+D_t+2sD_x.
+\end{gathered}\tag{1}
+\]</div>
+<p>这正是 Lean 的 <code>SemiPair a h F G</code>。正实性使对数和中心平方根具有确定的实分支。正则性由 <code>SmoothL</code> 表述：当前证明所用的 <code>ContDiff ℝ ⊤</code> 对应解析阶 \(\omega\)。</p>
+<p>记 \(\alpha_j=\log F_j\)、\(\beta_j=\log G_j\)，定义</p>
+<div class="eq">\[
+u_j=(2\alpha_j-\beta_j-\beta_{j+1})_x,\qquad
+\omega_j=(\beta_{j+1}-\beta_j)_x.
+\]</div>
+<p>使用 \(\delta_-f_j=(f_j-f_{j-1})/h\)、\(M_-f_j=(f_j+f_{j-1})/2\) 和 \(\delta_0f_j=(f_{j+1}-f_{j-1})/(2h)\)。这里的 \(\omega\) 未乘以 \(4/h\)。</p>
+</section>
+
+<section class="proposition" id="route1"><h2>2　命题一：两场 \(u,\omega\) 闭合</h2>
+<p>在上述共同假设下，所定义的 \(u_j,\omega_j\) 满足 Report 式（7）的完整系统：</p>
+<div class="eq">\[
+\begin{aligned}
+0={}&\delta_-u_{j,t}
+ +\partial_x\delta_-\!\left[\frac{u_j^2+\omega_j^2}{2}+2au_j-h\omega_j\right]\\
+ &+\partial_x^2\!\left(\delta_-u_j+\frac4hM_-\omega_j\right),\\[3pt]
+0={}&\omega_{j,t}
+ +\partial_x\!\left[(u_j+2a)\omega_j-hu_j\right]-\omega_{j,xx}.
+\end{aligned}\tag{7}
+\]</div>
+<p class="proof"><span class="proof-title">证明要点。</span>将两条双线性方程除以相应的正 \(\tau\) 乘积，再对归一化残差作和、差运算。两场换元和格点恒等式精确消去辅助对数势；乘积微分与相应导数的交换均由实际函数的微积分定理证明。</p>
+<p class="source">形式化端点：<a href="../Workspaces/lean_contracts/proofs/ReportEndpoints.lean"><code>bilinear_to_report7</code></a>。</p>
+</section>
+
+<section class="proposition" id="route2"><h2>3　命题二：\(Q,R,M\) 系统及物理重构</h2>
+<p>定义中心比值与势</p>
+<div class="eq">\[
+\begin{aligned}
+M_j&=\beta_{j,x},\\
+Q_j&=\exp\!\left(\alpha_j-\frac{\beta_j+\beta_{j+1}}2\right)
+ =\frac{F_j}{\sqrt{G_jG_{j+1}}}>0,\\
+R_j&=\frac{1-\omega_j/h}{Q_j}.
+\end{aligned}
+\]</div>
+<p>同一组假设推出 Report 式（21）的两条演化方程和格点约束：</p>
+<div class="eq">\[
+\begin{aligned}
+0={}&Q_{j,t}+Q_{j,xx}+2aQ_{j,x}\\
+ &+\left[(M_j+M_{j+1})_x+\frac{h^2}{4}(Q_j^2R_j^2-1)\right]Q_j,\\[3pt]
+0={}&R_{j,t}-R_{j,xx}+2aR_{j,x}\\
+ &-\left[(M_j+M_{j+1})_x+\frac{h^2}{4}(Q_j^2R_j^2-1)\right]R_j,\\[3pt]
+1={}&\frac{M_{j+1}-M_j}{h}+Q_jR_j.
+\end{aligned}\tag{21}
+\]</div>
+<p>所得物理场与命题一使用的 \(u\) 相同，并满足 Report 式（22）的全部重构：</p>
+<div class="eq">\[
+\begin{aligned}
+u_j&=2\frac{Q_{j,x}}{Q_j},\\
+\omega_j&=h(1-Q_jR_j)=M_{j+1}-M_j,\\
+v_j&=4(1-Q_jR_j)+\frac{u_{j+1}-u_{j-1}}{2h}.
+\end{aligned}\tag{22}
+\]</div>
+<p class="source">形式化端点：<a href="../Workspaces/lean_contracts/proofs/ReportEndpoints.lean"><code>bilinear_to_report21_22</code></a>；中心平方根比值由 <code>Q_is_centered_ratio</code> 给出。</p>
+</section>
+
+<section id="proof"><h2>4　关键残差恒等式</h2>
+<p>记两条归一化双线性残差为</p>
+<div class="eq">\[
+A_j=\frac{B_{a-h/2}F_j\cdot G_j}{F_jG_j},\qquad
+C_j=\frac{B_{a+h/2}F_j\cdot G_{j+1}}{F_jG_{j+1}}.
+\]</div>
+<p>令 \(E_Q,E_R\) 分别为式（21）两条演化方程的左端，\(E_\omega\) 为式（7）第二条的左端。另设 \(P_j=Q_jR_j=1-\omega_j/h\)，并记</p>
+<div class="eq">\[
+E_P=P_{j,t}-P_{j,xx}+2aP_{j,x}
+ +2\partial_x(Q_{j,x}R_j).
+\]</div>
+<p>实际指数、商与乘积微分给出</p>
+<div class="eq">\[
+\boxed{\begin{gathered}
+E_Q=\frac{Q_j}{2}(A_j+C_j),\\[3pt]
+E_P=-\frac{E_\omega}{h},\qquad
+E_P=R_jE_Q+Q_jE_R.
+\end{gathered}}
+\]</div>
+<p class="proof">由式（1），\(A_j=C_j=0\)，第一恒等式直接给出 \(E_Q=0\)。它保留了未取 \(x\) 导数的双线性信息，因此不需要逆向积分选取常数。命题一给出 \(E_\omega=0\)，于是 \(E_P=0\)；再由 \(Q_j>0\) 和第三恒等式得到 \(E_R=0\)。整个推导允许 \(R_j\) 为零。</p>
+<p>以上结论均为<strong>从共同双线性起点到两种非线性形式的前向蕴含</strong>。统一定理 <a href="../Workspaces/lean_contracts/proofs/ReportEndpoints.lean"><code>bilinear_to_both</code></a> 同时收束两条系统、物理重构和中心 \(\tau\) 比值。</p>
+</section>
+
+<section class="evidence" id="verification"><h2>5　形式化核验证据</h2>
+<p>统一入口 <a href="../Workspaces/lean_contracts/proofs/ReportEndpoints.lean">ReportEndpoints.lean</a> 及其全部9个本地模块已通过 Lean 4.34.0 核验，记录编号为 <strong>__COMBINED_RUN__</strong>。三个统一端点只依赖标准公理 <code>propext</code>、<code>Classical.choice</code>、<code>Quot.sound</code>；证明中无占位证明或新增公理。</p>
+<table><thead><tr><th>统一定理</th><th>结论</th></tr></thead><tbody>
+<tr><td><code>bilinear_to_report7</code></td><td>式（7）的两条方程</td></tr>
+<tr><td><code>bilinear_to_report21_22</code></td><td>式（21）的三条关系及式（22）的全部重构</td></tr>
+<tr><td><code>bilinear_to_both</code></td><td>两路结论及正实中心平方根比值</td></tr>
+</tbody></table>
+<p class="source">分路证明：<a href="../Workspaces/lean_contracts/proofs/ReportNonlinearUW.lean">ReportNonlinearUW.lean</a>；<a href="../Workspaces/lean_contracts/proofs/ReportNonlinearQRM.lean">ReportNonlinearQRM.lean</a>；<a href="../Workspaces/lean_contracts/proofs/ReportQRatio.lean">ReportQRatio.lean</a>。实际微分辅助引理见 <a href="../Workspaces/lean_contracts/proofs/ReportQRMCalculus.lean">ReportQRMCalculus.lean</a>。</p>
+<p class="source">方程依据：<a href="../Report.html">Report 正文</a>，式（1）、（7）、（12）、（21）、（22）；<a href="../Workspaces/gsg_project/dlw_report/_src/Report.md">原始正文</a>。核验记录：<a href="../Workspaces/lean_contracts/proofs/.lean-runs/__COMBINED_RUN__/result.json">result.json</a>、<a href="../Workspaces/lean_contracts/proofs/.lean-runs/__COMBINED_RUN__/build.log">公理审计日志</a>、<a href="../Workspaces/dlw_report_formal_20261002/lean_validation.json">源码与端点核对</a>。</p>
+</section>
+</main><script>@@KATEX_JS@@</script><script>
+document.addEventListener('DOMContentLoaded',()=>{
+renderMathInElement(document.querySelector('main'),{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}],throwOnError:true});
+document.documentElement.dataset.mathReady='true';
+});
+</script></body></html>

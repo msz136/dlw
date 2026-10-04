@@ -1,0 +1,14 @@
+<p>这里现场计算 DLW 的纵向空间截断误差：把连续单孤子代入 SD、SDR 与 FD 的方程，比较有限格距残差与其二阶主系数。<em>计算对象是方程残差，不是第 2 节 2HS 演化至终点的总场误差。</em>横向与时间导数保持解析，SDR 在相容重构下与 SD 具有相同的理想半离散残差。</p>
+<p>取 $K=p+q>0$、$\ell=(p-a)^{-1}+(q+a)^{-1}$、$\Gamma=-(p-a)/(q+a)>0$，令 $z=Kx+\ell y+(q^2-p^2)t+\varphi$、$s(z)=(1+e^{-z})^{-1}$、$f_1(z)=s(z+\log\Gamma)$。同一连续解为</p>
+$$u=2K(f_1-s),\qquad v=2K\ell(f_1'+s'),\qquad w=v-u_y=4K\ell s'.$$
+<p>以方程左端定义 $\mathcal R_h^S$，则 $\mathcal R_h^S=h^2\tau_y^S+O(h^4)$。第一分量在交错中点展开；第二分量在原节点展开。记 $B(w)=w^2/32-w/4$，由式（8）及其直接差分对照得到</p>
+$$\tau_y^{FD}=\begin{pmatrix}v_{xxyy}/12\\u_{xxyyy}/6\end{pmatrix},\qquad
+\tau_y^{SD}=\tau_y^{SDR}=\begin{pmatrix}v_{xxyy}/12-u_{xxyyy}/4+B(w)_{xy}\\v_{xxyy}/4-u_{xxyyy}/12+B(w)_{xy}+\tfrac12(u_yu_{yy})_x\end{pmatrix}.$$
+<p>所有导数在代码中由 sigmoid 的解析多项式递推求出。令 $\zeta=K\ell$，下列全波形上界来自 $\sup|s'|=1/4$、$\sup|s'''|=1/8$、$\sup|s^{(5)}|=1/4$ 与 $\sup|s''|^2=1/108$：</p>
+$$\begin{aligned}
+\|\tau_{y,1}^{FD}\|_\infty&\le |\zeta|^3/12,&
+\|\tau_{y,2}^{FD}\|_\infty&\le |\zeta|^3/6,\\
+\|\tau_{y,1}^{SD}\|_\infty&\le 251|\zeta|^3/864+\zeta^2/8,&
+\|\tau_{y,2}^{SD}\|_\infty&\le59|\zeta|^3/96+\zeta^2/8.
+\end{aligned}$$
+<p>先准备数值环境，再设置谱参数，定义解析剖面、主系数与有限格距残差，最后分别计算主系数表与格距收敛图。每次点击 ▶ 只执行当前可见代码，前段定义在同一会话中供后段使用。采样最大值覆盖配置中的相位点，解析上界覆盖整个波形。减半格距时，$\|\mathcal R_h/h^2-\tau_y\|$ 应约缩小至四分之一。完整推导见 <a href="report/dlw_error_theory.html">DLW 误差理论</a>。</p>

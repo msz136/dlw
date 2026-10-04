@@ -1,7 +1,146 @@
+<!-- DLW_HAMILTON_INDEX_BEGIN -->
+**半离散 DLW Hamilton 结构（2026-10-04）：**
+
+- [dlw_hamilton.html](dlw_hamilton.html)（用户论文式报告；周期相空间、平均闭合、非局部泛函、物理 Poisson 算子、Jacobi 证明、局部候选排除与 Liouville 缺口）
+- `Workspaces/dlw_hamilton_20261004/report.src.html`、`build_report.cjs`、`build_manifest.json`（正文源、离线 MathML 构建与18公式块登记）
+- `Workspaces/dlw_hamilton_20261004/verify_hamilton.py`、`validation.json`（121项精确有理矩阵／多项式jet核验：N=3–7、两平均扇区、原物理残差、坐标推前与局部障碍）
+- `Workspaces/dlw_hamilton_20261004/phase_space/periodic_reduction.md`（周期平均、边界域、时间依赖规范、零平均退化与两周期特殊约化）
+- `Workspaces/dlw_hamilton_20261004/simple_candidate/NOTES.md`、`verify_exact.py`、`verification_result.json`、`REPORT_REVIEW.md`（独立变分／Helmholtz／约化及物理算子推前检查与报告审阅）
+- `Workspaces/dlw_hamilton_20261004/local_obstructions/NOTES.md`、`check_algebra.py`、`algebra_checks.json`、`REPORT_REVIEW.md`（有限作用范围障碍、R精确核、相空间审计与报告符号修正证据）
+- `Workspaces/dlw_hamilton_20261004/check_report.cjs`、`html_validation.json`、`report_top_1440.png`、`report_top_390.png`、`report_physical_1440.png`、`report_physical_390.png`（宽窄屏、数学、引用与可读性检查）
+- `Workspaces/dlw_hamilton_20261004/register_results.py`、`registration.json`、`before/`（同专题合并登记、交付哈希与共享记录修改前备份）
+<!-- DLW_HAMILTON_INDEX_END -->
+
+**孤子理论教材／Lax与Darboux阅读定位（2026-10-02）：** [阅读导读](report/soliton_reading_guide.html)；`Workspaces/soliton_reading_20261002/READING_NOTES.md`（教材、确认术语、书页/PDF页及正文证据）；`guide.source.html`、`check_guide.cjs`、`html_validation.json`、`guide_1280.png`、`guide_390.png`（导读源与检查）；`tmp/pdfs/`（原书及ctp8805相关页图）；`register_results.py`、`registration.json`（合并登记）。
+
+**DLW可积结构按2HS流程复核（2026-10-02）：** [用户报告](report/dlw_integrability_status.html)；Workspaces/dlw_integrability_audit_20261002/ 下 GRAM_CHAIN_AUDIT.md、LAX_AUDIT.md、SCOPE_AUDIT.md 为三路审计，LAX_CHECK_RUNS.md、lax_source_hashes.json、lax_audit_checks.py/json 为实际检查与源码证据，build_report.cjs、check_report.cjs、html_validation.json、report_1440.png、report_390.png 为报告生成及验证。
+
 # 工作区逐文件索引
 
-**DLW 固定网格二阶系数与三路线误差（2026-09-30／29）：**
+## HTML 阅读地图（2026-10-04整理）
 
+当前用户报告共11个：主目录保留4个入口，7个专题页面位于 `report/`。成果概况先看 `theory_results.html`，DLW 数值结果先看 `index.html`，可运行推导与实验看 `Report.html`。
+
+| 主目录页面 | 内容与用途 |
+| --- | --- |
+| [theory_results.html](theory_results.html) | DLW／2HS 数学成果总览：起点、结论、已证范围与待证环节。 |
+| [Report.html](Report.html) | 可运行综合报告：DLW 两路非线性化与 Lean 核验、2HS 场误差比较、DLW 纵向截断残差计算。第 3 章的残差不等于时间演化后的总误差。 |
+| [dlw_hamilton.html](dlw_hamilton.html) | 周期半离散 DLW 的相空间与平均闭合、Hamilton 泛函、物理 Poisson 算子及 Jacobi 证明；局部候选排除与 Liouville 缺口。 |
+| [index.html](index.html) | DLW 数值比较主报告：三组孤子、SD／SD2／FD、Euler／RK4、固定／移动网格与误差图。 |
+
+| report 专题页面 | 内容与用途 |
+| --- | --- |
+| [dlw_bilinear_nonlinear_lean.html](report/dlw_bilinear_nonlinear_lean.html) | Report 第 1 章两路非线性化的静态证明说明与 Lean 证据。 |
+| [dlw_integrability_status.html](report/dlw_integrability_status.html) | DLW Gram、Darboux／Lax、非线性化与连续极限的当前完成情况及谱表示缺口。 |
+| [dlw_error_theory.html](report/dlw_error_theory.html) | DLW 连续方程到 SD／SDR／FD 的完整推导，二阶残差、参数系数与误差传播。 |
+| [dlw_research_ideas.html](report/dlw_research_ideas.html) | T01–T04 研究路线与限定成果：谱域校准、坐标等价、孤子二阶形变、精度数据空间。 |
+| [dlw_waveform_fields.html](report/dlw_waveform_fields.html) | index 第 6 节的独立 Euler 局部误差图集；36 张图片源逐一相同，另有单图 PDF 下载。 |
+| [dlw_conserved_mesh.html](report/dlw_conserved_mesh.html) | 五组原文算例的守恒密度网格实验，延长到 T=.01；拆分初态重构、持续移动与高频增长。配置不同于 index，不宜跨页直接排名。 |
+| [soliton_reading_guide.html](report/soliton_reading_guide.html) | 广田教材 Lax／Bäcklund 的阅读顺序、精确页码，以及 Darboux 本地选读。 |
+
+子目录中的独立专题报告：
+
+| 页面 | 内容 |
+| --- | --- |
+| [2HS 综合数值研究](Workspaces/hs_numerics_plan/GSG_STYLE_REPORT.html) | GSG 式比较框架、精确参照、多阶时间方法、三类空间路线、网格及长时失败。 |
+| [2HS 误差系数与选参](Workspaces/hs_error_theory_20260926/index.html) | 原式、校准式与普通差分的残差；参数怎样改变 u／ρ 精度。 |
+| [2HS 持续动网格大表](Workspaces/hs_error_theory_20260926/DYNAMIC_MESH_REPORT.html) | 13 参数、六方案、Euler／RK4 的双场误差对照。 |
+| [2HS Euler 波形图集](Workspaces/hs_waveform_atlas_20260927/index.html) | 波形叠加、空间误差、39 参数扫描及 x–p 分布。 |
+| [T01 完整证明](Workspaces/dlw_theory_parameter_limits_20261001/report.html) | 两个结构参数能校准多宽的谱域，以及有限 h 和共同初值下的限制。 |
+| [T03 完整证明](Workspaces/dlw_theory_soliton_geometry_20261001/report.html) | 单孤子完整谱／相位重标记仍不能吸收二阶物理形变。 |
+| [T04 完整证明](Workspaces/dlw_theory_precision_domain_20261001/report.html) | 周期零背景线性化中的 Gaussian 数据空间、统一四阶精度与可信时间。 |
+| [DLW 守恒网格短窗版](Workspaces/dlw_conserved_mesh_20261002/short_time_report.html) | 三密度、T=.001 的较早完整实验；当前 T=.01 专题见根目录 conserved_mesh。 |
+
+其余检索到的 HTML 多为正文源、修订前备份、验证样例或图表片段；`*.src.html`、`*.source.html`、`report_source.html` 与 `before*/` 不应计作新的研究报告。两个 `gsg_project/dlw_report/*figures/figures.html` 和 `controlled_results.fragment.html` 是图表／结果片段。
+
+**GSG／2HS／DLW原文方法概括（2026-10-02）：**
+
+- `Workspaces/paper_reading_20261002/READING_NOTES.md`（文献类型、核心思路、方法链与数值证明层级）；`hs_extract.txt`、`tmp/pdfs/`（2HS相关原文提取与页图核对，源PDF未改）
+
+**DLW守恒密度动网格：原文五算例小域实验及T=.01延长（2026-10-02）：**
+
+- [物理u/v误差与T=.01密度比较](report/dlw_conserved_mesh.html)（原文五组、x/y[-1,1]、五密度、固定SD/FD、同初态冻结；6图19表，初态重构与演化增长分开）；[此前T=.001完整报告](Workspaces/dlw_conserved_mesh_20261002/short_time_report.html)（11图23表）
+- `Workspaces/dlw_conserved_mesh_20261002/extension/baseline.py`、`candidates.py`、`BASELINE_PROTOCOL.json`、`CANDIDATE_PROTOCOL.json`（T=.01冻结源与先验协议；mass/strong通量和初始布点对应）
+- `Workspaces/dlw_conserved_mesh_20261002/extension/baseline_out/`、`candidate_out/`（230+120条完整/停止运行，results.json、原始节点/精确场/误差/网格NPZ、源码与场哈希）
+- `Workspaces/dlw_conserved_mesh_20261002/extension/errors.csv`、`paired_errors.csv`、`controls.csv`、`moving_vs_frozen.csv`、`evaluation.csv`、`analysis.json`（同物理时刻双场差、空间/时间控制、评价与冻结配对）
+- `Workspaces/dlw_conserved_mesh_20261002/extension/theory/NEW_DENSITIES.md`、`density_checks.json`、`check_new_density.py`、`new_density_validation.json`、`source_snapshot/`（背景/强度密度、先验形状预测、40组合独立通量初态检查）
+- `Workspaces/dlw_conserved_mesh_20261002/extension/theory/PASSIVE_CURVATURE_DIRECTION.md`、`check_passive_curvature.py`、`passive_curvature_symbolic.json`（μRb守恒构造、绝对/归一标签、ALE关系9符号核验；未做演化）
+- `Workspaces/dlw_conserved_mesh_20261002/extension/audit/`（350轨道1735快照、225初值配对、92停止目标时刻完整性核验与停止CSV）
+- `Workspaces/dlw_conserved_mesh_20261002/extension_diagnostics/NOTES.md`、`FINAL_INTERPRETATION.md`、`probe_original.py`、`frozen_growth.py`、`growth.json`、`out/`（独立八轨道减步诊断、初始场增长谱、初态重构/演化分离解释）
+- `Workspaces/dlw_conserved_mesh_20261002/extension/analyze.py`、`report_source.html`、`manifest.json`、`check_report.cjs`、`html_validation.json`、`report_*.png`、`error_fields_*.png`、`growth_time_controls.png`（T=.01论文式报告、宽窄屏/链接验证和科学图）；`register_results.py`、`registration.json`（同专题记录合并）
+- `Workspaces/dlw_conserved_mesh_20261002/experiment.py`、`PROTOCOL.json`（原文五参数组、非周期共同边界、真实有限h通量、同步RK4/ALE；冻结源）
+- `Workspaces/dlw_conserved_mesh_20261002/out/results.json`、`errors.csv`、`paired_errors.csv`、`control_differences.csv`、`moving_vs_frozen.csv`、`evaluation_check.csv`、`inner_errors.csv`、各轨道NPZ（230最终轨道、原始双场/精确场/符号误差/网格及配对控制）
+- `Workspaces/dlw_conserved_mesh_20261002/theory/THEORY.md`、`verify.py`、`identity_checks.json`、`implementation_flux_checks.json`（三密度与修正通量、原文正性、固定双端网格速度、误差传播条件及边界阶数限定）
+- `Workspaces/dlw_conserved_mesh_20261002/verify.py`、`independent_validation.json`、`VALIDATION_NOTES.md`（独立60位原论文tau、160组初值/RHS/ALE、30局部平衡、y边界污染消除证据）
+- `Workspaces/dlw_conserved_mesh_20261002/audit/`（实际通量及690快照/145配对核验）；`before_y_boundary_review/`（旧230轨道、源、协议、复核完整保留）
+- `Workspaces/dlw_conserved_mesh_20261002/analyze.py`、`analysis.json`、`report_source.html`、`manifest.json`、`check_report.cjs`、`html_validation.json`、`report_*.png`（读回分析、科学图、自包含报告、宽窄屏/链接检查）；`RESEARCH_NOTES.md`（结论与复现口径）
+
+**Report两路非线性化Lean证明（2026-10-02）：**
+
+- [双线性到两套非线性形式的Lean证明](report/dlw_bilinear_nonlinear_lean.html)（共同起点Report式1；式7与式21/22两路完整终点、证明恒等式及核验证据）
+- [ReportEndpoints.lean](Workspaces/lean_contracts/proofs/ReportEndpoints.lean)（统一入口；bilinear_to_report7、bilinear_to_report21_22、bilinear_to_both及中心sqrt比值）
+- Workspaces/lean_contracts/proofs/ReportNonlinearUW.lean（真实未缩放omega、式7两条方程与物理v桥）
+- Workspaces/lean_contracts/proofs/ReportNonlinearQRM.lean（实际Q/R/M构造、式21三条约束、式22全部重构与残差恒等式）
+- Workspaces/lean_contracts/proofs/ReportQRMCalculus.lean、ReportQRatio.lean（指数/乘积真实微分、正规化Hirota恒等式与正实sqrt中心比值）
+- Workspaces/lean_contracts/proofs/.lean-runs/20261002_120733_d51ae3c5/result.json、build.log（9模块统一PASSED，逐端点标准3公理审计）
+- Workspaces/dlw_report_formal_20261002/lean_validation.json、verify_delivery.py、Check-Proofs.ps1（源码/冻结入口哈希与起终点范围核对、标准复核入口）
+- Workspaces/dlw_report_formal_20261002/build_report.py、report.source.html、manifest.json（自包含论文式报告源与生成记录）
+- Workspaces/dlw_report_formal_20261002/check_report.cjs、html_validation.json、report_1440.png、report_route2.png、report_390.png（数学/本地链接与宽窄屏核验）
+- Workspaces/dlw_report_formal_20261002/register_results.py、registration.json（共享进度与索引登记记录）
+
+**DLW／2HS理论结果与命题目录（2026-10-02）：**
+
+- [理论结果与命题结构](theory_results.html)（根目录论文式总览；31个起点／结论条目、已证层级、命题组织与关键待证环节）
+- Workspaces/theory_inventory_20261002/inventory.json（现有Lean／DLW／2HS逐条目录、真实证明来源及假设）
+- Workspaces/theory_inventory_20261002/build_report.py、finalize_inventory.py、manifest.json（自包含页面生成、审查修订、来源SHA-256及Lean核对范围）
+- Workspaces/theory_inventory_20261002/check_report.cjs、validation.json、report_1440.png、report_390.png、report_theorem.png（31双项结构、公式／本地链接／宽窄屏核验与直接视觉检查）
+
+原根目录T01/T03独立HTML已移至`Trash/`；完整证明保留于各自工作目录，统一入口为[研究命题与结果](report/dlw_research_ideas.html)。归档哈希：`Workspaces/dlw_research_pipeline_20261001/t01_t03_archive_move.json`。
+
+**T01：DLW 两结构参数的谱范围限制（2026-10-01）：**
+
+- [DLW：两个结构参数的谱范围限制](Workspaces/dlw_theory_parameter_limits_20261001/report.html)（完整相位范围定理、有限h认证、物理质量见证的守恒取消与共同初值初速限制；不等同有限时间双场误差结论）
+- `Workspaces/dlw_theory_parameter_limits_20261001/REPORT.md`、`finite_h_review.md`、`physical_bridge_review.md`（主稿、有限h完整证明与独立物理审查）
+- `Workspaces/dlw_theory_parameter_limits_20261001/THEORY_FREEZE.json`、`CERTIFICATE_CONTRACT.json`（核对前冻结的预测、指标及两个有限h区间证书条件）
+- `Workspaces/dlw_theory_parameter_limits_20261001/verify_theory.py`、`theory_validation.json`（14项精确代数、2项有理区间认证、4组定向公式核对；零PDE演化）
+- `Workspaces/dlw_theory_parameter_limits_20261001/build_report.py`、`report_source.html`、`manifest.json`、`delivery_manifest.json`（主稿生成、自包含数学资源及交付哈希）
+- `Workspaces/dlw_theory_parameter_limits_20261001/check_report.cjs`、`html_validation.json`、`report_1280.png`、`report_390.png`、`report_physical.png`（22编号公式、187数学片段、宽窄屏及链接检查）；`register_results.py`、`registration.json`（本题共享索引最小修改记录）
+
+**DLW T03：孤子结构与二阶物理形变（2026-10-01）：**
+
+- [精确孤子结构与二阶物理形变](Workspaces/dlw_theory_soliton_geometry_20261001/report.html)（完整谱/相位局部距离h²d+O(h⁴)、严格正系数、有限h非恒等性、认证下界；静态与共同初值演化分开）
+- `Workspaces/dlw_theory_soliton_geometry_20261001/THEORY.md`、`frozen/THEORY_v1.md`（完整证明、自然函数插值、冻结参数/窗口/范数、冻结后文字校正记录）；`audit/EXACT_FAMILY_AUDIT.md`（独立公式核对）
+- `Workspaces/dlw_theory_soliton_geometry_20261001/symbolic_checks.py`、`symbolic_validation.json`（16组48项精确恒等式及2项多项式断言；展开、切向、极点与留数）
+- `Workspaces/dlw_theory_soliton_geometry_20261001/quantitative_bound.py`、`quantitative_bound.json`（有理原函数、正atanh级数尾界与整数平方根；d≥du>3.166e−5的严格认证）
+- `Workspaces/dlw_theory_soliton_geometry_20261001/verify_geometry.py`、`geometry_validation.json`（冻结单点4个h，80/120/180阶求积及全参数局部拟合；无PDE或扫描）
+- `Workspaces/dlw_theory_soliton_geometry_20261001/build_report.py`、`dlw_soliton_geometry.src.html`、`manifest.json`（论文式自包含HTML生成与哈希）；`check_report.cjs`、`html_validation.json`、`report_1280.png`、`report_390.png`、`report_theorem.png`、`report_validation.png`（18公式、引用与宽窄屏检查）；`update_records.ps1`（共享索引的短时独占局部写入）
+
+**T04：DLW 高阶精度的数据空间与可信时间（2026-10-01）：**
+
+- [T04结论与逐步解释](report/dlw_research_ideas.html#T04)；[完整证明](Workspaces/dlw_theory_precision_domain_20261001/report.html)（Gaussian尖锐半径、Sobolev/解析线性反例、严格余量统一四阶与临界单位球反例、整数带宽联合极限；24公式、4表）
+- Workspaces/dlw_theory_precision_domain_20261001/report.src.html、report.html、build_report.py、manifest.json（本题专属正文源及完整证明；默认生成到工作目录）。原主目录HTML已移至Trash/dlw_precision_domain.html，移动哈希记录见Workspaces/dlw_research_pipeline_20261001/t04_archive_move.json
+- Workspaces/dlw_theory_precision_domain_20261001/data_space_review.md、symbol_review.md、THEORY_AUDIT.md（独立证明复核、精度阈值与端点、既有事实/新证明/限制及冻结措辞限定）
+- Workspaces/dlw_theory_precision_domain_20261001/PREDICTIONS.json、verify_predictions.py、verification.json（数值前冻结；420位直接二维模态核验，无新PDE或调参）
+- Workspaces/dlw_theory_precision_domain_20261001/check_report.cjs、html_validation.json、report_1280.png、report_390.png、report_uniform.png（222数学渲染、公式/本地链接/宽窄屏核验）
+- Workspaces/dlw_theory_precision_domain_20261001/update_records.ps1（重读并独占短时写入本题共享进度/索引条目）
+
+**DLW 研究 pipeline：理论驱动的命题调研（2026-10-01）：**
+
+- [DLW：理论驱动的研究命题](report/dlw_research_ideas.html)（四个理论问题：谱范围障碍、离散坐标等价、完整孤子族二阶形变、统一精度空间；先预测再验证）
+- `Workspaces/dlw_research_pipeline_20261001/ideas.json`（修订5，T01–T04、12个来源；T01/T03/T04限定结果已接入，T02保留待研究命题）；`RESEARCH_NOTES.md`（三子代理调研、理论查重及证明边界）
+- `Workspaces/dlw_research_pipeline_20261001/build_report.py`、`_src/dlw_research_ideas.html`、`manifest.json`（数据驱动的正文生成入口、自包含源、数据/页面哈希）
+- `Workspaces/dlw_research_pipeline_20261001/check_theory_seeds.py`、`theory_seed_checks.json`（两理论种子的18项精确代数核对，不是四命题的完整证明）
+- `Workspaces/dlw_research_pipeline_20261001/check_report.cjs`、`html_validation.json`、`report_1280.png`、`report_390.png`、`report_idea_detail.png`（宽窄屏、12来源、四项预测/比较/边界及三项共15步解释核查）
+- `Workspaces/dlw_research_pipeline_20261001/read_saved_fields.py`、`paired_fields.json`、`evidence_audit.json`（旧CSV/NPZ内部重读，无新PDE，不以小差距立题）；`before_evidence_review/`、`before_theory_first/`（旧登记和报告保留）
+
+**DLW 波形分布、固定网格二阶系数与三路线误差（2026-10-02／01／09-30／29）：**
+
+- [DLW：从初始方程到误差估计](report/dlw_error_theory.html)（主目录论文式报告；连续/双线性/SD/SDR/FD转换、二阶残差逐项推导、参数系数与误差传播，94个编号公式）
+- `Workspaces/dlw_factor_model_20260930/_src/equations_and_estimates.md`、`_src/dlw_error_theory.src.html`、`generate_error_theory.py`、`build_html.ps1`（正文与自包含HTML生成入口）
+- `Workspaces/dlw_factor_model_20260930/derivation_checks.py`、`derivation_validation.json`（新增30项精确代数检查）；`check_error_theory.cjs`、`html_validation.json`、`html_manifest.json`、`theory_*.png`（数学编译、宽窄屏和引用核对）
+- [系统参数与离散结构的误差映射](Workspaces/dlw_factor_model_20260930/REPORT.md)（理论输入、单孤子显式参数剖面及统一残差界、多孤子累积量、物理Fourier矩阵、传播与双参数响应；数值验证留后）
+- `Workspaces/dlw_factor_model_20260930/symbolic_checks.py`、`symbolic_validation.json`（40项精确符号恒等式与代数极值核对，未使用误差表或PDE轨道）
+- `Workspaces/dlw_factor_model_20260930/document_validation.json`（数学编译、40连续公式编号及本地引用检查）
 - [固定网格空间二阶系数及上下界](Workspaces/dlw_h2_bounds_20260930/REPORT.md)（原文A/B/C；纯y残差、有限h余项、共同初值场误差首项初始增长率和传播条件界）
 - `Workspaces/dlw_h2_bounds_20260930/single_bounds.py`、`bernstein.py`、`two_coefficients.py`、`two_strip_bounds.py`（精确有理极值包围及二孤子物理见证）
 - `Workspaces/dlw_h2_bounds_20260930/velocity_bounds.py`、`remainder_bounds.py`（初始误差系数速度及有限h四阶余项）
@@ -14,6 +153,17 @@
 - `Workspaces/dlw_single_aligned_20260929/out/control_comparisons.csv`、`fine_time_checks.csv`、`Euler_time_order.csv`、`initial_uv_matching.csv`、`evaluation_density.csv`、`qr_reconstruction.csv`（控制、时间阶、初边值和场恢复核对）
 - `Workspaces/dlw_single_aligned_20260929/out/results.json`、`validation.json`、`status.csv`、`RK4/*.npz`、`Euler/*.npz`（完整计划、验收、状态、原始场和哈希）
 - [index.html](index.html)（《DLW孤子数值解的误差比较》；单孤子A/B与二孤子C的三方案、两时间法、两网格配对结果；A的SD2固定格空间限制用†标记）
+- [DLW：Euler 局部误差分布](report/dlw_waveform_fields.html)（T=.01、x∈[-1,1]；18Euler组合，u/v、三方案、两网格分别绘成36张单图；index第6节同步）
+- `Workspaces/dlw_waveform_fields_20261001/revision_euler_crop/plot_euler_errors.py`、`build_euler_reports.py`、`euler_errors.src.html`（当前单面板绘图与两根HTML生成，build_reports.py入口转发）
+- `Workspaces/dlw_waveform_fields_20261001/revision_euler_crop/euler_cropped_errors.csv`、`euler_cropped_errors.npz`、`euler_plot_validation.json`、`euler_delivery_manifest.json`、`euler_figure_manifest.json`（401×24裁窗误差、36峰位/色限与交付哈希）
+- `Workspaces/dlw_waveform_fields_20261001/revision_euler_crop/euler_crop_audit.py`、`euler_crop_audit.json`（18源哈希与36独立有理tau误差/峰位复核）
+- `Workspaces/dlw_waveform_fields_20261001/check_euler_report.cjs`、`euler_html_validation.json`、`euler_preview/`（两页各36独立Euler图、宽窄屏与折叠核对）
+- `Workspaces/dlw_waveform_fields_20261001/revision_euler_crop/figures/*.png/.pdf`、`before/`、`update_euler_records.ps1`、`euler_registration.json`（36单图PNG/PDF、修订前备份与合并登记）
+- `Workspaces/dlw_waveform_fields_20261001/plot_fields.py`、`build_reports.py`、`waveform_fields.src.html`、`README.md`（保存场作图、自包含两报告生成与复现）
+- `Workspaces/dlw_waveform_fields_20261001/field_errors.csv`、`plotted_fields.npz`、`plot_validation.json`、`delivery_manifest.json`（72全场误差/峰位、全部绘图场、原始场/图数据核对与交付哈希）
+- `Workspaces/dlw_waveform_fields_20261001/audit_saved_fields.py`、`data_audit.json`（36源哈希、独立tau参照、72原表误差与48比值复核）
+- `Workspaces/dlw_waveform_fields_20261001/check_report.cjs`、`html_validation.json`、`html_preview/`（双页1440/390px数学、36/12图解码、折叠与链接核对）
+- `Workspaces/dlw_waveform_fields_20261001/figures/*_profiles.png/.pdf/.svg`、`*_wavefields.png/.pdf`、`*_errorfields.png/.pdf`（A/B/C×RK4/Euler×fixed/moving；36PNG、36PDF、12SVG）；`before/`、`update_records.ps1`、`registration.json`（修改前副本与共享记录的合并登记）
 - `Workspaces/gsg_project/dlw_report/_src/index.md`、`_src/index.src.html`、`generate_index_report.py`（当前正文与生成入口）
 - `Workspaces/index_recurrences_20260930/check_page.cjs`、`validation.json`、`recurrences_desktop.png`、`sd2_desktop.png`、`recurrences_mobile.png`（首页SD/SD2/FD递推式、连续编号与宽窄屏检查）；`before/`（修改前正文、模板、页面及同文副本）
 - [CONTROLLED_RESULTS.md](Workspaces/dlw_error_inventory_20260929/CONTROLLED_RESULTS.md)（同文副本）；`check_paper.cjs`、`paper_preview/`（页面核对）；`before_paper_rewrite/`（上版存档）
@@ -77,8 +227,101 @@
 
 - [当前版审查](Workspaces/report_review_20260928/REVIEW.md)；`check.py`、`checks.json`、`page.json`（公式、原文式100、连续PDE点检、表格与显示核对）
 
-- [Report.html](Report.html)（DLW两场与保留势Q/R/M非线性化、逐步变量重构；2HS原文单/二孤子Integrable与FD两方案比较）
-- `Workspaces/gsg_project/dlw_report/_src/Report.md`、`_src/Report.src.html`（权威正文／生成模板）
+- [Report.html](Report.html)（论文排版；中文说明→代码→原始输出，▶逐段运行，UW四点/QRM三点指南与默认折叠的关键证明摘录）
+
+<!-- REPORT_NOTEBOOK_INDEX_BEGIN -->
+
+**Report 单入口与逐段运行（2026-10-02）：**
+
+- [Report.exe](Report.exe)（单一用户入口；自动后台服务与打开报告，现有本机环境）
+- [README.md](Workspaces/report_notebook_20261002/README.md)（当前关键证明阅读指南、生成、持久单元和单入口说明）
+- [build_report.py](Workspaces/report_notebook_20261002/build_report.py)（保持原排版生成逐段增强页与精简关键证明展示）
+- [notebook.js](Workspaces/report_notebook_20261002/notebook.js)（持久Worker、显式前置检查、仅当前段执行、Lean三阶段与页面lease）
+- [notebook.css](Workspaces/report_notebook_20261002/notebook.css)（沿用正文的代码/结果与窄屏/打印排版）
+- [report.src.html](Workspaces/report_notebook_20261002/report.src.html)（当前增强页源码，UW四点/QRM三点指南与单一折叠关键摘录）
+- [build_manifest.json](Workspaces/report_notebook_20261002/build_manifest.json)（原公式/编号/产物哈希）
+- [check_stepwise.cjs](Workspaces/report_notebook_20261002/check_stepwise.cjs)（实际数值单段执行与持久状态/编辑/错误/取消/超时/窄屏/打印核验）
+- [stepwise_browser_validation.json](Workspaces/report_notebook_20261002/stepwise_browser_validation.json)（14项新浏览器检查证据）
+- [stepwise_max_points_validation.json](Workspaces/report_notebook_20261002/stepwise_max_points_validation.json)（最大10001个空间点的逐段演化与两幅绘图核验）
+- [check_raw_output.cjs](Workspaces/report_notebook_20261002/check_raw_output.cjs)（原始输出、单块Lean展示、注释与当前UW真实三阶段的浏览器核验）
+- [raw_output_validation.json](Workspaces/report_notebook_20261002/raw_output_validation.json)（前次原始输出逐字核对与数值默认结果/排版证据）
+- [colab_style_validation.json](Workspaces/report_notebook_20261002/colab_style_validation.json)（此前中文段前说明/三角按钮/键盘及鼠标逐段运行/精确Lean输入的浏览器核验）
+- [compact_proof_validation.json](Workspaces/report_notebook_20261002/compact_proof_validation.json)（当前阅读指南/单一默认折叠关键摘录/排版核验与执行、证明源不变证据）
+- [check_stepwise_lean_ui.cjs](Workspaces/report_notebook_20261002/check_stepwise_lean_ui.cjs)（QRM网页import/起点/终点三段及重置验证）
+- [stepwise_lean_ui_validation.json](Workspaces/report_notebook_20261002/stepwise_lean_ui_validation.json)（三次独立点击、同会话真实cell PASSED与公理）
+- [register_stepwise.py](Workspaces/report_notebook_20261002/register_stepwise.py)（本专题合并登记入口）
+- [stepwise_registration.json](Workspaces/report_notebook_20261002/stepwise_registration.json)（当前报告/入口/共享记录哈希）
+- [step_material/build_material.py](Workspaces/report_notebook_20261002/step_material/build_material.py)（从旧数值实现拆分显式共享状态的当前单元）
+- [step_material/cells.json](Workspaces/report_notebook_20261002/step_material/cells.json)（DLW七段当前代码与前置关系）
+- [step_material/hs_cells.json](Workspaces/report_notebook_20261002/step_material/hs_cells.json)（2HS七段当前代码与前置关系）
+- [step_material/intro.html](Workspaces/report_notebook_20261002/step_material/intro.html)（DLW残差/主系数/全波形上界说明）
+- [step_material/hs_intro.html](Workspaces/report_notebook_20261002/step_material/hs_intro.html)（2HS单孤子逐段演化与误差说明）
+- [step_material/README.md](Workspaces/report_notebook_20261002/step_material/README.md)（当前数值单元共享接口和说明）
+- [step_material/validate_material.cjs](Workspaces/report_notebook_20261002/step_material/validate_material.cjs)（逐cell真实执行、同原默认回归、缺前置/编辑/语法核验）
+- [step_material/validation.json](Workspaces/report_notebook_20261002/step_material/validation.json)（当前数值实现核验）
+- [step_material/raw_output_validation.json](Workspaces/report_notebook_20261002/step_material/raw_output_validation.json)（去除人为输出、注释修订后的数学结果与单元核验）
+- [step_material/colab_style_validation.json](Workspaces/report_notebook_20261002/step_material/colab_style_validation.json)（中文lead/局部注释/空行修改后可执行数学不变与默认/编辑回归）
+- [step_material/fetch_mit_refs.py](Workspaces/report_notebook_20261002/step_material/fetch_mit_refs.py)（公开参考ipynb源快照读取）
+- [step_material/refs/MIT_NOTEBOOK_REVIEW.md](Workspaces/report_notebook_20261002/step_material/refs/MIT_NOTEBOOK_REVIEW.md)（两份MIT参考实际单元节奏分析）
+- [step_material/refs/notebook_structure.json](Workspaces/report_notebook_20261002/step_material/refs/notebook_structure.json)（65单元结构、来源及源码SHA）
+- [lean_material/stage_manifest.json](Workspaces/report_notebook_20261002/lean_material/stage_manifest.json)（六个可信Lean单元的精确显示源码与hash）
+- [lean_material/raw_output_semantic_validation.json](Workspaces/report_notebook_20261002/lean_material/raw_output_semantic_validation.json)（上一版六Lean单元仅注释变化的历史核验）
+- [lean_material/colab_start_validation.json](Workspaces/report_notebook_20261002/lean_material/colab_start_validation.json)（当前StartPoint与终点实际衔接、六精确单元真实编译为0的完整证据）
+- [runtime/report_server.py](Workspaces/report_notebook_20261002/runtime/report_server.py)（2.2同源可信服务、独立原始编译器通道、会话/lease/自动回收）
+- [runtime/stepwise_lean.py](Workspaces/report_notebook_20261002/runtime/stepwise_lean.py)（import一次检查库、后段实际编当前cell、源/产物hash校验）
+- [runtime/stepwise_validation_uw.json](Workspaces/report_notebook_20261002/runtime/stepwise_validation_uw.json)（UW三阶段真实PASSED与前置/重置核验）
+- [runtime/raw_compiler_validation.json](Workspaces/report_notebook_20261002/runtime/raw_compiler_validation.json)（真实Lean成功、类型错误、stderr及Unicode原始输出传输核验）
+- [runtime/exclusive_binding_validation.json](Workspaces/report_notebook_20261002/runtime/exclusive_binding_validation.json)（Windows第二服务绑定被拒绝且原服务身份/状态文件保留的实际验证）
+- [runtime/README.md](Workspaces/report_notebook_20261002/runtime/README.md)（当前2.0接口与执行语义）
+- [package/ReportLauncher.cs](Workspaces/report_notebook_20261002/package/ReportLauncher.cs)（Windows GUI单入口、隐藏启动、版本/实例检查与安全升级）
+- [package/build-launcher.ps1](Workspaces/report_notebook_20261002/package/build-launcher.ps1)（使用已有.NET编译器构建入口）
+- [package/build.json](Workspaces/report_notebook_20261002/package/build.json)（EXE当前构建/hash记录）
+- [package/Report.exe](Workspaces/report_notebook_20261002/package/Report.exe)（已构建根入口的工作副本）
+- [package/README.md](Workspaces/report_notebook_20261002/package/README.md)（真实本机单入口范围与验证说明）
+- [package/verify-launcher.ps1](Workspaces/report_notebook_20261002/package/verify-launcher.ps1)（并发启动/复用/无窗口/自动退出测试）
+- [package/verify-upgrade.py](Workspaces/report_notebook_20261002/package/verify-upgrade.py)（隔离fixture中的活动任务保护与空闲升级）
+- [package/verification_20261002_125350_504.json](Workspaces/report_notebook_20261002/package/verification_20261002_125350_504.json)（单入口真实并发/无窗口/闲置退出证据）
+- [package/upgrade_verification_20261002_125409_661959.json](Workspaces/report_notebook_20261002/package/upgrade_verification_20261002_125409_661959.json)（空闲升级/任务保护/中文提示证据）
+- [error-coefficient.js](Workspaces/report_notebook_20261002/step_material/error-coefficient.js)（对应可见单元源码）
+- [error-config.js](Workspaces/report_notebook_20261002/step_material/error-config.js)（对应可见单元源码）
+- [error-convergence.js](Workspaces/report_notebook_20261002/step_material/error-convergence.js)（对应可见单元源码）
+- [error-main.js](Workspaces/report_notebook_20261002/step_material/error-main.js)（对应可见单元源码）
+- [error-prepare.js](Workspaces/report_notebook_20261002/step_material/error-prepare.js)（对应可见单元源码）
+- [error-profile.js](Workspaces/report_notebook_20261002/step_material/error-profile.js)（对应可见单元源码）
+- [error-residual.js](Workspaces/report_notebook_20261002/step_material/error-residual.js)（对应可见单元源码）
+- [hs-config.js](Workspaces/report_notebook_20261002/step_material/hs-config.js)（对应可见单元源码）
+- [hs-error.js](Workspaces/report_notebook_20261002/step_material/hs-error.js)（对应可见单元源码）
+- [hs-evolve.js](Workspaces/report_notebook_20261002/step_material/hs-evolve.js)（对应可见单元源码）
+- [hs-prepare.js](Workspaces/report_notebook_20261002/step_material/hs-prepare.js)（对应可见单元源码）
+- [hs-reference.js](Workspaces/report_notebook_20261002/step_material/hs-reference.js)（对应可见单元源码）
+- [hs-rk4.js](Workspaces/report_notebook_20261002/step_material/hs-rk4.js)（对应可见单元源码）
+- [hs-spatial.js](Workspaces/report_notebook_20261002/step_material/hs-spatial.js)（对应可见单元源码）
+- [StepQRMEndpoint.lean](Workspaces/report_notebook_20261002/lean_material/steps/StepQRMEndpoint.lean)（固定可信分段编译源码）
+- [StepQRMImport.lean](Workspaces/report_notebook_20261002/lean_material/steps/StepQRMImport.lean)（固定可信分段编译源码）
+- [StepQRMStart.lean](Workspaces/report_notebook_20261002/lean_material/steps/StepQRMStart.lean)（固定可信分段编译源码）
+- [StepUWEndpoint.lean](Workspaces/report_notebook_20261002/lean_material/steps/StepUWEndpoint.lean)（固定可信分段编译源码）
+- [StepUWImport.lean](Workspaces/report_notebook_20261002/lean_material/steps/StepUWImport.lean)（固定可信分段编译源码）
+- [StepUWStart.lean](Workspaces/report_notebook_20261002/lean_material/steps/StepUWStart.lean)（固定可信分段编译源码）
+- `Workspaces/report_notebook_20261002/step_material/refs/*.ipynb`（MIT两份公开参考原快照，不在运行时加载）
+- `Workspaces/report_notebook_20261002/stepwise_preview/*.png`（1440/390布局、QRM三阶段真实OK）
+- `Workspaces/report_notebook_20261002/raw_output_preview/*.png`（当前单块源码/编译原始输出/数值结果的1440与390布局）
+- `Workspaces/report_notebook_20261002/compact_proof_preview/*.jpg`（当前UW四点/QRM三点阅读指南与单一折叠关键证明摘录的实际页面预览）
+- `Workspaces/report_notebook_20261002/colab_style_preview/*.jpg`（此前中文说明、Lean起点及三角运行按钮的实际页面预览）
+- `Workspaces/report_notebook_20261002/lean_material/colab_validation_runs/*/`（六个当前精确薄单元的新编译产物与真实输出，既有库只读）
+- `Workspaces/report_notebook_20261002/before_compact_proof/`（精简完整证明展示并加入阅读指南前的源码与页面备份）
+- `Workspaces/report_notebook_20261002/before_colab_style/`（中文段前说明/StartPoint/三角按钮修订前源码与页面备份）
+- `Workspaces/report_notebook_20261002/before_raw_output/`（本轮输出/源码展示修订前材料备份）
+- `Workspaces/report_notebook_20261002/before_stepwise/`（本轮修改前页面、代码与证据；旧首次EXE构建保留）
+- `Trash/report_launchers_before_packaging_20261002/启动报告.cmd`、`停止报告.cmd`（旧根入口存档，当前不用）
+- `Workspaces/report_notebook_20261002/lean_material/proofs/`、`error_material/`（原可信证明快照与原数值实现/独立核查，未改数学内容）
+- `Workspaces/report_notebook_20261002/runtime/jobs/*/job.json`、`cell-result.json`、`lib/lean/*.olean`（每会话真实编译/产物记录）
+- `Workspaces/report_notebook_20261002/lean_material/proofs/.lean-runs/*`（标准证明库重编记录与源码hash）
+- `Workspaces/report_notebook_20261002/package/logs/`、`verification_*.json`、`upgrade_verification_*.json`（全部入口/测试历史记录）
+- `Workspaces/report_notebook_20261002/check_notebook.cjs`、`check_lean_ui.cjs`、`browser_validation.json`、`lean_ui_validation.json`、`register_records.py`、`registration.json`、`preview/`、`before/`（前一版完整证据与基础页，保留为历史，不作为新版再测试入口）
+
+<!-- REPORT_NOTEBOOK_INDEX_END -->
+
+- `Workspaces/gsg_project/dlw_report/_src/Report.md`、`_src/Report.src.html`（基础数学正文／基础生成模板；可运行扩展见 report_notebook_20261002/build_report.py）
 - `Workspaces/gsg_project/dlw_report/submission_report/two_update_formulas_validation.json`、`two_update_formulas_page.png`（二孤子递推式14a/14b及初边值的页面核对）；`before_two_update_formulas_20260928/`（增补前正文及页面）
 - `Workspaces/gsg_project/dlw_report/submission_report/update_formulas_validation.json`、`update_formulas_page.png`（Integrable/FD更新与恢复公式、共用RK4递推的页面核对）；`before_update_formulas_20260928/`（增补前正文及页面）
 - `Workspaces/gsg_project/dlw_report/generate_submission_report.py`、`submission_report/`（单孤子及二孤子原文参数读回、rho误差图PNG/PDF、页面检查）

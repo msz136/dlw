@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lax 对与 Darboux 变换：阅读起点</title>
+<style>
+:root{color-scheme:light}*{box-sizing:border-box}body{margin:0;background:#f7f5f0;color:#242320;font-family:Georgia,"Noto Serif SC","Songti SC",SimSun,serif;font-size:17px;line-height:1.85}main{max-width:860px;margin:48px auto;padding:48px 58px;background:#fff}h1{font-size:30px;line-height:1.4;margin:0 0 22px;font-weight:600}h2{font-size:21px;line-height:1.5;margin:32px 0 12px}p{margin:12px 0}a{color:#345665;text-underline-offset:4px}a:focus-visible{outline:2px solid #345665;outline-offset:3px}.lead{font-size:19px}.source,.note{font-size:14px;color:#625f58}.route{border-left:3px solid #5f706a;padding-left:18px;margin:22px 0}.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.7}caption{text-align:left;color:#625f58;font-size:14px;margin:0 0 10px}th,td{border-bottom:1px solid #dedbd4;padding:11px 8px;text-align:left;vertical-align:top}th{font-weight:600;border-top:1px solid #a9a59a}td:first-child{min-width:66px}td:nth-child(3),td:nth-child(4){white-space:nowrap}ol{padding-left:24px}li{margin:8px 0}.equation{text-align:center;font-size:20px;margin:22px 0}.footer{border-top:1px solid #dedbd4;margin-top:30px;padding-top:16px}@media(max-width:650px){body{font-size:16px}main{margin:0;padding:30px 20px}h1{font-size:25px}.lead{font-size:17px}table{font-size:14px}th,td{padding:10px 6px}}@media print{body{background:#fff}main{margin:0;padding:0;max-width:none}a{color:inherit}}
+</style>
+</head>
+<body><main><article>
+<h1>Lax 对与 Darboux 变换：阅读起点</h1>
+<p class="lead">先读第 4 章 §4.0，再读 §4.1 到书内第 157 页。最值得精读的是第 156–157 页：这里把双线性变换改写成 Lax 对，并验证相容条件。</p>
+<p class="source">教材：广田良吾《孤子理论中的直接方法》，中文译稿，封面标注 2007 年 12 月。文件位于 <a href="../Paper/sources/hirota-book-new.pdf">Paper/sources/hirota-book-new.pdf</a>，共 202 个 PDF 页面。正文的 PDF 页码 = 书内页码 + 9。</p>
+
+<h2>1. 最短阅读顺序</h2>
+<div class="route"><strong>§4.0 → §4.1，重点 156–157 页。</strong><br>若 D 算子尚不熟悉，先读 §1.5；若对数变量变换不熟悉，再补 §1.6。</div>
+<div class="table-wrap"><table>
+<caption>下列链接跳到各段的 PDF 起始页；若阅读器未采用链接中的页码，可手动输入第四列。</caption>
+<thead><tr><th scope="col">顺序</th><th scope="col">章节与阅读目标</th><th scope="col">书内页</th><th scope="col">PDF 页</th></tr></thead>
+<tbody>
+<tr><td>先读</td><td><a href="../Paper/sources/hirota-book-new.pdf#page=159">§4.0 什么是贝克隆变换？</a><br>理解两个解之间的关系，以及变换如何产生新解和守恒律。</td><td>150–153</td><td>159–162</td></tr>
+<tr><td>核心</td><td><a href="../Paper/sources/hirota-book-new.pdf#page=162">§4.1 KdV-型的双线性方程的贝克隆变换</a><br>第一轮先读 153–157 页；随后再读 mKdV 与 Miura 部分。</td><td>153–161</td><td>162–170</td></tr>
+<tr><td>精读</td><td><a href="../Paper/sources/hirota-book-new.pdf#page=165">§4.1 中的“(i) 逆散射形式”</a><br>从波函数的定义走到两条线性方程，再由相容条件恢复 KdV。</td><td>156–157</td><td>165–166</td></tr>
+<tr><td>按需补</td><td><a href="../Paper/sources/hirota-book-new.pdf#page=35">§1.5 一种新的微分算子，D-算子</a><br>掌握 D 算子的定义与基本展开，理解双线性公式。</td><td>26–36</td><td>35–45</td></tr>
+<tr><td>按需补</td><td><a href="../Paper/sources/hirota-book-new.pdf#page=45">§1.6 非线性微分方程的双线性化</a><br>理解有理变换、对数变换与双对数变换。</td><td>36–44</td><td>45–53</td></tr>
+</tbody></table></div>
+<p>若希望从更基础的变量变换开始，可先看 <a href="../Paper/sources/hirota-book-new.pdf#page=21">§1.3 非线性微分方程的线性化</a>（书内 12–19 页；PDF 21–28 页），尤其是 Riccati 方程的例子。第二章的行列式与 Pfaff 式可以留到后面。</p>
+
+<h2>2. 读到什么程度算抓住主线</h2>
+<p>书内第 156 页引入辅助波函数 Ψ = f′/f，并用 u = 2(log f)<sub>xx</sub> 定义非线性场。这里 f′ 表示另一个解函数，不是对 f 求导。第 157 页把双线性变换改写成对 Ψ 的线性方程，再核对两个线性算子的相容性。</p>
+<ol>
+<li>能区分非线性场 u、辅助波函数 Ψ 和谱参数 λ。</li>
+<li>能解释：同一 Ψ 必须同时满足两条线性方程，因此两个方向的演化必须相容。</li>
+<li>能把相容条件算回 KdV，而不仅仅记住两条线性方程。</li>
+</ol>
+<p>这段内容的核心是“线性方程的相容性如何给出非线性方程”。不需要先完成整套逆散射理论。</p>
+<p class="note">手算提示：第 156 页式 (4.27a) 的时间项系数印为 c₀ + λ，前后的式 (4.26)、(4.34)、(4.35) 则为 c₀ + 3λ。核算时请交叉对照第 155、157 页。</p>
+
+<h2>3. 继续接到 DLW 与半离散结构</h2>
+<p>对 DLW，第二轮读 <a href="../Paper/sources/hirota-book-new.pdf#page=171">§4.2 KP 方程的贝克隆变换</a>（书内 162 页起；PDF 171 页起），再读 <a href="../Paper/sources/hirota-book-new.pdf#page=124">§3.2 KP 方程：格兰姆行列式解</a>（书内 115–120 页；PDF 124–129 页）。前者讲解之间的变换，后者解释 Gram 型 τ 函数如何满足双线性方程，呼应我们现有的 KP 约化与 Gram 构造。</p>
+<p>对含格点的线性问题，接着读 <a href="../Paper/sources/hirota-book-new.pdf#page=181">§4.5.1 Lax 对</a>（书内 172–173 页；PDF 181–182 页）。这里的例子是二维 Toda：波函数同时带连续变量与离散下标，适合作为阅读 2HS 半离散 Lax 系统前的练习。</p>
+<p>你要学习的是 <strong>Darboux（达布）变换</strong>。本书第 4 章主要采用 <strong>Bäcklund（贝克隆）变换</strong>的表述，适合先建立 Lax 对、波函数与解变换之间的联系。Darboux 从辅助线性问题的变换出发，Bäcklund 描述非线性解之间的关系，两者在许多可积系统中相联系；本书目录没有独立的 Darboux 专题章节。</p>
+<h2>4. Darboux 的本地选读</h2>
+<p>读完上述 Lax 推导后，可看 Tian、Cheng、Shao 的 <a href="../Paper/refs/ctp8805.pdf#page=1">MGDLW Lax 对与递推公式论文</a>（Commun. Theor. Phys. 41，2004，807–812）。先读 §2 在 PDF 第 1 页列出的 Lax 方程，再看 <a href="../Paper/refs/ctp8805.pdf#page=2">PDF 第 2 页／印刷 808 页的 Lemma 2.1、2.2</a>：作者在这里回顾 binary Darboux transformation，给出波函数与势的同步更新。</p>
+<p>第一次只抓住“选一个种子波函数 → 变换其他波函数 → 更新势 → 保持线性方程的形式”，将后面的长递推公式留到第二轮。该文采用 MGDLW 变量，接到当前 DLW 时需要核对变量与归一化。也可对照<a href="dlw_integrability_status.html">我们现有的 DLW 可积结构报告</a>，识别其中两条 Darboux 交织关系的作用。</p>
+<p class="source footer">目录、封面及关键正文页已核对。阅读起点以本书的 KdV 示例为准；DLW 与 2HS 的具体谱方程需回到各自原文。2026-10-02。</p>
+</article></main></body></html>

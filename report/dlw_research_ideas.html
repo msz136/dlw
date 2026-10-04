@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="从谱曲率、离散重构、孤子流形与高频传播出发的四个DLW理论研究命题。">
+<title>DLW：理论驱动的研究命题</title>
+<style>
+*{box-sizing:border-box}body{margin:0;color:#171717;background:#f2f1ef;font:17px/1.9 "Times New Roman","SimSun",serif}
+main{max-width:1040px;margin:32px auto;padding:52px 70px 60px;background:white}
+h1{font-size:29px;line-height:1.55;text-align:center;margin:0 0 8px;font-weight:600}
+.date{text-align:center;font-size:14px;color:#666;margin-bottom:26px}
+.abstract{border-top:1px solid #777;border-bottom:1px solid #777;padding:16px 0}
+h2{font-size:22px;line-height:1.65;margin:34px 0 14px;break-after:avoid}
+h3{font-size:18px;line-height:1.65;margin:22px 0 8px}.result{border-block:1px solid #999;padding:14px 0}details{margin:20px 0;padding:12px 0;border-top:1px solid #bbb}summary{cursor:pointer;font-weight:600}summary:focus-visible{outline:2px solid #284f69;outline-offset:4px}
+p{margin:12px 0;text-align:justify;overflow-wrap:break-word}strong{font-weight:600}
+a{color:#284f69;text-underline-offset:3px}a:focus-visible{outline:2px solid #284f69;outline-offset:4px}
+table{border-collapse:collapse;width:100%;font-size:15px;border-top:1.5px solid #333;border-bottom:1.5px solid #333;margin:22px 0}
+th,td{padding:8px 9px;text-align:left;vertical-align:top;border-bottom:1px solid #ddd}
+th{border-bottom:1px solid #666}tr:last-child td{border-bottom:0}th:first-child,td:first-child{width:54px}th:last-child,td:last-child{width:92px}
+.equations{margin:18px 0;padding:10px 16px;border-left:2px solid #aaa;background:#fafafa;font-size:16px;line-height:1.8}
+.equations p{margin:8px 0;text-align:left;overflow-wrap:anywhere}
+.conditions{font-size:15px;color:#444}.references{font-size:14px;line-height:1.85;padding-left:26px}
+.scope{font-size:14px;color:#555;border-top:1px solid #bbb;padding-top:14px;margin-top:28px}
+@media(max-width:700px){main{margin:0;padding:28px 20px 40px}body{font-size:16px}h1{font-size:24px}h2{font-size:20px}table{font-size:13px}th,td{padding:8px 5px}.equations{font-size:14px;padding:8px 11px}.conditions{font-size:14px}th:last-child,td:last-child{width:62px}}
+@media print{body{background:white;font-size:11pt}main{max-width:none;margin:0;padding:0}h1{font-size:19pt}h2{font-size:14pt}.equations,.conditions,.references{font-size:10pt}a{color:inherit}table{font-size:10pt}}
+</style></head><body><main>
+<h1>DLW：理论驱动的研究命题</h1>
+<p class="date">2026年10月1日</p>
+<p class="abstract"><strong>摘要</strong>　研究起点应是方程与离散结构提出的数学问题。这里保留四个方向：结构参数的谱范围障碍、离散变量表示的等价性、孤子流形的不可去形变，以及统一精度所需的数据空间。先给出可证明或可否定的预测，再进入数值验证。后验排名与小幅误差差异不作为立题依据。</p>
+<p>优化类主张以同一物理初边值和冻结指标下至少十倍的改善为目标；若声称双场改善，两场分别满足。定量下界、结构性反例和适用域定理本身也可构成成果。局部相位改善、参照拟合和总演化误差分别讨论，不互相替代。</p>
+<table><thead><tr><th scope="col">编号</th><th scope="col">核心问题</th><th scope="col">定位</th></tr></thead><tbody><tr><td><a href="#T01">1</a></td><td>两个结构常数能校准一段谱范围，还是只能校准有限个谱点？</td><td>限定结果已得</td></tr><tr><td><a href="#T02">2</a></td><td>离散后的 SDR 还是另一组坐标，还是含有额外不可见状态？</td><td>主线</td></tr><tr><td><a href="#T03">3</a></td><td>精确保留离散孤子，是否仍留下不可重参数化的二阶形变？</td><td>结构定理已得</td></tr><tr><td><a href="#T04">4</a></td><td>什么扰动类允许谈可迁移的高阶精度？</td><td>线性结论已得</td></tr></tbody></table>
+<p>已有三条结果：<a href="#T01">调准相位不保证真实场同比改善</a>；<a href="#T03">保留精确孤子不消除二阶波形形变</a>；<a href="#T04">高阶精度需要输入数据具有足够的高频衰减余量</a>。三者分别约束参数校准、结构保持和误差传播。T02的离散表示等价性仍为待研究命题。</p>
+<section id="T01" data-status="parameter_limits_results_available">
+<h2>1　两个结构常数能校准一段谱范围，还是只能校准有限个谱点？</h2>
+<p class="result"><strong>已得结论。</strong>两个参数能把一段谱上的相位调得很准，但真实波形从相同初值出发后的误差，不一定跟着改善。在一个已证明的谱范围上，相位首项可改善32倍，领先u误差的初始增长速度却最多改善5倍。 <a href="#ref-S1">[1]</a> <a href="#ref-S2">[2]</a> <a href="#ref-S9">[9]</a> <a href="#ref-S10">[10]</a></p>
+<p class="conditions">结论针对固定Γ的正则单孤子谱族，以及整段谱共用的两个常数；32倍与5倍比较的是不同指标，不能当作终点误差比。</p>
+<h3>1　先问两个旋钮能调准多宽的范围</h3><p>固定一族连续孤子，只改两个结构常数。一个谱点调准并不难；真正的问题是同一组常数能否同时调准整段谱。</p><h3>2　谱范围越宽，统一校准越受限</h3><p>相位误差首项是一个二次函数。两个常数只能调整常数项和一次项，消不掉曲率。由此得到最佳剩余误差；十倍改善要求尺度比R不超过约9.472，还须满足参数可行性与有限步长余量。</p><h3>3　相位的证据不能直接搬到共同初值</h3><p>自然离散孤子与连续孤子的v总质量不同，可见证静态偏差。但实际比较若从同一个物理初值出发，两边的v质量守恒会让这个质量差始终为零。因此这条静态下界不能证明真实演化误差有多大。</p><h3>4　改查真实误差刚开始怎样长出来</h3><p>从共同初值直接推导领先u误差系数的初始导数，得到另一条下界。在R=2时，无论怎样选择允许的常数，该指标至少保留基准的五分之一；相位指标却允许降到三十二分之一。</p><h3>5　还差什么才能谈终点精度</h3><p>需要控制误差的传播与统一余项，才能把初始增长速度变成某个正时间的场误差估计。这一步尚未完成。</p>
+<p><strong>对研究的含义。</strong>今后的参数优化必须直接针对共同初值的物理响应。仅展示相位校准，不足以宣称双场精度获得数量级收益。</p>
+<details><summary>定理要点与精确适用条件</summary>
+<div class="equations"><p>R = max|A| / min|A|；E*/E₀ = (1−1/R)²/8。</p><p>V/V₀ ≥ (R−1)/(R²+1)；R=2 时相位剩余可为1/32，而领先u误差初速至少剩余1/5。</p></div><p><strong>相位门槛。</strong>A=1/(p−a)−1/(q+a)，取同一非零半轴的紧区间。E*/E₀=(1−1/R)²/8；R→∞时最佳改善趋于8倍。临界R=5+2√5的有限h判定仍需余项。</p><p><strong>有限h认证。</strong>Γ=2、|α|≤1、|β|≤2：A∈[1,2]、0&lt;h≤1/50有固定常数实现至少十倍相位改善；A∈[1,10]、0&lt;h≤1/500整个参数盒均不能达到十倍。</p><p><strong>物理初速限制。</strong>V为谱区间上领先u误差初始导数的L∞上确界。V/V₀≥(R−1)/(R²+1)，故5−√14&lt;R&lt;5+√14时排除该指标十倍改善。β不进入这项初速。</p>
+<p><strong>理论预测。</strong>相位校准的收益不直接传递到共同初值的场误差；指定谱域可先由初速下界排除十倍改善。</p>
+<p><strong>比较与自由度。</strong>固定a、物理h、Γ≠1的正则单孤子谱族、精确x/t；相位与共同初值u误差初速分别评价。 只允许两个有界常数α、β，整段谱区间及h细化共用；不逐谱点选参。</p>
+<p class="conditions"><strong>证明边界。</strong>初速结论仅针对领先u误差系数在t=0的导数。没有证明指定正时间的双场误差下界；有限边界须另计边界源。</p>
+</details></section>
+<section id="T02">
+<h2>2　离散后的 SDR 还是另一组坐标，还是含有额外不可见状态？</h2>
+<p><strong>理论起点。</strong>连续x下的相容换元已知。实际中心D在交替模态上为零；非线性重构使用u=2DQ/Q、W=4(1−QR)。去掉常数规范不自动保证离散重构可逆。 <a href="#ref-S2">[2]</a> <a href="#ref-S3">[3]</a> <a href="#ref-S6">[6]</a></p>
+<p><strong>研究目的。</strong>确定SD/SDR等价的准确条件，区分真正的物理差异与表示引入的误差机制。 同一物理态的不同Q/R预像，是否产生相同物理时间导数？在哪个受演化保持的状态类中，重构才是可逆且有界的坐标变换？</p>
+<div class="equations"><p>偶数周期x网格：ζᵢ=(−1)ⁱ，Qᵢ=(1+εζᵢ)/(1+ε)，Rᵢ=1/Qᵢ，|ε|&lt;1。</p><p>Q₀=1，DQ=DR=0，u=W=0；ε≠0给出满足同一固定规范的不同非恒定辅助变量预像。</p><p>物理动力可定义的必要条件：T(Y₁)=T(Y₂) ⇒ T′(Y₁)F(Y₁)=T′(Y₂)F(Y₂)。</p></div>
+<p><strong>理论预测。</strong>上述周期反例先排除全状态空间上的简单坐标等价。若同一重构值对应不同物理速度，问题已发生在空间离散层，单独提高时间阶不能恢复等价；若可限定到相容可逆类，则可进一步讨论整项表示误差的消除。</p>
+<p><strong>比较与自由度。</strong>固定D、物理重构、规范和边界，比较同一物理态的不同辅助预像；先证明允许交替模态的周期情形，再核对当前闭合。 零算法调参；ε仅作反例参数。不同时更换模板、边界或时间器。</p>
+<p><strong>新增认识。</strong>已有工作给出乘积缺陷和时间曲率，尚未证明离散重构的单射性及动力对预像的独立性。</p>
+<p class="conditions"><strong>证明边界。</strong>周期非单射不意味着当前远场边界病态，也不意味着隐形方向增长。若实际允许状态上的动力可投影，则应给出该条件；去除一个模态仍须检查乘积、取商与演化的闭合。</p>
+</section>
+<section id="T03" data-status="geometry_results_available">
+<h2>3　精确保留离散孤子，是否仍留下不可重参数化的二阶形变？</h2>
+<p class="result"><strong>已得结论。</strong>可积离散化确实保留了自己的精确孤子，但这个孤子的物理波形与连续孤子仍有二阶形变。即使同时调整谱参数和位置，也不能把这项形变完全消掉。 <a href="#ref-S3">[3]</a> <a href="#ref-S5">[5]</a> <a href="#ref-S11">[11]</a> <a href="#ref-S12">[12]</a></p>
+<p class="conditions">已证明的是固定正则单孤子在固定观测窗口上的局部族距离；不能据此断言从相同初值演化时必有同样大的误差。</p>
+<h3>1　先分清保留了哪一个孤子</h3><p>有限格距方程有自己的精确孤子解。它精确满足离散方程，并不意味着重构出的u、v与连续孤子完全相同。</p><h3>2　允许把所有连续孤子参数重新配一次</h3><p>不仅允许平移，还允许调整两个谱参数，在同一窗口寻找最接近的连续孤子。这样排除了“只是位置或参数没对齐”的解释。</p><h3>3　仍剩下一种参数调整做不到的形变</h3><p>离散波形的二阶修正含有连续孤子参数变化无法产生的函数成分。证明比较了解析延拓后的极点阶数，不依赖有限采样拟合。</p><h3>4　得到真正的二阶距离定理</h3><p>最佳匹配后的距离等于h²乘一个严格正常数，再加O(h⁴)。冻结单点的精确积分认证和四个格距核验支持这一预测；正常数证明阶数不可去，并不表示实际收益有多大。</p><h3>5　回到共同初值时，还要扣掉初始差异</h3><p>两条自然精确孤子轨道一开始就不同。若要求从相同物理初值出发，必须纠正这项初始差异并计算其传播；它可能抵消部分静态偏移。静态距离不能直接当作演化误差下界。</p>
+<p><strong>对研究的含义。</strong>结构保持保护的是离散孤子族的精确存在与演化相容性；它不自动消除物理波形的二阶误差，也不单独保证长期精度。</p>
+<details><summary>定理要点与精确适用条件</summary>
+<div class="equations"><p>U_h(θ)=U₀(θ)+h²B_θ+O(h⁴)。</p><p>D_h(θ)=min_{|θ′−θ|≤r} ‖U_h(θ)−U₀(θ′)‖ = h²d_θ+O(h⁴)，d_θ&gt;0。</p><p>共同初值（条件成立时）：a(t)=B(t)−Φ(t,0)B(0)。</p></div><p><strong>局部距离。</strong>H为固定有限矩形Ω上的等权双场RMS，r为充分小的固定参数邻域。完整参数切向Gram矩阵正定，d²=〈B,B〉−bᵀG⁻¹b&gt;0。最佳参数偏移为h²G⁻¹b+O(h⁴)。</p><p><strong>严格性来源。</strong>u二阶修正含非零三阶复极点，而连续u的三个参数切向最多含二阶极点；因此修正不在完整参数切空间内。有限h自然离散u与任何正则连续单孤子也不恒等。</p><p><strong>冻结证据。</strong>a=0,p=2,q=−1,φ=−log(2)/2,t=0，Ω=[−8,8]×[−1,1]。严格认证d≥d_u&gt;3.166×10⁻⁵；求积和局部拟合仅验证渐近式，没有推进PDE。</p><p><strong>演化条件。</strong>a=B−ΦB(0)要求共同初值误差展开、线性化传播存在，以及全空间或相容边界。只有参数切向也满足相同齐次边界时，固定参数重标记才在该差中完全抵消；其他边界须加响应。</p>
+<p><strong>理论预测。</strong>完整谱与相位重标记后，固定正则单孤子的局部静态距离仍为二阶；共同初值误差还包含初态纠正的传播。</p>
+<p><strong>比较与自由度。</strong>原SD双壁a±h/2；固定正则N=1孤子、时刻、物理中点与自然解析插值；固定有限矩形上的等权双场RMS。 只允许局部完整参数θ′=(p′,q′,φ′)重标记；不改离散方程、窗口、范数或初边值。</p>
+<p class="conditions"><strong>证明边界。</strong>这是固定点到局部连续族的距离，不是全族间统一距离，也不是共同初值演化误差下界。参数趋于退化或孤子逃出窗口时不能沿用统一正常数。</p>
+</details></section>
+<section id="T04" data-status="linear_results_available">
+<h2>4　什么扰动类允许谈可迁移的高阶精度？</h2>
+<p class="result"><strong>已得结论。</strong>四阶格式能否可靠，取决于初始扰动的高频成分有多小、计算时间有多长。衰减留有足够余量时，统一四阶精度成立；仅提高阶数或减小误差系数，不能替代这个条件。 <a href="#ref-S2">[2]</a> <a href="#ref-S7">[7]</a> <a href="#ref-S8">[8]</a></p>
+<p class="conditions">结论限于零背景、周期边界、固定非零y波数的线性问题；x采用实际四阶中心差分，y保持精确。</p>
+<h3>1．误差先会被方程放大</h3><p>高频指短波长、快速起伏的成分。在增长支上，波数n越大，增长率约为n²；一个很小的初始扰动也可能迅速变大。这来自方程的线性传播，而不是先由某个时间算法制造。</p><h3>2．所以“初始误差小”还不够</h3><p>必须知道误差落在哪些频率上。通常有限阶光滑、甚至普通解析数据，都不足以对所有允许扰动保证固定正时间的连续线性传播；这不表示每个这样的初态都会失败。</p><h3>3．报告给出了能保证精度的范围</h3><p>若高频尾具有足够强的Gaussian衰减，可把其强度r理解为可用的衰减余量。演化会消耗这一余量。在报告定义的中心权中，传播消耗恰为T；剩余μ&gt;0时，当前x差分对整个输入类统一四阶收敛。</p><h3>4．刚好够传播，不等于还能统一保证精度</h3><p>在临界μ=0，每一个事先固定的输入仍可随网格加密收敛，但不能给整个允许输入类共同趋零的误差保证。不同网格下总能找到该类中的输入使误差不消失；不是说每个固定初态都不收敛。</p><h3>5．十倍改善为什么不等于十倍可靠时间</h3><p>对同一增长模态，初始误差减小十倍只把越过固定阈值的时间推迟log(10)/γ。频率越高，这段时间越短。十倍精度改善仍可能有用，但它没有改变高频放大的机制。</p>
+<p><strong>对研究的含义。</strong>今后的优化结论应同时说明允许的扰动频谱、时间窗和绝对误差指标。当前结果给出了需要证明的条件，没有证明现有孤子算法一定不可靠，也没有证明所有参数优化无效。</p>
+<details><summary>定理要点与精确适用条件</summary>
+<div class="equations"><p>γ(n)∼n²；增长支扰动ε在时间T后约为εe^(γT)。</p><p>中心Gaussian权qη(n)=(n+1/η)²：S(T):Cᵣˢ→Cᵣ′ˢ有界，当且仅当r−r′≥T。</p><p>μ=r−r′−T&gt;0时，精确时间的空间误差算子为O(k⁴)；0&lt;μ≤1时有充分界Ck⁴μ⁻³。</p><p>单位L²整数带宽K的绝对收敛条件：TK²+2TK/|η|+6logK−4log(1/k)→−∞。</p><p>固定增长模态且无后续源：T*(ε/10)−T*(ε)=log(10)/γ。</p></div><p><strong>线性传播阈值。</strong>中心权Cᵣˢ的半径损失条件为r−r′≥T。普通对称Gaussian在等号处并不自动成立，还需要一次指数权差至少2T/|η|。</p><p><strong>统一四阶与临界区别。</strong>μ&gt;0时有空间算子O(k⁴)；靠近临界的充分界为Ck⁴μ⁻³。μ=0时仅逐数据收敛，算子范数不趋零。该定理使用精确时间推进。</p><p><strong>带宽与加密必须相容。</strong>对未加权单位L²带宽类，在K→∞、kK→0、Tk⁴K⁶→0条件下，绝对误差与k⁴K⁶exp[T(K²+2K/|η|+O(1))]同尺度。K∼c√log(1/k)时Tc²&lt;4收敛、Tc²&gt;4失败；等号必须检查完整条件。</p><p><strong>阶数不等于误差系数受控。</strong>空间、Euler、RK4的高频相对累计尺度分别为Tk⁴K⁶/15、TΔtK⁴/2、TΔt⁴K¹⁰/120；绝对误差还要乘输入幅值与指数传播。不能把相对收敛写成绝对误差趋零。</p>
+<p><strong>理论预测。</strong>原预测已在固定周期、零背景、单个非零η及Fourier投影初始化的线性模型中得到证明。后续预测须先处理实际背景和闭合；不能依据当前定理直接排序SD/SDR/FD或断言非线性求解失败。</p>
+<p><strong>比较与自由度。</strong>同一物理双场初值的连续传播与实际四阶中心x差分传播；y导数精确，时间精确时建立空间算子定理。Euler/RK4另给独立模态累计误差条件。 未引入优化参数；冻结条件后只做高精度二维模态核对，无新非线性PDE轨道或扫描。</p>
+<p class="conditions"><strong>证明边界。</strong>均为限定线性模型的结论。普通对称Gaussian端点还需一次指数权余量；临界带宽不能仅凭K∼c√log(1/k)决定。非线性乘法会生成新频率，当前开链谱、孤子背景和全离散Gaussian单位球估计尚未证明。</p>
+</details></section>
+<h2>先证明什么，再验证什么</h2>
+<p>每条命题先固定比较对象、允许自由度、适用类及主要量，给出可复核的证明或带明确余项的预测；只有无法由现有理论排除、且可能达到数量级收益的优化主张，才进入数值验证。数值工作检验预测的系数、结构或失效条件，不据结果重新选择原命题。</p>
+<h2>理论来源</h2><ol class="references"><li id="ref-S1"><a href="../Workspaces/dlw_semidiscrete/ALTERNATIVE_DISCRETIZATIONS.md">Gram参数族、格点相位与局部模板约束</a>，§2–5。</li>
+<li id="ref-S2"><a href="../Workspaces/dlw_factor_model_20260930/REPORT.md">物理误差映射、离散符号及传播条件</a>，§2、3、6–8、10–13。</li>
+<li id="ref-S3"><a href="../Workspaces/dlw_semidiscrete/NONLINEAR_CLOSURE.md">非线性物理重构与交错位置</a>，§1、4。</li>
+<li id="ref-S4"><a href="../Workspaces/dlw_semidiscrete/numerics/MANIFOLD_SCATTERING_REPORT.md">已有孤子流形研究的范围</a>，§1、5；固定谱相位切空间。</li>
+<li id="ref-S5"><a href="../Workspaces/dlw_h2_bounds_20260930/REPORT.md">二阶系数界与共同初值纠正</a>，§4与结论。</li>
+<li id="ref-S6"><a href="../Workspaces/dlw_sd2_uv_init_20260929/consistent_sd2.py">当前SDR的离散提升与物理边界</a>，lift、boundary、physical_arrays。</li>
+<li id="ref-S7"><a href="../Workspaces/dlw_theory_precision_domain_20261001/report.html">T04：高阶精度的数据空间与可信时间（完整证明）</a>，§2–7定理与反例，§9推广条件。</li>
+<li id="ref-S8"><a href="../Workspaces/dlw_theory_precision_domain_20261001/THEORY_AUDIT.md">T04：证明复核、冻结预测与适用范围</a>，线性新增结果；临界带宽措辞的限定。</li>
+<li id="ref-S9"><a href="../Workspaces/dlw_theory_parameter_limits_20261001/report.html">T01：参数校准与共同初值限制</a>，相位极小极大、有限h认证、质量取消与初速限制。</li>
+<li id="ref-S10"><a href="../Workspaces/dlw_theory_parameter_limits_20261001/physical_bridge_review.md">T01：物理误差桥接复核</a>，守恒取消与短时适用条件。</li>
+<li id="ref-S11"><a href="../Workspaces/dlw_theory_soliton_geometry_20261001/report.html">T03：精确孤子与不可去形变</a>，局部距离定理、定量下界与演化条件。</li>
+<li id="ref-S12"><a href="../Workspaces/dlw_theory_soliton_geometry_20261001/audit/EXACT_FAMILY_AUDIT.md">T03：精确族公式复核</a>，重构、极点及适用边界。</li></ol>
+<p class="scope">T01限于声明的谱族及指标；T03为静态局部族距离；T04限于声明的线性模型。三者尚不能合成一般非线性、共同初值下的有限时间双场误差定理。T02保留待研究命题。本页尚未判定文献原创性。<a href="../Workspaces/dlw_research_pipeline_20261001/ideas.json">命题与结果登记</a>；<a href="../Workspaces/dlw_theory_precision_domain_20261001/report.html">T04完整证明</a>。</p>
+</main></body></html>

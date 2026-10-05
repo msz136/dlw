@@ -1,0 +1,58 @@
+{
+  "executed_at_utc": "2026-10-05T14:26:18.915832+00:00",
+  "python": "3.12.14",
+  "sympy": "1.14.0",
+  "scope": "Focused exact algebra/rational certificates. General proofs remain written mathematical arguments; no Lean compilation, PDE evolution, independent review, or UI browser test is claimed.",
+  "all_passed": true,
+  "checks": [
+    {
+      "file": "verify_general_structure.py",
+      "sha256": "a408b2502ff63139bfa771c3d62e73d617e610ff54e9ca79fb11bf6593a20abf",
+      "exit_code": 0,
+      "stdout": "PASS first four spectral coefficients and Hamiltonian identification\nPASS spectral inverse from gamma,chi\nPASS nonzero exact full spectral Vandermonde checks N=1..6\nPASS exact exponential subset support recovery N=1..6\nGeneral scope: nonresonant positive subset sums; proof is in the report, not the finite loop.\n",
+      "stderr": ""
+    },
+    {
+      "file": "all_rank_bilinear_certificate.py",
+      "sha256": "03b5b32ac521289a219e4d67f0cce1c88d243b7ace59eefbe9f61b14d76fd4a8",
+      "exit_code": 0,
+      "stdout": "PASS: dimension-free B_(a-delta)(det(S-r f^T),det S)=0\nSecond pair follows using S_next, f_next and delta -> -delta:\nS_next-r f_next^T = S-r f^T, r_x=g_next-delta*r.\nAlgebra requires invertible S; the regular domain guarantees it.\n",
+      "stderr": ""
+    },
+    {
+      "file": "moduli_certificate.py",
+      "sha256": "5b70cf1824214b474166821df3d06af65f10e039906512260d90cb697cdeb226",
+      "exit_code": 0,
+      "stdout": "PASS pairwise scattering shear is canonical on each fixed-S leaf\nPASS C2,C3 independence determinant: -S1*S2*(c1 - c2)/4\nFig1a S [3] velocity [-1] canonical momenta [-3] H 3/2\nFig1b S [1] velocity [7] canonical momenta [7] H 49/2\nFig3 S [1, 1] velocity [11, 7] canonical momenta [11, 7] H 85\nspectral minor -1\nFig4 S [3, 1] velocity [-1, 7] canonical momenta [-3, 7] H 26\nspectral minor 6\nPASS H=2*C3-sum(S_i^3)/6, and C2=sum(P_i)/2\nNOT a certificate of inheritance from the original field Poisson bracket.\n",
+      "stderr": ""
+    },
+    {
+      "file": "physical_immersion_certificate.py",
+      "sha256": "37579d06ef5c45535b7afd848f2bad3b3625012e1c1e76fa9280cea322f65988",
+      "exit_code": 0,
+      "stdout": "Fig3 rank= 4 det= 793919101938082041115042758703575956717568/8237902662121632251544804736354109470260781347655 decimal= 9.63739357578e-8\nFig4 rank= 4 det= -339826012512072947042926888226648016027648/479746112480273080686580210356089872625813551 decimal= -0.000708345526252\nPASS exact local physical immersion at both paper two-soliton examples, coordinates(Q1,Q2,P1,P2) with fixed S, theta=-log S, x=t=0 and j=0,1.\n",
+      "stderr": ""
+    },
+    {
+      "file": "single_and_casimir_certificate.py",
+      "sha256": "6b98f32cc96f2123742ca0f79f3f5bab184d3e2b3677feaf99cadba48e17d82a",
+      "exit_code": 0,
+      "stdout": "Fig1a physical immersion det= -1202688/2070617 {Q,Mu}= -10496/41769 {Q,MW}= -131072/208845\nFig1b physical immersion det= 131072/6528025 {Q,Mu}= -14592/28985 {Q,MW}= 131072/86955\nThus neither mass is a Casimir of the new moduli tensor at these points.\nNo direct Poisson restriction or Dirac reduction preserving admissible original mass Casimirs can equal this new tensor.\nThis does not rule out a different boundary phase space in which those masses are not admissible Casimirs.\n",
+      "stderr": ""
+    },
+    {
+      "file": "cross_n_certificate.py",
+      "sha256": "63ecb5b0a66c53d56978a23f3140a917af0a1b2ce879f60775c463e0f5a824be",
+      "exit_code": 0,
+      "stdout": "PASS zero-strength gamma=chi=A_interaction=1 away from stated poles\nPASS C1..C12 polynomial divisibility by S; general argument: odd in S\nPASS H vanishes and rational transmission factor becomes identity\nPASS all three tau polynomials acquire the same x,j-independent factor\nPASS arbitrary smooth zero-strength-compatible observable brackets restrict correctly\nAmplitude deletion: delta C1=S; hence C1 cannot descend continuously to a ghost-free lower stratum for fixed nonzero S.\n",
+      "stderr": ""
+    },
+    {
+      "file": "atomic_poisson_certificate.py",
+      "sha256": "7a8d0447820b6c0c4c0b2934ee4a0c50b6dadde6b934e907fd25d64329dbf763",
+      "exit_code": 0,
+      "stdout": "PASS canonical finite atoms = N-independent moment bracket\nPASS arbitrary-function Jacobi identity for mark-space Poisson bracket\nPASS common Hamiltonian generates theta_t=-S*c\nPASS hierarchy test functions have polynomial zero-strength extension (orders1..12)\n",
+      "stderr": ""
+    }
+  ]
+}

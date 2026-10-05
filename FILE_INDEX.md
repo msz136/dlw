@@ -1,5 +1,20 @@
 <!-- DLW_HAMILTON_INDEX_BEGIN -->
-**半离散 DLW Hamilton 结构（2026-10-04）：**
+- [dlw_liouville_integrability.md](dlw_liouville_integrability.md)（当前完整研究正文：维数计数、有限孤子模空间、谱积分、参数反演、零强度拼接、原 J₀ 继承障碍及证明状态）
+- [Workspaces/dlw_liouville_20261005/README.md](Workspaces/dlw_liouville_20261005/README.md)（符号证书入口；validation.json 是本次实际执行记录）
+- `Workspaces/dlw_liouville_20261005/ATOMIC_POISSON_CONSTRUCTION.md`
+- `Workspaces/dlw_liouville_20261005/CROSS_N_GLUING_PROOF.md`
+- `Workspaces/dlw_liouville_20261005/all_rank_bilinear_certificate.py`
+- `Workspaces/dlw_liouville_20261005/atomic_poisson_certificate.py`
+- `Workspaces/dlw_liouville_20261005/cross_n_certificate.py`
+- `Workspaces/dlw_liouville_20261005/moduli_certificate.py`
+- `Workspaces/dlw_liouville_20261005/physical_immersion_certificate.py`
+- `Workspaces/dlw_liouville_20261005/run_checks.py`
+- `Workspaces/dlw_liouville_20261005/single_and_casimir_certificate.py`
+- `Workspaces/dlw_liouville_20261005/validation.json`
+- `Workspaces/dlw_liouville_20261005/verify_general_structure.py`
+- `Workspaces/dlw_liouville_20261005/CROSS_N_GLUING_PROOF.md`、`ATOMIC_POISSON_CONSTRUCTION.md`（跨 N 拼接与共同观测代数的证明草稿）
+
+**半离散 DLW Hamilton／刘维尔可积性研究（更新至 2026-10-05）：**
 
 - [dlw_hamilton.html](dlw_hamilton.html)（用户论文式报告；周期相空间、平均闭合、非局部泛函、物理 Poisson 算子、Jacobi 证明、局部候选排除与 Liouville 缺口）
 - `Workspaces/dlw_hamilton_20261004/report.src.html`、`build_report.cjs`、`build_manifest.json`（正文源、离线 MathML 构建与18公式块登记）
@@ -25,7 +40,7 @@
 | --- | --- |
 | [theory_results.html](theory_results.html) | DLW／2HS 数学成果总览：起点、结论、已证范围与待证环节。 |
 | [Report.html](Report.html) | 可运行综合报告：DLW 两路非线性化与 Lean 核验、2HS 场误差比较、DLW 纵向截断残差计算。第 3 章的残差不等于时间演化后的总误差。 |
-| [dlw_hamilton.html](dlw_hamilton.html) | 周期半离散 DLW 的相空间与平均闭合、Hamilton 泛函、物理 Poisson 算子及 Jacobi 证明；局部候选排除与 Liouville 缺口。 |
+| [dlw_hamilton.html](dlw_hamilton.html) | 刘维尔可积性研究入口，链接当前 Markdown；折叠保留原周期 Hamilton 报告。 |
 | [index.html](index.html) | DLW 数值比较主报告：三组孤子、SD／SD2／FD、Euler／RK4、固定／移动网格与误差图。 |
 
 | report 专题页面 | 内容与用途 |
@@ -8423,3 +8438,4 @@
 - `Workspaces/numerics_review_20260922/REVIEW.md`
 - `Workspaces/numerics_review_20260922/upgrade_regressions.py`
 - `Workspaces/numerics_review_20260922/validate_final.py`
+

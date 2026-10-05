@@ -1,8 +1,12 @@
-> **2026-10-04（HTML 内容盘点与阅读地图）：** 已核对11个用户HTML。按用户要求，主目录仅保留theory_results.html、index.html、Report.html、dlw_hamilton.html，其余7页移至report/；实际页面、活动正文源、生成/检查脚本、Report服务路由与共享索引同步新路径。waveform仍是index第6节的36图摘录；Report第3章仍为DLW截断残差现场计算。根目录及report/的HTML均纳入Git，子目录模板保留既有排除策略。233处本地链接/HTML锚点核验通过，生成/检查脚本语法和Report新旧服务路由核验通过；迁移记录在Workspaces/report_organization_20261004/；未运行新数学/数值实验。
-
 <!-- DLW_HAMILTON_BEGIN -->
+> **2026-10-05（刘维尔可积性研究与跨孤子数拼接）：** [完整 Markdown 研究报告](dlw_liouville_integrability.md)，原 [Hamilton HTML](dlw_hamilton.html) 更新为入口并保留历史正文。固定 N 的 3N 维孤子参数域上选取秩 2N 泊松结构，固定 S 后每叶有 N 个独立对易积分；说明与原 J₀ 不同。补充正系数非共振域内物理场→归一化 tau→谱参数的任意 N 重构证明草稿、传输系数 C_r、散射／格点剪切相容性，以及 S→0 的物理退化和共同有限原子泊松观测代数。明确前 1..N 孤子层不是 N 维线性空间；未宣称全系统、无限原子、原 J₀ 继承或完整全局分层几何。新符号证书及本次实际运行结果位于 Workspaces/dlw_liouville_20261005/；一般证明不由有限样例替代，历史 Lean／PDE 实验未重跑。
+
 > **2026-10-04（半离散 DLW Hamilton 结构）：** [论文式报告](dlw_hamilton.html)。固定周期格点与周期 x，先由原 SD 得到 Πw=c≠0、Π(Uw)=γ 的平均相容条件，并固定 γ 完成自治闭合；不能任意固定 Πu。构造 R=(δ₋|零平均)⁻¹M₋P，精确周期核及 R*=−R 已证。ℋ₀=hΣ∫(U²w/2+h²w³/96+wUₓ+wRwₓ/2)，扣除 γhΣ∫U 后限制于平均约束，约化常括号 Jred=−offdiag(P∂x) 精确恢复原方程；物理 z=(u,v) 上 Jz=A Jred A*，反对称与 Jacobi 由常括号和坐标推前证明，约束余法向被消去。J 至一阶、泛函至一阶 x 导数，R 与平均项全格点耦合；物理泛函三次，自由坐标中出现整体四次项。常同格点 J=−B∂x 的可逆对称数值矩阵窄类只允许交叉矩阵至比例；常零阶辛矩阵失败。局部 J/局部泛函的复合半径 r 在 N≥2r+3 被 Laurent 零点计数排除（候选 J半径1、密度支撑[-1,1]：复合半径3，N≥9）；不排除非局部、小N、奇异背景或特殊约化，不把搜索失败当不存在。主121项精确代数检查及两路独立复核全部通过，含N=3–7、两个非零平均扇区、物理坐标推前与原两残差；Jacobi 是一般证明而非采样断言。报告18公式块、1440/390排版与本地引用通过。c=0、开链与无限格点域仍需另证；γ(t) 重构另带(γ̇/c,0)漂移；无适定性、Liouville或全离散保持性结论。源、精确核验、独立审阅、页面与原登记备份在Workspaces/dlw_hamilton_20261004/，未运行新PDE。
 <!-- DLW_HAMILTON_END -->
+
+> **2026-10-04（HTML 内容盘点与阅读地图）：** 已核对11个用户HTML。按用户要求，主目录仅保留theory_results.html、index.html、Report.html、dlw_hamilton.html，其余7页移至report/；实际页面、活动正文源、生成/检查脚本、Report服务路由与共享索引同步新路径。waveform仍是index第6节的36图摘录；Report第3章仍为DLW截断残差现场计算。根目录及report/的HTML均纳入Git，子目录模板保留既有排除策略。233处本地链接/HTML锚点核验通过，生成/检查脚本语法和Report新旧服务路由核验通过；迁移记录在Workspaces/report_organization_20261004/；未运行新数学/数值实验。
+
+
 
 
 
@@ -485,3 +489,4 @@ Sheng–Yu 的 (2+1) 维色散长波 (DLW) 系统（*Physica D* **432** (2022) 1
 `_src\index.src.html` 里所有脚本引用均已核对存在（见附录 B）。
 **注意**：`numerical_analysis.html` 本身未改，文首仍写着"尚未运行新的数值时间推进实验"——
 那句话对该 HTML 是准确的（它描述的是写作时状态），**最新数值结论请看 `numerics\REPORT.md`**。
+

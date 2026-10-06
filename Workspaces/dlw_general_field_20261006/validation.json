@@ -1,0 +1,102 @@
+{
+  "run_utc": "2026-10-06T06:44:01.300075+00:00",
+  "python": "3.12.14",
+  "sympy": "1.14.0",
+  "numpy": "2.3.5",
+  "checks": [
+    {
+      "script": "two_site_exact.py",
+      "sha256": "82d2ea66f77ce2eaffed3c2bdb6841cb5fce495ca99f2fb3878bea66eb16844a",
+      "exit_code": 0,
+      "seconds": 2.02,
+      "log": "logs/two_site_exact.py.log"
+    },
+    {
+      "script": "linearized_all_periods.py",
+      "sha256": "a3b0f1faa66cde88867ef7e62fd55618ee1bf26307a64316a71dc40d970fbd5c",
+      "exit_code": 0,
+      "seconds": 0.307,
+      "log": "logs/linearized_all_periods.py.log"
+    },
+    {
+      "script": "mixed_time_certificate.py",
+      "sha256": "e59b6b235a16c45e38e02ff8c70ee88f1f8343973214530b457177c0b3be4418",
+      "exit_code": 0,
+      "seconds": 0.311,
+      "log": "logs/mixed_time_certificate.py.log"
+    },
+    {
+      "script": "mixed_time_probe.py",
+      "sha256": "ff2c50940c72e6f17ad21f3c45189f5adcd1fc156f1230ad5e1950f3db7a7f66",
+      "exit_code": 0,
+      "seconds": 0.243,
+      "log": "logs/mixed_time_probe.py.log"
+    },
+    {
+      "script": "inverse_two_site_certificate.py",
+      "sha256": "c2296332af431ed9ecbf75dfac267d05820cba1aea58d0dd06daede525cfd708",
+      "exit_code": 0,
+      "seconds": 0.313,
+      "log": "logs/inverse_two_site_certificate.py.log"
+    },
+    {
+      "script": "local_density_certificate.py",
+      "sha256": "56b4b27b39be10c04fa50db67520759ab9da6e569aee7be48cf017e640b04e36",
+      "exit_code": 0,
+      "seconds": 1.127,
+      "log": "logs/local_density_certificate.py.log"
+    },
+    {
+      "script": "poisson_pushforward_certificate.py",
+      "sha256": "d0f4eb695d6417a3115b7b9c41ca7fc75ce3a6a0aaf5d2d49991a88b06bb413b",
+      "exit_code": 0,
+      "seconds": 2.5,
+      "log": "logs/poisson_pushforward_certificate.py.log"
+    },
+    {
+      "script": "lenard_generating_certificate.py",
+      "sha256": "fa3a3f3e2dd99241f27a078d274e06b4a5c9de7d6438d4cded8afd2b6b153394",
+      "exit_code": 0,
+      "seconds": 0.367,
+      "log": "logs/lenard_generating_certificate.py.log"
+    },
+    {
+      "script": "general_period_matrix_certificate.py",
+      "sha256": "d5b329f6e574e8033b54c24dd2726802fd010cd80b98c0586d27a318e3f3544a",
+      "exit_code": 0,
+      "seconds": 5.195,
+      "log": "logs/general_period_matrix_certificate.py.log"
+    },
+    {
+      "script": "general_period_free_fields_certificate.py",
+      "sha256": "25fdb6e65f870f913347da14b734fa7e9c02201fcc9c315c407c4f7117b77681",
+      "exit_code": 0,
+      "seconds": 0.535,
+      "log": "logs/general_period_free_fields_certificate.py.log"
+    },
+    {
+      "script": "quadratic_trace_certificate.py",
+      "sha256": "5e55fdaeaedd0f5364b72cf0cbba0aa095020dbfaf02bd69f2e1a149e0d51fa4",
+      "exit_code": 0,
+      "seconds": 1.542,
+      "log": "logs/quadratic_trace_certificate.py.log"
+    },
+    {
+      "script": "q5_bch_certificate.py",
+      "sha256": "65f34d1c67688bd49db1c956b0298f56030ee6f9c1363cdc67163899dbdaabdd",
+      "exit_code": 0,
+      "seconds": 0.559,
+      "log": "logs/q5_bch_certificate.py.log"
+    },
+    {
+      "script": "periodic_monodromy_check.py",
+      "sha256": "2e74bb4c4391e552638d02dd6703a5a84ca741b7bad9db64853697fea6957a3c",
+      "exit_code": 0,
+      "seconds": 1.349,
+      "log": "logs/periodic_monodromy_check.py.log"
+    }
+  ],
+  "passed": 13,
+  "total": 13,
+  "scope": "Exact finite symbolic certificates and one numerical mixed-boundary probe; general theorems use the accompanying written proofs."
+}

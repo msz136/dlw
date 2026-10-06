@@ -1,5 +1,29 @@
 <!-- DLW_HAMILTON_INDEX_BEGIN -->
-- [dlw_liouville_integrability.md](dlw_liouville_integrability.md)（当前完整研究正文：维数计数、有限孤子模空间、谱积分、参数反演、零强度拼接、原 J₀ 继承障碍及证明状态）
+- [Workspaces/dlw_general_field_20261006/README.md](Workspaces/dlw_general_field_20261006/README.md)（一般周期场守恒族、任意 M 矩阵／泊松实现、两格点三 Hamilton 结构、解析设置与13项核验）
+- `Workspaces/dlw_general_field_20261006/CONSERVATION_FAMILY_VERDICT.md`
+- `Workspaces/dlw_general_field_20261006/GENERAL_PERIOD_FREE_FIELD_POISSON.md`
+- `Workspaces/dlw_general_field_20261006/GENERAL_PERIOD_MATRIX_LAX.md`
+- `Workspaces/dlw_general_field_20261006/MIXED_TIME_EXISTENCE.md`
+- `Workspaces/dlw_general_field_20261006/RESEARCH_NOTES.md`
+- `Workspaces/dlw_general_field_20261006/TWO_SITE_INVERSE_AND_LOCAL_HIERARCHY.md`
+- `Workspaces/dlw_general_field_20261006/TWO_SITE_POISSON_PENCIL.md`
+- `Workspaces/dlw_general_field_20261006/general_period_free_fields_certificate.py`
+- `Workspaces/dlw_general_field_20261006/general_period_matrix_certificate.py`
+- `Workspaces/dlw_general_field_20261006/inverse_two_site_certificate.py`
+- `Workspaces/dlw_general_field_20261006/lenard_generating_certificate.py`
+- `Workspaces/dlw_general_field_20261006/linearized_all_periods.py`
+- `Workspaces/dlw_general_field_20261006/local_density_certificate.py`
+- `Workspaces/dlw_general_field_20261006/mixed_time_certificate.py`
+- `Workspaces/dlw_general_field_20261006/mixed_time_probe.py`
+- `Workspaces/dlw_general_field_20261006/periodic_monodromy_check.py`
+- `Workspaces/dlw_general_field_20261006/poisson_pushforward_certificate.py`
+- `Workspaces/dlw_general_field_20261006/q5_bch_certificate.py`
+- `Workspaces/dlw_general_field_20261006/quadratic_trace_certificate.py`
+- `Workspaces/dlw_general_field_20261006/run_checks.py`
+- `Workspaces/dlw_general_field_20261006/two_site_exact.py`
+- `Workspaces/dlw_general_field_20261006/validation.json`、`logs/`、`mixed_time_probe.json`、`two_site_exact_result.json`（本次实际复跑记录）
+
+- [dlw_liouville_integrability.md](dlw_liouville_integrability.md)（完整研究正文：一般周期物理场的独立对合守恒族与原泊松结构，以及有限孤子模空间、参数反演和跨 N 拼接）
 - [Workspaces/dlw_liouville_20261005/README.md](Workspaces/dlw_liouville_20261005/README.md)（符号证书入口；validation.json 是本次实际执行记录）
 - `Workspaces/dlw_liouville_20261005/ATOMIC_POISSON_CONSTRUCTION.md`
 - `Workspaces/dlw_liouville_20261005/CROSS_N_GLUING_PROOF.md`
@@ -14,7 +38,7 @@
 - `Workspaces/dlw_liouville_20261005/verify_general_structure.py`
 - `Workspaces/dlw_liouville_20261005/CROSS_N_GLUING_PROOF.md`、`ATOMIC_POISSON_CONSTRUCTION.md`（跨 N 拼接与共同观测代数的证明草稿）
 
-**半离散 DLW Hamilton／刘维尔可积性研究（更新至 2026-10-05）：**
+**半离散 DLW Hamilton／刘维尔可积性研究（更新至 2026-10-06）：**
 
 - [dlw_hamilton.html](dlw_hamilton.html)（用户论文式报告；周期相空间、平均闭合、非局部泛函、物理 Poisson 算子、Jacobi 证明、局部候选排除与 Liouville 缺口）
 - `Workspaces/dlw_hamilton_20261004/report.src.html`、`build_report.cjs`、`build_manifest.json`（正文源、离线 MathML 构建与18公式块登记）

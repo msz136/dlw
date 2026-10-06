@@ -1,8 +1,8 @@
 # 半离散 DLW 的刘维尔可积性研究
 
-> 更新：2026-10-05。本文接续原 `dlw_hamilton.html`，汇总从场方程 Hamilton 表示、守恒律与无限格点障碍，到有限孤子模空间及跨孤子数拼接的研究。**新的模空间和拼接结果目前是可复核的构造性证明草稿，不是经过独立审稿的发表定理。**
->
-> 最重要的区分：**原场方程的泊松结构**与**在精确孤子参数上另行构造、再传到解族上的泊松结构**不同。本文后半部的刘维尔结论使用后者，不声称已完成原场泊松约化。
+更新：2026-10-06。本文整理半离散 DLW 的一般周期场 Hamilton 结构、独立对合守恒层级，以及有限孤子解族的可积几何。最新一般场结论集中在 [第 13–17 节](#sec-field-theorem)：对每个固定周期格点数 $M\ge2$，构造包含实际 Hamiltonian 的守恒族 $\mathcal K,\mathcal P,\mathcal C_3,\mathcal C_5,\ldots$，证明两两对合和任意有限前缀的泛型独立性。两格点进一步得到局部可逆场变换与相容三 Hamilton 算子。
+
+第 4–10 节保留有限孤子模空间与跨孤子数拼接的研究；这些参数空间结构与第 13–17 节直接从原场括号出发的结果分别使用。本文新增内容为附带推导和符号证书的研究证明草稿。
 
 ## 阅读目录
 
@@ -18,18 +18,23 @@
 10. [原场 J₀ 的继承障碍](#sec-obstructions)
 11. [可以与不可以宣称的结论](#sec-claims)
 12. [复核、资料与下一步](#sec-verification)
+13. [一般周期物理场的独立对合守恒族](#sec-field-theorem)
+14. [任意有限周期的矩阵表示与物理泊松坐标](#sec-field-matrix)
+15. [两格点的一般场与三 Hamilton 结构](#sec-field-two-site)
+16. [一般场解的解析设置](#sec-field-analysis)
+17. [本轮证明与核验材料](#sec-field-evidence)
 
 <a id="sec-results"></a>
 ## 1. 结论、维数与计数
 
-### 1.1 目前得到的正面结果
+### 1.1 有限孤子解族的结果
 
 在下文明确的正系数、非共振参数范围内，对任意有限孤子数 $N$：
 
 - 标准 Gram 子集展开给出原半离散方程的精确 $N$ 孤子解；
 - 去掉孤子编号置换后，可以由完整物理场恢复归一化的 $F,G$，再恢复谱参数与相位；参数映射也没有额外的无效切向方向；
 - 在参数诱导的光滑模空间上，构造秩为 $2N$ 的泊松结构和精确的物理时间 Hamilton 流；
-- 每个固定 $S_1,ldots,S_N$ 的非空连通辛叶上，系统具有 $N$ 个独立、对易积分，满足刘维尔可积性；
+- 每个固定 $S_1,\ldots,S_N$ 的非空连通辛叶上，系统具有 $N$ 个独立、对易积分，满足刘维尔可积性；
 - 用 $S_k\to0$ 的零强度退化，可以连接相邻孤子数的物理场、Hamilton 函数、谱守恒量及相容观测量的括号；
 - 有一个不需要预先指定 $N$ 的有限原子测度表示及共同泊松可观测量代数。
 
@@ -594,3 +599,435 @@ M_W=\frac4h\log\chi.$$
 ### 12.3 最值得继续的事情
 
 先独立审阅本稿中的反向重构、共同观测量代数及拓扑条件。然后决定论文主张的强度：若以精确孤子模空间为对象，应把新括号来源写明；若要声称原场 Hamilton 约化，必须另行解决质量、边界项和散射定义域。不要为了“覆盖所有解”无限扩大任务，也不要把一个漂亮的参数模型误写成整个 PDE 的可积性证明。
+
+<a id="sec-field-theorem"></a>
+## 13 一般周期物理场的独立对合守恒族
+
+本节给出本轮研究的主要结果。格点周期记为 $M\ge2$，孤子个数仍记为 $N$；$M$ 个格点上的 $x$ 变量连续，因此这里的状态空间是无限维函数空间。
+
+### 13.1 相空间与实际 Hamiltonian
+
+取实光滑周期场 $x\in\mathbb T_{L_x}$、$j\in\mathbb Z/M\mathbb Z$，令
+
+$$
+U=u+2a,\qquad w=v-\delta_0u-4,\qquad\beta=\frac{h^2}{32}.
+$$
+
+记 $\Pi$ 为格点平均、$P_0=I-\Pi$。固定 $c\ne0,\gamma\in\mathbb R$，采用平均闭合
+
+$$
+\Pi w=c,\qquad\Pi(Uw)=\gamma.
+$$
+
+独立场坐标可取
+
+$$
+p=P_0U,\qquad s=w-c,\qquad
+U=p+\frac{\gamma-\Pi(ps)}c,\qquad w=c+s.
+$$
+
+这里的 $p,s$ 是场函数。采用 $h\sum_j\int dx$ 的变分配对，原场约化泊松算子为
+
+$$
+J_{\rm red}=-\begin{pmatrix}0&P_0\partial_x\\P_0\partial_x&0\end{pmatrix}.
+$$
+
+令 $R=(\delta_-|_{P_0})^{-1}M_-P_0$；它是固定的斜对称格点矩阵。定义
+
+$$
+\mathcal H_0=h\sum_j\int e_j\,dx,
+\qquad e_j=\frac12U_j^2w_j+\frac\beta3w_j^3+w_jU_{j,x}
++\frac12w_j(Rw_x)_j,
+$$
+$$
+\mathcal K=\mathcal H_0-\gamma h\sum_j\int U_j\,dx,
+\qquad
+\mathcal P=h\sum_j\int p_js_j\,dx.
+$$
+
+直接变分得到
+
+$$
+\mathcal K_p=Uw-\gamma-w_x,\qquad
+\mathcal K_s=P_0\left(\frac{U^2}2+\beta w^2+U_x+Rw_x\right),
+$$
+$$
+p_t=-\partial_x\mathcal K_s,\qquad s_t=-\partial_x\mathcal K_p.
+$$
+
+因此 $\mathcal K$ 生成原来的物理时间演化，$\mathcal P$ 生成负向空间平移。各分量的 $x$ 平均是该常泊松算子的 Casimir。
+
+### 13.2 全族守恒量
+
+从物理场构造转移算子与单值算子
+
+$$
+T_j=\left(D-\frac{U_j}{2}+\frac{hw_j}{8}\right)^{-1}
+\left(D-\frac{U_j}{2}-\frac{hw_j}{8}\right),
+\qquad \mathcal M=T_{M-1}\cdots T_0,\qquad D=\partial_x.
+$$
+
+设
+
+$$
+G=\frac{hMc}{4},\qquad B=\frac\gamma{2c},\qquad
+L=-G(\mathcal M-I)^{-1}+(B-G/2)I.
+$$
+
+其展开为 $L=D+\sum_{k\ge1}\ell_kD^{-k}$。定义
+
+$$
+\boxed{\mathcal C_n=\frac1n\operatorname{Tr}L^n
+=\frac1n\int\operatorname{res}_D L^n\,dx,\qquad n\ge1.}
+$$
+
+每个固定阶数的留数只涉及有限个场导数。以下是本节的具体结论。
+
+**定理形式的结论。** 对每个固定有限 $M\ge2$，在上述平均闭合的光滑周期相空间上，
+
+$$
+\boxed{\mathcal K,\quad\mathcal P,\quad\mathcal C_3,\quad
+\mathcal C_5,\quad\ldots}
+$$
+
+是包含物理 Hamiltonian 的两两对合守恒族。任意有限前缀的微分在泛型区域独立；同样的独立性见证可以放在包含均匀背景的固定分量均值辛叶内。由此得到一般周期场的无穷维 Hamilton 可积结构，采用的是无穷独立对合守恒层级的含义。
+
+### 13.3 守恒性的任意阶证明
+
+周期完整交织关系给出
+
+$$
+L_t=[-D^2-V_0,L].
+$$
+
+比较零阶系数可得 $(V_0)_x=2(\ell_1)_x$；空间常数与 $L$ 交换，故
+
+$$
+L_t=[-(L^2)_+,L].
+$$
+
+利用周期伪微分算子的迹恒等式 $\operatorname{Tr}[A,B]=0$，
+
+$$
+\frac{d\mathcal C_n}{dt}
+=\frac1n\operatorname{Tr}[-(L^2)_+,L^n]=0.
+$$
+
+这里由平均闭合构造周期热势时，保留格点共同模态；$\int\Pi U\,dx$ 的守恒性由平移 Hamiltonian $\mathcal P$ 保证。
+
+### 13.4 对合性的任意阶证明
+
+令 $b_j=U_j/2,d_j=hw_j/8$。在原常场括号下，$b_j+d_j$ 与 $b_j-d_j$ 是符号相反的独立一阶因子场。乘积、求逆的 Adler 因子化规则将其送到 $\mathcal M$ 的括号。相应 Adler 映射写为
+
+$$
+A_{\mathcal M}(X)=(\mathcal M X)_+\mathcal M
+-\mathcal M(X\mathcal M)_+.
+$$
+
+令 $A=(\mathcal M-I)^{-1}$。在对约束面外作变分时保持 $G,B$ 为固定归一化常数，则
+
+$$
+\nabla_{\mathcal M}\mathcal C_n=G A L^{n-1}A,
+\qquad [\nabla_{\mathcal M}\mathcal C_n,\mathcal M]=0.
+$$
+
+所以 $A_{\mathcal M}(\nabla\mathcal C_n)$ 是与 $\mathcal M$ 的交换子；再与另一个同样交换的梯度配对，迹为零。这证明所有阶数的谱泛函在因子场括号下对合。
+
+接下来核对原约化括号。共同改变 $U_j\mapsto U_j+2f(x)$ 会使转移算子作共同的标量规范共轭；谱迹保持不变，因而
+
+$$
+\sum_j\frac{\delta\mathcal C_n}{\delta U_j}=0.
+$$
+
+平均约束重构的链式法则于是给出
+
+$$
+(\mathcal C_n)_p=(\mathcal C_n)_U,\qquad
+(\mathcal C_n)_s=P_0(\mathcal C_n)_w.
+$$
+
+在 $J_{\rm red}$ 的配对中，$P_0$ 可以移到已经零格点平均的梯度上。因此约化括号恰好等于上述因子场括号，得到
+
+$$
+\boxed{\{\mathcal C_m,\mathcal C_n\}_{\rm red}=0\qquad(m,n\ge1).}
+$$
+
+因子化规则的原始来源是 [Mas–Ramos 的乘积与求逆定理](https://arxiv.org/html/q-alg/9501009v2)；与本 DLW 平均闭合和原括号的对应由这里的链式法则完成。
+
+### 13.5 任意长独立子序列
+
+考虑相空间内的切片
+
+$$
+w_j=c,\quad U_0=2B+2f(x),\quad U_1=2B-2f(x),
+\quad U_j=2B\ (j\ge2),\quad\int f\,dx=0.
+$$
+
+奇数阶迹的二次部分满足
+
+$$
+\mathcal C_{2k+1}^{(2)}
+=\frac2M(-1)^{k+1}\int(D^k f)^2dx
++\text{较低导数阶的二次项}.
+$$
+
+系数的推导如下。记 $\eta=hc/8$，在该切片对 $D,f,B,\eta$ 同赋权一。归一化后的 $L$ 系数在 $\eta=0$ 有代数延拓，因为 $\mathcal M-I$ 含因子 $\eta$，而归一化恰好消去它。该系数极限为
+
+$$
+L\big|_{\eta=0}=M\left[\sum_j(D-B-f_j)^{-1}\right]^{-1}+B,
+\quad(f_0,f_1,f_2,\ldots)=(f,-f,0,\ldots).
+$$
+
+二次展开给出
+
+$$
+L\big|_{\eta=0}=D-\frac2M f(D-B)^{-1}f+O(f^4).
+$$
+
+最高的二次导数项没有剩余权重容纳 $B$ 或 $\eta$，故在 $B=\eta=0$ 的系数极限计算即可得到上述 $2/M$ 与符号。这是提取多项式系数的方法；实际见证仍取 $c\ne0$。
+
+令 $f=\varepsilon\sum_{i=1}^N a_i\cos(k_ix)$，其中非零频率两两不同、$a_i\ne0$。$\mathcal C_1,\mathcal C_3,\ldots,\mathcal C_{2N-1}$ 的振幅 Jacobian 首项是不同次数的频率多项式在 $k_i^2$ 的取值矩阵，行列式含非零因子
+
+$$
+\prod_{i<j}(k_j^2-k_i^2).
+$$
+
+故每个有限块均存在独立见证。固定阶数的泛函在约化场坐标中是微分多项式；相应非零见证行列式的非零集开且稠密。取可数交得到各有限块同时独立的泛型集合。
+
+### 13.6 把实际 Hamiltonian 纳入独立族
+
+在上述 $s=0$ 切片，$d\mathcal P$ 对所有 $p$ 的振幅方向都为零，而奇数阶迹对这些方向的 Jacobian 可逆。再取
+
+$$
+\delta s_0=f,\qquad\delta s_1=-f,\qquad\delta s_j=0\ (j\ge2),
+$$
+
+便有 $d\mathcal P=4h\int f^2dx\ne0$。所以 $\mathcal P$ 与任意有限奇数阶块联合独立。平移不变性给出 $\{\mathcal P,\mathcal C_n\}=0$。
+
+首个迹与原能量的关系为
+
+$$
+\mathcal C_1=-\frac{\mathcal H_0}{8G}
++\left(\frac{G^2}{12}+B^2\right)L_x,
+$$
+
+从而
+
+$$
+\mathcal K=-8G\mathcal C_1+\frac\gamma c\mathcal P+\text{常数}.
+$$
+
+$G\ne0$，因此以 $\mathcal K$ 替换 $\mathcal C_1$ 保持独立性。这就得到定理中展示的具体守恒族。
+
+<a id="sec-field-matrix"></a>
+## 14 任意有限周期的矩阵表示与物理泊松坐标
+
+令 $m=M-1$、$S=G/2=\sum_jd_j$、$\nu=B-S$。记 $H$ 为严格下三角全一矩阵，$\mathbf d=(d_j)$，$\mathbf1=(1,\ldots,1)^T$，并令
+
+$$
+C=\operatorname{diag}(b-d)-2\operatorname{diag}(d)H
+-\frac\nu S\mathbf d\mathbf1^T.
+$$
+
+取 $Z$ 的列为 $e_j-e_m$，$E$ 选取前 $m$ 个分量，$K=E-\mathbf d_{<m}\mathbf1^T/S$。转移波函数之差的基变换给出
+
+$$
+\begin{pmatrix}\phi\\\xi\end{pmatrix}_x
+=\begin{pmatrix}\lambda&q\\r&V\end{pmatrix}
+\begin{pmatrix}\phi\\\xi\end{pmatrix},
+$$
+$$
+q=\mathbf1^TCZ,\qquad
+r=\frac1S K(C\mathbf d-\mathbf d_x),\qquad V=KCZ,
+$$
+$$
+\boxed{L=D-q(DI_m-V)^{-1}r.}
+$$
+
+完整推导见 [全周期矩阵 Lax 证明](Workspaces/dlw_general_field_20261006/GENERAL_PERIOD_MATRIX_LAX.md)。基变换仅要求总量 $S\ne0$。
+
+### 14.1 可直接计算的守恒密度
+
+令
+
+$$
+z_1=r,\qquad z_{n+1}=Vz_n-Dz_n-
+\sum_{i+j=n\atop i,j\ge1}z_i(qz_j),\qquad\rho_n=-qz_n.
+$$
+
+则 $\mathcal C_n=\int\rho_n dx$，密度代表相差一个总导数时给出同一积分。前几项为
+
+$$
+\rho_1=-qr,\qquad\rho_2=qr_x-qVr,
+$$
+$$
+\rho_3=(qr)^2-qV^2r+qV_xr+2qVr_x-qr_{xx}.
+$$
+
+任意阶局部恒等式是
+
+$$
+(\rho_n)_t+D\left[(\rho_n)_x+2\rho_{n+1}
+-\sum_{i+j=n\atop i,j\ge1}\rho_i\rho_j\right]=0.
+$$
+
+### 14.2 一般周期的独立物理场坐标
+
+可以取 $m$ 对场函数 $(q_j,d_j)$ 为坐标，其中
+
+$$
+q_j=b_j-b_m-d_j-2\sum_{k=j+1}^{m}d_k+d_m,\qquad j<m.
+$$
+
+反向恢复公式为
+
+$$
+d_m=S-\sum_{j<m}d_j,\qquad
+b_m=B-\sum_{j<m}d_j-\frac1S\sum_{j<m}d_jq_j,
+$$
+$$
+b_j=b_m+q_j+d_j+2\sum_{k=j+1}^{m-1}d_k+d_m.
+$$
+
+这是原约化坐标 $(p,s)$ 的仿射可逆变换。用普通积分定义泛函导数时，原物理泊松括号变成
+
+$$
+\{q_i(x),d_j(y)\}=-\frac1{16}\delta_{ij}D_x\delta(x-y),
+\quad\{q_i,q_j\}=\{d_i,d_j\}=0.
+$$
+
+若统一使用 $h\sum\int$ 配对，则对应算子系数为 $-h/16$。这两个写法是同一括号的不同梯度归一化。
+
+矩阵分量由这些独立坐标确定，例如
+
+$$
+V_{ij}=\delta_{ij}(b_i-d_i)-2d_i\mathbf1_{j<i}-\frac{d_iq_j}{S}.
+$$
+
+三格点有 $V_{01}=-d_0q_1/S$、$V_{10}=-d_1(2S+q_0)/S$，从而在相应分母非零的区域，可从 $q_0,q_1,V_{01},V_{10}$ 恢复全部物理场。详见 [全周期泊松坐标证明](Workspaces/dlw_general_field_20261006/GENERAL_PERIOD_FREE_FIELD_POISSON.md)。
+
+<a id="sec-field-two-site"></a>
+## 15 两格点的一般场与三 Hamilton 结构
+
+两格点时记 $p_0=p,p_1=-p,s_0=s,s_1=-s$，$\eta=hc/8$。在 $p-2\eta\ne0$ 的坐标域，定义新场
+
+$$
+\alpha=\left(\frac p2-\eta\right)
+\left[-\frac{s_x}c+\left(1-\frac{s^2}{c^2}\right)
+\left(\frac p2+\eta\right)\right],
+\qquad d=B-\frac{ps}c+\frac{p_x}{p-2\eta}.
+$$
+
+得到
+
+$$
+L=D-(D-d)^{-1}\alpha,
+$$
+$$
+\alpha_t=\alpha_{xx}-2(\alpha d)_x,
+\qquad d_t=-d_{xx}-(d^2)_x+2\alpha_x.
+$$
+
+固定分量均值后，该变换在均匀场附近局部可逆；完整 $L$ 的反向恢复还可通过 $\lambda_\pm=B\pm2\eta$ 处的 Riccati／Floquet 数据给出。零均值叶上的标记单值矩阵为非平凡 Jordan 情形，恢复证明保留了这一点。详见 [逆变换与局部层级](Workspaces/dlw_general_field_20261006/TWO_SITE_INVERSE_AND_LOCAL_HIERARCHY.md)。
+
+### 15.1 三个相容算子
+
+令
+
+$$
+J_1=\begin{pmatrix}0&D\\D&0\end{pmatrix},\qquad
+J_2=\begin{pmatrix}2\alpha D+\alpha_x&-D^2+dD\\
+D^2+dD+d_x&-2D\end{pmatrix}.
+$$
+
+记 $z=2\alpha d-\alpha_x$，第三个算子为
+
+$$
+J_3=\begin{pmatrix}
+2zD+z_x&D^3-2dD^2+(d^2-d_x-4\alpha)D-2\alpha_x\\
+D^3+2dD^2+(d^2+3d_x-4\alpha)D+d_{xx}+2dd_x-2\alpha_x&-4dD-2d_x
+\end{pmatrix}.
+$$
+
+以两格点归一化 $J_{ps}=-D\begin{psmallmatrix}0&1\\1&0\end{psmallmatrix}$、$\mathcal K/(2h)$ 计算，变量变换的 Frechet 导数给出精确推前
+
+$$
+\boxed{J_{\rm phys}=-\frac1{2c}
+\left[J_3-2BJ_2+(B^2-4\eta^2)J_1\right].}
+$$
+
+这是逐项核验的算子恒等式。利用局部可逆变换保持 Jacobi 恒等式，再比较上式对 $B,\eta$ 的多项式系数，可得三个算子各自为泊松算子且两两相容。
+
+### 15.2 任意阶 Lenard 关系与物理时间
+
+两场密度可递推为
+
+$$
+\rho_1=-\alpha,\qquad
+\rho_{n+1}=d\rho_n-D\rho_n+\sum_{i=1}^{n-1}\rho_i\rho_{n-i}.
+$$
+
+写 $\mathcal C_n=\int\rho_n dx$，有
+
+$$
+J_2\delta\mathcal C_n=J_1\delta\mathcal C_{n+1},\qquad
+J_3\delta\mathcal C_n=J_2\delta\mathcal C_{n+1}.
+$$
+
+任意阶证明由 Riccati 生成式及其变分给出；第三算子的完整生成恒等式包含零次平移项，取负幂系数后得到上述关系。物理时间明确满足
+
+$$
+\begin{pmatrix}\alpha_t\\d_t\end{pmatrix}
+=J_1\delta\mathcal C_3=J_2\delta\mathcal C_2=J_3\delta\mathcal C_1.
+$$
+
+完整算子证明、归一化与标记谱值的 Casimir 联系见 [两格点泊松铅笔](Workspaces/dlw_general_field_20261006/TWO_SITE_POISSON_PENCIL.md)。
+
+<a id="sec-field-analysis"></a>
+## 16 一般场解的解析设置
+
+### 16.1 高频增长的明确形式
+
+在均匀背景 $U=\gamma/c,w=c$，非零格点 Fourier 模式 $\theta=2\pi m/M$ 与空间频率 $k$ 的线性化特征值为
+
+$$
+\lambda_\pm=-i\frac\gamma c k\ \pm
+\sqrt{k^4-\frac{hc}{2}\cot(\theta/2)k^3-\frac{h^2c^2}{16}k^2}.
+$$
+
+正支实部随高频增长为 $k^2$。因此该背景附近通常的可微 Sobolev 初值解流受到明确限制。守恒层级与这种增长可以同时成立。
+
+### 16.2 混合时间数据给出实际的一般场解
+
+取可逆泊松变换 $A=p+Rs/2$。方程成为
+
+$$
+A_t=-A_{xx}+D F(A,s),\qquad s_t=s_{xx}+D G(A,s),
+$$
+
+其中
+
+$$
+F=-P_0(U^2/2+\beta w^2)-\tfrac12R(Uw),\qquad G=-P_0(Uw).
+$$
+
+它们是场变量的多项式，不含空间导数。给定 $A(T)=A_T,s(0)=s_0$，两部分各自沿稳定方向用热半群写成积分方程。在一维周期 $H^r$、$r>1/2$ 中，热半群导数估计使迭代的 Lipschitz 常数为 $O(\sqrt T)$，因而短时间存在唯一的有界 mild 解，并在时间区间内部平滑。
+
+这些解满足同一个物理方程，沿其光滑部分守恒族保持常值。两端状态之间还满足 Hamilton 作用量的生成关系。详见 [混合时间存在性证明](Workspaces/dlw_general_field_20261006/MIXED_TIME_EXISTENCE.md)。三格点数值核验中，时间步减半后能量和下一阶守恒量漂移约缩小四倍，与所用二阶时间积分一致。
+
+<a id="sec-field-evidence"></a>
+## 17 本轮证明与核验材料
+
+本轮内容为构造性证明草稿。各任意阶／任意周期结论的依据是正文中的代数与变分论证；符号证书用于核验展开、算子伴随、逆变换和具体阶数。
+
+- [本轮材料入口](Workspaces/dlw_general_field_20261006/README.md)
+- [独立对合守恒族及物理 Hamiltonian](Workspaces/dlw_general_field_20261006/CONSERVATION_FAMILY_VERDICT.md)
+- [全周期矩阵 Lax 与密度递推](Workspaces/dlw_general_field_20261006/GENERAL_PERIOD_MATRIX_LAX.md)
+- [全周期物理泊松坐标](Workspaces/dlw_general_field_20261006/GENERAL_PERIOD_FREE_FIELD_POISSON.md)
+- [两格点逆变换与局部守恒族](Workspaces/dlw_general_field_20261006/TWO_SITE_INVERSE_AND_LOCAL_HIERARCHY.md)
+- [两格点三 Hamilton 算子与 Lenard 证明](Workspaces/dlw_general_field_20261006/TWO_SITE_POISSON_PENCIL.md)
+- [实际运行的检查结果](Workspaces/dlw_general_field_20261006/validation.json)
+
+后续集中于完整周期谱坐标、角变量与守恒代数的谱完备性。两格点的三算子标量系数公式与一般 $M$ 的矩阵／自由场泊松实现分别记录，使用时按对应结构选择。
+
+本轮参考的原始研究包括 [Mas–Ramos](https://arxiv.org/abs/q-alg/9501009)、[多 boson KP Hamilton 结构](https://arxiv.org/abs/hep-th/9401058)、[约束 KP 的矩阵 Hamilton 结构](https://arxiv.org/abs/solv-int/9801019)、[Kaup–Broer 的 dressing 研究](https://doi.org/10.1016/j.physd.2020.132478)，以及用于比较解析方法的[正反向抛物系统短时存在性研究](https://arxiv.org/abs/1806.08138)。具体 DLW 变换与归一化由本文计算。

@@ -1,0 +1,92 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "name": "normalized_phase_cubic",
+      "exact_residual": "0"
+    },
+    {
+      "name": "normalized_alpha_direction",
+      "exact_residual": "0"
+    },
+    {
+      "name": "fixed_Gamma_curvature",
+      "exact_residual": "0"
+    },
+    {
+      "name": "minimax_lower_bound_second_difference",
+      "exact_residual": "0"
+    },
+    {
+      "name": "minimax_attaining_polynomial",
+      "exact_residual": "0"
+    },
+    {
+      "name": "minimax_left_endpoint",
+      "exact_residual": "0"
+    },
+    {
+      "name": "minimax_midpoint",
+      "exact_residual": "0"
+    },
+    {
+      "name": "minimax_right_endpoint",
+      "exact_residual": "0"
+    },
+    {
+      "name": "Nyquist_DQ_parity_1",
+      "exact_residual": "0"
+    },
+    {
+      "name": "Nyquist_DR_parity_1",
+      "exact_residual": "0"
+    },
+    {
+      "name": "physical_u_parity_1",
+      "exact_residual": "0"
+    },
+    {
+      "name": "physical_W_parity_1",
+      "exact_residual": "0"
+    },
+    {
+      "name": "Nyquist_DQ_parity_-1",
+      "exact_residual": "0"
+    },
+    {
+      "name": "Nyquist_DR_parity_-1",
+      "exact_residual": "0"
+    },
+    {
+      "name": "physical_u_parity_-1",
+      "exact_residual": "0"
+    },
+    {
+      "name": "physical_W_parity_-1",
+      "exact_residual": "0"
+    },
+    {
+      "name": "gauge_Q0",
+      "exact_residual": "0"
+    },
+    {
+      "name": "nongauge_difference",
+      "exact_residual": "0"
+    }
+  ],
+  "count": 18,
+  "new_pde_runs": 0,
+  "meaning": "两个理论种子的精确代数核对，不是完整研究命题或物理误差界的证明。",
+  "T01_proof": [
+    "C>0，d=(A_+−A_-)/2>0。若区间内|r|≤E，端点/中点二阶差分2Cd²≤4E，故E≥Cd²/2。",
+    "alpha=−2Cm，beta=Cm²−Cd²/2时r=C[(A−m)²−d²/2]在区间内恰有sup|r|=Cd²/2。",
+    "因此无约束常数的最佳一致剩余为C(A_+−A_-)²/8；受限可行集上它是下界，最优点可行时取等号。仅针对固定Gamma、同一可达半轴及远离极点的区间。"
+  ],
+  "T02_proof": [
+    "偶数周期网格允许ζ_i=(−1)^i，±1及±2移位成对相等，所以D同时消去Q和R。",
+    "|epsilon|<1保证Q,R为正，Q0=1；epsilon非零时Q的奇偶值不同，不能由常数规范消去。",
+    "y各层取同一状态时delta_0 u=0，故v=W=0；取势m=0还给出静止族。",
+    "仅证明该周期类上的非单射；不证明当前边界非单射、不同预像具有不同物理速度或隐藏方向不稳定。"
+  ],
+  "script_sha256": "1200900bf0d697577eae1c761b493cd5789b0267acb0f6d53083cf92cd019a63"
+}

@@ -1,0 +1,152 @@
+{
+  "status": "passed",
+  "precision_digits": 420,
+  "prediction_sha256": "0f298ddd9b858dd38a0cfd5c26cd261b1157e14bc06f1cce66698c6dc0298ad1",
+  "script_sha256": "fdf6e03efb593d7c3047ef66931cd65f35116f871a0388080bb24a20954e776c",
+  "new_PDE_runs": 0,
+  "asymptotic_constants": [
+    {
+      "n": 10,
+      "space_ratio": "0.073159443387748534",
+      "Euler_ratio": "0.694526866242545167",
+      "RK4_ratio": "0.0175136870314522215",
+      "gamma_minus_center": "-2.67840433800767915"
+    },
+    {
+      "n": 20,
+      "space_ratio": "0.0699659379351390039",
+      "Euler_ratio": "0.598906799966710305",
+      "RK4_ratio": "0.0125592034109409661",
+      "gamma_minus_center": "-2.82195399586710923"
+    },
+    {
+      "n": 40,
+      "space_ratio": "0.0683264011260577888",
+      "Euler_ratio": "0.549759766074424913",
+      "RK4_ratio": "0.0103469897480187714",
+      "gamma_minus_center": "-2.90584292775752481"
+    },
+    {
+      "n": 80,
+      "space_ratio": "0.0674984994541242429",
+      "Euler_ratio": "0.524943968716262837",
+      "RK4_ratio": "0.00931444730422672482",
+      "gamma_minus_center": "-2.95150978585703474"
+    }
+  ],
+  "gaussian_operator": [
+    {
+      "N": 64,
+      "k": "0.0981747704246810387",
+      "operator_error": "0.000846451834360768626",
+      "error_over_k4": "9.11176841139863413",
+      "maximizing_mode": -5,
+      "refinement_ratio": null
+    },
+    {
+      "N": 128,
+      "k": "0.0490873852123405194",
+      "operator_error": "0.0000544546392678529369",
+      "error_over_k4": "9.37897310713989348",
+      "maximizing_mode": -6,
+      "refinement_ratio": "15.5441638350998653"
+    },
+    {
+      "N": 256,
+      "k": "0.0245436926061702597",
+      "operator_error": "3.43334205224946965e-6",
+      "error_over_k4": "9.46144481604750863",
+      "maximizing_mode": -6,
+      "refinement_ratio": "15.8605342663645023"
+    },
+    {
+      "N": 512,
+      "k": "0.0122718463030851298",
+      "operator_error": "2.15013454945518451e-7",
+      "error_over_k4": "9.48038573595369027",
+      "maximizing_mode": -6,
+      "refinement_ratio": "15.9680335033890454"
+    }
+  ],
+  "bandwidth_witnesses": [
+    {
+      "c": 4,
+      "log2_N": 32,
+      "K": 18,
+      "log_error": "-23.9883950775759494",
+      "leading_log_prediction": "-24.0421573716427775",
+      "log_difference": "0.0537622940668281297",
+      "relative_error": "1.36987985984032711e-30"
+    },
+    {
+      "c": 4,
+      "log2_N": 64,
+      "K": 26,
+      "log_error": "-64.5278868677829987",
+      "leading_log_prediction": "-64.5655221878636534",
+      "log_difference": "0.0376353200806546573",
+      "relative_error": "3.59785980948798874e-68"
+    },
+    {
+      "c": 4,
+      "log2_N": 128,
+      "K": 37,
+      "log_error": "-150.497537168777068",
+      "leading_log_prediction": "-150.524168077079685",
+      "log_difference": "0.0266309083026168192",
+      "relative_error": "2.55244532710043006e-144"
+    },
+    {
+      "c": 4,
+      "log2_N": 256,
+      "K": 53,
+      "log_error": "-319.244254463486877",
+      "leading_log_prediction": "-319.262933672191601",
+      "log_difference": "0.0186792087047240865",
+      "relative_error": "1.63151158641431733e-297"
+    },
+    {
+      "c": 8,
+      "log2_N": 32,
+      "K": 36,
+      "log_error": "106.132643192194788",
+      "leading_log_prediction": "106.10528469101148",
+      "log_difference": "0.0273585011833075886",
+      "relative_error": "8.5387723106362009e-29"
+    },
+    {
+      "c": 8,
+      "log2_N": 64,
+      "K": 52,
+      "log_error": "199.604011776021282",
+      "leading_log_prediction": "199.584977255030979",
+      "log_difference": "0.0190345209903032218",
+      "relative_error": "2.26019539970956318e-66"
+    },
+    {
+      "c": 8,
+      "log2_N": 128,
+      "K": 74,
+      "log_error": "376.267005643413966",
+      "leading_log_prediction": "376.253587424623779",
+      "log_difference": "0.013418218790186957",
+      "relative_error": "1.61212318608732065e-142"
+    },
+    {
+      "c": 8,
+      "log2_N": 256,
+      "K": 106,
+      "log_error": "751.52593487652076",
+      "leading_log_prediction": "751.51654678361112",
+      "log_difference": "0.00938809290963964525",
+      "relative_error": "1.03451086447266969e-295"
+    }
+  ],
+  "symbol_maximum": {
+    "theta": "1.7974775283102742",
+    "f_squared": "1.88299316185545207",
+    "identity_residual": "-2.89131931475086725e-421",
+    "Nyquist_residual": "-1.24050478352889526e-421"
+  },
+  "interpretation": "Direct matrix/multiplier checks of frozen predictions; proofs are independent of these finite evaluations."
+}

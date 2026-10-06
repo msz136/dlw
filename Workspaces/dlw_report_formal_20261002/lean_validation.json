@@ -1,0 +1,454 @@
+{
+  "status": "passed",
+  "run_id": "20261002_120733_d51ae3c5",
+  "local_module_count": 9,
+  "toolchain": "leanprover/lean4:v4.34.0",
+  "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+  "result_path": "Workspaces\\lean_contracts\\proofs\\.lean-runs\\20261002_120733_d51ae3c5\\result.json",
+  "build_log_path": "Workspaces\\lean_contracts\\proofs\\.lean-runs\\20261002_120733_d51ae3c5\\build.log",
+  "result_sha256": "5b5b878273f9d61bc8bc5b7e5cfcd647a5ffe6f515d057e200a2a773ceda0c31",
+  "build_log_sha256": "96f8117b1d27da9184bb6ffb68d57d841e379912d33efe24dbae8fd227375c58",
+  "current_source_hashes_match": true,
+  "source_hashes": [
+    {
+      "file": "Workspaces\\lean_contracts\\proofs\\Contracts.lean",
+      "sha256": "e70876c538d52939b030e7813a6b1c60917a79e56e28b29146d22df8da98d656"
+    },
+    {
+      "file": "Workspaces\\lean_contracts\\proofs\\PkgNonlinear.lean",
+      "sha256": "58ee97d70c67417c428a4b4c67e94525f7408ea0fde65b532913a3682e68d284"
+    },
+    {
+      "file": "Workspaces\\lean_contracts\\proofs\\PkgLattice.lean",
+      "sha256": "c28f849bac9607fef3bf0a9e104ff761daf60be4742d6d0884f83b86cf193f3f"
+    },
+    {
+      "file": "Workspaces\\lean_contracts\\proofs\\ReportNonlinearUW.lean",
+      "sha256": "413d45c48b64d5dc1214c7931e1581b3e1a8c49d3c81132289aba387b5c67975"
+    },
+    {
+      "file": "Workspaces\\lean_contracts\\proofs\\PkgQuotientRate.lean",
+      "sha256": "0e46edfe575e80fac40682c21fb07de62673570b0a2b4ca9e4fb4c7e425f011a"
+    },
+    {
+      "file": "Workspaces\\lean_contracts\\proofs\\ReportQRMCalculus.lean",
+      "sha256": "874992d19778987c5810d010381f235b0494820bce878580489209ff9373aacd"
+    },
+    {
+      "file": "Workspaces\\lean_contracts\\proofs\\ReportNonlinearQRM.lean",
+      "sha256": "ed1d1b6473c3567ec27f5a15969d02579c114475cd1d8c3239d5b956d03d4804"
+    },
+    {
+      "file": "Workspaces\\lean_contracts\\proofs\\ReportQRatio.lean",
+      "sha256": "8e4df27bdc6b3bf664419816027d408023ad2d3e0eddd3a4aa104f05543ba1f8"
+    },
+    {
+      "file": "Workspaces\\lean_contracts\\proofs\\ReportEndpoints.lean",
+      "sha256": "16be31acf2f9c598162eeed6df881491328843c158f243a0afe3ee3c0e24c0a2"
+    }
+  ],
+  "frozen_sources": [
+    {
+      "file": "Contracts.lean",
+      "unchanged_sha256": "e70876c538d52939b030e7813a6b1c60917a79e56e28b29146d22df8da98d656"
+    },
+    {
+      "file": "Main.lean",
+      "unchanged_sha256": "b04093fdbb08f0b47e07e75de949aa249697b47d5774fa2342d70a9e55f20332"
+    }
+  ],
+  "endpoint_axiom_audits": [
+    {
+      "theorem": "DLWContract.ReportEndpoints.Q_is_centered_ratio",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "DLWContract.ReportEndpoints.bilinear_to_report7",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "DLWContract.ReportEndpoints.bilinear_to_report21_22",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "theorem": "DLWContract.ReportEndpoints.bilinear_to_both",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ],
+  "scope": {
+    "parameters": "a,h real; h != 0; j integer",
+    "tau": "F_j,G_j are positive real functions on the whole (x,t) plane",
+    "regularity": "SmoothL = per-j ContDiff real top of the joint (x,t) function; in this Mathlib top is omega (analytic), not the inner infinity (C-infinity)",
+    "starting_equations": "SemiPair a h F G, the two actual Hirota bilinear equations",
+    "direction": "forward implications and physical reconstruction identities",
+    "extra_R_nonzero_or_positive_assumption": false,
+    "extra_zero_integration_constant_assumption": false
+  },
+  "new_source_declarations": [
+    {
+      "file": "ReportEndpoints.lean",
+      "declarations": [
+        {
+          "name": "Report7",
+          "line": 16
+        },
+        {
+          "name": "Report21",
+          "line": 21
+        },
+        {
+          "name": "Report22",
+          "line": 27
+        },
+        {
+          "name": "Q_is_centered_ratio",
+          "line": 37
+        },
+        {
+          "name": "bilinear_to_report7",
+          "line": 48
+        },
+        {
+          "name": "bilinear_to_report21_22",
+          "line": 54
+        },
+        {
+          "name": "bilinear_to_both",
+          "line": 61
+        }
+      ]
+    },
+    {
+      "file": "ReportNonlinearUW.lean",
+      "declarations": [
+        {
+          "name": "omega",
+          "line": 15
+        },
+        {
+          "name": "fluxUW",
+          "line": 18
+        },
+        {
+          "name": "fluxOmega",
+          "line": 22
+        },
+        {
+          "name": "reportN1",
+          "line": 26
+        },
+        {
+          "name": "reportN2",
+          "line": 31
+        },
+        {
+          "name": "vFromOmega",
+          "line": 35
+        },
+        {
+          "name": "smooth_logL",
+          "line": 37
+        },
+        {
+          "name": "smooth_omega",
+          "line": 42
+        },
+        {
+          "name": "smooth_physU",
+          "line": 46
+        },
+        {
+          "name": "smooth_fluxUW",
+          "line": 53
+        },
+        {
+          "name": "smooth_fluxOmega",
+          "line": 58
+        },
+        {
+          "name": "smooth_vFromOmega",
+          "line": 62
+        },
+        {
+          "name": "physical_v",
+          "line": 67
+        },
+        {
+          "name": "W_vFromOmega",
+          "line": 70
+        },
+        {
+          "name": "H_vFromOmega",
+          "line": 75
+        },
+        {
+          "name": "lx_dm_commute",
+          "line": 84
+        },
+        {
+          "name": "first_spatial_bridge",
+          "line": 92
+        },
+        {
+          "name": "reportN1_eq_n1",
+          "line": 103
+        },
+        {
+          "name": "omega_conservation_bridge",
+          "line": 110
+        },
+        {
+          "name": "semiPair_implies_report7",
+          "line": 129
+        },
+        {
+          "name": "semiPair_implies_report8",
+          "line": 151
+        }
+      ]
+    },
+    {
+      "file": "ReportNonlinearQRM.lean",
+      "declarations": [
+        {
+          "name": "potential",
+          "line": 11
+        },
+        {
+          "name": "Q",
+          "line": 13
+        },
+        {
+          "name": "M",
+          "line": 14
+        },
+        {
+          "name": "omega",
+          "line": 15
+        },
+        {
+          "name": "R",
+          "line": 16
+        },
+        {
+          "name": "coefficient",
+          "line": 18
+        },
+        {
+          "name": "residualQ",
+          "line": 20
+        },
+        {
+          "name": "residualR",
+          "line": 22
+        },
+        {
+          "name": "smooth_potential",
+          "line": 25
+        },
+        {
+          "name": "smooth_Q",
+          "line": 30
+        },
+        {
+          "name": "Q_positive",
+          "line": 34
+        },
+        {
+          "name": "Q_ne",
+          "line": 36
+        },
+        {
+          "name": "smooth_omega",
+          "line": 38
+        },
+        {
+          "name": "smooth_R",
+          "line": 42
+        },
+        {
+          "name": "QR_identity",
+          "line": 48
+        },
+        {
+          "name": "omega_M",
+          "line": 54
+        },
+        {
+          "name": "physical_u",
+          "line": 59
+        },
+        {
+          "name": "coefficient_omega",
+          "line": 73
+        },
+        {
+          "name": "Q_residual_identity",
+          "line": 87
+        },
+        {
+          "name": "report_Q_equation",
+          "line": 130
+        },
+        {
+          "name": "u_reconstruction",
+          "line": 136
+        },
+        {
+          "name": "lattice_constraint",
+          "line": 147
+        },
+        {
+          "name": "omega_reconstruction",
+          "line": 157
+        },
+        {
+          "name": "v_reconstruction",
+          "line": 166
+        },
+        {
+          "name": "residualProduct",
+          "line": 175
+        },
+        {
+          "name": "product_residual_split",
+          "line": 179
+        },
+        {
+          "name": "product_residual_omega",
+          "line": 191
+        },
+        {
+          "name": "report_R_equation",
+          "line": 243
+        },
+        {
+          "name": "semiPair_implies_report21",
+          "line": 257
+        },
+        {
+          "name": "report22",
+          "line": 267
+        }
+      ]
+    },
+    {
+      "file": "ReportQRMCalculus.lean",
+      "declarations": [
+        {
+          "name": "expL",
+          "line": 12
+        },
+        {
+          "name": "smooth_log",
+          "line": 14
+        },
+        {
+          "name": "smooth_exp",
+          "line": 19
+        },
+        {
+          "name": "exp_ne",
+          "line": 23
+        },
+        {
+          "name": "lx_exp",
+          "line": 26
+        },
+        {
+          "name": "lt_exp",
+          "line": 30
+        },
+        {
+          "name": "lx_mul",
+          "line": 34
+        },
+        {
+          "name": "lt_mul",
+          "line": 40
+        },
+        {
+          "name": "lxx_mul",
+          "line": 46
+        },
+        {
+          "name": "lxx_exp",
+          "line": 56
+        },
+        {
+          "name": "lx_zero",
+          "line": 64
+        },
+        {
+          "name": "lt_zero",
+          "line": 68
+        },
+        {
+          "name": "lx_const",
+          "line": 72
+        },
+        {
+          "name": "lt_const",
+          "line": 76
+        },
+        {
+          "name": "normA_log",
+          "line": 80
+        },
+        {
+          "name": "normC_log",
+          "line": 88
+        },
+        {
+          "name": "normA_zero",
+          "line": 96
+        },
+        {
+          "name": "normC_zero",
+          "line": 103
+        }
+      ]
+    },
+    {
+      "file": "ReportQRatio.lean",
+      "declarations": [
+        {
+          "name": "centered_exp_ratio",
+          "line": 10
+        }
+      ]
+    }
+  ],
+  "formula_review": {
+    "authoritative": "Workspaces/gsg_project/dlw_report/_src/Report.md",
+    "sha256": "1c7facdf25de3196582f73d2468f804a338fdf878eec6ee2f8242324dbe7b98e",
+    "endpoints": [
+      7,
+      21,
+      22
+    ],
+    "independent_reviews": 2,
+    "coefficients_signs_shifts_and_unscaled_omega_match": true
+  },
+  "regularity_reference": {
+    "file": "_lean_shared/mathlib/Mathlib/Analysis/Calculus/ContDiff/Defs.lean",
+    "notation_line": 91,
+    "analytic_equivalence_line": 1196
+  }
+}

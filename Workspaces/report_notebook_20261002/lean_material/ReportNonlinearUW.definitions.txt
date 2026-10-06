@@ -1,0 +1,22 @@
+/-- Report (4): omega = (log G[j+1] - log G[j])_x, without 4/h. -/
+def omega (G : Lattice) : Lattice := lx (Sh (logL G) - logL G)
+
+/-- Report (7), first nonlinear flux. -/
+def fluxUW (a h : ℝ) (u w : Lattice) : Lattice :=
+  (u ^ 2 + w ^ 2) / 2 + (2 * a) • u - h • w
+
+/-- Report (7), second nonlinear flux. -/
+def fluxOmega (a h : ℝ) (u w : Lattice) : Lattice :=
+  (u + CC a) * w - h • u
+
+/-- Report (7), first residual, with the displayed derivative order. -/
+def reportN1 (a h : ℝ) (u w : Lattice) : Lattice :=
+  dm h (lt u) + lx (dm h (fluxUW a h u w)) +
+    lxx (dm h u + (4 / h) • mm w)
+
+/-- Report (7), second residual. -/
+def reportN2 (a h : ℝ) (u w : Lattice) : Lattice :=
+  lt w + lx (fluxOmega a h u w) - lxx w
+
+/-- Report (8)'s physical field reconstructed from unscaled omega. -/
+def vFromOmega (h : ℝ) (u w : Lattice) : Lattice := (4 / h) • w + d0 h u

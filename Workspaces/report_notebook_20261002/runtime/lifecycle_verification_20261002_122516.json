@@ -1,0 +1,119 @@
+{
+  "checkedAt": "2026-10-02T04:25:16.439382+00:00",
+  "checks": [
+    {
+      "name": "initial ready service",
+      "passed": true,
+      "details": {
+        "service": "aca-report-notebook",
+        "version": "1.0.0",
+        "leanVersion": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+        "toolchain": "leanprover/lean4:v4.34.0",
+        "mathlibCommit": "5ed2965256430c3649e86755f9576b54eca72435",
+        "pid": 19104,
+        "port": 8766,
+        "status": "ready"
+      }
+    },
+    {
+      "name": "root wrapper path resolves: 启动报告.cmd",
+      "passed": true,
+      "details": {
+        "wrapper": "C:\\Users\\msz\\aca\\启动报告.cmd",
+        "target": "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\runtime\\Start Report.cmd"
+      }
+    },
+    {
+      "name": "root wrapper path resolves: 停止报告.cmd",
+      "passed": true,
+      "details": {
+        "wrapper": "C:\\Users\\msz\\aca\\停止报告.cmd",
+        "target": "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\runtime\\Stop Report.cmd"
+      }
+    },
+    {
+      "name": "graceful stop removes health endpoint and records stopped",
+      "passed": true,
+      "details": {
+        "previousPid": 19104,
+        "message": "Report service stopped; active Lean runs were cancelled."
+      }
+    },
+    {
+      "name": "repeated stop is safe",
+      "passed": true,
+      "details": {
+        "status": "stopped"
+      }
+    },
+    {
+      "name": "hidden restart without opening browser",
+      "passed": true,
+      "details": {
+        "service": "aca-report-notebook",
+        "version": "1.0.0",
+        "leanVersion": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+        "toolchain": "leanprover/lean4:v4.34.0",
+        "mathlibCommit": "5ed2965256430c3649e86755f9576b54eca72435",
+        "pid": 5508,
+        "port": 8766,
+        "status": "ready"
+      }
+    },
+    {
+      "name": "repeated start reuses service PID",
+      "passed": true,
+      "details": {
+        "pid": 5508
+      }
+    },
+    {
+      "name": "exact local HTML served after restart: Report.html",
+      "passed": true,
+      "details": {
+        "bytes": 2727684,
+        "sha256": "ef8daa41a6ea92dae6f290019b3e18e7f7186c9340861ed87608c929661a3f40"
+      }
+    },
+    {
+      "name": "exact local HTML served after restart: dlw_error_theory.html",
+      "passed": true,
+      "details": {
+        "bytes": 1775185,
+        "sha256": "7ee9c4802f5e617c6ff36928af161727331eabd59490b1586db0a2e333200ea3"
+      }
+    },
+    {
+      "name": "completed proof record remains readable after restart",
+      "passed": true,
+      "details": {
+        "jobId": "a1c7e05b39b64b98af0a641c6a53751f",
+        "status": "ok",
+        "elapsedSeconds": 89.893,
+        "resultPath": "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\proofs\\.lean-runs\\20261002_121600_00c83b49\\result.json"
+      }
+    },
+    {
+      "name": "completed proof record remains readable after restart",
+      "passed": true,
+      "details": {
+        "jobId": "1a916b01896c4df39b9cd0ac9366be6c",
+        "status": "ok",
+        "elapsedSeconds": 140.344,
+        "resultPath": "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\proofs\\.lean-runs\\20261002_121907_178f881e\\result.json"
+      }
+    }
+  ],
+  "finalService": {
+    "service": "aca-report-notebook",
+    "version": "1.0.0",
+    "leanVersion": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+    "toolchain": "leanprover/lean4:v4.34.0",
+    "mathlibCommit": "5ed2965256430c3649e86755f9576b54eca72435",
+    "pid": 5508,
+    "port": 8766,
+    "status": "ready"
+  },
+  "newProofCompilations": 0,
+  "openedDefaultBrowser": false
+}

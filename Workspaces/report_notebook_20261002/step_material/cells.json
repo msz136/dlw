@@ -1,0 +1,70 @@
+[
+  {
+    "id": "error-prepare",
+    "title": "准备残差计算环境",
+    "note": "解析导数与有限格距残差均由原生 JavaScript 计算。",
+    "lead": "检查残差计算所需的数学函数和双精度数组。",
+    "requires": [],
+    "code": "// IEEE 754 双精度运算。\nif (typeof Math.exp !== \"function\" || typeof Float64Array !== \"function\")\n  throw Error(\"当前环境缺少 Math 或 Float64Array。\");\nlab.dlw = {ready:{prepare:true}, language:\"JavaScript\"};\n"
+  },
+  {
+    "id": "error-config",
+    "title": "设置谱参数与相位点",
+    "note": "参数 A 为默认示例；修改为 p=4、q=−3 可检查参数 B。",
+    "lead": "设置孤子参数、纵向格距 h 和相位采样点。",
+    "requires": [
+      "error-prepare"
+    ],
+    "code": "if (!lab.dlw?.ready?.prepare) throw Error(\"先运行准备环境。\");\n// 孤子参数 (a,p,q)：A=(2,1,2)，B=(2,4,-3)。\n// h：y 方向格距；z：无量纲相位；x、t 导数保持解析。\nconst cfg = {\n  a: 2, p: 1, q: 2,\n  h: 1 / 8,\n  zMin: -10, zMax: 10, points: 1601,\n  levels: 3\n};\nconst { a, p, q, h, zMin, zMax, points, levels } = cfg;\nif (![a,p,q,h,zMin,zMax].every(Number.isFinite))\n  throw Error(\"参数必须是有限实数。\");\nif (!(h > 0 && zMax > zMin) || zMax - zMin > 100)\n  throw Error(\"要求 h>0、zMax>zMin，且相位区间宽度≤100。\");\nif (!Number.isInteger(points) || points < 41 || points > 10001 ||\n    !Number.isInteger(levels) || levels < 1 || levels > 6)\n  throw Error(\"points 应在 41—10001；levels 应在 1—6，均取整数。\");\nif (h / 2 ** (levels - 1) < 1 / 1024)\n  throw Error(\"最细格距须≥1/1024，以限制浮点消减误差。\");\nconst K = p + q, P = p - a, Q = q + a;\nif (!(K > 0) || P === 0 || Q === 0 || !(-P / Q > 0))\n  throw Error(\"单孤子正分支要求 p+q>0，(p-a)(q+a)<0。\");\nconst ell = 1 / P + 1 / Q, Gamma = -P / Q;\nconst Omega = q*q - p*p, zeta = K * ell;\nif (![ell,Gamma,Omega,zeta].every(Number.isFinite))\n  throw Error(\"参数过近谱极点，所得系数非有限。\");\nconst zs = Array.from({length: points}, (_,i) =>\n  zMin + (zMax - zMin) * i / (points - 1));\nemit({type:\"table\", columns:[\"K\",\"ℓ\",\"Γ\",\"ζ = Kℓ\",\"h\",\"相位点数\"],\n  rows:[[K,ell,Gamma,zeta,h,points]]});\nObject.assign(lab.dlw,{cfg,...cfg,K,P,Q,ell,Gamma,Omega,zeta,zs,ready:{prepare:true,config:true}});\n"
+  },
+  {
+    "id": "error-profile",
+    "title": "定义连续剖面与解析导数",
+    "note": "按同一相位变量 z 计算两场及导数，避免数值微分。",
+    "lead": "定义连续单孤子剖面及其对相位的解析导数。",
+    "requires": [
+      "error-config"
+    ],
+    "code": "if (!lab.dlw?.ready?.config) throw Error(\"先运行谱参数配置。\");\nconst {K,ell,Gamma}=lab.dlw;\n// S 形函数的解析导数：s^(n)=s(1-s)*P_n(s)。\n// 多项式递推：P_(n+1)=(1-2s)*P_n+s(1-s)*P_n'。\nconst polys = [[1]];\nfor (let n=1; n<5; n++) {\n  const c = polys[n-1];\n  polys.push(Array.from({length:c.length+1}, (_,k) =>\n    (k+1) * ((c[k] || 0) - (c[k-1] || 0))));\n}\nfunction sigmoidJet(z) {\n  const e = Math.exp(-Math.abs(z));\n  const s = z >= 0 ? 1/(1+e) : e/(1+e);\n  const theta = e / (1+e)**2;\n  return [s, ...polys.map(c => {\n    let value = 0;\n    for (let k=c.length-1; k>=0; k--) value = value*s + c[k];\n    return theta * value;\n  })];\n}\n// u[n]、v[n] 表示对 z 的 n 阶导数。\nfunction profile(z) {\n  const s = sigmoidJet(z), f = sigmoidJet(z + Math.log(Gamma));\n  return {\n    s, f,\n    u: Array.from({length:4}, (_,n) => 2*K*(f[n]-s[n])),\n    v: Array.from({length:3}, (_,n) => 2*K*ell*(f[n+1]+s[n+1]))\n  };\n}\nObject.assign(lab.dlw,{sigmoidJet,profile,ready:{prepare:true,config:true,profile:true}});\n"
+  },
+  {
+    "id": "error-coefficient",
+    "title": "定义二阶主系数与解析上界",
+    "note": "主系数对应两条物理场方程；解析上界覆盖整个单孤子波形。",
+    "lead": "定义二阶残差主系数及全波形上界。",
+    "requires": [
+      "error-profile"
+    ],
+    "code": "if (!lab.dlw?.ready?.profile) throw Error(\"先运行连续剖面。\");\nconst {profile,zeta}=lab.dlw;\n// 数组下标 0、1 对应 DLW 的两条方程。\nfunction coefficient(z) {\n  const {s,f} = profile(z);\n  const d1=f[1]-s[1], d2=f[2]-s[2], d3=f[3]-s[3];\n  // 乘积项：B=(s'')^2+s'*s'''=0.5*((s')^2)''。\n  const B = s[2]**2 + s[1]*s[3];\n  return {\n    FD: [zeta**3*(f[5]+s[5])/6, zeta**3*(f[5]-s[5])/3],\n    SD: [zeta**3*((2*s[5]-f[5])/3+B) - zeta**2*s[3],\n         zeta**3*((f[5]+2*s[5])/3+B+2*(d2*d2+d1*d3))\n         - zeta**2*s[3]]\n  };\n}\n// 覆盖全部实相位 z 的上界。\nconst Z = Math.abs(zeta);\nconst bounds = {\n  FD: [Z**3/12, Z**3/6],\n  SD: [251*Z**3/864 + Z**2/8, 59*Z**3/96 + Z**2/8]\n};\nObject.assign(lab.dlw,{coefficient,bounds,ready:{prepare:true,config:true,profile:true,coefficient:true}});\n"
+  },
+  {
+    "id": "error-residual",
+    "title": "定义有限格距方程残差",
+    "note": "连续场代入离散方程；横向与时间导数保持解析。",
+    "lead": "定义有限格距 h 下的 SD 和 FD 方程残差。",
+    "requires": [
+      "error-coefficient"
+    ],
+    "code": "if (!lab.dlw?.ready?.coefficient) throw Error(\"先运行二阶主系数。\");\nconst {a,K,ell,Omega,profile}=lab.dlw;\nfunction residual(z, hh, scheme) {\n  const cache = new Map();\n  function node(j) {\n    if (cache.has(j)) return cache.get(j);\n    const c=profile(z+ell*hh*j), plus=profile(z+ell*hh*(j+1));\n    const minus=profile(z+ell*hh*(j-1));\n    // 差分重构：D=δ₀u，W=v−δ₀u。\n    const D=c.v.map((_,n) => (plus.u[n]-minus.u[n])/(2*hh));\n    const W=c.v.map((v,n) => v-D[n]);\n    const Ax=K*(c.u[0]+2*a)*c.u[1];\n    const Hx=Ax + (scheme===\"SD\" ? hh*hh*K*(W[0]/16-1/4)*W[1] : 0);\n    const out={...c,D,W,Ax,Hx}; cache.set(j,out); return out;\n  }\n  // r1 位于交错中点；r2 位于节点 j=0。\n  const plus=node(1/2), minus=node(-1/2), c=node(0);\n  let r1=Omega*(plus.u[1]-minus.u[1])/hh+(plus.Hx-minus.Hx)/hh;\n  r1 += K*K*(scheme===\"SD\"\n    ? (plus.u[2]-minus.u[2])/hh+(plus.W[2]+minus.W[2])/2\n    : (plus.v[2]+minus.v[2])/2);\n  let r2=Omega*c.v[1];\n  if (scheme===\"SD\") {\n    const pp=node(1), mm=node(-1);\n    r2 += (pp.Hx-mm.Hx)/(2*hh)\n      + K*(c.u[1]*c.W[0]+(c.u[0]+2*a)*c.W[1]-4*c.u[1])\n      + K*K*(c.D[2]+(pp.W[2]-2*c.W[2]+mm.W[2])/4);\n  } else {\n    r2 += K*(c.u[1]*c.v[0]+(c.u[0]+2*a)*c.v[1]-4*c.u[1])\n      + K*K*c.D[2];\n  }\n  return [r1,r2];\n}\nObject.assign(lab.dlw,{residual,ready:{prepare:true,config:true,profile:true,coefficient:true,residual:true}});\n"
+  },
+  {
+    "id": "error-main",
+    "title": "计算主系数并核对解析上界",
+    "note": "表中同时列出当前相位采样最大值和全波形解析上界。",
+    "lead": "计算采样主系数，核对上界并测量连续方程残差。",
+    "requires": [
+      "error-residual"
+    ],
+    "code": "if (!lab.dlw?.ready?.residual) throw Error(\"先运行有限格距残差。\");\nconst {zs,a,K,ell,Omega,h,coefficient,profile,bounds}=lab.dlw;\n// tau[S][i]：方案 S 第 i 分量的相位采样值。\nconst tau = {SD:[[],[]], FD:[[],[]]};\nlet continuumDefect=0;\nfor (const z of zs) {\n  const t=coefficient(z), {u,v}=profile(z), b=u[0]+2*a;\n  for (const S of [\"SD\",\"FD\"]) for (let i=0;i<2;i++) tau[S][i].push(t[S][i]);\n  // 归一化残差：abs(sum(terms))/(1+sum(abs(terms)))。\n  const terms1=[ell*Omega*u[2], K*K*v[2], K*ell*(u[1]*u[1]+b*u[2])];\n  const terms2=[Omega*v[1], K*K*ell*u[3], K*(u[1]*v[0]+b*v[1]-4*u[1])];\n  for (const terms of [terms1,terms2]) continuumDefect=Math.max(continuumDefect,\n    Math.abs(terms.reduce((x,y)=>x+y,0))/(1+terms.reduce((x,y)=>x+Math.abs(y),0)));\n}\nif (continuumDefect > 1e-10) throw Error(\"连续 DLW 方程核对失败，请检查剖面或谱参数。\");\nconst maxAbs = arr => Math.max(...arr.map(Math.abs));\nconst coeffRows=[];\nfor (const S of [\"SD\",\"FD\"]) for (let i=0;i<2;i++) {\n  const sampled=maxAbs(tau[S][i]);\n  if (!Number.isFinite(sampled) || sampled > bounds[S][i]*(1+1e-10))\n    throw Error(`${S} 第 ${i+1} 式超出解析主系数上界，请检查核心表达式。`);\n  coeffRows.push([`${S}${S===\"SD\" ? \" / SDR\" : \"\"} · ${i+1}`,sampled,\n    bounds[S][i],h*h*sampled,h*h*bounds[S][i]]);\n}\nemit({type:\"table\",columns:[\"方程\",\"采样 max |τ|\",\"全波形解析上界\",\"采样 h² max |τ|\",\"h² 解析上界\"],rows:coeffRows});\nObject.assign(lab.dlw,{tau,continuumDefect,maxAbs,coeffRows,ready:{prepare:true,config:true,profile:true,coefficient:true,residual:true,main:true}});\nemit({type:\"text\",text:`continuumDefect = ${continuumDefect}`});\n"
+  },
+  {
+    "id": "error-convergence",
+    "title": "减半格距并画残差剖面",
+    "note": "现场计算 R_h/h² 与主系数之差，检查二阶收敛并保留曲线正负号。",
+    "lead": "逐次减半格距，比较并绘制缩放残差与主系数。",
+    "requires": [
+      "error-main"
+    ],
+    "code": "if (!lab.dlw?.ready?.main) throw Error(\"先运行主系数计算。\");\nconst {h,levels,zs,tau,residual,maxAbs,continuumDefect}=lab.dlw;\n// 余量：R_h/h²−tau=O(h²)。\nconst convergence=[], finest={SD:[[],[]],FD:[[],[]]}, previous={};\nfor (let level=0;level<levels;level++) {\n  const hh=h/2**level;\n  for (const S of [\"SD\",\"FD\"]) {\n    const values=[[],[]], errors=[[],[]];\n    zs.forEach((z,k) => {\n      const r=residual(z,hh,S);\n      for (let i=0;i<2;i++) {\n        const normalized=r[i]/(hh*hh);\n        if (!Number.isFinite(normalized)) throw Error(\"有限 h 残差非有限，请检查参数。\");\n        values[i].push(normalized); errors[i].push(normalized-tau[S][i][k]);\n      }\n    });\n    for (let i=0;i<2;i++) {\n      const key=`${S}${i}`, err=maxAbs(errors[i]);\n      // 观测阶数=log2(2h 档误差/h 档误差)。\n      const rate=level && err>0 && previous[key]>0 ? Math.log2(previous[key]/err) : null;\n      convergence.push([`${S} · ${i+1}`,hh,maxAbs(values[i]),err,rate]);\n      previous[key]=err;\n      if (level===levels-1) finest[S][i]=values[i];\n    }\n  }\n}\nemit({type:\"table\",columns:[\"方程\",\"h\",\"采样 max |R_h / h²|\",\"采样 max |R_h / h² − τ|\",\"减半收敛阶\"],rows:convergence});\nfor (let i=0;i<2;i++) emit({type:\"series\",title:`DLW 第 ${i+1} 式：主系数与有限格距残差`,\n  xLabel:\"无量纲相位 z\",yLabel:\"方程残差 / h²\",series:[\n    {name:\"SD / SDR 主系数 τ\",x:zs,y:tau.SD[i]},\n    {name:\"FD 主系数 τ\",x:zs,y:tau.FD[i]},\n    {name:`SD 有限 h=${h/2**(levels-1)}`,x:zs,y:finest.SD[i],dash:true},\n    {name:`FD 有限 h=${h/2**(levels-1)}`,x:zs,y:finest.FD[i],dash:true}\n  ]});\nObject.assign(lab.dlw,{convergence,finest,ready:{prepare:true,config:true,profile:true,coefficient:true,residual:true,main:true,convergence:true}});\n"
+  }
+]

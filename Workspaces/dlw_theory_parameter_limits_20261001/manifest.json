@@ -1,0 +1,760 @@
+{
+  "title": "DLW：两个结构参数的谱范围限制",
+  "source_sha256": "be942fcf2402563507fa3aade5cbac19de7e08f471507c5581de4653e5fe34ad",
+  "html_sha256": "1c196b14a7e3f58b1b3becb79124db95767fc5616115f3b6eae0b907647128d3",
+  "equation_count": 22,
+  "math_count": 187,
+  "section_count": 6,
+  "font_count": 60,
+  "formulas": [
+    {
+      "text": "$5+2\\sqrt5$",
+      "display": false
+    },
+    {
+      "text": "$v$",
+      "display": false
+    },
+    {
+      "text": "$2$",
+      "display": false
+    },
+    {
+      "text": "$u$",
+      "display": false
+    },
+    {
+      "text": "$a$",
+      "display": false
+    },
+    {
+      "text": "$h>0$",
+      "display": false
+    },
+    {
+      "text": "$x,t$",
+      "display": false
+    },
+    {
+      "text": "$\\alpha,\\beta$",
+      "display": false
+    },
+    {
+      "text": "$h$",
+      "display": false
+    },
+    {
+      "text": "$P=p-a$",
+      "display": false
+    },
+    {
+      "text": "$Q=q+a$",
+      "display": false
+    },
+    {
+      "text": "$\\Gamma=-P/Q>0$",
+      "display": false
+    },
+    {
+      "text": "$\\Gamma\\ne1$",
+      "display": false
+    },
+    {
+      "text": "$A=P^{-1}-Q^{-1}$",
+      "display": false
+    },
+    {
+      "text": "$I=[A_-,A_+]$",
+      "display": false
+    },
+    {
+      "text": "$$\nP^{-1}=\\frac{A}{1+\\Gamma},\\qquad Q^{-1}=-\\frac{\\Gamma A}{1+\\Gamma},\\qquad\nL=\\frac{1-\\Gamma}{1+\\Gamma}A,\\qquad K=p+q=\\frac{\\Gamma^2-1}{\\Gamma A}.\\tag{1}\n$$",
+      "display": true
+    },
+    {
+      "text": "$K>0$",
+      "display": false
+    },
+    {
+      "text": "$\\operatorname{sign}A=\\operatorname{sign}(\\Gamma-1)$",
+      "display": false
+    },
+    {
+      "text": "$N=1$",
+      "display": false
+    },
+    {
+      "text": "$\\tau$",
+      "display": false
+    },
+    {
+      "text": "$\\Gamma$",
+      "display": false
+    },
+    {
+      "text": "$s_\\pm=a+\\alpha h^2\\pm(h+\\beta h^3)/2$",
+      "display": false
+    },
+    {
+      "text": "$\\mu=\\alpha h^2$",
+      "display": false
+    },
+    {
+      "text": "$r_h=1+\\beta h^2$",
+      "display": false
+    },
+    {
+      "text": "$H=hr_h$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\chi_h=\\frac{P-\\mu+H/2}{P-\\mu-H/2}\\frac{Q+\\mu+H/2}{Q+\\mu-H/2},\\qquad k_h=\\frac{\\log\\chi_h}{h}.\\tag{2}\n$$",
+      "display": true
+    },
+    {
+      "text": "$h=0$",
+      "display": false
+    },
+    {
+      "text": "$M=\\max_I|A|$",
+      "display": false
+    },
+    {
+      "text": "$\\sigma=\\operatorname{sign}A$",
+      "display": false
+    },
+    {
+      "text": "$c_\\Gamma=\\max(1,\\Gamma)/(1+\\Gamma)$",
+      "display": false
+    },
+    {
+      "text": "$$\nr_h>0,\\qquad c_\\Gamma M\\left[\\sigma\\alpha h^2+\\frac{h(1+\\beta h^2)}2\\right]<1.\\tag{3}\n$$",
+      "display": true
+    },
+    {
+      "text": "$E_h(\\alpha,\\beta)=\\sup_{A\\in I}|(k_h-L)/L|$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\frac{k_h-L}{L}=h^2q_{\\alpha,\\beta}(A)+R_h(A),\\qquad\nq_{\\alpha,\\beta}=\\beta+\\alpha A+C_\\Gamma A^2,\\qquad\nC_\\Gamma=\\frac{\\Gamma^2+\\Gamma+1}{12(\\Gamma+1)^2}>0.\\tag{4}\n$$",
+      "display": true
+    },
+    {
+      "text": "$m=(A_-+A_+)/2$",
+      "display": false
+    },
+    {
+      "text": "$d=(A_+-A_-)/2$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\|q_{\\alpha,\\beta}\\|_{\\infty,I}\\ge E_*:=\\frac{C_\\Gamma d^2}{2}\n=\\frac{C_\\Gamma(A_+-A_-)^2}{8}.\\tag{5}\n$$",
+      "display": true
+    },
+    {
+      "text": "$q(m-d)+q(m+d)-2q(m)=2C_\\Gamma d^2$",
+      "display": false
+    },
+    {
+      "text": "$E$",
+      "display": false
+    },
+    {
+      "text": "$4E$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\alpha_*=-2C_\\Gamma m,\\qquad \\beta_*=C_\\Gamma(m^2-d^2/2)\\tag{6}\n$$",
+      "display": true
+    },
+    {
+      "text": "$q_*=C_\\Gamma[(A-m)^2-d^2/2]$",
+      "display": false
+    },
+    {
+      "text": "$E_*$",
+      "display": false
+    },
+    {
+      "text": "$-E_*$",
+      "display": false
+    },
+    {
+      "text": "$E_*$",
+      "display": false
+    },
+    {
+      "text": "$E_*$",
+      "display": false
+    },
+    {
+      "text": "$\\Gamma,I$",
+      "display": false
+    },
+    {
+      "text": "$h$",
+      "display": false
+    },
+    {
+      "text": "$\\alpha=\\beta=0$",
+      "display": false
+    },
+    {
+      "text": "$E_0=C_\\Gamma M^2$",
+      "display": false
+    },
+    {
+      "text": "$m_0=\\min_I|A|>0$",
+      "display": false
+    },
+    {
+      "text": "$\\mathcal R=M/m_0$",
+      "display": false
+    },
+    {
+      "text": "$M-m_0$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\frac{E_*}{E_0}=\\frac{(1-\\mathcal R^{-1})^2}{8},\\qquad\n\\frac{E_*}{E_0}\\le\\frac1{10}\\ \\Longleftrightarrow\\ \n\\mathcal R\\le5+2\\sqrt5\\simeq9.47214.\\tag{7}\n$$",
+      "display": true
+    },
+    {
+      "text": "$h$",
+      "display": false
+    },
+    {
+      "text": "$h$",
+      "display": false
+    },
+    {
+      "text": "$h$",
+      "display": false
+    },
+    {
+      "text": "$1/8$",
+      "display": false
+    },
+    {
+      "text": "$h>0$",
+      "display": false
+    },
+    {
+      "text": "$\\chi_h(A)$",
+      "display": false
+    },
+    {
+      "text": "$\\chi_h(A)=\\exp[h(1-\\Gamma)A/(1+\\Gamma)]$",
+      "display": false
+    },
+    {
+      "text": "$O(1/A)$",
+      "display": false
+    },
+    {
+      "text": "$|\\alpha|\\le a_0$",
+      "display": false
+    },
+    {
+      "text": "$|\\beta|\\le b_0$",
+      "display": false
+    },
+    {
+      "text": "$0<h\\le h_0$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\varepsilon_0=h_0^2,\\quad s=c_\\Gamma M,\\quad \\rho=a_0\\varepsilon_0s<1,\\quad\nR_b=1+b_0\\varepsilon_0,\\quad \\delta_b=(1-\\rho)^2,\\quad\nq_b=\\frac{h_0R_bs}{2(1-\\rho)}<1,\\quad b_0\\varepsilon_0<1.\\tag{8}\n$$",
+      "display": true
+    },
+    {
+      "text": "$0<h\\le h_0$",
+      "display": false
+    },
+    {
+      "text": "$J=\\Gamma M^2/(1+\\Gamma)^2$",
+      "display": false
+    },
+    {
+      "text": "$B_r=b_0(3+3b_0\\varepsilon_0+b_0^2\\varepsilon_0^2)$",
+      "display": false
+    },
+    {
+      "text": "$T_\\Gamma=(1+\\Gamma+\\Gamma^2+\\Gamma^3+\\Gamma^4)/[80(1+\\Gamma)^4]$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\sup_I|R_h|\\le h^4B,\\tag{9}\n$$",
+      "display": true
+    },
+    {
+      "text": "$$\n\\begin{aligned}\nB={}&\\frac{a_0b_0M+12a_0^2E_0+\\varepsilon_0a_0^2J(b_0+a_0M)}{\\delta_b}\\\\\n&+\\frac{E_0(B_r+a_0M+\\varepsilon_0a_0^2J)}{\\delta_b^2}\n+\\frac{a_0s^3}{2\\delta_b}\n+\\frac{R_b^5T_\\Gamma M^4}{\\delta_b^3(1-q_b^2)}.\n\\end{aligned}\\tag{10}\n$$",
+      "display": true
+    },
+    {
+      "text": "$x=P^{-1}$",
+      "display": false
+    },
+    {
+      "text": "$y=Q^{-1}$",
+      "display": false
+    },
+    {
+      "text": "$\\widetilde x=x/(1-\\mu x)$",
+      "display": false
+    },
+    {
+      "text": "$\\widetilde y=y/(1+\\mu y)$",
+      "display": false
+    },
+    {
+      "text": "$D=(1-\\mu x)(1+\\mu y)$",
+      "display": false
+    },
+    {
+      "text": "$\\widetilde x+\\widetilde y=L/D$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\frac{k_h}{L}=\\frac{r_h}{D}\\int_0^1\\frac{d\\theta}\n{1-(H/2)^2[\\theta\\widetilde x-(1-\\theta)\\widetilde y]^2}.\\tag{11}\n$$",
+      "display": true
+    },
+    {
+      "text": "$q_b^2<1$",
+      "display": false
+    },
+    {
+      "text": "$1-\\rho$",
+      "display": false
+    },
+    {
+      "text": "$1/|\\Gamma-1|$",
+      "display": false
+    },
+    {
+      "text": "$|A|$",
+      "display": false
+    },
+    {
+      "text": "$|A|=M$",
+      "display": false
+    },
+    {
+      "text": "$q_0=h_0c_\\Gamma M/2<1$",
+      "display": false
+    },
+    {
+      "text": "$$\nh^2E_0\\le E_h(0,0)\\le h^2E_0+h^4B_0,\\qquad B_0=\\frac{T_\\Gamma M^4}{1-q_0^2}.\\tag{12}\n$$",
+      "display": true
+    },
+    {
+      "text": "$B_*$",
+      "display": false
+    },
+    {
+      "text": "$E_*+h^2B_*\\le E_0/10$",
+      "display": false
+    },
+    {
+      "text": "$E_*-h^2B>(E_0+h^2B_0)/10$",
+      "display": false
+    },
+    {
+      "text": "$\\Gamma=2$",
+      "display": false
+    },
+    {
+      "text": "$|\\alpha|\\le1$",
+      "display": false
+    },
+    {
+      "text": "$|\\beta|\\le2$",
+      "display": false
+    },
+    {
+      "text": "$h_0=1/50$",
+      "display": false
+    },
+    {
+      "text": "$[1,2]$",
+      "display": false
+    },
+    {
+      "text": "$1/32$",
+      "display": false
+    },
+    {
+      "text": "$0<h\\le1/50$",
+      "display": false
+    },
+    {
+      "text": "$\\alpha_*=-7/36,\\ \\beta_*=119/864$",
+      "display": false
+    },
+    {
+      "text": "$[1,10]$",
+      "display": false
+    },
+    {
+      "text": "$81/800>1/10$",
+      "display": false
+    },
+    {
+      "text": "$0<h\\le1/500$",
+      "display": false
+    },
+    {
+      "text": "$B$",
+      "display": false
+    },
+    {
+      "text": "$10.46354$",
+      "display": false
+    },
+    {
+      "text": "$401.28332$",
+      "display": false
+    },
+    {
+      "text": "$0.01363866$",
+      "display": false
+    },
+    {
+      "text": "$0.00647749$",
+      "display": false
+    },
+    {
+      "text": "$G_j=1+E_j$",
+      "display": false
+    },
+    {
+      "text": "$F_j=1+\\gamma(s_-)E_j$",
+      "display": false
+    },
+    {
+      "text": "$E_j=\\exp(Kx+\\Omega t+\\varphi)\\chi_h^j$",
+      "display": false
+    },
+    {
+      "text": "$\\Omega=q^2-p^2$",
+      "display": false
+    },
+    {
+      "text": "$$\nu_j=\\partial_x\\log\\frac{F_j^2}{G_jG_{j+1}},\\qquad\nv_j=\\frac4h\\partial_x\\log\\frac{G_{j+1}}{G_j}+\\delta_0u_j.\\tag{13}\n$$",
+      "display": true
+    },
+    {
+      "text": "$x\\to\\pm\\infty$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\int_{\\mathbb R}u_j\\,dx=2\\log\\gamma(s_-)-\\log\\chi_h,\\qquad\n\\int_{\\mathbb R}v_j\\,dx=4k_h.\\tag{14}\n$$",
+      "display": true
+    },
+    {
+      "text": "$j$",
+      "display": false
+    },
+    {
+      "text": "$\\int\\delta_0u_j\\,dx=0$",
+      "display": false
+    },
+    {
+      "text": "$\\int v_0\\,dx=4L$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\frac{\\int(v_h-v_0)\\,dx}{4L}=\\frac{k_h-L}{L},\\qquad\n\\frac{\\|v_h-v_0\\|_{L^1_x}}{4|L|}\\ge\\left|\\frac{k_h-L}{L}\\right|.\\tag{15}\n$$",
+      "display": true
+    },
+    {
+      "text": "$L^1$",
+      "display": false
+    },
+    {
+      "text": "$L^1$",
+      "display": false
+    },
+    {
+      "text": "$u$",
+      "display": false
+    },
+    {
+      "text": "$y\\in[-Y,Y]$",
+      "display": false
+    },
+    {
+      "text": "$z=Kx+Ly+\\Omega t+\\varphi$",
+      "display": false
+    },
+    {
+      "text": "$u_z=\\partial_z u_0$",
+      "display": false
+    },
+    {
+      "text": "$B_u=yLq_{\\alpha,\\beta}u_z+S_{\\alpha,A}(z)$",
+      "display": false
+    },
+    {
+      "text": "$y=\\pm Y$",
+      "display": false
+    },
+    {
+      "text": "$z$",
+      "display": false
+    },
+    {
+      "text": "$S$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\|B_u\\|_{L^\\infty(\\mathbb R_x\\times[-Y,Y])}\\ge\nY|Lq_{\\alpha,\\beta}|\\,\\|u_z\\|_\\infty.\\tag{16}\n$$",
+      "display": true
+    },
+    {
+      "text": "$KL=-(\\Gamma-1)^2/\\Gamma$",
+      "display": false
+    },
+    {
+      "text": "$\\Gamma$",
+      "display": false
+    },
+    {
+      "text": "$|L|\\|u_z\\|_\\infty$",
+      "display": false
+    },
+    {
+      "text": "$A$",
+      "display": false
+    },
+    {
+      "text": "$u$",
+      "display": false
+    },
+    {
+      "text": "$y$",
+      "display": false
+    },
+    {
+      "text": "$v$",
+      "display": false
+    },
+    {
+      "text": "$v$",
+      "display": false
+    },
+    {
+      "text": "$v_t+\\partial_x(\\cdots)=0$",
+      "display": false
+    },
+    {
+      "text": "$y$",
+      "display": false
+    },
+    {
+      "text": "$v$",
+      "display": false
+    },
+    {
+      "text": "$v_h=v_0$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\int_{\\mathbb R}[v_h(x,y,t)-v_0(x,y,t)]\\,dx=0\\tag{17}\n$$",
+      "display": true
+    },
+    {
+      "text": "$e_{u,v}=h^2a_{u,v}+O(h^4)$",
+      "display": false
+    },
+    {
+      "text": "$a(0)=0$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\tau^{\\alpha,\\beta}=\\tau^{SD}+\n\\alpha(2u_{xy},2v_x)^{\\mathsf T}+\\beta(0,-4u_x)^{\\mathsf T}.\\tag{18}\n$$",
+      "display": true
+    },
+    {
+      "text": "$y_0=-\\infty$",
+      "display": false
+    },
+    {
+      "text": "$\\partial_ta_u(0)=-\\int_{-\\infty}^y\\tau_1\\,d\\eta$",
+      "display": false
+    },
+    {
+      "text": "$s(z)=(1+e^{-z})^{-1}$",
+      "display": false
+    },
+    {
+      "text": "$f(z)=s(z+\\log\\Gamma)$",
+      "display": false
+    },
+    {
+      "text": "$d(z)=f(z)-s(z)$",
+      "display": false
+    },
+    {
+      "text": "$\\kappa_\\Gamma=(\\Gamma^2-1)/\\Gamma$",
+      "display": false
+    },
+    {
+      "text": "$\\lambda_\\Gamma=(1-\\Gamma)/(1+\\Gamma)$",
+      "display": false
+    },
+    {
+      "text": "$\\zeta=KL=-(\\Gamma-1)^2/\\Gamma$",
+      "display": false
+    },
+    {
+      "text": "$K=\\kappa_\\Gamma/A$",
+      "display": false
+    },
+    {
+      "text": "$L=\\lambda_\\Gamma A$",
+      "display": false
+    },
+    {
+      "text": "$$\nb_u(A,z):=\\partial_ta_u(0)=\\frac{F_\\Gamma(z)}A+\n\\frac{\\alpha G_\\Gamma(z)}{A^2},\\qquad \\beta\\ \\text{不进入此首项},\\tag{19}\n$$",
+      "display": true
+    },
+    {
+      "text": "$$\n\\begin{aligned}\nF_\\Gamma&=-\\frac1{\\lambda_\\Gamma}\\left\\{\n\\zeta^3\\left[\\frac{2s^{(4)}-f^{(4)}}3+\\frac{((s')^2)'}2\\right]-\\zeta^2s''\\right\\},\\\\\nG_\\Gamma&=-4\\kappa_\\Gamma^2d'.\n\\end{aligned}\\tag{20}\n$$",
+      "display": true
+    },
+    {
+      "text": "$\\Gamma\\ne1$",
+      "display": false
+    },
+    {
+      "text": "$F_\\Gamma$",
+      "display": false
+    },
+    {
+      "text": "$f^{(4)}$",
+      "display": false
+    },
+    {
+      "text": "$z=-\\log\\Gamma+(2n+1)i\\pi$",
+      "display": false
+    },
+    {
+      "text": "$s$",
+      "display": false
+    },
+    {
+      "text": "$F$",
+      "display": false
+    },
+    {
+      "text": "$G_\\Gamma$",
+      "display": false
+    },
+    {
+      "text": "$u$",
+      "display": false
+    },
+    {
+      "text": "$V(\\alpha,\\beta)=\\sup_{A\\in I}\\|b_u(A,\\cdot)\\|_\\infty$",
+      "display": false
+    },
+    {
+      "text": "$A_1,A_2$",
+      "display": false
+    },
+    {
+      "text": "$$\nA_2^2b_u(A_2,z)-A_1^2b_u(A_1,z)=(A_2-A_1)F_\\Gamma(z).\\tag{21}\n$$",
+      "display": true
+    },
+    {
+      "text": "$V_0=\\|F_\\Gamma\\|_\\infty/m_0$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\frac{V(\\alpha,\\beta)}{V_0}\\ge\n\\frac{m_0(M-m_0)}{M^2+m_0^2}\n=\\frac{\\mathcal R-1}{\\mathcal R^2+1}.\\tag{22}\n$$",
+      "display": true
+    },
+    {
+      "text": "$5-\\sqrt{14}<\\mathcal R<5+\\sqrt{14}$",
+      "display": false
+    },
+    {
+      "text": "$1.25834<\\mathcal R<8.74166$",
+      "display": false
+    },
+    {
+      "text": "$2$",
+      "display": false
+    },
+    {
+      "text": "$V/V_0\\ge1/5$",
+      "display": false
+    },
+    {
+      "text": "$u$",
+      "display": false
+    },
+    {
+      "text": "$e_u=h^2[tb_u+O(t^2)+O(h^2t)]$",
+      "display": false
+    },
+    {
+      "text": "$t,h$",
+      "display": false
+    },
+    {
+      "text": "$u$",
+      "display": false
+    },
+    {
+      "text": "$h$",
+      "display": false
+    },
+    {
+      "text": "$v$",
+      "display": false
+    },
+    {
+      "text": "$L^1$",
+      "display": false
+    },
+    {
+      "text": "$u$",
+      "display": false
+    },
+    {
+      "text": "$2$",
+      "display": false
+    },
+    {
+      "text": "$u$",
+      "display": false
+    },
+    {
+      "text": "$a=a_0+\\alpha a_\\alpha+\\beta a_\\beta$",
+      "display": false
+    },
+    {
+      "text": "$B$",
+      "display": false
+    },
+    {
+      "text": "$a(t)=B(t)-\\Phi(t,0)B(0)$",
+      "display": false
+    },
+    {
+      "text": "$h$",
+      "display": false
+    },
+    {
+      "text": "$h$",
+      "display": false
+    },
+    {
+      "text": "$h$",
+      "display": false
+    }
+  ],
+  "new_pde_runs": 0
+}

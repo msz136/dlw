@@ -1,0 +1,1111 @@
+{
+  "time": 0.01,
+  "method": "Euler",
+  "x_interval": [
+    -1.0,
+    1.0
+  ],
+  "x_points": 401,
+  "y_layers": 24,
+  "definition": "max_y |f_h - f_exact| at each stored x",
+  "ordinate_scale": "linear",
+  "curves": 36,
+  "png_figures": 12,
+  "pdf_figures": 12,
+  "maximum_peak_difference": 0.0,
+  "source_files": [
+    {
+      "path": "Workspaces/dlw_waveform_fields_20261001/revision_euler_crop/euler_cropped_errors.npz",
+      "sha256": "5abada3ce4704059020e93e16d226abef89648ed79f5ea21018cf9031b1843ea",
+      "size_bytes": 1996998
+    },
+    {
+      "path": "Workspaces/dlw_waveform_fields_20261001/revision_euler_crop/euler_cropped_errors.csv",
+      "sha256": "db7657658c24dee6b7d89e943fae33708a9c582bb2c7ddf2e47249771a9133b7",
+      "size_bytes": 9227
+    },
+    {
+      "path": "Workspaces/dlw_waveform_fields_20261001/revision_euler_crop/euler_plot_validation.json",
+      "sha256": "d5417bec6825894f21cb9b88d43b70b3511cd649a93227af5be626d44faec881",
+      "size_bytes": 39537
+    }
+  ],
+  "font": {
+    "family": "Microsoft YaHei",
+    "path": "C:\\Windows\\Fonts\\msyh.ttc"
+  },
+  "curve_records": [
+    {
+      "case": "fig1a",
+      "case_label": "A",
+      "method": "Euler",
+      "mesh": "fixed",
+      "model": "SD",
+      "field": "u",
+      "source_key": "fig1a_Euler_fixed_SD_abs_error_u",
+      "points": 401,
+      "source_shape": [
+        24,
+        401
+      ],
+      "curve_peak": 0.0005422433797925841,
+      "original_window_peak": 0.0005422433797925841,
+      "peak_difference": 0.0,
+      "color": "#2676bd",
+      "line_style": "solid"
+    },
+    {
+      "case": "fig1a",
+      "case_label": "A",
+      "method": "Euler",
+      "mesh": "fixed",
+      "model": "SD2",
+      "field": "u",
+      "source_key": "fig1a_Euler_fixed_SD2_abs_error_u",
+      "points": 401,
+      "source_shape": [
+        24,
+        401
+      ],
+      "curve_peak": 0.002339461689020661,
+      "original_window_peak": 0.002339461689020661,
+      "peak_difference": 0.0,
+      "color": "#e68a22",
+      "line_style": "solid"
+    },
+    {
+      "case": "fig1a",
+      "case_label": "A",
+      "method": "Euler",
+      "mesh": "fixed",
+      "model": "FD",
+      "field": "u",
+      "source_key": "fig1a_Euler_fixed_FD_abs_error_u",
+      "points": 401,
+      "source_shape": [
+        24,
+        401
+      ],
+      "curve_peak": 0.0007639728644377453,
+      "original_window_peak": 0.0007639728644377453,
+      "peak_difference": 0.0,
+      "color": "#299760",
+      "line_style": "solid"
+    },
+    {
+      "case": "fig1a",
+      "case_label": "A",
+      "method": "Euler",
+      "mesh": "fixed",
+      "model": "SD",
+      "field": "v",
+      "source_key": "fig1a_Euler_fixed_SD_abs_error_v",
+      "points": 401,
+      "source_shape": [
+        24,
+        401
+      ],
+      "curve_peak": 0.0009698735272287706,
+      "original_window_peak": 0.0009698735272287706,
+      "peak_difference": 0.0,
+      "color": "#2676bd",
+      "line_style": "solid"
+    },
+    {
+      "case": "fig1a",
+      "case_label": "A",
+      "method": "Euler",
+      "mesh": "fixed",
+      "model": "SD2",
+      "field": "v",
+      "source_key": "fig1a_Euler_fixed_SD2_abs_error_v",
+      "points": 401,
+      "source_shape": [
+        24,
+        401
+      ],
+      "curve_peak": 0.0016962276303151835,
+      "original_window_peak": 0.0016962276303151835,
+      "peak_difference": 0.0,
+      "color": "#e68a22",
+      "line_style": "solid"
+    },
+    {
+      "case": "fig1a",
+      "case_label": "A",
+      "method": "Euler",
+      "mesh": "fixed",
+      "model": "FD",
+      "field": "v",
+      "source_key": "fig1a_Euler_fixed_FD_abs_error_v",
+      "points": 401,
+      "source_shape": [
+        24,
+        401
+      ],
+      "curve_peak": 0.0011767735258552126,
+      "original_window_peak": 0.0011767735258552126,
+      "peak_difference": 0.0,
+      "color": "#299760",
+      "line_style": "solid"
+    },
+    {
+      "case": "fig1a",
+      "case_label": "A",
+      "method": "Euler",
+      "mesh": "moving",
+      "model": "SD",
+      "field": "u",
+      "source_key": "fig1a_Euler_moving_SD_abs_error_u",
+      "points": 401,
+      "source_shape": [
+        24,
+        401
+      ],
+      "curve_peak": 0.0003331287140164729,
+      "original_window_peak": 0.0003331287140164729,
+      "peak_difference": 0.0,
+      "color": "#2676bd",
+      "line_style": "solid"
+    },
+    {
+      "case": "fig1a",
+      "case_label": "A",
+      "method": "Euler",
+      "mesh": "moving",
+      "model": "SD2",
+      "field": "u",
+      "source_key": "fig1a_Euler_moving_SD2_abs_error_u",
+      "points": 401,
+      "source_shape": [
+        24,
+        401
+      ],
+      "curve_peak": 0.00047123005784621697,
+      "original_window_peak": 0.00047123005784621697,
+      "peak_difference": 0.0,
+      "color": "#e68a22",
+      "line_style": "solid"
+    },
+    {
+      "case": "fig1a",
+      "case_label": "A",
+      "method": "Euler",
+      "mesh": "moving",
+      "model": "FD",
+      "field": "u",
+      "source_key": "fig1a_Euler_moving_FD_abs_error_u",
+      "points": 401,
+      "source_shape": [
+        24,
+        401
+      ],
+      "curve_peak": 0.0003639765425966779,
+      "original_window_peak": 0.0003639765425966779,
+      "peak_difference": 0.0,
+      "color": "#299760",
+      "line_style": "solid"
+    },
+    {
+      "case": "fig1a",
+      "case_label": "A",
+      "method": "Euler",
+      "mesh": "moving",
+      "model": "SD",
+      "field": "v",
+      "source_key": "fig1a_Euler_moving_SD_abs_error_v",
+      "points": 401,
+      "source_shape": [
+        24,
+        401
+      ],
+      "curve_peak": 0.00034121903128903064,
+      "original_window_peak": 0.00034121903128903064,
+      "peak_difference": 0.0,
+      "color": "#2676bd",
+      "line_style": "solid"
+    },
+    {
+      "case": "fig1a",
+      "case_label": "A",
+      "method": "Euler",
+      "mesh": "moving",
+      "model": "SD2",
+      "field": "v",
+      "source_key": "fig1a_Euler_moving_SD2_abs_error_v",
+      "points": 401,
+      "source_shape": [
+        24,
+        401
+      ],
+      "curve_peak": 0.0007871265226073731,
+      "original_window_peak": 0.0007871265226073731,
+      "peak_difference": 0.0,
+      "color": "#e68a22",
+      "line_style": "solid"
+    },
+    {
+      "case": "fig1a",
+      "case_label": "A",
+      "method": "Euler",
+      "mesh": "moving",
+      "model": "FD",
+      "field": "v",
+      "source_key": "fig1a_Euler_moving_FD_abs_error_v",
+      "points": 401,
+      "source_shape": [
+        24,
+        401
+      ],
+      "curve_peak": 0.0005397931508845932,
+      "original_window_peak": 0.0005397931508845932,
+      "peak_difference": 0.0,
+      "color": "#299760",
+      "line_style": "solid"
+    },
+    {
+      "case": "fig1b",
+      "case_label": "B",
+      "method": "Euler",
+      "mesh": "fixed",
+      "model": "SD",
+      "field": "u",
+      "source_key": "fig1b_Euler_fixed_SD_abs_error_u",
+      "points": 401,
+      "source_shape": [
+        24,
+        401
+      ],
+      "curve_peak": 1.256240978528278e-05,
+      "original_window_peak": 1.256240978528278e-05,
+      "peak_difference": 0.0,
+      "color": "#2676bd",
+      "line_style": "solid"
+    },
+    {
+      "case": "fig1b",
+      "case_label": "B",
+      "method": "Euler",
+      "mesh": "fixed",
+      "model": "SD2",
+      "field": "u",
+      "source_key": "fig1b_Euler_fixed_SD2_abs_error_u",
+      "points": 401,
+      "source_shape": [
+        24,
+        401
+      ],
+      "curve_peak": 9.244678378955706e-06,
+      "original_window_peak": 9.244678378955706e-06,
+      "peak_difference": 0.0,
+      "color": "#e68a22",
+      "line_style": "solid"
+    },
+    {
+      "case": "fig1b",
+      "case_label": "B",
+      "method": "Euler",
+      "mesh": "fixed",
+      "model": "FD",
+      "field": "u",
+      "source_key": "fig1b_Euler_fixed_FD_abs_error_u",
+      "points": 401,
+      "source_shape": [
+        24,
+        401
+      ],
+      "curve_peak": 6.890215830057667e-06,
+      "original_window_peak": 6.890215830057667e-06,
+      "peak_difference": 0.0,
+      "color": "#299760",
+      "line_style": "solid"
+    },
+    {
+      "case": "fig1b",
+      "case_label": "B",
+      "method": "Euler",
+      "mesh": "fixed",
+      "model": "SD",
+      "field": "v",
+      "source_key": "fig1b_Euler_fixed_SD_abs_error_v",
+      "points": 401,
+      "source_shape": [
+        24,
+        401
+      ],
+      "curve_peak": 7.576867085079542e-06,
+      "original_window_peak": 7.576867085079542e-06,
+      "peak_difference": 0.0,
+      "color": "#2676bd",
+      "line_style": "solid"
+    },
+    {
+      "case": "fig1b",
+      "case_label": "B",
+      "method": "Euler",
+      "mesh": "fixed",
+      "model": "SD2",
+      "field": "v",
+      "source_key": "fig1b_Euler_fixed_SD2_abs_error_v",
+      "points": 401,
+      "source_shape": [
+        24,
+        401
+      ],
+      "curve_peak": 2.1721098672600192e-05,
+      "original_window_peak": 2.1721098672600192e-05,
+      "peak_difference": 0.0,
+      "color": "#e68a22",
+      "line_style": "solid"
+    },
+    {
+      "case": "fig1b",
+      "case_label": "B",
+      "method": "Euler",
+      "mesh": "fixed",
+      "model": "FD",
+      "field": "v",
+      "source_key": "fig1b_Euler_fixed_FD_abs_error_v",
+      "points": 401,
+      "source_shape": [
+        24,
+        401
+      ],
+      "curve_peak": 7.20898280298643e-06,
+      "original_window_peak": 7.20898280298643e-06,
+      "peak_difference": 0.0,
+      "color": "#299760",
+      "line_style": "solid"
+    },
+    {
+      "case": "fig1b",
+      "case_label": "B",
+      "method": "Euler",
+      "mesh": "moving",
+      "model": "SD",
+      "field": "u",
+      "source_key": "fig1b_Euler_moving_SD_abs_error_u",
+      "points": 401,
+      "source_shape": [
+        24,
+        401
+      ],
+      "curve_peak": 1.1625217399641175e-05,
+      "original_window_peak": 1.1625217399641175e-05,
+      "peak_difference": 0.0,
+      "color": "#2676bd",
+      "line_style": "solid"
+    },
+    {
+      "case": "fig1b",
+      "case_label": "B",
+      "method": "Euler",
+      "mesh": "moving",
+      "model": "SD2",
+      "field": "u",
+      "source_key": "fig1b_Euler_moving_SD2_abs_error_u",
+      "points": 401,
+      "source_shape": [
+        24,
+        401
+      ],
+      "curve_peak": 8.31837293938098e-06,
+      "original_window_peak": 8.31837293938098e-06,
+      "peak_difference": 0.0,
+      "color": "#e68a22",
+      "line_style": "solid"
+    },
+    {
+      "case": "fig1b",
+      "case_label": "B",
+      "method": "Euler",
+      "mesh": "moving",
+      "model": "FD",
+      "field": "u",
+      "source_key": "fig1b_Euler_moving_FD_abs_error_u",
+      "points": 401,
+      "source_shape": [
+        24,
+        401
+      ],
+      "curve_peak": 5.624881567078965e-06,
+      "original_window_peak": 5.624881567078965e-06,
+      "peak_difference": 0.0,
+      "color": "#299760",
+      "line_style": "solid"
+    },
+    {
+      "case": "fig1b",
+      "case_label": "B",
+      "method": "Euler",
+      "mesh": "moving",
+      "model": "SD",
+      "field": "v",
+      "source_key": "fig1b_Euler_moving_SD_abs_error_v",
+      "points": 401,
+      "source_shape": [
+        24,
+        401
+      ],
+      "curve_peak": 6.469898423566711e-06,
+      "original_window_peak": 6.469898423566711e-06,
+      "peak_difference": 0.0,
+      "color": "#2676bd",
+      "line_style": "solid"
+    },
+    {
+      "case": "fig1b",
+      "case_label": "B",
+      "method": "Euler",
+      "mesh": "moving",
+      "model": "SD2",
+      "field": "v",
+      "source_key": "fig1b_Euler_moving_SD2_abs_error_v",
+      "points": 401,
+      "source_shape": [
+        24,
+        401
+      ],
+      "curve_peak": 1.7885166222697535e-05,
+      "original_window_peak": 1.7885166222697535e-05,
+      "peak_difference": 0.0,
+      "color": "#e68a22",
+      "line_style": "solid"
+    },
+    {
+      "case": "fig1b",
+      "case_label": "B",
+      "method": "Euler",
+      "mesh": "moving",
+      "model": "FD",
+      "field": "v",
+      "source_key": "fig1b_Euler_moving_FD_abs_error_v",
+      "points": 401,
+      "source_shape": [
+        24,
+        401
+      ],
+      "curve_peak": 6.200500469455417e-06,
+      "original_window_peak": 6.200500469455417e-06,
+      "peak_difference": 0.0,
+      "color": "#299760",
+      "line_style": "solid"
+    },
+    {
+      "case": "fig3",
+      "case_label": "C",
+      "method": "Euler",
+      "mesh": "fixed",
+      "model": "SD",
+      "field": "u",
+      "source_key": "fig3_Euler_fixed_SD_abs_error_u",
+      "points": 401,
+      "source_shape": [
+        24,
+        401
+      ],
+      "curve_peak": 1.967985849660181e-05,
+      "original_window_peak": 1.967985849660181e-05,
+      "peak_difference": 0.0,
+      "color": "#2676bd",
+      "line_style": "solid"
+    },
+    {
+      "case": "fig3",
+      "case_label": "C",
+      "method": "Euler",
+      "mesh": "fixed",
+      "model": "SD2",
+      "field": "u",
+      "source_key": "fig3_Euler_fixed_SD2_abs_error_u",
+      "points": 401,
+      "source_shape": [
+        24,
+        401
+      ],
+      "curve_peak": 1.4909526519613081e-05,
+      "original_window_peak": 1.4909526519613081e-05,
+      "peak_difference": 0.0,
+      "color": "#e68a22",
+      "line_style": "solid"
+    },
+    {
+      "case": "fig3",
+      "case_label": "C",
+      "method": "Euler",
+      "mesh": "fixed",
+      "model": "FD",
+      "field": "u",
+      "source_key": "fig3_Euler_fixed_FD_abs_error_u",
+      "points": 401,
+      "source_shape": [
+        24,
+        401
+      ],
+      "curve_peak": 1.2657853485809056e-05,
+      "original_window_peak": 1.2657853485809056e-05,
+      "peak_difference": 0.0,
+      "color": "#299760",
+      "line_style": "solid"
+    },
+    {
+      "case": "fig3",
+      "case_label": "C",
+      "method": "Euler",
+      "mesh": "fixed",
+      "model": "SD",
+      "field": "v",
+      "source_key": "fig3_Euler_fixed_SD_abs_error_v",
+      "points": 401,
+      "source_shape": [
+        24,
+        401
+      ],
+      "curve_peak": 1.4301289773532844e-05,
+      "original_window_peak": 1.4301289773532844e-05,
+      "peak_difference": 0.0,
+      "color": "#2676bd",
+      "line_style": "solid"
+    },
+    {
+      "case": "fig3",
+      "case_label": "C",
+      "method": "Euler",
+      "mesh": "fixed",
+      "model": "SD2",
+      "field": "v",
+      "source_key": "fig3_Euler_fixed_SD2_abs_error_v",
+      "points": 401,
+      "source_shape": [
+        24,
+        401
+      ],
+      "curve_peak": 6.716598752121161e-05,
+      "original_window_peak": 6.716598752121161e-05,
+      "peak_difference": 0.0,
+      "color": "#e68a22",
+      "line_style": "solid"
+    },
+    {
+      "case": "fig3",
+      "case_label": "C",
+      "method": "Euler",
+      "mesh": "fixed",
+      "model": "FD",
+      "field": "v",
+      "source_key": "fig3_Euler_fixed_FD_abs_error_v",
+      "points": 401,
+      "source_shape": [
+        24,
+        401
+      ],
+      "curve_peak": 1.4118654005135234e-05,
+      "original_window_peak": 1.4118654005135234e-05,
+      "peak_difference": 0.0,
+      "color": "#299760",
+      "line_style": "solid"
+    },
+    {
+      "case": "fig3",
+      "case_label": "C",
+      "method": "Euler",
+      "mesh": "moving",
+      "model": "SD",
+      "field": "u",
+      "source_key": "fig3_Euler_moving_SD_abs_error_u",
+      "points": 401,
+      "source_shape": [
+        24,
+        401
+      ],
+      "curve_peak": 1.7280402272501494e-05,
+      "original_window_peak": 1.7280402272501494e-05,
+      "peak_difference": 0.0,
+      "color": "#2676bd",
+      "line_style": "solid"
+    },
+    {
+      "case": "fig3",
+      "case_label": "C",
+      "method": "Euler",
+      "mesh": "moving",
+      "model": "SD2",
+      "field": "u",
+      "source_key": "fig3_Euler_moving_SD2_abs_error_u",
+      "points": 401,
+      "source_shape": [
+        24,
+        401
+      ],
+      "curve_peak": 1.1084209268874545e-05,
+      "original_window_peak": 1.1084209268874545e-05,
+      "peak_difference": 0.0,
+      "color": "#e68a22",
+      "line_style": "solid"
+    },
+    {
+      "case": "fig3",
+      "case_label": "C",
+      "method": "Euler",
+      "mesh": "moving",
+      "model": "FD",
+      "field": "u",
+      "source_key": "fig3_Euler_moving_FD_abs_error_u",
+      "points": 401,
+      "source_shape": [
+        24,
+        401
+      ],
+      "curve_peak": 9.396829699470644e-06,
+      "original_window_peak": 9.396829699470644e-06,
+      "peak_difference": 0.0,
+      "color": "#299760",
+      "line_style": "solid"
+    },
+    {
+      "case": "fig3",
+      "case_label": "C",
+      "method": "Euler",
+      "mesh": "moving",
+      "model": "SD",
+      "field": "v",
+      "source_key": "fig3_Euler_moving_SD_abs_error_v",
+      "points": 401,
+      "source_shape": [
+        24,
+        401
+      ],
+      "curve_peak": 1.1324624688113794e-05,
+      "original_window_peak": 1.1324624688113794e-05,
+      "peak_difference": 0.0,
+      "color": "#2676bd",
+      "line_style": "solid"
+    },
+    {
+      "case": "fig3",
+      "case_label": "C",
+      "method": "Euler",
+      "mesh": "moving",
+      "model": "SD2",
+      "field": "v",
+      "source_key": "fig3_Euler_moving_SD2_abs_error_v",
+      "points": 401,
+      "source_shape": [
+        24,
+        401
+      ],
+      "curve_peak": 5.165674751772542e-05,
+      "original_window_peak": 5.165674751772542e-05,
+      "peak_difference": 0.0,
+      "color": "#e68a22",
+      "line_style": "solid"
+    },
+    {
+      "case": "fig3",
+      "case_label": "C",
+      "method": "Euler",
+      "mesh": "moving",
+      "model": "FD",
+      "field": "v",
+      "source_key": "fig3_Euler_moving_FD_abs_error_v",
+      "points": 401,
+      "source_shape": [
+        24,
+        401
+      ],
+      "curve_peak": 1.1262223464925114e-05,
+      "original_window_peak": 1.1262223464925114e-05,
+      "peak_difference": 0.0,
+      "color": "#299760",
+      "line_style": "solid"
+    }
+  ],
+  "figures": [
+    {
+      "case": "fig1a",
+      "case_label": "A",
+      "mesh": "fixed",
+      "mesh_label": "固定网格",
+      "field": "u",
+      "png": "Workspaces/index_readability_20261006/figures/fig1a_euler_fixed_u_error_curve.png",
+      "pdf": "Workspaces/index_readability_20261006/figures/fig1a_euler_fixed_u_error_curve.pdf",
+      "caption": "算例 A，固定网格：u 的绝对误差随 x 的变化。",
+      "y_limits": [
+        0.0,
+        0.0025266186241423142
+      ],
+      "curves": [
+        "SD",
+        "SD2",
+        "FD"
+      ],
+      "axes": 1
+    },
+    {
+      "case": "fig1a",
+      "case_label": "A",
+      "mesh": "fixed",
+      "mesh_label": "固定网格",
+      "field": "v",
+      "png": "Workspaces/index_readability_20261006/figures/fig1a_euler_fixed_v_error_curve.png",
+      "pdf": "Workspaces/index_readability_20261006/figures/fig1a_euler_fixed_v_error_curve.pdf",
+      "caption": "算例 A，固定网格：v 的绝对误差随 x 的变化。",
+      "y_limits": [
+        0.0,
+        0.0018319258407403984
+      ],
+      "curves": [
+        "SD",
+        "SD2",
+        "FD"
+      ],
+      "axes": 1
+    },
+    {
+      "case": "fig1a",
+      "case_label": "A",
+      "mesh": "moving",
+      "mesh_label": "移动网格",
+      "field": "u",
+      "png": "Workspaces/index_readability_20261006/figures/fig1a_euler_moving_u_error_curve.png",
+      "pdf": "Workspaces/index_readability_20261006/figures/fig1a_euler_moving_u_error_curve.pdf",
+      "caption": "算例 A，移动网格：u 的绝对误差随 x 的变化。",
+      "y_limits": [
+        0.0,
+        0.0025266186241423142
+      ],
+      "curves": [
+        "SD",
+        "SD2",
+        "FD"
+      ],
+      "axes": 1
+    },
+    {
+      "case": "fig1a",
+      "case_label": "A",
+      "mesh": "moving",
+      "mesh_label": "移动网格",
+      "field": "v",
+      "png": "Workspaces/index_readability_20261006/figures/fig1a_euler_moving_v_error_curve.png",
+      "pdf": "Workspaces/index_readability_20261006/figures/fig1a_euler_moving_v_error_curve.pdf",
+      "caption": "算例 A，移动网格：v 的绝对误差随 x 的变化。",
+      "y_limits": [
+        0.0,
+        0.0018319258407403984
+      ],
+      "curves": [
+        "SD",
+        "SD2",
+        "FD"
+      ],
+      "axes": 1
+    },
+    {
+      "case": "fig1b",
+      "case_label": "B",
+      "mesh": "fixed",
+      "mesh_label": "固定网格",
+      "field": "u",
+      "png": "Workspaces/index_readability_20261006/figures/fig1b_euler_fixed_u_error_curve.png",
+      "pdf": "Workspaces/index_readability_20261006/figures/fig1b_euler_fixed_u_error_curve.pdf",
+      "caption": "算例 B，固定网格：u 的绝对误差随 x 的变化。",
+      "y_limits": [
+        0.0,
+        1.3567402568105403e-05
+      ],
+      "curves": [
+        "SD",
+        "SD2",
+        "FD"
+      ],
+      "axes": 1
+    },
+    {
+      "case": "fig1b",
+      "case_label": "B",
+      "mesh": "fixed",
+      "mesh_label": "固定网格",
+      "field": "v",
+      "png": "Workspaces/index_readability_20261006/figures/fig1b_euler_fixed_v_error_curve.png",
+      "pdf": "Workspaces/index_readability_20261006/figures/fig1b_euler_fixed_v_error_curve.pdf",
+      "caption": "算例 B，固定网格：v 的绝对误差随 x 的变化。",
+      "y_limits": [
+        0.0,
+        2.345878656640821e-05
+      ],
+      "curves": [
+        "SD",
+        "SD2",
+        "FD"
+      ],
+      "axes": 1
+    },
+    {
+      "case": "fig1b",
+      "case_label": "B",
+      "mesh": "moving",
+      "mesh_label": "移动网格",
+      "field": "u",
+      "png": "Workspaces/index_readability_20261006/figures/fig1b_euler_moving_u_error_curve.png",
+      "pdf": "Workspaces/index_readability_20261006/figures/fig1b_euler_moving_u_error_curve.pdf",
+      "caption": "算例 B，移动网格：u 的绝对误差随 x 的变化。",
+      "y_limits": [
+        0.0,
+        1.3567402568105403e-05
+      ],
+      "curves": [
+        "SD",
+        "SD2",
+        "FD"
+      ],
+      "axes": 1
+    },
+    {
+      "case": "fig1b",
+      "case_label": "B",
+      "mesh": "moving",
+      "mesh_label": "移动网格",
+      "field": "v",
+      "png": "Workspaces/index_readability_20261006/figures/fig1b_euler_moving_v_error_curve.png",
+      "pdf": "Workspaces/index_readability_20261006/figures/fig1b_euler_moving_v_error_curve.pdf",
+      "caption": "算例 B，移动网格：v 的绝对误差随 x 的变化。",
+      "y_limits": [
+        0.0,
+        2.345878656640821e-05
+      ],
+      "curves": [
+        "SD",
+        "SD2",
+        "FD"
+      ],
+      "axes": 1
+    },
+    {
+      "case": "fig3",
+      "case_label": "C",
+      "mesh": "fixed",
+      "mesh_label": "固定网格",
+      "field": "u",
+      "png": "Workspaces/index_readability_20261006/figures/fig3_euler_fixed_u_error_curve.png",
+      "pdf": "Workspaces/index_readability_20261006/figures/fig3_euler_fixed_u_error_curve.pdf",
+      "caption": "算例 C，固定网格：u 的绝对误差随 x 的变化。",
+      "y_limits": [
+        0.0,
+        2.1254247176329955e-05
+      ],
+      "curves": [
+        "SD",
+        "SD2",
+        "FD"
+      ],
+      "axes": 1
+    },
+    {
+      "case": "fig3",
+      "case_label": "C",
+      "mesh": "fixed",
+      "mesh_label": "固定网格",
+      "field": "v",
+      "png": "Workspaces/index_readability_20261006/figures/fig3_euler_fixed_v_error_curve.png",
+      "pdf": "Workspaces/index_readability_20261006/figures/fig3_euler_fixed_v_error_curve.pdf",
+      "caption": "算例 C，固定网格：v 的绝对误差随 x 的变化。",
+      "y_limits": [
+        0.0,
+        7.253926652290855e-05
+      ],
+      "curves": [
+        "SD",
+        "SD2",
+        "FD"
+      ],
+      "axes": 1
+    },
+    {
+      "case": "fig3",
+      "case_label": "C",
+      "mesh": "moving",
+      "mesh_label": "移动网格",
+      "field": "u",
+      "png": "Workspaces/index_readability_20261006/figures/fig3_euler_moving_u_error_curve.png",
+      "pdf": "Workspaces/index_readability_20261006/figures/fig3_euler_moving_u_error_curve.pdf",
+      "caption": "算例 C，移动网格：u 的绝对误差随 x 的变化。",
+      "y_limits": [
+        0.0,
+        2.1254247176329955e-05
+      ],
+      "curves": [
+        "SD",
+        "SD2",
+        "FD"
+      ],
+      "axes": 1
+    },
+    {
+      "case": "fig3",
+      "case_label": "C",
+      "mesh": "moving",
+      "mesh_label": "移动网格",
+      "field": "v",
+      "png": "Workspaces/index_readability_20261006/figures/fig3_euler_moving_v_error_curve.png",
+      "pdf": "Workspaces/index_readability_20261006/figures/fig3_euler_moving_v_error_curve.pdf",
+      "caption": "算例 C，移动网格：v 的绝对误差随 x 的变化。",
+      "y_limits": [
+        0.0,
+        7.253926652290855e-05
+      ],
+      "curves": [
+        "SD",
+        "SD2",
+        "FD"
+      ],
+      "axes": 1
+    }
+  ],
+  "peak_summary": [
+    {
+      "case": "fig1a",
+      "case_label": "A",
+      "mesh": "fixed",
+      "mesh_label": "固定网格",
+      "fields": {
+        "u": {
+          "peak_errors": {
+            "SD": 0.0005422433797925841,
+            "SD2": 0.002339461689020661,
+            "FD": 0.0007639728644377453
+          },
+          "smallest_peak_model": "SD"
+        },
+        "v": {
+          "peak_errors": {
+            "SD": 0.0009698735272287706,
+            "SD2": 0.0016962276303151835,
+            "FD": 0.0011767735258552126
+          },
+          "smallest_peak_model": "SD"
+        }
+      }
+    },
+    {
+      "case": "fig1a",
+      "case_label": "A",
+      "mesh": "moving",
+      "mesh_label": "移动网格",
+      "fields": {
+        "u": {
+          "peak_errors": {
+            "SD": 0.0003331287140164729,
+            "SD2": 0.00047123005784621697,
+            "FD": 0.0003639765425966779
+          },
+          "smallest_peak_model": "SD"
+        },
+        "v": {
+          "peak_errors": {
+            "SD": 0.00034121903128903064,
+            "SD2": 0.0007871265226073731,
+            "FD": 0.0005397931508845932
+          },
+          "smallest_peak_model": "SD"
+        }
+      }
+    },
+    {
+      "case": "fig1b",
+      "case_label": "B",
+      "mesh": "fixed",
+      "mesh_label": "固定网格",
+      "fields": {
+        "u": {
+          "peak_errors": {
+            "SD": 1.256240978528278e-05,
+            "SD2": 9.244678378955706e-06,
+            "FD": 6.890215830057667e-06
+          },
+          "smallest_peak_model": "FD"
+        },
+        "v": {
+          "peak_errors": {
+            "SD": 7.576867085079542e-06,
+            "SD2": 2.1721098672600192e-05,
+            "FD": 7.20898280298643e-06
+          },
+          "smallest_peak_model": "FD"
+        }
+      }
+    },
+    {
+      "case": "fig1b",
+      "case_label": "B",
+      "mesh": "moving",
+      "mesh_label": "移动网格",
+      "fields": {
+        "u": {
+          "peak_errors": {
+            "SD": 1.1625217399641175e-05,
+            "SD2": 8.31837293938098e-06,
+            "FD": 5.624881567078965e-06
+          },
+          "smallest_peak_model": "FD"
+        },
+        "v": {
+          "peak_errors": {
+            "SD": 6.469898423566711e-06,
+            "SD2": 1.7885166222697535e-05,
+            "FD": 6.200500469455417e-06
+          },
+          "smallest_peak_model": "FD"
+        }
+      }
+    },
+    {
+      "case": "fig3",
+      "case_label": "C",
+      "mesh": "fixed",
+      "mesh_label": "固定网格",
+      "fields": {
+        "u": {
+          "peak_errors": {
+            "SD": 1.967985849660181e-05,
+            "SD2": 1.4909526519613081e-05,
+            "FD": 1.2657853485809056e-05
+          },
+          "smallest_peak_model": "FD"
+        },
+        "v": {
+          "peak_errors": {
+            "SD": 1.4301289773532844e-05,
+            "SD2": 6.716598752121161e-05,
+            "FD": 1.4118654005135234e-05
+          },
+          "smallest_peak_model": "FD"
+        }
+      }
+    },
+    {
+      "case": "fig3",
+      "case_label": "C",
+      "mesh": "moving",
+      "mesh_label": "移动网格",
+      "fields": {
+        "u": {
+          "peak_errors": {
+            "SD": 1.7280402272501494e-05,
+            "SD2": 1.1084209268874545e-05,
+            "FD": 9.396829699470644e-06
+          },
+          "smallest_peak_model": "FD"
+        },
+        "v": {
+          "peak_errors": {
+            "SD": 1.1324624688113794e-05,
+            "SD2": 5.165674751772542e-05,
+            "FD": 1.1262223464925114e-05
+          },
+          "smallest_peak_model": "FD"
+        }
+      }
+    }
+  ]
+}

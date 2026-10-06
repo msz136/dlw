@@ -1,0 +1,9 @@
+/-- Both heat-type equations and the lattice constraint of Report (21). -/
+theorem semiPair_implies_report21 (a h : ℝ) (F G : Lattice) (hne : h ≠ 0)
+    (hF : SmoothL F) (hG : SmoothL G) (hFp : PositiveL F) (hGp : PositiveL G)
+    (hsp : SemiPair a h F G) :
+    residualQ a h F G = 0 ∧ residualR a h F G = 0 ∧
+      ∀ j x t, (M G (j+1) x t-M G j x t)/h + Q F G j x t*R h F G j x t = 1 :=
+  ⟨report_Q_equation a h F G hne hF hG hFp hGp hsp,
+    report_R_equation a h F G hne hF hG hFp hGp hsp,
+    lattice_constraint h F G hne hG hGp⟩

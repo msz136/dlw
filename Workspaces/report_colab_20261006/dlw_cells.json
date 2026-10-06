@@ -1,0 +1,70 @@
+[
+  {
+    "id": "error-prepare",
+    "title": "准备残差计算环境",
+    "lead": "载入 NumPy、pandas 与 Matplotlib，准备双精度残差计算。",
+    "requires": [],
+    "language": "python",
+    "code": "import numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\nfrom types import SimpleNamespace\ntry:\n    from IPython.display import display\nexcept ModuleNotFoundError:\n    display = print  # 普通 Python 脚本使用文本表；Colab 使用原生表格输出。\n\n# NumPy 使用 IEEE 754 双精度；各段结果保存在 dlw 中。\ndlw = SimpleNamespace(ready={\"prepare\"})\n\ndef dlw_require(stage, message):\n    if stage not in dlw.ready:\n        raise RuntimeError(message)\n"
+  },
+  {
+    "id": "error-config",
+    "title": "设置谱参数与相位点",
+    "lead": "设置孤子参数、纵向格距 h 和相位采样点。",
+    "requires": [
+      "error-prepare"
+    ],
+    "language": "python",
+    "code": "dlw_require(\"prepare\", \"先运行准备环境。\")\ndlw.ready = {\"prepare\"}\n# 孤子参数 (a,p,q)：A=(2,1,2)，B=(2,4,-3)。\n# h：y 方向格距；z：无量纲相位；x、t 导数保持解析。\ndlw_cfg = dict(a=2, p=1, q=2, h=1/8,\n               zMin=-10, zMax=10, points=1601, levels=3)\na, p, q, h, zMin, zMax = (dlw_cfg[k] for k in\n                          (\"a\", \"p\", \"q\", \"h\", \"zMin\", \"zMax\"))\npoints, levels = dlw_cfg[\"points\"], dlw_cfg[\"levels\"]\nif not np.isfinite([a, p, q, h, zMin, zMax]).all():\n    raise ValueError(\"参数必须是有限实数。\")\nif not (h > 0 and zMax > zMin and zMax-zMin <= 100):\n    raise ValueError(\"要求 h>0、zMax>zMin，且相位区间宽度≤100。\")\nif (not isinstance(points, int) or not 41 <= points <= 10001 or\n        not isinstance(levels, int) or not 1 <= levels <= 6):\n    raise ValueError(\"points 应在 41—10001；levels 应在 1—6，均取整数。\")\nif h / 2**(levels-1) < 1/1024:\n    raise ValueError(\"最细格距须≥1/1024，以限制浮点消减误差。\")\nK, P, Q = p+q, p-a, q+a\nif not (K > 0 and P != 0 and Q != 0 and -P/Q > 0):\n    raise ValueError(\"单孤子正分支要求 p+q>0，(p-a)(q+a)<0。\")\nell, Gamma, Omega = 1/P + 1/Q, -P/Q, q*q-p*p\nzeta = K*ell\nif not np.isfinite([ell, Gamma, Omega, zeta]).all():\n    raise ValueError(\"参数过近谱极点，所得系数非有限。\")\ndlw.cfg = dlw_cfg.copy()\ndlw.a, dlw.K, dlw.ell, dlw.Gamma = a, K, ell, Gamma\ndlw.Omega, dlw.zeta, dlw.h, dlw.levels = Omega, zeta, h, levels\ndlw.zs = zMin + (zMax-zMin)*np.arange(points, dtype=np.float64)/(points-1)\ndlw.ready = {\"prepare\", \"config\"}\ndisplay(pd.DataFrame([[K, ell, Gamma, zeta, h, points]],\n                     columns=[\"K\", \"ℓ\", \"Γ\", \"ζ = Kℓ\", \"h\", \"相位点数\"]))\n"
+  },
+  {
+    "id": "error-profile",
+    "title": "定义连续剖面与解析导数",
+    "lead": "定义连续单孤子剖面及其对相位的解析导数。",
+    "requires": [
+      "error-config"
+    ],
+    "language": "python",
+    "code": "dlw_require(\"config\", \"先运行谱参数配置。\")\ndlw.ready = {\"prepare\", \"config\"}\n# s^(n)=s(1-s)*P_n(s)，P_(n+1)=(1-2s)P_n+s(1-s)P_n'。\ndlw_polys = [np.array([1.0])]\nfor n in range(1, 5):\n    c = dlw_polys[-1]\n    dlw_polys.append(np.array([(k+1)*((c[k] if k < len(c) else 0)\n                                    -(c[k-1] if k else 0))\n                              for k in range(len(c)+1)]))\n\ndef dlw_sigmoid_jet(z):\n    z = np.asarray(z, dtype=np.float64)\n    e = np.exp(-np.abs(z))\n    s = np.where(z >= 0, 1/(1+e), e/(1+e))\n    theta = e/(1+e)**2\n    return np.array([s] + [theta*np.polynomial.polynomial.polyval(s, c)\n                          for c in dlw_polys])\n\ndef dlw_profile(z):\n    s, f = dlw_sigmoid_jet(z), dlw_sigmoid_jet(z+np.log(dlw.Gamma))\n    # u[n]、v[n] 表示对 z 的 n 阶导数，支持标量或整列相位。\n    return dict(s=s, f=f, u=2*dlw.K*(f[:4]-s[:4]),\n                v=2*dlw.K*dlw.ell*(f[1:4]+s[1:4]))\n\ndlw.profile = dlw_profile\ndlw.ready = {\"prepare\", \"config\", \"profile\"}\n"
+  },
+  {
+    "id": "error-coefficient",
+    "title": "定义二阶主系数与解析上界",
+    "lead": "定义二阶残差主系数及全波形上界。",
+    "requires": [
+      "error-profile"
+    ],
+    "language": "python",
+    "code": "dlw_require(\"profile\", \"先运行连续剖面。\")\ndlw.ready = {\"prepare\", \"config\", \"profile\"}\n\ndef dlw_coefficient(z):\n    c = dlw.profile(z)\n    s, f, zeta = c[\"s\"], c[\"f\"], dlw.zeta\n    d1, d2, d3 = f[1]-s[1], f[2]-s[2], f[3]-s[3]\n    # B=(s″)²+s′*s‴=0.5*((s′)²)″。\n    B = s[2]**2 + s[1]*s[3]\n    return {\n        \"FD\": np.array([zeta**3*(f[5]+s[5])/6,\n                        zeta**3*(f[5]-s[5])/3]),\n        \"SD\": np.array([zeta**3*((2*s[5]-f[5])/3+B)-zeta**2*s[3],\n                        zeta**3*((f[5]+2*s[5])/3+B+2*(d2*d2+d1*d3))\n                        -zeta**2*s[3]])\n    }\n\n# 解析上界覆盖全部实相位 z，不依赖相位区间与采样点数。\nZ = abs(dlw.zeta)\ndlw.bounds = {\"FD\": np.array([Z**3/12, Z**3/6]),\n              \"SD\": np.array([251*Z**3/864+Z**2/8,\n                              59*Z**3/96+Z**2/8])}\ndlw.coefficient = dlw_coefficient\ndlw.ready = {\"prepare\", \"config\", \"profile\", \"coefficient\"}\n"
+  },
+  {
+    "id": "error-residual",
+    "title": "定义有限格距方程残差",
+    "lead": "定义有限格距 h 下的 SD 和 FD 方程残差。",
+    "requires": [
+      "error-coefficient"
+    ],
+    "language": "python",
+    "code": "dlw_require(\"coefficient\", \"先运行二阶主系数。\")\ndlw.ready = {\"prepare\", \"config\", \"profile\", \"coefficient\"}\n\ndef dlw_residual(z, hh, scheme):\n    if scheme not in (\"SD\", \"FD\"):\n        raise ValueError(\"scheme 应为 SD 或 FD。\")\n    z = np.asarray(z, dtype=np.float64)\n    a, K, ell, Omega = dlw.a, dlw.K, dlw.ell, dlw.Omega\n    cache = {}\n\n    def node(j):\n        if j in cache:\n            return cache[j]\n        c = dlw.profile(z+ell*hh*j)\n        plus = dlw.profile(z+ell*hh*(j+1))\n        minus = dlw.profile(z+ell*hh*(j-1))\n        # 每个偏移节点重新构造 D=δ₀u、W=v−δ₀u。\n        D = (plus[\"u\"][:3]-minus[\"u\"][:3])/(2*hh)\n        W = c[\"v\"]-D\n        u = c[\"u\"]\n        Ax = K*(u[0]+2*a)*u[1]\n        Hx = Ax + (hh*hh*K*(W[0]/16-1/4)*W[1] if scheme == \"SD\" else 0)\n        out = dict(c, D=D, W=W, Ax=Ax, Hx=Hx)\n        cache[j] = out\n        return out\n\n    # 第一式在交错中点，第二式在节点 j=0；x、t 导数保持解析。\n    plus, minus, c = node(1/2), node(-1/2), node(0)\n    r1 = Omega*(plus[\"u\"][1]-minus[\"u\"][1])/hh\n    r1 += (plus[\"Hx\"]-minus[\"Hx\"])/hh\n    r1 += K*K*((plus[\"u\"][2]-minus[\"u\"][2])/hh\n               +(plus[\"W\"][2]+minus[\"W\"][2])/2 if scheme == \"SD\"\n               else (plus[\"v\"][2]+minus[\"v\"][2])/2)\n    u, v, W, D = c[\"u\"], c[\"v\"], c[\"W\"], c[\"D\"]\n    r2 = Omega*v[1]\n    if scheme == \"SD\":\n        pp, mm = node(1), node(-1)\n        r2 += ((pp[\"Hx\"]-mm[\"Hx\"])/(2*hh)\n               +K*(u[1]*W[0]+(u[0]+2*a)*W[1]-4*u[1])\n               +K*K*(D[2]+(pp[\"W\"][2]-2*W[2]+mm[\"W\"][2])/4))\n    else:\n        r2 += K*(u[1]*v[0]+(u[0]+2*a)*v[1]-4*u[1])+K*K*D[2]\n    return np.array([r1, r2])\n\ndlw.residual = dlw_residual\ndlw.ready = {\"prepare\", \"config\", \"profile\", \"coefficient\", \"residual\"}\n"
+  },
+  {
+    "id": "error-main",
+    "title": "计算主系数并核对解析上界",
+    "lead": "计算采样主系数，核对上界并测量连续方程残差。",
+    "requires": [
+      "error-residual"
+    ],
+    "language": "python",
+    "code": "dlw_require(\"residual\", \"先运行有限格距残差。\")\ndlw.ready = {\"prepare\", \"config\", \"profile\", \"coefficient\", \"residual\"}\ndlw.tau = dlw.coefficient(dlw.zs)\nc = dlw.profile(dlw.zs)\nu, v, b = c[\"u\"], c[\"v\"], c[\"u\"][0]+2*dlw.a\nK, ell, Omega = dlw.K, dlw.ell, dlw.Omega\nterms1 = np.array([ell*Omega*u[2], K*K*v[2],\n                   K*ell*(u[1]*u[1]+b*u[2])])\nterms2 = np.array([Omega*v[1], K*K*ell*u[3],\n                   K*(u[1]*v[0]+b*v[1]-4*u[1])])\n# 两条连续方程的归一化残差 abs(sum)/(1+sum(abs))。\ndlw.continuumDefect = max(float(np.max(np.abs(terms.sum(axis=0))\n                                     /(1+np.abs(terms).sum(axis=0))))\n                          for terms in (terms1, terms2))\nif dlw.continuumDefect > 1e-10:\n    raise ArithmeticError(\"连续 DLW 方程核对失败，请检查剖面或谱参数。\")\ndlw.coeffRows = []\nfor S in (\"SD\", \"FD\"):\n    for i in range(2):\n        sampled = float(np.max(np.abs(dlw.tau[S][i])))\n        bound = float(dlw.bounds[S][i])\n        if not np.isfinite(sampled) or sampled > bound*(1+1e-10):\n            raise ArithmeticError(f\"{S} 第 {i+1} 式超出解析主系数上界。\")\n        dlw.coeffRows.append([f\"{S}{' / SDR' if S == 'SD' else ''} · {i+1}\",\n                              sampled, bound, dlw.h**2*sampled, dlw.h**2*bound])\ndisplay(pd.DataFrame(dlw.coeffRows, columns=[\"方程\", \"采样 max |τ|\", \"全波形解析上界\",\n                                           \"采样 h² max |τ|\", \"h² 解析上界\"]))\nprint(\"continuumDefect =\", dlw.continuumDefect)\ndlw.ready = {\"prepare\", \"config\", \"profile\", \"coefficient\", \"residual\", \"main\"}\n"
+  },
+  {
+    "id": "error-convergence",
+    "title": "减半格距并画残差剖面",
+    "lead": "逐次减半格距，比较并绘制缩放残差与主系数。",
+    "requires": [
+      "error-main"
+    ],
+    "language": "python",
+    "code": "dlw_require(\"main\", \"先运行主系数计算。\")\ndlw.ready = {\"prepare\", \"config\", \"profile\", \"coefficient\", \"residual\", \"main\"}\n# R_h/h²−τ=O(h²)：相邻两档误差之比应趋近 4。\ndlw.convergence, dlw.finest, previous = [], {}, {}\nfor level in range(dlw.levels):\n    hh = dlw.h/2**level\n    for S in (\"SD\", \"FD\"):\n        values = dlw.residual(dlw.zs, hh, S)/(hh*hh)\n        if not np.isfinite(values).all():\n            raise ArithmeticError(\"有限 h 残差非有限，请检查参数。\")\n        errors = values-dlw.tau[S]\n        for i in range(2):\n            err = float(np.max(np.abs(errors[i])))\n            old = previous.get((S, i))\n            rate = np.log2(old/err) if old is not None and old > 0 and err > 0 else np.nan\n            dlw.convergence.append([f\"{S} · {i+1}\", hh,\n                                    float(np.max(np.abs(values[i]))), err, rate])\n            previous[S, i] = err\n        if level == dlw.levels-1:\n            dlw.finest[S] = values\ndisplay(pd.DataFrame(dlw.convergence, columns=[\"方程\", \"h\", \"采样 max |R_h / h²|\",\n                                             \"采样 max |R_h / h² − τ|\", \"减半收敛阶\"]))\nfor i in range(2):\n    fig, ax = plt.subplots(figsize=(8, 3.8))\n    ax.plot(dlw.zs, dlw.tau[\"SD\"][i], label=r\"SD / SDR $\\tau$\")\n    ax.plot(dlw.zs, dlw.tau[\"FD\"][i], label=r\"FD $\\tau$\")\n    hh = dlw.h/2**(dlw.levels-1)\n    ax.plot(dlw.zs, dlw.finest[\"SD\"][i], \"--\", label=f\"SD h={hh:g}\")\n    ax.plot(dlw.zs, dlw.finest[\"FD\"][i], \"--\", label=f\"FD h={hh:g}\")\n    ax.set(title=f\"DLW equation {i+1}\", xlabel=\"Phase z\", ylabel=r\"Residual / $h^2$\")\n    ax.grid(alpha=.2)\n    ax.legend()\n    fig.tight_layout()\n    plt.show()\ndlw.ready = {\"prepare\", \"config\", \"profile\", \"coefficient\", \"residual\", \"main\", \"convergence\"}\n"
+  }
+]

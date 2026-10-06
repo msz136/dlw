@@ -1,0 +1,435 @@
+{
+  "status": "passed",
+  "python": "C:\\Users\\msz\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+  "numpy": "2.2.5",
+  "matplotlib": "3.10.1",
+  "source": "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\step_material\\cells.json",
+  "source_sha256": "4c920fc709b0b34e6cd189b5523f6803ac2433d80968d4629feb5ac6859d3fcd",
+  "cell_sources_sha256": {
+    "error-prepare": "143e211cc2a6a124ca5ffb32c3a1cfafc15a24512b6f4d866cd8789cdf9b1741",
+    "error-config": "0eb516b692ed28dd8633c0405da266e58be6f69f331fc3042f54b9c20b7d3b17",
+    "error-profile": "6e60e66564f8d47f57bf9c77bf7073800391f61d42d471c41c7579ce04989964",
+    "error-coefficient": "c1d14a9f91bac6118a06bae77ba1420d8176cadf024979caa05dd2c2ac28efd9",
+    "error-residual": "25b716e47b5fe14dcc2702dff21ffd40855e952f433c42425290fce36c895be4",
+    "error-main": "f5d77e12c9c3807edab55789c251bf5d3a8645e285fff46a3878f8a942ad60c9",
+    "error-convergence": "61b12d6b6bd4a3cbbb5e76dfde61fcd5003b6002bec888916abba3eb58635377"
+  },
+  "checks": [
+    {
+      "name": "Seven current visible Python cells execute without implicit replay",
+      "passed": true,
+      "details": {
+        "ids": [
+          "error-prepare",
+          "error-config",
+          "error-profile",
+          "error-coefficient",
+          "error-residual",
+          "error-main",
+          "error-convergence"
+        ],
+        "stdout": [
+          {
+            "id": "error-prepare",
+            "text": "",
+            "seconds": 0.46859929999936867
+          },
+          {
+            "id": "error-config",
+            "text": "",
+            "seconds": 0.0014065000004848116
+          },
+          {
+            "id": "error-profile",
+            "text": "",
+            "seconds": 0.000330500000018219
+          },
+          {
+            "id": "error-coefficient",
+            "text": "",
+            "seconds": 0.00021240000023681205
+          },
+          {
+            "id": "error-residual",
+            "text": "",
+            "seconds": 0.00041570000030333176
+          },
+          {
+            "id": "error-main",
+            "text": "continuumDefect = 4.286812441877563e-15\n",
+            "seconds": 0.01682159999927535
+          },
+          {
+            "id": "error-convergence",
+            "text": "",
+            "seconds": 0.15384389999962877
+          }
+        ],
+        "table_shapes": [
+          [
+            1,
+            6
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            12,
+            5
+          ]
+        ],
+        "figures": [
+          {
+            "lines": 4,
+            "title": "DLW equation 1"
+          },
+          {
+            "lines": 4,
+            "title": "DLW equation 2"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Default A reproduces original JS coefficient/convergence tables and every plotted point",
+      "passed": true,
+      "details": {
+        "parameter": "A=(2,1,2)",
+        "coeffRows": [
+          [
+            "SD / SDR · 1",
+            1.686064340168341,
+            3.94189453125,
+            0.02634475531513033,
+            0.06159210205078125
+          ],
+          [
+            "SD / SDR · 2",
+            0.9331540233185243,
+            7.63330078125,
+            0.014580531614351942,
+            0.11927032470703125
+          ],
+          [
+            "FD · 1",
+            0.2598973497129362,
+            0.94921875,
+            0.004060896089264628,
+            0.01483154296875
+          ],
+          [
+            "FD · 2",
+            1.3957192811053594,
+            1.8984375,
+            0.02180811376727124,
+            0.0296630859375
+          ]
+        ],
+        "convergence": [
+          [
+            "SD · 1",
+            0.125,
+            1.6788004037125575,
+            0.007335764558207725,
+            NaN
+          ],
+          [
+            "SD · 2",
+            0.125,
+            0.9255651241667522,
+            0.013112246747483125,
+            NaN
+          ],
+          [
+            "FD · 1",
+            0.125,
+            0.259721281505108,
+            0.0002445991752727805,
+            NaN
+          ],
+          [
+            "FD · 2",
+            0.125,
+            1.3931486422469987,
+            0.002665338976624021,
+            NaN
+          ],
+          [
+            "SD · 1",
+            0.0625,
+            1.684244275312949,
+            0.001838102143496112,
+            1.9967303967507648
+          ],
+          [
+            "SD · 2",
+            0.0625,
+            0.9312490001116203,
+            0.0032931086121272823,
+            1.9933929082943365
+          ],
+          [
+            "FD · 1",
+            0.0625,
+            0.2598533066109212,
+            6.118963368120789e-05,
+            1.9990603720157143
+          ],
+          [
+            "FD · 2",
+            0.0625,
+            1.3950758533088674,
+            0.0006669815672184498,
+            1.9986002293832814
+          ],
+          [
+            "SD · 1",
+            0.03125,
+            1.6856090682940703,
+            0.00045978620056663644,
+            1.9991818669238466
+          ],
+          [
+            "SD · 2",
+            0.03125,
+            0.9326772790309406,
+            0.0008242210479358913,
+            1.99834688420853
+          ],
+          [
+            "FD · 1",
+            0.03125,
+            0.2598863373750646,
+            1.5299809076024795e-05,
+            1.9997736124787346
+          ],
+          [
+            "FD · 2",
+            0.03125,
+            1.3955583871925228,
+            0.00016678580963702672,
+            1.999650343917325
+          ]
+        ],
+        "sampled_points": 1601,
+        "continuumDefect": 4.286812441877563e-15,
+        "maximum_coefficient_deviation": 2.220446049250313e-16,
+        "maximum_plot_series_deviation": 1.6757439880166203e-10,
+        "maximum_convergence_table_deviation": 3.687714534628128e-06
+      }
+    },
+    {
+      "name": "Editable parameter B reproduces independently recomputed original JS",
+      "passed": true,
+      "details": {
+        "parameter": "B=(2,4,-3)",
+        "coeffRows": [
+          [
+            "SD / SDR · 1",
+            0.025559807818100463,
+            0.06756365740740741,
+            0.00039937199715781973,
+            0.0010556821469907408
+          ],
+          [
+            "SD / SDR · 2",
+            0.02107623796501051,
+            0.10807291666666667,
+            0.0003293162182032892,
+            0.0016886393229166667
+          ],
+          [
+            "FD · 1",
+            0.007943491221528454,
+            0.010416666666666666,
+            0.0001241170503363821,
+            0.00016276041666666666
+          ],
+          [
+            "FD · 2",
+            0.010575179696557564,
+            0.020833333333333332,
+            0.00016523718275871194,
+            0.0003255208333333333
+          ]
+        ],
+        "convergence": [
+          [
+            "SD · 1",
+            0.125,
+            0.02554154676222531,
+            1.9104190707316948e-05,
+            NaN
+          ],
+          [
+            "SD · 2",
+            0.125,
+            0.021055314806986303,
+            3.653379259553613e-05,
+            NaN
+          ],
+          [
+            "FD · 1",
+            0.125,
+            0.0079408638306262,
+            2.6273909022548475e-06,
+            NaN
+          ],
+          [
+            "FD · 2",
+            0.125,
+            0.0105646053134123,
+            1.1260913762254146e-05,
+            NaN
+          ],
+          [
+            "SD · 1",
+            0.0625,
+            0.025555237202127046,
+            4.781711273757483e-06,
+            1.9982902175707569
+          ],
+          [
+            "SD · 2",
+            0.0625,
+            0.021070993145372086,
+            9.158969291364616e-06,
+            1.9959743702870774
+          ],
+          [
+            "FD · 1",
+            0.0625,
+            0.007942834283753086,
+            6.569377753676969e-07,
+            1.9998022288939046
+          ],
+          [
+            "FD · 2",
+            0.0625,
+            0.010572534810989964,
+            2.816833695970869e-06,
+            1.999177603505754
+          ],
+          [
+            "SD · 1",
+            0.03125,
+            0.0255586648397923,
+            1.1957946860902124e-06,
+            1.9995573158552313
+          ],
+          [
+            "SD · 2",
+            0.03125,
+            0.021074925882203388,
+            2.2913445291566914e-06,
+            1.9989908529242808
+          ],
+          [
+            "FD · 1",
+            0.03125,
+            0.007943326992972288,
+            1.6422855616572696e-07,
+            2.0000517204144934
+          ],
+          [
+            "FD · 2",
+            0.03125,
+            0.010574518394378174,
+            7.043102491308822e-07,
+            1.9997914083427824
+          ]
+        ],
+        "sampled_points": 1601,
+        "continuumDefect": 5.384265594463451e-16,
+        "maximum_coefficient_deviation": 0.0,
+        "maximum_plot_series_deviation": 1.6555645743210334e-11,
+        "maximum_convergence_table_deviation": 5.010631285440326e-07
+      }
+    },
+    {
+      "name": "Changing displayed h and points changes actual tables and finest residual",
+      "passed": true,
+      "details": {
+        "h": 0.0625,
+        "points": 801,
+        "sampled_h2_tau": 0.00658526008769476
+      }
+    },
+    {
+      "name": "Changing the displayed residual core changes computed curves",
+      "passed": true,
+      "details": {
+        "max_SD1_difference": 20.478674545875947
+      }
+    },
+    {
+      "name": "Missing prerequisites reject current cell instead of running hidden cells",
+      "passed": true,
+      "details": [
+        {
+          "id": "error-config",
+          "message": "先运行准备环境。"
+        },
+        {
+          "id": "error-profile",
+          "message": "先运行谱参数配置。"
+        },
+        {
+          "id": "error-coefficient",
+          "message": "先运行连续剖面。"
+        },
+        {
+          "id": "error-residual",
+          "message": "先运行二阶主系数。"
+        },
+        {
+          "id": "error-main",
+          "message": "先运行有限格距残差。"
+        },
+        {
+          "id": "error-convergence",
+          "message": "先运行主系数计算。"
+        }
+      ]
+    },
+    {
+      "name": "Rerunning configuration invalidates downstream results",
+      "passed": true,
+      "details": {
+        "message": "先运行主系数计算。"
+      }
+    },
+    {
+      "name": "Real syntax failure is preserved and corrected source runs",
+      "passed": true,
+      "details": {
+        "exception": "SyntaxError"
+      }
+    },
+    {
+      "name": "Definitions are silent; tables/figures and measured stdout are ordinary program output",
+      "passed": true,
+      "details": {
+        "stdout": "continuumDefect = 4.286812441877563e-15\n",
+        "tables": 3,
+        "figures": 2
+      }
+    },
+    {
+      "name": "Sampling maxima are labelled separately from whole-waveform analytic bounds",
+      "passed": true,
+      "details": {
+        "coefficient_columns": [
+          "方程",
+          "采样 max |τ|",
+          "全波形解析上界",
+          "采样 h² max |τ|",
+          "h² 解析上界"
+        ],
+        "bounds_domain": "all real z",
+        "plot_y_values_keep_sign": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "status": "passed",
+  "execution": "Persistent explicit lab object; each AsyncFunction receives only the current visible cell source.",
+  "checks": [
+    {
+      "name": "All 14 cells retain comments and identical JSON/JavaScript source",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Missing prior cells are rejected with no implicit replay",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Only evolution advances states; original 2HS tables and figures reproduced",
+      "passed": true,
+      "details": {
+        "rk4Calls": 320,
+        "errors": {
+          "Integrable": {
+            "Eu": 0.010012749796507405,
+            "Erho": 0.0011496748742056973
+          },
+          "FD": {
+            "Eu": 9.399299503859426e-7,
+            "Erho": 0.0000030464205025282354
+          }
+        },
+        "figures": 2
+      }
+    },
+    {
+      "name": "Visible 2HS parameter edit changes actual evolution and error",
+      "passed": true,
+      "details": {
+        "T": 0.25,
+        "steps": 80,
+        "Eu": 0.002627981361140304
+      }
+    },
+    {
+      "name": "Visible RK4 core edit changes recomputed error",
+      "passed": true,
+      "details": {
+        "EuFD": 0.000003921103419721184
+      }
+    },
+    {
+      "name": "Definition cells emit nothing; final output retains only numerical evidence",
+      "passed": true,
+      "details": {
+        "silentCells": [
+          "hs-prepare",
+          "hs-spatial",
+          "hs-rk4",
+          "error-prepare",
+          "error-profile",
+          "error-coefficient",
+          "error-residual"
+        ],
+        "measuredText": "continuumDefect = 4.286812441877563e-15"
+      }
+    },
+    {
+      "name": "Original DLW coefficient and convergence tables reproduced",
+      "passed": true,
+      "details": {
+        "coefficients": [
+          [
+            "SD / SDR · 1",
+            1.686064340168341,
+            3.94189453125,
+            0.02634475531513033,
+            0.06159210205078125
+          ],
+          [
+            "SD / SDR · 2",
+            0.933154023318524,
+            7.63330078125,
+            0.014580531614351938,
+            0.11927032470703125
+          ],
+          [
+            "FD · 1",
+            0.2598973497129362,
+            0.94921875,
+            0.004060896089264628,
+            0.01483154296875
+          ],
+          [
+            "FD · 2",
+            1.3957192811053594,
+            1.8984375,
+            0.02180811376727124,
+            0.0296630859375
+          ]
+        ],
+        "convergenceRows": 12
+      }
+    },
+    {
+      "name": "Visible DLW parameter and finite-h core edits change computed results",
+      "passed": true,
+      "details": {
+        "bCoefficient": 0.025559807818100463,
+        "editedResidualDifference": 0.1193616053699138
+      }
+    },
+    {
+      "name": "Upstream rerun clears downstream readiness; old error data cannot be used",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Real syntax error stops the sequence and corrected cell can run again",
+      "passed": true,
+      "details": {
+        "reached": [
+          "hs-prepare",
+          "hs-config",
+          "hs-reference"
+        ]
+      }
+    }
+  ]
+}

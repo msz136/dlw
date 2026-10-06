@@ -1,0 +1,217 @@
+{
+  "status": "passed",
+  "method": "exact symbolic rational identities and algebraic extrema",
+  "scope": "listed algebra identities only; no PDE stability or convergence certification",
+  "uses_observed_error_data": false,
+  "PDE_simulations": 0,
+  "checks": [
+    {
+      "name": "single soliton W equals 4 K ell sigmoid derivative",
+      "exact_residual": "0"
+    },
+    {
+      "name": "universal residual profile FD1",
+      "exact_residual": "0"
+    },
+    {
+      "name": "universal residual profile FD2",
+      "exact_residual": "0"
+    },
+    {
+      "name": "universal residual profile SD1",
+      "exact_residual": "0"
+    },
+    {
+      "name": "universal residual profile SD2",
+      "exact_residual": "0"
+    },
+    {
+      "name": "SD first residual primitive",
+      "exact_residual": "0"
+    },
+    {
+      "name": "FD first residual primitive",
+      "exact_residual": "0"
+    },
+    {
+      "name": "alpha response first equation",
+      "exact_residual": "0"
+    },
+    {
+      "name": "alpha response second equation",
+      "exact_residual": "0"
+    },
+    {
+      "name": "beta response second equation",
+      "exact_residual": "0"
+    },
+    {
+      "name": "relative zeta parameter derivative a_parameter",
+      "exact_residual": "0"
+    },
+    {
+      "name": "log gamma parameter derivative a_parameter",
+      "exact_residual": "0"
+    },
+    {
+      "name": "relative zeta parameter derivative p",
+      "exact_residual": "0"
+    },
+    {
+      "name": "log gamma parameter derivative p",
+      "exact_residual": "0"
+    },
+    {
+      "name": "relative zeta parameter derivative q",
+      "exact_residual": "0"
+    },
+    {
+      "name": "log gamma parameter derivative q",
+      "exact_residual": "0"
+    },
+    {
+      "name": "log gamma derivative is sigmoid phase shift derivative",
+      "exact_residual": "0"
+    },
+    {
+      "name": "second sigmoid derivative square reduction",
+      "exact_residual": "0"
+    },
+    {
+      "name": "third sigmoid derivative reduction",
+      "exact_residual": "0"
+    },
+    {
+      "name": "fifth sigmoid derivative reduction",
+      "exact_residual": "0"
+    },
+    {
+      "name": "exact global sigmoid derivative bound S2_squared",
+      "passed": true
+    },
+    {
+      "name": "exact global sigmoid derivative bound S3",
+      "passed": true
+    },
+    {
+      "name": "exact global sigmoid derivative bound S5",
+      "passed": true
+    },
+    {
+      "name": "SD1 universal bound coefficient",
+      "exact_residual": "0"
+    },
+    {
+      "name": "SD2 universal bound coefficient",
+      "exact_residual": "0"
+    },
+    {
+      "name": "FD exact linear characteristic polynomial",
+      "exact_residual": "0"
+    },
+    {
+      "name": "SD exact linear characteristic polynomial",
+      "exact_residual": "0"
+    },
+    {
+      "name": "SD physical Fourier matrix coefficient 00",
+      "exact_residual": "0"
+    },
+    {
+      "name": "SD physical Fourier matrix coefficient 01",
+      "exact_residual": "0"
+    },
+    {
+      "name": "SD physical Fourier matrix coefficient 10",
+      "exact_residual": "0"
+    },
+    {
+      "name": "SD physical Fourier matrix coefficient 11",
+      "exact_residual": "0"
+    },
+    {
+      "name": "FD physical Fourier matrix coefficient 00",
+      "exact_residual": "0"
+    },
+    {
+      "name": "FD physical Fourier matrix coefficient 01",
+      "exact_residual": "0"
+    },
+    {
+      "name": "FD physical Fourier matrix coefficient 10",
+      "exact_residual": "0"
+    },
+    {
+      "name": "FD physical Fourier matrix coefficient 11",
+      "exact_residual": "0"
+    },
+    {
+      "name": "FD discriminant second coefficient",
+      "exact_residual": "0"
+    },
+    {
+      "name": "SD discriminant second coefficient",
+      "exact_residual": "0"
+    },
+    {
+      "name": "frequency advantage factorization",
+      "exact_residual": "0"
+    },
+    {
+      "name": "Euler leading logarithmic time defect",
+      "exact_residual": "0"
+    },
+    {
+      "name": "RK4 leading logarithmic time defect",
+      "exact_residual": "0"
+    }
+  ],
+  "sigmoid_bounds": {
+    "S2_squared": {
+      "critical_points": [
+        "0",
+        "1/4",
+        "0",
+        "1/6"
+      ],
+      "absolute_values": [
+        "0",
+        "0",
+        "0",
+        "1/108"
+      ],
+      "supremum": "1/108"
+    },
+    "S3": {
+      "critical_points": [
+        "0",
+        "1/4",
+        "1/12"
+      ],
+      "absolute_values": [
+        "0",
+        "1/8",
+        "1/24"
+      ],
+      "supremum": "1/8"
+    },
+    "S5": {
+      "critical_points": [
+        "0",
+        "1/4",
+        "1/12 - sqrt(15)/60",
+        "sqrt(15)/60 + 1/12"
+      ],
+      "absolute_values": [
+        "0",
+        "1/4",
+        "-1/18 + sqrt(15)/60",
+        "1/18 + sqrt(15)/60"
+      ],
+      "supremum": "1/4"
+    }
+  },
+  "fourier_M2_SD": "Matrix([[-2*I*alpha*xi + eta**2*xi**2/4 + eta*xi/4, I*(eta*xi**2/12 + xi/4)], [I*(4*beta*xi + eta**3*xi**2/12 + eta**2*xi/4), -2*I*alpha*xi - eta**2*xi**2/4 - eta*xi/4]])",
+  "fourier_M2_FD": "Matrix([[0, I*eta*xi**2/12], [-I*eta**3*xi**2/6, 0]])",
+  "source_sha256": "d43ce1d9881a2ef035964b7e47ec8787f7f67f439af98bbbefd0367face63770"
+}

@@ -1,0 +1,981 @@
+{
+  "date": "2026-10-02",
+  "scope": "Initial and interior algebra checks; no PDE evolution",
+  "source_sha256": {
+    "baseline.py": "a152029f13f967c4dd4c95b3d964f7becfe1975ff8a991373bfe0a7ad1709594",
+    "candidates.py": "57d18e0b1f11f098b87a4bcf5bb4f86e95c1d407a1ac7f856754579d686c4c56"
+  },
+  "checker_sha256": "bb65f13da8dd2bdd7cd7d90af78d5313749cd5392be30447fa8f1be6889fee58",
+  "passed": 40,
+  "checks": [
+    {
+      "spec": {
+        "case": "A",
+        "model": "SD",
+        "mesh": "mass",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 33,
+        "h": 0.125,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 5.551115123125783e-17,
+        "initial_v": 9.43689570931383e-16,
+        "initial_P": 0.0,
+        "density_formula": 2.3592239273284576e-16,
+        "finite_h_flux_formula": 1.942890293094024e-15,
+        "finite_h_interior_conservation": 1.4666046155298318e-13
+      },
+      "min_R": 0.023797286521541672,
+      "min_J": 0.5599634952405435,
+      "min_dx": 0.03499731518092797
+    },
+    {
+      "spec": {
+        "case": "A",
+        "model": "SD",
+        "mesh": "mass",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 65,
+        "h": 0.0625,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 1.3877787807814457e-16,
+        "initial_v": 9.43689570931383e-16,
+        "initial_P": 0.0,
+        "density_formula": 4.440892098500626e-16,
+        "finite_h_flux_formula": 2.0539125955565396e-15,
+        "finite_h_interior_conservation": 3.6398661862335757e-13
+      },
+      "min_R": 0.023803209645000267,
+      "min_J": 0.5599067947339604,
+      "min_dx": 0.017497227410090854
+    },
+    {
+      "spec": {
+        "case": "A",
+        "model": "SD",
+        "mesh": "strong",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 33,
+        "h": 0.125,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 1.1102230246251565e-16,
+        "initial_v": 7.771561172376096e-16,
+        "initial_P": 0.0,
+        "density_formula": 8.881784197001252e-16,
+        "finite_h_flux_formula": 5.10702591327572e-15,
+        "finite_h_interior_conservation": 6.061817714453355e-14
+      },
+      "min_R": 1.0951891460861667,
+      "min_J": 0.7084325154955716,
+      "min_dx": 0.04427592015500048
+    },
+    {
+      "spec": {
+        "case": "A",
+        "model": "SD",
+        "mesh": "strong",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 65,
+        "h": 0.0625,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 2.220446049250313e-16,
+        "initial_v": 1.7763568394002505e-15,
+        "initial_P": 0.0,
+        "density_formula": 8.881784197001252e-16,
+        "finite_h_flux_formula": 1.509903313490213e-14,
+        "finite_h_interior_conservation": 1.1723955140041653e-12
+      },
+      "min_R": 1.095212838580001,
+      "min_J": 0.7083333737374756,
+      "min_dx": 0.02213573811071967
+    },
+    {
+      "spec": {
+        "case": "A",
+        "model": "FD",
+        "mesh": "mass",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 33,
+        "h": 0.125,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 5.551115123125783e-17,
+        "initial_v": 0.0,
+        "initial_P": 0.0,
+        "density_formula": 2.3592239273284576e-16,
+        "finite_h_flux_formula": 0.0,
+        "finite_h_interior_conservation": 5.440092820663267e-15
+      },
+      "min_R": 0.023797286521541672,
+      "min_J": 0.5599634952405435,
+      "min_dx": 0.03499731518092797
+    },
+    {
+      "spec": {
+        "case": "A",
+        "model": "FD",
+        "mesh": "mass",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 65,
+        "h": 0.0625,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 1.3877787807814457e-16,
+        "initial_v": 0.0,
+        "initial_P": 0.0,
+        "density_formula": 4.440892098500626e-16,
+        "finite_h_flux_formula": 0.0,
+        "finite_h_interior_conservation": 6.050715484207103e-15
+      },
+      "min_R": 0.023803209645000267,
+      "min_J": 0.5599067947339604,
+      "min_dx": 0.017497227410090854
+    },
+    {
+      "spec": {
+        "case": "A",
+        "model": "FD",
+        "mesh": "strong",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 33,
+        "h": 0.125,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 1.1102230246251565e-16,
+        "initial_v": 0.0,
+        "initial_P": 0.0,
+        "density_formula": 8.881784197001252e-16,
+        "finite_h_flux_formula": 0.0,
+        "finite_h_interior_conservation": 1.709743457922741e-14
+      },
+      "min_R": 1.0951891460861667,
+      "min_J": 0.7084325154955716,
+      "min_dx": 0.04427592015500048
+    },
+    {
+      "spec": {
+        "case": "A",
+        "model": "FD",
+        "mesh": "strong",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 65,
+        "h": 0.0625,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 2.220446049250313e-16,
+        "initial_v": 0.0,
+        "initial_P": 0.0,
+        "density_formula": 8.881784197001252e-16,
+        "finite_h_flux_formula": 0.0,
+        "finite_h_interior_conservation": 1.687538997430238e-14
+      },
+      "min_R": 1.095212838580001,
+      "min_J": 0.7083333737374756,
+      "min_dx": 0.02213573811071967
+    },
+    {
+      "spec": {
+        "case": "B",
+        "model": "SD",
+        "mesh": "mass",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 33,
+        "h": 0.125,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 0.0,
+        "initial_v": 0.0,
+        "initial_P": 0.0,
+        "density_formula": 1.6653345369377348e-16,
+        "finite_h_flux_formula": 1.1102230246251565e-15,
+        "finite_h_interior_conservation": 3.4916514124461173e-14
+      },
+      "min_R": 0.08190949336347075,
+      "min_J": 0.9118609450229225,
+      "min_dx": 0.05700021077457207
+    },
+    {
+      "spec": {
+        "case": "B",
+        "model": "SD",
+        "mesh": "mass",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 65,
+        "h": 0.0625,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 0.0,
+        "initial_v": 0.0,
+        "initial_P": 0.0,
+        "density_formula": 3.0531133177191805e-16,
+        "finite_h_flux_formula": 1.887379141862766e-15,
+        "finite_h_interior_conservation": 1.5287771049088406e-13
+      },
+      "min_R": 0.08190915343000582,
+      "min_J": 0.9118723298901904,
+      "min_dx": 0.028496523509340177
+    },
+    {
+      "spec": {
+        "case": "B",
+        "model": "SD",
+        "mesh": "strong",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 33,
+        "h": 0.125,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 0.0,
+        "initial_v": 0.0,
+        "initial_P": 0.0,
+        "density_formula": 1.1102230246251565e-15,
+        "finite_h_flux_formula": 1.687538997430238e-14,
+        "finite_h_interior_conservation": 4.1722181265413383e-13
+      },
+      "min_R": 1.327637973453883,
+      "min_J": 0.9714341764583193,
+      "min_dx": 0.060714469942454274
+    },
+    {
+      "spec": {
+        "case": "B",
+        "model": "SD",
+        "mesh": "strong",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 65,
+        "h": 0.0625,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 0.0,
+        "initial_v": 0.0,
+        "initial_P": 0.0,
+        "density_formula": 8.881784197001252e-16,
+        "finite_h_flux_formula": 5.773159728050814e-15,
+        "finite_h_interior_conservation": 5.395683899678261e-13
+      },
+      "min_R": 1.3276366137200233,
+      "min_J": 0.9714147157534854,
+      "min_dx": 0.030356751258129033
+    },
+    {
+      "spec": {
+        "case": "B",
+        "model": "FD",
+        "mesh": "mass",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 33,
+        "h": 0.125,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 0.0,
+        "initial_v": 0.0,
+        "initial_P": 0.0,
+        "density_formula": 1.6653345369377348e-16,
+        "finite_h_flux_formula": 0.0,
+        "finite_h_interior_conservation": 1.6542323066914832e-14
+      },
+      "min_R": 0.08190949336347075,
+      "min_J": 0.9118609450229225,
+      "min_dx": 0.05700021077457207
+    },
+    {
+      "spec": {
+        "case": "B",
+        "model": "FD",
+        "mesh": "mass",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 65,
+        "h": 0.0625,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 0.0,
+        "initial_v": 0.0,
+        "initial_P": 0.0,
+        "density_formula": 3.0531133177191805e-16,
+        "finite_h_flux_formula": 0.0,
+        "finite_h_interior_conservation": 1.1435297153639112e-14
+      },
+      "min_R": 0.08190915343000582,
+      "min_J": 0.9118723298901904,
+      "min_dx": 0.028496523509340177
+    },
+    {
+      "spec": {
+        "case": "B",
+        "model": "FD",
+        "mesh": "strong",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 33,
+        "h": 0.125,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 0.0,
+        "initial_v": 0.0,
+        "initial_P": 0.0,
+        "density_formula": 1.1102230246251565e-15,
+        "finite_h_flux_formula": 0.0,
+        "finite_h_interior_conservation": 3.086420008457935e-14
+      },
+      "min_R": 1.327637973453883,
+      "min_J": 0.9714341764583193,
+      "min_dx": 0.060714469942454274
+    },
+    {
+      "spec": {
+        "case": "B",
+        "model": "FD",
+        "mesh": "strong",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 65,
+        "h": 0.0625,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 0.0,
+        "initial_v": 0.0,
+        "initial_P": 0.0,
+        "density_formula": 8.881784197001252e-16,
+        "finite_h_flux_formula": 0.0,
+        "finite_h_interior_conservation": 8.79296635503124e-14
+      },
+      "min_R": 1.3276366137200233,
+      "min_J": 0.9714147157534854,
+      "min_dx": 0.030356751258129033
+    },
+    {
+      "spec": {
+        "case": "C",
+        "model": "SD",
+        "mesh": "mass",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 33,
+        "h": 0.125,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 0.0,
+        "initial_v": 0.0,
+        "initial_P": 0.0,
+        "density_formula": 2.7755575615628914e-16,
+        "finite_h_flux_formula": 6.661338147750939e-16,
+        "finite_h_interior_conservation": 7.227551890309769e-14
+      },
+      "min_R": 0.0895588762005115,
+      "min_J": 0.8819323547167048,
+      "min_dx": 0.05512949845118126
+    },
+    {
+      "spec": {
+        "case": "C",
+        "model": "SD",
+        "mesh": "mass",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 65,
+        "h": 0.0625,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 0.0,
+        "initial_v": 0.0,
+        "initial_P": 0.0,
+        "density_formula": 2.7755575615628914e-16,
+        "finite_h_flux_formula": 1.5543122344752192e-15,
+        "finite_h_interior_conservation": 1.6259216195635418e-13
+      },
+      "min_R": 0.08955969146502851,
+      "min_J": 0.8819451706517694,
+      "min_dx": 0.027561079081440898
+    },
+    {
+      "spec": {
+        "case": "C",
+        "model": "SD",
+        "mesh": "strong",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 33,
+        "h": 0.125,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 0.0,
+        "initial_v": 0.0,
+        "initial_P": 0.0,
+        "density_formula": 1.1102230246251565e-15,
+        "finite_h_flux_formula": 3.552713678800501e-15,
+        "finite_h_interior_conservation": 1.609823385706477e-13
+      },
+      "min_R": 1.358235504802046,
+      "min_J": 0.9556952369439053,
+      "min_dx": 0.05973261628403431
+    },
+    {
+      "spec": {
+        "case": "C",
+        "model": "SD",
+        "mesh": "strong",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 65,
+        "h": 0.0625,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 0.0,
+        "initial_v": 0.0,
+        "initial_P": 0.0,
+        "density_formula": 1.1102230246251565e-15,
+        "finite_h_flux_formula": 6.217248937900877e-15,
+        "finite_h_interior_conservation": 2.922107000813412e-13
+      },
+      "min_R": 1.358238765860114,
+      "min_J": 0.9556990429635736,
+      "min_dx": 0.029865179293580457
+    },
+    {
+      "spec": {
+        "case": "C",
+        "model": "FD",
+        "mesh": "mass",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 33,
+        "h": 0.125,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 0.0,
+        "initial_v": 0.0,
+        "initial_P": 0.0,
+        "density_formula": 2.7755575615628914e-16,
+        "finite_h_flux_formula": 0.0,
+        "finite_h_interior_conservation": 5.995204332975845e-15
+      },
+      "min_R": 0.0895588762005115,
+      "min_J": 0.8819323547167048,
+      "min_dx": 0.05512949845118126
+    },
+    {
+      "spec": {
+        "case": "C",
+        "model": "FD",
+        "mesh": "mass",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 65,
+        "h": 0.0625,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 0.0,
+        "initial_v": 0.0,
+        "initial_P": 0.0,
+        "density_formula": 2.7755575615628914e-16,
+        "finite_h_flux_formula": 0.0,
+        "finite_h_interior_conservation": 3.341771304121721e-14
+      },
+      "min_R": 0.08955969146502851,
+      "min_J": 0.8819451706517694,
+      "min_dx": 0.027561079081440898
+    },
+    {
+      "spec": {
+        "case": "C",
+        "model": "FD",
+        "mesh": "strong",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 33,
+        "h": 0.125,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 0.0,
+        "initial_v": 0.0,
+        "initial_P": 0.0,
+        "density_formula": 1.1102230246251565e-15,
+        "finite_h_flux_formula": 0.0,
+        "finite_h_interior_conservation": 4.3076653355456074e-14
+      },
+      "min_R": 1.358235504802046,
+      "min_J": 0.9556952369439053,
+      "min_dx": 0.05973261628403431
+    },
+    {
+      "spec": {
+        "case": "C",
+        "model": "FD",
+        "mesh": "strong",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 65,
+        "h": 0.0625,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 0.0,
+        "initial_v": 0.0,
+        "initial_P": 0.0,
+        "density_formula": 1.1102230246251565e-15,
+        "finite_h_flux_formula": 0.0,
+        "finite_h_interior_conservation": 1.254552017826427e-13
+      },
+      "min_R": 1.358238765860114,
+      "min_J": 0.9556990429635736,
+      "min_dx": 0.029865179293580457
+    },
+    {
+      "spec": {
+        "case": "D",
+        "model": "SD",
+        "mesh": "mass",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 33,
+        "h": 0.125,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 0.0,
+        "initial_v": 2.220446049250313e-16,
+        "initial_P": 0.0,
+        "density_formula": 2.7755575615628914e-16,
+        "finite_h_flux_formula": 1.5265566588595902e-15,
+        "finite_h_interior_conservation": 4.8433479449272454e-14
+      },
+      "min_R": 0.13630706230658474,
+      "min_J": 0.6568059583237925,
+      "min_dx": 0.04106656562554023
+    },
+    {
+      "spec": {
+        "case": "D",
+        "model": "SD",
+        "mesh": "mass",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 65,
+        "h": 0.0625,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 0.0,
+        "initial_v": 2.220446049250313e-16,
+        "initial_P": 0.0,
+        "density_formula": 3.3306690738754696e-16,
+        "finite_h_flux_formula": 2.275957200481571e-15,
+        "finite_h_interior_conservation": 9.156564395595979e-14
+      },
+      "min_R": 0.1363098142348691,
+      "min_J": 0.6568425067808972,
+      "min_dx": 0.020526542898262168
+    },
+    {
+      "spec": {
+        "case": "D",
+        "model": "SD",
+        "mesh": "strong",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 33,
+        "h": 0.125,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 0.0,
+        "initial_v": 2.220446049250313e-16,
+        "initial_P": 0.0,
+        "density_formula": 1.3322676295501878e-15,
+        "finite_h_flux_formula": 5.440092820663267e-15,
+        "finite_h_interior_conservation": 9.847678228425139e-14
+      },
+      "min_R": 1.545228249226339,
+      "min_J": 0.7563943536612568,
+      "min_dx": 0.04727914287111884
+    },
+    {
+      "spec": {
+        "case": "D",
+        "model": "SD",
+        "mesh": "strong",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 65,
+        "h": 0.0625,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 0.0,
+        "initial_v": 2.220446049250313e-16,
+        "initial_P": 0.0,
+        "density_formula": 1.3322676295501878e-15,
+        "finite_h_flux_formula": 8.43769498715119e-15,
+        "finite_h_interior_conservation": 1.1472489624964055e-12
+      },
+      "min_R": 1.5452392569394764,
+      "min_J": 0.7563646970379034,
+      "min_dx": 0.023635324839123284
+    },
+    {
+      "spec": {
+        "case": "D",
+        "model": "FD",
+        "mesh": "mass",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 33,
+        "h": 0.125,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 0.0,
+        "initial_v": 0.0,
+        "initial_P": 0.0,
+        "density_formula": 2.7755575615628914e-16,
+        "finite_h_flux_formula": 0.0,
+        "finite_h_interior_conservation": 1.7763568394002505e-15
+      },
+      "min_R": 0.13630706230658474,
+      "min_J": 0.6568059583237925,
+      "min_dx": 0.04106656562554023
+    },
+    {
+      "spec": {
+        "case": "D",
+        "model": "FD",
+        "mesh": "mass",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 65,
+        "h": 0.0625,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 0.0,
+        "initial_v": 0.0,
+        "initial_P": 0.0,
+        "density_formula": 3.3306690738754696e-16,
+        "finite_h_flux_formula": 0.0,
+        "finite_h_interior_conservation": 8.826273045769994e-15
+      },
+      "min_R": 0.1363098142348691,
+      "min_J": 0.6568425067808972,
+      "min_dx": 0.020526542898262168
+    },
+    {
+      "spec": {
+        "case": "D",
+        "model": "FD",
+        "mesh": "strong",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 33,
+        "h": 0.125,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 0.0,
+        "initial_v": 0.0,
+        "initial_P": 0.0,
+        "density_formula": 1.3322676295501878e-15,
+        "finite_h_flux_formula": 0.0,
+        "finite_h_interior_conservation": 3.097522238704187e-14
+      },
+      "min_R": 1.545228249226339,
+      "min_J": 0.7563943536612568,
+      "min_dx": 0.04727914287111884
+    },
+    {
+      "spec": {
+        "case": "D",
+        "model": "FD",
+        "mesh": "strong",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 65,
+        "h": 0.0625,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 0.0,
+        "initial_v": 0.0,
+        "initial_P": 0.0,
+        "density_formula": 1.3322676295501878e-15,
+        "finite_h_flux_formula": 0.0,
+        "finite_h_interior_conservation": 1.787459069646502e-14
+      },
+      "min_R": 1.5452392569394764,
+      "min_J": 0.7563646970379034,
+      "min_dx": 0.023635324839123284
+    },
+    {
+      "spec": {
+        "case": "E",
+        "model": "SD",
+        "mesh": "mass",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 33,
+        "h": 0.125,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 0.0,
+        "initial_v": 0.0,
+        "initial_P": 0.0,
+        "density_formula": 3.0357660829594124e-16,
+        "finite_h_flux_formula": 1.870031907102998e-15,
+        "finite_h_interior_conservation": 7.402325280514432e-14
+      },
+      "min_R": 0.010745525923851584,
+      "min_J": 0.914404496882554,
+      "min_dx": 0.057293806798688784
+    },
+    {
+      "spec": {
+        "case": "E",
+        "model": "SD",
+        "mesh": "mass",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 65,
+        "h": 0.0625,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 0.0,
+        "initial_v": 0.0,
+        "initial_P": 0.0,
+        "density_formula": 2.896988204881268e-16,
+        "finite_h_flux_formula": 2.615963001773025e-15,
+        "finite_h_interior_conservation": 1.0643959671985392e-13
+      },
+      "min_R": 0.010747050116963308,
+      "min_J": 0.9144166182459799,
+      "min_dx": 0.02861131371667258
+    },
+    {
+      "spec": {
+        "case": "E",
+        "model": "SD",
+        "mesh": "strong",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 33,
+        "h": 0.125,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 0.0,
+        "initial_v": 0.0,
+        "initial_P": 0.0,
+        "density_formula": 1.3322676295501878e-15,
+        "finite_h_flux_formula": 2.942091015256665e-15,
+        "finite_h_interior_conservation": 1.6578578787562748e-13
+      },
+      "min_R": 1.0429821036954063,
+      "min_J": 0.9957915183806421,
+      "min_dx": 0.062245298729661336
+    },
+    {
+      "spec": {
+        "case": "E",
+        "model": "SD",
+        "mesh": "strong",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 65,
+        "h": 0.0625,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 0.0,
+        "initial_v": 0.0,
+        "initial_P": 0.0,
+        "density_formula": 8.881784197001252e-16,
+        "finite_h_flux_formula": 1.2156942119645464e-14,
+        "finite_h_interior_conservation": 3.916589275121396e-13
+      },
+      "min_R": 1.0429882004678532,
+      "min_J": 0.9957916568278335,
+      "min_dx": 0.03112057160975268
+    },
+    {
+      "spec": {
+        "case": "E",
+        "model": "FD",
+        "mesh": "mass",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 33,
+        "h": 0.125,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 0.0,
+        "initial_v": 0.0,
+        "initial_P": 0.0,
+        "density_formula": 3.0357660829594124e-16,
+        "finite_h_flux_formula": 0.0,
+        "finite_h_interior_conservation": 2.1380466841414147e-16
+      },
+      "min_R": 0.010745525923851584,
+      "min_J": 0.914404496882554,
+      "min_dx": 0.057293806798688784
+    },
+    {
+      "spec": {
+        "case": "E",
+        "model": "FD",
+        "mesh": "mass",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 65,
+        "h": 0.0625,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 0.0,
+        "initial_v": 0.0,
+        "initial_P": 0.0,
+        "density_formula": 2.896988204881268e-16,
+        "finite_h_flux_formula": 0.0,
+        "finite_h_interior_conservation": 1.530459786680538e-15
+      },
+      "min_R": 0.010747050116963308,
+      "min_J": 0.9144166182459799,
+      "min_dx": 0.02861131371667258
+    },
+    {
+      "spec": {
+        "case": "E",
+        "model": "FD",
+        "mesh": "strong",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 33,
+        "h": 0.125,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 0.0,
+        "initial_v": 0.0,
+        "initial_P": 0.0,
+        "density_formula": 1.3322676295501878e-15,
+        "finite_h_flux_formula": 0.0,
+        "finite_h_interior_conservation": 7.042977312465837e-16
+      },
+      "min_R": 1.0429821036954063,
+      "min_J": 0.9957915183806421,
+      "min_dx": 0.062245298729661336
+    },
+    {
+      "spec": {
+        "case": "E",
+        "model": "FD",
+        "mesh": "strong",
+        "motion": "moving",
+        "variant": "check",
+        "nx": 65,
+        "h": 0.0625,
+        "dt": 2.5e-05,
+        "T": 0.01
+      },
+      "errors": {
+        "initial_u": 0.0,
+        "initial_v": 0.0,
+        "initial_P": 0.0,
+        "density_formula": 8.881784197001252e-16,
+        "finite_h_flux_formula": 0.0,
+        "finite_h_interior_conservation": 2.112893193739751e-15
+      },
+      "min_R": 1.0429882004678532,
+      "min_J": 0.9957916568278335,
+      "min_dx": 0.03112057160975268
+    }
+  ],
+  "max_errors": {
+    "initial_u": 2.220446049250313e-16,
+    "initial_v": 1.7763568394002505e-15,
+    "initial_P": 0.0,
+    "density_formula": 1.3322676295501878e-15,
+    "finite_h_flux_formula": 1.687538997430238e-14,
+    "finite_h_interior_conservation": 1.1723955140041653e-12
+  },
+  "source_unchanged": true
+}

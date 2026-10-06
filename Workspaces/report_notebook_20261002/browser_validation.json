@@ -1,0 +1,113 @@
+{
+  "checks": [
+    {
+      "name": "original typography, images, tables and formula rendering preserved",
+      "passed": true,
+      "detail": {
+        "width": 1440,
+        "overflow": false,
+        "bodyFont": "16px / 28.8px \"Times New Roman\", SimSun, serif",
+        "mainPadding": "65px 72px",
+        "mathErrors": [],
+        "cellCount": 9,
+        "mathCount": 151,
+        "images": 4,
+        "tables": 2,
+        "badAnchors": [],
+        "status": "尚未运行",
+        "duplicates": []
+      }
+    },
+    {
+      "name": "offline Worker executes the three visible DLW cells",
+      "passed": true,
+      "detail": "方程\t采样 max |τ|\t全波形解析上界\t采样 h² max |τ|\th² 解析上界\nSD / SDR · 1\t1.68606\t3.94189\t0.0263448\t0.0615921\nSD / SDR · 2\t0.933154\t7.6333\t0.0145805\t0.11927\nFD · 1\t0.259897\t0.949219\t0.0040609\t0.0148315\nFD · 2\t1.39572\t1.89844\t0.0218081\t0.0296631\n方程\th\t采样 max |R_h / h²|\t采样 max |R_h / h² − τ|\t减半收敛阶\nSD · 1\t0.125\t1.6788\t0.00733576\t—\nSD · 2\t0.125\t0.925565\t0.0131122\t—\nFD · 1\t0.125\t0.259721\t2.44599e-4\t—\nFD · 2\t0.125\t1.39315\t0.00266534\t—\nSD · 1\t0.0625\t1.68424\t0.0018381\t1.99673\nSD · 2\t0.0625\t0.931249\t0.00329311\t1.99339\nFD · 1\t0.0625\t0.259853\t6.11896e-5\t1.99906\nFD · 2\t0.0625\t1.39508\t6.66982e-4\t1.9986\nSD · 1\t0.03125\t1.68561\t4.59786e-4\t1.99918\nSD · 2\t0.03125\t0.932677\t8.24221e-4\t1.99835\nFD · 1\t0.03125\t0.259886\t1.52998e-5\t1.99977\nFD · 2\t0.03125\t1.39556\t1.66786e-4\t1.99965\nDLW 第 1 式：主系数与有限格距残差\n-10.0\n-1.60\n-5.00\n-0.717\n0\n0.165\n5.00\n1.05\n10.0\n1.93\nSD / SDR 主系数 τ\nFD 主系数 τ\nSD 有限 h=0.03125\nFD 有限 h=0.03125\n无量纲相位 z\n方程残差 / h²\nDLW 第 2 式：主系数与有限格距残差\n-10.0\n-1.62\n-5.00\n-0.810\n0\n6.9e-7\n5.00\n0.810\n10.0\n1.62\nSD / SDR 主系数 τ\nFD 主系数 τ\nSD 有限 h=0.03125\nFD 有限 h=0.03125\n无量纲相位 z\n方程残差 / h²\nOK：连续 DLW 方程核对的相对残差为 4.29e-15；采样主系数均位于解析上界内。表中收敛阶验证有限 h 残差的二阶主项，未计算有限时间的总场误差。"
+    },
+    {
+      "name": "parameter edit changes the numerical result and invalidates downstream output",
+      "passed": true
+    },
+    {
+      "name": "editing the displayed core expression changes the computed coefficient",
+      "passed": true
+    },
+    {
+      "name": "reset clears results and preserves edits",
+      "passed": true
+    },
+    {
+      "name": "syntax error is assigned to the correct cell and stops downstream execution",
+      "passed": true
+    },
+    {
+      "name": "restoring examples reproduces the default result",
+      "passed": true
+    },
+    {
+      "name": "cancel terminates a nonreturning Worker and keeps the page usable",
+      "passed": true
+    },
+    {
+      "name": "timeout terminates a nonreturning Worker",
+      "passed": true
+    },
+    {
+      "name": "repeat execution replaces results without duplicates",
+      "passed": true
+    },
+    {
+      "name": "2HS visible code reproduces the report parameter point",
+      "passed": true,
+      "detail": "现场运行的方案\tE_u(T)\tE_ρ(T)\t终点最小格距\t终点最小密度\nIntegrable\t0.0100127\t0.00114967\t0.00498587\t0.640451\nFD\t9.39930e-7\t3.04642e-6\t0.005375\t0.64\n单孤子 u 的分段最大绝对误差\n-0.990\n-7.57\n-0.495\n-6.07\n0\n-4.58\n0.495\n-3.08\n0.990\n-1.59\nIntegrable\nFD\n物理坐标 x\nlog10(max |u_h − u|)\n单孤子 ρ 的分段最大绝对误差\n-0.990\n-6.74\n-0.495\n-5.72\n0\n-4.70\n0.495\n-3.68\n0.990\n-2.66\nIntegrable\nFD\n物理坐标 x\nlog10(max |ρ_h − ρ|)\n方案\t原表 E_u\t原表 E_ρ\t现场 E_u 与原表之差\t现场 E_ρ 与原表之差\nIntegrable\t0.0100127\t0.00114967\t2.41127e-15\t1.11022e-16\nFD\t9.39931e-7\t3.04642e-6\t1.13984e-12\t1.73972e-13\nOK：现场完成 160 步 RK4；默认配置与原报告四项误差的最大绝对差为 1.14e-12。"
+    },
+    {
+      "name": "desktop and narrow screen layouts have no page overflow",
+      "passed": true
+    },
+    {
+      "name": "printing uses complete synchronized code",
+      "passed": true,
+      "detail": {
+        "hidden": "none",
+        "source": "block",
+        "code": "// 式（24）的单孤子固定 p=5、q=1.25、c=1、零初相位。\n// 加密同一辅助区间时，应同时将 N 加倍、a 减半。\nconst hsCfg = {\n  N: 1600, a: 0.005, Xleft: -4,\n  dt: 0.003125, T: 0.5,\n  xMin: -1, xMax: 1, evaluationPoints: 32001\n};\nconst {N,a,Xleft,dt,T,xMin,xMax,evaluationPoints} = hsCfg;\nif (![a,Xleft,dt,T,xMin,xMax].every(Number.isFinite) ||\n    !(a>0 && dt>0 && T>=0 && xMax>xMin))\n  throw Error(\"要求有限实数、a>0、dt>0、T≥0、xMax>xMin。\");\nif (!Number.isInteger(N) || N<20 || N>6400 ||\n    !Number.isInteger(evaluationPoints) || evaluationPoints<101 || evaluationPoints>64001)\n  throw Error(\"N 应在 20—6400；评价点数应在 101—64001，均取整数。\");\nconst steps=Math.round(T/dt);\nif (Math.abs(steps*dt-T)>1e-12 || steps>3200)\n  throw Error(\"T 须为 dt 的整数倍，且步数≤3200。\");\nconst Xright=Xleft+N*a;\nemit({type:\"table\",columns:[\"N\",\"a\",\"辅助区间 X\",\"Δt\",\"T\",\"时间步数\",\"评价点数\"],\n  rows:[[N,a,`[${Xleft}, ${Xright}]`,dt,T,steps,evaluationPoints]]});\n"
+      }
+    },
+    {
+      "name": "offline runtime makes no HTTP requests",
+      "passed": true
+    }
+  ],
+  "views": [
+    {
+      "width": 1440,
+      "overflow": false,
+      "bodyFont": "16px / 28.8px \"Times New Roman\", SimSun, serif",
+      "mainPadding": "65px 72px",
+      "mathErrors": [],
+      "cellCount": 9,
+      "mathCount": 151,
+      "images": 4,
+      "tables": 2,
+      "badAnchors": [],
+      "status": "OK · 本次代码计算完成",
+      "duplicates": []
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "bodyFont": "14.6667px / 26.4px \"Times New Roman\", SimSun, serif",
+      "mainPadding": "28px 18px",
+      "mathErrors": [],
+      "cellCount": 9,
+      "mathCount": 151,
+      "images": 4,
+      "tables": 2,
+      "badAnchors": [],
+      "status": "OK · 本次代码计算完成",
+      "duplicates": []
+    }
+  ],
+  "errors": [],
+  "requests": []
+}

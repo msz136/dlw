@@ -1,0 +1,56 @@
+{
+  "route": "uw",
+  "libraryResultPath": "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\proofs\\.lean-runs\\20261002_153119_94230637\\result.json",
+  "libraryArtifacts": {
+    "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\proofs\\.lean-runs\\20261002_153119_94230637\\lib\\lean\\Contracts.olean": "fe00ee37ef1fdcd4c76d1b1db1c1bcb6558cd3bc8c3750cd5e282bd643765787",
+    "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\proofs\\.lean-runs\\20261002_153119_94230637\\lib\\lean\\PkgNonlinear.olean": "207b493add07e0050e7bc6f8513ad4a86ae2c154765e8cd4803b0c06f030c0b3",
+    "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\proofs\\.lean-runs\\20261002_153119_94230637\\lib\\lean\\PkgLattice.olean": "ade879ff670f37106ee4ed78341837b4c733a971dfee0e9a729bb0c985b234e0",
+    "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\proofs\\.lean-runs\\20261002_153119_94230637\\lib\\lean\\ReportNonlinearUW.olean": "7c410be529a498898668b607c181593d0a5ad9c4537d6d08db1623c38b506502"
+  },
+  "cells": [
+    {
+      "stage": "import",
+      "source": "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\steps\\StepUWImport.lean",
+      "sha256": "fde5382cea8b31e8656ad856e12b1966e12eea55b2f93d0a43223a9e1891072d",
+      "exitCode": 0,
+      "compilerOutput": "",
+      "seconds": 129.109,
+      "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\colab_validation_runs\\20261002_154538_6a037a44\\uw\\lib\\lean\\StepUWImport.olean",
+      "artifactSha256": "e950805fee15ffdc47e7f6e4bcbb60f7e9752dd8b95606b8464a00fc73da2b23"
+    },
+    {
+      "stage": "start",
+      "source": "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\steps\\StepUWStart.lean",
+      "sha256": "f982c49797586241fa2d16cc3d7be17a261dcd93f840b1ee385a43ca4768aee6",
+      "exitCode": 0,
+      "compilerOutput": "def DLWContract.ReportUW.StartPoint : ℝ → ℝ → Lattice → Lattice → Prop :=\nfun a h F G => ∀ (j : ℤ), bil (a - h / 2) (F j) (G j) = 0 ∧ bil (a + h / 2) (F j) (G (j + 1)) = 0\n",
+      "seconds": 19.987,
+      "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\colab_validation_runs\\20261002_154538_6a037a44\\uw\\lib\\lean\\StepUWStart.olean",
+      "artifactSha256": "3b9838a6a273233a98a54040423f72f0fe16b581f9bb596da08cd783d2b2d1fa"
+    },
+    {
+      "stage": "endpoint",
+      "source": "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\steps\\StepUWEndpoint.lean",
+      "sha256": "dd541a216828aab0d30d1cd19f5c206e81c99bbb75e31c0efcaae401b28757a2",
+      "exitCode": 0,
+      "compilerOutput": "'DLWContract.ReportUW.semiPair_implies_report7' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DLWContract.ReportUW.semiPair_implies_report8' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "seconds": 21.068,
+      "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\colab_validation_runs\\20261002_154538_6a037a44\\uw\\lib\\lean\\StepUWEndpoint.olean",
+      "artifactSha256": "922e0403bb03bfe61d3df963d16a327d8e7bad8a0ca836d2d2b871cc28fda023",
+      "axioms": {
+        "DLWContract.ReportUW.semiPair_implies_report7": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "DLWContract.ReportUW.semiPair_implies_report8": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      }
+    }
+  ],
+  "status": "PASSED",
+  "libraryArtifactsUnchanged": true
+}

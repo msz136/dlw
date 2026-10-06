@@ -1,0 +1,13 @@
+def potential (F G : Lattice) : Lattice :=
+  logL F - (1/2 : ℝ) • (logL G + Sh (logL G))
+def Q (F G : Lattice) : Lattice := expL (potential F G)
+def M (G : Lattice) : Lattice := lx (logL G)
+def omega (G : Lattice) : Lattice := lx (Sh (logL G) - logL G)
+def R (h : ℝ) (F G : Lattice) : Lattice :=
+  fun j x t => (1 - omega G j x t / h) / Q F G j x t
+def coefficient (a h : ℝ) (F G : Lattice) : Lattice :=
+  lx (M G + Sh (M G)) + (h^2/4) • ((Q F G)^2 * (R h F G)^2 - 1)
+def residualQ (a h : ℝ) (F G : Lattice) : Lattice :=
+  lt (Q F G) + lxx (Q F G) + (2*a) • lx (Q F G) + coefficient a h F G * Q F G
+def residualR (a h : ℝ) (F G : Lattice) : Lattice :=
+  lt (R h F G) - lxx (R h F G) + (2*a) • lx (R h F G) - coefficient a h F G * R h F G

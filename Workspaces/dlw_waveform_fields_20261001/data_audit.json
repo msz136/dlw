@@ -1,0 +1,3717 @@
+{
+  "date": "2026-10-01",
+  "new_pde_trajectories": 0,
+  "reference_method": "Independent direct positive tau rational derivatives; imports no solver or experiment module.",
+  "evaluation": {
+    "time": 0.01,
+    "x_interval": [
+      -10.0,
+      10.0
+    ],
+    "x_count": 4001,
+    "physical_y": [
+      -1.4375,
+      -1.3125,
+      -1.1875,
+      -1.0625,
+      -0.9375,
+      -0.8125,
+      -0.6875,
+      -0.5625,
+      -0.4375,
+      -0.3125,
+      -0.1875,
+      -0.0625,
+      0.0625,
+      0.1875,
+      0.3125,
+      0.4375,
+      0.5625,
+      0.6875,
+      0.8125,
+      0.9375,
+      1.0625,
+      1.1875,
+      1.3125,
+      1.4375
+    ],
+    "interpolation": "SciPy CubicSpline default not-a-knot on saved physical x, axis=-1; no y interpolation",
+    "norm": "sampled maximum absolute error including initial representation error"
+  },
+  "summary": {
+    "combinations": 36,
+    "field_norms": 72,
+    "profile_hashes_verified": 36,
+    "max_abs_error_difference_history": 8.881784197001252e-16,
+    "max_abs_error_difference_csv": 8.881784197001252e-16,
+    "index_ratio_cells": 48,
+    "index_ratio_rounding_mismatches": 0
+  },
+  "sources": [
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\results.json",
+      "sha256": "755913eb9e380fc565f5953a1c473c421e234d2e4c68755d9c10d5564e35f124"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_sd2_uv_init_20260929\\out\\results.json",
+      "sha256": "a2cd932c448495fe598c632593db8754c86f411c38e8151ee85ec30754ad1e38"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_two_soliton_20260929\\out\\results.json",
+      "sha256": "15e3ea96097cec9574baa24910daf4a5c7f9007ddc25b7786bd9a9c476a76829"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_two_soliton_euler_20260929\\out\\results.json",
+      "sha256": "78facb679d23922dd7d34ac901186b02f670a23195e5ff94ce979078eff0d200"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\index_t001.csv",
+      "sha256": "42fc3613eb46d522e087afa2f15c7156b6ed6035db228118d9fcf59d2c3545c1"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_sd2_uv_init_20260929\\out\\comparison.csv",
+      "sha256": "20d609659f85f8cbe2849d9c0cc5ef2a4eec0e3ec2ecc79a6bcebbcabccf12d9"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\index.html",
+      "sha256": "dd8f75fb7f0ae89f70120117a552e0cf196077097fa7570516e00c016fabdd49"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_waveform_fields_20261001\\audit_saved_fields.py",
+      "sha256": "48597b6b4ff3f3375177c780537503f954c0eeaa6fec972dde63acff3fe0e82f"
+    }
+  ],
+  "runs": [
+    {
+      "spec": {
+        "case": "fig1a",
+        "model": "SD",
+        "mesh": "fixed",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "method": "RK4",
+        "eval_half": 10.0
+      },
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\results.json",
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_time_curves_20260928\\out\\fig1a_structure_fixed_main.npz",
+      "profile_sha256": "1e943320250e07b1a0486daba9044c6a3c26659ec74c3f9791d25d10d8ba33c7",
+      "hash_verified": true,
+      "csv": {
+        "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\index_t001.csv",
+        "line": 2
+      },
+      "fields": {
+        "u": {
+          "maximum_absolute_error": 0.0005424866284184926,
+          "history_error": 0.0005424866284184926,
+          "csv_error": 0.0005424866284184926,
+          "history_abs_difference": 0.0,
+          "csv_abs_difference": 0.0,
+          "signed_error_range": [
+            -0.0005424866284184926,
+            0.0004622682668109501
+          ],
+          "numerical_range": [
+            -2.0002262568675,
+            -4.9139122227395126e-14
+          ],
+          "maximum_location": {
+            "x": 1.0050000000000008,
+            "y": 0.0625,
+            "signed_error": -0.0005424866284184926
+          }
+        },
+        "v": {
+          "maximum_absolute_error": 0.0009939744426876729,
+          "history_error": 0.0009939744426876729,
+          "csv_error": 0.0009939744426876729,
+          "history_abs_difference": 0.0,
+          "csv_abs_difference": 0.0,
+          "signed_error_range": [
+            -0.0008315112592254259,
+            0.0009939744426876729
+          ],
+          "numerical_range": [
+            -2.0000708255049364,
+            -6.148013083550218e-14
+          ],
+          "maximum_location": {
+            "x": 1.17,
+            "y": 1.4375,
+            "signed_error": 0.0009939744426876729
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "case": "fig1a",
+        "model": "SD",
+        "mesh": "moving",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "method": "RK4",
+        "eval_half": 10.0
+      },
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\results.json",
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_time_curves_20260928\\out\\fig1a_structure_moving_main.npz",
+      "profile_sha256": "ddf14b7dfeff70727021b1419eff8f57fdc1eff15a64aa5085d4a23c3968137d",
+      "hash_verified": true,
+      "csv": {
+        "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\index_t001.csv",
+        "line": 3
+      },
+      "fields": {
+        "u": {
+          "maximum_absolute_error": 0.0003316776715112102,
+          "history_error": 0.0003316776715112102,
+          "csv_error": 0.0003316776715112102,
+          "history_abs_difference": 0.0,
+          "csv_abs_difference": 0.0,
+          "signed_error_range": [
+            -0.0003316776715112102,
+            0.0002801366732938515
+          ],
+          "numerical_range": [
+            -2.000305989311143,
+            -4.914623503159623e-14
+          ],
+          "maximum_location": {
+            "x": 0.6549999999999994,
+            "y": 0.5625,
+            "signed_error": -0.0003316776715112102
+          }
+        },
+        "v": {
+          "maximum_absolute_error": 0.0005969876752056624,
+          "history_error": 0.0005969876752056624,
+          "csv_error": 0.0005969876752056624,
+          "history_abs_difference": 0.0,
+          "csv_abs_difference": 0.0,
+          "signed_error_range": [
+            -0.00043660957848257187,
+            0.0005969876752056624
+          ],
+          "numerical_range": [
+            -2.000283205832599,
+            -6.14783684939067e-14
+          ],
+          "maximum_location": {
+            "x": 1.2349999999999994,
+            "y": 1.4375,
+            "signed_error": 0.0005969876752056624
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "case": "fig1a",
+        "model": "FD",
+        "mesh": "fixed",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "method": "RK4",
+        "eval_half": 10.0
+      },
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\results.json",
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_time_curves_20260928\\out\\fig1a_fd_fixed_main.npz",
+      "profile_sha256": "81a649752e785c182a283e291acd6b43264beaf74b80fb91b5e68b5ed51f9599",
+      "hash_verified": true,
+      "csv": {
+        "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\index_t001.csv",
+        "line": 2
+      },
+      "fields": {
+        "u": {
+          "maximum_absolute_error": 0.000771642926272964,
+          "history_error": 0.000771642926272964,
+          "csv_error": 0.000771642926272964,
+          "history_abs_difference": 0.0,
+          "csv_abs_difference": 0.0,
+          "signed_error_range": [
+            -0.0006580048171935804,
+            0.000771642926272964
+          ],
+          "numerical_range": [
+            -1.9999081676291552,
+            -4.927779596370456e-14
+          ],
+          "maximum_location": {
+            "x": 0.6950000000000003,
+            "y": 0.5625,
+            "signed_error": 0.000771642926272964
+          }
+        },
+        "v": {
+          "maximum_absolute_error": 0.0011819604362615088,
+          "history_error": 0.0011819604362610647,
+          "csv_error": 0.0011819604362610647,
+          "history_abs_difference": 4.440892098500626e-16,
+          "csv_abs_difference": 4.440892098500626e-16,
+          "signed_error_range": [
+            -0.0010541490377584672,
+            0.0011819604362615088
+          ],
+          "numerical_range": [
+            -2.0002143587248074,
+            -6.151389171908494e-14
+          ],
+          "maximum_location": {
+            "x": 0.5500000000000007,
+            "y": -1.0625,
+            "signed_error": 0.0011819604362615088
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "case": "fig1a",
+        "model": "FD",
+        "mesh": "moving",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "method": "RK4",
+        "eval_half": 10.0
+      },
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\results.json",
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_time_curves_20260928\\out\\fig1a_fd_moving_main.npz",
+      "profile_sha256": "d473df51a25cfec8476f9d83f8b9a3d7069273179b9d02ff65d3fcbf42a6884b",
+      "hash_verified": true,
+      "csv": {
+        "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\index_t001.csv",
+        "line": 3
+      },
+      "fields": {
+        "u": {
+          "maximum_absolute_error": 0.00052930742648849,
+          "history_error": 0.00052930742648849,
+          "csv_error": 0.00052930742648849,
+          "history_abs_difference": 0.0,
+          "csv_abs_difference": 0.0,
+          "signed_error_range": [
+            -0.00052930742648849,
+            0.00040145975541450163
+          ],
+          "numerical_range": [
+            -1.9999838898562288,
+            -4.928488179650704e-14
+          ],
+          "maximum_location": {
+            "x": 1.4800000000000004,
+            "y": 1.4375,
+            "signed_error": -0.00052930742648849
+          }
+        },
+        "v": {
+          "maximum_absolute_error": 0.0007926553783506041,
+          "history_error": 0.0007926553783506041,
+          "csv_error": 0.0007926553783506041,
+          "history_abs_difference": 0.0,
+          "csv_abs_difference": 0.0,
+          "signed_error_range": [
+            -0.0005386045304029974,
+            0.0007926553783506041
+          ],
+          "numerical_range": [
+            -2.0004252488282344,
+            -6.151212453123063e-14
+          ],
+          "maximum_location": {
+            "x": 1.2400000000000002,
+            "y": 1.4375,
+            "signed_error": 0.0007926553783506041
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "case": "fig1b",
+        "model": "SD",
+        "mesh": "fixed",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "method": "RK4",
+        "eval_half": 10.0
+      },
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\results.json",
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_time_curves_20260928\\out\\fig1b_structure_fixed_main.npz",
+      "profile_sha256": "29ab6da01951ba657451051870cb968b8e9f986e178a24613303eaf2ce567422",
+      "hash_verified": true,
+      "csv": {
+        "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\index_t001.csv",
+        "line": 4
+      },
+      "fields": {
+        "u": {
+          "maximum_absolute_error": 7.83541734589166e-06,
+          "history_error": 7.835417345947171e-06,
+          "csv_error": 7.835417345947171e-06,
+          "history_abs_difference": 5.551115123125783e-17,
+          "csv_abs_difference": 5.551115123125783e-17,
+          "signed_error_range": [
+            -7.83541734589166e-06,
+            4.8221765288763985e-06
+          ],
+          "numerical_range": [
+            2.3729641492664655e-05,
+            0.3431453037942131
+          ],
+          "maximum_location": {
+            "x": -0.6199999999999992,
+            "y": 1.4375,
+            "signed_error": -7.83541734589166e-06
+          }
+        },
+        "v": {
+          "maximum_absolute_error": 2.934949485333682e-06,
+          "history_error": 2.934949485333682e-06,
+          "csv_error": 2.934949485333682e-06,
+          "history_abs_difference": 0.0,
+          "csv_abs_difference": 0.0,
+          "signed_error_range": [
+            -2.934949485333682e-06,
+            1.3022875517409993e-06
+          ],
+          "numerical_range": [
+            -0.48528215931572755,
+            -3.5593520304088486e-05
+          ],
+          "maximum_location": {
+            "x": 0.22499999999999964,
+            "y": -1.3125,
+            "signed_error": -2.934949485333682e-06
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "case": "fig1b",
+        "model": "SD",
+        "mesh": "moving",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "method": "RK4",
+        "eval_half": 10.0
+      },
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\results.json",
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_time_curves_20260928\\out\\fig1b_structure_moving_main.npz",
+      "profile_sha256": "d46bd9f062b153460f0d161a1afc1848015ee1ac1649ba6e2630a7db7866857f",
+      "hash_verified": true,
+      "csv": {
+        "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\index_t001.csv",
+        "line": 5
+      },
+      "fields": {
+        "u": {
+          "maximum_absolute_error": 8.419545702020859e-06,
+          "history_error": 8.41954570207637e-06,
+          "csv_error": 8.41954570207637e-06,
+          "history_abs_difference": 5.551115123125783e-17,
+          "csv_abs_difference": 5.551115123125783e-17,
+          "signed_error_range": [
+            -8.419545702020859e-06,
+            4.7178688498544785e-06
+          ],
+          "numerical_range": [
+            2.3729622671856672e-05,
+            0.3431457354810779
+          ],
+          "maximum_location": {
+            "x": -0.5399999999999991,
+            "y": 1.4375,
+            "signed_error": -8.419545702020859e-06
+          }
+        },
+        "v": {
+          "maximum_absolute_error": 3.123277591332574e-06,
+          "history_error": 3.1232775912215516e-06,
+          "csv_error": 3.1232775912215516e-06,
+          "history_abs_difference": 1.1102230246251565e-16,
+          "csv_abs_difference": 1.1102230246251565e-16,
+          "signed_error_range": [
+            -3.123277591332574e-06,
+            1.3602143444924053e-06
+          ],
+          "numerical_range": [
+            -0.4852821471854782,
+            -3.559348893346455e-05
+          ],
+          "maximum_location": {
+            "x": 0.21000000000000085,
+            "y": -1.3125,
+            "signed_error": -3.123277591332574e-06
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "case": "fig1b",
+        "model": "FD",
+        "mesh": "fixed",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "method": "RK4",
+        "eval_half": 10.0
+      },
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\results.json",
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_time_curves_20260928\\out\\fig1b_fd_fixed_main.npz",
+      "profile_sha256": "b5b015a99717648d293940210c929892602143cc5990cd640f14d9e7016d7c03",
+      "hash_verified": true,
+      "csv": {
+        "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\index_t001.csv",
+        "line": 4
+      },
+      "fields": {
+        "u": {
+          "maximum_absolute_error": 4.486662027569643e-06,
+          "history_error": 4.486662027458621e-06,
+          "csv_error": 4.486662027458621e-06,
+          "history_abs_difference": 1.1102230246251565e-16,
+          "csv_abs_difference": 1.1102230246251565e-16,
+          "signed_error_range": [
+            -2.448588999670598e-06,
+            4.486662027569643e-06
+          ],
+          "numerical_range": [
+            2.3729641492664655e-05,
+            0.3431476985990438
+          ],
+          "maximum_location": {
+            "x": -0.3249999999999993,
+            "y": 1.4375,
+            "signed_error": 4.486662027569643e-06
+          }
+        },
+        "v": {
+          "maximum_absolute_error": 1.540057544158202e-06,
+          "history_error": 1.540057544158202e-06,
+          "csv_error": 1.540057544158202e-06,
+          "history_abs_difference": 0.0,
+          "csv_abs_difference": 0.0,
+          "signed_error_range": [
+            -1.2210092477649148e-06,
+            1.540057544158202e-06
+          ],
+          "numerical_range": [
+            -0.48528147972739843,
+            -3.5594346556231485e-05
+          ],
+          "maximum_location": {
+            "x": -1.0199999999999996,
+            "y": -0.5625,
+            "signed_error": 1.540057544158202e-06
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "case": "fig1b",
+        "model": "FD",
+        "mesh": "moving",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "method": "RK4",
+        "eval_half": 10.0
+      },
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\results.json",
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_time_curves_20260928\\out\\fig1b_fd_moving_main.npz",
+      "profile_sha256": "73fc582c124a49221afd204c042ae0d7871b07ea1a3f1ebd4f8ddfe38e07986d",
+      "hash_verified": true,
+      "csv": {
+        "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\index_t001.csv",
+        "line": 5
+      },
+      "fields": {
+        "u": {
+          "maximum_absolute_error": 3.5798707944123542e-06,
+          "history_error": 3.5798707945233765e-06,
+          "csv_error": 3.5798707945233765e-06,
+          "history_abs_difference": 1.1102230246251565e-16,
+          "csv_abs_difference": 1.1102230246251565e-16,
+          "signed_error_range": [
+            -2.2192808523530116e-06,
+            3.5798707944123542e-06
+          ],
+          "numerical_range": [
+            2.3729622672146574e-05,
+            0.3431473392974465
+          ],
+          "maximum_location": {
+            "x": -0.29499999999999993,
+            "y": 1.4375,
+            "signed_error": 3.5798707944123542e-06
+          }
+        },
+        "v": {
+          "maximum_absolute_error": 1.6975730521839871e-06,
+          "history_error": 1.6975730521839871e-06,
+          "csv_error": 1.6975730521839871e-06,
+          "history_abs_difference": 0.0,
+          "csv_abs_difference": 0.0,
+          "signed_error_range": [
+            -1.4870233200348082e-06,
+            1.6975730521839871e-06
+          ],
+          "numerical_range": [
+            -0.48528146843250575,
+            -3.559431575672841e-05
+          ],
+          "maximum_location": {
+            "x": -1.0700000000000003,
+            "y": -0.5625,
+            "signed_error": 1.6975730521839871e-06
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "method": "RK4",
+        "case": "fig1a",
+        "model": "SD2",
+        "mesh": "fixed",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0
+      },
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\results.json",
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\RK4\\fig1a_SD2_fixed_main.npz",
+      "profile_sha256": "17c94c1b0a0c65979d7b16372d1fb7a03e54d6d18453f214c5b86053decd288a",
+      "hash_verified": true,
+      "csv": {
+        "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\index_t001.csv",
+        "line": 2
+      },
+      "fields": {
+        "u": {
+          "maximum_absolute_error": 0.0023488093746317773,
+          "history_error": 0.002348809374631111,
+          "csv_error": 0.002348809374631111,
+          "history_abs_difference": 6.661338147750939e-16,
+          "csv_abs_difference": 6.661338147750939e-16,
+          "signed_error_range": [
+            -0.0017946719691883661,
+            0.0023488093746317773
+          ],
+          "numerical_range": [
+            -2.001138755721668,
+            -4.630370161370024e-14
+          ],
+          "maximum_location": {
+            "x": 0.35999999999999943,
+            "y": 0.1875,
+            "signed_error": 0.0023488093746317773
+          }
+        },
+        "v": {
+          "maximum_absolute_error": 0.0017033965967638842,
+          "history_error": 0.0017033965967641063,
+          "csv_error": 0.0017033965967641063,
+          "history_abs_difference": 2.220446049250313e-16,
+          "csv_abs_difference": 2.220446049250313e-16,
+          "signed_error_range": [
+            -0.0014982658048749986,
+            0.0017033965967638842
+          ],
+          "numerical_range": [
+            -1.9993560944948257,
+            -4.914587255673911e-14
+          ],
+          "maximum_location": {
+            "x": 0.20000000000000107,
+            "y": -1.3125,
+            "signed_error": 0.0017033965967638842
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "method": "RK4",
+        "case": "fig1a",
+        "model": "SD2",
+        "mesh": "moving",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0
+      },
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\results.json",
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\RK4\\fig1a_SD2_moving_main.npz",
+      "profile_sha256": "6b39374f56279d966da5c019ee27eb6c1ab3cbf3be1b7b08e3454da14d134454",
+      "hash_verified": true,
+      "csv": {
+        "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\index_t001.csv",
+        "line": 3
+      },
+      "fields": {
+        "u": {
+          "maximum_absolute_error": 0.0005702236715297015,
+          "history_error": 0.0005702236715297015,
+          "csv_error": 0.0005702236715297015,
+          "history_abs_difference": 0.0,
+          "csv_abs_difference": 0.0,
+          "signed_error_range": [
+            -0.0005702236715297015,
+            0.0004739893079026558
+          ],
+          "numerical_range": [
+            -2.000244108137974,
+            -4.677154753657082e-14
+          ],
+          "maximum_location": {
+            "x": 1.2850000000000001,
+            "y": 1.4375,
+            "signed_error": -0.0005702236715297015
+          }
+        },
+        "v": {
+          "maximum_absolute_error": 0.0007898460838566823,
+          "history_error": 0.0007898460838562382,
+          "csv_error": 0.0007898460838562382,
+          "history_abs_difference": 4.440892098500626e-16,
+          "csv_abs_difference": 4.440892098500626e-16,
+          "signed_error_range": [
+            -0.0006704614087023053,
+            0.0007898460838566823
+          ],
+          "numerical_range": [
+            -1.9998703090732213,
+            -6.895049076619759e-14
+          ],
+          "maximum_location": {
+            "x": 0.9849999999999994,
+            "y": 1.4375,
+            "signed_error": 0.0007898460838566823
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "method": "RK4",
+        "case": "fig1b",
+        "model": "SD2",
+        "mesh": "fixed",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0
+      },
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\results.json",
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\RK4\\fig1b_SD2_fixed_main.npz",
+      "profile_sha256": "3638d1c39a4dfbf1adadc27af937c4043a7997070c3d3b96f41a9501dbfcbf00",
+      "hash_verified": true,
+      "csv": {
+        "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\index_t001.csv",
+        "line": 4
+      },
+      "fields": {
+        "u": {
+          "maximum_absolute_error": 8.531160431396456e-06,
+          "history_error": 8.531160431451967e-06,
+          "csv_error": 8.531160431451967e-06,
+          "history_abs_difference": 5.551115123125783e-17,
+          "csv_abs_difference": 5.551115123125783e-17,
+          "signed_error_range": [
+            -8.531160431396456e-06,
+            5.0624013553934866e-06
+          ],
+          "numerical_range": [
+            2.3729641492737127e-05,
+            0.34314530379421304
+          ],
+          "maximum_location": {
+            "x": -0.7750000000000004,
+            "y": 1.4375,
+            "signed_error": -8.531160431396456e-06
+          }
+        },
+        "v": {
+          "maximum_absolute_error": 3.654142580911124e-06,
+          "history_error": 3.6541425808001016e-06,
+          "csv_error": 3.6541425808001016e-06,
+          "history_abs_difference": 1.1102230246251565e-16,
+          "csv_abs_difference": 1.1102230246251565e-16,
+          "signed_error_range": [
+            -3.654142580911124e-06,
+            1.7076024346751595e-06
+          ],
+          "numerical_range": [
+            -0.4852813515651353,
+            -3.559352027248251e-05
+          ],
+          "maximum_location": {
+            "x": 0.3849999999999998,
+            "y": -1.1875,
+            "signed_error": -3.654142580911124e-06
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "method": "RK4",
+        "case": "fig1b",
+        "model": "SD2",
+        "mesh": "moving",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0
+      },
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\results.json",
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\RK4\\fig1b_SD2_moving_main.npz",
+      "profile_sha256": "ecf6f250daf2e35f7a7b974db6d885e392b4ea10001ab8047ed3fc8c26d74364",
+      "hash_verified": true,
+      "csv": {
+        "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\index_t001.csv",
+        "line": 5
+      },
+      "fields": {
+        "u": {
+          "maximum_absolute_error": 8.597765343898445e-06,
+          "history_error": 8.597765343898445e-06,
+          "csv_error": 8.597765343898445e-06,
+          "history_abs_difference": 0.0,
+          "csv_abs_difference": 0.0,
+          "signed_error_range": [
+            -8.597765343898445e-06,
+            4.888000629199585e-06
+          ],
+          "numerical_range": [
+            2.3729622672596216e-05,
+            0.3431457354810818
+          ],
+          "maximum_location": {
+            "x": -0.5499999999999989,
+            "y": 1.4375,
+            "signed_error": -8.597765343898445e-06
+          }
+        },
+        "v": {
+          "maximum_absolute_error": 3.4589334965140495e-06,
+          "history_error": 3.458933496403027e-06,
+          "csv_error": 3.458933496403027e-06,
+          "history_abs_difference": 1.1102230246251565e-16,
+          "csv_abs_difference": 1.1102230246251565e-16,
+          "signed_error_range": [
+            -3.4589334965140495e-06,
+            1.73208894221899e-06
+          ],
+          "numerical_range": [
+            -0.48528181179789104,
+            -3.559348877768012e-05
+          ],
+          "maximum_location": {
+            "x": 0.21000000000000085,
+            "y": -1.3125,
+            "signed_error": -3.4589334965140495e-06
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "method": "Euler",
+        "case": "fig1a",
+        "model": "SD",
+        "mesh": "fixed",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0
+      },
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\results.json",
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\Euler\\fig1a_SD_fixed_main.npz",
+      "profile_sha256": "ad93fed603871aae97effb0a79261cc6726854a94e9f1ac0b588e31d44071d30",
+      "hash_verified": true,
+      "csv": {
+        "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\index_t001.csv",
+        "line": 6
+      },
+      "fields": {
+        "u": {
+          "maximum_absolute_error": 0.000543596272230884,
+          "history_error": 0.000543596272230884,
+          "csv_error": 0.000543596272230884,
+          "history_abs_difference": 0.0,
+          "csv_abs_difference": 0.0,
+          "signed_error_range": [
+            -0.000543596272230884,
+            0.00046441894186588506
+          ],
+          "numerical_range": [
+            -2.0002338103568187,
+            -4.91410338375788e-14
+          ],
+          "maximum_location": {
+            "x": 1.0050000000000008,
+            "y": 0.0625,
+            "signed_error": -0.000543596272230884
+          }
+        },
+        "v": {
+          "maximum_absolute_error": 0.0009899369325794272,
+          "history_error": 0.0009899369325794272,
+          "csv_error": 0.0009899369325794272,
+          "history_abs_difference": 0.0,
+          "csv_abs_difference": 0.0,
+          "signed_error_range": [
+            -0.0008370062955045388,
+            0.0009899369325794272
+          ],
+          "numerical_range": [
+            -2.0000729397965578,
+            -6.147993664904935e-14
+          ],
+          "maximum_location": {
+            "x": 1.17,
+            "y": 1.4375,
+            "signed_error": 0.0009899369325794272
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "method": "Euler",
+        "case": "fig1a",
+        "model": "SD",
+        "mesh": "moving",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0
+      },
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\results.json",
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\Euler\\fig1a_SD_moving_main.npz",
+      "profile_sha256": "707f0e62d677f9d0cc88a17ec57dedb5f1af38d5c4ba3f51cf24090c2c28de60",
+      "hash_verified": true,
+      "csv": {
+        "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\index_t001.csv",
+        "line": 7
+      },
+      "fields": {
+        "u": {
+          "maximum_absolute_error": 0.0003331287140164729,
+          "history_error": 0.0003331287140164729,
+          "csv_error": 0.0003331287140164729,
+          "history_abs_difference": 0.0,
+          "csv_abs_difference": 0.0,
+          "signed_error_range": [
+            -0.0003331287140164729,
+            0.00028217708693212273
+          ],
+          "numerical_range": [
+            -2.0003076875355026,
+            -4.9148148425293446e-14
+          ],
+          "maximum_location": {
+            "x": 0.6549999999999994,
+            "y": 0.5625,
+            "signed_error": -0.0003331287140164729
+          }
+        },
+        "v": {
+          "maximum_absolute_error": 0.0005940012708225417,
+          "history_error": 0.0005940012708225417,
+          "csv_error": 0.0005940012708225417,
+          "history_abs_difference": 0.0,
+          "csv_abs_difference": 0.0,
+          "signed_error_range": [
+            -0.0004350093585320236,
+            0.0005940012708225417
+          ],
+          "numerical_range": [
+            -2.0002841995333216,
+            -6.147816888068354e-14
+          ],
+          "maximum_location": {
+            "x": 1.2349999999999994,
+            "y": 1.4375,
+            "signed_error": 0.0005940012708225417
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "method": "Euler",
+        "case": "fig1a",
+        "model": "SD2",
+        "mesh": "fixed",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0
+      },
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\results.json",
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\Euler\\fig1a_SD2_fixed_main.npz",
+      "profile_sha256": "0b5a79fd1601b761ad87a1a00cf47146943d0bc4c4dbd2bbe759e02ff00b3cdd",
+      "hash_verified": true,
+      "csv": {
+        "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\index_t001.csv",
+        "line": 6
+      },
+      "fields": {
+        "u": {
+          "maximum_absolute_error": 0.002339461689021327,
+          "history_error": 0.002339461689020661,
+          "csv_error": 0.002339461689020661,
+          "history_abs_difference": 6.661338147750939e-16,
+          "csv_abs_difference": 6.661338147750939e-16,
+          "signed_error_range": [
+            -0.0017935059065841141,
+            0.002339461689021327
+          ],
+          "numerical_range": [
+            -2.001142711546268,
+            -4.7724787085220505e-14
+          ],
+          "maximum_location": {
+            "x": 0.35999999999999943,
+            "y": 0.1875,
+            "signed_error": 0.002339461689021327
+          }
+        },
+        "v": {
+          "maximum_absolute_error": 0.0016962276303151835,
+          "history_error": 0.0016962276303151835,
+          "csv_error": 0.0016962276303151835,
+          "history_abs_difference": 0.0,
+          "csv_abs_difference": 0.0,
+          "signed_error_range": [
+            -0.0014928856175346894,
+            0.0016962276303151835
+          ],
+          "numerical_range": [
+            -1.9993857331820262,
+            2.3693449848277805e-10
+          ],
+          "maximum_location": {
+            "x": 0.22499999999999964,
+            "y": -1.1875,
+            "signed_error": 0.0016962276303151835
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "method": "Euler",
+        "case": "fig1a",
+        "model": "SD2",
+        "mesh": "moving",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0
+      },
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\results.json",
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\Euler\\fig1a_SD2_moving_main.npz",
+      "profile_sha256": "27c570c3b1573a5ebbf84445678617c0bde594e283f1f5a259a0abaa52bc9d3f",
+      "hash_verified": true,
+      "csv": {
+        "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\index_t001.csv",
+        "line": 7
+      },
+      "fields": {
+        "u": {
+          "maximum_absolute_error": 0.000569255628748877,
+          "history_error": 0.000569255628748877,
+          "csv_error": 0.000569255628748877,
+          "history_abs_difference": 0.0,
+          "csv_abs_difference": 0.0,
+          "signed_error_range": [
+            -0.000569255628748877,
+            0.00047123005784621697
+          ],
+          "numerical_range": [
+            -2.0002469483964664,
+            -4.832031902039694e-14
+          ],
+          "maximum_location": {
+            "x": 1.2850000000000001,
+            "y": 1.4375,
+            "signed_error": -0.000569255628748877
+          }
+        },
+        "v": {
+          "maximum_absolute_error": 0.0007871265226078172,
+          "history_error": 0.0007871265226073731,
+          "csv_error": 0.0007871265226073731,
+          "history_abs_difference": 4.440892098500626e-16,
+          "csv_abs_difference": 4.440892098500626e-16,
+          "signed_error_range": [
+            -0.0006684061592223678,
+            0.0007871265226078172
+          ],
+          "numerical_range": [
+            -1.9998813293238333,
+            2.177423143177893e-10
+          ],
+          "maximum_location": {
+            "x": 0.9849999999999994,
+            "y": 1.4375,
+            "signed_error": 0.0007871265226078172
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "method": "Euler",
+        "case": "fig1a",
+        "model": "FD",
+        "mesh": "fixed",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0
+      },
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\results.json",
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\Euler\\fig1a_FD_fixed_main.npz",
+      "profile_sha256": "68c23659b29afbe18a5661642c4eb20beeb69217eef27888a2fe5f0f722e9cc7",
+      "hash_verified": true,
+      "csv": {
+        "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\index_t001.csv",
+        "line": 6
+      },
+      "fields": {
+        "u": {
+          "maximum_absolute_error": 0.0007639728644377453,
+          "history_error": 0.0007639728644377453,
+          "csv_error": 0.0007639728644377453,
+          "history_abs_difference": 0.0,
+          "csv_abs_difference": 0.0,
+          "signed_error_range": [
+            -0.0006586682903935159,
+            0.0007639728644377453
+          ],
+          "numerical_range": [
+            -1.999908391229127,
+            -4.9279920742392916e-14
+          ],
+          "maximum_location": {
+            "x": 0.6950000000000003,
+            "y": 0.5625,
+            "signed_error": 0.0007639728644377453
+          }
+        },
+        "v": {
+          "maximum_absolute_error": 0.0011767735258556566,
+          "history_error": 0.0011767735258552126,
+          "csv_error": 0.0011767735258552126,
+          "history_abs_difference": 4.440892098500626e-16,
+          "csv_abs_difference": 4.440892098500626e-16,
+          "signed_error_range": [
+            -0.0010563621944219559,
+            0.0011767735258556566
+          ],
+          "numerical_range": [
+            -2.000216089395537,
+            -6.151363837433686e-14
+          ],
+          "maximum_location": {
+            "x": 0.5500000000000007,
+            "y": -1.0625,
+            "signed_error": 0.0011767735258556566
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "method": "Euler",
+        "case": "fig1b",
+        "model": "SD",
+        "mesh": "fixed",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0
+      },
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\results.json",
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\Euler\\fig1b_SD_fixed_main.npz",
+      "profile_sha256": "cb8ea7d8a02548bdda0bc1192d14efd0a7c5c2aa18cf8d11411ea2db68bf4956",
+      "hash_verified": true,
+      "csv": {
+        "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\index_t001.csv",
+        "line": 8
+      },
+      "fields": {
+        "u": {
+          "maximum_absolute_error": 1.256240978528278e-05,
+          "history_error": 1.256240978528278e-05,
+          "csv_error": 1.256240978528278e-05,
+          "history_abs_difference": 0.0,
+          "csv_abs_difference": 0.0,
+          "signed_error_range": [
+            -1.256240978528278e-05,
+            5.129272264668694e-06
+          ],
+          "numerical_range": [
+            2.3729641492664655e-05,
+            0.3431453037942131
+          ],
+          "maximum_location": {
+            "x": -0.9399999999999995,
+            "y": 1.4375,
+            "signed_error": -1.256240978528278e-05
+          }
+        },
+        "v": {
+          "maximum_absolute_error": 7.576867085079542e-06,
+          "history_error": 7.576867085079542e-06,
+          "csv_error": 7.576867085079542e-06,
+          "history_abs_difference": 0.0,
+          "csv_abs_difference": 0.0,
+          "signed_error_range": [
+            -7.576867085079542e-06,
+            3.4821669220030937e-06
+          ],
+          "numerical_range": [
+            -0.48528884348946266,
+            -3.559226978770375e-05
+          ],
+          "maximum_location": {
+            "x": -0.7799999999999994,
+            "y": -1.3125,
+            "signed_error": -7.576867085079542e-06
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "method": "Euler",
+        "case": "fig1a",
+        "model": "FD",
+        "mesh": "moving",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0
+      },
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\results.json",
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\Euler\\fig1a_FD_moving_main.npz",
+      "profile_sha256": "51fbacd89c58611ebf38556096d3414f02f2a8732ccb9d81153d261f8b8e2f93",
+      "hash_verified": true,
+      "csv": {
+        "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\index_t001.csv",
+        "line": 7
+      },
+      "fields": {
+        "u": {
+          "maximum_absolute_error": 0.0005283749984414943,
+          "history_error": 0.0005283749984414943,
+          "csv_error": 0.0005283749984414943,
+          "history_abs_difference": 0.0,
+          "csv_abs_difference": 0.0,
+          "signed_error_range": [
+            -0.0005283749984414943,
+            0.00039577176511707
+          ],
+          "numerical_range": [
+            -1.9999839623111517,
+            -4.928700829101803e-14
+          ],
+          "maximum_location": {
+            "x": 1.4800000000000004,
+            "y": 1.4375,
+            "signed_error": -0.0005283749984414943
+          }
+        },
+        "v": {
+          "maximum_absolute_error": 0.0007896559360616173,
+          "history_error": 0.0007896559360616173,
+          "csv_error": 0.0007896559360616173,
+          "history_abs_difference": 0.0,
+          "csv_abs_difference": 0.0,
+          "signed_error_range": [
+            -0.0005397931508848153,
+            0.0007896559360616173
+          ],
+          "numerical_range": [
+            -2.000425817629776,
+            -6.151186577516827e-14
+          ],
+          "maximum_location": {
+            "x": 1.2400000000000002,
+            "y": 1.4375,
+            "signed_error": 0.0007896559360616173
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "method": "Euler",
+        "case": "fig1b",
+        "model": "SD",
+        "mesh": "moving",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0
+      },
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\results.json",
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\Euler\\fig1b_SD_moving_main.npz",
+      "profile_sha256": "98632cce6e7c81b305ad54cf220d8fa228ced252c666b82b97fb96ef3cd17935",
+      "hash_verified": true,
+      "csv": {
+        "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\index_t001.csv",
+        "line": 9
+      },
+      "fields": {
+        "u": {
+          "maximum_absolute_error": 1.1625217399530152e-05,
+          "history_error": 1.1625217399641175e-05,
+          "csv_error": 1.1625217399641175e-05,
+          "history_abs_difference": 1.1102230246251565e-16,
+          "csv_abs_difference": 1.1102230246251565e-16,
+          "signed_error_range": [
+            -1.1625217399530152e-05,
+            5.020584698305075e-06
+          ],
+          "numerical_range": [
+            2.3729622672400528e-05,
+            0.34314573547873406
+          ],
+          "maximum_location": {
+            "x": -0.8450000000000006,
+            "y": 1.4375,
+            "signed_error": -1.1625217399530152e-05
+          }
+        },
+        "v": {
+          "maximum_absolute_error": 6.4698984235112e-06,
+          "history_error": 6.469898423566711e-06,
+          "csv_error": 6.469898423566711e-06,
+          "history_abs_difference": 5.551115123125783e-17,
+          "csv_abs_difference": 5.551115123125783e-17,
+          "signed_error_range": [
+            -6.4698984235112e-06,
+            3.398291860912117e-06
+          ],
+          "numerical_range": [
+            -0.48528753131205904,
+            -3.5592238485911406e-05
+          ],
+          "maximum_location": {
+            "x": 0.7200000000000006,
+            "y": 1.3125,
+            "signed_error": -6.4698984235112e-06
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "method": "Euler",
+        "case": "fig1b",
+        "model": "SD2",
+        "mesh": "fixed",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0
+      },
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\results.json",
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\Euler\\fig1b_SD2_fixed_main.npz",
+      "profile_sha256": "39926795297d3669aea4a52a116275c0fb2a515ae1014ec3b77da5e959d79caa",
+      "hash_verified": true,
+      "csv": {
+        "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\index_t001.csv",
+        "line": 8
+      },
+      "fields": {
+        "u": {
+          "maximum_absolute_error": 9.244678379066729e-06,
+          "history_error": 9.244678378955706e-06,
+          "csv_error": 9.244678378955706e-06,
+          "history_abs_difference": 1.1102230246251565e-16,
+          "csv_abs_difference": 1.1102230246251565e-16,
+          "signed_error_range": [
+            -9.244678379066729e-06,
+            5.104977174652525e-06
+          ],
+          "numerical_range": [
+            2.3729641492737127e-05,
+            0.34315025393377635
+          ],
+          "maximum_location": {
+            "x": -0.9350000000000005,
+            "y": 1.4375,
+            "signed_error": -9.244678379066729e-06
+          }
+        },
+        "v": {
+          "maximum_absolute_error": 2.172109867254468e-05,
+          "history_error": 2.1721098672600192e-05,
+          "csv_error": 2.1721098672600192e-05,
+          "history_abs_difference": 5.551115123125783e-17,
+          "csv_abs_difference": 5.551115123125783e-17,
+          "signed_error_range": [
+            -1.3902599748150113e-05,
+            2.172109867254468e-05
+          ],
+          "numerical_range": [
+            -0.48528172665030295,
+            -3.559368072527377e-05
+          ],
+          "maximum_location": {
+            "x": -0.5499999999999989,
+            "y": -1.4375,
+            "signed_error": 2.172109867254468e-05
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "method": "Euler",
+        "case": "fig1b",
+        "model": "FD",
+        "mesh": "fixed",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0
+      },
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\results.json",
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\Euler\\fig1b_FD_fixed_main.npz",
+      "profile_sha256": "d68713b49433565f6aa9fbc1a76b7706318fad0288b92a434a5aaaaaaa7ccbb8",
+      "hash_verified": true,
+      "csv": {
+        "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\index_t001.csv",
+        "line": 8
+      },
+      "fields": {
+        "u": {
+          "maximum_absolute_error": 7.197124369168195e-06,
+          "history_error": 7.197124369168195e-06,
+          "csv_error": 7.197124369168195e-06,
+          "history_abs_difference": 0.0,
+          "csv_abs_difference": 0.0,
+          "signed_error_range": [
+            -7.197124369168195e-06,
+            6.890215829946644e-06
+          ],
+          "numerical_range": [
+            2.3729641492664655e-05,
+            0.3431516947025871
+          ],
+          "maximum_location": {
+            "x": -1.5649999999999995,
+            "y": 1.4375,
+            "signed_error": -7.197124369168195e-06
+          }
+        },
+        "v": {
+          "maximum_absolute_error": 7.208982803041941e-06,
+          "history_error": 7.20898280298643e-06,
+          "csv_error": 7.20898280298643e-06,
+          "history_abs_difference": 5.551115123125783e-17,
+          "csv_abs_difference": 5.551115123125783e-17,
+          "signed_error_range": [
+            -7.208982803041941e-06,
+            2.5778356724515117e-06
+          ],
+          "numerical_range": [
+            -0.48528814542433696,
+            -3.559327228963398e-05
+          ],
+          "maximum_location": {
+            "x": 0.625,
+            "y": 1.3125,
+            "signed_error": -7.208982803041941e-06
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "method": "Euler",
+        "case": "fig1b",
+        "model": "SD2",
+        "mesh": "moving",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0
+      },
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\results.json",
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\Euler\\fig1b_SD2_moving_main.npz",
+      "profile_sha256": "41f13d0f91f27fa095fb694dec8b64e91fb865c6a3acf11491bcee2d04d5b4f6",
+      "hash_verified": true,
+      "csv": {
+        "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\index_t001.csv",
+        "line": 9
+      },
+      "fields": {
+        "u": {
+          "maximum_absolute_error": 8.318372939325469e-06,
+          "history_error": 8.31837293938098e-06,
+          "csv_error": 8.31837293938098e-06,
+          "history_abs_difference": 5.551115123125783e-17,
+          "csv_abs_difference": 5.551115123125783e-17,
+          "signed_error_range": [
+            -8.318372939325469e-06,
+            4.133269353001623e-06
+          ],
+          "numerical_range": [
+            2.3729622673163406e-05,
+            0.343149380035942
+          ],
+          "maximum_location": {
+            "x": -0.8399999999999999,
+            "y": 1.4375,
+            "signed_error": -8.318372939325469e-06
+          }
+        },
+        "v": {
+          "maximum_absolute_error": 1.7885166222642024e-05,
+          "history_error": 1.7885166222697535e-05,
+          "csv_error": 1.7885166222697535e-05,
+          "history_abs_difference": 5.551115123125783e-17,
+          "csv_abs_difference": 5.551115123125783e-17,
+          "signed_error_range": [
+            -1.2565247896278997e-05,
+            1.7885166222642024e-05
+          ],
+          "numerical_range": [
+            -0.4852821051438502,
+            -3.559365202712507e-05
+          ],
+          "maximum_location": {
+            "x": -0.9149999999999991,
+            "y": -1.3125,
+            "signed_error": 1.7885166222642024e-05
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "method": "Euler",
+        "case": "fig1b",
+        "model": "FD",
+        "mesh": "moving",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0
+      },
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\results.json",
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\Euler\\fig1b_FD_moving_main.npz",
+      "profile_sha256": "5198b2b6f54d4c3099c6b72ea01ff3bf7e64f5b7d6a7e1cb2e2e351cef0ed8df",
+      "hash_verified": true,
+      "csv": {
+        "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\index_t001.csv",
+        "line": 9
+      },
+      "fields": {
+        "u": {
+          "maximum_absolute_error": 6.041436775405806e-06,
+          "history_error": 6.041436775405806e-06,
+          "csv_error": 6.041436775405806e-06,
+          "history_abs_difference": 0.0,
+          "csv_abs_difference": 0.0,
+          "signed_error_range": [
+            -6.041436775405806e-06,
+            5.6248815667458985e-06
+          ],
+          "numerical_range": [
+            2.3729622671785944e-05,
+            0.3431507817174719
+          ],
+          "maximum_location": {
+            "x": -1.58,
+            "y": 1.4375,
+            "signed_error": -6.041436775405806e-06
+          }
+        },
+        "v": {
+          "maximum_absolute_error": 6.2005004693999055e-06,
+          "history_error": 6.200500469455417e-06,
+          "csv_error": 6.200500469455417e-06,
+          "history_abs_difference": 5.551115123125783e-17,
+          "csv_abs_difference": 5.551115123125783e-17,
+          "signed_error_range": [
+            -6.2005004693999055e-06,
+            2.501750527544866e-06
+          ],
+          "numerical_range": [
+            -0.4852869300076389,
+            -3.559324154920331e-05
+          ],
+          "maximum_location": {
+            "x": 0.7200000000000006,
+            "y": 1.4375,
+            "signed_error": -6.2005004693999055e-06
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "case": "fig3",
+        "model": "SD2",
+        "mesh": "fixed",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0,
+        "method": "Euler"
+      },
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\dlw_sd2_uv_init_20260929\\out\\results.json",
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_sd2_uv_init_20260929\\out\\Euler\\fig3_SD2_fixed_main.npz",
+      "profile_sha256": "89a66e9f3454c8f7eeae96ec328a94a40ee2d0678bb4de08c392f8529ee67d82",
+      "hash_verified": true,
+      "csv": {
+        "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_sd2_uv_init_20260929\\out\\comparison.csv",
+        "line": 21
+      },
+      "fields": {
+        "u": {
+          "maximum_absolute_error": 1.5692735947259173e-05,
+          "history_error": 1.5692735947370196e-05,
+          "csv_error": 1.5692735947370196e-05,
+          "history_abs_difference": 1.1102230246251565e-16,
+          "csv_abs_difference": 1.1102230246251565e-16,
+          "signed_error_range": [
+            -1.5692735947259173e-05,
+            1.4909526519391036e-05
+          ],
+          "numerical_range": [
+            3.4655979061385824e-05,
+            0.5212362798098293
+          ],
+          "maximum_location": {
+            "x": -1.0950000000000006,
+            "y": 1.4375,
+            "signed_error": -1.5692735947259173e-05
+          }
+        },
+        "v": {
+          "maximum_absolute_error": 6.716598752132263e-05,
+          "history_error": 6.716598752121161e-05,
+          "csv_error": 6.716598752121161e-05,
+          "history_abs_difference": 1.1102230246251565e-16,
+          "csv_abs_difference": 1.1102230246251565e-16,
+          "signed_error_range": [
+            -3.487759210757391e-05,
+            6.716598752132263e-05
+          ],
+          "numerical_range": [
+            -0.6075101874730628,
+            -3.653165719862486e-05
+          ],
+          "maximum_location": {
+            "x": -0.5399999999999991,
+            "y": -1.3125,
+            "signed_error": 6.716598752132263e-05
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "case": "fig3",
+        "model": "SD2",
+        "mesh": "moving",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0,
+        "method": "Euler"
+      },
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\dlw_sd2_uv_init_20260929\\out\\results.json",
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_sd2_uv_init_20260929\\out\\Euler\\fig3_SD2_moving_main.npz",
+      "profile_sha256": "6c27ef95619b8674aa3bfb780d018f00aafe297a8ece3e54b0791f8802cc34a9",
+      "hash_verified": true,
+      "csv": {
+        "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_sd2_uv_init_20260929\\out\\comparison.csv",
+        "line": 24
+      },
+      "fields": {
+        "u": {
+          "maximum_absolute_error": 1.1305101278613616e-05,
+          "history_error": 1.1305101278391572e-05,
+          "csv_error": 1.1305101278391572e-05,
+          "history_abs_difference": 2.220446049250313e-16,
+          "csv_abs_difference": 2.220446049250313e-16,
+          "signed_error_range": [
+            -1.1305101278613616e-05,
+            1.0714093135133496e-05
+          ],
+          "numerical_range": [
+            3.465597267543046e-05,
+            0.5212300777379422
+          ],
+          "maximum_location": {
+            "x": -1.1199999999999992,
+            "y": 1.4375,
+            "signed_error": -1.1305101278613616e-05
+          }
+        },
+        "v": {
+          "maximum_absolute_error": 5.16567475176144e-05,
+          "history_error": 5.165674751772542e-05,
+          "csv_error": 5.165674751772542e-05,
+          "history_abs_difference": 1.1102230246251565e-16,
+          "csv_abs_difference": 1.1102230246251565e-16,
+          "signed_error_range": [
+            -3.020572335710181e-05,
+            5.16567475176144e-05
+          ],
+          "numerical_range": [
+            -0.6075140683937826,
+            -3.653165921548426e-05
+          ],
+          "maximum_location": {
+            "x": -0.6199999999999992,
+            "y": -1.3125,
+            "signed_error": 5.16567475176144e-05
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "case": "fig3",
+        "model": "SD2",
+        "mesh": "fixed",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0,
+        "method": "RK4"
+      },
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\dlw_sd2_uv_init_20260929\\out\\results.json",
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_sd2_uv_init_20260929\\out\\RK4\\fig3_SD2_fixed_main.npz",
+      "profile_sha256": "12451f6a9dfcbb833650a13f1915554efa126976671b2483d23c83be07c8f12c",
+      "hash_verified": true,
+      "csv": {
+        "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_sd2_uv_init_20260929\\out\\comparison.csv",
+        "line": 3
+      },
+      "fields": {
+        "u": {
+          "maximum_absolute_error": 1.3192230494729618e-05,
+          "history_error": 1.319223049484064e-05,
+          "csv_error": 1.319223049484064e-05,
+          "history_abs_difference": 1.1102230246251565e-16,
+          "csv_abs_difference": 1.1102230246251565e-16,
+          "signed_error_range": [
+            -1.3192230494729618e-05,
+            6.409909404925251e-06
+          ],
+          "numerical_range": [
+            3.4655979061385824e-05,
+            0.5212219151269459
+          ],
+          "maximum_location": {
+            "x": -0.9350000000000005,
+            "y": 1.4375,
+            "signed_error": -1.3192230494729618e-05
+          }
+        },
+        "v": {
+          "maximum_absolute_error": 5.920389342439769e-06,
+          "history_error": 5.920389342439769e-06,
+          "csv_error": 5.920389342439769e-06,
+          "history_abs_difference": 0.0,
+          "csv_abs_difference": 0.0,
+          "signed_error_range": [
+            -5.920389342439769e-06,
+            3.5325123748375375e-06
+          ],
+          "numerical_range": [
+            -0.607519090007183,
+            -3.652987599525774e-05
+          ],
+          "maximum_location": {
+            "x": 0.8550000000000004,
+            "y": 0.0625,
+            "signed_error": -5.920389342439769e-06
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "case": "fig3",
+        "model": "SD2",
+        "mesh": "moving",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0,
+        "method": "RK4"
+      },
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\dlw_sd2_uv_init_20260929\\out\\results.json",
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_sd2_uv_init_20260929\\out\\RK4\\fig3_SD2_moving_main.npz",
+      "profile_sha256": "dba0a521a340309520d554857941cfec40560eef276fcc1bc59118f170cf5750",
+      "hash_verified": true,
+      "csv": {
+        "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_sd2_uv_init_20260929\\out\\comparison.csv",
+        "line": 6
+      },
+      "fields": {
+        "u": {
+          "maximum_absolute_error": 1.0924825935898497e-05,
+          "history_error": 1.0924825935898497e-05,
+          "csv_error": 1.0924825935898497e-05,
+          "history_abs_difference": 0.0,
+          "csv_abs_difference": 0.0,
+          "signed_error_range": [
+            -1.0924825935898497e-05,
+            5.997862089782147e-06
+          ],
+          "numerical_range": [
+            3.465597267701993e-05,
+            0.5212188555361636
+          ],
+          "maximum_location": {
+            "x": -0.8349999999999991,
+            "y": 1.4375,
+            "signed_error": -1.0924825935898497e-05
+          }
+        },
+        "v": {
+          "maximum_absolute_error": 4.5031601836886814e-06,
+          "history_error": 4.503160183466637e-06,
+          "csv_error": 4.503160183466637e-06,
+          "history_abs_difference": 2.220446049250313e-16,
+          "csv_abs_difference": 2.220446049250313e-16,
+          "signed_error_range": [
+            -4.5031601836886814e-06,
+            2.2046400791619902e-06
+          ],
+          "numerical_range": [
+            -0.607521002188243,
+            -3.652986515613348e-05
+          ],
+          "maximum_location": {
+            "x": 1.4700000000000006,
+            "y": 1.4375,
+            "signed_error": -4.5031601836886814e-06
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "case": "fig3",
+        "model": "SD",
+        "mesh": "fixed",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0,
+        "method": "RK4"
+      },
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\dlw_two_soliton_20260929\\out\\results.json",
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_two_soliton_20260929\\out\\fig3_SD_fixed_main.npz",
+      "profile_sha256": "9669dc24560c11c74ddd5b3e372acc4da1caafa24f6ced3850756b0b25da5012",
+      "hash_verified": true,
+      "csv": {
+        "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_sd2_uv_init_20260929\\out\\comparison.csv",
+        "line": 3
+      },
+      "fields": {
+        "u": {
+          "maximum_absolute_error": 9.93845730434817e-06,
+          "history_error": 9.938457304237147e-06,
+          "csv_error": 9.938457304237147e-06,
+          "history_abs_difference": 1.1102230246251565e-16,
+          "csv_abs_difference": 1.1102230246251565e-16,
+          "signed_error_range": [
+            -9.93845730434817e-06,
+            5.890540895614471e-06
+          ],
+          "numerical_range": [
+            3.465597906293638e-05,
+            0.5212190349513696
+          ],
+          "maximum_location": {
+            "x": -0.9399999999999995,
+            "y": 1.4375,
+            "signed_error": -9.93845730434817e-06
+          }
+        },
+        "v": {
+          "maximum_absolute_error": 3.477897949411002e-06,
+          "history_error": 3.4778979492999795e-06,
+          "csv_error": 3.4778979492999795e-06,
+          "history_abs_difference": 1.1102230246251565e-16,
+          "csv_abs_difference": 1.1102230246251565e-16,
+          "signed_error_range": [
+            -3.477897949411002e-06,
+            1.4912748104445317e-06
+          ],
+          "numerical_range": [
+            -0.6075218152442902,
+            -3.652987616391609e-05
+          ],
+          "maximum_location": {
+            "x": 1.4800000000000004,
+            "y": 1.4375,
+            "signed_error": -3.477897949411002e-06
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "case": "fig3",
+        "model": "SD",
+        "mesh": "moving",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0,
+        "method": "RK4"
+      },
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\dlw_two_soliton_20260929\\out\\results.json",
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_two_soliton_20260929\\out\\fig3_SD_moving_main.npz",
+      "profile_sha256": "55ebeb1608cc9b00b74da81b3c2086e82b5fdbcbbb96bd7b95caa6f86a1b747a",
+      "hash_verified": true,
+      "csv": {
+        "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_sd2_uv_init_20260929\\out\\comparison.csv",
+        "line": 6
+      },
+      "fields": {
+        "u": {
+          "maximum_absolute_error": 9.744408560663498e-06,
+          "history_error": 9.744408561107587e-06,
+          "csv_error": 9.744408561107587e-06,
+          "history_abs_difference": 4.440892098500626e-16,
+          "csv_abs_difference": 4.440892098500626e-16,
+          "signed_error_range": [
+            -9.744408560663498e-06,
+            5.663931867433414e-06
+          ],
+          "numerical_range": [
+            3.4655972688810416e-05,
+            0.5212178344027281
+          ],
+          "maximum_location": {
+            "x": -0.6950000000000003,
+            "y": 1.4375,
+            "signed_error": -9.744408560663498e-06
+          }
+        },
+        "v": {
+          "maximum_absolute_error": 3.72511650514884e-06,
+          "history_error": 3.725116504871284e-06,
+          "csv_error": 3.725116504871284e-06,
+          "history_abs_difference": 2.7755575615628914e-16,
+          "csv_abs_difference": 2.7755575615628914e-16,
+          "signed_error_range": [
+            -3.72511650514884e-06,
+            1.5340599969632107e-06
+          ],
+          "numerical_range": [
+            -0.6075219837604016,
+            -3.6529865266208064e-05
+          ],
+          "maximum_location": {
+            "x": 0.1850000000000005,
+            "y": -1.0625,
+            "signed_error": -3.72511650514884e-06
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "case": "fig3",
+        "model": "FD",
+        "mesh": "fixed",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0,
+        "method": "RK4"
+      },
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\dlw_two_soliton_20260929\\out\\results.json",
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_two_soliton_20260929\\out\\fig3_FD_fixed_main.npz",
+      "profile_sha256": "cd8ac0d3036fb5ea4eab017df72c6cd3aeb7e470679145d18457bac5a983ea15",
+      "hash_verified": true,
+      "csv": {
+        "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_sd2_uv_init_20260929\\out\\comparison.csv",
+        "line": 3
+      },
+      "fields": {
+        "u": {
+          "maximum_absolute_error": 8.594123021177236e-06,
+          "history_error": 8.59412302139928e-06,
+          "csv_error": 8.59412302139928e-06,
+          "history_abs_difference": 2.220446049250313e-16,
+          "csv_abs_difference": 2.220446049250313e-16,
+          "signed_error_range": [
+            -4.626263053586488e-06,
+            8.594123021177236e-06
+          ],
+          "numerical_range": [
+            3.465597906293638e-05,
+            0.5212262400915437
+          ],
+          "maximum_location": {
+            "x": -0.3200000000000003,
+            "y": 1.4375,
+            "signed_error": 8.594123021177236e-06
+          }
+        },
+        "v": {
+          "maximum_absolute_error": 1.9595038985853463e-06,
+          "history_error": 1.9595038985853463e-06,
+          "csv_error": 1.9595038985853463e-06,
+          "history_abs_difference": 0.0,
+          "csv_abs_difference": 0.0,
+          "signed_error_range": [
+            -1.5765979177739808e-06,
+            1.9595038985853463e-06
+          ],
+          "numerical_range": [
+            -0.6075212940958952,
+            -3.6530518480324264e-05
+          ],
+          "maximum_location": {
+            "x": -0.08000000000000007,
+            "y": 1.4375,
+            "signed_error": 1.9595038985853463e-06
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "case": "fig3",
+        "model": "FD",
+        "mesh": "moving",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0,
+        "method": "RK4"
+      },
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\dlw_two_soliton_20260929\\out\\results.json",
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_two_soliton_20260929\\out\\fig3_FD_moving_main.npz",
+      "profile_sha256": "39aaf1fb77fab02b78631ff06384a21938096f0c8878a8b95ba4ed7d5cec6049",
+      "hash_verified": true,
+      "csv": {
+        "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_sd2_uv_init_20260929\\out\\comparison.csv",
+        "line": 6
+      },
+      "fields": {
+        "u": {
+          "maximum_absolute_error": 5.807394405032973e-06,
+          "history_error": 5.807394405699107e-06,
+          "csv_error": 5.807394405699107e-06,
+          "history_abs_difference": 6.661338147750939e-16,
+          "csv_abs_difference": 6.661338147750939e-16,
+          "signed_error_range": [
+            -3.090804688909987e-06,
+            5.807394405032973e-06
+          ],
+          "numerical_range": [
+            3.465597268864363e-05,
+            0.521225035023112
+          ],
+          "maximum_location": {
+            "x": -0.4299999999999997,
+            "y": 1.4375,
+            "signed_error": 5.807394405032973e-06
+          }
+        },
+        "v": {
+          "maximum_absolute_error": 2.1573692995380256e-06,
+          "history_error": 2.1573692995380256e-06,
+          "csv_error": 2.1573692995380256e-06,
+          "history_abs_difference": 0.0,
+          "csv_abs_difference": 0.0,
+          "signed_error_range": [
+            -1.841371998656527e-06,
+            2.1573692995380256e-06
+          ],
+          "numerical_range": [
+            -0.6075214647135362,
+            -3.6530508227909035e-05
+          ],
+          "maximum_location": {
+            "x": -0.22000000000000064,
+            "y": 1.4375,
+            "signed_error": 2.1573692995380256e-06
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "case": "fig3",
+        "model": "SD",
+        "mesh": "fixed",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0,
+        "method": "Euler"
+      },
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\dlw_two_soliton_euler_20260929\\out\\results.json",
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_two_soliton_euler_20260929\\out\\fig3_SD_fixed_main.npz",
+      "profile_sha256": "a1658abe1efdcfda23a6f9818b5b40c8bcf179bfaf08d5d458e60183ab979fc2",
+      "hash_verified": true,
+      "csv": {
+        "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_sd2_uv_init_20260929\\out\\comparison.csv",
+        "line": 21
+      },
+      "fields": {
+        "u": {
+          "maximum_absolute_error": 2.0237563061409336e-05,
+          "history_error": 2.023756306152036e-05,
+          "csv_error": 2.023756306152036e-05,
+          "history_abs_difference": 1.1102230246251565e-16,
+          "csv_abs_difference": 1.1102230246251565e-16,
+          "signed_error_range": [
+            -2.0237563061409336e-05,
+            6.644186667167928e-06
+          ],
+          "numerical_range": [
+            3.465597906293638e-05,
+            0.5212248580735557
+          ],
+          "maximum_location": {
+            "x": -1.0899999999999999,
+            "y": 1.4375,
+            "signed_error": -2.0237563061409336e-05
+          }
+        },
+        "v": {
+          "maximum_absolute_error": 1.4301289773421821e-05,
+          "history_error": 1.4301289773532844e-05,
+          "csv_error": 1.4301289773532844e-05,
+          "history_abs_difference": 1.1102230246251565e-16,
+          "csv_abs_difference": 1.1102230246251565e-16,
+          "signed_error_range": [
+            -1.4301289773421821e-05,
+            5.673819595680696e-06
+          ],
+          "numerical_range": [
+            -0.6075352890680329,
+            -3.652816709728279e-05
+          ],
+          "maximum_location": {
+            "x": -0.3149999999999995,
+            "y": 0.0625,
+            "signed_error": -1.4301289773421821e-05
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "case": "fig3",
+        "model": "SD",
+        "mesh": "moving",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0,
+        "method": "Euler"
+      },
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\dlw_two_soliton_euler_20260929\\out\\results.json",
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_two_soliton_euler_20260929\\out\\fig3_SD_moving_main.npz",
+      "profile_sha256": "602728b45c8da792c4ad6b144d6695b2644336bc878730c1d125e3035a6e79e2",
+      "hash_verified": true,
+      "csv": {
+        "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_sd2_uv_init_20260929\\out\\comparison.csv",
+        "line": 24
+      },
+      "fields": {
+        "u": {
+          "maximum_absolute_error": 1.7280402272612516e-05,
+          "history_error": 1.7280402272501494e-05,
+          "csv_error": 1.7280402272501494e-05,
+          "history_abs_difference": 1.1102230246251565e-16,
+          "csv_abs_difference": 1.1102230246251565e-16,
+          "signed_error_range": [
+            -1.7280402272612516e-05,
+            6.449932583571516e-06
+          ],
+          "numerical_range": [
+            3.465597268916195e-05,
+            0.521222220552789
+          ],
+          "maximum_location": {
+            "x": -0.9800000000000004,
+            "y": 1.4375,
+            "signed_error": -1.7280402272612516e-05
+          }
+        },
+        "v": {
+          "maximum_absolute_error": 1.1324624688113794e-05,
+          "history_error": 1.1324624688113794e-05,
+          "csv_error": 1.1324624688113794e-05,
+          "history_abs_difference": 0.0,
+          "csv_abs_difference": 0.0,
+          "signed_error_range": [
+            -1.1324624688113794e-05,
+            5.201740010979394e-06
+          ],
+          "numerical_range": [
+            -0.6075323372080189,
+            -3.652815627529577e-05
+          ],
+          "maximum_location": {
+            "x": -0.41999999999999993,
+            "y": -0.6875,
+            "signed_error": -1.1324624688113794e-05
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "case": "fig3",
+        "model": "FD",
+        "mesh": "fixed",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0,
+        "method": "Euler"
+      },
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\dlw_two_soliton_euler_20260929\\out\\results.json",
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_two_soliton_euler_20260929\\out\\fig3_FD_fixed_main.npz",
+      "profile_sha256": "bac1f05fee2de517f6d83eaf7efccb233f20447881b7e7e82a1de68142016470",
+      "hash_verified": true,
+      "csv": {
+        "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_sd2_uv_init_20260929\\out\\comparison.csv",
+        "line": 21
+      },
+      "fields": {
+        "u": {
+          "maximum_absolute_error": 1.2657853484920878e-05,
+          "history_error": 1.2657853485809056e-05,
+          "csv_error": 1.2657853485809056e-05,
+          "history_abs_difference": 8.881784197001252e-16,
+          "csv_abs_difference": 8.881784197001252e-16,
+          "signed_error_range": [
+            -1.2628516996959771e-05,
+            1.2657853484920878e-05
+          ],
+          "numerical_range": [
+            3.465597906293638e-05,
+            0.5212320576473185
+          ],
+          "maximum_location": {
+            "x": 0.0,
+            "y": 1.4375,
+            "signed_error": 1.2657853484920878e-05
+          }
+        },
+        "v": {
+          "maximum_absolute_error": 1.4118654005135234e-05,
+          "history_error": 1.4118654005135234e-05,
+          "csv_error": 1.4118654005135234e-05,
+          "history_abs_difference": 0.0,
+          "csv_abs_difference": 0.0,
+          "signed_error_range": [
+            -1.4118654005135234e-05,
+            4.508533606478737e-06
+          ],
+          "numerical_range": [
+            -0.6075347694268034,
+            -3.652899460495375e-05
+          ],
+          "maximum_location": {
+            "x": -0.3100000000000005,
+            "y": -0.1875,
+            "signed_error": -1.4118654005135234e-05
+          }
+        }
+      }
+    },
+    {
+      "spec": {
+        "case": "fig3",
+        "model": "FD",
+        "mesh": "moving",
+        "variant": "main",
+        "nx": 256,
+        "L": 40.0,
+        "h": 0.125,
+        "dt": 0.000125,
+        "T": 0.02,
+        "eval_half": 10.0,
+        "method": "Euler"
+      },
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\dlw_two_soliton_euler_20260929\\out\\results.json",
+      "profile": "C:\\Users\\msz\\aca\\Workspaces\\dlw_two_soliton_euler_20260929\\out\\fig3_FD_moving_main.npz",
+      "profile_sha256": "251bd905877e5d732324c6b5cb4b0c4ae2101bff894e4ed3e48d29b0ca4a1ae9",
+      "hash_verified": true,
+      "csv": {
+        "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_sd2_uv_init_20260929\\out\\comparison.csv",
+        "line": 24
+      },
+      "fields": {
+        "u": {
+          "maximum_absolute_error": 9.555687520201861e-06,
+          "history_error": 9.555687520312883e-06,
+          "csv_error": 9.555687520312883e-06,
+          "history_abs_difference": 1.1102230246251565e-16,
+          "csv_abs_difference": 1.1102230246251565e-16,
+          "signed_error_range": [
+            -9.555687520201861e-06,
+            9.396829698582465e-06
+          ],
+          "numerical_range": [
+            3.4655972688586115e-05,
+            0.5212294167776335
+          ],
+          "maximum_location": {
+            "x": -1.4149999999999991,
+            "y": 1.4375,
+            "signed_error": -9.555687520201861e-06
+          }
+        },
+        "v": {
+          "maximum_absolute_error": 1.126222346470307e-05,
+          "history_error": 1.1262223464925114e-05,
+          "csv_error": 1.1262223464925114e-05,
+          "history_abs_difference": 2.220446049250313e-16,
+          "csv_abs_difference": 2.220446049250313e-16,
+          "signed_error_range": [
+            -1.126222346470307e-05,
+            4.276948849496476e-06
+          ],
+          "numerical_range": [
+            -0.607531819061649,
+            -3.652898441515148e-05
+          ],
+          "maximum_location": {
+            "x": -0.28500000000000014,
+            "y": -0.3125,
+            "signed_error": -1.126222346470307e-05
+          }
+        }
+      }
+    }
+  ],
+  "index_ratios": [
+    {
+      "table": "table-3",
+      "case": "fig1a",
+      "scheme": "SD/SD2",
+      "numeric_column": 1,
+      "actual": 0.7030280586367887,
+      "shown": "0.703",
+      "correct_rounding": "0.703",
+      "rounding_match": true
+    },
+    {
+      "table": "table-3",
+      "case": "fig1a",
+      "scheme": "SD/SD2",
+      "numeric_column": 2,
+      "actual": 0.8409540727366241,
+      "shown": "0.841",
+      "correct_rounding": "0.841",
+      "rounding_match": true
+    },
+    {
+      "table": "table-3",
+      "case": "fig1a",
+      "scheme": "SD/SD2",
+      "numeric_column": 3,
+      "actual": 3.043907090519871,
+      "shown": "3.044",
+      "correct_rounding": "3.044",
+      "rounding_match": true
+    },
+    {
+      "table": "table-3",
+      "case": "fig1a",
+      "scheme": "SD/SD2",
+      "numeric_column": 4,
+      "actual": 1.4411621104270258,
+      "shown": "1.441",
+      "correct_rounding": "1.441",
+      "rounding_match": true
+    },
+    {
+      "table": "table-3",
+      "case": "fig1b",
+      "scheme": "SD/SD2",
+      "numeric_column": 1,
+      "actual": 1.7463801146029236,
+      "shown": "1.746",
+      "correct_rounding": "1.746",
+      "rounding_match": true
+    },
+    {
+      "table": "table-3",
+      "case": "fig1b",
+      "scheme": "SD/SD2",
+      "numeric_column": 2,
+      "actual": 1.9057401435853036,
+      "shown": "1.906",
+      "correct_rounding": "1.906",
+      "rounding_match": true
+    },
+    {
+      "table": "table-3",
+      "case": "fig1b",
+      "scheme": "SD/SD2",
+      "numeric_column": 3,
+      "actual": 1.9014493133144812,
+      "shown": "1.901",
+      "correct_rounding": "1.901",
+      "rounding_match": true
+    },
+    {
+      "table": "table-3",
+      "case": "fig1b",
+      "scheme": "SD/SD2",
+      "numeric_column": 4,
+      "actual": 2.37273119746216,
+      "shown": "2.373",
+      "correct_rounding": "2.373",
+      "rounding_match": true
+    },
+    {
+      "table": "table-3",
+      "case": "fig3",
+      "scheme": "SD/SD2",
+      "numeric_column": 1,
+      "actual": 1.1564248358859057,
+      "shown": "1.156",
+      "correct_rounding": "1.156",
+      "rounding_match": true
+    },
+    {
+      "table": "table-3",
+      "case": "fig3",
+      "scheme": "SD/SD2",
+      "numeric_column": 2,
+      "actual": 1.7748869761993595,
+      "shown": "1.775",
+      "correct_rounding": "1.775",
+      "rounding_match": true
+    },
+    {
+      "table": "table-3",
+      "case": "fig3",
+      "scheme": "SD/SD2",
+      "numeric_column": 3,
+      "actual": 1.5350292824784961,
+      "shown": "1.535",
+      "correct_rounding": "1.535",
+      "rounding_match": true
+    },
+    {
+      "table": "table-3",
+      "case": "fig3",
+      "scheme": "SD/SD2",
+      "numeric_column": 4,
+      "actual": 3.0213715556850707,
+      "shown": "3.021",
+      "correct_rounding": "3.021",
+      "rounding_match": true
+    },
+    {
+      "table": "table-4",
+      "case": "fig1a",
+      "scheme": "SD",
+      "numeric_column": 1,
+      "actual": 1.002045476799357,
+      "shown": "1.002",
+      "correct_rounding": "1.002",
+      "rounding_match": true
+    },
+    {
+      "table": "table-4",
+      "case": "fig1a",
+      "scheme": "SD",
+      "numeric_column": 2,
+      "actual": 0.9959380141632933,
+      "shown": "0.996",
+      "correct_rounding": "0.996",
+      "rounding_match": true
+    },
+    {
+      "table": "table-4",
+      "case": "fig1a",
+      "scheme": "SD2",
+      "numeric_column": 1,
+      "actual": 0.9960202451031533,
+      "shown": "0.996",
+      "correct_rounding": "0.996",
+      "rounding_match": true
+    },
+    {
+      "table": "table-4",
+      "case": "fig1a",
+      "scheme": "SD2",
+      "numeric_column": 2,
+      "actual": 0.9957913697477614,
+      "shown": "0.996",
+      "correct_rounding": "0.996",
+      "rounding_match": true
+    },
+    {
+      "table": "table-4",
+      "case": "fig1a",
+      "scheme": "FD",
+      "numeric_column": 1,
+      "actual": 0.9900600892277142,
+      "shown": "0.990",
+      "correct_rounding": "0.990",
+      "rounding_match": true
+    },
+    {
+      "table": "table-4",
+      "case": "fig1a",
+      "scheme": "FD",
+      "numeric_column": 2,
+      "actual": 0.9956116040378998,
+      "shown": "0.996",
+      "correct_rounding": "0.996",
+      "rounding_match": true
+    },
+    {
+      "table": "table-4",
+      "case": "fig1b",
+      "scheme": "SD",
+      "numeric_column": 1,
+      "actual": 1.6032853427864466,
+      "shown": "1.603",
+      "correct_rounding": "1.603",
+      "rounding_match": true
+    },
+    {
+      "table": "table-4",
+      "case": "fig1b",
+      "scheme": "SD",
+      "numeric_column": 2,
+      "actual": 2.5816005089498524,
+      "shown": "2.582",
+      "correct_rounding": "2.582",
+      "rounding_match": true
+    },
+    {
+      "table": "table-4",
+      "case": "fig1b",
+      "scheme": "SD2",
+      "numeric_column": 1,
+      "actual": 1.0836366814817333,
+      "shown": "1.084",
+      "correct_rounding": "1.084",
+      "rounding_match": true
+    },
+    {
+      "table": "table-4",
+      "case": "fig1b",
+      "scheme": "SD2",
+      "numeric_column": 2,
+      "actual": 5.9442395012207605,
+      "shown": "5.944",
+      "correct_rounding": "5.944",
+      "rounding_match": true
+    },
+    {
+      "table": "table-4",
+      "case": "fig1b",
+      "scheme": "FD",
+      "numeric_column": 1,
+      "actual": 1.6041155596172167,
+      "shown": "1.604",
+      "correct_rounding": "1.604",
+      "rounding_match": true
+    },
+    {
+      "table": "table-4",
+      "case": "fig1b",
+      "scheme": "FD",
+      "numeric_column": 2,
+      "actual": 4.680982753136268,
+      "shown": "4.681",
+      "correct_rounding": "4.681",
+      "rounding_match": true
+    },
+    {
+      "table": "table-4",
+      "case": "fig3",
+      "scheme": "SD",
+      "numeric_column": 1,
+      "actual": 2.0362881724666875,
+      "shown": "2.036",
+      "correct_rounding": "2.036",
+      "rounding_match": true
+    },
+    {
+      "table": "table-4",
+      "case": "fig3",
+      "scheme": "SD",
+      "numeric_column": 2,
+      "actual": 4.112049859267381,
+      "shown": "4.112",
+      "correct_rounding": "4.112",
+      "rounding_match": true
+    },
+    {
+      "table": "table-4",
+      "case": "fig3",
+      "scheme": "SD2",
+      "numeric_column": 1,
+      "actual": 1.1895437965193623,
+      "shown": "1.190",
+      "correct_rounding": "1.190",
+      "rounding_match": true
+    },
+    {
+      "table": "table-4",
+      "case": "fig3",
+      "scheme": "SD2",
+      "numeric_column": 2,
+      "actual": 11.344859879374724,
+      "shown": "11.345",
+      "correct_rounding": "11.345",
+      "rounding_match": true
+    },
+    {
+      "table": "table-4",
+      "case": "fig3",
+      "scheme": "FD",
+      "numeric_column": 1,
+      "actual": 1.4728499293912813,
+      "shown": "1.473",
+      "correct_rounding": "1.473",
+      "rounding_match": true
+    },
+    {
+      "table": "table-4",
+      "case": "fig3",
+      "scheme": "FD",
+      "numeric_column": 2,
+      "actual": 7.2052186348433,
+      "shown": "7.205",
+      "correct_rounding": "7.205",
+      "rounding_match": true
+    },
+    {
+      "table": "table-5",
+      "case": "fig1a",
+      "scheme": "SD",
+      "numeric_column": 1,
+      "actual": 0.6114024828190655,
+      "shown": "0.611",
+      "correct_rounding": "0.611",
+      "rounding_match": true
+    },
+    {
+      "table": "table-5",
+      "case": "fig1a",
+      "scheme": "SD",
+      "numeric_column": 2,
+      "actual": 0.6006066650883177,
+      "shown": "0.601",
+      "correct_rounding": "0.601",
+      "rounding_match": true
+    },
+    {
+      "table": "table-5",
+      "case": "fig1a",
+      "scheme": "SD2",
+      "numeric_column": 1,
+      "actual": 0.2427713707584701,
+      "shown": "0.243",
+      "correct_rounding": "0.243",
+      "rounding_match": true
+    },
+    {
+      "table": "table-5",
+      "case": "fig1a",
+      "scheme": "SD2",
+      "numeric_column": 2,
+      "actual": 0.46368889391773666,
+      "shown": "0.464",
+      "correct_rounding": "0.464",
+      "rounding_match": true
+    },
+    {
+      "table": "table-5",
+      "case": "fig1a",
+      "scheme": "FD",
+      "numeric_column": 1,
+      "actual": 0.6859486537964462,
+      "shown": "0.686",
+      "correct_rounding": "0.686",
+      "rounding_match": true
+    },
+    {
+      "table": "table-5",
+      "case": "fig1a",
+      "scheme": "FD",
+      "numeric_column": 2,
+      "actual": 0.6706276741865741,
+      "shown": "0.671",
+      "correct_rounding": "0.671",
+      "rounding_match": true
+    },
+    {
+      "table": "table-5",
+      "case": "fig1b",
+      "scheme": "SD",
+      "numeric_column": 1,
+      "actual": 1.0745497438544833,
+      "shown": "1.075",
+      "correct_rounding": "1.075",
+      "rounding_match": true
+    },
+    {
+      "table": "table-5",
+      "case": "fig1b",
+      "scheme": "SD",
+      "numeric_column": 2,
+      "actual": 1.0641674096743372,
+      "shown": "1.064",
+      "correct_rounding": "1.064",
+      "rounding_match": true
+    },
+    {
+      "table": "table-5",
+      "case": "fig1b",
+      "scheme": "SD2",
+      "numeric_column": 1,
+      "actual": 1.0078072511984264,
+      "shown": "1.008",
+      "correct_rounding": "1.008",
+      "rounding_match": true
+    },
+    {
+      "table": "table-5",
+      "case": "fig1b",
+      "scheme": "SD2",
+      "numeric_column": 2,
+      "actual": 0.946578689781612,
+      "shown": "0.947",
+      "correct_rounding": "0.947",
+      "rounding_match": true
+    },
+    {
+      "table": "table-5",
+      "case": "fig1b",
+      "scheme": "FD",
+      "numeric_column": 1,
+      "actual": 0.7978917895787029,
+      "shown": "0.798",
+      "correct_rounding": "0.798",
+      "rounding_match": true
+    },
+    {
+      "table": "table-5",
+      "case": "fig1b",
+      "scheme": "FD",
+      "numeric_column": 2,
+      "actual": 1.1022789756287212,
+      "shown": "1.102",
+      "correct_rounding": "1.102",
+      "rounding_match": true
+    },
+    {
+      "table": "table-5",
+      "case": "fig3",
+      "scheme": "SD",
+      "numeric_column": 1,
+      "actual": 0.9804749632923639,
+      "shown": "0.980",
+      "correct_rounding": "0.980",
+      "rounding_match": true
+    },
+    {
+      "table": "table-5",
+      "case": "fig3",
+      "scheme": "SD",
+      "numeric_column": 2,
+      "actual": 1.071082751516532,
+      "shown": "1.071",
+      "correct_rounding": "1.071",
+      "rounding_match": true
+    },
+    {
+      "table": "table-5",
+      "case": "fig3",
+      "scheme": "SD2",
+      "numeric_column": 1,
+      "actual": 0.8281257623768048,
+      "shown": "0.828",
+      "correct_rounding": "0.828",
+      "rounding_match": true
+    },
+    {
+      "table": "table-5",
+      "case": "fig3",
+      "scheme": "SD2",
+      "numeric_column": 2,
+      "actual": 0.7606189260912606,
+      "shown": "0.761",
+      "correct_rounding": "0.761",
+      "rounding_match": true
+    },
+    {
+      "table": "table-5",
+      "case": "fig3",
+      "scheme": "FD",
+      "numeric_column": 1,
+      "actual": 0.6757401995203773,
+      "shown": "0.676",
+      "correct_rounding": "0.676",
+      "rounding_match": true
+    },
+    {
+      "table": "table-5",
+      "case": "fig3",
+      "scheme": "FD",
+      "numeric_column": 2,
+      "actual": 1.100977293842348,
+      "shown": "1.101",
+      "correct_rounding": "1.101",
+      "rounding_match": true
+    }
+  ],
+  "plot_crosscheck": {
+    "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_waveform_fields_20261001\\plot_validation.json",
+    "sha256": "80efcfa4df06326d2696882d06dcaee3b65ca502653a2d3e76e61ed3026c84af",
+    "field_count": 72,
+    "maximum_error_abs_difference": 8.881784197001252e-16,
+    "all_error_peak_x_y_match_exactly": true,
+    "maximum_x_difference": 0.0,
+    "maximum_y_difference": 0.0,
+    "field_checks": [
+      {
+        "case": "fig1a",
+        "method": "RK4",
+        "mesh": "fixed",
+        "model": "SD",
+        "field": "u",
+        "maximum_error_abs_difference": 0.0,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1a",
+        "method": "RK4",
+        "mesh": "fixed",
+        "model": "SD",
+        "field": "v",
+        "maximum_error_abs_difference": 4.440892098500626e-16,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1a",
+        "method": "RK4",
+        "mesh": "moving",
+        "model": "SD",
+        "field": "u",
+        "maximum_error_abs_difference": 0.0,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1a",
+        "method": "RK4",
+        "mesh": "moving",
+        "model": "SD",
+        "field": "v",
+        "maximum_error_abs_difference": 0.0,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1a",
+        "method": "RK4",
+        "mesh": "fixed",
+        "model": "FD",
+        "field": "u",
+        "maximum_error_abs_difference": 0.0,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1a",
+        "method": "RK4",
+        "mesh": "fixed",
+        "model": "FD",
+        "field": "v",
+        "maximum_error_abs_difference": 4.440892098500626e-16,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1a",
+        "method": "RK4",
+        "mesh": "moving",
+        "model": "FD",
+        "field": "u",
+        "maximum_error_abs_difference": 0.0,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1a",
+        "method": "RK4",
+        "mesh": "moving",
+        "model": "FD",
+        "field": "v",
+        "maximum_error_abs_difference": 0.0,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1b",
+        "method": "RK4",
+        "mesh": "fixed",
+        "model": "SD",
+        "field": "u",
+        "maximum_error_abs_difference": 5.551115123125783e-17,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1b",
+        "method": "RK4",
+        "mesh": "fixed",
+        "model": "SD",
+        "field": "v",
+        "maximum_error_abs_difference": 0.0,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1b",
+        "method": "RK4",
+        "mesh": "moving",
+        "model": "SD",
+        "field": "u",
+        "maximum_error_abs_difference": 5.551115123125783e-17,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1b",
+        "method": "RK4",
+        "mesh": "moving",
+        "model": "SD",
+        "field": "v",
+        "maximum_error_abs_difference": 1.1102230246251565e-16,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1b",
+        "method": "RK4",
+        "mesh": "fixed",
+        "model": "FD",
+        "field": "u",
+        "maximum_error_abs_difference": 1.1102230246251565e-16,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1b",
+        "method": "RK4",
+        "mesh": "fixed",
+        "model": "FD",
+        "field": "v",
+        "maximum_error_abs_difference": 0.0,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1b",
+        "method": "RK4",
+        "mesh": "moving",
+        "model": "FD",
+        "field": "u",
+        "maximum_error_abs_difference": 1.1102230246251565e-16,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1b",
+        "method": "RK4",
+        "mesh": "moving",
+        "model": "FD",
+        "field": "v",
+        "maximum_error_abs_difference": 0.0,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1a",
+        "method": "RK4",
+        "mesh": "fixed",
+        "model": "SD2",
+        "field": "u",
+        "maximum_error_abs_difference": 6.661338147750939e-16,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1a",
+        "method": "RK4",
+        "mesh": "fixed",
+        "model": "SD2",
+        "field": "v",
+        "maximum_error_abs_difference": 2.220446049250313e-16,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1a",
+        "method": "RK4",
+        "mesh": "moving",
+        "model": "SD2",
+        "field": "u",
+        "maximum_error_abs_difference": 6.661338147750939e-16,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1a",
+        "method": "RK4",
+        "mesh": "moving",
+        "model": "SD2",
+        "field": "v",
+        "maximum_error_abs_difference": 4.440892098500626e-16,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1b",
+        "method": "RK4",
+        "mesh": "fixed",
+        "model": "SD2",
+        "field": "u",
+        "maximum_error_abs_difference": 5.551115123125783e-17,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1b",
+        "method": "RK4",
+        "mesh": "fixed",
+        "model": "SD2",
+        "field": "v",
+        "maximum_error_abs_difference": 1.1102230246251565e-16,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1b",
+        "method": "RK4",
+        "mesh": "moving",
+        "model": "SD2",
+        "field": "u",
+        "maximum_error_abs_difference": 0.0,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1b",
+        "method": "RK4",
+        "mesh": "moving",
+        "model": "SD2",
+        "field": "v",
+        "maximum_error_abs_difference": 1.1102230246251565e-16,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1a",
+        "method": "Euler",
+        "mesh": "fixed",
+        "model": "SD",
+        "field": "u",
+        "maximum_error_abs_difference": 0.0,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1a",
+        "method": "Euler",
+        "mesh": "fixed",
+        "model": "SD",
+        "field": "v",
+        "maximum_error_abs_difference": 4.440892098500626e-16,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1a",
+        "method": "Euler",
+        "mesh": "moving",
+        "model": "SD",
+        "field": "u",
+        "maximum_error_abs_difference": 0.0,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1a",
+        "method": "Euler",
+        "mesh": "moving",
+        "model": "SD",
+        "field": "v",
+        "maximum_error_abs_difference": 0.0,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1a",
+        "method": "Euler",
+        "mesh": "fixed",
+        "model": "SD2",
+        "field": "u",
+        "maximum_error_abs_difference": 6.661338147750939e-16,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1a",
+        "method": "Euler",
+        "mesh": "fixed",
+        "model": "SD2",
+        "field": "v",
+        "maximum_error_abs_difference": 0.0,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1a",
+        "method": "Euler",
+        "mesh": "moving",
+        "model": "SD2",
+        "field": "u",
+        "maximum_error_abs_difference": 6.661338147750939e-16,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1a",
+        "method": "Euler",
+        "mesh": "moving",
+        "model": "SD2",
+        "field": "v",
+        "maximum_error_abs_difference": 4.440892098500626e-16,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1a",
+        "method": "Euler",
+        "mesh": "fixed",
+        "model": "FD",
+        "field": "u",
+        "maximum_error_abs_difference": 0.0,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1a",
+        "method": "Euler",
+        "mesh": "fixed",
+        "model": "FD",
+        "field": "v",
+        "maximum_error_abs_difference": 4.440892098500626e-16,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1b",
+        "method": "Euler",
+        "mesh": "fixed",
+        "model": "SD",
+        "field": "u",
+        "maximum_error_abs_difference": 0.0,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1b",
+        "method": "Euler",
+        "mesh": "fixed",
+        "model": "SD",
+        "field": "v",
+        "maximum_error_abs_difference": 0.0,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1a",
+        "method": "Euler",
+        "mesh": "moving",
+        "model": "FD",
+        "field": "u",
+        "maximum_error_abs_difference": 0.0,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1a",
+        "method": "Euler",
+        "mesh": "moving",
+        "model": "FD",
+        "field": "v",
+        "maximum_error_abs_difference": 0.0,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1b",
+        "method": "Euler",
+        "mesh": "moving",
+        "model": "SD",
+        "field": "u",
+        "maximum_error_abs_difference": 1.1102230246251565e-16,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1b",
+        "method": "Euler",
+        "mesh": "moving",
+        "model": "SD",
+        "field": "v",
+        "maximum_error_abs_difference": 5.551115123125783e-17,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1b",
+        "method": "Euler",
+        "mesh": "fixed",
+        "model": "SD2",
+        "field": "u",
+        "maximum_error_abs_difference": 1.1102230246251565e-16,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1b",
+        "method": "Euler",
+        "mesh": "fixed",
+        "model": "SD2",
+        "field": "v",
+        "maximum_error_abs_difference": 5.551115123125783e-17,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1b",
+        "method": "Euler",
+        "mesh": "fixed",
+        "model": "FD",
+        "field": "u",
+        "maximum_error_abs_difference": 0.0,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1b",
+        "method": "Euler",
+        "mesh": "fixed",
+        "model": "FD",
+        "field": "v",
+        "maximum_error_abs_difference": 5.551115123125783e-17,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1b",
+        "method": "Euler",
+        "mesh": "moving",
+        "model": "SD2",
+        "field": "u",
+        "maximum_error_abs_difference": 5.551115123125783e-17,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1b",
+        "method": "Euler",
+        "mesh": "moving",
+        "model": "SD2",
+        "field": "v",
+        "maximum_error_abs_difference": 5.551115123125783e-17,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1b",
+        "method": "Euler",
+        "mesh": "moving",
+        "model": "FD",
+        "field": "u",
+        "maximum_error_abs_difference": 0.0,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig1b",
+        "method": "Euler",
+        "mesh": "moving",
+        "model": "FD",
+        "field": "v",
+        "maximum_error_abs_difference": 5.551115123125783e-17,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig3",
+        "method": "RK4",
+        "mesh": "fixed",
+        "model": "SD",
+        "field": "u",
+        "maximum_error_abs_difference": 1.1102230246251565e-16,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig3",
+        "method": "RK4",
+        "mesh": "fixed",
+        "model": "SD",
+        "field": "v",
+        "maximum_error_abs_difference": 1.1102230246251565e-16,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig3",
+        "method": "RK4",
+        "mesh": "moving",
+        "model": "SD",
+        "field": "u",
+        "maximum_error_abs_difference": 4.440892098500626e-16,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig3",
+        "method": "RK4",
+        "mesh": "moving",
+        "model": "SD",
+        "field": "v",
+        "maximum_error_abs_difference": 2.7755575615628914e-16,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig3",
+        "method": "RK4",
+        "mesh": "fixed",
+        "model": "FD",
+        "field": "u",
+        "maximum_error_abs_difference": 2.220446049250313e-16,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig3",
+        "method": "RK4",
+        "mesh": "fixed",
+        "model": "FD",
+        "field": "v",
+        "maximum_error_abs_difference": 0.0,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig3",
+        "method": "RK4",
+        "mesh": "moving",
+        "model": "FD",
+        "field": "u",
+        "maximum_error_abs_difference": 6.661338147750939e-16,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig3",
+        "method": "RK4",
+        "mesh": "moving",
+        "model": "FD",
+        "field": "v",
+        "maximum_error_abs_difference": 0.0,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig3",
+        "method": "Euler",
+        "mesh": "fixed",
+        "model": "SD",
+        "field": "u",
+        "maximum_error_abs_difference": 1.1102230246251565e-16,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig3",
+        "method": "Euler",
+        "mesh": "fixed",
+        "model": "SD",
+        "field": "v",
+        "maximum_error_abs_difference": 1.1102230246251565e-16,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig3",
+        "method": "Euler",
+        "mesh": "moving",
+        "model": "SD",
+        "field": "u",
+        "maximum_error_abs_difference": 1.1102230246251565e-16,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig3",
+        "method": "Euler",
+        "mesh": "moving",
+        "model": "SD",
+        "field": "v",
+        "maximum_error_abs_difference": 0.0,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig3",
+        "method": "Euler",
+        "mesh": "fixed",
+        "model": "FD",
+        "field": "u",
+        "maximum_error_abs_difference": 8.881784197001252e-16,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig3",
+        "method": "Euler",
+        "mesh": "fixed",
+        "model": "FD",
+        "field": "v",
+        "maximum_error_abs_difference": 0.0,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig3",
+        "method": "Euler",
+        "mesh": "moving",
+        "model": "FD",
+        "field": "u",
+        "maximum_error_abs_difference": 1.1102230246251565e-16,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig3",
+        "method": "Euler",
+        "mesh": "moving",
+        "model": "FD",
+        "field": "v",
+        "maximum_error_abs_difference": 2.220446049250313e-16,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig3",
+        "method": "Euler",
+        "mesh": "fixed",
+        "model": "SD2",
+        "field": "u",
+        "maximum_error_abs_difference": 1.1102230246251565e-16,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig3",
+        "method": "Euler",
+        "mesh": "fixed",
+        "model": "SD2",
+        "field": "v",
+        "maximum_error_abs_difference": 1.1102230246251565e-16,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig3",
+        "method": "Euler",
+        "mesh": "moving",
+        "model": "SD2",
+        "field": "u",
+        "maximum_error_abs_difference": 2.220446049250313e-16,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig3",
+        "method": "Euler",
+        "mesh": "moving",
+        "model": "SD2",
+        "field": "v",
+        "maximum_error_abs_difference": 1.1102230246251565e-16,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig3",
+        "method": "RK4",
+        "mesh": "fixed",
+        "model": "SD2",
+        "field": "u",
+        "maximum_error_abs_difference": 1.1102230246251565e-16,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig3",
+        "method": "RK4",
+        "mesh": "fixed",
+        "model": "SD2",
+        "field": "v",
+        "maximum_error_abs_difference": 0.0,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig3",
+        "method": "RK4",
+        "mesh": "moving",
+        "model": "SD2",
+        "field": "u",
+        "maximum_error_abs_difference": 0.0,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      },
+      {
+        "case": "fig3",
+        "method": "RK4",
+        "mesh": "moving",
+        "model": "SD2",
+        "field": "v",
+        "maximum_error_abs_difference": 2.220446049250313e-16,
+        "maximum_x_difference": 0.0,
+        "maximum_y_difference": 0.0,
+        "source_profile_hash_match": true
+      }
+    ]
+  },
+  "notes": [
+    "No Q/R reconstruction is needed: saved physical u/v are the original evaluation fields.",
+    "A/SD2/fixed carries the existing spatial-control limitation; a plotted field does not remove that limitation.",
+    "Use all 4001 x points to compute labels even if rendering is downsampled.",
+    "For a heatmap on 24 y midpoint layers, use cell edges [-1.5,1.5] and avoid claiming sampled error bounds on an interpolated continuous y mesh."
+  ]
+}

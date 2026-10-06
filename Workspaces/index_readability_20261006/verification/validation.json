@@ -1,0 +1,2037 @@
+{
+  "checkedAt": "2026-10-06T05:47:01.912Z",
+  "source": {
+    "html": "C:\\Users\\msz\\aca\\index.html",
+    "sha256": "25a6ffc83876ed195e31798dc108c83a4b5b726527c5cdbab0e94d7bab325d4b",
+    "backup": "C:\\Users\\msz\\aca\\Workspaces\\index_readability_20261006\\before\\index.html",
+    "backupSha256": "11c93aef9d705903564ee0d35af3f08bd716cfee6451c159ff0eda1a3fe6c6f3",
+    "csv": [
+      {
+        "file": "Workspaces/dlw_single_aligned_20260929/out/index_t001.csv",
+        "sha256": "42fc3613eb46d522e087afa2f15c7156b6ed6035db228118d9fcf59d2c3545c1"
+      },
+      {
+        "file": "Workspaces/dlw_sd2_uv_init_20260929/out/comparison.csv",
+        "sha256": "20d609659f85f8cbe2849d9c0cc5ef2a4eec0e3ec2ecc79a6bcebbcabccf12d9"
+      }
+    ]
+  },
+  "passed": true,
+  "summary": {
+    "tables": 5,
+    "formulas": 16,
+    "formulaChanges": 0,
+    "exactNumericCells": 90,
+    "bestResults": 42,
+    "images": 12,
+    "desktopOverflow": false,
+    "mobileOverflow": false
+  },
+  "sourceChecks": {
+    "equations": {
+      "currentCount": 16,
+      "beforeCount": 16,
+      "numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "changed": []
+    },
+    "dataErrorCells": 90,
+    "strongErrorCells": 42
+  },
+  "desktop": {
+    "width": 1280,
+    "scrollWidth": 1280,
+    "overflow": false,
+    "tables": 5,
+    "math": 154,
+    "displayMath": 16,
+    "mathErrors": [],
+    "rawDollars": 0,
+    "headings": [
+      "DLW 孤子数值解的误差比较",
+      "1　实验设计",
+      "2　演化方程与数值递推",
+      "2.1　SD",
+      "2.2　SD2",
+      "2.3　FD",
+      "2.4　时间更新与节点运动",
+      "2.5　递推伪代码",
+      "3　空间离散化的比较",
+      "4　时间算法的比较",
+      "5　网格策略的比较",
+      "6　Euler 局部误差曲线",
+      "单孤子 A",
+      "单孤子 B",
+      "二孤子 C",
+      "7　结论",
+      "参考资料"
+    ],
+    "links": [
+      {
+        "href": "Workspaces/dlw_single_aligned_20260929/HANDOFF.md",
+        "text": "DLW 原文单孤子三方案的误差结果"
+      },
+      {
+        "href": "Workspaces/dlw_sd2_uv_init_20260929/HANDOFF.md",
+        "text": "DLW 原文二孤子三方案的误差结果"
+      }
+    ],
+    "images": [
+      {
+        "src": "data:image/png;base64",
+        "byteLength": 138652,
+        "alt": "算例 A，固定网格：u 的绝对误差随 x 的变化。",
+        "width": 1920,
+        "height": 1152,
+        "complete": true
+      },
+      {
+        "src": "data:image/png;base64",
+        "byteLength": 151400,
+        "alt": "算例 A，固定网格：v 的绝对误差随 x 的变化。",
+        "width": 1920,
+        "height": 1152,
+        "complete": true
+      },
+      {
+        "src": "data:image/png;base64",
+        "byteLength": 105533,
+        "alt": "算例 A，移动网格：u 的绝对误差随 x 的变化。",
+        "width": 1920,
+        "height": 1152,
+        "complete": true
+      },
+      {
+        "src": "data:image/png;base64",
+        "byteLength": 113008,
+        "alt": "算例 A，移动网格：v 的绝对误差随 x 的变化。",
+        "width": 1920,
+        "height": 1152,
+        "complete": true
+      },
+      {
+        "src": "data:image/png;base64",
+        "byteLength": 136728,
+        "alt": "算例 B，固定网格：u 的绝对误差随 x 的变化。",
+        "width": 1920,
+        "height": 1152,
+        "complete": true
+      },
+      {
+        "src": "data:image/png;base64",
+        "byteLength": 114925,
+        "alt": "算例 B，固定网格：v 的绝对误差随 x 的变化。",
+        "width": 1920,
+        "height": 1152,
+        "complete": true
+      },
+      {
+        "src": "data:image/png;base64",
+        "byteLength": 131176,
+        "alt": "算例 B，移动网格：u 的绝对误差随 x 的变化。",
+        "width": 1920,
+        "height": 1152,
+        "complete": true
+      },
+      {
+        "src": "data:image/png;base64",
+        "byteLength": 107978,
+        "alt": "算例 B，移动网格：v 的绝对误差随 x 的变化。",
+        "width": 1920,
+        "height": 1152,
+        "complete": true
+      },
+      {
+        "src": "data:image/png;base64",
+        "byteLength": 147063,
+        "alt": "算例 C，固定网格：u 的绝对误差随 x 的变化。",
+        "width": 1920,
+        "height": 1152,
+        "complete": true
+      },
+      {
+        "src": "data:image/png;base64",
+        "byteLength": 109119,
+        "alt": "算例 C，固定网格：v 的绝对误差随 x 的变化。",
+        "width": 1920,
+        "height": 1152,
+        "complete": true
+      },
+      {
+        "src": "data:image/png;base64",
+        "byteLength": 134830,
+        "alt": "算例 C，移动网格：u 的绝对误差随 x 的变化。",
+        "width": 1920,
+        "height": 1152,
+        "complete": true
+      },
+      {
+        "src": "data:image/png;base64",
+        "byteLength": 100799,
+        "alt": "算例 C，移动网格：v 的绝对误差随 x 的变化。",
+        "width": 1920,
+        "height": 1152,
+        "complete": true
+      }
+    ],
+    "bestResultWeights": [
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700
+    ],
+    "overflowElements": [],
+    "defensivePhrases": []
+  },
+  "mobile": {
+    "width": 390,
+    "scrollWidth": 390,
+    "overflow": false,
+    "tables": 5,
+    "math": 154,
+    "displayMath": 16,
+    "mathErrors": [],
+    "rawDollars": 0,
+    "headings": [
+      "DLW 孤子数值解的误差比较",
+      "1　实验设计",
+      "2　演化方程与数值递推",
+      "2.1　SD",
+      "2.2　SD2",
+      "2.3　FD",
+      "2.4　时间更新与节点运动",
+      "2.5　递推伪代码",
+      "3　空间离散化的比较",
+      "4　时间算法的比较",
+      "5　网格策略的比较",
+      "6　Euler 局部误差曲线",
+      "单孤子 A",
+      "单孤子 B",
+      "二孤子 C",
+      "7　结论",
+      "参考资料"
+    ],
+    "links": [
+      {
+        "href": "Workspaces/dlw_single_aligned_20260929/HANDOFF.md",
+        "text": "DLW 原文单孤子三方案的误差结果"
+      },
+      {
+        "href": "Workspaces/dlw_sd2_uv_init_20260929/HANDOFF.md",
+        "text": "DLW 原文二孤子三方案的误差结果"
+      }
+    ],
+    "images": [
+      {
+        "src": "data:image/png;base64",
+        "byteLength": 138652,
+        "alt": "算例 A，固定网格：u 的绝对误差随 x 的变化。",
+        "width": 1920,
+        "height": 1152,
+        "complete": true
+      },
+      {
+        "src": "data:image/png;base64",
+        "byteLength": 151400,
+        "alt": "算例 A，固定网格：v 的绝对误差随 x 的变化。",
+        "width": 1920,
+        "height": 1152,
+        "complete": true
+      },
+      {
+        "src": "data:image/png;base64",
+        "byteLength": 105533,
+        "alt": "算例 A，移动网格：u 的绝对误差随 x 的变化。",
+        "width": 1920,
+        "height": 1152,
+        "complete": true
+      },
+      {
+        "src": "data:image/png;base64",
+        "byteLength": 113008,
+        "alt": "算例 A，移动网格：v 的绝对误差随 x 的变化。",
+        "width": 1920,
+        "height": 1152,
+        "complete": true
+      },
+      {
+        "src": "data:image/png;base64",
+        "byteLength": 136728,
+        "alt": "算例 B，固定网格：u 的绝对误差随 x 的变化。",
+        "width": 1920,
+        "height": 1152,
+        "complete": true
+      },
+      {
+        "src": "data:image/png;base64",
+        "byteLength": 114925,
+        "alt": "算例 B，固定网格：v 的绝对误差随 x 的变化。",
+        "width": 1920,
+        "height": 1152,
+        "complete": true
+      },
+      {
+        "src": "data:image/png;base64",
+        "byteLength": 131176,
+        "alt": "算例 B，移动网格：u 的绝对误差随 x 的变化。",
+        "width": 1920,
+        "height": 1152,
+        "complete": true
+      },
+      {
+        "src": "data:image/png;base64",
+        "byteLength": 107978,
+        "alt": "算例 B，移动网格：v 的绝对误差随 x 的变化。",
+        "width": 1920,
+        "height": 1152,
+        "complete": true
+      },
+      {
+        "src": "data:image/png;base64",
+        "byteLength": 147063,
+        "alt": "算例 C，固定网格：u 的绝对误差随 x 的变化。",
+        "width": 1920,
+        "height": 1152,
+        "complete": true
+      },
+      {
+        "src": "data:image/png;base64",
+        "byteLength": 109119,
+        "alt": "算例 C，固定网格：v 的绝对误差随 x 的变化。",
+        "width": 1920,
+        "height": 1152,
+        "complete": true
+      },
+      {
+        "src": "data:image/png;base64",
+        "byteLength": 134830,
+        "alt": "算例 C，移动网格：u 的绝对误差随 x 的变化。",
+        "width": 1920,
+        "height": 1152,
+        "complete": true
+      },
+      {
+        "src": "data:image/png;base64",
+        "byteLength": 100799,
+        "alt": "算例 C，移动网格：v 的绝对误差随 x 的变化。",
+        "width": 1920,
+        "height": 1152,
+        "complete": true
+      }
+    ],
+    "bestResultWeights": [
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700,
+      700
+    ],
+    "overflowElements": [
+      {
+        "tag": "math",
+        "class": "",
+        "right": 405.65625
+      },
+      {
+        "tag": "semantics",
+        "class": "",
+        "right": 405.65625
+      },
+      {
+        "tag": "mrow",
+        "class": "",
+        "right": 405.65625
+      },
+      {
+        "tag": "msup",
+        "class": "",
+        "right": 405.65625
+      },
+      {
+        "tag": "mrow",
+        "class": "",
+        "right": 404.921875
+      },
+      {
+        "tag": "mo",
+        "class": "",
+        "right": 397.921875
+      },
+      {
+        "tag": "mn",
+        "class": "",
+        "right": 404.921875
+      },
+      {
+        "tag": "math",
+        "class": "",
+        "right": 413.328125
+      }
+    ],
+    "defensivePhrases": []
+  },
+  "checkedRows": [
+    {
+      "table": 3,
+      "row": 1,
+      "case": "fig1a",
+      "model": false,
+      "field": "u",
+      "bestColumn": 1
+    },
+    {
+      "table": 3,
+      "row": 2,
+      "case": "fig1a",
+      "model": false,
+      "field": "v",
+      "bestColumn": 1
+    },
+    {
+      "table": 3,
+      "row": 3,
+      "case": "fig1b",
+      "model": false,
+      "field": "u",
+      "bestColumn": 3
+    },
+    {
+      "table": 3,
+      "row": 4,
+      "case": "fig1b",
+      "model": false,
+      "field": "v",
+      "bestColumn": 3
+    },
+    {
+      "table": 3,
+      "row": 5,
+      "case": "fig3",
+      "model": false,
+      "field": "u",
+      "bestColumn": 3
+    },
+    {
+      "table": 3,
+      "row": 6,
+      "case": "fig3",
+      "model": false,
+      "field": "v",
+      "bestColumn": 3
+    },
+    {
+      "table": 4,
+      "row": 1,
+      "case": "fig1a",
+      "model": "SD",
+      "field": "u",
+      "bestColumn": 2
+    },
+    {
+      "table": 4,
+      "row": 2,
+      "case": "fig1a",
+      "model": "SD",
+      "field": "v",
+      "bestColumn": 1
+    },
+    {
+      "table": 4,
+      "row": 3,
+      "case": "fig1a",
+      "model": "SD2",
+      "field": "u",
+      "bestColumn": 1
+    },
+    {
+      "table": 4,
+      "row": 4,
+      "case": "fig1a",
+      "model": "SD2",
+      "field": "v",
+      "bestColumn": 1
+    },
+    {
+      "table": 4,
+      "row": 5,
+      "case": "fig1a",
+      "model": "FD",
+      "field": "u",
+      "bestColumn": 1
+    },
+    {
+      "table": 4,
+      "row": 6,
+      "case": "fig1a",
+      "model": "FD",
+      "field": "v",
+      "bestColumn": 1
+    },
+    {
+      "table": 4,
+      "row": 7,
+      "case": "fig1b",
+      "model": "SD",
+      "field": "u",
+      "bestColumn": 2
+    },
+    {
+      "table": 4,
+      "row": 8,
+      "case": "fig1b",
+      "model": "SD",
+      "field": "v",
+      "bestColumn": 2
+    },
+    {
+      "table": 4,
+      "row": 9,
+      "case": "fig1b",
+      "model": "SD2",
+      "field": "u",
+      "bestColumn": 2
+    },
+    {
+      "table": 4,
+      "row": 10,
+      "case": "fig1b",
+      "model": "SD2",
+      "field": "v",
+      "bestColumn": 2
+    },
+    {
+      "table": 4,
+      "row": 11,
+      "case": "fig1b",
+      "model": "FD",
+      "field": "u",
+      "bestColumn": 2
+    },
+    {
+      "table": 4,
+      "row": 12,
+      "case": "fig1b",
+      "model": "FD",
+      "field": "v",
+      "bestColumn": 2
+    },
+    {
+      "table": 4,
+      "row": 13,
+      "case": "fig3",
+      "model": "SD",
+      "field": "u",
+      "bestColumn": 2
+    },
+    {
+      "table": 4,
+      "row": 14,
+      "case": "fig3",
+      "model": "SD",
+      "field": "v",
+      "bestColumn": 2
+    },
+    {
+      "table": 4,
+      "row": 15,
+      "case": "fig3",
+      "model": "SD2",
+      "field": "u",
+      "bestColumn": 2
+    },
+    {
+      "table": 4,
+      "row": 16,
+      "case": "fig3",
+      "model": "SD2",
+      "field": "v",
+      "bestColumn": 2
+    },
+    {
+      "table": 4,
+      "row": 17,
+      "case": "fig3",
+      "model": "FD",
+      "field": "u",
+      "bestColumn": 2
+    },
+    {
+      "table": 4,
+      "row": 18,
+      "case": "fig3",
+      "model": "FD",
+      "field": "v",
+      "bestColumn": 2
+    },
+    {
+      "table": 5,
+      "row": 1,
+      "case": "fig1a",
+      "model": "SD",
+      "field": "u",
+      "bestColumn": 2
+    },
+    {
+      "table": 5,
+      "row": 2,
+      "case": "fig1a",
+      "model": "SD",
+      "field": "v",
+      "bestColumn": 2
+    },
+    {
+      "table": 5,
+      "row": 3,
+      "case": "fig1a",
+      "model": "SD2",
+      "field": "u",
+      "bestColumn": 2
+    },
+    {
+      "table": 5,
+      "row": 4,
+      "case": "fig1a",
+      "model": "SD2",
+      "field": "v",
+      "bestColumn": 2
+    },
+    {
+      "table": 5,
+      "row": 5,
+      "case": "fig1a",
+      "model": "FD",
+      "field": "u",
+      "bestColumn": 2
+    },
+    {
+      "table": 5,
+      "row": 6,
+      "case": "fig1a",
+      "model": "FD",
+      "field": "v",
+      "bestColumn": 2
+    },
+    {
+      "table": 5,
+      "row": 7,
+      "case": "fig1b",
+      "model": "SD",
+      "field": "u",
+      "bestColumn": 1
+    },
+    {
+      "table": 5,
+      "row": 8,
+      "case": "fig1b",
+      "model": "SD",
+      "field": "v",
+      "bestColumn": 1
+    },
+    {
+      "table": 5,
+      "row": 9,
+      "case": "fig1b",
+      "model": "SD2",
+      "field": "u",
+      "bestColumn": 1
+    },
+    {
+      "table": 5,
+      "row": 10,
+      "case": "fig1b",
+      "model": "SD2",
+      "field": "v",
+      "bestColumn": 2
+    },
+    {
+      "table": 5,
+      "row": 11,
+      "case": "fig1b",
+      "model": "FD",
+      "field": "u",
+      "bestColumn": 2
+    },
+    {
+      "table": 5,
+      "row": 12,
+      "case": "fig1b",
+      "model": "FD",
+      "field": "v",
+      "bestColumn": 1
+    },
+    {
+      "table": 5,
+      "row": 13,
+      "case": "fig3",
+      "model": "SD",
+      "field": "u",
+      "bestColumn": 2
+    },
+    {
+      "table": 5,
+      "row": 14,
+      "case": "fig3",
+      "model": "SD",
+      "field": "v",
+      "bestColumn": 1
+    },
+    {
+      "table": 5,
+      "row": 15,
+      "case": "fig3",
+      "model": "SD2",
+      "field": "u",
+      "bestColumn": 2
+    },
+    {
+      "table": 5,
+      "row": 16,
+      "case": "fig3",
+      "model": "SD2",
+      "field": "v",
+      "bestColumn": 2
+    },
+    {
+      "table": 5,
+      "row": 17,
+      "case": "fig3",
+      "model": "FD",
+      "field": "u",
+      "bestColumn": 2
+    },
+    {
+      "table": 5,
+      "row": 18,
+      "case": "fig3",
+      "model": "FD",
+      "field": "v",
+      "bestColumn": 1
+    }
+  ],
+  "checkedCells": [
+    {
+      "table": 3,
+      "row": 1,
+      "column": 1,
+      "case": "fig1a",
+      "model": false,
+      "field": "u",
+      "value": 0.0005424866284184926,
+      "display": "5.425e-4",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 3,
+      "row": 1,
+      "column": 2,
+      "case": "fig1a",
+      "model": false,
+      "field": "u",
+      "value": 0.002348809374631111,
+      "display": "2.349e-3†",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 3,
+      "row": 1,
+      "column": 3,
+      "case": "fig1a",
+      "model": false,
+      "field": "u",
+      "value": 0.000771642926272964,
+      "display": "7.716e-4",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 3,
+      "row": 2,
+      "column": 1,
+      "case": "fig1a",
+      "model": false,
+      "field": "v",
+      "value": 0.0009939744426876729,
+      "display": "9.940e-4",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 3,
+      "row": 2,
+      "column": 2,
+      "case": "fig1a",
+      "model": false,
+      "field": "v",
+      "value": 0.0017033965967641063,
+      "display": "1.703e-3†",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 3,
+      "row": 2,
+      "column": 3,
+      "case": "fig1a",
+      "model": false,
+      "field": "v",
+      "value": 0.0011819604362610647,
+      "display": "1.182e-3",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 3,
+      "row": 3,
+      "column": 1,
+      "case": "fig1b",
+      "model": false,
+      "field": "u",
+      "value": 0.000007835417345947171,
+      "display": "7.835e-6",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 3,
+      "row": 3,
+      "column": 2,
+      "case": "fig1b",
+      "model": false,
+      "field": "u",
+      "value": 0.000008531160431451967,
+      "display": "8.531e-6",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 3,
+      "row": 3,
+      "column": 3,
+      "case": "fig1b",
+      "model": false,
+      "field": "u",
+      "value": 0.000004486662027458621,
+      "display": "4.487e-6",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 3,
+      "row": 4,
+      "column": 1,
+      "case": "fig1b",
+      "model": false,
+      "field": "v",
+      "value": 0.000002934949485333682,
+      "display": "2.935e-6",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 3,
+      "row": 4,
+      "column": 2,
+      "case": "fig1b",
+      "model": false,
+      "field": "v",
+      "value": 0.0000036541425808001016,
+      "display": "3.654e-6",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 3,
+      "row": 4,
+      "column": 3,
+      "case": "fig1b",
+      "model": false,
+      "field": "v",
+      "value": 0.000001540057544158202,
+      "display": "1.540e-6",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 3,
+      "row": 5,
+      "column": 1,
+      "case": "fig3",
+      "model": false,
+      "field": "u",
+      "value": 0.000009938457304237147,
+      "display": "9.938e-6",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 3,
+      "row": 5,
+      "column": 2,
+      "case": "fig3",
+      "model": false,
+      "field": "u",
+      "value": 0.00001319223049484064,
+      "display": "1.319e-5",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 3,
+      "row": 5,
+      "column": 3,
+      "case": "fig3",
+      "model": false,
+      "field": "u",
+      "value": 0.00000859412302139928,
+      "display": "8.594e-6",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 3,
+      "row": 6,
+      "column": 1,
+      "case": "fig3",
+      "model": false,
+      "field": "v",
+      "value": 0.0000034778979492999795,
+      "display": "3.478e-6",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 3,
+      "row": 6,
+      "column": 2,
+      "case": "fig3",
+      "model": false,
+      "field": "v",
+      "value": 0.000005920389342439769,
+      "display": "5.920e-6",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 3,
+      "row": 6,
+      "column": 3,
+      "case": "fig3",
+      "model": false,
+      "field": "v",
+      "value": 0.0000019595038985853463,
+      "display": "1.960e-6",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 4,
+      "row": 1,
+      "column": 1,
+      "case": "fig1a",
+      "model": "SD",
+      "field": "u",
+      "value": 0.000543596272230884,
+      "display": "5.436e-4",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 4,
+      "row": 1,
+      "column": 2,
+      "case": "fig1a",
+      "model": "SD",
+      "field": "u",
+      "value": 0.0005424866284184926,
+      "display": "5.425e-4",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 4,
+      "row": 2,
+      "column": 1,
+      "case": "fig1a",
+      "model": "SD",
+      "field": "v",
+      "value": 0.0009899369325794272,
+      "display": "9.899e-4",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 4,
+      "row": 2,
+      "column": 2,
+      "case": "fig1a",
+      "model": "SD",
+      "field": "v",
+      "value": 0.0009939744426876729,
+      "display": "9.940e-4",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 4,
+      "row": 3,
+      "column": 1,
+      "case": "fig1a",
+      "model": "SD2",
+      "field": "u",
+      "value": 0.002339461689020661,
+      "display": "2.339e-3†",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 4,
+      "row": 3,
+      "column": 2,
+      "case": "fig1a",
+      "model": "SD2",
+      "field": "u",
+      "value": 0.002348809374631111,
+      "display": "2.349e-3†",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 4,
+      "row": 4,
+      "column": 1,
+      "case": "fig1a",
+      "model": "SD2",
+      "field": "v",
+      "value": 0.0016962276303151835,
+      "display": "1.696e-3†",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 4,
+      "row": 4,
+      "column": 2,
+      "case": "fig1a",
+      "model": "SD2",
+      "field": "v",
+      "value": 0.0017033965967641063,
+      "display": "1.703e-3†",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 4,
+      "row": 5,
+      "column": 1,
+      "case": "fig1a",
+      "model": "FD",
+      "field": "u",
+      "value": 0.0007639728644377453,
+      "display": "7.640e-4",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 4,
+      "row": 5,
+      "column": 2,
+      "case": "fig1a",
+      "model": "FD",
+      "field": "u",
+      "value": 0.000771642926272964,
+      "display": "7.716e-4",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 4,
+      "row": 6,
+      "column": 1,
+      "case": "fig1a",
+      "model": "FD",
+      "field": "v",
+      "value": 0.0011767735258552126,
+      "display": "1.177e-3",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 4,
+      "row": 6,
+      "column": 2,
+      "case": "fig1a",
+      "model": "FD",
+      "field": "v",
+      "value": 0.0011819604362610647,
+      "display": "1.182e-3",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 4,
+      "row": 7,
+      "column": 1,
+      "case": "fig1b",
+      "model": "SD",
+      "field": "u",
+      "value": 0.00001256240978528278,
+      "display": "1.256e-5",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 4,
+      "row": 7,
+      "column": 2,
+      "case": "fig1b",
+      "model": "SD",
+      "field": "u",
+      "value": 0.000007835417345947171,
+      "display": "7.835e-6",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 4,
+      "row": 8,
+      "column": 1,
+      "case": "fig1b",
+      "model": "SD",
+      "field": "v",
+      "value": 0.000007576867085079542,
+      "display": "7.577e-6",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 4,
+      "row": 8,
+      "column": 2,
+      "case": "fig1b",
+      "model": "SD",
+      "field": "v",
+      "value": 0.000002934949485333682,
+      "display": "2.935e-6",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 4,
+      "row": 9,
+      "column": 1,
+      "case": "fig1b",
+      "model": "SD2",
+      "field": "u",
+      "value": 0.000009244678378955706,
+      "display": "9.245e-6",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 4,
+      "row": 9,
+      "column": 2,
+      "case": "fig1b",
+      "model": "SD2",
+      "field": "u",
+      "value": 0.000008531160431451967,
+      "display": "8.531e-6",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 4,
+      "row": 10,
+      "column": 1,
+      "case": "fig1b",
+      "model": "SD2",
+      "field": "v",
+      "value": 0.000021721098672600192,
+      "display": "2.172e-5",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 4,
+      "row": 10,
+      "column": 2,
+      "case": "fig1b",
+      "model": "SD2",
+      "field": "v",
+      "value": 0.0000036541425808001016,
+      "display": "3.654e-6",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 4,
+      "row": 11,
+      "column": 1,
+      "case": "fig1b",
+      "model": "FD",
+      "field": "u",
+      "value": 0.000007197124369168195,
+      "display": "7.197e-6",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 4,
+      "row": 11,
+      "column": 2,
+      "case": "fig1b",
+      "model": "FD",
+      "field": "u",
+      "value": 0.000004486662027458621,
+      "display": "4.487e-6",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 4,
+      "row": 12,
+      "column": 1,
+      "case": "fig1b",
+      "model": "FD",
+      "field": "v",
+      "value": 0.00000720898280298643,
+      "display": "7.209e-6",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 4,
+      "row": 12,
+      "column": 2,
+      "case": "fig1b",
+      "model": "FD",
+      "field": "v",
+      "value": 0.000001540057544158202,
+      "display": "1.540e-6",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 4,
+      "row": 13,
+      "column": 1,
+      "case": "fig3",
+      "model": "SD",
+      "field": "u",
+      "value": 0.00002023756306152036,
+      "display": "2.024e-5",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 4,
+      "row": 13,
+      "column": 2,
+      "case": "fig3",
+      "model": "SD",
+      "field": "u",
+      "value": 0.000009938457304237147,
+      "display": "9.938e-6",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 4,
+      "row": 14,
+      "column": 1,
+      "case": "fig3",
+      "model": "SD",
+      "field": "v",
+      "value": 0.000014301289773532844,
+      "display": "1.430e-5",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 4,
+      "row": 14,
+      "column": 2,
+      "case": "fig3",
+      "model": "SD",
+      "field": "v",
+      "value": 0.0000034778979492999795,
+      "display": "3.478e-6",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 4,
+      "row": 15,
+      "column": 1,
+      "case": "fig3",
+      "model": "SD2",
+      "field": "u",
+      "value": 0.000015692735947370196,
+      "display": "1.569e-5",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 4,
+      "row": 15,
+      "column": 2,
+      "case": "fig3",
+      "model": "SD2",
+      "field": "u",
+      "value": 0.00001319223049484064,
+      "display": "1.319e-5",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 4,
+      "row": 16,
+      "column": 1,
+      "case": "fig3",
+      "model": "SD2",
+      "field": "v",
+      "value": 0.00006716598752121161,
+      "display": "6.717e-5",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 4,
+      "row": 16,
+      "column": 2,
+      "case": "fig3",
+      "model": "SD2",
+      "field": "v",
+      "value": 0.000005920389342439769,
+      "display": "5.920e-6",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 4,
+      "row": 17,
+      "column": 1,
+      "case": "fig3",
+      "model": "FD",
+      "field": "u",
+      "value": 0.000012657853485809056,
+      "display": "1.266e-5",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 4,
+      "row": 17,
+      "column": 2,
+      "case": "fig3",
+      "model": "FD",
+      "field": "u",
+      "value": 0.00000859412302139928,
+      "display": "8.594e-6",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 4,
+      "row": 18,
+      "column": 1,
+      "case": "fig3",
+      "model": "FD",
+      "field": "v",
+      "value": 0.000014118654005135234,
+      "display": "1.412e-5",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 4,
+      "row": 18,
+      "column": 2,
+      "case": "fig3",
+      "model": "FD",
+      "field": "v",
+      "value": 0.0000019595038985853463,
+      "display": "1.960e-6",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 5,
+      "row": 1,
+      "column": 1,
+      "case": "fig1a",
+      "model": "SD",
+      "field": "u",
+      "value": 0.0005424866284184926,
+      "display": "5.425e-4",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 5,
+      "row": 1,
+      "column": 2,
+      "case": "fig1a",
+      "model": "SD",
+      "field": "u",
+      "value": 0.0003316776715112102,
+      "display": "3.317e-4",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 5,
+      "row": 2,
+      "column": 1,
+      "case": "fig1a",
+      "model": "SD",
+      "field": "v",
+      "value": 0.0009939744426876729,
+      "display": "9.940e-4",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 5,
+      "row": 2,
+      "column": 2,
+      "case": "fig1a",
+      "model": "SD",
+      "field": "v",
+      "value": 0.0005969876752056624,
+      "display": "5.970e-4",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 5,
+      "row": 3,
+      "column": 1,
+      "case": "fig1a",
+      "model": "SD2",
+      "field": "u",
+      "value": 0.002348809374631111,
+      "display": "2.349e-3†",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 5,
+      "row": 3,
+      "column": 2,
+      "case": "fig1a",
+      "model": "SD2",
+      "field": "u",
+      "value": 0.0005702236715297015,
+      "display": "5.702e-4",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 5,
+      "row": 4,
+      "column": 1,
+      "case": "fig1a",
+      "model": "SD2",
+      "field": "v",
+      "value": 0.0017033965967641063,
+      "display": "1.703e-3†",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 5,
+      "row": 4,
+      "column": 2,
+      "case": "fig1a",
+      "model": "SD2",
+      "field": "v",
+      "value": 0.0007898460838562382,
+      "display": "7.898e-4",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 5,
+      "row": 5,
+      "column": 1,
+      "case": "fig1a",
+      "model": "FD",
+      "field": "u",
+      "value": 0.000771642926272964,
+      "display": "7.716e-4",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 5,
+      "row": 5,
+      "column": 2,
+      "case": "fig1a",
+      "model": "FD",
+      "field": "u",
+      "value": 0.00052930742648849,
+      "display": "5.293e-4",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 5,
+      "row": 6,
+      "column": 1,
+      "case": "fig1a",
+      "model": "FD",
+      "field": "v",
+      "value": 0.0011819604362610647,
+      "display": "1.182e-3",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 5,
+      "row": 6,
+      "column": 2,
+      "case": "fig1a",
+      "model": "FD",
+      "field": "v",
+      "value": 0.0007926553783506041,
+      "display": "7.927e-4",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 5,
+      "row": 7,
+      "column": 1,
+      "case": "fig1b",
+      "model": "SD",
+      "field": "u",
+      "value": 0.000007835417345947171,
+      "display": "7.835e-6",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 5,
+      "row": 7,
+      "column": 2,
+      "case": "fig1b",
+      "model": "SD",
+      "field": "u",
+      "value": 0.00000841954570207637,
+      "display": "8.420e-6",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 5,
+      "row": 8,
+      "column": 1,
+      "case": "fig1b",
+      "model": "SD",
+      "field": "v",
+      "value": 0.000002934949485333682,
+      "display": "2.935e-6",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 5,
+      "row": 8,
+      "column": 2,
+      "case": "fig1b",
+      "model": "SD",
+      "field": "v",
+      "value": 0.0000031232775912215516,
+      "display": "3.123e-6",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 5,
+      "row": 9,
+      "column": 1,
+      "case": "fig1b",
+      "model": "SD2",
+      "field": "u",
+      "value": 0.000008531160431451967,
+      "display": "8.531e-6",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 5,
+      "row": 9,
+      "column": 2,
+      "case": "fig1b",
+      "model": "SD2",
+      "field": "u",
+      "value": 0.000008597765343898445,
+      "display": "8.598e-6",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 5,
+      "row": 10,
+      "column": 1,
+      "case": "fig1b",
+      "model": "SD2",
+      "field": "v",
+      "value": 0.0000036541425808001016,
+      "display": "3.654e-6",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 5,
+      "row": 10,
+      "column": 2,
+      "case": "fig1b",
+      "model": "SD2",
+      "field": "v",
+      "value": 0.000003458933496403027,
+      "display": "3.459e-6",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 5,
+      "row": 11,
+      "column": 1,
+      "case": "fig1b",
+      "model": "FD",
+      "field": "u",
+      "value": 0.000004486662027458621,
+      "display": "4.487e-6",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 5,
+      "row": 11,
+      "column": 2,
+      "case": "fig1b",
+      "model": "FD",
+      "field": "u",
+      "value": 0.0000035798707945233765,
+      "display": "3.580e-6",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 5,
+      "row": 12,
+      "column": 1,
+      "case": "fig1b",
+      "model": "FD",
+      "field": "v",
+      "value": 0.000001540057544158202,
+      "display": "1.540e-6",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 5,
+      "row": 12,
+      "column": 2,
+      "case": "fig1b",
+      "model": "FD",
+      "field": "v",
+      "value": 0.0000016975730521839871,
+      "display": "1.698e-6",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 5,
+      "row": 13,
+      "column": 1,
+      "case": "fig3",
+      "model": "SD",
+      "field": "u",
+      "value": 0.000009938457304237147,
+      "display": "9.938e-6",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 5,
+      "row": 13,
+      "column": 2,
+      "case": "fig3",
+      "model": "SD",
+      "field": "u",
+      "value": 0.000009744408561107587,
+      "display": "9.744e-6",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 5,
+      "row": 14,
+      "column": 1,
+      "case": "fig3",
+      "model": "SD",
+      "field": "v",
+      "value": 0.0000034778979492999795,
+      "display": "3.478e-6",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 5,
+      "row": 14,
+      "column": 2,
+      "case": "fig3",
+      "model": "SD",
+      "field": "v",
+      "value": 0.000003725116504871284,
+      "display": "3.725e-6",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 5,
+      "row": 15,
+      "column": 1,
+      "case": "fig3",
+      "model": "SD2",
+      "field": "u",
+      "value": 0.00001319223049484064,
+      "display": "1.319e-5",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 5,
+      "row": 15,
+      "column": 2,
+      "case": "fig3",
+      "model": "SD2",
+      "field": "u",
+      "value": 0.000010924825935898497,
+      "display": "1.092e-5",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 5,
+      "row": 16,
+      "column": 1,
+      "case": "fig3",
+      "model": "SD2",
+      "field": "v",
+      "value": 0.000005920389342439769,
+      "display": "5.920e-6",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 5,
+      "row": 16,
+      "column": 2,
+      "case": "fig3",
+      "model": "SD2",
+      "field": "v",
+      "value": 0.000004503160183466637,
+      "display": "4.503e-6",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 5,
+      "row": 17,
+      "column": 1,
+      "case": "fig3",
+      "model": "FD",
+      "field": "u",
+      "value": 0.00000859412302139928,
+      "display": "8.594e-6",
+      "equalsCSV": true,
+      "bold": false
+    },
+    {
+      "table": 5,
+      "row": 17,
+      "column": 2,
+      "case": "fig3",
+      "model": "FD",
+      "field": "u",
+      "value": 0.000005807394405699107,
+      "display": "5.807e-6",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 5,
+      "row": 18,
+      "column": 1,
+      "case": "fig3",
+      "model": "FD",
+      "field": "v",
+      "value": 0.0000019595038985853463,
+      "display": "1.960e-6",
+      "equalsCSV": true,
+      "bold": true
+    },
+    {
+      "table": 5,
+      "row": 18,
+      "column": 2,
+      "case": "fig3",
+      "model": "FD",
+      "field": "v",
+      "value": 0.0000021573692995380256,
+      "display": "2.157e-6",
+      "equalsCSV": true,
+      "bold": false
+    }
+  ],
+  "linkChecks": [
+    {
+      "href": "Workspaces/dlw_single_aligned_20260929/HANDOFF.md",
+      "exists": true,
+      "anchorExists": true
+    },
+    {
+      "href": "Workspaces/dlw_sd2_uv_init_20260929/HANDOFF.md",
+      "exists": true,
+      "anchorExists": true
+    }
+  ],
+  "errors": [],
+  "failedRequests": [],
+  "notes": [
+    {
+      "decodedImage": {
+        "ok": true,
+        "src": "data:image/png;base64",
+        "byteLength": 138652,
+        "alt": "算例 A，固定网格：u 的绝对误差随 x 的变化。",
+        "width": 1920,
+        "height": 1152
+      }
+    },
+    {
+      "decodedImage": {
+        "ok": true,
+        "src": "data:image/png;base64",
+        "byteLength": 151400,
+        "alt": "算例 A，固定网格：v 的绝对误差随 x 的变化。",
+        "width": 1920,
+        "height": 1152
+      }
+    },
+    {
+      "decodedImage": {
+        "ok": true,
+        "src": "data:image/png;base64",
+        "byteLength": 105533,
+        "alt": "算例 A，移动网格：u 的绝对误差随 x 的变化。",
+        "width": 1920,
+        "height": 1152
+      }
+    },
+    {
+      "decodedImage": {
+        "ok": true,
+        "src": "data:image/png;base64",
+        "byteLength": 113008,
+        "alt": "算例 A，移动网格：v 的绝对误差随 x 的变化。",
+        "width": 1920,
+        "height": 1152
+      }
+    },
+    {
+      "decodedImage": {
+        "ok": true,
+        "src": "data:image/png;base64",
+        "byteLength": 136728,
+        "alt": "算例 B，固定网格：u 的绝对误差随 x 的变化。",
+        "width": 1920,
+        "height": 1152
+      }
+    },
+    {
+      "decodedImage": {
+        "ok": true,
+        "src": "data:image/png;base64",
+        "byteLength": 114925,
+        "alt": "算例 B，固定网格：v 的绝对误差随 x 的变化。",
+        "width": 1920,
+        "height": 1152
+      }
+    },
+    {
+      "decodedImage": {
+        "ok": true,
+        "src": "data:image/png;base64",
+        "byteLength": 131176,
+        "alt": "算例 B，移动网格：u 的绝对误差随 x 的变化。",
+        "width": 1920,
+        "height": 1152
+      }
+    },
+    {
+      "decodedImage": {
+        "ok": true,
+        "src": "data:image/png;base64",
+        "byteLength": 107978,
+        "alt": "算例 B，移动网格：v 的绝对误差随 x 的变化。",
+        "width": 1920,
+        "height": 1152
+      }
+    },
+    {
+      "decodedImage": {
+        "ok": true,
+        "src": "data:image/png;base64",
+        "byteLength": 147063,
+        "alt": "算例 C，固定网格：u 的绝对误差随 x 的变化。",
+        "width": 1920,
+        "height": 1152
+      }
+    },
+    {
+      "decodedImage": {
+        "ok": true,
+        "src": "data:image/png;base64",
+        "byteLength": 109119,
+        "alt": "算例 C，固定网格：v 的绝对误差随 x 的变化。",
+        "width": 1920,
+        "height": 1152
+      }
+    },
+    {
+      "decodedImage": {
+        "ok": true,
+        "src": "data:image/png;base64",
+        "byteLength": 134830,
+        "alt": "算例 C，移动网格：u 的绝对误差随 x 的变化。",
+        "width": 1920,
+        "height": 1152
+      }
+    },
+    {
+      "decodedImage": {
+        "ok": true,
+        "src": "data:image/png;base64",
+        "byteLength": 100799,
+        "alt": "算例 C，移动网格：v 的绝对误差随 x 的变化。",
+        "width": 1920,
+        "height": 1152
+      }
+    }
+  ],
+  "screenshots": [
+    "Workspaces/index_readability_20261006/verification/desktop_top.png",
+    "Workspaces/index_readability_20261006/verification/desktop_results.png",
+    "Workspaces/index_readability_20261006/verification/table_3.png",
+    "Workspaces/index_readability_20261006/verification/table_4.png",
+    "Workspaces/index_readability_20261006/verification/table_5.png",
+    "Workspaces/index_readability_20261006/verification/desktop_curves_1.png",
+    "Workspaces/index_readability_20261006/verification/desktop_curves_2.png",
+    "Workspaces/index_readability_20261006/verification/desktop_curves_3.png",
+    "Workspaces/index_readability_20261006/verification/desktop_curves_4.png",
+    "Workspaces/index_readability_20261006/verification/desktop_curves_5.png",
+    "Workspaces/index_readability_20261006/verification/desktop_curves_6.png",
+    "Workspaces/index_readability_20261006/verification/mobile_top.png",
+    "Workspaces/index_readability_20261006/verification/mobile_results.png",
+    "Workspaces/index_readability_20261006/verification/mobile_curves.png"
+  ],
+  "failures": []
+}

@@ -1,0 +1,45 @@
+{
+  "status": "passed",
+  "verifiedOn": "2026-10-02",
+  "execution": "Actual Lean 4.34.0 --stdin calls through report_server.raw_compiler_run; recorded from completed checks without rerunning them.",
+  "compiler": "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\bin\\lean.exe",
+  "libraryCompilations": 0,
+  "checks": [
+    {
+      "name": "success",
+      "input": "#eval (2 + 2 : Nat)\n",
+      "exit_code": 0,
+      "compilerOutput": "4\n",
+      "stdoutExact": true,
+      "callbackChunks": 1
+    },
+    {
+      "name": "compiler_diagnostic",
+      "input": "def broken : Nat := \"raw diagnostic\"\n",
+      "exit_code": 1,
+      "compilerOutput": "<stdin>:1:20: error: Type mismatch\n  \"raw diagnostic\"\nhas type\n  String\nbut is expected to have type\n  Nat\n",
+      "stdoutExact": true,
+      "callbackChunks": 6
+    },
+    {
+      "name": "stderr",
+      "input": "#eval IO.eprintln \"raw stderr\"\n",
+      "exit_code": 0,
+      "compilerOutput": "raw stderr\n",
+      "stdoutExact": true,
+      "stderrMergedDirectly": true
+    },
+    {
+      "name": "unicode_frame_roundtrip",
+      "input": "#check (fun (x : Nat) => x)\n",
+      "exit_code": 0,
+      "compilerOutput": "fun x => x : Nat → Nat\n",
+      "stdoutExact": true,
+      "jsonFrameIsAscii": true,
+      "jsonDecodedTextExact": true
+    }
+  ],
+  "checksExcludedArtificialMarkers": ["CHECK CELL", "PASSED CELL", "REPORT:"],
+  "syntaxChecks": {"report_server.py": "passed", "stepwise_lean.py": "passed", "notebook.js": "passed"},
+  "windowsBinding": {"allow_reuse_address": false, "newServiceStartedDuringBindingFix": false}
+}

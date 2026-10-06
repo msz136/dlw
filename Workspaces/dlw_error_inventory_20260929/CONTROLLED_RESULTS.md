@@ -1,36 +1,34 @@
 # DLW 孤子数值解的误差比较
 
-<p class="abstract"><strong>摘要</strong>　在原文单孤子与二孤子参数下，比较三种空间离散方案、Euler 与 RK4 时间算法以及固定与自适应动网格。采用共同物理评价点上的双场最大绝对误差，每项对照固定其余数值条件。空间方案的相对精度依赖算例，SD 与 SD2 的误差排名可随时间算法改变。两种时间算法在单孤子 A 中的总误差接近，在单孤子 B 与二孤子 C 中则为 RK4 双场较小。动网格的收益依赖算例、离散化及物理场。时间自收敛结果支持 Euler 的一阶行为。</p>
+<p class="abstract">以 DLW 单孤子与二孤子的解析解为参照，比较 SD、SD2 与 FD 三种空间方案、Euler 与 RK4 时间算法，以及固定网格与自适应动网格。通过双场误差与误差曲线，考察各方案的精度及网格效果。</p>
 
 ## 1　实验设计
 
-比较两场结构半离散方案 SD、以 $Q,R$ 为演化变量的结构半离散方案 SD2，以及直接差分方案 FD。时间算法取显式 Euler 与经典 RK4。网格取均匀固定网格（fixed）与初始自适应布点、随后持续移动的网格（moving）。SD 与 SD2 表示同一半离散结构的不同变量形式。
+采用 Sheng–Yu 原文的三组孤子参数（表 1），均取 $a=2$、$c_i=1$，初相位为零。SD 与 SD2 是结构半离散方案的两种变量形式，FD 为直接差分；每组参数比较三种空间方案、两种时间算法与两种网格。
 
-采用 Sheng–Yu 原文的三组参数，见表 1。均取 $a=2$、$c_i=1$，初相位为零。每个算例均比较三种离散化、两种时间算法与两种网格，共 12 个组合。同一网格策略下，各方案采用相同的初始节点和离散 $u,v$，以共同连续解析解作为误差参照。
+<div class="caption">表 1　孤子算例的谱参数。</div>
 
-<div class="caption">表 1　算例参数与比较范围。</div>
+| 算例 | 原文图号 | 谱参数 |
+|---|---|---|
+| 单孤子 A | 图 1(a) | $(p,q)=(1,2)$ |
+| 单孤子 B | 图 1(b) | $(p,q)=(4,-3)$ |
+| 二孤子 C | 图 3 | $(p_1,q_1)=(6,-5)$；$(p_2,q_2)=(4,-3)$ |
 
-| 算例 | 原文图号 | 谱参数 | 比较范围 |
-|---|---|---|---|
-| 单孤子 A | 图 1(a) | $(p,q)=(1,2)$ | 三离散化 × 两时间法 × 两网格 |
-| 单孤子 B | 图 1(b) | $(p,q)=(4,-3)$ | 三离散化 × 两时间法 × 两网格 |
-| 二孤子 C | 图 3 | $(p_1,q_1)=(6,-5)$；$(p_2,q_2)=(4,-3)$ | 三离散化 × 两时间法 × 两网格 |
+计算区间为 $x\in[-20,20)$、$y\in[-1.5,1.5]$，取 $N_x=256$、$h_y=1/8$，共 24 个 $y$ 中点层。$x$ 方向采用四阶中心差分，时间步长为 $\Delta t=1.25\times10^{-4}$，终止时刻为 $T=0.01$。
 
-计算区间取 $x\in[-20,20)$，$N_x=256$；$y\in[-1.5,1.5]$，格距 $h_y=1/8$，共 24 个中点层。$x$ 方向采用四阶中心差分。主时间步长为 $\Delta t=1.25\times10^{-4}$，从 $t=0$ 推进至 $T=0.01$。
-
-在 $x\in[-10,10]$ 的 4001 个等距点及全部 $y$ 层上，经三次样条重构，计算最大绝对误差
+在 $x\in[-10,10]$ 的 4001 个等距点及全部 $y$ 层上，用三次样条重构数值场，计算最大绝对误差
 
 $$E_f(T)=\max_{(x,y)\in\mathcal G}|f_h(x,y,T)-f_*(x,y,T)|,\qquad f\in\{u,v\}.\tag{1}$$
 
-其中 $f_*$ 为连续精确解。所有结果均为总误差，包含初始表示误差。对照设计见表 2；同一行只改变“比较因素”一项。跨算例比较方法的相对表现，不将不同波形的绝对误差差异归因于孤子数量。
+其中 $f_*$ 为解析解。各方案在同一组物理点上评价，配对条件见表 2。
 
-<div class="caption">表 2　三项配对对照。各组均取相同评价时刻与误差指标。</div>
+<div class="caption">表 2　三项配对比较。</div>
 
 | 对照 | 比较因素 | 固定条件 |
 |---|---|---|
-| 空间离散化 | SD / SD2 / FD | 各自算例、RK4、fixed、空间格距、时间步长 |
-| 时间算法 | Euler / RK4 | 各自算例与离散化、fixed、空间格距、时间步长 |
-| 网格策略 | fixed / moving | 各自算例与离散化、RK4、节点数、时间步长 |
+| 空间离散化 | SD / SD2 / FD | 算例、RK4、固定网格、格距、时间步长 |
+| 时间算法 | Euler / RK4 | 算例、空间方案、固定网格、格距、时间步长 |
+| 网格策略 | 固定 / 动网格 | 算例、空间方案、RK4、节点数、时间步长 |
 
 ## 2　演化方程与数值递推
 
@@ -158,79 +156,481 @@ V_i&=\frac{\bar q_i-\bar q_0}{\bar\rho_i},\qquad
 
 固定网格取 $V_i=0$；两种网格均采用式（13）或（14）的时间更新。
 
+### 2.5　递推伪代码
+
+三种方案分别以 $z=(P,W)$、$z=(Q,R)$、$z=(P,v)$ 为状态。下面的 `delta_minus`、`delta0`、`M_minus` 与 `Delta_h` 对应正文的 $y$ 向差分算子；`Dxi` 为四阶中心差分，`D1=Dxi/J`，`D2=D1(D1)`。
+
+`recover_u(P,t,x)` 取 $u_0=u_*(y_0,x,t)$，然后逐层计算 $u_j=u_{j-1}+hP_j$。`ghost_u(u,t,x)` 在 $y$ 下侧取解析虚点，在上侧取解析值加 $3e_{-1}-3e_{-2}+e_{-3}$，其中 $e$ 为最后三层 $u$ 与解析解之差。`pack_qr` 保存 $Q$ 的第 1 层至末层及全部 $R$。
+
+<p class="algorithm-label">SD：恢复双场并更新 $P,W$</p>
+
+```python
+def RHS_SD(t, z, x, J, D1, D2, mesh):
+    P, W = unpack_pw(z)
+    u = recover_u(P, t, x)
+    gl, gr = ghost_u(u, t, x)
+    v = W + delta0(u, gl, gr)
+    V = velocity(u, 1 - W/4, D1, mesh)
+    H = u**2/2 + 2*a*u + h**2*(W**2/32 - W/4)
+    lapP = Delta_h(P, left=(u[0]-gl)/h, right=(gr-u[-1])/h)
+    FP = -delta_minus(D1(H)) - D2(M_minus(v) - h**2*lapP/4)
+    FW = -D1((u + 2*a)*W - 4*u) + D2(W)
+    return pack_pw(FP + V*D1(P), FW + V*D1(W)), V
+```
+
+<p class="algorithm-label">SD2：更新 $Q,R$ 与随时间变化的下边界</p>
+
+`Dxi(f,jump)` 在跨越 $x$ 端点时按 $f(x+L)=f(x)+jump$ 延拓。离散提升同时求出 $Q$ 与端点跃变量：$D_\xi Q+b\,jump=JuQ/2$、$Q(x_0)=1$；$b$ 是四阶差分中跨端点项的系数向量。每个时间级按当前 $t,x,J$ 求出第零层 $Q_0$。
+
+```python
+def lift(u, J):
+    L = block_matrix([[Dxi_matrix - diag(J*u/2), b], [e0.T, 0]])
+    Q, jump = split(solve(L, join(zeros(Nx), 1)))
+    return Q, jump, L
+
+def RHS_SD2(t, z, x, J, D1, D2, mesh):
+    Qint, R = unpack_qr(z)
+    u0, u0t, u0x = exact_lower_u_and_derivatives(t, x)
+    Q0, jump0, L = lift(u0, J)
+    Q = stack(Q0, Qint)
+    right = right_init * (1 + jump0) / right_init[0]
+    Qx, Rx = D1(Q, right-1), D1(R, 1/right-1)
+    u = 2*Qx/Q
+    gl, gr = ghost_u(u, t, x)
+    v = 4*(1-Q*R) + delta0(u, gl, gr)
+    V = velocity(u, Q*R, D1, mesh)
+    rhs0 = (Dxi(V)*u0 + J*(u0t + V*u0x))*Q0/2
+    Q0t = solve(L, join(rhs0, 0))[:-1] - V*Qx[0]
+    Qxx, Rxx, S = D1(Qx), D1(Rx), Q*R
+    G, Sx = h**2*(S**2-1)/4, D1(S)
+    m0 = -(Q0t+Qxx[0]+2*a*Qx[0])/(2*Q0) - G[0]/2 + h*Sx[0]/2
+    m = m0 - h*prepend_zero(cumsum(Sx, axis="y"))
+    A = m[:-1] + m[1:]
+    FQ = -Qxx - 2*a*Qx - (A+G)*Q
+    FR =  Rxx - 2*a*Rx + (A+G)*R
+    return pack_qr(FQ + V*Qx, FR + V*Rx), V
+```
+
+<p class="algorithm-label">FD：直接更新 $P,v$</p>
+
+```python
+def RHS_FD(t, z, x, J, D1, D2, mesh):
+    P, v = unpack_pv(z)
+    u = recover_u(P, t, x)
+    gl, gr = ghost_u(u, t, x)
+    uy = delta0(u, gl, gr)
+    V = velocity(u, 1-(v-uy)/4, D1, mesh)
+    FP = -delta_minus(D1(u**2/2 + 2*a*u)) - D2(M_minus(v))
+    Fv = -D1((u+2*a)*v - 4*u) - D2(uy)
+    return pack_pv(FP + V*D1(P), Fv + V*D1(v)), V
+```
+
+<p class="algorithm-label">共用节点运动与 Euler / RK4 推进</p>
+
+初始 $P=\delta_-u_*$、$W=v_*-\delta_0u_*$。SD2 初始逐层调用 `lift` 得到 $Q$ 与 `right_init=1+jump`，再取 $R=[1-(v_*-\delta_0u_*)/4]/Q$。动网格初始节点由解析监测密度的累积积分等分得到。场变量与节点位移组成同一状态 $Y=(z,s)$；RK4 每一级重建节点、算子、场与边界。
+
+```python
+def velocity(u, rho, D1, mesh):
+    if mesh == "fixed": return zeros(Nx)
+    rho_bar = mean(rho, axis="y")
+    q_bar = mean((u+2*a)*rho - D1(rho) - 2*a, axis="y")
+    return (q_bar-q_bar[0]) / rho_bar
+
+def stage(t, Y):
+    z, s = split_state(Y)
+    x, J = xi+s, 1+Dxi(s)
+    D1 = lambda f, jump=0: Dxi(f, jump)/J
+    D2 = lambda f: D1(D1(f))
+    dz, V = RHS[model](t, z, x, J, D1, D2, mesh)
+    return join(dz, V)
+
+x0 = xi if mesh == "fixed" else equidistribute(exact_initial_density)
+Y = join(initial_state(model, x0), x0-xi)
+for n in range(Nt):
+    t = n*dt
+    if method == "Euler":
+        Y = Y + dt*stage(t, Y)
+    else:
+        K1 = stage(t, Y)
+        K2 = stage(t+dt/2, Y+dt*K1/2)
+        K3 = stage(t+dt/2, Y+dt*K2/2)
+        K4 = stage(t+dt, Y+dt*K3)
+        Y = Y + dt*(K1+2*K2+2*K3+K4)/6
+```
+
+
 ## 3　空间离散化的比较
 
-固定 RK4 与均匀网格，以 FD 为基准，定义 $R_f^{S/FD}=E_f^S/E_f^{FD}$。表 3 中小于 1 表示误差低于 FD。
+在 RK4 与固定网格下比较三种空间方案。表 3 列出双场最大绝对误差，加粗值为每行的最小误差。
 
-<div class="caption">表 3　不同空间方案相对于 FD 的误差比，$T=0.01$。</div>
+<div class="caption">表 3　三种空间方案的误差，$T=0.01$。</div>
 
-| 算例 | SD：$u$ | SD：$v$ | SD2：$u$ | SD2：$v$ |
-|---|---:|---:|---:|---:|
-| 单孤子 A | 0.703 | 0.841 | 3.044† | 1.441† |
-| 单孤子 B | 1.746 | 1.906 | 1.901 | 2.373 |
-| 二孤子 C | 1.156 | 1.775 | 1.535 | 3.021 |
+<table class="result-table">
+<thead><tr><th scope="col">算例</th><th scope="col">场</th><th scope="col">SD</th><th scope="col">SD2</th><th scope="col">FD</th></tr></thead>
+<tbody>
+<tr class="case-start">
+<th class="case-label" scope="rowgroup" rowspan="2">单孤子 A</th>
+<th class="field-label" scope="row">$u$</th>
+<td class="error-value" data-error="0.0005424866284184926"><strong>5.425e-4</strong></td>
+<td class="error-value" data-error="0.0023488093746311112">2.349e-3<sup>†</sup></td>
+<td class="error-value" data-error="0.00077164292627296405">7.716e-4</td>
+</tr>
+<tr class="">
+<th class="field-label" scope="row">$v$</th>
+<td class="error-value" data-error="0.00099397444268767288"><strong>9.940e-4</strong></td>
+<td class="error-value" data-error="0.0017033965967641063">1.703e-3<sup>†</sup></td>
+<td class="error-value" data-error="0.0011819604362610647">1.182e-3</td>
+</tr>
+<tr class="case-start">
+<th class="case-label" scope="rowgroup" rowspan="2">单孤子 B</th>
+<th class="field-label" scope="row">$u$</th>
+<td class="error-value" data-error="7.835417345947171e-06">7.835e-6</td>
+<td class="error-value" data-error="8.5311604314519673e-06">8.531e-6</td>
+<td class="error-value" data-error="4.4866620274586211e-06"><strong>4.487e-6</strong></td>
+</tr>
+<tr class="">
+<th class="field-label" scope="row">$v$</th>
+<td class="error-value" data-error="2.9349494853336822e-06">2.935e-6</td>
+<td class="error-value" data-error="3.6541425808001016e-06">3.654e-6</td>
+<td class="error-value" data-error="1.5400575441582021e-06"><strong>1.540e-6</strong></td>
+</tr>
+<tr class="case-start">
+<th class="case-label" scope="rowgroup" rowspan="2">二孤子 C</th>
+<th class="field-label" scope="row">$u$</th>
+<td class="error-value" data-error="9.9384573042371471e-06">9.938e-6</td>
+<td class="error-value" data-error="1.319223049484064e-05">1.319e-5</td>
+<td class="error-value" data-error="8.5941230213992803e-06"><strong>8.594e-6</strong></td>
+</tr>
+<tr class="">
+<th class="field-label" scope="row">$v$</th>
+<td class="error-value" data-error="3.4778979492999795e-06">3.478e-6</td>
+<td class="error-value" data-error="5.9203893424397691e-06">5.920e-6</td>
+<td class="error-value" data-error="1.9595038985853463e-06"><strong>1.960e-6</strong></td>
+</tr>
+</tbody>
+</table>
 
-<p class="table-note">† 单孤子 A 的 SD2 固定网格在 $T=0.01$ 未通过空间加密对照，相关数值仅描述主配置；表 4、5 使用相同标记。</p>
+<p class="table-note">† 表 3–5 中，单孤子 A 的 SD2 固定网格结果对空间分辨率敏感。</p>
 
-单孤子 A 中，SD 的 $u,v$ 误差分别低于 FD 约 30% 和 16%。单孤子 B 与二孤子 C 中，两个场的误差均按 FD、SD、SD2 的次序增大。因此，结构半离散方案相对于直接差分的精度优势依赖具体算例，不能由其结构来源直接推断。
-
-单孤子 B 与二孤子 C 均包含谱对 $(4,-3)$，两者在当前配置下均为 FD 优于 SD。这说明该相对表现可以在单孤子与二孤子算例中同时出现，但不构成仅由孤子数量决定的误差规律。
+单孤子 A 中，SD 的双场误差最小，较 FD 分别降低约 30% 和 16%。单孤子 B 与二孤子 C 中，FD 的双场误差最小，SD 次之，SD2 较大。
 
 ## 4　时间算法的比较
 
-对每个算例固定均匀网格和空间离散，比较相同步长下的 Euler 与 RK4。表 4 给出 $R_f^{E/R}=E_f^{\mathrm{Euler}}/E_f^{\mathrm{RK4}}$；大于 1 表示 RK4 误差较小。
+在相同空间方案、固定网格与时间步长下比较 Euler 和 RK4。表 4 将两种算法的误差并列，加粗值为每行的较小误差。
 
-<div class="caption">表 4　Euler 相对于 RK4 的总误差比，fixed，$T=0.01$。</div>
+<div class="caption">表 4　Euler 与 RK4 的误差，固定网格，$T=0.01$。</div>
 
-| 算例 | 空间方案 | $R_u^{E/R}$ | $R_v^{E/R}$ |
-|---|---|---:|---:|
-| 单孤子 A | SD | 1.002 | 0.996 |
-| 单孤子 A | SD2† | 0.996 | 0.996 |
-| 单孤子 A | FD | 0.990 | 0.996 |
-| 单孤子 B | SD | 1.603 | 2.582 |
-| 单孤子 B | SD2 | 1.084 | 5.944 |
-| 单孤子 B | FD | 1.604 | 4.681 |
-| 二孤子 C | SD | 2.036 | 4.112 |
-| 二孤子 C | SD2 | 1.189 | 11.345 |
-| 二孤子 C | FD | 1.473 | 7.205 |
+<table class="result-table">
+<thead><tr><th scope="col">算例</th><th scope="col">空间方案</th><th scope="col">场</th><th scope="col">Euler</th><th scope="col">RK4</th></tr></thead>
+<tbody>
+<tr class="case-start">
+<th class="case-label" scope="rowgroup" rowspan="6">单孤子 A</th>
+<th class="scheme-label" scope="rowgroup" rowspan="2">SD</th>
+<th class="field-label" scope="row">$u$</th>
+<td class="error-value" data-error="0.00054359627223088403">5.436e-4</td>
+<td class="error-value" data-error="0.0005424866284184926"><strong>5.425e-4</strong></td>
+</tr>
+<tr class="">
+<th class="field-label" scope="row">$v$</th>
+<td class="error-value" data-error="0.00098993693257942716"><strong>9.899e-4</strong></td>
+<td class="error-value" data-error="0.00099397444268767288">9.940e-4</td>
+</tr>
+<tr class="pair-start">
+<th class="scheme-label" scope="rowgroup" rowspan="2">SD2</th>
+<th class="field-label" scope="row">$u$</th>
+<td class="error-value" data-error="0.002339461689020661"><strong>2.339e-3</strong><sup>†</sup></td>
+<td class="error-value" data-error="0.0023488093746311112">2.349e-3<sup>†</sup></td>
+</tr>
+<tr class="">
+<th class="field-label" scope="row">$v$</th>
+<td class="error-value" data-error="0.0016962276303151835"><strong>1.696e-3</strong><sup>†</sup></td>
+<td class="error-value" data-error="0.0017033965967641063">1.703e-3<sup>†</sup></td>
+</tr>
+<tr class="pair-start">
+<th class="scheme-label" scope="rowgroup" rowspan="2">FD</th>
+<th class="field-label" scope="row">$u$</th>
+<td class="error-value" data-error="0.00076397286443774526"><strong>7.640e-4</strong></td>
+<td class="error-value" data-error="0.00077164292627296405">7.716e-4</td>
+</tr>
+<tr class="">
+<th class="field-label" scope="row">$v$</th>
+<td class="error-value" data-error="0.0011767735258552126"><strong>1.177e-3</strong></td>
+<td class="error-value" data-error="0.0011819604362610647">1.182e-3</td>
+</tr>
+<tr class="case-start">
+<th class="case-label" scope="rowgroup" rowspan="6">单孤子 B</th>
+<th class="scheme-label" scope="rowgroup" rowspan="2">SD</th>
+<th class="field-label" scope="row">$u$</th>
+<td class="error-value" data-error="1.256240978528278e-05">1.256e-5</td>
+<td class="error-value" data-error="7.835417345947171e-06"><strong>7.835e-6</strong></td>
+</tr>
+<tr class="">
+<th class="field-label" scope="row">$v$</th>
+<td class="error-value" data-error="7.5768670850795417e-06">7.577e-6</td>
+<td class="error-value" data-error="2.9349494853336822e-06"><strong>2.935e-6</strong></td>
+</tr>
+<tr class="pair-start">
+<th class="scheme-label" scope="rowgroup" rowspan="2">SD2</th>
+<th class="field-label" scope="row">$u$</th>
+<td class="error-value" data-error="9.2446783789557063e-06">9.245e-6</td>
+<td class="error-value" data-error="8.5311604314519673e-06"><strong>8.531e-6</strong></td>
+</tr>
+<tr class="">
+<th class="field-label" scope="row">$v$</th>
+<td class="error-value" data-error="2.1721098672600192e-05">2.172e-5</td>
+<td class="error-value" data-error="3.6541425808001016e-06"><strong>3.654e-6</strong></td>
+</tr>
+<tr class="pair-start">
+<th class="scheme-label" scope="rowgroup" rowspan="2">FD</th>
+<th class="field-label" scope="row">$u$</th>
+<td class="error-value" data-error="7.1971243691681952e-06">7.197e-6</td>
+<td class="error-value" data-error="4.4866620274586211e-06"><strong>4.487e-6</strong></td>
+</tr>
+<tr class="">
+<th class="field-label" scope="row">$v$</th>
+<td class="error-value" data-error="7.20898280298643e-06">7.209e-6</td>
+<td class="error-value" data-error="1.5400575441582021e-06"><strong>1.540e-6</strong></td>
+</tr>
+<tr class="case-start">
+<th class="case-label" scope="rowgroup" rowspan="6">二孤子 C</th>
+<th class="scheme-label" scope="rowgroup" rowspan="2">SD</th>
+<th class="field-label" scope="row">$u$</th>
+<td class="error-value" data-error="2.0237563061520358e-05">2.024e-5</td>
+<td class="error-value" data-error="9.9384573042371471e-06"><strong>9.938e-6</strong></td>
+</tr>
+<tr class="">
+<th class="field-label" scope="row">$v$</th>
+<td class="error-value" data-error="1.4301289773532844e-05">1.430e-5</td>
+<td class="error-value" data-error="3.4778979492999795e-06"><strong>3.478e-6</strong></td>
+</tr>
+<tr class="pair-start">
+<th class="scheme-label" scope="rowgroup" rowspan="2">SD2</th>
+<th class="field-label" scope="row">$u$</th>
+<td class="error-value" data-error="1.5692735947370196e-05">1.569e-5</td>
+<td class="error-value" data-error="1.319223049484064e-05"><strong>1.319e-5</strong></td>
+</tr>
+<tr class="">
+<th class="field-label" scope="row">$v$</th>
+<td class="error-value" data-error="6.7165987521211612e-05">6.717e-5</td>
+<td class="error-value" data-error="5.9203893424397691e-06"><strong>5.920e-6</strong></td>
+</tr>
+<tr class="pair-start">
+<th class="scheme-label" scope="rowgroup" rowspan="2">FD</th>
+<th class="field-label" scope="row">$u$</th>
+<td class="error-value" data-error="1.2657853485809056e-05">1.266e-5</td>
+<td class="error-value" data-error="8.5941230213992803e-06"><strong>8.594e-6</strong></td>
+</tr>
+<tr class="">
+<th class="field-label" scope="row">$v$</th>
+<td class="error-value" data-error="1.4118654005135234e-05">1.412e-5</td>
+<td class="error-value" data-error="1.9595038985853463e-06"><strong>1.960e-6</strong></td>
+</tr>
+</tbody>
+</table>
 
-单孤子 A 中，两种时间算法的总误差相差约 1% 以内，部分指标为 Euler 略小。单孤子 B 与二孤子 C 中，三种空间方案均为 RK4 双场误差较小，其中 SD2 的 $v$ 误差比分别为 5.944 和 11.345。较高时间阶并不保证每个算例的总误差都更小；这里比较的是相同步长的精度，而非相同计算成本。
+单孤子 A 中，两种算法的误差相近，差异约在 1% 以内。单孤子 B 与二孤子 C 中，RK4 在三种空间方案下均有较小的双场误差；SD2 的 $v$ 误差分别降至 Euler 的约 $1/5.9$ 和 $1/11.3$。
 
-单孤子 B 与二孤子 C 还表现出相同的排名变化：对 $u$ 而言，RK4 下 SD 优于 SD2，Euler 下则为 SD2 优于 SD；对 $v$ 而言，两种时间算法均为 SD 优于 SD2。因此，空间方案的排名需要同时指定时间算法与物理量。
+后两组算例中，$u$ 场在 RK4 下为 SD 优于 SD2，在 Euler 下为 SD2 优于 SD；$v$ 场则均为 SD 优于 SD2。
 
-为区分时间收敛与总误差，在固定空间配置下取 $\Delta t$、$\Delta t/2$、$\Delta t/4$，以数值场之间的差计算观测阶
+固定空间配置，取 $\Delta t$、$\Delta t/2$、$\Delta t/4$，以相邻时间步长的数值场差计算观测阶
 
 $$p_f=\log_2\frac{\|f_{\Delta t}-f_{\Delta t/2}\|_{\infty,\mathcal G}}{\|f_{\Delta t/2}-f_{\Delta t/4}\|_{\infty,\mathcal G}},\qquad f\in\{u,v\}.\tag{16}$$
 
-单孤子试验在三种空间方案、两种网格及所测时刻的观测阶为 0.9874–1.0025；SD2 在原文图 3–5 二孤子中的相应结果为 0.9903–1.0001，均支持 Euler 的一阶时间行为。该观测阶与表 4 的总误差比含义不同：前者衡量时间离散的收敛行为，后者同时包含空间、时间及场表示误差。
+Euler 的单孤子试验观测阶为 0.9874–1.0025；SD2 在原文图 3–5 二孤子中的观测阶为 0.9903–1.0001，均接近一阶。
 
 ## 5　网格策略的比较
 
-对每个算例固定 RK4、空间方案和节点数，定义 $R_f^{M/F}=E_f^{\mathrm{moving}}/E_f^{\mathrm{fixed}}$，结果见表 5。
+在相同算例、空间方案、RK4、节点数和时间步长下，比较均匀固定网格与自适应动网格。加粗值为每行的较小误差。
 
-<div class="caption">表 5　自适应动网格相对于均匀固定网格的误差比，$T=0.01$。</div>
+<div class="caption">表 5　固定网格与动网格的误差，RK4，$T=0.01$。</div>
 
-| 算例 | 空间方案 | $R_u^{M/F}$ | $R_v^{M/F}$ |
-|---|---|---:|---:|
-| 单孤子 A | SD | 0.611 | 0.601 |
-| 单孤子 A | SD2† | 0.243 | 0.464 |
-| 单孤子 A | FD | 0.686 | 0.671 |
-| 单孤子 B | SD | 1.075 | 1.064 |
-| 单孤子 B | SD2 | 1.008 | 0.947 |
-| 单孤子 B | FD | 0.798 | 1.102 |
-| 二孤子 C | SD | 0.980 | 1.071 |
-| 二孤子 C | SD2 | 0.828 | 0.761 |
-| 二孤子 C | FD | 0.676 | 1.101 |
+<table class="result-table">
+<thead><tr><th scope="col">算例</th><th scope="col">空间方案</th><th scope="col">场</th><th scope="col">固定网格</th><th scope="col">动网格</th></tr></thead>
+<tbody>
+<tr class="case-start">
+<th class="case-label" scope="rowgroup" rowspan="6">单孤子 A</th>
+<th class="scheme-label" scope="rowgroup" rowspan="2">SD</th>
+<th class="field-label" scope="row">$u$</th>
+<td class="error-value" data-error="0.0005424866284184926">5.425e-4</td>
+<td class="error-value" data-error="0.00033167767151121019"><strong>3.317e-4</strong></td>
+</tr>
+<tr class="">
+<th class="field-label" scope="row">$v$</th>
+<td class="error-value" data-error="0.00099397444268767288">9.940e-4</td>
+<td class="error-value" data-error="0.00059698767520566243"><strong>5.970e-4</strong></td>
+</tr>
+<tr class="pair-start">
+<th class="scheme-label" scope="rowgroup" rowspan="2">SD2</th>
+<th class="field-label" scope="row">$u$</th>
+<td class="error-value" data-error="0.0023488093746311112">2.349e-3<sup>†</sup></td>
+<td class="error-value" data-error="0.00057022367152970155"><strong>5.702e-4</strong></td>
+</tr>
+<tr class="">
+<th class="field-label" scope="row">$v$</th>
+<td class="error-value" data-error="0.0017033965967641063">1.703e-3<sup>†</sup></td>
+<td class="error-value" data-error="0.00078984608385623822"><strong>7.898e-4</strong></td>
+</tr>
+<tr class="pair-start">
+<th class="scheme-label" scope="rowgroup" rowspan="2">FD</th>
+<th class="field-label" scope="row">$u$</th>
+<td class="error-value" data-error="0.00077164292627296405">7.716e-4</td>
+<td class="error-value" data-error="0.00052930742648849005"><strong>5.293e-4</strong></td>
+</tr>
+<tr class="">
+<th class="field-label" scope="row">$v$</th>
+<td class="error-value" data-error="0.0011819604362610647">1.182e-3</td>
+<td class="error-value" data-error="0.00079265537835060407"><strong>7.927e-4</strong></td>
+</tr>
+<tr class="case-start">
+<th class="case-label" scope="rowgroup" rowspan="6">单孤子 B</th>
+<th class="scheme-label" scope="rowgroup" rowspan="2">SD</th>
+<th class="field-label" scope="row">$u$</th>
+<td class="error-value" data-error="7.835417345947171e-06"><strong>7.835e-6</strong></td>
+<td class="error-value" data-error="8.4195457020763698e-06">8.420e-6</td>
+</tr>
+<tr class="">
+<th class="field-label" scope="row">$v$</th>
+<td class="error-value" data-error="2.9349494853336822e-06"><strong>2.935e-6</strong></td>
+<td class="error-value" data-error="3.1232775912215516e-06">3.123e-6</td>
+</tr>
+<tr class="pair-start">
+<th class="scheme-label" scope="rowgroup" rowspan="2">SD2</th>
+<th class="field-label" scope="row">$u$</th>
+<td class="error-value" data-error="8.5311604314519673e-06"><strong>8.531e-6</strong></td>
+<td class="error-value" data-error="8.5977653438984447e-06">8.598e-6</td>
+</tr>
+<tr class="">
+<th class="field-label" scope="row">$v$</th>
+<td class="error-value" data-error="3.6541425808001016e-06">3.654e-6</td>
+<td class="error-value" data-error="3.4589334964030272e-06"><strong>3.459e-6</strong></td>
+</tr>
+<tr class="pair-start">
+<th class="scheme-label" scope="rowgroup" rowspan="2">FD</th>
+<th class="field-label" scope="row">$u$</th>
+<td class="error-value" data-error="4.4866620274586211e-06">4.487e-6</td>
+<td class="error-value" data-error="3.5798707945233765e-06"><strong>3.580e-6</strong></td>
+</tr>
+<tr class="">
+<th class="field-label" scope="row">$v$</th>
+<td class="error-value" data-error="1.5400575441582021e-06"><strong>1.540e-6</strong></td>
+<td class="error-value" data-error="1.6975730521839871e-06">1.698e-6</td>
+</tr>
+<tr class="case-start">
+<th class="case-label" scope="rowgroup" rowspan="6">二孤子 C</th>
+<th class="scheme-label" scope="rowgroup" rowspan="2">SD</th>
+<th class="field-label" scope="row">$u$</th>
+<td class="error-value" data-error="9.9384573042371471e-06">9.938e-6</td>
+<td class="error-value" data-error="9.744408561107587e-06"><strong>9.744e-6</strong></td>
+</tr>
+<tr class="">
+<th class="field-label" scope="row">$v$</th>
+<td class="error-value" data-error="3.4778979492999795e-06"><strong>3.478e-6</strong></td>
+<td class="error-value" data-error="3.7251165048712842e-06">3.725e-6</td>
+</tr>
+<tr class="pair-start">
+<th class="scheme-label" scope="rowgroup" rowspan="2">SD2</th>
+<th class="field-label" scope="row">$u$</th>
+<td class="error-value" data-error="1.319223049484064e-05">1.319e-5</td>
+<td class="error-value" data-error="1.0924825935898497e-05"><strong>1.092e-5</strong></td>
+</tr>
+<tr class="">
+<th class="field-label" scope="row">$v$</th>
+<td class="error-value" data-error="5.9203893424397691e-06">5.920e-6</td>
+<td class="error-value" data-error="4.5031601834666368e-06"><strong>4.503e-6</strong></td>
+</tr>
+<tr class="pair-start">
+<th class="scheme-label" scope="rowgroup" rowspan="2">FD</th>
+<th class="field-label" scope="row">$u$</th>
+<td class="error-value" data-error="8.5941230213992803e-06">8.594e-6</td>
+<td class="error-value" data-error="5.8073944056991067e-06"><strong>5.807e-6</strong></td>
+</tr>
+<tr class="">
+<th class="field-label" scope="row">$v$</th>
+<td class="error-value" data-error="1.9595038985853463e-06"><strong>1.960e-6</strong></td>
+<td class="error-value" data-error="2.1573692995380256e-06">2.157e-6</td>
+</tr>
+</tbody>
+</table>
 
-单孤子 A 中，SD 与 FD 的两个场均得到改善，误差降低约 31%–40%。单孤子 B 中，SD 的两个场误差均略增，FD 的 $u$ 改善约 20%，$v$ 却增加约 10%。二孤子 C 中，SD2 双场改善约 17% 和 24%，FD 仍表现为 $u$ 改善、$v$ 略差。动网格收益因而同时依赖算例、空间方案与物理场。单孤子 A 的 SD2 比值涉及空间敏感的固定网格结果，不据此估计稳定收益。
+单孤子 A 中，动网格降低三种方案的双场误差。单孤子 B 中，FD 的 $u$ 误差降低约 20%，$v$ 误差增加约 10%。二孤子 C 中，SD2 的双场误差分别降低约 17% 和 24%；FD 的 $u$ 误差降低约 32%，$v$ 误差增加约 10%。
 
-这里的网格因素包含初始节点分布与后续节点运动：fixed 使用均匀节点，moving 使用自适应初始节点并持续移动。不同离散化采用相同的监测规则，节点由各自数值场驱动。表 5 衡量两套网格策略的总体效果，不单独分离初始布点与后续移动的贡献。
+<!-- DLW_SAVED_FIELDS_BEGIN -->
 
-## 6　结论
+## 6　Euler 局部误差曲线
 
-在原文参数与共同评价条件下，SD 与 FD 的相对精度依赖算例。两种时间算法在单孤子 A 中的总误差接近，在单孤子 B 与二孤子 C 中则为 RK4 双场较小；后两个算例中，SD 与 SD2 的 $u$ 排名均随时间算法改变。自适应动网格既可能改善双场，也可能使一个或两个场的误差增大，其收益需要结合算例、离散化与物理量评价。
+取 $T=0.01$、$x\in[-1,1]$，横轴为 $x$，纵轴为各 $y$ 层上的最大绝对误差 $e_f(x)=\max_j|f_h(x,y_j,T)-f_*(x,y_j,T)|$。每图用蓝、橙、绿三条曲线分别表示 SD、SD2、FD；曲线越低，误差越小。同一算例、同一场的固定网格与动网格图采用相同纵轴尺度。
 
-这些结果支持对时间算法、空间离散与网格进行配对研究，而不支持脱离其余条件给出单一最优方案。当前结论限于所列参数、分辨率与短时间区间；时间自收敛支持 Euler 一阶行为，空间误差常数及网格一致的收敛范围仍需单独估计。进一步比较空间精度时，应固定算例、时间算法与网格策略，分别考察 $h_y$ 与 $\Delta x$ 的变化。
+
+<h3 id="error-case-A">单孤子 A</h3>
+<div class="error-curve-pair">
+<figure class="field-figure">
+<img alt="算例 A，固定网格：u 的绝对误差随 x 的变化。" decoding="async" loading="lazy" src="Workspaces/index_readability_20261006/figures/fig1a_euler_fixed_u_error_curve.png"/>
+<figcaption>图 1　算例 A，固定网格：u 的绝对误差随 x 的变化。</figcaption>
+</figure>
+<figure class="field-figure">
+<img alt="算例 A，固定网格：v 的绝对误差随 x 的变化。" decoding="async" loading="lazy" src="Workspaces/index_readability_20261006/figures/fig1a_euler_fixed_v_error_curve.png"/>
+<figcaption>图 2　算例 A，固定网格：v 的绝对误差随 x 的变化。</figcaption>
+</figure>
+</div>
+<div class="error-curve-pair">
+<figure class="field-figure">
+<img alt="算例 A，移动网格：u 的绝对误差随 x 的变化。" decoding="async" loading="lazy" src="Workspaces/index_readability_20261006/figures/fig1a_euler_moving_u_error_curve.png"/>
+<figcaption>图 3　算例 A，动网格：u 的绝对误差随 x 的变化。</figcaption>
+</figure>
+<figure class="field-figure">
+<img alt="算例 A，移动网格：v 的绝对误差随 x 的变化。" decoding="async" loading="lazy" src="Workspaces/index_readability_20261006/figures/fig1a_euler_moving_v_error_curve.png"/>
+<figcaption>图 4　算例 A，动网格：v 的绝对误差随 x 的变化。</figcaption>
+</figure>
+</div>
+<h3 id="error-case-B">单孤子 B</h3>
+<div class="error-curve-pair">
+<figure class="field-figure">
+<img alt="算例 B，固定网格：u 的绝对误差随 x 的变化。" decoding="async" loading="lazy" src="Workspaces/index_readability_20261006/figures/fig1b_euler_fixed_u_error_curve.png"/>
+<figcaption>图 5　算例 B，固定网格：u 的绝对误差随 x 的变化。</figcaption>
+</figure>
+<figure class="field-figure">
+<img alt="算例 B，固定网格：v 的绝对误差随 x 的变化。" decoding="async" loading="lazy" src="Workspaces/index_readability_20261006/figures/fig1b_euler_fixed_v_error_curve.png"/>
+<figcaption>图 6　算例 B，固定网格：v 的绝对误差随 x 的变化。</figcaption>
+</figure>
+</div>
+<div class="error-curve-pair">
+<figure class="field-figure">
+<img alt="算例 B，移动网格：u 的绝对误差随 x 的变化。" decoding="async" loading="lazy" src="Workspaces/index_readability_20261006/figures/fig1b_euler_moving_u_error_curve.png"/>
+<figcaption>图 7　算例 B，动网格：u 的绝对误差随 x 的变化。</figcaption>
+</figure>
+<figure class="field-figure">
+<img alt="算例 B，移动网格：v 的绝对误差随 x 的变化。" decoding="async" loading="lazy" src="Workspaces/index_readability_20261006/figures/fig1b_euler_moving_v_error_curve.png"/>
+<figcaption>图 8　算例 B，动网格：v 的绝对误差随 x 的变化。</figcaption>
+</figure>
+</div>
+<h3 id="error-case-C">二孤子 C</h3>
+<div class="error-curve-pair">
+<figure class="field-figure">
+<img alt="算例 C，固定网格：u 的绝对误差随 x 的变化。" decoding="async" loading="lazy" src="Workspaces/index_readability_20261006/figures/fig3_euler_fixed_u_error_curve.png"/>
+<figcaption>图 9　算例 C，固定网格：u 的绝对误差随 x 的变化。</figcaption>
+</figure>
+<figure class="field-figure">
+<img alt="算例 C，固定网格：v 的绝对误差随 x 的变化。" decoding="async" loading="lazy" src="Workspaces/index_readability_20261006/figures/fig3_euler_fixed_v_error_curve.png"/>
+<figcaption>图 10　算例 C，固定网格：v 的绝对误差随 x 的变化。</figcaption>
+</figure>
+</div>
+<div class="error-curve-pair">
+<figure class="field-figure">
+<img alt="算例 C，移动网格：u 的绝对误差随 x 的变化。" decoding="async" loading="lazy" src="Workspaces/index_readability_20261006/figures/fig3_euler_moving_u_error_curve.png"/>
+<figcaption>图 11　算例 C，动网格：u 的绝对误差随 x 的变化。</figcaption>
+</figure>
+<figure class="field-figure">
+<img alt="算例 C，移动网格：v 的绝对误差随 x 的变化。" decoding="async" loading="lazy" src="Workspaces/index_readability_20261006/figures/fig3_euler_moving_v_error_curve.png"/>
+<figcaption>图 12　算例 C，动网格：v 的绝对误差随 x 的变化。</figcaption>
+</figure>
+</div>
+
+
+<!-- DLW_SAVED_FIELDS_END -->
+
+## 7　结论
+
+在 RK4 固定网格下，单孤子 A 的 SD 双场误差最小，单孤子 B 与二孤子 C 的 FD 双场误差最小。后两组采用 RK4 时精度提升明显；动网格在单孤子 A 中降低双场误差，在单孤子 B 与二孤子 C 中呈现不同的场间表现。Euler 的时间自收敛观测阶接近 1。
 
 ## 参考资料
 

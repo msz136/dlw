@@ -1,0 +1,1463 @@
+{
+  "date": "2026-10-01",
+  "role": "内部历史审查；不以这些后验排名或小幅差距作为研究立题。后续研究应理论先行、先给预测，最后验证；优化收益至少达到数量级才值得研究。",
+  "scope": "旧轨道重处理：只读取既有 NPZ 与历史表格，无新 PDE 演化，无参数优化。",
+  "runtime": {
+    "python": "3.13.3",
+    "numpy": "2.2.5",
+    "scipy": "1.17.0"
+  },
+  "evaluation": {
+    "t": 0.01,
+    "x_interval": [
+      -10.0,
+      10.0
+    ],
+    "x_count": 4001,
+    "common_y": [
+      -1.4375,
+      -1.3125,
+      -1.1875,
+      -1.0625,
+      -0.9375,
+      -0.8125,
+      -0.6875,
+      -0.5625,
+      -0.4375,
+      -0.3125,
+      -0.1875,
+      -0.0625,
+      0.0625,
+      0.1875,
+      0.3125,
+      0.4375,
+      0.5625,
+      0.6875,
+      0.8125,
+      0.9375,
+      1.0625,
+      1.1875,
+      1.3125,
+      1.4375
+    ],
+    "norm": "sampled maximum absolute value",
+    "interpolation": "SciPy CubicSpline default not-a-knot in x; fine y additionally interpolated to the same 24 main-grid y layers",
+    "physical_name_mapping": {
+      "SD2": "SDR"
+    }
+  },
+  "analytic_formula": {
+    "definitions": "S=p+q; omega=q^2-p^2; ell=1/(p-a)+1/(q+a); gamma=-(p-a)/(q+a); zeta=S*x+omega*t+ell*y-log(S)",
+    "u": "2*S*(sigmoid(zeta+log(gamma))-sigmoid(zeta))",
+    "v": "2*S*ell*(sf*(1-sf)+sg*(1-sg)); sf=sigmoid(zeta+log(gamma)); sg=sigmoid(zeta)",
+    "fig1a": "zeta=3*x+3*t-3*y/4-log(3); gamma=1/4; u=6*(sf-sg); v=-4.5*(sf*(1-sf)+sg*(1-sg))",
+    "fig1b": "zeta=x-7*t-y/2; gamma=2; u=2*(sf-sg); v=-(sf*(1-sf)+sg*(1-sg))",
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\run.py",
+    "source_lines": [
+      71,
+      80
+    ],
+    "check": "Sigmoid evaluation checked against direct rational tau derivatives and historical stored error norms; this is an implementation cross-check, not a new PDE proof."
+  },
+  "sources": [
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\results.json",
+      "sha256": "755913eb9e380fc565f5953a1c473c421e234d2e4c68755d9c10d5564e35f124"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\comparison.csv",
+      "sha256": "81407d289ef3cac9233fd04e5298caaa0552fc92f002e042c1abc9d8cdb7b848"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\control_comparisons.csv",
+      "sha256": "9b031f157fd4bf7d1737a810d26e8de8d11993bf8b3614231ce579318e95120c"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\fine_time_checks.csv",
+      "sha256": "1579b74d1e38cf1565f848d0dbac1431a9707fa8252ccb8d3adcdf7ac594c05c"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\audit.py",
+      "sha256": "e576377fbb8339ef5e89ea2c2a3a93f7c621ac91ee1ac5af075f7c5908ca7bbd"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_cases_20260927\\run.py",
+      "sha256": "3adef41ecae6d8e37c226a35f7f5f8af85f5b2683d9e92a8a6fa031522856db4"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_research_pipeline_20261001\\read_saved_fields.py",
+      "sha256": "1ab241f4a29cee52b99da04e22a7f0c985707f91229c4e71df646e5402c64292"
+    }
+  ],
+  "cases": {
+    "fig1a": {
+      "parameters": {
+        "a": 2.0,
+        "p": 1.0,
+        "q": 2.0,
+        "c1": 1.0,
+        "phase": 0.0
+      },
+      "formula_check_max_abs_difference": {
+        "u": 1.9984014443252818e-15,
+        "v": 1.3412394025275054e-15
+      },
+      "runs": {
+        "main": {
+          "SD": {
+            "spec": {
+              "case": "fig1a",
+              "model": "SD",
+              "mesh": "fixed",
+              "variant": "main",
+              "nx": 256,
+              "L": 40.0,
+              "h": 0.125,
+              "dt": 0.000125,
+              "T": 0.02,
+              "method": "RK4",
+              "eval_half": 10.0
+            },
+            "profile": {
+              "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_time_curves_20260928\\out\\fig1a_structure_fixed_main.npz",
+              "sha256": "1e943320250e07b1a0486daba9044c6a3c26659ec74c3f9791d25d10d8ba33c7"
+            },
+            "manifest_profile_sha256_verified": true,
+            "native_y_count": 24,
+            "native_y_error": {
+              "u": 0.0005424866284184926,
+              "v": 0.000993974442688117
+            },
+            "common_y_error": {
+              "u": 0.0005424866284184926,
+              "v": 0.000993974442688117
+            },
+            "stored_native_error": {
+              "u": 0.0005424866284184926,
+              "v": 0.0009939744426876729
+            },
+            "stored_history_max_abs_difference": 4.440892098500626e-16,
+            "csv_native_error": {
+              "u": 0.0005424866284184926,
+              "v": 0.0009939744426876729
+            },
+            "csv_evidence": {
+              "file": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\comparison.csv",
+              "lines": [
+                5
+              ]
+            },
+            "csv_max_abs_difference": 4.440892098500626e-16
+          },
+          "SD2": {
+            "spec": {
+              "method": "RK4",
+              "case": "fig1a",
+              "model": "SD2",
+              "mesh": "fixed",
+              "variant": "main",
+              "nx": 256,
+              "L": 40.0,
+              "h": 0.125,
+              "dt": 0.000125,
+              "T": 0.02,
+              "eval_half": 10.0
+            },
+            "profile": {
+              "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\RK4\\fig1a_SD2_fixed_main.npz",
+              "sha256": "17c94c1b0a0c65979d7b16372d1fb7a03e54d6d18453f214c5b86053decd288a"
+            },
+            "manifest_profile_sha256_verified": true,
+            "native_y_count": 24,
+            "native_y_error": {
+              "u": 0.002348809374631111,
+              "v": 0.0017033965967641063
+            },
+            "common_y_error": {
+              "u": 0.002348809374631111,
+              "v": 0.0017033965967641063
+            },
+            "stored_native_error": {
+              "u": 0.002348809374631111,
+              "v": 0.0017033965967641063
+            },
+            "stored_history_max_abs_difference": 0.0,
+            "csv_native_error": {
+              "u": 0.002348809374631111,
+              "v": 0.0017033965967641063
+            },
+            "csv_evidence": {
+              "file": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\comparison.csv",
+              "lines": [
+                5
+              ]
+            },
+            "csv_max_abs_difference": 0.0
+          },
+          "FD": {
+            "spec": {
+              "case": "fig1a",
+              "model": "FD",
+              "mesh": "fixed",
+              "variant": "main",
+              "nx": 256,
+              "L": 40.0,
+              "h": 0.125,
+              "dt": 0.000125,
+              "T": 0.02,
+              "method": "RK4",
+              "eval_half": 10.0
+            },
+            "profile": {
+              "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_time_curves_20260928\\out\\fig1a_fd_fixed_main.npz",
+              "sha256": "81a649752e785c182a283e291acd6b43264beaf74b80fb91b5e68b5ed51f9599"
+            },
+            "manifest_profile_sha256_verified": true,
+            "native_y_count": 24,
+            "native_y_error": {
+              "u": 0.000771642926272964,
+              "v": 0.0011819604362610647
+            },
+            "common_y_error": {
+              "u": 0.000771642926272964,
+              "v": 0.0011819604362610647
+            },
+            "stored_native_error": {
+              "u": 0.000771642926272964,
+              "v": 0.0011819604362610647
+            },
+            "stored_history_max_abs_difference": 0.0,
+            "csv_native_error": {
+              "u": 0.000771642926272964,
+              "v": 0.0011819604362610647
+            },
+            "csv_evidence": {
+              "file": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\comparison.csv",
+              "lines": [
+                5
+              ]
+            },
+            "csv_max_abs_difference": 0.0
+          }
+        },
+        "x_half": {
+          "SD": {
+            "spec": {
+              "method": "RK4",
+              "case": "fig1a",
+              "model": "SD",
+              "mesh": "fixed",
+              "variant": "x_half",
+              "nx": 512,
+              "L": 40.0,
+              "h": 0.125,
+              "dt": 6.25e-05,
+              "T": 0.02,
+              "eval_half": 10.0
+            },
+            "profile": {
+              "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\RK4\\fig1a_SD_fixed_x_half.npz",
+              "sha256": "2b88e2ed7fc87df04c3ea0bb066eb588509df682d6be34e8758d7f1b3c093dae"
+            },
+            "manifest_profile_sha256_verified": true,
+            "native_y_count": 24,
+            "native_y_error": {
+              "u": 0.00034160608388389413,
+              "v": 0.00018374462810122338
+            },
+            "common_y_error": {
+              "u": 0.00034160608388389413,
+              "v": 0.00018374462810122338
+            },
+            "stored_native_error": {
+              "u": 0.00034160608388389413,
+              "v": 0.00018374462810122338
+            },
+            "stored_history_max_abs_difference": 0.0,
+            "csv_native_error": {
+              "u": 0.00034160608388389413,
+              "v": 0.00018374462810122338
+            },
+            "csv_evidence": {
+              "file": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\control_comparisons.csv",
+              "lines": [
+                14,
+                15
+              ]
+            },
+            "csv_max_abs_difference": 0.0
+          },
+          "SD2": {
+            "spec": {
+              "method": "RK4",
+              "case": "fig1a",
+              "model": "SD2",
+              "mesh": "fixed",
+              "variant": "x_half",
+              "nx": 512,
+              "L": 40.0,
+              "h": 0.125,
+              "dt": 6.25e-05,
+              "T": 0.02,
+              "eval_half": 10.0
+            },
+            "profile": {
+              "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\RK4\\fig1a_SD2_fixed_x_half.npz",
+              "sha256": "d9d9a79cdbd91d3c076253b3a12d8e62f80c8355d9c882e5966c7c926f353380"
+            },
+            "manifest_profile_sha256_verified": true,
+            "native_y_count": 24,
+            "native_y_error": {
+              "u": 0.0004463159375733827,
+              "v": 0.00029048494703154404
+            },
+            "common_y_error": {
+              "u": 0.0004463159375733827,
+              "v": 0.00029048494703154404
+            },
+            "stored_native_error": {
+              "u": 0.0004463159375733827,
+              "v": 0.00029048494703154404
+            },
+            "stored_history_max_abs_difference": 0.0,
+            "csv_native_error": {
+              "u": 0.0004463159375733827,
+              "v": 0.00029048494703154404
+            },
+            "csv_evidence": {
+              "file": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\control_comparisons.csv",
+              "lines": [
+                46,
+                47
+              ]
+            },
+            "csv_max_abs_difference": 0.0
+          },
+          "FD": {
+            "spec": {
+              "method": "RK4",
+              "case": "fig1a",
+              "model": "FD",
+              "mesh": "fixed",
+              "variant": "x_half",
+              "nx": 512,
+              "L": 40.0,
+              "h": 0.125,
+              "dt": 6.25e-05,
+              "T": 0.02,
+              "eval_half": 10.0
+            },
+            "profile": {
+              "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\RK4\\fig1a_FD_fixed_x_half.npz",
+              "sha256": "6670c1721889d0f2f4de8c27885428ef7a9ba01f8a53f4cc865dd1f2e1ea2627"
+            },
+            "manifest_profile_sha256_verified": true,
+            "native_y_count": 24,
+            "native_y_error": {
+              "u": 0.000152757683329785,
+              "v": 0.00030534496742506967
+            },
+            "common_y_error": {
+              "u": 0.000152757683329785,
+              "v": 0.00030534496742506967
+            },
+            "stored_native_error": {
+              "u": 0.000152757683329785,
+              "v": 0.0003053449674252917
+            },
+            "stored_history_max_abs_difference": 2.220446049250313e-16,
+            "csv_native_error": {
+              "u": 0.000152757683329785,
+              "v": 0.0003053449674252917
+            },
+            "csv_evidence": {
+              "file": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\control_comparisons.csv",
+              "lines": [
+                78,
+                79
+              ]
+            },
+            "csv_max_abs_difference": 2.220446049250313e-16
+          }
+        },
+        "y_half": {
+          "SD": {
+            "spec": {
+              "method": "RK4",
+              "case": "fig1a",
+              "model": "SD",
+              "mesh": "fixed",
+              "variant": "y_half",
+              "nx": 256,
+              "L": 40.0,
+              "h": 0.0625,
+              "dt": 0.000125,
+              "T": 0.02,
+              "eval_half": 10.0
+            },
+            "profile": {
+              "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\RK4\\fig1a_SD_fixed_y_half.npz",
+              "sha256": "273fe2f924dc47653506a6323d8ca80c15afaaaa3d48fed1ea71fddb21c2798f"
+            },
+            "manifest_profile_sha256_verified": true,
+            "native_y_count": 48,
+            "native_y_error": {
+              "u": 0.000589216310185936,
+              "v": 0.0009765551329212752
+            },
+            "common_y_error": {
+              "u": 0.0005889560091525414,
+              "v": 0.0009766781228122134
+            },
+            "stored_native_error": {
+              "u": 0.000589216310185936,
+              "v": 0.0009765551329221633
+            },
+            "stored_history_max_abs_difference": 8.881784197001252e-16,
+            "csv_native_error": {
+              "u": 0.000589216310185936,
+              "v": 0.0009765551329221633
+            },
+            "csv_evidence": {
+              "file": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\control_comparisons.csv",
+              "lines": [
+                22,
+                23
+              ]
+            },
+            "csv_max_abs_difference": 8.881784197001252e-16
+          },
+          "SD2": {
+            "spec": {
+              "method": "RK4",
+              "case": "fig1a",
+              "model": "SD2",
+              "mesh": "fixed",
+              "variant": "y_half",
+              "nx": 256,
+              "L": 40.0,
+              "h": 0.0625,
+              "dt": 0.000125,
+              "T": 0.02,
+              "eval_half": 10.0
+            },
+            "profile": {
+              "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\RK4\\fig1a_SD2_fixed_y_half.npz",
+              "sha256": "ae370decae8cf715936bea64599656bbea4591dcd4f43ce9eea42b6addd9df0a"
+            },
+            "manifest_profile_sha256_verified": true,
+            "native_y_count": 48,
+            "native_y_error": {
+              "u": 0.0022795927833190177,
+              "v": 0.0016103525471709013
+            },
+            "common_y_error": {
+              "u": 0.002276928466231176,
+              "v": 0.0016088582754218983
+            },
+            "stored_native_error": {
+              "u": 0.0022795927833190177,
+              "v": 0.0016103525471709013
+            },
+            "stored_history_max_abs_difference": 0.0,
+            "csv_native_error": {
+              "u": 0.0022795927833190177,
+              "v": 0.0016103525471709013
+            },
+            "csv_evidence": {
+              "file": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\control_comparisons.csv",
+              "lines": [
+                54,
+                55
+              ]
+            },
+            "csv_max_abs_difference": 0.0
+          },
+          "FD": {
+            "spec": {
+              "method": "RK4",
+              "case": "fig1a",
+              "model": "FD",
+              "mesh": "fixed",
+              "variant": "y_half",
+              "nx": 256,
+              "L": 40.0,
+              "h": 0.0625,
+              "dt": 0.000125,
+              "T": 0.02,
+              "eval_half": 10.0
+            },
+            "profile": {
+              "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\RK4\\fig1a_FD_fixed_y_half.npz",
+              "sha256": "8e22e258c90d7ddab4fcd74b097d821388410fd2827609ad806f78525755e75a"
+            },
+            "manifest_profile_sha256_verified": true,
+            "native_y_count": 48,
+            "native_y_error": {
+              "u": 0.0006919979056134729,
+              "v": 0.001029770694813692
+            },
+            "common_y_error": {
+              "u": 0.000691835944419239,
+              "v": 0.0010285647552605859
+            },
+            "stored_native_error": {
+              "u": 0.0006919979056134729,
+              "v": 0.001029770694813692
+            },
+            "stored_history_max_abs_difference": 0.0,
+            "csv_native_error": {
+              "u": 0.0006919979056134729,
+              "v": 0.001029770694813692
+            },
+            "csv_evidence": {
+              "file": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\control_comparisons.csv",
+              "lines": [
+                86,
+                87
+              ]
+            },
+            "csv_max_abs_difference": 0.0
+          }
+        }
+      },
+      "variants": {
+        "main": {
+          "SDR_minus_SD_field_norm": {
+            "u": 0.0020276046378306933,
+            "v": 0.0021875398365045484
+          },
+          "SDR_error_norm_minus_SD_error_norm": {
+            "u": 0.0018063227462126186,
+            "v": 0.0007094221540759893
+          },
+          "SD_over_FD_common_error_ratio": {
+            "u": 0.7030280586367887,
+            "v": 0.8409540727373158
+          },
+          "SD_error_norm_minus_FD_error_norm": {
+            "u": -0.00022915629785447145,
+            "v": -0.00018798599357294776
+          }
+        },
+        "x_half": {
+          "SDR_minus_SD_field_norm": {
+            "u": 0.00017199447250471067,
+            "v": 0.00019896632794158542
+          },
+          "SDR_error_norm_minus_SD_error_norm": {
+            "u": 0.0001047098536894886,
+            "v": 0.00010674031893032065
+          },
+          "SD_over_FD_common_error_ratio": {
+            "u": 2.2362612239045854,
+            "v": 0.6017607876452509
+          },
+          "SD_error_norm_minus_FD_error_norm": {
+            "u": 0.00018884840055410912,
+            "v": -0.00012160033932384628
+          }
+        },
+        "y_half": {
+          "SDR_minus_SD_field_norm": {
+            "u": 0.002026239637938687,
+            "v": 0.002188892751072702
+          },
+          "SDR_error_norm_minus_SD_error_norm": {
+            "u": 0.0016879724570786347,
+            "v": 0.0006321801526096849
+          },
+          "SD_over_FD_common_error_ratio": {
+            "u": 0.8512943189832959,
+            "v": 0.9495543356089166
+          },
+          "SD_error_norm_minus_FD_error_norm": {
+            "u": -0.00010287993526669759,
+            "v": -5.188663244837244e-05
+          }
+        }
+      },
+      "SDR_SD_x_refinement_reduction_factor": {
+        "u": 11.788777908401448,
+        "v": 10.994522837787853
+      },
+      "SDR_SD_y_half_over_main_field_difference": {
+        "u": 0.999326791887068,
+        "v": 1.0006184639683249
+      },
+      "existing_time_control_evidence": {
+        "main": [
+          {
+            "method": "RK4",
+            "case": "fig1a",
+            "model": "SD",
+            "mesh": "fixed",
+            "variant": "time_half",
+            "t": "0.01",
+            "field": "u",
+            "main_error": "0.0005424866284184926",
+            "control_error": "0.0005424866284231555",
+            "field_difference": "3.441691376337985e-14",
+            "initial_peak": "1.9999994279910225",
+            "pass_threshold": "True",
+            "source_line": 6
+          },
+          {
+            "method": "RK4",
+            "case": "fig1a",
+            "model": "SD",
+            "mesh": "fixed",
+            "variant": "time_half",
+            "t": "0.01",
+            "field": "v",
+            "main_error": "0.0009939744426876729",
+            "control_error": "0.0009939744426963326",
+            "field_difference": "2.4202861936828413e-14",
+            "initial_peak": "1.999999570993226",
+            "pass_threshold": "True",
+            "source_line": 7
+          },
+          {
+            "method": "RK4",
+            "case": "fig1a",
+            "model": "SD2",
+            "mesh": "fixed",
+            "variant": "time_half",
+            "t": "0.01",
+            "field": "u",
+            "main_error": "0.002348809374631111",
+            "control_error": "0.002348809374655092",
+            "field_difference": "1.5969800650627178e-13",
+            "initial_peak": "1.9999994279910225",
+            "pass_threshold": "True",
+            "source_line": 38
+          },
+          {
+            "method": "RK4",
+            "case": "fig1a",
+            "model": "SD2",
+            "mesh": "fixed",
+            "variant": "time_half",
+            "t": "0.01",
+            "field": "v",
+            "main_error": "0.0017033965967641063",
+            "control_error": "0.0017033965967507836",
+            "field_difference": "2.4235218143518797e-12",
+            "initial_peak": "1.999999570993226",
+            "pass_threshold": "True",
+            "source_line": 39
+          },
+          {
+            "method": "RK4",
+            "case": "fig1a",
+            "model": "FD",
+            "mesh": "fixed",
+            "variant": "time_half",
+            "t": "0.01",
+            "field": "u",
+            "main_error": "0.000771642926272964",
+            "control_error": "0.000771642926277627",
+            "field_difference": "3.6415315207705135e-14",
+            "initial_peak": "1.9999994279910225",
+            "pass_threshold": "True",
+            "source_line": 70
+          },
+          {
+            "method": "RK4",
+            "case": "fig1a",
+            "model": "FD",
+            "mesh": "fixed",
+            "variant": "time_half",
+            "t": "0.01",
+            "field": "v",
+            "main_error": "0.0011819604362610647",
+            "control_error": "0.0011819604362741654",
+            "field_difference": "2.6201263381153694e-14",
+            "initial_peak": "1.999999570993226",
+            "pass_threshold": "True",
+            "source_line": 71
+          }
+        ],
+        "x_half": [
+          {
+            "method": "RK4",
+            "case": "fig1a",
+            "model": "SD",
+            "mesh": "fixed",
+            "t": "0.01",
+            "field": "u",
+            "x_half_error": "0.00034160608388389413",
+            "x_half_time_half_error": "0.00034160608388300595",
+            "field_difference": "1.0103029524088925e-14",
+            "initial_peak": "1.9999994279910225",
+            "pass_threshold": "True",
+            "source_line": 6
+          },
+          {
+            "method": "RK4",
+            "case": "fig1a",
+            "model": "SD",
+            "mesh": "fixed",
+            "t": "0.01",
+            "field": "v",
+            "x_half_error": "0.00018374462810122338",
+            "x_half_time_half_error": "0.00018374462810255565",
+            "field_difference": "1.2878587085651816e-14",
+            "initial_peak": "1.999999570993226",
+            "pass_threshold": "True",
+            "source_line": 7
+          },
+          {
+            "method": "RK4",
+            "case": "fig1a",
+            "model": "SD2",
+            "mesh": "fixed",
+            "t": "0.01",
+            "field": "u",
+            "x_half_error": "0.0004463159375733827",
+            "x_half_time_half_error": "0.0004463159375005521",
+            "field_difference": "2.51541599747839e-12",
+            "initial_peak": "1.9999994279910225",
+            "pass_threshold": "True",
+            "source_line": 14
+          },
+          {
+            "method": "RK4",
+            "case": "fig1a",
+            "model": "SD2",
+            "mesh": "fixed",
+            "t": "0.01",
+            "field": "v",
+            "x_half_error": "0.00029048494703154404",
+            "x_half_time_half_error": "0.0002904849464877568",
+            "field_difference": "3.2077668373046584e-11",
+            "initial_peak": "1.999999570993226",
+            "pass_threshold": "True",
+            "source_line": 15
+          },
+          {
+            "method": "RK4",
+            "case": "fig1a",
+            "model": "FD",
+            "mesh": "fixed",
+            "t": "0.01",
+            "field": "u",
+            "x_half_error": "0.000152757683329785",
+            "x_half_time_half_error": "0.00015275768332800865",
+            "field_difference": "7.549516567451064e-15",
+            "initial_peak": "1.9999994279910225",
+            "pass_threshold": "True",
+            "source_line": 22
+          },
+          {
+            "method": "RK4",
+            "case": "fig1a",
+            "model": "FD",
+            "mesh": "fixed",
+            "t": "0.01",
+            "field": "v",
+            "x_half_error": "0.0003053449674252917",
+            "x_half_time_half_error": "0.00030534496742995465",
+            "field_difference": "1.332180893376389e-14",
+            "initial_peak": "1.999999570993226",
+            "pass_threshold": "True",
+            "source_line": 23
+          }
+        ]
+      }
+    },
+    "fig1b": {
+      "parameters": {
+        "a": 2.0,
+        "p": 4.0,
+        "q": -3.0,
+        "c1": 1.0,
+        "phase": 0.0
+      },
+      "formula_check_max_abs_difference": {
+        "u": 6.661338147750939e-16,
+        "v": 2.647621705209602e-16
+      },
+      "runs": {
+        "main": {
+          "SD": {
+            "spec": {
+              "case": "fig1b",
+              "model": "SD",
+              "mesh": "fixed",
+              "variant": "main",
+              "nx": 256,
+              "L": 40.0,
+              "h": 0.125,
+              "dt": 0.000125,
+              "T": 0.02,
+              "method": "RK4",
+              "eval_half": 10.0
+            },
+            "profile": {
+              "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_time_curves_20260928\\out\\fig1b_structure_fixed_main.npz",
+              "sha256": "29ab6da01951ba657451051870cb968b8e9f986e178a24613303eaf2ce567422"
+            },
+            "manifest_profile_sha256_verified": true,
+            "native_y_count": 24,
+            "native_y_error": {
+              "u": 7.835417345947171e-06,
+              "v": 2.934949485333682e-06
+            },
+            "common_y_error": {
+              "u": 7.835417345947171e-06,
+              "v": 2.934949485333682e-06
+            },
+            "stored_native_error": {
+              "u": 7.835417345947171e-06,
+              "v": 2.934949485333682e-06
+            },
+            "stored_history_max_abs_difference": 0.0,
+            "csv_native_error": {
+              "u": 7.835417345947171e-06,
+              "v": 2.934949485333682e-06
+            },
+            "csv_evidence": {
+              "file": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\comparison.csv",
+              "lines": [
+                15
+              ]
+            },
+            "csv_max_abs_difference": 0.0
+          },
+          "SD2": {
+            "spec": {
+              "method": "RK4",
+              "case": "fig1b",
+              "model": "SD2",
+              "mesh": "fixed",
+              "variant": "main",
+              "nx": 256,
+              "L": 40.0,
+              "h": 0.125,
+              "dt": 0.000125,
+              "T": 0.02,
+              "eval_half": 10.0
+            },
+            "profile": {
+              "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\RK4\\fig1b_SD2_fixed_main.npz",
+              "sha256": "3638d1c39a4dfbf1adadc27af937c4043a7997070c3d3b96f41a9501dbfcbf00"
+            },
+            "manifest_profile_sha256_verified": true,
+            "native_y_count": 24,
+            "native_y_error": {
+              "u": 8.531160431451967e-06,
+              "v": 3.6541425808001016e-06
+            },
+            "common_y_error": {
+              "u": 8.531160431451967e-06,
+              "v": 3.6541425808001016e-06
+            },
+            "stored_native_error": {
+              "u": 8.531160431451967e-06,
+              "v": 3.6541425808001016e-06
+            },
+            "stored_history_max_abs_difference": 0.0,
+            "csv_native_error": {
+              "u": 8.531160431451967e-06,
+              "v": 3.6541425808001016e-06
+            },
+            "csv_evidence": {
+              "file": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\comparison.csv",
+              "lines": [
+                15
+              ]
+            },
+            "csv_max_abs_difference": 0.0
+          },
+          "FD": {
+            "spec": {
+              "case": "fig1b",
+              "model": "FD",
+              "mesh": "fixed",
+              "variant": "main",
+              "nx": 256,
+              "L": 40.0,
+              "h": 0.125,
+              "dt": 0.000125,
+              "T": 0.02,
+              "method": "RK4",
+              "eval_half": 10.0
+            },
+            "profile": {
+              "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_time_curves_20260928\\out\\fig1b_fd_fixed_main.npz",
+              "sha256": "b5b015a99717648d293940210c929892602143cc5990cd640f14d9e7016d7c03"
+            },
+            "manifest_profile_sha256_verified": true,
+            "native_y_count": 24,
+            "native_y_error": {
+              "u": 4.486662027458621e-06,
+              "v": 1.540057544158202e-06
+            },
+            "common_y_error": {
+              "u": 4.486662027458621e-06,
+              "v": 1.540057544158202e-06
+            },
+            "stored_native_error": {
+              "u": 4.486662027458621e-06,
+              "v": 1.540057544158202e-06
+            },
+            "stored_history_max_abs_difference": 0.0,
+            "csv_native_error": {
+              "u": 4.486662027458621e-06,
+              "v": 1.540057544158202e-06
+            },
+            "csv_evidence": {
+              "file": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\comparison.csv",
+              "lines": [
+                15
+              ]
+            },
+            "csv_max_abs_difference": 0.0
+          }
+        },
+        "x_half": {
+          "SD": {
+            "spec": {
+              "method": "RK4",
+              "case": "fig1b",
+              "model": "SD",
+              "mesh": "fixed",
+              "variant": "x_half",
+              "nx": 512,
+              "L": 40.0,
+              "h": 0.125,
+              "dt": 6.25e-05,
+              "T": 0.02,
+              "eval_half": 10.0
+            },
+            "profile": {
+              "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\RK4\\fig1b_SD_fixed_x_half.npz",
+              "sha256": "3766adab01e1d1475d986e5dc78522fd76bfd766e1b4fe173afe9116c206e381"
+            },
+            "manifest_profile_sha256_verified": true,
+            "native_y_count": 24,
+            "native_y_error": {
+              "u": 9.263975595807938e-06,
+              "v": 3.266463749207471e-06
+            },
+            "common_y_error": {
+              "u": 9.263975595807938e-06,
+              "v": 3.266463749207471e-06
+            },
+            "stored_native_error": {
+              "u": 9.263975595807938e-06,
+              "v": 3.266463749207471e-06
+            },
+            "stored_history_max_abs_difference": 0.0,
+            "csv_native_error": {
+              "u": 9.263975595807938e-06,
+              "v": 3.266463749207471e-06
+            },
+            "csv_evidence": {
+              "file": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\control_comparisons.csv",
+              "lines": [
+                206,
+                207
+              ]
+            },
+            "csv_max_abs_difference": 0.0
+          },
+          "SD2": {
+            "spec": {
+              "method": "RK4",
+              "case": "fig1b",
+              "model": "SD2",
+              "mesh": "fixed",
+              "variant": "x_half",
+              "nx": 512,
+              "L": 40.0,
+              "h": 0.125,
+              "dt": 6.25e-05,
+              "T": 0.02,
+              "eval_half": 10.0
+            },
+            "profile": {
+              "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\RK4\\fig1b_SD2_fixed_x_half.npz",
+              "sha256": "3f3ee5d954260e6a814d38a5914305b072b94cdb7a494a2c2a202ded57c25cc9"
+            },
+            "manifest_profile_sha256_verified": true,
+            "native_y_count": 24,
+            "native_y_error": {
+              "u": 9.281965980934004e-06,
+              "v": 3.3010438960645594e-06
+            },
+            "common_y_error": {
+              "u": 9.281965980934004e-06,
+              "v": 3.3010438960645594e-06
+            },
+            "stored_native_error": {
+              "u": 9.281965980934004e-06,
+              "v": 3.3010438960645594e-06
+            },
+            "stored_history_max_abs_difference": 0.0,
+            "csv_native_error": {
+              "u": 9.281965980934004e-06,
+              "v": 3.3010438960645594e-06
+            },
+            "csv_evidence": {
+              "file": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\control_comparisons.csv",
+              "lines": [
+                238,
+                239
+              ]
+            },
+            "csv_max_abs_difference": 0.0
+          },
+          "FD": {
+            "spec": {
+              "method": "RK4",
+              "case": "fig1b",
+              "model": "FD",
+              "mesh": "fixed",
+              "variant": "x_half",
+              "nx": 512,
+              "L": 40.0,
+              "h": 0.125,
+              "dt": 6.25e-05,
+              "T": 0.02,
+              "eval_half": 10.0
+            },
+            "profile": {
+              "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\RK4\\fig1b_FD_fixed_x_half.npz",
+              "sha256": "3cff364b2a0472d066a243394c917e119a05ead6516f01c1a800fb970536d0d4"
+            },
+            "manifest_profile_sha256_verified": true,
+            "native_y_count": 24,
+            "native_y_error": {
+              "u": 2.769999673191137e-06,
+              "v": 1.6678910076950437e-06
+            },
+            "common_y_error": {
+              "u": 2.769999673191137e-06,
+              "v": 1.6678910076950437e-06
+            },
+            "stored_native_error": {
+              "u": 2.769999673191137e-06,
+              "v": 1.6678910076950437e-06
+            },
+            "stored_history_max_abs_difference": 0.0,
+            "csv_native_error": {
+              "u": 2.769999673191137e-06,
+              "v": 1.6678910076950437e-06
+            },
+            "csv_evidence": {
+              "file": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\control_comparisons.csv",
+              "lines": [
+                270,
+                271
+              ]
+            },
+            "csv_max_abs_difference": 0.0
+          }
+        },
+        "y_half": {
+          "SD": {
+            "spec": {
+              "method": "RK4",
+              "case": "fig1b",
+              "model": "SD",
+              "mesh": "fixed",
+              "variant": "y_half",
+              "nx": 256,
+              "L": 40.0,
+              "h": 0.0625,
+              "dt": 0.000125,
+              "T": 0.02,
+              "eval_half": 10.0
+            },
+            "profile": {
+              "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\RK4\\fig1b_SD_fixed_y_half.npz",
+              "sha256": "14263b0e4f5dab34054181ab5c68142ca97817983751ada8eec3d16d65691daf"
+            },
+            "manifest_profile_sha256_verified": true,
+            "native_y_count": 48,
+            "native_y_error": {
+              "u": 2.373854412540677e-06,
+              "v": 9.303007530991891e-07
+            },
+            "common_y_error": {
+              "u": 2.3567791700429552e-06,
+              "v": 9.297018040421712e-07
+            },
+            "stored_native_error": {
+              "u": 2.373854412540677e-06,
+              "v": 9.303007530991891e-07
+            },
+            "stored_history_max_abs_difference": 0.0,
+            "csv_native_error": {
+              "u": 2.373854412540677e-06,
+              "v": 9.303007530991891e-07
+            },
+            "csv_evidence": {
+              "file": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\control_comparisons.csv",
+              "lines": [
+                214,
+                215
+              ]
+            },
+            "csv_max_abs_difference": 0.0
+          },
+          "SD2": {
+            "spec": {
+              "method": "RK4",
+              "case": "fig1b",
+              "model": "SD2",
+              "mesh": "fixed",
+              "variant": "y_half",
+              "nx": 256,
+              "L": 40.0,
+              "h": 0.0625,
+              "dt": 0.000125,
+              "T": 0.02,
+              "eval_half": 10.0
+            },
+            "profile": {
+              "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\RK4\\fig1b_SD2_fixed_y_half.npz",
+              "sha256": "cfc6c5a700a1a3b9a75de5d877142afd30cbadc31e1f2c558e4a29a43c4bfabc"
+            },
+            "manifest_profile_sha256_verified": true,
+            "native_y_count": 48,
+            "native_y_error": {
+              "u": 2.647599855326588e-06,
+              "v": 1.4613457258727536e-06
+            },
+            "common_y_error": {
+              "u": 2.6479424146130803e-06,
+              "v": 1.4585201586481134e-06
+            },
+            "stored_native_error": {
+              "u": 2.647599855326588e-06,
+              "v": 1.4613457258727536e-06
+            },
+            "stored_history_max_abs_difference": 0.0,
+            "csv_native_error": {
+              "u": 2.647599855326588e-06,
+              "v": 1.4613457258727536e-06
+            },
+            "csv_evidence": {
+              "file": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\control_comparisons.csv",
+              "lines": [
+                246,
+                247
+              ]
+            },
+            "csv_max_abs_difference": 0.0
+          },
+          "FD": {
+            "spec": {
+              "method": "RK4",
+              "case": "fig1b",
+              "model": "FD",
+              "mesh": "fixed",
+              "variant": "y_half",
+              "nx": 256,
+              "L": 40.0,
+              "h": 0.0625,
+              "dt": 0.000125,
+              "T": 0.02,
+              "eval_half": 10.0
+            },
+            "profile": {
+              "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\RK4\\fig1b_FD_fixed_y_half.npz",
+              "sha256": "4d9ab689bae0004f13d3adb7706f0c1b9e04d88eb69dfc011d4a70523281a95f"
+            },
+            "manifest_profile_sha256_verified": true,
+            "native_y_count": 48,
+            "native_y_error": {
+              "u": 2.5006433460594835e-06,
+              "v": 6.449817406273262e-07
+            },
+            "common_y_error": {
+              "u": 2.5000685309195525e-06,
+              "v": 6.429218651904378e-07
+            },
+            "stored_native_error": {
+              "u": 2.5006433460594835e-06,
+              "v": 6.449817406273262e-07
+            },
+            "stored_history_max_abs_difference": 0.0,
+            "csv_native_error": {
+              "u": 2.5006433460594835e-06,
+              "v": 6.449817406273262e-07
+            },
+            "csv_evidence": {
+              "file": "C:\\Users\\msz\\aca\\Workspaces\\dlw_single_aligned_20260929\\out\\control_comparisons.csv",
+              "lines": [
+                278,
+                279
+              ]
+            },
+            "csv_max_abs_difference": 0.0
+          }
+        }
+      },
+      "variants": {
+        "main": {
+          "SDR_minus_SD_field_norm": {
+            "u": 9.489082704594587e-07,
+            "v": 1.0014174355865713e-06
+          },
+          "SDR_error_norm_minus_SD_error_norm": {
+            "u": 6.957430855047964e-07,
+            "v": 7.191930954664194e-07
+          },
+          "SD_over_FD_common_error_ratio": {
+            "u": 1.7463801146585103,
+            "v": 1.9057401435853036
+          },
+          "SD_error_norm_minus_FD_error_norm": {
+            "u": 3.34875531848855e-06,
+            "v": 1.39489194117548e-06
+          }
+        },
+        "x_half": {
+          "SDR_minus_SD_field_norm": {
+            "u": 6.027627963423043e-08,
+            "v": 6.390374007736455e-08
+          },
+          "SDR_error_norm_minus_SD_error_norm": {
+            "u": 1.7990385126065433e-08,
+            "v": 3.458014685708832e-08
+          },
+          "SD_over_FD_common_error_ratio": {
+            "u": 3.344395916529302,
+            "v": 1.9584395707736255
+          },
+          "SD_error_norm_minus_FD_error_norm": {
+            "u": 6.4939759226168015e-06,
+            "v": 1.5985727415124273e-06
+          }
+        },
+        "y_half": {
+          "SDR_minus_SD_field_norm": {
+            "u": 9.487829544796433e-07,
+            "v": 1.003634872265291e-06
+          },
+          "SDR_error_norm_minus_SD_error_norm": {
+            "u": 2.911632445701251e-07,
+            "v": 5.288183546059422e-07
+          },
+          "SD_over_FD_common_error_ratio": {
+            "u": 0.9426858267665591,
+            "v": 1.446057218425426
+          },
+          "SD_error_norm_minus_FD_error_norm": {
+            "u": -1.4328936087659727e-07,
+            "v": 2.8677993885173336e-07
+          }
+        }
+      },
+      "SDR_SD_x_refinement_reduction_factor": {
+        "u": 15.742648289138618,
+        "v": 15.670717150110672
+      },
+      "SDR_SD_y_half_over_main_field_difference": {
+        "u": 0.9998679366765824,
+        "v": 1.0022142980538589
+      },
+      "existing_time_control_evidence": {
+        "main": [
+          {
+            "method": "RK4",
+            "case": "fig1b",
+            "model": "SD",
+            "mesh": "fixed",
+            "variant": "time_half",
+            "t": "0.01",
+            "field": "u",
+            "main_error": "7.835417345947171e-06",
+            "control_error": "7.835417346002682e-06",
+            "field_difference": "4.440892098500626e-16",
+            "initial_peak": "0.34314574178929214",
+            "pass_threshold": "True",
+            "source_line": 198
+          },
+          {
+            "method": "RK4",
+            "case": "fig1b",
+            "model": "SD",
+            "mesh": "fixed",
+            "variant": "time_half",
+            "t": "0.01",
+            "field": "v",
+            "main_error": "2.934949485333682e-06",
+            "control_error": "2.9349494851671487e-06",
+            "field_difference": "1.4432899320127035e-15",
+            "initial_peak": "0.48528136265690747",
+            "pass_threshold": "True",
+            "source_line": 199
+          },
+          {
+            "method": "RK4",
+            "case": "fig1b",
+            "model": "SD2",
+            "mesh": "fixed",
+            "variant": "time_half",
+            "t": "0.01",
+            "field": "u",
+            "main_error": "8.531160431451967e-06",
+            "control_error": "8.53116041926727e-06",
+            "field_difference": "5.2506610170866e-14",
+            "initial_peak": "0.34314574178929214",
+            "pass_threshold": "True",
+            "source_line": 230
+          },
+          {
+            "method": "RK4",
+            "case": "fig1b",
+            "model": "SD2",
+            "mesh": "fixed",
+            "variant": "time_half",
+            "t": "0.01",
+            "field": "v",
+            "main_error": "3.6541425808001016e-06",
+            "control_error": "3.65414243269635e-06",
+            "field_difference": "7.696560402892239e-13",
+            "initial_peak": "0.48528136265690747",
+            "pass_threshold": "True",
+            "source_line": 231
+          },
+          {
+            "method": "RK4",
+            "case": "fig1b",
+            "model": "FD",
+            "mesh": "fixed",
+            "variant": "time_half",
+            "t": "0.01",
+            "field": "u",
+            "main_error": "4.486662027458621e-06",
+            "control_error": "4.486662027292088e-06",
+            "field_difference": "4.163336342344337e-16",
+            "initial_peak": "0.34314574178929214",
+            "pass_threshold": "True",
+            "source_line": 262
+          },
+          {
+            "method": "RK4",
+            "case": "fig1b",
+            "model": "FD",
+            "mesh": "fixed",
+            "variant": "time_half",
+            "t": "0.01",
+            "field": "v",
+            "main_error": "1.540057544158202e-06",
+            "control_error": "1.5400575438251352e-06",
+            "field_difference": "1.0547118733938987e-15",
+            "initial_peak": "0.48528136265690747",
+            "pass_threshold": "True",
+            "source_line": 263
+          }
+        ],
+        "x_half": [
+          {
+            "method": "RK4",
+            "case": "fig1b",
+            "model": "SD",
+            "mesh": "fixed",
+            "t": "0.01",
+            "field": "u",
+            "x_half_error": "9.263975595807938e-06",
+            "x_half_time_half_error": "9.263975596141005e-06",
+            "field_difference": "1.1102230246251565e-15",
+            "initial_peak": "0.34314574178929214",
+            "pass_threshold": "True",
+            "source_line": 54
+          },
+          {
+            "method": "RK4",
+            "case": "fig1b",
+            "model": "SD",
+            "mesh": "fixed",
+            "t": "0.01",
+            "field": "v",
+            "x_half_error": "3.266463749207471e-06",
+            "x_half_time_half_error": "3.2664637497070714e-06",
+            "field_difference": "2.220446049250313e-15",
+            "initial_peak": "0.48528136265690747",
+            "pass_threshold": "True",
+            "source_line": 55
+          },
+          {
+            "method": "RK4",
+            "case": "fig1b",
+            "model": "SD2",
+            "mesh": "fixed",
+            "t": "0.01",
+            "field": "u",
+            "x_half_error": "9.281965980934004e-06",
+            "x_half_time_half_error": "9.281965910712398e-06",
+            "field_difference": "6.550680137218379e-13",
+            "initial_peak": "0.34314574178929214",
+            "pass_threshold": "True",
+            "source_line": 62
+          },
+          {
+            "method": "RK4",
+            "case": "fig1b",
+            "model": "SD2",
+            "mesh": "fixed",
+            "t": "0.01",
+            "field": "v",
+            "x_half_error": "3.3010438960645594e-06",
+            "x_half_time_half_error": "3.3010442748726554e-06",
+            "field_difference": "1.1059760529272267e-11",
+            "initial_peak": "0.48528136265690747",
+            "pass_threshold": "True",
+            "source_line": 63
+          },
+          {
+            "method": "RK4",
+            "case": "fig1b",
+            "model": "FD",
+            "mesh": "fixed",
+            "t": "0.01",
+            "field": "u",
+            "x_half_error": "2.769999673191137e-06",
+            "x_half_time_half_error": "2.7699996729690923e-06",
+            "field_difference": "1.6653345369377348e-15",
+            "initial_peak": "0.34314574178929214",
+            "pass_threshold": "True",
+            "source_line": 70
+          },
+          {
+            "method": "RK4",
+            "case": "fig1b",
+            "model": "FD",
+            "mesh": "fixed",
+            "t": "0.01",
+            "field": "v",
+            "x_half_error": "1.6678910076950437e-06",
+            "x_half_time_half_error": "1.667891008527711e-06",
+            "field_difference": "2.942091015256665e-15",
+            "initial_peak": "0.48528136265690747",
+            "pass_threshold": "True",
+            "source_line": 71
+          }
+        ]
+      }
+    }
+  },
+  "limitations": [
+    "Only two x resolutions and two y resolutions are present; near-16 reduction is evidence consistent with k^4, not an asymptotic-order proof.",
+    "Differences of error norms are not norms of differences of physical fields; both quantities are recorded separately.",
+    "The x_half trajectory also halves dt. Existing separate time controls are recorded, but this is not a newly run strict single-factor trajectory.",
+    "The y_half native-grid historical errors use 48 y layers. Common-y errors here instead use the same 24 main layers after cubic interpolation.",
+    "Common-point errors still contain interpolation error and initial representation error. No initial error is subtracted.",
+    "Observed ranking changes and near-k^4 field differences do not identify interior product defects, boundary defects, lifting, or reconstruction as a unique cause.",
+    "All comparisons are fixed-grid RK4 at T=0.01 in the named cases. They do not certify long-time behavior or independent transfer to an unseen spectral family.",
+    "Historical pass thresholds scale with the initial field peak; they do not certify a method ranking or a mathematical error bound."
+  ],
+  "validation": {
+    "profile_count": 18,
+    "all_profile_hashes_match_manifest": true,
+    "native_error_max_abs_difference_from_csv": 8.881784197001252e-16,
+    "native_error_max_abs_difference_from_saved_history": 8.881784197001252e-16,
+    "new_pde_trajectories": 0
+  }
+}

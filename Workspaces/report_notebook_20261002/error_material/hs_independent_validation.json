@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "method": "All terminal x/u/rho positions and values compared to frozen original NumPy/SciPy RK4 trajectories; analytic boundary u/rho/m compared with independent existing reference.",
+  "terminal_field_max_absolute_difference": {
+    "Integrable": {
+      "x": 1.1546319456101628e-14,
+      "u": 8.93729534823251e-15,
+      "rhoX": 1.1102230246251565e-14,
+      "rho": 4.021227795192317e-13
+    },
+    "FD": {
+      "x": 0.0,
+      "u": 1.3269108034563715e-12,
+      "rhoX": 0.0,
+      "rho": 4.828359934094806e-13
+    }
+  },
+  "analytic_boundary_max_absolute_difference": 1.3322676295501878e-15,
+  "reference_trajectories": "Workspaces\\hs_four_schemes_20260927\\paper_point",
+  "floating_point_note": "FD uses the uniform central stencil and Thomas solve written in the report; frozen engine evaluates an equivalent stencil using local spacing differences. Small double-precision differences are expected.",
+  "PDE_trajectories_read": 2,
+  "new_Python_PDE_runs": 0
+}

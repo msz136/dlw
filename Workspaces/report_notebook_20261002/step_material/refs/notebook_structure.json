@@ -1,0 +1,476 @@
+{
+  "checkedAt": "2026-10-02T04:41:15.664733+00:00",
+  "notebooks": [
+    {
+      "name": "01_reflected_inertia",
+      "url": "https://raw.githubusercontent.com/RussTedrake/manipulation/master/book/robot/exercises/01_reflected_inertia.ipynb",
+      "bytes": 24534,
+      "sha256": "2399ce6aea5b602934c2d2cbf097ce87b4035779c1cea156db261db295d549ea",
+      "cells": [
+        {
+          "index": 0,
+          "type": "markdown",
+          "lines": 1,
+          "head": "# **The Effect of Reflected Inertia on Gain Tuning**",
+          "code": null
+        },
+        {
+          "index": 1,
+          "type": "code",
+          "lines": 4,
+          "head": "import sys\nif \"google.colab\" in sys.modules:\n    %pip install -q manipulation[grader]",
+          "code": "import sys\n\nif \"google.colab\" in sys.modules:\n    %pip install -q manipulation[grader]"
+        },
+        {
+          "index": 2,
+          "type": "code",
+          "lines": 25,
+          "head": "# python libraries\nimport mpld3\nimport numpy as np\nfrom matplotlib import pyplot as plt",
+          "code": "# python libraries\nimport mpld3\nimport numpy as np\nfrom matplotlib import pyplot as plt\nfrom pydrake.all import (\n    ConstantVectorSource,\n    DiagramBuilder,\n    PidController,\n    Simulator,\n    SymbolicVectorSystem,\n    Variable,\n    VectorLogSink,\n    sin,\n)\n\nfrom manipulation import running_as_notebook\nfrom manipulation.exercises.grader import Grader\nfrom manipulation.exercises.robot.test_reflected_inertia import (\n    TestSimplePendulumWithGearbox,\n)\nfrom manipulation.utils import RenderDiagram\n\n# enable mpld3 notebook\nif running_as_notebook:\n    mpld3.enable_notebook()"
+        },
+        {
+          "index": 3,
+          "type": "markdown",
+          "lines": 14,
+          "head": "## Problem Description\nYou will notice that in the first few weeks of the lecture, we don't think a lot about the full second-order dynamics of the arm (a more complicated version of $F=ma$), although we will come to revisit this later. This problem set helps to understand one of the reasons why we can abstract many manipulation problems kinematically (purely in terms of joint angles and end-effector positions), as opposed to worrying about dynamics (joint torques and inertias). Even before going to the multi-link case, let's think about how we should control the position of a single pendulum.\nIn this problem you will investigate the role of reflected inertia in position control of a simple pendulum. At the end of the notebook, you will be able to check your work in a simulation environment.\n**These are the main steps of the exercise:**",
+          "code": null
+        },
+        {
+          "index": 4,
+          "type": "markdown",
+          "lines": 18,
+          "head": "## The Simple Pendulum\n<img src=\"https://raw.githubusercontent.com/RussTedrake/manipulation/master/book/figures/exercises/simple_pendulum.png\" width=\"400\">\nThe [simple pendulum](https://underactuated.csail.mit.edu/pend.html) is perhaps the simplest abstraction of a 'manipulator', with the following equation for dynamics:\n$$ ml^2 \\ddot{q} = -mgl\\sin(q) + \\tau$$",
+          "code": null
+        },
+        {
+          "index": 5,
+          "type": "code",
+          "lines": 8,
+          "head": "def pendulum_dynamics(x, u, p):\n    q = x[0]\n    qdot = x[1]\n    tau = u[0]",
+          "code": "def pendulum_dynamics(x, u, p):\n    q = x[0]\n    qdot = x[1]\n    tau = u[0]\n    return [\n        qdot,\n        ((-p[\"m\"] * p[\"g\"] * p[\"l\"] * sin(q) + tau) / (p[\"m\"] * p[\"l\"] ** 2)),\n    ]"
+        },
+        {
+          "index": 6,
+          "type": "markdown",
+          "lines": 12,
+          "head": "## System Dynamics\nFrom a systems viewpoint, how should this dynamics be abstracted into a system that we can define inputs and outputs on?\nAs explained in the lecture notes, we can abstract the dynamics as a \"plant\" that will tell us what the current state $x$ is, given the torque  $\\tau$ into the system. If we were to draw a system diagram of this plant, it would look like:\n<img src=\"https://raw.githubusercontent.com/RussTedrake/manipulation/master/book/figures/exercises/simple_pendulum_diagram.png\" width=\"500\">",
+          "code": null
+        },
+        {
+          "index": 7,
+          "type": "code",
+          "lines": 11,
+          "head": "# Symbolic Variables from pydrake.symbolic\nx = [Variable(\"theta\"), Variable(\"thetadot\")]\nu = [Variable(\"tau\")]\n# Example parameters of pendulum dynamics",
+          "code": "# Symbolic Variables from pydrake.symbolic\nx = [Variable(\"theta\"), Variable(\"thetadot\")]\nu = [Variable(\"tau\")]\n\n# Example parameters of pendulum dynamics\np = {\"m\": 1.0, \"g\": 9.81, \"l\": 0.5}  # kg  # m / s^2  # m\n\n# Declaration of a symbolic vector system\nsystem = SymbolicVectorSystem(\n    state=x, output=x, input=u, dynamics=pendulum_dynamics(x, u, p)\n)"
+        },
+        {
+          "index": 8,
+          "type": "markdown",
+          "lines": 3,
+          "head": "Note that since this system is deterministic, we can completely predict the future value of the system given the current time, state, and input of the system. Sometimes if our system did something unexpected, we may want to know what those states were so that we can replay the simulation and fix our systems.\nTo make the simulation completely repeatable, Drake stores all the relevant states and parameters in the [context](https://drake.mit.edu/doxygen_cxx/classdrake_1_1systems_1_1_context.html), which can act like a systematic log.",
+          "code": null
+        },
+        {
+          "index": 9,
+          "type": "code",
+          "lines": 2,
+          "head": "context = system.CreateDefaultContext()\nprint(context)",
+          "code": "context = system.CreateDefaultContext()\nprint(context)"
+        },
+        {
+          "index": 10,
+          "type": "markdown",
+          "lines": 17,
+          "head": "## The Simple Pendulum with Motor and Gearbox\nIn class, we saw that the presence of a physical motor and a gearbox can affect the dynamics significantly.\n**Now it's your turn to code!**\nBelow, you will implement a similar dynamics function for a simple pendulum, which now has a physical motor and a gearbox attached to it.",
+          "code": null
+        },
+        {
+          "index": 11,
+          "type": "code",
+          "lines": 8,
+          "head": "# Modify this function. you may not change the function name, inputs, or size of the output.\ndef pendulum_with_motor_dynamics(x, u, p):\n    x[0]\n    x[1]",
+          "code": "# Modify this function. you may not change the function name, inputs, or size of the output.\n\n\ndef pendulum_with_motor_dynamics(x, u, p):\n    x[0]\n    x[1]\n    u[0]\n    return [0.0, 0.0]  # modify here  # modify here"
+        },
+        {
+          "index": 12,
+          "type": "markdown",
+          "lines": 1,
+          "head": "You can check if you got the dynamics correct by running the below autograder.",
+          "code": null
+        },
+        {
+          "index": 13,
+          "type": "code",
+          "lines": 2,
+          "head": "Grader.grade_output([TestSimplePendulumWithGearbox], [locals()], \"results.json\")\nGrader.print_test_results(\"results.json\")",
+          "code": "Grader.grade_output([TestSimplePendulumWithGearbox], [locals()], \"results.json\")\nGrader.print_test_results(\"results.json\")"
+        },
+        {
+          "index": 14,
+          "type": "markdown",
+          "lines": 10,
+          "head": "## Parameter Setting\nNow we have defined the dynamics, we can play around with the parameters. We will try to control a pendulum of endpoint mass `m=1kg`, at length `0.5m`. To make the case more fun, let's base the gear ratio `N` and motor inertia `I_m` from Kuka iiwa [(DLR LWR III)](https://www.dlr.de/rm/en/desktopdefault.aspx/tabid-12464/21732_read-49777 )'s 3rd joint.\nThe iiwa uses a [harmonic drive](https://en.wikipedia.org/wiki/Strain_wave_gearing) geared 160:1, directly from the [HD Company](https://www.harmonicdrive.net/) , and high-performance frameless motors [RoboDrive ILM](https://www.tq-group.com/en/products/tq-robodrive/) from TQ (originally developed at DLR). We will make an educated guess for what exact models they are using:\n- RoboDrive ILM 85, with `I_m=0.61e-4 kg m^2`",
+          "code": null
+        },
+        {
+          "index": 15,
+          "type": "code",
+          "lines": 9,
+          "head": "# Add motor and gearbox parameters\np = {\n    \"N\": 160,\n    \"I_m\": 3.46e-4,",
+          "code": "# Add motor and gearbox parameters\n\np = {\n    \"N\": 160,\n    \"I_m\": 3.46e-4,\n    \"m\": 1.0,  # kg\n    \"g\": 9.81,  # m / s^2\n    \"l\": 0.5,  # m\n}"
+        },
+        {
+          "index": 16,
+          "type": "markdown",
+          "lines": 17,
+          "head": "## Building a PID Controlled System\nNow we have to do some plumbing to simulate the system in [Drake](https://drake.mit.edu). We've defined the plant for our dynamics before, but we need to hook it up to a PID controller to do position control, so we will need another system to act as a controller.\nDrake offers a built-in [PID Controller](https://drake.mit.edu/pydrake/pydrake.systems.controllers.html#pydrake.systems.controllers.PidController). The role of the controller is to compute the error based on the current and desired states, and command the input, so it could be abstracted by a system with\n- Input ports: x_now ($x$), x_desired ($x_d$)",
+          "code": null
+        },
+        {
+          "index": 17,
+          "type": "code",
+          "lines": 41,
+          "head": "def BuildAndSimulate(q_d, pendulum_params, gains, visualize=False):\n    # This defines the plant using the pendulum with motor dynamics.\n    system = SymbolicVectorSystem(\n        state=x,",
+          "code": "def BuildAndSimulate(q_d, pendulum_params, gains, visualize=False):\n    # This defines the plant using the pendulum with motor dynamics.\n    system = SymbolicVectorSystem(\n        state=x,\n        output=x,\n        input=u,\n        dynamics=pendulum_with_motor_dynamics(x, u, pendulum_params),\n    )\n\n    kp, ki, kd = gains\n\n    builder = DiagramBuilder()\n\n    # Add all the systems into the diagram\n    builder.AddSystem(system)\n    logger = builder.AddSystem(VectorLogSink(2))\n    pid_controller = builder.AddSystem(PidController([kp], [ki], [kd]))\n    desired_state = builder.AddSystem(ConstantVectorSource([q_d, 0.0]))\n\n    # Connect the IO ports of the systems.\n    builder.Connect(pid_controller.get_output_port(0), system.get_input_port(0))\n    builder.Connect(system.get_output_port(0), logger.get_input_port(0))\n    builder.Connect(system.get_output_port(0), pid_controller.get_input_port(0))\n    builder.Connect(desired_state.get_output_port(0), pid_controller.get_input_port(1))\n\n    diagram = builder.Build()\n    diagram.set_name(\"diagram\")\n\n    # Plot the diagram if visualize is true.\n    if visualize and running_as_notebook:\n        RenderDiagram(diagram, max_depth=1)\n\n    simulator = Simulator(diagram)\n    context = simulator.get_mutable_context()\n\n    # The simulator has three states since the plant has 2, and the PID controller\n    # keeps an additional state for the integral term. We set all of them to zero\n    # initialization.\n    context.SetContinuousState([0.0, 0.0, 0.0])\n\n    return simulator, logger.FindLog(context)"
+        },
+        {
+          "index": 18,
+          "type": "markdown",
+          "lines": 1,
+          "head": "Now let's visualize the diagram and see if everything is properly connected for simulation. Does this topologically resemble our diagram above?",
+          "code": null
+        },
+        {
+          "index": 19,
+          "type": "code",
+          "lines": 2,
+          "head": "gains = [5, 2, 1]\nsimulator, logger = BuildAndSimulate(0.0, p, gains, visualize=True)",
+          "code": "gains = [5, 2, 1]\nsimulator, logger = BuildAndSimulate(0.0, p, gains, visualize=True)"
+        },
+        {
+          "index": 20,
+          "type": "markdown",
+          "lines": 3,
+          "head": "## Simulating the Closed-Loop System\nWe are now ready to simulate our system with motor dynamics! Let's start off with the direct-drive case (i.e. `N=1`).",
+          "code": null
+        },
+        {
+          "index": 21,
+          "type": "code",
+          "lines": 18,
+          "head": "q_d = (5.0 / 8.0) * np.pi  # Feel free to play around with different final positions.\ngains = [5, 2, 1]  # [P, I, D] gains.\np[\"N\"] = 1\nsimulator, logger = BuildAndSimulate(q_d, p, gains)",
+          "code": "q_d = (5.0 / 8.0) * np.pi  # Feel free to play around with different final positions.\ngains = [5, 2, 1]  # [P, I, D] gains.\np[\"N\"] = 1\nsimulator, logger = BuildAndSimulate(q_d, p, gains)\n\nsimulator.Initialize()\nsimulator.AdvanceTo(20.0 if running_as_notebook else 0.1)\n\ntime = logger.sample_times()\ntraj = logger.data()\n\nplt.figure()\nplt.plot(time, traj[0, :], \"b-\")\nplt.plot(time, q_d * np.ones(traj.shape[1]), \"r--\")\nplt.xlabel(\"time (s)\")\nplt.ylabel(\"q (rads)\")\nif running_as_notebook:\n    display(mpld3.display())"
+        },
+        {
+          "index": 22,
+          "type": "markdown",
+          "lines": 4,
+          "head": "You might have noticed that the closed-loop system is unstable for some desired joint configurations. For the gains above, if we ask the controller to stabilize to an upright position (do a swing-up), then the controller seems to be having trouble stabilizing.\nLet's try to analyze this effect a bit more systematically by plotting how the state behaves depending on how we set the desired position.",
+          "code": null
+        },
+        {
+          "index": 23,
+          "type": "code",
+          "lines": 20,
+          "head": "plt.figure()\np[\"N\"] = 1\nq_d_lst = np.linspace(-np.pi, np.pi, 10)\nfor i in range(len(q_d_lst)):",
+          "code": "plt.figure()\np[\"N\"] = 1\n\nq_d_lst = np.linspace(-np.pi, np.pi, 10)\nfor i in range(len(q_d_lst)):\n    simulator, logger = BuildAndSimulate(q_d_lst[i], p, gains)\n\n    simulator.Initialize()\n    simulator.AdvanceTo(20.0 if running_as_notebook else 0.1)\n\n    time = logger.sample_times()\n    traj = logger.data()\n\n    plt.plot(time, traj[0, :], \"b--\")\n    plt.plot(time, q_d_lst[i] * np.ones(traj.shape[1]), \"r--\")\n\nplt.xlabel(\"time (s)\")\nplt.ylabel(\"q (rads)\")\nif running_as_notebook:\n    display(mpld3.display())"
+        },
+        {
+          "index": 24,
+          "type": "markdown",
+          "lines": 4,
+          "head": "Note how that the system not only destabilizes for more upright positions, but also shows **different behavior** depending on what angle we ask it to stabilize to. Lower angles don't have overshoots, while higher angles do.\nThis speaks to the effect of the nonlinear, state-dependent gravity term\n$-mgl\\sin(q)$.",
+          "code": null
+        },
+        {
+          "index": 25,
+          "type": "markdown",
+          "lines": 3,
+          "head": "## Testing out Gearbox Case\nNow we will test the same dynamics with a high gear ratio of `N=160`, with the same gains.",
+          "code": null
+        },
+        {
+          "index": 26,
+          "type": "code",
+          "lines": 18,
+          "head": "q_d = np.pi / 1  # Feel free to play around with different gains.\ngains = [5, 2, 1]  # [P, I, D] gains\np[\"N\"] = 160\nsimulator, logger = BuildAndSimulate(q_d, p, gains)",
+          "code": "q_d = np.pi / 1  # Feel free to play around with different gains.\ngains = [5, 2, 1]  # [P, I, D] gains\np[\"N\"] = 160\nsimulator, logger = BuildAndSimulate(q_d, p, gains)\n\nsimulator.Initialize()\nsimulator.AdvanceTo(20.0 if running_as_notebook else 0.1)\n\ntime = logger.sample_times()\ntraj = logger.data()\n\nplt.figure()\nplt.plot(time, traj[0, :], \"b-\")\nplt.plot(time, q_d * np.ones(traj.shape[1]), \"r--\")\nplt.xlabel(\"time (s)\")\nplt.ylabel(\"q (rads)\")\nif running_as_notebook:\n    display(mpld3.display())"
+        },
+        {
+          "index": 27,
+          "type": "markdown",
+          "lines": 1,
+          "head": "Observe that with the same gains, the controller stabilizes is now able to stabilize to an upright position! Let's plot this over a range of different final joint positions as well.",
+          "code": null
+        },
+        {
+          "index": 28,
+          "type": "code",
+          "lines": 20,
+          "head": "plt.figure()\np[\"N\"] = 160\nq_d_lst = np.linspace(-np.pi, np.pi, 10)\nfor i in range(len(q_d_lst)):",
+          "code": "plt.figure()\np[\"N\"] = 160\n\nq_d_lst = np.linspace(-np.pi, np.pi, 10)\nfor i in range(len(q_d_lst)):\n    simulator, logger = BuildAndSimulate(q_d_lst[i], p, gains)\n\n    simulator.Initialize()\n    simulator.AdvanceTo(20.0 if running_as_notebook else 0.1)\n\n    time = logger.sample_times()\n    traj = logger.data()\n\n    plt.plot(time, traj[0, :], \"b--\")\n    plt.plot(time, q_d_lst[i] * np.ones(traj.shape[1]), \"r--\")\n\nplt.xlabel(\"time (s)\")\nplt.ylabel(\"q (rads)\")\nif running_as_notebook:\n    display(mpld3.display())"
+        },
+        {
+          "index": 29,
+          "type": "markdown",
+          "lines": 5,
+          "head": "This is looking great! Now we are able to stabilize to most configurations. But not only did we achieve stability, but observe how **consistent** the curves are regardless of what joint configuration we ask it to stabilize to.\nYou will notice that with a higher gain, we might be able to achieve stability for the direct-drive case as well since we impose no torque bounds. But you are still likely to see that gravity affects the direct-drive case more than the gearbox case.",
+          "code": null
+        },
+        {
+          "index": 30,
+          "type": "markdown",
+          "lines": 23,
+          "head": "### Please answer the following questions on gradescope: \n## Gradescope Verification 1 \n1. By looking at the simulation graph of the direct-drive case with $q_d = \\frac{5}{8}\\pi$, what is the approximate value of $q$ when $t = 4$ (to one decimal place)?\n## Gradescope Verification 2",
+          "code": null
+        }
+      ]
+    },
+    {
+      "name": "02_hardware_station_io",
+      "url": "https://raw.githubusercontent.com/RussTedrake/manipulation/master/book/robot/exercises/02_hardware_station_io.ipynb",
+      "bytes": 19533,
+      "sha256": "28da481d2c32cb2fc38563ed8437269996f5d118907935fff954c907b2c6581c",
+      "cells": [
+        {
+          "index": 0,
+          "type": "markdown",
+          "lines": 1,
+          "head": "# **Input and Output Ports of the Hardware Station**",
+          "code": null
+        },
+        {
+          "index": 1,
+          "type": "code",
+          "lines": 4,
+          "head": "import sys\nif \"google.colab\" in sys.modules:\n    %pip install -q manipulation[grader]",
+          "code": "import sys\n\nif \"google.colab\" in sys.modules:\n    %pip install -q manipulation[grader]"
+        },
+        {
+          "index": 2,
+          "type": "code",
+          "lines": 8,
+          "head": "import numpy as np\nfrom pydrake.all import namedview\nfrom manipulation.exercises.grader import Grader\nfrom manipulation.exercises.robot.test_hardware_station_io import TestHardwareStationIO",
+          "code": "import numpy as np\nfrom pydrake.all import namedview\n\nfrom manipulation.exercises.grader import Grader\nfrom manipulation.exercises.robot.test_hardware_station_io import TestHardwareStationIO\nfrom manipulation.meshcat_utils import StartMeshcat\nfrom manipulation.station import LoadScenario, MakeHardwareStation\nfrom manipulation.utils import RenderDiagram"
+        },
+        {
+          "index": 3,
+          "type": "code",
+          "lines": 1,
+          "head": "meshcat = StartMeshcat()",
+          "code": "meshcat = StartMeshcat()"
+        },
+        {
+          "index": 4,
+          "type": "markdown",
+          "lines": 11,
+          "head": "## Access System Input/Output Values\nIn this exercise, you will explore the [`HardwareStation`](http://manipulation.mit.edu/robot.html#hardware_station) that was mentioned during the lecture. You should recall that the orange ports are the ones that do not exist for the actual hardware platform.\n<html>\n<table align=\"center\" cellpadding=\"0\" cellspacing=\"0\"><tbody><tr align=\"center\"><td style=\"vertical-align:middle\"><table cellspacing=\"0\" cellpadding=\"0\"><tbody><tr><td align=\"right\" style=\"padding:5px 0px 5px 0px\">iiwa.position→</td></tr><tr><td align=\"right\" style=\"padding:5px 0px 5px 0px\">iiwa.torque→</td></tr><tr><td align=\"right\" style=\"padding:5px 0px 5px 0px\">wsg.position→</td></tr><tr><td align=\"right\" style=\"padding:5px 0px 5px 0px\">wsg.force_limit (optional)→</td></tr></tbody></table></td><td align=\"center\" style=\"border:solid;padding-left:20px;padding-right:20px;vertical-align:middle\" bgcolor=\"#F0F0F0\"><a href=\"https://github.com/RussTedrake/manipulation/blob/ceb817b527cbf1826c5b9a573ffbef415cb0f013/manipulation/scenarios.py#L453\">HardwareStation</a></td><td style=\"vertical-align:middle\"><table cellspacing=\"0\" cellpadding=\"0\"><tbody><tr><td align=\"left\" style=\"padding:5px 0px 5px 0px\">→ iiwa.position_commanded</td></tr><tr><td align=\"left\" style=\"padding:5px 0px 5px 0px\">→ iiwa.position_measured</td></tr><tr><td align=\"left\" style=\"padding:5px 0px 5px 0px\">→ iiwa.velocity_estimated</td></tr><tr><td align=\"left\" style=\"padding:5px 0px 5px 0px\">→ iiwa.state_estimated</td></tr><tr><td align=\"left\" style=\"padding:5px 0px 5px 0px\">→ iiwa.torque_commanded</td></tr><tr><td align=\"left\" style=\"padding:5px 0px 5px 0px\">→ iiwa.torque_measured</td></tr><tr><td align=\"left\" style=\"padding:5px 0px 5px 0px\">→ iiwa.torque_external</td></tr><tr><td align=\"left\" style=\"padding:5px 0px 5px 0px\">→ wsg.state_measured</td></tr><tr><td align=\"left\" style=\"padding:5px 0px 5px 0px\">→ wsg.force_measured</td></tr><tr><td align=\"left\" style=\"padding:5px 0px 5px 0px\">→ camera_[NAME].rgb_image</td></tr><tr><td align=\"left\" style=\"padding:5px 0px 5px 0px\">→ camera_[NAME].depth_image</td></tr><tr><td align=\"left\" style=\"padding:5px 0px 5px 0px\">→ <b style=\"color:orange\">camera_[NAME].label_image</b></td></tr><tr><td align=\"left\" style=\"padding:5px 0px 5px 0px\">→ ...</td></tr><tr><td align=\"left\" style=\"padding:5px 0px 5px 0px\">→ camera_[NAME].rgb_image</td></tr><tr><td align=\"left\" style=\"padding:5px 0px 5px 0px\">→ camera_[NAME].depth_image</td></tr><tr><td align=\"left\" style=\"padding:5px 0px 5px 0px\">→ <b style=\"color:orange\">camera_[NAME].label_image</b></td></tr><tr><td align=\"left\" style=\"padding:5px 0px 5px 0px\">→ <b style=\"color:orange\">query_object</b></td></tr><tr><td align=\"left\" style=\"padding:5px 0px 5px 0px\">→ <b style=\"color:orange\">contact_results</b></td></tr><tr><td align=\"left\" style=\"padding:5px 0px 5px 0px\">→ <b style=\"color:orange\">plant_continuous_state</b></td></tr><tr><td align=\"left\" style=\"padding:5px 0px 5px 0px\">→ <b style=\"color:orange\">body_poses</b></td></tr></tbody></table></td></tr></tbody></table>",
+          "code": null
+        },
+        {
+          "index": 5,
+          "type": "code",
+          "lines": 17,
+          "head": "scenario_data = \"\"\"\ndirectives:\n- add_directives:\n    file: package://manipulation/clutter.dmd.yaml",
+          "code": "scenario_data = \"\"\"\ndirectives:\n- add_directives:\n    file: package://manipulation/clutter.dmd.yaml\nmodel_drivers:\n    iiwa: !IiwaDriver\n      hand_model_name: wsg\n    wsg: !SchunkWsgDriver {}\n\"\"\"\nscenario = LoadScenario(data=scenario_data)\nstation = MakeHardwareStation(scenario, meshcat=meshcat)\ncontext = station.CreateDefaultContext()\n\nstation.GetInputPort(\"iiwa.position\").FixValue(context, np.zeros(7))\nstation.GetInputPort(\"iiwa.torque\").FixValue(context, np.zeros(7))\nstation.GetInputPort(\"wsg.position\").FixValue(context, [0.1])\nstation.ForcedPublish(context)"
+        },
+        {
+          "index": 6,
+          "type": "markdown",
+          "lines": 3,
+          "head": "[**Context**](https://drake.mit.edu/pydrake/pydrake.systems.framework.html?highlight=context#pydrake.systems.framework.Context_) is an abstract class template that represents all the typed values that are used in a System’s computations: time, numeric-valued input ports, numerical state, and numerical parameters. There are also type-erased abstract state variables, abstract-valued input ports, abstract parameters, and a double accuracy setting. It is important to note that a **Context** is designed to be used only with the System that created it. State and Parameter data can be copied between contexts for compatible systems as necessary. One of the most common mistakes is to pass the wrong context. Most methods in Drake should throw an error if you pass a context from the wrong system, but a few do not perform this check yet.\nIn the cell below, we first create a root context from the diagram, and then we retrieve the contexts of the subsystems from the root context.",
+          "code": null
+        },
+        {
+          "index": 7,
+          "type": "code",
+          "lines": 4,
+          "head": "# initialize context\nstation_context = station.CreateDefaultContext()\nplant = station.GetSubsystemByName(\"plant\")\nplant_context = plant.GetMyContextFromRoot(station_context)",
+          "code": "# initialize context\nstation_context = station.CreateDefaultContext()\nplant = station.GetSubsystemByName(\"plant\")\nplant_context = plant.GetMyContextFromRoot(station_context)"
+        },
+        {
+          "index": 8,
+          "type": "markdown",
+          "lines": 1,
+          "head": "In this exercise, you will familiarize yourself with the input and output mechanism from the hardware station system. Remember you can always generate a schematic view of your system by running the cell below. By clicking the \"+\" sign on the manipulation_station, you can get a more detailed view of the diverse modules within the hardware station. (You might need to run the cell twice to see the diagram)",
+          "code": null
+        },
+        {
+          "index": 9,
+          "type": "code",
+          "lines": 1,
+          "head": "RenderDiagram(station, max_depth=1)",
+          "code": "RenderDiagram(station, max_depth=1)"
+        },
+        {
+          "index": 10,
+          "type": "markdown",
+          "lines": 1,
+          "head": "Now if we set the joint position of the Kuka arm, we should expect to get the same values from the `iiwa.position_measured port`, which can be found from the output ports of `station` object. Below we demonstrate how this can be done using Drake's syntax. You may also find it useful to review the `System` class documentation [here](https://drake.mit.edu/pydrake/pydrake.systems.framework.html?highlight=output_port#pydrake.systems.framework.System_).",
+          "code": null
+        },
+        {
+          "index": 11,
+          "type": "code",
+          "lines": 7,
+          "head": "# provide initial states\nq0 = np.array([-1.57, 0.1, 0, -1.2, 0, 1.6, 0])\niiwa = plant.GetModelInstanceByName(\"iiwa\")\n# set the joint positions of the kuka arm",
+          "code": "# provide initial states\nq0 = np.array([-1.57, 0.1, 0, -1.2, 0, 1.6, 0])\niiwa = plant.GetModelInstanceByName(\"iiwa\")\n# set the joint positions of the kuka arm\nplant.SetPositions(plant_context, iiwa, q0)\n# examine the output port\nstation.GetOutputPort(\"iiwa.position_measured\").Eval(station_context)"
+        },
+        {
+          "index": 12,
+          "type": "markdown",
+          "lines": 1,
+          "head": "Note that the [output port](https://drake.mit.edu/pydrake/pydrake.systems.framework.html?highlight=outputport#pydrake.systems.framework.OutputPort) named `iiwa.position_measured` is first retrieved from the station and then evaluated using **Eval** method. This is a very common approach to read the values of a selected output port.",
+          "code": null
+        },
+        {
+          "index": 13,
+          "type": "markdown",
+          "lines": 1,
+          "head": "*Drake advice:* use `namedview` to refer to positions by name.",
+          "code": null
+        },
+        {
+          "index": 14,
+          "type": "code",
+          "lines": 11,
+          "head": "IiwaPositionView = namedview(\n    \"IiwaPositions\",\n    plant.GetPositionNames(iiwa, always_add_suffix=False),\n)",
+          "code": "IiwaPositionView = namedview(\n    \"IiwaPositions\",\n    plant.GetPositionNames(iiwa, always_add_suffix=False),\n)\nq0 = IiwaPositionView.Zero()\nq0.iiwa_joint_1 = -1.57\nq0.iiwa_joint_2 = 0.1\nq0.iiwa_joint_4 = -1.2\nq0.iiwa_joint_6 = 1.6\nprint(q0)\nplant.SetPositions(plant_context, iiwa, q0[:])"
+        },
+        {
+          "index": 15,
+          "type": "markdown",
+          "lines": 1,
+          "head": "Sometimes, when working directly with a `MultibodyPlant`, you may retrieve the joint angles directly from the **plant**. But this will not work when we're running on real hardware. Use the input and output ports to properly leverage the \"sim 2 real\" abstraction.",
+          "code": null
+        },
+        {
+          "index": 16,
+          "type": "code",
+          "lines": 1,
+          "head": "print(plant.GetPositions(plant_context, iiwa))",
+          "code": "print(plant.GetPositions(plant_context, iiwa))"
+        },
+        {
+          "index": 17,
+          "type": "markdown",
+          "lines": 1,
+          "head": "These examples show you how to manually set and get the positions from the command line, but please note that when you are writing a controller in Drake, you will typically not use these directly. Instead you will be constructing a `Diagram` with many `System`s whose output ports are connected to the input ports of the `HardwareStation`, and whose input ports are connected to the output ports of the `HardwareStation`.",
+          "code": null
+        },
+        {
+          "index": 18,
+          "type": "markdown",
+          "lines": 2,
+          "head": "# Exercise a: Code Submission\nNow, it's your time to code! Use `GetOutputPort` and `Eval` to retrieve the joint velocities from the `iiwa.velocity_estimated` output port. Note that we have set the velocities for you.",
+          "code": null
+        },
+        {
+          "index": 19,
+          "type": "code",
+          "lines": 7,
+          "head": "plant.SetVelocities(\n    plant_context,\n    iiwa,\n    np.zeros(",
+          "code": "plant.SetVelocities(\n    plant_context,\n    iiwa,\n    np.zeros(\n        7,\n    ),\n)"
+        },
+        {
+          "index": 20,
+          "type": "markdown",
+          "lines": 1,
+          "head": "Below, `get_velocity(station, station_context)` is the function you must modify to query values from `iiwa.velocity_estimated`.",
+          "code": null
+        },
+        {
+          "index": 21,
+          "type": "code",
+          "lines": 6,
+          "head": "def get_velocity(station, station_context):\n    \"\"\"\n    fill in your code in this method\n    \"\"\"",
+          "code": "def get_velocity(station, station_context):\n    \"\"\"\n    fill in your code in this method\n    \"\"\"\n    velocity_estimated = None\n    return velocity_estimated"
+        },
+        {
+          "index": 22,
+          "type": "markdown",
+          "lines": 1,
+          "head": "You can check if you got the implementation correct by running the below autograder.",
+          "code": null
+        },
+        {
+          "index": 23,
+          "type": "code",
+          "lines": 2,
+          "head": "Grader.grade_output([TestHardwareStationIO], [locals()], \"results.json\")\nGrader.print_test_results(\"results.json\")",
+          "code": "Grader.grade_output([TestHardwareStationIO], [locals()], \"results.json\")\nGrader.print_test_results(\"results.json\")"
+        },
+        {
+          "index": 24,
+          "type": "markdown",
+          "lines": 1,
+          "head": "Please note that the `iiwa.position_commanded` and the `iiwa.position_measured` are NOT the same variable. The `iiwa.position_commanded` are the commanded positions sent to the robot, whereas the `iiwa.position_measured` are the current positions of the simulated robot. We also expect to have different values for the feed-forward torque (system input) and the commanded torque (system output). Next, you will investigate why. First, let us provide a zero feed-forward torque to the `iiwa.torque` port. Before comparing torques, we command the current joint positions and reset the joint velocities to zero. This keeps the position controller from reaching the joint torque limits, which could otherwise hide the effect of adding a small feedforward torque.",
+          "code": null
+        },
+        {
+          "index": 25,
+          "type": "code",
+          "lines": 21,
+          "head": "# Hold the current position at zero velocity so the controller does not saturate.\n# The velocity exercise grader above modifies the plant velocities.\nplant.SetVelocities(plant_context, iiwa, np.zeros(7))\nstation.GetInputPort(\"iiwa.position\").FixValue(",
+          "code": "# Hold the current position at zero velocity so the controller does not saturate.\n# The velocity exercise grader above modifies the plant velocities.\nplant.SetVelocities(plant_context, iiwa, np.zeros(7))\nstation.GetInputPort(\"iiwa.position\").FixValue(\n    station_context, plant.GetPositions(plant_context, iiwa)\n)\nstation.GetInputPort(\"iiwa.torque\").FixValue(\n    station_context,\n    np.zeros(\n        7,\n    ),\n)\ntau_no_ff = station.GetOutputPort(\"iiwa.torque_commanded\").Eval(station_context).copy()\nprint(\n    \"feedforward torque: {}\".format(\n        np.zeros(\n            7,\n        )\n    )\n)\nprint(\"commanded torque with no feedforward torque:{}\".format(tau_no_ff))"
+        },
+        {
+          "index": 26,
+          "type": "markdown",
+          "lines": 1,
+          "head": "Now try the same experiment with a non-zero feedforward torque as shown below.",
+          "code": null
+        },
+        {
+          "index": 27,
+          "type": "code",
+          "lines": 5,
+          "head": "tau_ff = np.linspace(3.1, 3.7, 7)\nprint(\"feedforward torque: {}\".format(tau_ff))\nstation.GetInputPort(\"iiwa.torque\").FixValue(station_context, tau_ff)\ntorque_commanded = station.GetOutputPort(\"iiwa.torque_commanded\").Eval(station_context)",
+          "code": "tau_ff = np.linspace(3.1, 3.7, 7)\nprint(\"feedforward torque: {}\".format(tau_ff))\nstation.GetInputPort(\"iiwa.torque\").FixValue(station_context, tau_ff)\ntorque_commanded = station.GetOutputPort(\"iiwa.torque_commanded\").Eval(station_context)\nprint(\"the commanded torque: {}\".format(torque_commanded))"
+        },
+        {
+          "index": 28,
+          "type": "markdown",
+          "lines": 6,
+          "head": "# Exercise b: Written Problem.\nBelow, we have a question for you.\n**In this exercise, please explain what causes the discrepancy between the feedforward torque and the commanded torque.**\nHINT: can you find any relationship among *tau_ff*, *tau_no_ff*, *torque_commanded*?",
+          "code": null
+        },
+        {
+          "index": 29,
+          "type": "markdown",
+          "lines": 3,
+          "head": "## Your Answer\nAnswer the Question here, and copy-paste to the Gradescope 'written submission' section!",
+          "code": null
+        },
+        {
+          "index": 30,
+          "type": "markdown",
+          "lines": 1,
+          "head": "## How will this notebook be graded?",
+          "code": null
+        },
+        {
+          "index": 31,
+          "type": "markdown",
+          "lines": 3,
+          "head": "We will evaluate the local functions in the notebook to see if the function behaves as we have expected. For this exercise, the rubric is as follows:\n- [5pts] `get_velocity` must be implemented correctly.\n- [5pts] You must answer correctly why there is a difference between feed-forward torque and commanded torque.",
+          "code": null
+        },
+        {
+          "index": 32,
+          "type": "markdown",
+          "lines": 1,
+          "head": "## Additional Note.",
+          "code": null
+        },
+        {
+          "index": 33,
+          "type": "markdown",
+          "lines": 1,
+          "head": "So far we have not looked into the outputs of simulated camera sensors. Fortunately, accessing the camera data can be done in an almost exactly the same way as we have shown above. We will get to it soon!",
+          "code": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+[
+  {
+    "nx": 33,
+    "model": "SD",
+    "d2_min_real": -498.45394847163993,
+    "d2_max_abs": 499.85613784665384,
+    "field_eigenvalues": [
+      {
+        "real": 593.6426487726366,
+        "imag": 0.2521422208581027
+      },
+      {
+        "real": 593.6426487726366,
+        "imag": -0.2521422208581027
+      },
+      {
+        "real": 593.5294554559155,
+        "imag": 0.5098640638397471
+      },
+      {
+        "real": 593.5294554559155,
+        "imag": -0.5098640638397471
+      }
+    ],
+    "real_part_residuals": [
+      0.00018205818955676075,
+      0.00018205818955676075,
+      0.00048534694503881164,
+      0.00048534694503881164
+    ],
+    "jvp_calls": 1285,
+    "caveat": "Frozen initial Jacobian at fixed mesh; real-part residual is not a nonlinear bound."
+  },
+  {
+    "nx": 33,
+    "model": "FD",
+    "d2_min_real": -498.45394847163993,
+    "d2_max_abs": 499.85613784665384,
+    "field_eigenvalues": [
+      {
+        "real": 585.0024567322496,
+        "imag": 9.637685061023406
+      },
+      {
+        "real": 585.0024567322496,
+        "imag": -9.637685061023406
+      },
+      {
+        "real": 578.8377544298161,
+        "imag": 0.0
+      },
+      {
+        "real": 567.6377564809743,
+        "imag": 0.0
+      }
+    ],
+    "real_part_residuals": [
+      1.6241346851074482e-06,
+      1.6241346851074482e-06,
+      0.00012766210699028863,
+      0.0004841792508950397
+    ],
+    "jvp_calls": 101,
+    "caveat": "Frozen initial Jacobian at fixed mesh; real-part residual is not a nonlinear bound."
+  },
+  {
+    "nx": 65,
+    "model": "SD",
+    "d2_min_real": -1993.5440173061152,
+    "d2_max_abs": 1999.2107261793824,
+    "field_eigenvalues": [
+      {
+        "real": 2268.4477900772004,
+        "imag": 0.0
+      },
+      {
+        "real": 2268.2400255921875,
+        "imag": -1.069499885963068
+      },
+      {
+        "real": 2268.2400255921875,
+        "imag": 1.069499885963068
+      },
+      {
+        "real": 2267.7788655687273,
+        "imag": -2.1342925605499654
+      }
+    ],
+    "real_part_residuals": [
+      0.00018012354382091714,
+      0.00011898074279094377,
+      0.00011898074279094377,
+      2.8895692224123234e-05
+    ],
+    "jvp_calls": 1015,
+    "caveat": "Frozen initial Jacobian at fixed mesh; real-part residual is not a nonlinear bound."
+  },
+  {
+    "nx": 65,
+    "model": "FD",
+    "d2_min_real": -1993.5440173061152,
+    "d2_max_abs": 1999.2107261793824,
+    "field_eigenvalues": [
+      {
+        "real": 2232.701782457444,
+        "imag": 39.390027077276415
+      },
+      {
+        "real": 2232.701782457444,
+        "imag": -39.390027077276415
+      },
+      {
+        "real": 2208.199222845097,
+        "imag": 0.0
+      },
+      {
+        "real": 2170.6546298281396,
+        "imag": 0.0
+      }
+    ],
+    "real_part_residuals": [
+      2.2305259590716208e-06,
+      2.2305259590716208e-06,
+      2.2356891083598204e-06,
+      2.774940962886519e-06
+    ],
+    "jvp_calls": 144,
+    "caveat": "Frozen initial Jacobian at fixed mesh; real-part residual is not a nonlinear bound."
+  }
+]

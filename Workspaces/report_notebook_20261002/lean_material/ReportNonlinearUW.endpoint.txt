@@ -1,0 +1,21 @@
+/-- Equation (1) implies BOTH displayed residual equations (7), with real derivatives. -/
+theorem semiPair_implies_report7 (a h : ℝ) (F G : Lattice) (hh : h ≠ 0)
+    (hF : SmoothL F) (hG : SmoothL G) (hFp : PositiveL F) (hGp : PositiveL G)
+    (hsp : SemiPair a h F G) :
+    reportN1 a h (physU F G) (omega G) = 0 ∧
+      reportN2 a h (physU F G) (omega G) = 0 := by
+  have hu := smooth_physU F G hF hG hFp hGp
+  have hw := smooth_omega G hG hGp
+  have hv := smooth_vFromOmega h hu hw
+  have hnp := c15_proved a h F G hh hF hG hFp hGp hsp
+  rw [physical_v] at hnp
+  constructor
+  · rw [reportN1_eq_n1 a h hh hu hw]
+    exact hnp.1
+  · have hcons := (c19_proved a h (physU F G)
+      (vFromOmega h (physU F G) (omega G)) hh hu hv hnp).1
+    rw [omega_conservation_bridge a h hh hu hw] at hcons
+    funext j x t
+    have hp := congrFun (congrFun (congrFun hcons j) x) t
+    simp only [Pi.smul_apply, Pi.zero_apply, smul_eq_mul] at hp
+    exact (mul_eq_zero.mp hp).resolve_left (div_ne_zero (by norm_num) hh)

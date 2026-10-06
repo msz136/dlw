@@ -1,0 +1,118 @@
+{
+  "checks": [
+    {
+      "name": "Each route has one collapsed key-proof panel and no complete dependency listing",
+      "passed": true
+    },
+    {
+      "name": "UW and QRM expose four and three concise reading points",
+      "passed": true
+    },
+    {
+      "name": "All six visible Lean cells match their actual compile sources",
+      "passed": true
+    },
+    {
+      "name": "Existing 20 triangle run buttons retain their accessible labels",
+      "passed": true
+    },
+    {
+      "name": "Both proof panels open and close; UW also closes with Enter",
+      "passed": true
+    },
+    {
+      "name": "Reading layout preserves the paper fonts and has no horizontal overflow at 390 and 909 pixels",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "browser": "Codex in-app browser",
+  "panels": [
+    {
+      "label": "展开式（7）、（8）的关键证明",
+      "lines": 83,
+      "open": false
+    },
+    {
+      "label": "展开式（21）、（22）的关键证明",
+      "lines": 54,
+      "open": false
+    }
+  ],
+  "outlineCounts": [
+    4,
+    3
+  ],
+  "fonts": {
+    "body": "16px / 28.8px \"Times New Roman\", SimSun, serif",
+    "code": "13.3333px / 20.6667px Consolas, \"Courier New\", monospace"
+  },
+  "responsive": [
+    {
+      "viewport": 390,
+      "scrollWidth": 375
+    },
+    {
+      "viewport": 909,
+      "scrollWidth": 894
+    }
+  ],
+  "proofToggleEvidence": {
+    "uwPointerOpen": true,
+    "uwEnterClosed": true,
+    "qrmPointerOpen": true,
+    "qrmPointerClosed": true
+  },
+  "executableLeanCode": [
+    {
+      "code": "import ReportNonlinearUW\n",
+      "route": "uw",
+      "stage": "import"
+    },
+    {
+      "code": "import StepUWImport\n\nnamespace DLWContract.ReportUW\n\ndef StartPoint (a h : ℝ) (F G : Lattice) : Prop :=\n  ∀ j, bil (a-h/2) (F j) (G j) = 0 ∧\n    bil (a+h/2) (F j) (G (j+1)) = 0\n\n#print StartPoint\n\nend DLWContract.ReportUW\n",
+      "route": "uw",
+      "stage": "start"
+    },
+    {
+      "code": "import StepUWStart\n\nnoncomputable section\nopen DLWContract DLWContract.ReportUW\n\n-- (7): equations for u and ω.\nexample (a h : ℝ) (F G : Lattice) (hh : h ≠ 0)\n    (hF : SmoothL F) (hG : SmoothL G) (hFp : PositiveL F) (hGp : PositiveL G)\n    (hsp : StartPoint a h F G) :\n    reportN1 a h (physU F G) (omega G) = 0 ∧\n      reportN2 a h (physU F G) (omega G) = 0 :=\n  semiPair_implies_report7 a h F G hh hF hG hFp hGp hsp\n\n-- (8): the reconstructed pair (u, v).\nexample (a h : ℝ) (F G : Lattice) (hh : h ≠ 0)\n    (hF : SmoothL F) (hG : SmoothL G) (hFp : PositiveL F) (hGp : PositiveL G)\n    (hsp : StartPoint a h F G) :\n    NonlinearPair a h (physU F G) (vFromOmega h (physU F G) (omega G)) :=\n  semiPair_implies_report8 a h F G hh hF hG hFp hGp hsp\n\n#print axioms DLWContract.ReportUW.semiPair_implies_report7\n#print axioms DLWContract.ReportUW.semiPair_implies_report8\n",
+      "route": "uw",
+      "stage": "endpoint"
+    },
+    {
+      "code": "import ReportNonlinearQRM\n",
+      "route": "qrm",
+      "stage": "import"
+    },
+    {
+      "code": "import StepQRMImport\n\nnamespace DLWContract.ReportQRM\n\ndef StartPoint (a h : ℝ) (F G : Lattice) : Prop :=\n  ∀ j, bil (a-h/2) (F j) (G j) = 0 ∧\n    bil (a+h/2) (F j) (G (j+1)) = 0\n\n#print StartPoint\n\nend DLWContract.ReportQRM\n",
+      "route": "qrm",
+      "stage": "start"
+    },
+    {
+      "code": "import StepQRMStart\n\nnoncomputable section\nopen DLWContract DLWContract.ReportQRM\n\n-- (21): equations for Q and R, and the lattice constraint.\nexample (a h : ℝ) (F G : Lattice) (hne : h ≠ 0)\n    (hF : SmoothL F) (hG : SmoothL G) (hFp : PositiveL F) (hGp : PositiveL G)\n    (hsp : StartPoint a h F G) :\n    residualQ a h F G = 0 ∧ residualR a h F G = 0 ∧\n      ∀ j x t, (M G (j+1) x t-M G j x t)/h + Q F G j x t*R h F G j x t = 1 :=\n  semiPair_implies_report21 a h F G hne hF hG hFp hGp hsp\n\n-- (22): reconstruction of u, ω and v.\nexample (h : ℝ) (F G : Lattice) (hne : h ≠ 0)\n    (hF : SmoothL F) (hG : SmoothL G) (hFp : PositiveL F) (hGp : PositiveL G) :\n    ∀ j x t,\n      physU F G j x t = 2 * lx (Q F G) j x t / Q F G j x t ∧\n      omega G j x t = h*(1-Q F G j x t*R h F G j x t) ∧\n      omega G j x t = M G (j+1) x t-M G j x t ∧\n      physV h F G j x t = 4*(1-Q F G j x t*R h F G j x t) +\n        (physU F G (j+1) x t-physU F G (j-1) x t)/(2*h) :=\n  report22 h F G hne hF hG hFp hGp\n\n#print axioms DLWContract.ReportQRM.semiPair_implies_report21\n#print axioms DLWContract.ReportQRM.report22\n",
+      "route": "qrm",
+      "stage": "endpoint"
+    }
+  ],
+  "reportSha256": "e5810110f0b2bae9962a828c9b607d6ed8200a8dbb9081a8bc6f0beabb6157a6",
+  "stageCodeUnchanged": true,
+  "proofSourcesUnchanged": true,
+  "numericalCodeUnchanged": true,
+  "runtimeScriptUnchanged": true,
+  "originalTypographyPreserved": true,
+  "originalDisplayMathBlocksPreserved": true,
+  "equationTagCount": 34,
+  "excerptCount": 17,
+  "oldProofLines": [
+    2799,
+    3651
+  ],
+  "currentProofLines": [
+    83,
+    54
+  ],
+  "compilerEvidence": "lean_material/colab_start_validation.json (six exact unchanged cells, exit 0)",
+  "recompiledThisPresentationEdit": false,
+  "independentProofReview": "UW/QRM chain, required assumptions, 17 complete exact excerpts; C14 explicitly identified as a proposition whose proof is c14_proved"
+}

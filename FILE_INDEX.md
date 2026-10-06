@@ -1,3 +1,14 @@
+<!-- DLW_CONSERVATION_INDEX_BEGIN -->
+**半离散 DLW 守恒生成式与对易层级（2026-10-04）：**
+
+- [dlw_conservation_hierarchy.html](report/dlw_conservation_hierarchy.html)（用户论文式报告；周期无穷形式对易族、Q4/Q5平均补正、四量独立、连续极限及原文三组谱矩）
+- `Workspaces/dlw_conservation_hierarchy_20261004/`：`OPEN_CHAIN_AND_BENCHMARKS.md`、`benchmark_validation.json`、`build_manifest.json`、`build_report.cjs`、`check_benchmarks.py`、`check_report.cjs`、`html_validation.json`、`register_results.py`、`registration.json`、`report.src.html`、`report_benchmarks_1440.png`、`report_benchmarks_390.png`、`report_generator_1440.png`、`report_generator_390.png`、`report_top_1440.png`、`report_top_390.png`
+- `Workspaces/dlw_conservation_hierarchy_20261004/continuous/`：`CONTINUOUS_HIERARCHY.md`、`INvolution_AUDIT.md`、`REPORT_AUDIT.md`、`check_continuous.py`、`continuous_checks.json`、`fifth_intermediate.txt`
+- `Workspaces/dlw_conservation_hierarchy_20261004/direct/`：`Q4_CERTIFICATE.md`、`Q5_CERTIFICATE.md`、`check_q4_q5_involution.py`、`check_q5_mean_correction.py`、`check_q5_structure.py`、`check_reduced_q4.py`、`check_reduced_q5.py`、`check_weight4_structure.py`、`q4_q5_involution_sample.json`、`q5_mean_correction.json`、`q5_structure.json`、`reduced_q4_counterexample.json`、`reduced_q5_audit.json`、`search_weight4.py`、`search_weight5.py`、`weight4_results.json`、`weight4_structure.json`、`weight5_results.json`
+- `Workspaces/dlw_conservation_hierarchy_20261004/lax/`：`MONODROMY_POISSON_PROOF.md`、`fixed_leaf_independence_checks.json`、`monodromy_hierarchy_checks.json`、`rho3_quintic_comparison_checks.json`、`verify_fixed_leaf_independence.py`、`verify_monodromy_hierarchy.py`、`verify_rho3_quintic_comparison.py`
+- `Workspaces/dlw_conservation_hierarchy_20261004/before_registration/PROGRESS_LOG.md`、`FILE_INDEX.md`（共享登记修改前保留）
+<!-- DLW_CONSERVATION_INDEX_END -->
+
 <!-- DLW_HAMILTON_INDEX_BEGIN -->
 - [Workspaces/dlw_general_field_20261006/README.md](Workspaces/dlw_general_field_20261006/README.md)（一般周期场守恒族、任意 M 矩阵／泊松实现、两格点三 Hamilton 结构、解析设置与13项核验）
 - `Workspaces/dlw_general_field_20261006/CONSERVATION_FAMILY_VERDICT.md`
@@ -40,13 +51,19 @@
 
 **半离散 DLW Hamilton／刘维尔可积性研究（更新至 2026-10-06）：**
 
-- [dlw_hamilton.html](dlw_hamilton.html)（用户论文式报告；周期相空间、平均闭合、非局部泛函、物理 Poisson 算子、Jacobi 证明、局部候选排除与 Liouville 缺口）
-- `Workspaces/dlw_hamilton_20261004/report.src.html`、`build_report.cjs`、`build_manifest.json`（正文源、离线 MathML 构建与18公式块登记）
+- [dlw_hamilton.html](dlw_hamilton.html)（用户论文式报告；周期结构与非周期A/B/C总能量发散、相对弱Hamilton定理、算子定义域/远处行为、首批守恒候选与Liouville缺口）
+- `Workspaces/dlw_hamilton_20261004/report.src.html`、`build_report.cjs`、`build_manifest.json`（当前正文源、离线 MathML 构建与33公式块登记）
 - `Workspaces/dlw_hamilton_20261004/verify_hamilton.py`、`validation.json`（121项精确有理矩阵／多项式jet核验：N=3–7、两平均扇区、原物理残差、坐标推前与局部障碍）
 - `Workspaces/dlw_hamilton_20261004/phase_space/periodic_reduction.md`（周期平均、边界域、时间依赖规范、零平均退化与两周期特殊约化）
 - `Workspaces/dlw_hamilton_20261004/simple_candidate/NOTES.md`、`verify_exact.py`、`verification_result.json`、`REPORT_REVIEW.md`（独立变分／Helmholtz／约化及物理算子推前检查与报告审阅）
 - `Workspaces/dlw_hamilton_20261004/local_obstructions/NOTES.md`、`check_algebra.py`、`algebra_checks.json`、`REPORT_REVIEW.md`（有限作用范围障碍、R精确核、相空间审计与报告符号修正证据）
+- `Workspaces/dlw_hamilton_20261004/nonperiodic/energy/ENERGY_NOTES.md`、`check_energy.py`、`energy_checks.json`、`check_general_h.py`、`general_h_energy_checks.json`（原文1a/1b/二孤子C的能量、全0<h<2有理原函数证书、双臂渐近与独立求积）
+- `Workspaces/dlw_hamilton_20261004/nonperiodic/operator/DOMAIN_AND_TANGENCY.md`、`SPECTRAL_WEAK_AUDIT.md`、`REPORT_AND_MOMENTUM_AUDIT.md`（对称非周期R定义域、矩条件反例、谱域与统一报告审计）
+- `Workspaces/dlw_hamilton_20261004/nonperiodic/theorem/WEAK_HILBERT_HAMILTON_THEOREM.md`、`THEOREM_AUDIT.md`、`INITIAL_CHARGES.md`（定理B完整证明、Schwartz邻域否定、A/B守恒量与C窄类排除）
+- `Workspaces/dlw_hamilton_20261004/nonperiodic/verify_relative.py`、`relative_validation.json`（40项精确原函数/变分/谱恒等式/切向反例及动量时间修正核验）
+- `Workspaces/dlw_hamilton_20261004/nonperiodic/before/`（本轮修改前主HTML、正文源与共享记录保留）
 - `Workspaces/dlw_hamilton_20261004/check_report.cjs`、`html_validation.json`、`report_top_1440.png`、`report_top_390.png`、`report_physical_1440.png`、`report_physical_390.png`（宽窄屏、数学、引用与可读性检查）
+- `Workspaces/dlw_hamilton_20261004/report_nonperiodic_1440.png`、`report_nonperiodic_390.png`（当前非周期定理宽窄屏预览）
 - `Workspaces/dlw_hamilton_20261004/register_results.py`、`registration.json`、`before/`（同专题合并登记、交付哈希与共享记录修改前备份）
 <!-- DLW_HAMILTON_INDEX_END -->
 
@@ -58,22 +75,23 @@
 
 ## HTML 阅读地图（2026-10-04整理）
 
-当前用户报告共11个：主目录保留4个入口，7个专题页面位于 `report/`。成果概况先看 `theory_results.html`，DLW 数值结果先看 `index.html`，可运行推导与实验看 `Report.html`。
+当前用户报告共12个：主目录保留4个入口，8个专题页面位于 `report/`。成果概况先看 `theory_results.html`，DLW 数值结果先看 `index.html`，可运行推导与实验看 `Report.html`。
 
 | 主目录页面 | 内容与用途 |
 | --- | --- |
 | [theory_results.html](theory_results.html) | DLW／2HS 数学成果总览：起点、结论、已证范围与待证环节。 |
 | [Report.html](Report.html) | 可运行综合报告：DLW 两路非线性化与 Lean 核验、2HS 场误差比较、DLW 纵向截断残差计算。第 3 章的残差不等于时间演化后的总误差。 |
-| [dlw_hamilton.html](dlw_hamilton.html) | 刘维尔可积性研究入口，链接当前 Markdown；折叠保留原周期 Hamilton 报告。 |
-| [index.html](index.html) | DLW 数值比较主报告：三组孤子、SD／SD2／FD、Euler／RK4、固定／移动网格与误差图。 |
+| [dlw_hamilton.html](dlw_hamilton.html) | 刘维尔可积性研究入口，链接当前 Markdown；折叠保留原周期 Hamilton 报告。 周期结构与原文A/B/C非周期线波：总能量发散、相对Hamilton定理、算子定义域及首批守恒候选。 |
+| [index.html](index.html) | DLW 数值比较主报告：三组孤子、实际误差与最优值、递推伪代码、12张彩色误差曲线。 |
 
 | report 专题页面 | 内容与用途 |
 | --- | --- |
+| [dlw_conservation_hierarchy.html](report/dlw_conservation_hierarchy.html) | 半离散DLW守恒生成式、形式对易族、四次/第五次密度及原文谱矩。 |
 | [dlw_bilinear_nonlinear_lean.html](report/dlw_bilinear_nonlinear_lean.html) | Report 第 1 章两路非线性化的静态证明说明与 Lean 证据。 |
 | [dlw_integrability_status.html](report/dlw_integrability_status.html) | DLW Gram、Darboux／Lax、非线性化与连续极限的当前完成情况及谱表示缺口。 |
 | [dlw_error_theory.html](report/dlw_error_theory.html) | DLW 连续方程到 SD／SDR／FD 的完整推导，二阶残差、参数系数与误差传播。 |
 | [dlw_research_ideas.html](report/dlw_research_ideas.html) | T01–T04 研究路线与限定成果：谱域校准、坐标等价、孤子二阶形变、精度数据空间。 |
-| [dlw_waveform_fields.html](report/dlw_waveform_fields.html) | index 第 6 节的独立 Euler 局部误差图集；36 张图片源逐一相同，另有单图 PDF 下载。 |
+| [dlw_waveform_fields.html](report/dlw_waveform_fields.html) | Euler 局部误差热图集：36 张二维分布图，附单图 PDF 下载；index 第 6 节另以曲线比较。 |
 | [dlw_conserved_mesh.html](report/dlw_conserved_mesh.html) | 五组原文算例的守恒密度网格实验，延长到 T=.01；拆分初态重构、持续移动与高频增长。配置不同于 index，不宜跨页直接排名。 |
 | [soliton_reading_guide.html](report/soliton_reading_guide.html) | 广田教材 Lax／Bäcklund 的阅读顺序、精确页码，以及 Darboux 本地选读。 |
 
@@ -191,9 +209,9 @@
 - `Workspaces/dlw_single_aligned_20260929/out/index_t001.csv`、`comparison.csv`、`error_time_all.csv`、`euler_vs_rk4.csv`（可配对主表与全部误差）
 - `Workspaces/dlw_single_aligned_20260929/out/control_comparisons.csv`、`fine_time_checks.csv`、`Euler_time_order.csv`、`initial_uv_matching.csv`、`evaluation_density.csv`、`qr_reconstruction.csv`（控制、时间阶、初边值和场恢复核对）
 - `Workspaces/dlw_single_aligned_20260929/out/results.json`、`validation.json`、`status.csv`、`RK4/*.npz`、`Euler/*.npz`（完整计划、验收、状态、原始场和哈希）
-- [index.html](index.html)（《DLW孤子数值解的误差比较》；单孤子A/B与二孤子C的三方案、两时间法、两网格配对结果；A的SD2固定格空间限制用†标记）
-- [DLW：Euler 局部误差分布](report/dlw_waveform_fields.html)（T=.01、x∈[-1,1]；18Euler组合，u/v、三方案、两网格分别绘成36张单图；index第6节同步）
-- `Workspaces/dlw_waveform_fields_20261001/revision_euler_crop/plot_euler_errors.py`、`build_euler_reports.py`、`euler_errors.src.html`（当前单面板绘图与两根HTML生成，build_reports.py入口转发）
+- [index.html](index.html)（《DLW孤子数值解的误差比较》；三组孤子的实际双场误差、42组最小值加粗、递推伪代码与12张Euler误差曲线；A的SD2固定格分辨率敏感性用†标记）
+- [DLW：Euler 局部误差分布](report/dlw_waveform_fields.html)（T=.01、x∈[-1,1]；18Euler组合的36张原二维热图；index第6节采用相同保存误差的max_y曲线）
+- `Workspaces/dlw_waveform_fields_20261001/revision_euler_crop/plot_euler_errors.py`、`build_euler_reports.py`、`euler_errors.src.html`（原36张二维热图绘图与双页生成入口；当前index曲线修订由index_readability_20261006/revise_index.py生成）
 - `Workspaces/dlw_waveform_fields_20261001/revision_euler_crop/euler_cropped_errors.csv`、`euler_cropped_errors.npz`、`euler_plot_validation.json`、`euler_delivery_manifest.json`、`euler_figure_manifest.json`（401×24裁窗误差、36峰位/色限与交付哈希）
 - `Workspaces/dlw_waveform_fields_20261001/revision_euler_crop/euler_crop_audit.py`、`euler_crop_audit.json`（18源哈希与36独立有理tau误差/峰位复核）
 - `Workspaces/dlw_waveform_fields_20261001/check_euler_report.cjs`、`euler_html_validation.json`、`euler_preview/`（两页各36独立Euler图、宽窄屏与折叠核对）
@@ -204,6 +222,10 @@
 - `Workspaces/dlw_waveform_fields_20261001/check_report.cjs`、`html_validation.json`、`html_preview/`（双页1440/390px数学、36/12图解码、折叠与链接核对）
 - `Workspaces/dlw_waveform_fields_20261001/figures/*_profiles.png/.pdf/.svg`、`*_wavefields.png/.pdf`、`*_errorfields.png/.pdf`（A/B/C×RK4/Euler×fixed/moving；36PNG、36PDF、12SVG）；`before/`、`update_records.ps1`、`registration.json`（修改前副本与共享记录的合并登记）
 - `Workspaces/gsg_project/dlw_report/_src/index.md`、`_src/index.src.html`、`generate_index_report.py`（当前正文与生成入口）
+- `Workspaces/index_readability_20261006/revise_index.py`、`algorithm_pseudocode.md`、`table_results.json`、`register_revision.py`（论文式阅读修订、实现核对伪代码、42组配对数据与合并登记）
+- `Workspaces/index_readability_20261006/plot_error_curves.py`、`error_curves.fragment.html`、`error_curves.npz`、`curve_validation.json`（12图、36条401点max_y曲线与原峰值核对）
+- `Workspaces/index_readability_20261006/figures/*.png/.pdf`（12张全宽曲线，三空间方案蓝/橙/绿，同算例同场统一纵轴）
+- `Workspaces/index_readability_20261006/verification/check_index.cjs`、`verification/validation.json`、`verification/*.png`、`before/`（90原值、42最小值、公式/图像/链接及1280/390排版核验与修改前备份）
 - `Workspaces/index_recurrences_20260930/check_page.cjs`、`validation.json`、`recurrences_desktop.png`、`sd2_desktop.png`、`recurrences_mobile.png`（首页SD/SD2/FD递推式、连续编号与宽窄屏检查）；`before/`（修改前正文、模板、页面及同文副本）
 - [CONTROLLED_RESULTS.md](Workspaces/dlw_error_inventory_20260929/CONTROLLED_RESULTS.md)（同文副本）；`check_paper.cjs`、`paper_preview/`（页面核对）；`before_paper_rewrite/`（上版存档）
 - `Workspaces/dlw_error_inventory_20260929/publish_conclusions.py`、`controlled_results.fragment.html`（从交接主表生成精简报告并同步index源）；`check_index.cjs`、`index_preview/`（页面核对）；`before_uv_aligned_index/`（修改前报告/模板/页面）

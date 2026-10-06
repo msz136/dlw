@@ -1,0 +1,90 @@
+{
+  "recordedAtUtc": "2026-10-02T04:22:31.458775+00:00",
+  "toolchain": "leanprover/lean4:v4.34.0",
+  "cases": [
+    {
+      "id": "uw",
+      "status": "PASSED",
+      "checkedModules": 5,
+      "seconds": 89.698635,
+      "axioms": {
+        "DLWContract.ReportUW.semiPair_implies_report7": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "DLWContract.ReportUW.semiPair_implies_report8": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "resultPath": "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\proofs\\.lean-runs\\20261002_121600_00c83b49\\result.json",
+      "logPath": "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\proofs\\.lean-runs\\20261002_121600_00c83b49\\build.log",
+      "target": "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\proofs\\ExampleUW.lean",
+      "root": "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\proofs",
+      "command": [
+        "C:\\Users\\msz\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "C:\\Users\\msz\\aca\\_lean_shared\\check_lean.py",
+        "--root",
+        "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\proofs",
+        "--file",
+        "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\proofs\\ExampleUW.lean",
+        "--timeout",
+        "900"
+      ],
+      "verifiedSourceHashes": {
+        "ReportNonlinearUW": "413d45c48b64d5dc1214c7931e1581b3e1a8c49d3c81132289aba387b5c67975",
+        "PkgNonlinear": "58ee97d70c67417c428a4b4c67e94525f7408ea0fde65b532913a3682e68d284",
+        "Contracts": "e70876c538d52939b030e7813a6b1c60917a79e56e28b29146d22df8da98d656",
+        "PkgLattice": "c28f849bac9607fef3bf0a9e104ff761daf60be4742d6d0884f83b86cf193f3f",
+        "ExampleUW": "10ac23f0171fb106eea6ce32ba65f179e9b2dbc454c06ef409d217507ebced37"
+      }
+    },
+    {
+      "id": "qrm",
+      "status": "PASSED",
+      "checkedModules": 8,
+      "seconds": 140.106453,
+      "axioms": {
+        "DLWContract.ReportQRM.semiPair_implies_report21": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "DLWContract.ReportQRM.report22": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ]
+      },
+      "resultPath": "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\proofs\\.lean-runs\\20261002_121907_178f881e\\result.json",
+      "logPath": "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\proofs\\.lean-runs\\20261002_121907_178f881e\\build.log",
+      "target": "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\proofs\\ExampleQRM.lean",
+      "root": "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\proofs",
+      "command": [
+        "C:\\Users\\msz\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "C:\\Users\\msz\\aca\\_lean_shared\\check_lean.py",
+        "--root",
+        "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\proofs",
+        "--file",
+        "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\proofs\\ExampleQRM.lean",
+        "--timeout",
+        "900"
+      ],
+      "verifiedSourceHashes": {
+        "ReportNonlinearQRM": "ed1d1b6473c3567ec27f5a15969d02579c114475cd1d8c3239d5b956d03d4804",
+        "ReportQRMCalculus": "874992d19778987c5810d010381f235b0494820bce878580489209ff9373aacd",
+        "PkgLattice": "c28f849bac9607fef3bf0a9e104ff761daf60be4742d6d0884f83b86cf193f3f",
+        "Contracts": "e70876c538d52939b030e7813a6b1c60917a79e56e28b29146d22df8da98d656",
+        "PkgQuotientRate": "0e46edfe575e80fac40682c21fb07de62673570b0a2b4ca9e4fb4c7e425f011a",
+        "ReportNonlinearUW": "413d45c48b64d5dc1214c7931e1581b3e1a8c49d3c81132289aba387b5c67975",
+        "PkgNonlinear": "58ee97d70c67417c428a4b4c67e94525f7408ea0fde65b532913a3682e68d284",
+        "ExampleQRM": "ee11206f18f515d7d8ba1416b60eabb85cb1fd502150b0e649dfea7829e3e4aa"
+      }
+    }
+  ],
+  "scopeText": "本次 Lean 验证采用实值、全局实解析且严格为正的 F、G，并假设 h≠0。",
+  "noProofPlaceholders": true,
+  "note": "These are genuine compilation records. They are evidence of this capture, not substitutes for a fresh Run."
+}

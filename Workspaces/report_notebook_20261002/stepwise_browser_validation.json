@@ -1,0 +1,77 @@
+{
+  "checks": [
+    {
+      "name": "only per-cell Run controls; import/start/endpoint and two seven-cell numerical sequences",
+      "passed": true
+    },
+    {
+      "name": "missing prerequisites are reported without executing any preceding cell",
+      "passed": true
+    },
+    {
+      "name": "preparation and definitions preserve state without producing final calculations",
+      "passed": true
+    },
+    {
+      "name": "only the final requested cell draws convergence; preparation and configuration ran once",
+      "passed": true
+    },
+    {
+      "name": "repeat execution uses the retained state and replaces only current output",
+      "passed": true
+    },
+    {
+      "name": "parameter edits invalidate descendants and require explicit reruns without replaying preparation",
+      "passed": true
+    },
+    {
+      "name": "a syntax error affects its own cell and can be repaired using existing preceding definitions",
+      "passed": true
+    },
+    {
+      "name": "the current core expression is actually executed",
+      "passed": true
+    },
+    {
+      "name": "reset clears the retained environment and keeps edits",
+      "passed": true
+    },
+    {
+      "name": "cancel terminates this kernel and asks the reader to restart its preparation",
+      "passed": true
+    },
+    {
+      "name": "timeout terminates a nonreturning cell and clears unavailable retained state",
+      "passed": true
+    },
+    {
+      "name": "2HS definitions, RK4 evolution, and final error plotting happen in separate requested cells",
+      "passed": true,
+      "detail": "现场运行的方案\tE_u(T)\tE_ρ(T)\t终点最小格距\t终点最小密度\nIntegrable\t0.0100127\t0.00114967\t0.00498587\t0.640451\nFD\t9.39930e-7\t3.04642e-6\t0.005375\t0.64\n单孤子 u 的分段最大绝对误差\n-0.990\n-7.57\n-0.495\n-6.07\n0\n-4.58\n0.495\n-3.08\n0.990\n-1.59\nIntegrable\nFD\n物理坐标 x\nlog10(max |u_h − u|)\n单孤子 ρ 的分段最大绝对误差\n-0.990\n-6.74\n-0.495\n-5.72\n0\n-4.70\n0.495\n-3.68\n0.990\n-2.66\nIntegrable\nFD\n物理坐标 x\nlog10(max |ρ_h − ρ|)\n方案\t原表 E_u\t原表 E_ρ\t现场 E_u 与原表之差\t现场 E_ρ 与原表之差\nIntegrable\t0.0100127\t0.00114967\t2.41127e-15\t1.11022e-16\nFD\t9.39931e-7\t3.04642e-6\t1.13984e-12\t1.73972e-13\nOK：现场完成 160 步 RK4；默认配置与原报告四项误差的最大绝对差为 1.14e-12。"
+    },
+    {
+      "name": "2HS parameter edits recalculate through explicit cells without rerunning its preparation",
+      "passed": true
+    },
+    {
+      "name": "narrow screen, formulas, synchronized print source and offline execution",
+      "passed": true
+    }
+  ],
+  "views": [
+    {
+      "width": 1440,
+      "overflow": false,
+      "mathErrors": [],
+      "font": "16px / 28.8px \"Times New Roman\", SimSun, serif"
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "mathErrors": [],
+      "font": "14.6667px / 26.4px \"Times New Roman\", SimSun, serif"
+    }
+  ],
+  "errors": [],
+  "httpRequests": []
+}

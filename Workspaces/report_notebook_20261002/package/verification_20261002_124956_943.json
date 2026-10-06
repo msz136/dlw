@@ -1,0 +1,69 @@
+{
+  "verifiedAtUtc": "2026-10-02T04:50:13.4210519Z",
+  "passed": true,
+  "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\package\\Report.exe",
+  "peSubsystem": 2,
+  "simultaneousOpens": 2,
+  "freshServices": 1,
+  "sharedServicePid": 26660,
+  "mainWindowHandle": 0,
+  "browserOpened": false,
+  "commandLine": "\"C:\\Users\\msz\\AppData\\Local\\Programs\\Python\\Python313\\python.exe\" -u -c \"import os,runpy,sys\nserver_path,port,log_path=sys.argv[1:4]\nsys.stdout=open(log_path,'a',encoding='utf-8',buffering=1)\nsys.stderr=sys.stdout\nsys.path.insert(0,os.path.dirname(server_path))\nsys.argv=[server_path,'--port',port]+sys.argv[4:]\nrunpy.run_path(server_path,run_name='__main__')\n\" \"C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\runtime\\report_server.py\" \"8767\" \"C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\package\\logs\\service_20261002_044959_144_23800.log\" --idle-seconds \"6\"",
+  "childProcesses": [
+    {
+      "ProcessId": 13164,
+      "Name": "conhost.exe",
+      "CommandLine": "\\??\\C:\\WINDOWS\\system32\\conhost.exe 0x4",
+      "MainWindowHandle": 0
+    }
+  ],
+  "health": {
+    "service": "aca-report-notebook",
+    "version": "2.0.0",
+    "leanVersion": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+    "toolchain": "leanprover/lean4:v4.34.0",
+    "mathlibCommit": "5ed2965256430c3649e86755f9576b54eca72435",
+    "pid": 26660,
+    "port": 8767,
+    "workspace": "C:\\Users\\msz\\aca",
+    "script": "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\runtime\\report_server.py",
+    "activeJobs": 0,
+    "status": "ready"
+  },
+  "autoIdleExit": true,
+  "idleSeconds": 6,
+  "outcomes": [
+    {
+      "status": "ready",
+      "started": true,
+      "migrated": false,
+      "browserOpened": false,
+      "workspace": "C:\\Users\\msz\\aca",
+      "version": "2.0.0",
+      "port": 8767,
+      "pid": 26660,
+      "python": "C:\\Users\\msz\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "serviceLog": "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\package\\logs\\service_20261002_044959_144_23800.log",
+      "launcherSubsystem": "Windows GUI",
+      "childCreateNoWindow": true,
+      "reportUrl": "http://127.0.0.1:8767/Report.html",
+      "utc": "2026-10-02T04:50:01.5092037Z"
+    },
+    {
+      "status": "ready",
+      "started": false,
+      "migrated": false,
+      "browserOpened": false,
+      "workspace": "C:\\Users\\msz\\aca",
+      "version": "2.0.0",
+      "port": 8767,
+      "pid": 26660,
+      "python": null,
+      "serviceLog": null,
+      "launcherSubsystem": "Windows GUI",
+      "childCreateNoWindow": true,
+      "reportUrl": "http://127.0.0.1:8767/Report.html",
+      "utc": "2026-10-02T04:50:01.6060674Z"
+    }
+  ]
+}

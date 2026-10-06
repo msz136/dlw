@@ -1,0 +1,70 @@
+[
+  {
+    "id": "hs-prepare",
+    "title": "准备数值环境",
+    "note": "原生数学函数与双精度数组用于本页计算。",
+    "lead": "检查计算所需的数学函数和双精度数组。",
+    "requires": [],
+    "code": "// IEEE 754 双精度运算。\nif (typeof Math.exp !== \"function\" || typeof Float64Array !== \"function\")\n  throw Error(\"当前环境缺少 Math 或 Float64Array。\");\nlab.hs = {ready:{prepare:true}, language:\"JavaScript\"};\n"
+  },
+  {
+    "id": "hs-config",
+    "title": "设置网格与时间步长",
+    "note": "默认配置对应原表 1；加密同一辅助区间时，同时增大 N、减小 a。",
+    "lead": "设置网格、RK4 时间步长和误差评价点。",
+    "requires": [
+      "hs-prepare"
+    ],
+    "code": "if (!lab.hs?.ready?.prepare) throw Error(\"先运行准备环境。\");\n// 式（24）：p=5、q=1.25、c=1，初相位为零。\n// a：X 方向格距；dt：时间步长；T：终止时间。\nconst hsCfg = {\n  N: 1600, a: 0.005, Xleft: -4,\n  dt: 0.003125, T: 0.5,\n  xMin: -1, xMax: 1, evaluationPoints: 32001\n};\nconst {N,a,Xleft,dt,T,xMin,xMax,evaluationPoints} = hsCfg;\nif (![a,Xleft,dt,T,xMin,xMax].every(Number.isFinite) ||\n    !(a>0 && dt>0 && T>=0 && xMax>xMin))\n  throw Error(\"要求有限实数、a>0、dt>0、T≥0、xMax>xMin。\");\nif (!Number.isInteger(N) || N<20 || N>6400 ||\n    !Number.isInteger(evaluationPoints) || evaluationPoints<101 || evaluationPoints>64001)\n  throw Error(\"N 应在 20—6400；评价点数应在 101—64001，均取整数。\");\nconst steps=Math.round(T/dt);\nif (Math.abs(steps*dt-T)>1e-12 || steps>3200)\n  throw Error(\"T 须为 dt 的整数倍，且步数≤3200。\");\nconst Xright=Xleft+N*a;\nemit({type:\"table\",columns:[\"N\",\"a\",\"辅助区间 X\",\"Δt\",\"T\",\"时间步数\",\"评价点数\"],\n  rows:[[N,a,`[${Xleft}, ${Xright}]`,dt,T,steps,evaluationPoints]]});\nObject.assign(lab.hs,{cfg:hsCfg,...hsCfg,steps,Xright,ready:{prepare:true,config:true}});\n"
+  },
+  {
+    "id": "hs-reference",
+    "title": "定义连续参考解与物理网格",
+    "note": "解析边界与误差参考采用式（24）；物理坐标由严格单调映射反解。",
+    "lead": "定义单孤子解析解，并构造初始物理网格。",
+    "requires": [
+      "hs-config"
+    ],
+    "code": "if (!lab.hs?.ready?.config) throw Error(\"先运行网格与时间配置。\");\nconst {N,a,Xleft,xMin,xMax}=lab.hs;\n// 式（24）：X 到 x 的映射，m=u_xx+2。\nfunction exactX(X,t) {\n  const z=Math.tanh((3.75*X-0.6*t)/2), S=1-z*z;\n  const zx=1.875*S, zxx=-2*zx*1.875*z;\n  const J=1+0.3*zx, Jx=0.3*zxx;\n  const u=0.09*S, uX=-0.18*z*zx;\n  const uXX=-0.18*(zx*zx+z*zxx);\n  // 链式法则：d/dx=(1/J)d/dX，其中 J=dx/dX。\n  const uxx=(uXX*J-uX*Jx)/(J*J*J);\n  return {x:X-0.5+0.3*z,u,rho:1/J,m:uxx+2,X};\n}\n// dx/dX>0；反解区间为 [x+0.2,x+0.8]。\nfunction exactPhysical(x,t) {\n  let lo=x+0.2, hi=x+0.8;\n  for (let k=0;k<60;k++) {\n    const mid=(lo+hi)/2;\n    if (exactX(mid,t).x<x) lo=mid; else hi=mid;\n  }\n  const value=exactX((lo+hi)/2,t);\n  if (Math.abs(value.x-x)>2e-12)\n    throw Error(\"物理坐标反解未达到容差。\");\n  return value;\n}\n// 固定网格与初始动网格共用物理端点。\nconst initial=Array.from({length:N+1},(_,i)=>exactX(Xleft+i*a,0));\nconst left=initial[0].x, right=initial[N].x, dx=(right-left)/N;\nconst fixedX=Float64Array.from({length:N+1},(_,i)=>left+i*dx);\nif (xMin<=left || xMax>=right)\n  throw Error(\"评价区间必须位于初始物理端点内部。\");\nemit({type:\"table\",columns:[\"初始物理左端\",\"初始物理右端\",\"FD 的 Δx\",\"峰值 u\",\"谷值 ρ\"],\n  rows:[[left,right,dx,0.09,0.64]]});\nObject.assign(lab.hs,{exactX,exactPhysical,initial,left,right,dx,fixedX,ready:{prepare:true,config:true,reference:true}});\n"
+  },
+  {
+    "id": "hs-spatial",
+    "title": "定义空间格式与场恢复",
+    "note": "Integrable 推进胞元变量；FD 推进内部节点变量，再由 Thomas 消元恢复 u。",
+    "lead": "定义两种空间格式，并由三对角方程从 m 恢复 u。",
+    "requires": [
+      "hs-reference"
+    ],
+    "code": "if (!lab.hs?.ready?.reference) throw Error(\"先运行连续参考解。\");\nconst {N,a,Xleft,left,right,dx,fixedX,initial,exactX,exactPhysical}=lab.hs;\n// 可积格式状态：[b_0,...,b_(N-1), d_0,...,d_(N-1), x_0]。\nfunction integrableFields(t,state) {\n  const u=new Float64Array(N+1), x=new Float64Array(N+1);\n  const rho=new Float64Array(N), rhoX=new Float64Array(N);\n  const u0=exactX(Xleft,t).u, x0=state[2*N];\n  u[0]=u0; x[0]=x0;\n  let sumB=0, sumD=0;\n  for (let i=0;i<N;i++) {\n    const b=state[i], d=state[N+i];\n    if (!Number.isFinite(b) || !Number.isFinite(d) || d<=0)\n      throw Error(\"Integrable 出现非有限状态或非正胞元格距。\");\n    sumB+=b; sumD+=d; u[i+1]=u0+sumB; x[i+1]=x0+sumD;\n    rho[i]=a/d; rhoX[i]=(x[i]+x[i+1])/2;\n  }\n  return {x,u,rhoX,rho};\n}\n// 式（25）：b、d 和 x_0 的时间导数。\nfunction integrableRHS(t,state) {\n  const {u}=integrableFields(t,state), result=new Float64Array(2*N+1);\n  for (let i=0;i<N;i++) {\n    const b=state[i], d=state[N+i], C=d*d-a*(a-1);\n    result[i]=2*d*(u[i+1]+u[i])+(C*C-b*b)/(2*d)-d/2;\n    result[N+i]=-b;\n  }\n  result[2*N]=-u[0]; return result;\n}\n// 三对角消元解：u_(i-1)-2u_i+u_(i+1)=dx^2*(m_i-2)。\nfunction recoverU(m,ubLeft,ubRight) {\n  const count=N-1, c=new Float64Array(count), d=new Float64Array(count);\n  for (let j=0;j<count;j++) {\n    const diagonal=-2-(j ? c[j-1] : 0);\n    let rhs=dx*dx*(m[j+1]-2);\n    if (j===0) rhs-=ubLeft;\n    if (j===count-1) rhs-=ubRight;\n    c[j]=j<count-1 ? 1/diagonal : 0;\n    d[j]=(rhs-(j ? d[j-1] : 0))/diagonal;\n  }\n  const u=new Float64Array(N+1); u[0]=ubLeft; u[N]=ubRight;\n  for (let j=count-1;j>=0;j--) u[j+1]=d[j]-(j<count-1 ? c[j]*u[j+2] : 0);\n  return u;\n}\n// FD 状态为内部 m 与 rho，边界取解析值。\nfunction fdFields(t,state) {\n  const l=exactPhysical(left,t), r=exactPhysical(right,t);\n  const m=new Float64Array(N+1), rho=new Float64Array(N+1);\n  m[0]=l.m; m[N]=r.m; rho[0]=l.rho; rho[N]=r.rho;\n  for (let i=1;i<N;i++) {\n    m[i]=state[i-1]; rho[i]=state[N-1+i-1];\n    if (!Number.isFinite(m[i]) || !Number.isFinite(rho[i]) || rho[i]<=0)\n      throw Error(\"FD 出现非有限状态或非正密度。\");\n  }\n  return {x:fixedX,u:recoverU(m,l.u,r.u),rhoX:fixedX,rho,m};\n}\n// 式（28）：固定网格上的一阶中心差分。\nfunction fdRHS(t,state) {\n  const {m,rho,u}=fdFields(t,state), result=new Float64Array(2*(N-1));\n  for (let i=1;i<N;i++) {\n    const ux=(u[i+1]-u[i-1])/(2*dx);\n    const mx=(m[i+1]-m[i-1])/(2*dx), rx=(rho[i+1]-rho[i-1])/(2*dx);\n    result[i-1]=u[i]*mx+2*m[i]*ux+rho[i]*rx;\n    result[N-1+i-1]=u[i]*rx+rho[i]*ux;\n  }\n  return result;\n}\n// 初始 m=D2(u)+2，与演化使用同一二阶差分模板。\nfunction initialStates() {\n  const integrable=new Float64Array(2*N+1), fd=new Float64Array(2*(N-1));\n  const u0=Float64Array.from(fixedX,x=>exactPhysical(x,0).u);\n  for (let i=0;i<N;i++) {\n    integrable[i]=initial[i+1].u-initial[i].u;\n    integrable[N+i]=initial[i+1].x-initial[i].x;\n  }\n  integrable[2*N]=left;\n  for (let i=1;i<N;i++) {\n    fd[i-1]=(u0[i+1]-2*u0[i]+u0[i-1])/(dx*dx)+2;\n    fd[N-1+i-1]=exactPhysical(fixedX[i],0).rho;\n  }\n  return {integrable,fd};\n}\n// 物理节点上的分段线性重构。\nfunction interpolate(xs,values,targets) {\n  if (targets[0]<xs[0] || targets[targets.length-1]>xs[xs.length-1])\n    throw Error(\"数值网格未覆盖整个评价区间。\");\n  const out=new Float64Array(targets.length); let j=0;\n  for (let k=0;k<targets.length;k++) {\n    while (j<xs.length-2 && xs[j+1]<targets[k]) j++;\n    const weight=(targets[k]-xs[j])/(xs[j+1]-xs[j]);\n    out[k]=values[j]+weight*(values[j+1]-values[j]);\n  }\n  return out;\n}\nObject.assign(lab.hs,{integrableFields,integrableRHS,recoverU,fdFields,fdRHS,initialStates,interpolate,ready:{prepare:true,config:true,reference:true,spatial:true}});\n"
+  },
+  {
+    "id": "hs-rk4",
+    "title": "定义四阶时间步",
+    "note": "一个时间步内依次计算四个阶段；本段登记算法，下一段推进状态。",
+    "lead": "定义一次 RK4 更新，依次计算空间方程的四个阶段。",
+    "requires": [
+      "hs-spatial"
+    ],
+    "code": "if (!lab.hs?.ready?.spatial) throw Error(\"先运行空间格式。\");\n// 式（29）：每一级重新恢复场值和解析边界。\nfunction rk4Step(rhs,t,state,delta) {\n  const add=(z,k,factor)=>Float64Array.from(z,(value,i)=>value+factor*k[i]);\n  const k1=rhs(t,state), k2=rhs(t+delta/2,add(state,k1,delta/2));\n  const k3=rhs(t+delta/2,add(state,k2,delta/2)), k4=rhs(t+delta,add(state,k3,delta));\n  return Float64Array.from(state,(value,i)=>value+delta*(k1[i]+2*k2[i]+2*k3[i]+k4[i])/6);\n}\nObject.assign(lab.hs,{rk4Step,ready:{prepare:true,config:true,reference:true,spatial:true,rk4:true}});\n"
+  },
+  {
+    "id": "hs-evolve",
+    "title": "从初值实际推进至 T",
+    "note": "本段调用已经定义的空间格式与 RK4；每次运行从当前配置的连续初值开始。",
+    "lead": "从解析初值出发，将两种方案推进至 T。",
+    "requires": [
+      "hs-rk4"
+    ],
+    "code": "if (!lab.hs?.ready?.rk4) throw Error(\"先运行四阶时间步。\");\nconst {steps,dt,T,initialStates,rk4Step,integrableRHS,fdRHS,integrableFields,fdFields}=lab.hs;\n// 时间层：t_n=n*dt，T=steps*dt。\nlet {integrable,fd}=initialStates();\nfor (let step=0;step<steps;step++) {\n  const t=step*dt;\n  integrable=rk4Step(integrableRHS,t,integrable,dt);\n  fd=rk4Step(fdRHS,t,fd,dt);\n}\nconst liveFields={Integrable:integrableFields(T,integrable),FD:fdFields(T,fd)};\nObject.assign(lab.hs,{integrable,fd,liveFields,ready:{prepare:true,config:true,reference:true,spatial:true,rk4:true,evolve:true}});\nemit({type:\"table\",columns:[\"方案\",\"已推进步数\",\"当前时间\",\"物理节点数\"],\n  rows:Object.entries(liveFields).map(([name,f])=>[name,steps,T,f.x.length])});\n"
+  },
+  {
+    "id": "hs-error",
+    "title": "计算终点误差并画图",
+    "note": "在相同物理评价点比较数值场与连续参考解；默认配置同时核对原表四项误差。",
+    "lead": "将重构场与解析解比较，计算并绘制误差。",
+    "requires": [
+      "hs-evolve"
+    ],
+    "code": "if (!lab.hs?.ready?.evolve) throw Error(\"先运行实际演化。\");\nconst {N,a,Xleft,dt,T,steps,xMin,xMax,evaluationPoints,liveFields,exactPhysical,interpolate}=lab.hs;\n// 式（30）：公共物理网格上的最大绝对误差。\nconst xx=Float64Array.from({length:evaluationPoints},(_,i)=>\n  xMin+(xMax-xMin)*i/(evaluationPoints-1));\nconst reference=Array.from(xx,x=>exactPhysical(x,T));\nconst hsResults={}, resultRows=[];\nfor (const [name,f] of Object.entries(liveFields)) {\n  const u=interpolate(f.x,f.u,xx), rho=interpolate(f.rhoX,f.rho,xx);\n  const eu=Float64Array.from(u,(v,i)=>Math.abs(v-reference[i].u));\n  const er=Float64Array.from(rho,(v,i)=>Math.abs(v-reference[i].rho));\n  let Eu=0, Erho=0, minDx=Infinity, minRho=Infinity;\n  for (let i=0;i<evaluationPoints;i++) {Eu=Math.max(Eu,eu[i]);Erho=Math.max(Erho,er[i]);}\n  for (let i=1;i<f.x.length;i++) minDx=Math.min(minDx,f.x[i]-f.x[i-1]);\n  for (const r of f.rho) minRho=Math.min(minRho,r);\n  hsResults[name]={Eu,Erho,eu,er,u,rho,minDx,minRho};\n  resultRows.push([name,Eu,Erho,minDx,minRho]);\n}\nemit({type:\"table\",columns:[\"现场运行的方案\",\"E_u(T)\",\"E_ρ(T)\",\"终点最小格距\",\"终点最小密度\"],rows:resultRows});\n// 每个绘图区间保留其评价点上的最大误差。\nconst bins=100, centers=Array.from({length:bins},(_,i)=>xMin+(i+0.5)*(xMax-xMin)/bins);\nfor (const [key,label] of [[\"eu\",\"u\"],[\"er\",\"ρ\"]]) {\n  const series=[];\n  for (const name of [\"Integrable\",\"FD\"]) {\n    const envelope=new Array(bins).fill(0), values=hsResults[name][key];\n    for (let k=0;k<evaluationPoints;k++) {\n      const bin=Math.min(bins-1,Math.floor((xx[k]-xMin)/(xMax-xMin)*bins));\n      envelope[bin]=Math.max(envelope[bin],values[k]);\n    }\n    // 对数图显示下限为 1e-16；误差范数不截断。\n    series.push({name,x:centers,y:envelope.map(v=>Math.log10(Math.max(v,1e-16)))});\n  }\n  emit({type:\"series\",title:`单孤子 ${label} 的分段最大绝对误差`,\n    xLabel:\"物理坐标 x\",yLabel:`log10(max |${label}_h − ${label}|)`,series});\n}\n// 仅原配置使用原表误差作回归核对。\nconst isReportDefault=N===1600 && a===0.005 && Xleft===-4 && dt===0.003125 &&\n  T===0.5 && xMin===-1 && xMax===1 && evaluationPoints===32001;\nif (isReportDefault) {\n  const saved={Integrable:[0.010012749796509766,0.0011496748742060303],\n    FD:[9.399310918062342e-7,3.046420677166317e-6]};\n  let discrepancy=0;\n  const auditRows=[];\n  for (const name of [\"Integrable\",\"FD\"]) {\n    const r=hsResults[name], target=saved[name];\n    const du=Math.abs(r.Eu-target[0]), dr=Math.abs(r.Erho-target[1]);\n    discrepancy=Math.max(discrepancy,du,dr);\n    auditRows.push([name,target[0],target[1],du,dr]);\n  }\n  emit({type:\"table\",columns:[\"方案\",\"原表 E_u\",\"原表 E_ρ\",\"现场 E_u 与原表之差\",\"现场 E_ρ 与原表之差\"],rows:auditRows});\n  if (discrepancy>1e-8) throw Error(\"默认配置与原报告误差不吻合，请检查已编辑的核心代码。\");\n}\nObject.assign(lab.hs,{xx,reference,hsResults,resultRows,ready:{prepare:true,config:true,reference:true,spatial:true,rk4:true,evolve:true,error:true}});\n"
+  }
+]

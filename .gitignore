@@ -69,3 +69,25 @@ Workspaces/**/*.pdf
 *.html
 !/*.html
 !/report/*.html
+
+# 本地日志、临时文件和版本备份（保留磁盘内容）
+*.log
+*.err
+logs/
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+*.orig_backup
+before/
+before_*/
+backup/
+backups/
+*_backup*/
+*_before_*.md
+Workspaces/**/runtime/jobs/
+Workspaces/**/runtime/server-state*.json
+Workspaces/**/runtime/*.out
+Workspaces/report_notebook_20261002/package/upgrade_fixture_*/
+Workspaces/report_colab_20261006/mcp_control/

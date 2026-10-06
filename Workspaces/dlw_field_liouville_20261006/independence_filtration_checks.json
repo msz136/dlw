@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "commutative_normalization": "(e**2*f**2 - e**2*g**2 + 4*e*f*g*z - f**2*g**2 + g**4 - 2*g**2*mu*z + 4*g**2*z**2)/(2*g*(2*e*f - g*mu + 2*g*z))",
+  "symbolic_top_coefficient_checks": "odd/even pairs k=1,...,12",
+  "exact_PDO_check": "Pmom,H1,...,H5 on N=2,G=6,T=12,A=2/5",
+  "pairing": "x mean, i.e. integral divided by 2*pi",
+  "Jacobian_columns": [
+    "e cos x",
+    "f cos x",
+    "e cos 3x",
+    "f cos 3x",
+    "e cos 5x",
+    "f cos 5x"
+  ],
+  "Jacobian": "Matrix([[8/5, 0, 0, 0, 0, 0], [0, -1/10, 0, 0, 0, 0], [-86/375, -1/5, 1/750, 0, 0, 0], [-86/125, -333/250, 1/250, 3/500, 0, 0], [-9197/2500, -566/125, 127/7500, 3/125, -1/12500, 0], [-20711/1500, -38911/2000, 29/500, 187/2000, -1/2500, -3/10000]])",
+  "diagonal": [
+    "8/5",
+    "-1/10",
+    "1/750",
+    "3/500",
+    "-1/12500",
+    "-3/10000"
+  ],
+  "determinant": "-3/97656250000000",
+  "scope": "All-order independence is established by the filtration and Fourier proof in INDEPENDENCE.md; this is only a finite exact consistency check."
+}

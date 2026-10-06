@@ -1,0 +1,234 @@
+{
+  "status": "passed",
+  "execution": "Persistent explicit lab object; each AsyncFunction receives only the current visible cell source.",
+  "checks": [
+    {
+      "name": "All 14 cells retain comments and identical JSON/JavaScript source",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Missing prior cells are rejected with no implicit replay",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Only evolution advances states; original 2HS tables and figures reproduced",
+      "passed": true,
+      "details": {
+        "rk4Calls": 320,
+        "errors": {
+          "Integrable": {
+            "Eu": 0.010012749796507405,
+            "Erho": 0.0011496748742056973
+          },
+          "FD": {
+            "Eu": 9.399299503859426e-07,
+            "Erho": 3.0464205025282354e-06
+          }
+        },
+        "figures": 2
+      }
+    },
+    {
+      "name": "Visible 2HS parameter edit changes actual evolution and error",
+      "passed": true,
+      "details": {
+        "T": 0.25,
+        "steps": 80,
+        "Eu": 0.002627981361140304
+      }
+    },
+    {
+      "name": "Visible RK4 core edit changes recomputed error",
+      "passed": true,
+      "details": {
+        "EuFD": 3.921103419721184e-06
+      }
+    },
+    {
+      "name": "Definition cells emit nothing; final output retains only numerical evidence",
+      "passed": true,
+      "details": {
+        "silentCells": [
+          "hs-prepare",
+          "hs-spatial",
+          "hs-rk4",
+          "error-prepare",
+          "error-profile",
+          "error-coefficient",
+          "error-residual"
+        ],
+        "measuredText": "continuumDefect = 4.286812441877563e-15"
+      }
+    },
+    {
+      "name": "Original DLW coefficient and convergence tables reproduced",
+      "passed": true,
+      "details": {
+        "coefficients": [
+          [
+            "SD / SDR · 1",
+            1.686064340168341,
+            3.94189453125,
+            0.02634475531513033,
+            0.06159210205078125
+          ],
+          [
+            "SD / SDR · 2",
+            0.933154023318524,
+            7.63330078125,
+            0.014580531614351938,
+            0.11927032470703125
+          ],
+          [
+            "FD · 1",
+            0.2598973497129362,
+            0.94921875,
+            0.004060896089264628,
+            0.01483154296875
+          ],
+          [
+            "FD · 2",
+            1.3957192811053594,
+            1.8984375,
+            0.02180811376727124,
+            0.0296630859375
+          ]
+        ],
+        "convergenceRows": 12
+      }
+    },
+    {
+      "name": "Visible DLW parameter and finite-h core edits change computed results",
+      "passed": true,
+      "details": {
+        "bCoefficient": 0.025559807818100463,
+        "editedResidualDifference": 0.1193616053699138
+      }
+    },
+    {
+      "name": "Upstream rerun clears downstream readiness; old error data cannot be used",
+      "passed": true,
+      "details": null
+    },
+    {
+      "name": "Real syntax error stops the sequence and corrected cell can run again",
+      "passed": true,
+      "details": {
+        "reached": [
+          "hs-prepare",
+          "hs-config",
+          "hs-reference"
+        ]
+      }
+    }
+  ],
+  "colab_style": {
+    "status": "passed",
+    "language": "zh-CN",
+    "cells": 14,
+    "comparison_source": "before_colab_style",
+    "code_change_scope": "Lead and mathematical-comment wording only; all executable source lines, dependencies, and numerical outputs unchanged.",
+    "lead_and_comment_checks": [
+      {
+        "id": "hs-prepare",
+        "lead": "检查计算所需的数学函数和双精度数组。",
+        "lead_language": "zh-CN",
+        "mathematical_comment_language": "zh-CN",
+        "executable_source_and_dependencies_unchanged": true
+      },
+      {
+        "id": "hs-config",
+        "lead": "设置网格、RK4 时间步长和误差评价点。",
+        "lead_language": "zh-CN",
+        "mathematical_comment_language": "zh-CN",
+        "executable_source_and_dependencies_unchanged": true
+      },
+      {
+        "id": "hs-reference",
+        "lead": "定义单孤子解析解，并构造初始物理网格。",
+        "lead_language": "zh-CN",
+        "mathematical_comment_language": "zh-CN",
+        "executable_source_and_dependencies_unchanged": true
+      },
+      {
+        "id": "hs-spatial",
+        "lead": "定义两种空间格式，并由三对角方程从 m 恢复 u。",
+        "lead_language": "zh-CN",
+        "mathematical_comment_language": "zh-CN",
+        "executable_source_and_dependencies_unchanged": true
+      },
+      {
+        "id": "hs-rk4",
+        "lead": "定义一次 RK4 更新，依次计算空间方程的四个阶段。",
+        "lead_language": "zh-CN",
+        "mathematical_comment_language": "zh-CN",
+        "executable_source_and_dependencies_unchanged": true
+      },
+      {
+        "id": "hs-evolve",
+        "lead": "从解析初值出发，将两种方案推进至 T。",
+        "lead_language": "zh-CN",
+        "mathematical_comment_language": "zh-CN",
+        "executable_source_and_dependencies_unchanged": true
+      },
+      {
+        "id": "hs-error",
+        "lead": "将重构场与解析解比较，计算并绘制误差。",
+        "lead_language": "zh-CN",
+        "mathematical_comment_language": "zh-CN",
+        "executable_source_and_dependencies_unchanged": true
+      },
+      {
+        "id": "error-prepare",
+        "lead": "检查残差计算所需的数学函数和双精度数组。",
+        "lead_language": "zh-CN",
+        "mathematical_comment_language": "zh-CN",
+        "executable_source_and_dependencies_unchanged": true
+      },
+      {
+        "id": "error-config",
+        "lead": "设置孤子参数、纵向格距 h 和相位采样点。",
+        "lead_language": "zh-CN",
+        "mathematical_comment_language": "zh-CN",
+        "executable_source_and_dependencies_unchanged": true
+      },
+      {
+        "id": "error-profile",
+        "lead": "定义连续单孤子剖面及其对相位的解析导数。",
+        "lead_language": "zh-CN",
+        "mathematical_comment_language": "zh-CN",
+        "executable_source_and_dependencies_unchanged": true
+      },
+      {
+        "id": "error-coefficient",
+        "lead": "定义二阶残差主系数及全波形上界。",
+        "lead_language": "zh-CN",
+        "mathematical_comment_language": "zh-CN",
+        "executable_source_and_dependencies_unchanged": true
+      },
+      {
+        "id": "error-residual",
+        "lead": "定义有限格距 h 下的 SD 和 FD 方程残差。",
+        "lead_language": "zh-CN",
+        "mathematical_comment_language": "zh-CN",
+        "executable_source_and_dependencies_unchanged": true
+      },
+      {
+        "id": "error-main",
+        "lead": "计算采样主系数，核对上界并测量连续方程残差。",
+        "lead_language": "zh-CN",
+        "mathematical_comment_language": "zh-CN",
+        "executable_source_and_dependencies_unchanged": true
+      },
+      {
+        "id": "error-convergence",
+        "lead": "逐次减半格距，比较并绘制缩放残差与主系数。",
+        "lead_language": "zh-CN",
+        "mathematical_comment_language": "zh-CN",
+        "executable_source_and_dependencies_unchanged": true
+      }
+    ]
+  }
+}

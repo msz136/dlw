@@ -1,0 +1,19 @@
+abbrev XT := ℝ → ℝ → ℝ
+abbrev XYT := ℝ → ℝ → ℝ → ℝ
+abbrev Lattice := ℤ → XT
+def dx (f : XT) : XT := fun x t => deriv (fun z => f z t) x
+def dt (f : XT) : XT := fun x t => deriv (f x) t
+def xx (f : XT) : XT := dx (dx f)
+
+def SmoothXT (f : XT) : Prop := ContDiff ℝ ⊤ (fun z : ℝ × ℝ => f z.1 z.2)
+def Smooth3 (f : XYT) : Prop :=
+  ContDiff ℝ ⊤ (fun z : ℝ × (ℝ × ℝ) => f z.1 z.2.1 z.2.2)
+def SmoothL (f : Lattice) : Prop := ∀ j, SmoothXT (f j)
+def PositiveL (f : Lattice) : Prop := ∀ j x t, 0 < f j x t
+
+def hx (f g : XT) : XT := dx f * g - f * dx g
+def bil (a : ℝ) (f g : XT) : XT :=
+  xx f * g - 2 * dx f * dx g + f * xx g + dt f * g - f * dt g + (2*a) • hx f g
+
+def SemiPair (a h : ℝ) (F G : Lattice) : Prop :=
+  ∀ j, bil (a-h/2) (F j) (G j) = 0 ∧ bil (a+h/2) (F j) (G (j+1)) = 0

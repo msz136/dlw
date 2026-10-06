@@ -1,0 +1,766 @@
+{
+  "date": "2026-10-02",
+  "lean_audit": {
+    "run_id": "20260922_221626_2fd722e0",
+    "targets": "C01–C25、N01–N07",
+    "passed_targets": 32,
+    "local_modules": 39,
+    "current_source_hashes_match_passed_run": true,
+    "endpoint_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "fresh_compilation": false,
+    "method": "读实际定义与定理、通过日志，并逐文件核对当前源码SHA-256；不以旧进度摘要代替证明。",
+    "regularity": "保留冻结定义中的正解析与ContDiff ℝ ⊤条件，不擅自降为有限阶或普通C∞。"
+  },
+  "summary": [
+    {
+      "target": "L02",
+      "label": "Gram精确结构",
+      "start": "合法谱数据、指定行列式构造",
+      "conclusion": "任意N有限h双线性解；正数据域内无零τ",
+      "status": "Lean已证"
+    },
+    {
+      "target": "L03",
+      "label": "物理非线性化",
+      "start": "正τ、两壁双线性方程",
+      "conclusion": "有限h精确闭合的物理u/v系统",
+      "status": "Lean已证"
+    },
+    {
+      "target": "D01",
+      "label": "一致性与系数界",
+      "start": "受控光滑真解；指定孤子参数",
+      "conclusion": "二阶残差公式、严格系数包围及有限h余项",
+      "status": "Lean基础＋解析／区间认证"
+    },
+    {
+      "target": "D06",
+      "label": "两参数校准限制",
+      "start": "固定Γ、整段谱域、共用两常数",
+      "conclusion": "最佳相位剩余、十倍门槛与共同初值初速下界",
+      "status": "解析证明＋有限h认证"
+    },
+    {
+      "target": "D09",
+      "label": "不可去二阶形变",
+      "start": "正则单孤子、完整谱与相位拟合、固定窗口",
+      "conclusion": "局部静态距离=h²d+O(h⁴)，d>0",
+      "status": "解析证明＋严格下界"
+    },
+    {
+      "target": "D03",
+      "label": "共同初值误差",
+      "start": "匹配初边值、存在误差展开与传播",
+      "conclusion": "受迫误差公式；须减去初态偏移传播",
+      "status": "精确恒等式／条件推导"
+    },
+    {
+      "target": "D11",
+      "label": "高阶精度适用域",
+      "start": "周期零背景、固定非零y模态",
+      "conclusion": "Gaussian传播阈值、四阶收敛与带宽限制",
+      "status": "限定线性证明"
+    },
+    {
+      "target": "D10",
+      "label": "离散坐标障碍",
+      "start": "偶数周期网格、实际中心差分与固定规范",
+      "conclusion": "相同零物理态仍有不同正Q/R预像",
+      "status": "精确反例；动力问题待证"
+    },
+    {
+      "target": "H04",
+      "label": "守恒坐标与密度",
+      "start": "DLW／2HS的守恒律；指定正则孤子支",
+      "conclusion": "守恒网格构造与解析族上的密度正性",
+      "status": "解析恒等式／正性证明"
+    },
+    {
+      "target": "H05",
+      "label": "2HS校准与系数",
+      "start": "同一离散状态、固定目标参数、随体胞元",
+      "conclusion": "消去一阶右端差；显式二阶残差系数",
+      "status": "精确代数＋渐近推导"
+    }
+  ],
+  "groups": [
+    {
+      "id": "lean",
+      "title": "2　DLW：已形式化的结构与一致性",
+      "intro": "以下条目归并C01–C25、N01–N07。Lean证明针对冻结定义中的实际函数、矩阵和更新映射；一般PDE解的数值收敛仍须另有稳定性与传播估计。",
+      "results": [
+        {
+          "id": "L01",
+          "title": "连续双线性方程推出物理DLW",
+          "start": "正解析函数f、g满足完整连续双线性对；使用既定对数物理换元。",
+          "conclusion": "所得u、v满足本项目λ=−2的连续DLW系统。",
+          "status": "Lean已证，C01/C02",
+          "scope": "固定系数规范；不包含任意λ的推广。",
+          "sources": [
+            {
+              "path": "Workspaces/lean_contracts/proofs/PkgContinuous.lean",
+              "line": 336,
+              "label": "连续桥接",
+              "theorem": "c01_proved"
+            },
+            {
+              "path": "Workspaces/lean_contracts/proofs/PkgC02.lean",
+              "line": 964,
+              "label": "物理DLW",
+              "theorem": "c02_proved"
+            }
+          ]
+        },
+        {
+          "id": "L02",
+          "title": "任意N的真实Gram构造与无零τ充分域",
+          "start": "h≠0，采用实际Gram行列式，全部相关分母合法；辅助参数s要求pᵢ−s、qₖ+s均非零。正性再要求h>0、p/q严格递增、0<pᵢ<a−h/2、qᵢ及幅值ρᵢ>0。",
+          "conclusion": "任意整数层与格点满足Gram双线性链；F、G满足两壁有限h精确双线性对；上述正数据域内F、G全实域严格正且解析。",
+          "status": "Lean已证，C04–C09",
+          "scope": "正数据条件是充分域。当前证明已补齐实际行列式，无需旧Reservoir假设。",
+          "sources": [
+            {
+              "path": "Workspaces/lean_contracts/proofs/PkgC07Complete.lean",
+              "line": 9,
+              "label": "任意N双线性链",
+              "theorem": "c07_proved"
+            },
+            {
+              "path": "Workspaces/lean_contracts/proofs/PkgGramComplete.lean",
+              "line": 7,
+              "label": "两壁精确对",
+              "theorem": "c08_proved"
+            },
+            {
+              "path": "Workspaces/lean_contracts/proofs/PkgC09Complete.lean",
+              "line": 725,
+              "label": "无零τ充分域",
+              "theorem": "c09_proved"
+            }
+          ]
+        },
+        {
+          "id": "L03",
+          "title": "有限h双线性残差到非线性残差的精确映射",
+          "start": "h≠0，正解析F/G；定义\\(u_j=\\partial_x\\log[F_j^2/(G_jG_{j+1})]\\)、\\(v_j=(4/h)\\partial_x\\log(G_{j+1}/G_j)+\\delta_0u_j\\)。",
+          "conclusion": "物理N1/N2残差精确等于归一化双线性残差的指定导数与差分组合。因此两壁双线性解推出两场闭合非线性解；正Gram数据给出任意N实例。",
+          "status": "Lean已证，C13–C16",
+          "scope": "这是精确前向蕴含；一般函数空间内的反向双射另需规范与边界条件。",
+          "sources": [
+            {
+              "path": "Workspaces/lean_contracts/proofs/PkgNonlinear.lean",
+              "line": 1282,
+              "label": "精确残差映射",
+              "theorem": "c14_proved"
+            },
+            {
+              "path": "Workspaces/lean_contracts/proofs/PkgNonlinear.lean",
+              "line": 1336,
+              "label": "非线性化",
+              "theorem": "c15_proved"
+            },
+            {
+              "path": "Workspaces/lean_contracts/proofs/PkgGramComplete.lean",
+              "line": 9,
+              "label": "任意N物理解",
+              "theorem": "c16_proved"
+            }
+          ]
+        },
+        {
+          "id": "L04",
+          "title": "算子、采样与物理重构的二阶一致性",
+          "start": "固定物理位置，解析f/g或u/v；对数重构要求正τ；采用F半格、G整格的交错采样。 格点速率另取P≠0。",
+          "conclusion": "双线性两壁的半和与差/h为二阶一致；格点重构精确等于自然插值的采样，物理场差为O(h²)；N1在y−h/2、N2在y处与连续式比较均为O(h²)。 另有\\(\\log\\lambda_h(P)/h-1/P=O(h^2)\\)。",
+          "status": "Lean已证，C11/C12/C17/C18",
+          "scope": "此组为逐点一致性；实际解族的紧盒一致结果单列L05。",
+          "sources": [
+            {
+              "path": "Workspaces/lean_contracts/proofs/PkgC11.lean",
+              "line": 410,
+              "label": "双线性算子",
+              "theorem": "c11_proved"
+            },
+            {
+              "path": "Workspaces/lean_contracts/proofs/PkgC17.lean",
+              "line": 181,
+              "label": "物理重构",
+              "theorem": "c17_proved"
+            },
+            {
+              "path": "Workspaces/lean_contracts/proofs/PkgC18Complete.lean",
+              "line": 228,
+              "label": "非线性算子",
+              "theorem": "c18_proved"
+            },
+            {
+              "path": "Workspaces/lean_contracts/proofs/PkgQuotientRate.lean",
+              "line": 240,
+              "label": "格点速率",
+              "theorem": "c12_proved"
+            }
+          ]
+        },
+        {
+          "id": "L05",
+          "title": "实际Gram精确解族的紧盒二阶连续极限",
+          "start": "固定正Gram数据，采用实际有限hτ的自然解析插值；固定\\(|x|,|y|,|t|\\le R\\)。",
+          "conclusion": "物理u/v在该盒上以一致O(h²)趋于连续Gram物理场；连续τ本身满足完整连续双线性对，插值采样严格回到原格点τ。",
+          "status": "Lean已证，C22–C24",
+          "scope": "常数可依赖固定谱数据与R；这不是共同物理初值求解器的误差定理。",
+          "sources": [
+            {
+              "path": "Workspaces/lean_contracts/proofs/PkgC22Complete.lean",
+              "line": 83,
+              "label": "紧盒一致极限",
+              "theorem": "c22_proved"
+            },
+            {
+              "path": "Workspaces/lean_contracts/proofs/PkgC23Complete.lean",
+              "line": 75,
+              "label": "连续Gram双线性对",
+              "theorem": "c23_proved"
+            },
+            {
+              "path": "Workspaces/lean_contracts/proofs/Contracts.lean",
+              "line": 233,
+              "label": "完整假设与量词"
+            }
+          ]
+        },
+        {
+          "id": "L06",
+          "title": "两壁模板与二孤子相互作用系数",
+          "start": "h≠0；指定中心两壁模板并要求零阶／一阶匹配；或取N=2的实际Gram行列式。",
+          "conclusion": "该模板内壁偏移被确定为−h/2、+h/2；二孤子τ展开为1+e₀+e₁+κe₀e₁，κ只依赖谱参数而不依赖h。",
+          "status": "Lean已证，C03/C10",
+          "scope": "模板内唯一性与行列式系数恒等式；多孤子的渐近相移另见D14。",
+          "sources": [
+            {
+              "path": "Workspaces/lean_contracts/proofs/PkgTrivial.lean",
+              "line": 21,
+              "label": "模板限制",
+              "theorem": "c03_proved"
+            },
+            {
+              "path": "Workspaces/lean_contracts/proofs/PkgGramEntry.lean",
+              "line": 187,
+              "label": "二孤子相互作用系数",
+              "theorem": "c10_proved"
+            }
+          ]
+        },
+        {
+          "id": "L07",
+          "title": "守恒律、平均模态自由与真实线性化",
+          "start": "解析N1/N2解、h≠0；周期结论另要求周期格点。",
+          "conclusion": "W/v满足局部散度恒等式；周期解有\\(\\partial_{xx}\\sum_jv_j=0\\)；任意解析c(t)给出解u=c(t)、v=0；振幅导数准确给出零背景线性化。",
+          "status": "Lean已证，C19–C21/C25",
+          "scope": "均值自由说明闭合需明确基值／规范；线性化恒等式本身不保证稳定性。",
+          "sources": [
+            {
+              "path": "Workspaces/lean_contracts/proofs/PkgLattice.lean",
+              "line": 914,
+              "label": "守恒律",
+              "theorem": "c19_proved"
+            },
+            {
+              "path": "Workspaces/lean_contracts/proofs/PkgLattice.lean",
+              "line": 625,
+              "label": "周期兼容",
+              "theorem": "c20_proved"
+            },
+            {
+              "path": "Workspaces/lean_contracts/proofs/PkgTrivial.lean",
+              "line": 33,
+              "label": "平均模态自由",
+              "theorem": "c21_proved"
+            },
+            {
+              "path": "Workspaces/lean_contracts/proofs/PkgLattice.lean",
+              "line": 432,
+              "label": "真实振幅线性化",
+              "theorem": "c25_proved"
+            }
+          ]
+        },
+        {
+          "id": "L08",
+          "title": "Euler、RK4与梯形方法的局部阶",
+          "start": "解析有限维非线性ODE与精确轨道；允许显式时间依赖。",
+          "conclusion": "Euler一步缺陷O(δ²)、经典RK4一步缺陷O(δ⁵)、梯形残差O(δ³)。",
+          "status": "Lean已证，N01",
+          "scope": "局部时间一致性；转为全局阶还需累计传播条件。",
+          "sources": [
+            {
+              "path": "Workspaces/lean_contracts/proofs/PkgRK4Complete.lean",
+              "line": 268,
+              "label": "有限维时间方法",
+              "theorem": "n01_proved"
+            },
+            {
+              "path": "Workspaces/lean_contracts/proofs/Contracts.lean",
+              "line": 263,
+              "label": "冻结ODE条件"
+            }
+          ]
+        },
+        {
+          "id": "L09",
+          "title": "条件误差传播与验收工具",
+          "start": "预先给定真实递推误差界、区间包含、左端基值或标量增长预算。",
+          "conclusion": "可累计递推误差，推出样点误差区间、开链重构或标量增长控制。 总误差满足“数值误差＋模型误差”的三角上界。",
+          "status": "Lean已证，N02–N07",
+          "scope": "这些前提须对实际求解器另行认证，不能只由工具定理声称全局误差已认证。",
+          "sources": [
+            {
+              "path": "Workspaces/lean_contracts/proofs/PkgTrivial.lean",
+              "line": 72,
+              "label": "条件工具定理"
+            },
+            {
+              "path": "Workspaces/lean_contracts/proofs/Contracts.lean",
+              "line": 271,
+              "label": "数值契约完整定义"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dlw",
+      "title": "3　DLW：误差机制、限制定理与结构支线",
+      "intro": "以下结果包含现有解析证明、精确符号核对与有理区间证书。T01、T03、T04已有各自限定范围的成果；T02当前只完成周期非单射反例。",
+      "results": [
+        {
+          "id": "D01",
+          "title": "一般光滑真解的显式二阶残差",
+          "start": "连续DLW真解具有所需受控高阶导数；仅离散y，保留x/t精确微分，在自然交错位置比较。令w=v−u_y。",
+          "conclusion": "\\(\\mathcal R^S(h)=h^2\\tau^S+O(h^4)\\)。FD首项为\\((v_{xxyy}/12,u_{xxyyy}/6)\\)；SD两式首项由同一线性导数项及\\(\\partial_{xy}(w-4)^2/32\\)、\\(\\partial_x(u_yu_{yy})/2\\)显式给出。相容SDR与SD有同一纯y首项。",
+          "status": "Taylor解析推导＋精确符号核对；二阶一致性另有L04形式化基础",
+          "scope": "残差是把连续真解代入离散方程的缺陷，须经传播才得到场误差。",
+          "sources": [
+            {
+              "path": "Workspaces/dlw_modified_equation_20260926/REPORT.md",
+              "line": 20,
+              "label": "完整二阶残差公式"
+            },
+            {
+              "path": "Workspaces/dlw_factor_model_20260930/REPORT.md",
+              "line": 90,
+              "label": "空间误差源及变量约定"
+            }
+          ]
+        },
+        {
+          "id": "D02",
+          "title": "残差首项的严格包围与有限h余项",
+          "start": "原文A/B单孤子、C二孤子的固定参数及指定连续评价域；A/B进一步取0<h≤1/8。",
+          "conclusion": "A/B经有理Sturm隔根、C经含相互作用的Bernstein包围得到\\(\\|\\tau_i\\|_\\infty\\)严格上下界；A/B有\\(\\|\\mathcal R_i-h^2\\tau_i\\|_\\infty\\le M_ih^4\\)。h=1/8时，A的SD两式首项相对偏差保证分别约≤0.8213%、3.7515%。",
+          "status": "精确有理区间认证＋解析余项界",
+          "scope": "这些是方程残差证书。A/B的共同初值领先误差初始增长率也已包围，T=.01的场误差系数尚未认证。",
+          "sources": [
+            {
+              "path": "Workspaces/dlw_h2_bounds_20260930/REPORT.md",
+              "line": 43,
+              "label": "残差系数包围与余项"
+            },
+            {
+              "path": "Workspaces/dlw_h2_bounds_20260930/REPORT.md",
+              "line": 121,
+              "label": "初始增长率及有限时间缺口"
+            }
+          ]
+        },
+        {
+          "id": "D03",
+          "title": "精确误差传播与共同初值纠正",
+          "start": "固定实际光滑一步映射Ψₙ及参考状态；连续误差展开另要求选定演化空间中存在传播Φ，匹配初边值及受控余项。",
+          "conclusion": "精确有\\(\\epsilon^{n+1}=B_n\\epsilon^n+d_n+q_n(\\epsilon^n)\\)，并可逐步展开为传播乘积与各误差源之和。若静态族偏移为B、共同初值误差首项为a，则相容边界下\\(a(t)=B(t)-\\Phi(t,0)B(0)\\)。",
+          "status": "有限维精确恒等式；连续误差首项与上下界为条件推导",
+          "scope": "边界不匹配时须补边界响应。当前有限时间的紧传播和高阶余项包围仍待完成。",
+          "sources": [
+            {
+              "path": "Workspaces/dlw_factor_model_20260930/REPORT.md",
+              "line": 37,
+              "label": "精确误差模型"
+            },
+            {
+              "path": "Workspaces/dlw_theory_soliton_geometry_20261001/THEORY.md",
+              "line": 111,
+              "label": "共同初值纠正与边界条件"
+            }
+          ]
+        },
+        {
+          "id": "D04",
+          "title": "连续换元等价与全离散推进差异",
+          "start": "SD/SDR在非零分支、相容规范和初边值下恢复同一物理方程；x采用实际四阶中心D，时间采用Euler等固定推进。 相关高阶导数及非零Q分支受控；精确一步关系取固定网格内点，更新后分母非零。",
+          "conclusion": "D的乘积法则缺陷从k⁴进入；非线性换元T与Euler的交换缺陷为\\(\\delta^2T''[F,F]/2+O(\\delta^3)\\)。SDR还满足可直接写出的精确一步物理增量公式。",
+          "status": "精确代数关系＋受控Taylor展开",
+          "scope": "连续x下的换元等价，不自动给指定全离散算法的共轭；真实边界延拓须单独计入。",
+          "sources": [
+            {
+              "path": "Workspaces/dlw_factor_model_20260930/REPORT.md",
+              "line": 121,
+              "label": "乘积法则缺陷"
+            },
+            {
+              "path": "Workspaces/dlw_factor_model_20260930/REPORT.md",
+              "line": 366,
+              "label": "时间换元缺陷"
+            },
+            {
+              "path": "Workspaces/gsg_project/dlw_report/_src/Report.md",
+              "line": 7,
+              "label": "SD／SDR精确物理表示"
+            }
+          ]
+        },
+        {
+          "id": "D05",
+          "title": "两支守恒密度与共同动网格",
+          "start": "连续DLW或相应有限h闭合；有限h密度按μ=1+κh²归一化，μ≠0；采用精确通量、固定非负层权重。正性另取连续指定孤子支，或有限h支hμ>0、p<s₋、q+s₋>0。",
+          "conclusion": "连续密度\\(r_\\pm=1-(v\\pm u_y)/4\\)及其有限h对应支精确守恒；对称组合需保留有限h修正项。指定孤子支上密度≥1，固定层平均与混合可构造一套共同x等质量网格及精确节点速度。",
+          "status": "精确守恒恒等式＋解析孤子正性证明",
+          "scope": "正性不覆盖任意扰动或数值迭代；守恒坐标本身不保证误差改善。",
+          "sources": [
+            {
+              "path": "Workspaces/dlw_mesh_densities_20260926/REPORT.md",
+              "line": 80,
+              "label": "有限h密度与共同网格构造"
+            }
+          ]
+        },
+        {
+          "id": "D06",
+          "title": "两常数相位校准的最佳剩余与十倍门槛（T01）",
+          "start": "固定Γ≠1，谱尺度A在同一非零半轴的紧区间I；两壁中心a+αh²、宽度h+βh³，α/β整段及细化时共用，有限h分支保持正则。",
+          "conclusion": "归一化相位首项为\\(q(A)=\\beta+\\alpha A+C_\\Gamma A^2\\)。最佳一致剩余为\\(C_\\Gamma(A_+-A_-)^2/8\\)，受限最优点可行时达到。相位首项十倍改善要求谱尺度比\\(\\mathcal R\\le5+2\\sqrt5\\)；已给有限h可实现／排除证书。",
+          "status": "解析极小极大证明＋精确有理有限h认证",
+          "scope": "任何固定h均不能整段完全拟合相位。门槛针对归一化相位指标，临界等号需另判余项。",
+          "sources": [
+            {
+              "path": "Workspaces/dlw_theory_parameter_limits_20261001/REPORT.md",
+              "line": 29,
+              "label": "谱范围定理与有限h证书"
+            },
+            {
+              "path": "Workspaces/dlw_theory_parameter_limits_20261001/theory_validation.json",
+              "label": "区间认证记录"
+            }
+          ]
+        },
+        {
+          "id": "D07",
+          "title": "静态物理质量见证被共同初值守恒取消（T01）",
+          "start": "正单孤子、全横向实线衰减、解存在；静态同谱有限h精确族与连续族比较，或另用共同物理v初值演化。",
+          "conclusion": "静态族有\\(\\int v_hdx=4k_h\\)、\\(\\int v_0dx=4L\\)，相位差给v的L¹下界。共同物理初值下，两方程的横向v质量守恒，使\\(\\int(v_h-v_0)dx=0\\)对全部存在时间成立。",
+          "status": "精确积分恒等式＋守恒证明",
+          "scope": "静态质量下界不能作为共同初值的演化误差下界；其他误差仍可能存在。",
+          "sources": [
+            {
+              "path": "Workspaces/dlw_theory_parameter_limits_20261001/REPORT.md",
+              "line": 124,
+              "label": "质量见证与守恒取消"
+            },
+            {
+              "path": "Workspaces/dlw_theory_parameter_limits_20261001/physical_bridge_review.md",
+              "label": "物理桥接复核"
+            }
+          ]
+        },
+        {
+          "id": "D08",
+          "title": "共同初值领先u误差初速的迁移下界（T01）",
+          "start": "共同物理初值、全空间零基值y₀=−∞，允许受控h²误差展开；冻结整段谱域的最大u首项初速V。",
+          "conclusion": "任意两常数满足\\(V/V_0\\ge(\\mathcal R-1)/(\\mathcal R^2+1)\\)。\\(\\mathcal R=2\\)时至少为1/5，因此至多改善五倍，尽管相位首项可改善三十二倍。β不进入该初速首项。",
+          "status": "物理方程直接推导＋解析下界",
+          "scope": "下界对象是领先误差系数的初始导数；指定正时间或有限边界下的结论还需传播及余项控制。",
+          "sources": [
+            {
+              "path": "Workspaces/dlw_theory_parameter_limits_20261001/REPORT.md",
+              "line": 166,
+              "label": "初始误差速度定理"
+            }
+          ]
+        },
+        {
+          "id": "D09",
+          "title": "完整孤子族中的不可去二阶形变（T03）",
+          "start": "固定正则N=1孤子、时刻、具有内点的有限矩形Ω；使用精确自然插值，允许p/q/φ全部在固定小参数球内重标记；等权双场RMS范数。",
+          "conclusion": "局部最近距离\\(D_h(\\theta)=h^2d_\\theta+O(h^4)\\)，\\(d_\\theta>0\\)。证明来自二阶形变的复极点阶数超出完整参数切空间；每个允许h>0下也无法与任一正则连续单孤子恒等。",
+          "status": "解析证明；冻结定点另有严格证书\\(d_\\theta\\ge d_u>3.166\\times10^{-5}\\)",
+          "scope": "这是固定点到局部连续族的静态距离。全族集合间inf距离可为零；共同初值t=0误差为零。",
+          "sources": [
+            {
+              "path": "Workspaces/dlw_theory_soliton_geometry_20261001/THEORY.md",
+              "line": 51,
+              "label": "极点障碍与局部距离证明"
+            },
+            {
+              "path": "Workspaces/dlw_theory_soliton_geometry_20261001/quantitative_bound.json",
+              "label": "严格下界证书"
+            },
+            {
+              "path": "Workspaces/dlw_theory_soliton_geometry_20261001/report.html",
+              "label": "完整论文式证明"
+            }
+          ]
+        },
+        {
+          "id": "D10",
+          "title": "周期离散重构的非单射反例（T02）",
+          "start": "偶数周期x网格、实际中心D，固定Q₀=1；\\(\\zeta_i=(-1)^i\\)、\\(Q_i=(1+\\varepsilon\\zeta_i)/(1+\\varepsilon)\\)、Rᵢ=1/Qᵢ，|ε|<1；各y层同态。",
+          "conclusion": "Q/R严格正，D同时消去Q与R，物理u/W/v均为零；ε≠0仍给非恒定辅助预像，常数规范无法消去。全状态空间上重构不是单射。",
+          "status": "精确构造反例与代数核对",
+          "scope": "实际开链边界下的单射性、不同预像的物理速度及动力可投影性仍待证明；反例未证明隐藏状态增长。",
+          "sources": [
+            {
+              "path": "Workspaces/dlw_research_pipeline_20261001/check_theory_seeds.py",
+              "line": 38,
+              "label": "精确交替模态反例"
+            },
+            {
+              "path": "Workspaces/dlw_research_pipeline_20261001/ideas.json",
+              "label": "T02完整问题与边界"
+            }
+          ]
+        },
+        {
+          "id": "D11",
+          "title": "高频增长与Gaussian传播半径的尖锐条件（T04）",
+          "start": "x周期2π、零背景、固定非零y模态η、精确y导数与物理双场范数；允许增长支的一般线性扰动。",
+          "conclusion": "\\(\\gamma(n)=\\sqrt{n^4+4n^3/\\eta}\\sim n^2\\)。正时间传播在Sobolev及普通解析权上不连续；中心Gaussian权\\(e^{r(n+1/\\eta)^2}\\)的同阶传播有界当且仅当r−r′≥T。普通对称Gaussian在端点另需线性权损失≥2T/|η|。",
+          "status": "限定模型内的线性证明与反例",
+          "scope": "固定η的常数不统一覆盖η→0；未证明孤子背景或非线性问题的适定／不适定。",
+          "sources": [
+            {
+              "path": "Workspaces/dlw_theory_precision_domain_20261001/data_space_review.md",
+              "line": 60,
+              "label": "数据空间阈值与端点证明"
+            },
+            {
+              "path": "Workspaces/dlw_theory_precision_domain_20261001/report.html",
+              "label": "T04完整证明"
+            }
+          ]
+        },
+        {
+          "id": "D12",
+          "title": "四阶精度的统一性、带宽与时间条件（T04）",
+          "start": "D11的固定周期模型；x采用实际四阶中心D且D₂=D²，Fourier投影初始化。空间四阶算子定理采用精确时间推进；带宽K为整数并处于小累计缺陷区。",
+          "conclusion": "中心Gaussian严格余量r−r′>T时，物理算子误差在整个单位球上O(k⁴)；端点只逐数据收敛而不按算子范数收敛。带限单位球绝对空间误差\\(\\asymp k^4K^6e^{T\\gamma_{\\max}(K)}\\)；若K∼c√log(1/k)，严格两侧阈值为Tc²<4／>4。",
+          "status": "限定线性算子证明与临界反例",
+          "scope": "临界须保留二次、一次及6logK项。Euler/RK4另外有累计相对精度尺度δK⁴／δ⁴K¹⁰；尚无当前非线性全离散的Gaussian单位球定理。",
+          "sources": [
+            {
+              "path": "Workspaces/dlw_theory_precision_domain_20261001/symbol_review.md",
+              "line": 48,
+              "label": "空间与时间联合条件"
+            },
+            {
+              "path": "Workspaces/dlw_theory_precision_domain_20261001/THEORY_AUDIT.md",
+              "line": 11,
+              "label": "统一四阶、临界与带宽限定"
+            },
+            {
+              "path": "Workspaces/dlw_theory_precision_domain_20261001/report.html",
+              "label": "完整算子定理与反例"
+            }
+          ]
+        },
+        {
+          "id": "D13",
+          "title": "原SD的线性频率误差优势带",
+          "start": "零背景、振荡Fourier模态；仅离散y，x/t精确；原校准系数为零，固定模态远离退化端点，h足够小。",
+          "conclusion": "SD的领先特征频率误差严格小于FD，当且仅当\\(-4<\\xi\\eta<-2\\)。\\(\\xi\\eta=-3\\)时该SD模态的频率二阶项消失。",
+          "status": "精确判别式比较＋渐近分析",
+          "scope": "这是单个线性模态的频率指标；不推出整个物理场四阶或非线性双场优势。",
+          "sources": [
+            {
+              "path": "Workspaces/dlw_advantage_regions_20260926/REPORT.md",
+              "line": 213,
+              "label": "优势频带证明"
+            }
+          ]
+        },
+        {
+          "id": "D14",
+          "title": "显式Gram解族的相移、Darboux与谱渐近比",
+          "start": "采用L02所述正实无零τ充分域的任意N Gram解；相移另要求不同速度与分离渐近；独立谱参数z避开极点和格点乘子的零点，采用规定背景归一化。",
+          "conclusion": "相互作用因子决定相位／x位移，均不依赖h；可构造Darboux交织及显式谱波函数ψⱼ(z)，满足时间与格点线性关系，归一化两端渐近比为\\(\\mathcal T(z)=\\prod_i(z-p_i)/(z+q_i)\\)，不依赖t/j/h。",
+          "status": "任意N解析矩阵论证与显式渐近推导；相互作用系数另有L06形式化",
+          "scope": "y方向几何位移仍依赖h。一般场Jost理论、谱数据完备性和一般初值IST尚未建立。",
+          "sources": [
+            {
+              "path": "Workspaces/dlw_semidiscrete/GRAM_INTEGRABILITY_REASSESSMENT.md",
+              "line": 190,
+              "label": "相移与Darboux结构"
+            },
+            {
+              "path": "Workspaces/dlw_semidiscrete/S_INTEGRABILITY_STATUS.md",
+              "line": 41,
+              "label": "任意N谱波函数"
+            },
+            {
+              "path": "Workspaces/dlw_semidiscrete/S_INTEGRABILITY_STATUS.md",
+              "line": 128,
+              "label": "谱渐近比与证明范围"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hs",
+      "title": "4　2HS：守恒坐标、校准与胞元系数",
+      "intro": "本节的证据来自现有解析推导与符号恒等式；当前未发现对应的2HS Lean形式化模块。H01为论文已有质量坐标，其余标为当前工作得到的具体推导或限制。",
+      "results": [
+        {
+          "id": "H01",
+          "title": "原生质量坐标",
+          "start": "光滑2HS解满足ρₜ=(uρ)ₓ且ρ>0。",
+          "conclusion": "\\(dX=\\rho\\,dx+u\\rho\\,dt\\)局部可积，\\(x_t|_X=-u\\)、\\(x_X=1/\\rho\\)；等距X节点均分随体胞元质量。",
+          "status": "论文已有结构；当前精确复述推导",
+          "scope": "正密度保证局部坐标非退化。",
+          "sources": [
+            {
+              "path": "Workspaces/hs_numerics_plan/CONSERVATIVE_HODOGRAPH.md",
+              "line": 14,
+              "label": "质量坐标推导"
+            }
+          ]
+        },
+        {
+          "id": "H02",
+          "title": "固定被动标签权重的守恒坐标",
+          "start": "H01成立；给定固定正标签函数μ(X)，随流标签X保持不变。",
+          "conclusion": "R=ρμ(X)满足Rₜ=(uR)ₓ，Y=Φ(X)、Φ′=μ是另一守恒坐标；离散重构有Rₖdₖ=ΔY。",
+          "status": "当前精确推导",
+          "scope": "逐时重算曲率不在此命题内；加权坐标是否保持原可积离散结构未证明。",
+          "sources": [
+            {
+              "path": "Workspaces/hs_numerics_plan/CONSERVATIVE_HODOGRAPH.md",
+              "line": 39,
+              "label": "加权标签坐标"
+            }
+          ]
+        },
+        {
+          "id": "H03",
+          "title": "同速度一阶局部密度的限制",
+          "start": "密度仅允许F(uₓ,ρ)，要求对所有光滑解以速度−u守恒，并将相关局部场量视为独立变量比较。",
+          "conclusion": "只有F=Cρ；弧长密度√(1+uₓ²)一般有非零守恒缺陷。",
+          "status": "限定局部场量类中的解析推导",
+          "scope": "正式定理需保留独立场量条件或补其论证；含高导数、标签或其他速度的密度不在限制内。",
+          "sources": [
+            {
+              "path": "Workspaces/hs_numerics_plan/CONSERVATIVE_HODOGRAPH.md",
+              "line": 84,
+              "label": "密度分类与弧长障碍"
+            }
+          ]
+        },
+        {
+          "id": "H04",
+          "title": "含二阶导数的局部守恒密度及孤子正性",
+          "start": "2HS光滑解，ρ≠0；令m=uₓₓ+2。正性另取c=1、p>2的光滑单孤子族。",
+          "conclusion": "\\(R_m=m/(2\\rho)\\)、\\(Q_m=-uR_m-c^2(\\rho-1)/2\\)满足\\((R_m)_t+(Q_m)_x=0\\)；整个所述单孤子族上Rₘ≥1。",
+          "status": "当前精确守恒推导＋解析族代数正性",
+          "scope": "一般受扰解及数值轨道的正性未证明；节点原生速度Qₘ/Rₘ与−u不同。",
+          "sources": [
+            {
+              "path": "Workspaces/hs_factorial_20260925/NEW_DENSITIES_AND_LOCAL_P.md",
+              "line": 16,
+              "label": "守恒密度推导"
+            },
+            {
+              "path": "Workspaces/hs_factorial_20260925/NEW_DENSITIES_AND_LOCAL_P.md",
+              "line": 41,
+              "label": "全单孤子族正性"
+            }
+          ]
+        },
+        {
+          "id": "H05",
+          "title": "参数校准精确消去一阶右端差",
+          "start": "原半离散参数族与同变量普通差分放在同一离散状态；固定目标c_phys>0，质量格距为a。",
+          "conclusion": "取\\(C(a)=a+\\sqrt{c_{\\rm phys}^2+a^2}\\)，消去原O(a)项，剩余精确为\\(F_C-F_D=a^2(r^{-1}-r)^2/2\\)。",
+          "status": "当前精确代数恒等式",
+          "scope": "这是同状态右端差；不自动推出全局误差二阶，也不赋予Euler/RK4全离散可积性。",
+          "sources": [
+            {
+              "path": "Workspaces/hs_factorial_20260925/INTERPRETATION_AND_NEXT.md",
+              "line": 25,
+              "label": "一般物理参数校准"
+            },
+            {
+              "path": "Workspaces/hs_error_theory_20260926/_src/report.template.html",
+              "line": 49,
+              "label": "精确右端差"
+            }
+          ]
+        },
+        {
+          "id": "H06",
+          "title": "胞元方差恒等式与二阶残差系数",
+          "start": "c=1，精确随体胞元，物理长度d；真解足够光滑且ρ离零，以胞元平均作为精确参照。",
+          "conclusion": "普通差分残差精确由斜率方差、端点平均与密度方差三项组成。\\(\\mathcal T_D=d^2B_D+O(d^4)\\)，\\(B_D=u_{xx}/3+u_{xx}^2/24-\\rho_x^2/24\\)；校准式\\(B_C=B_D+(1-\\rho^2)^2/2\\)。",
+          "status": "精确投影恒等式＋受控光滑渐近推导",
+          "scope": "d为物理胞元长度，a为质量步长；余项的一般区间认证与最终双场误差仍需另外建立。",
+          "sources": [
+            {
+              "path": "Workspaces/hs_error_theory_20260926/_src/report.template.html",
+              "line": 63,
+              "label": "胞元残差与系数推导"
+            },
+            {
+              "path": "Workspaces/hs_error_theory_20260926/theory_checks.json",
+              "label": "精确恒等式核对"
+            }
+          ]
+        },
+        {
+          "id": "H07",
+          "title": "单孤子峰值残差比的选参门槛",
+          "start": "c=1、p>2、中心对齐单孤子；s=1−2/p，以峰值处校准／普通差分二阶系数比为指标。",
+          "conclusion": "\\(\\Gamma=4(1-s^2)/(2+s^2)\\)。Γ<1当且仅当\\(p>2/(1-\\sqrt{2/5})\\)（约5.44152）；Γ≤1/2当且仅当\\(p\\ge2/(1-\\sqrt{2/3})\\)（约10.89898）。固定质量步长下p→∞却有绝对系数\\(B_C/\\rho_0^2\\sim p/6\\)、\\(d_0\\sim ap/4\\)。",
+          "status": "当前精确孤子公式与渐近结果",
+          "scope": "峰值局部残差比不是终点双场误差比；选参不消掉一般二阶项。",
+          "sources": [
+            {
+              "path": "Workspaces/hs_error_theory_20260926/_src/report.template.html",
+              "line": 105,
+              "label": "峰值系数与选参阈值"
+            },
+            {
+              "path": "Workspaces/hs_error_theory_20260926/_src/report.template.html",
+              "line": 127,
+              "label": "大p极限限制"
+            }
+          ]
+        },
+        {
+          "id": "H08",
+          "title": "原半离散零背景的增长模态",
+          "start": "原半离散2HS在u=0、d=a、ρ=1附近线性化；无限或周期格点，非零Fourier模态θ，a>0。",
+          "conclusion": "\\(\\lambda^2+2ia\\cot(\\theta/2)\\lambda-c(c-2a)=0\\)。若c>2a，θ=π时有正实增长率\\(\\sqrt{c(c-2a)}\\)。",
+          "status": "当前精确背景线性分析",
+          "scope": "只说明这一周期／无限背景模型无全波数线性稳定性；不直接归因实际有限开链的失败轨道。",
+          "sources": [
+            {
+              "path": "Workspaces/hs_numerics_plan/REPORT.md",
+              "line": 29,
+              "label": "Fourier增长模态"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "status": "passed",
+  "method": "exact SymPy algebra, Hirota binomial identities, stencil identities and kernel moments",
+  "checks": [
+    {
+      "name": "Hirota Dx divided by fg",
+      "exact_residual": "0"
+    },
+    {
+      "name": "Hirota Dx2 divided by fg",
+      "exact_residual": "0"
+    },
+    {
+      "name": "Hirota DyDx divided by fg",
+      "exact_residual": "0"
+    },
+    {
+      "name": "Hirota DyDt divided by fg",
+      "exact_residual": "0"
+    },
+    {
+      "name": "Hirota DyDx2 divided by fg",
+      "exact_residual": "0"
+    },
+    {
+      "name": "continuous second bilinear equation equals H plus rho_y E",
+      "exact_residual": "0"
+    },
+    {
+      "name": "twice mixed derivative of first bilinear equation is DLW1",
+      "exact_residual": "0"
+    },
+    {
+      "name": "twice x derivative of reduced second bilinear equation is DLW2",
+      "exact_residual": "0"
+    },
+    {
+      "name": "staggered wall sum gives u and Z equation",
+      "exact_residual": "0"
+    },
+    {
+      "name": "staggered wall difference gives omega equation",
+      "exact_residual": "0"
+    },
+    {
+      "name": "auxiliary-potential difference identity",
+      "exact_residual": "0"
+    },
+    {
+      "name": "Mminus delta0 equals deltaminus plus h2 Delta deltaminus over four",
+      "exact_residual": "0"
+    },
+    {
+      "name": "delta0 squared equals Delta plus h2 Delta squared over four",
+      "exact_residual": "0"
+    },
+    {
+      "name": "quadratic flux discrete product identity",
+      "exact_residual": "0"
+    },
+    {
+      "name": "first-residual Peano kernel left endpoint",
+      "exact_residual": "0"
+    },
+    {
+      "name": "first-residual Peano kernel right endpoint",
+      "exact_residual": "0"
+    },
+    {
+      "name": "first-residual Peano kernel second derivative",
+      "exact_residual": "0"
+    },
+    {
+      "name": "first-residual Peano kernel endpoint slope left",
+      "exact_residual": "0"
+    },
+    {
+      "name": "first-residual Peano kernel endpoint slope right",
+      "exact_residual": "0"
+    },
+    {
+      "name": "first-residual leading kernel mass h2 over twelve",
+      "exact_residual": "0"
+    },
+    {
+      "name": "first-residual odd kernel moment zero",
+      "exact_residual": "0"
+    },
+    {
+      "name": "first-residual fourth-order remainder constant h4 over 480",
+      "exact_residual": "0"
+    },
+    {
+      "name": "Peano kernel representation verified for generic degree-six polynomial",
+      "exact_residual": "0"
+    },
+    {
+      "name": "second-residual symmetric averaging second moment h2 over six",
+      "exact_residual": "0"
+    },
+    {
+      "name": "second-residual symmetric averaging odd third moment zero",
+      "exact_residual": "0"
+    },
+    {
+      "name": "second-residual fourth-order remainder constant h4 over 120",
+      "exact_residual": "0"
+    },
+    {
+      "name": "two-parameter exact physical SD flux",
+      "exact_residual": "0"
+    },
+    {
+      "name": "two-parameter exact W flux",
+      "exact_residual": "0"
+    },
+    {
+      "name": "two-parameter exact reconstructed second physical flux change",
+      "exact_residual": "0"
+    },
+    {
+      "name": "two-parameter first leading coefficient",
+      "exact_residual": "0"
+    }
+  ],
+  "number_of_checks": 30,
+  "uses_observed_error_data": false,
+  "PDE_simulations": 0,
+  "source_sha256": "c8b37c817d4bc532c38c27252ec6b2aa659ea7849c163d28a2858af24e303f27",
+  "remainder_bounds": {
+    "FD1": "h^4/480 times sup |v_xxyyyy| on the staggered cell",
+    "FD2": "h^4/120 times sup |u_xxyyyyy| on the centered two-step cell",
+    "assumptions": "h>0; enough continuous derivatives on each indicated cell; continuous DLW solution substituted"
+  },
+  "limitations": [
+    "Logarithmic nonlinearization is local where the tau functions are nonzero and a log branch exists.",
+    "Bilinear equations imply DLW; the reverse implication can require fixing integration constants and gauges.",
+    "The Peano representation is universal by two integrations by parts; its polynomial check supplements the proof.",
+    "The two-parameter coefficient formula keeps the same mesh h and the physical omega-to-v normalization 4/h.",
+    "No stability, well-posedness or finite-time solution-error theorem is certified by these algebra checks."
+  ]
+}

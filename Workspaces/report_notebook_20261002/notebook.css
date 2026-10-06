@@ -1,0 +1,40 @@
+.notebook-intro,.notebook-note{font-size:10.5pt;line-height:1.7;text-indent:0}
+.notebook-nav{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:10.5pt;margin:0 0 12px}
+.notebook-toolbar,.cell-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:10px 0}
+.notebook-toolbar{border-top:1px solid #bbb;border-bottom:1px solid #bbb;padding:8px 0;margin-bottom:22px}
+.notebook-toolbar button,.cell-toolbar button{font:10pt/1.5 "Times New Roman","SimSun",serif;padding:3px 10px;border:1px solid #888;background:#fff;color:#111;border-radius:2px;cursor:pointer}
+.notebook-toolbar button:hover,.cell-toolbar button:hover{background:#f0f0f0}
+.cell-toolbar .play-button{display:inline-grid;place-items:center;width:30px;height:30px;padding:0;color:#333}
+button:disabled{opacity:.5;cursor:default}
+button:focus-visible,textarea:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid #315b80;outline-offset:3px}
+.runtime-status,.cell-status{font-size:10pt;line-height:1.5;color:#555}
+.code-cell{margin:18px 0 24px;min-width:0}
+.cell-title{display:block;font-weight:bold;font-size:11pt;margin:8px 0;line-height:1.6;text-indent:0}
+.cell-lead{margin:12px 0 8px;text-indent:0}
+.syntax-keyword{color:#76528b}
+.syntax-comment{color:#527343}
+.syntax-string{color:#98443e}
+.syntax-number{color:#315b80}
+.visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip-path:inset(50%)!important;white-space:nowrap!important;border:0!important}
+.source-editor,.lean-source,.latex-source,.proof-source,.print-source{font:10pt/1.55 Consolas,"Courier New",monospace;tab-size:2;white-space:pre;overflow-x:auto;text-align:left;max-width:100%;color:#111}
+.source-editor{display:block;width:100%;resize:vertical;border:1px solid #bbb;background:#fafafa;padding:12px;min-height:110px;border-radius:0}
+.lean-source,.latex-source,.proof-source{border:1px solid #ccc;background:#fafafa;padding:12px;margin:10px 0;max-height:none}
+.code-cell details{font-size:10.5pt;margin:10px 0}
+.code-cell summary{cursor:pointer}
+.proof-outline{margin:10px 0 12px;padding-left:1.7em}
+.proof-outline li{margin:0 0 8px;text-align:justify}
+.proof-reading code,.proof-start-note code,.key-proof p code{font:10pt/1.55 Consolas,"Courier New",monospace;overflow-wrap:anywhere}
+.cell-output:empty{display:none}
+.cell-output{margin:8px 0 14px;padding:10px 12px;border-left:2px solid #777;background:#fff;overflow-wrap:anywhere}
+.output-text,.lean-log{font:10pt/1.55 Consolas,"Courier New",monospace;white-space:pre-wrap;margin:0;overflow-wrap:anywhere}
+.cell-output p{text-indent:0;font-size:10.5pt;margin:4px 0}
+.cell-output table{font-size:10pt;margin:8px 0}
+.output-table-wrap{overflow-x:auto;max-width:100%}
+.cell-output svg{display:block;width:100%;height:auto;margin:14px 0;overflow:visible}
+.cell-output svg text{font-family:"Times New Roman","SimSun",serif;font-size:12px}
+.cell-error{border-left-color:#9b2626;color:#7b1b1b}
+.cell-ok{border-left-color:#315641}
+.print-source{display:none}
+.source-pair-label{font-size:10.5pt;text-indent:0;margin-bottom:6px}
+@media(max-width:650px){.notebook-nav{gap:4px 12px}.source-editor,.lean-source,.latex-source,.proof-source{font-size:9pt;padding:9px}.cell-output{padding:8px}.cell-output table{font-size:9pt}}
+@media print{.notebook-toolbar,.notebook-nav,.cell-toolbar,.runtime-status,.source-editor{display:none!important}.print-source{display:block;border:1px solid #ccc;padding:8px;white-space:pre-wrap;overflow-wrap:anywhere}.code-cell details>pre{display:block;white-space:pre-wrap;overflow-wrap:anywhere}.cell-output{break-inside:avoid}.lean-source{white-space:pre-wrap;overflow-wrap:anywhere}.notebook-intro{font-size:10pt}}

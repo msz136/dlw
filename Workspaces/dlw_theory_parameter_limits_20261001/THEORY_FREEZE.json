@@ -1,0 +1,31 @@
+{
+  "revision": 1,
+  "date": "2026-10-01",
+  "status": "frozen_before_directed_checks",
+  "question": "T01: two bounded constants on one fixed regular spectral interval",
+  "comparison": {
+    "fixed": ["physical a", "physical h", "exact x and t", "continuous Gram family", "Gamma", "declared spectral interval", "physical reconstruction"],
+    "allowed": "Only alpha and beta, constant over the entire interval and over refinement.",
+    "primary_metric": "sup_A abs((log(chi)/h-L)/L)",
+    "physical_metrics": ["static full-line signed v mass normalized by 4L", "static u maximum norm on a symmetric y strip", "common-initial-data leading u error velocity over the full x,y plane"],
+    "boundary_for_physical_proofs": "Full x and y line with decay and compatible zero far field; finite boundaries require additional terms."
+  },
+  "predictions": [
+    {"id":"P1","statement":"Leading phase minimax residual is C_Gamma Delta_A^2/8, attained uniquely at alpha=-2 C_Gamma m, beta=C_Gamma(m^2-d^2/2), if this pair is feasible."},
+    {"id":"P2","statement":"For the normalized phase coefficient, tenfold improvement requires spectral scale ratio R=max|A|/min|A| <= 5+2sqrt(5). Strict inequality and feasibility permit sufficiently small h, with explicit remainder margin. Equality requires separate finite-h analysis."},
+    {"id":"P3","statement":"At any nonzero h, exact matching of the longitudinal phase on a nontrivial open spectral interval is impossible because chi is rational and exp(h L(A)) is not."},
+    {"id":"P4","statement":"For the same-spectrum finite-h N=1 Gram solution, integral_x v_h=4 log(chi)/h. Its normalized mass defect is exactly the phase defect; the full-line L1 physical v error is at least its absolute value times 4|L|."},
+    {"id":"P5","statement":"With common physical initial data and decaying full-line boundary, integral_x(v_h-v_0)=0 for all times for which the solutions exist. The static phase-mass witness therefore cancels exactly after initial correction."},
+    {"id":"P6","statement":"Conditional common-initial-data leading u error velocity equals F_Gamma(z)/A+alpha G_Gamma(z)/A^2; beta does not enter. Endpoint elimination yields optimized-to-original velocity ratio at least r(1-r)/(1+r^2), r=min|A|/max|A|. At R=2 this is 1/5, despite phase allowing 1/32."}
+  ],
+  "directed_checks": {
+    "purpose": "Exact symbolic identities and a few predeclared finite-h evaluations; never fit parameters from PDE output.",
+    "cases": [
+      {"Gamma":2,"A_interval":[1,2],"alpha":"-7/36","beta":"119/864","h":[0.02,0.01]},
+      {"Gamma":2,"A_interval":[1,10],"alpha":"-77/108","beta":"1127/864","h":[0.02,0.01]}
+    ],
+    "check_points": "Only interval endpoints and midpoint, to check alternating leading values and remainder; no parameter scan.",
+    "pde_runs": 0
+  },
+  "limitations": ["Phase factor is not the ratio of full u/v errors.", "Static exact-family comparisons use different initial physical fields.", "Common-initial-data finite positive time conclusions need a uniform evolution/Taylor remainder in a specified admissible function space.", "No claim of external literature originality."]
+}

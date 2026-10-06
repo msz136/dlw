@@ -1,0 +1,68 @@
+{
+  "version": "2.2.0",
+  "stages": [
+    "import",
+    "start",
+    "endpoint"
+  ],
+  "cases": {
+    "uw": {
+      "import": {
+        "stage": "import",
+        "filename": "StepUWImport.lean",
+        "sha256": "fde5382cea8b31e8656ad856e12b1966e12eea55b2f93d0a43223a9e1891072d",
+        "code": "import ReportNonlinearUW\n",
+        "title": "加载证明库",
+        "note": "载入 (u, ω) 与 (u, v) 非线性化的定义、证明及依赖，并编译证明库。",
+        "lead": "载入 (u, ω) 与 (u, v) 非线性化的定义、证明及依赖，并编译证明库。"
+      },
+      "start": {
+        "stage": "start",
+        "filename": "StepUWStart.lean",
+        "sha256": "f982c49797586241fa2d16cc3d7be17a261dcd93f840b1ee385a43ca4768aee6",
+        "code": "import StepUWImport\n\nnamespace DLWContract.ReportUW\n\ndef StartPoint (a h : ℝ) (F G : Lattice) : Prop :=\n  ∀ j, bil (a-h/2) (F j) (G j) = 0 ∧\n    bil (a+h/2) (F j) (G (j+1)) = 0\n\n#print StartPoint\n\nend DLWContract.ReportUW\n",
+        "title": "理论起点",
+        "note": "将理论的双线性起点写为 StartPoint，供下一段定理调用使用。",
+        "lead": "将理论的双线性起点写为 StartPoint，供下一段定理调用使用。"
+      },
+      "endpoint": {
+        "stage": "endpoint",
+        "filename": "StepUWEndpoint.lean",
+        "sha256": "dd541a216828aab0d30d1cd19f5c206e81c99bbb75e31c0efcaae401b28757a2",
+        "code": "import StepUWStart\n\nnoncomputable section\nopen DLWContract DLWContract.ReportUW\n\n-- (7): equations for u and ω.\nexample (a h : ℝ) (F G : Lattice) (hh : h ≠ 0)\n    (hF : SmoothL F) (hG : SmoothL G) (hFp : PositiveL F) (hGp : PositiveL G)\n    (hsp : StartPoint a h F G) :\n    reportN1 a h (physU F G) (omega G) = 0 ∧\n      reportN2 a h (physU F G) (omega G) = 0 :=\n  semiPair_implies_report7 a h F G hh hF hG hFp hGp hsp\n\n-- (8): the reconstructed pair (u, v).\nexample (a h : ℝ) (F G : Lattice) (hh : h ≠ 0)\n    (hF : SmoothL F) (hG : SmoothL G) (hFp : PositiveL F) (hGp : PositiveL G)\n    (hsp : StartPoint a h F G) :\n    NonlinearPair a h (physU F G) (vFromOmega h (physU F G) (omega G)) :=\n  semiPair_implies_report8 a h F G hh hF hG hFp hGp hsp\n\n#print axioms DLWContract.ReportUW.semiPair_implies_report7\n#print axioms DLWContract.ReportUW.semiPair_implies_report8\n",
+        "title": "终点定理调用",
+        "note": "在 h≠0、F/G 严格为正且联合实解析的条件下，从 StartPoint 推出式 (7)、(8)，并显示原始公理依赖。",
+        "lead": "在 h≠0、F/G 严格为正且联合实解析的条件下，从 StartPoint 推出式 (7)、(8)，并显示原始公理依赖。"
+      }
+    },
+    "qrm": {
+      "import": {
+        "stage": "import",
+        "filename": "StepQRMImport.lean",
+        "sha256": "a40068712eadd8a76899a5c64a0af043e9828884cd82c4f2cbb9f422681fe78f",
+        "code": "import ReportNonlinearQRM\n",
+        "title": "加载证明库",
+        "note": "载入 (Q, R, M) 非线性化的定义、证明及依赖，并编译证明库。",
+        "lead": "载入 (Q, R, M) 非线性化的定义、证明及依赖，并编译证明库。"
+      },
+      "start": {
+        "stage": "start",
+        "filename": "StepQRMStart.lean",
+        "sha256": "2c64133bcbcc92c6e3f0cdcf7d5a6f05bd4bb58a3c7dce54bcf71b49f7d026a0",
+        "code": "import StepQRMImport\n\nnamespace DLWContract.ReportQRM\n\ndef StartPoint (a h : ℝ) (F G : Lattice) : Prop :=\n  ∀ j, bil (a-h/2) (F j) (G j) = 0 ∧\n    bil (a+h/2) (F j) (G (j+1)) = 0\n\n#print StartPoint\n\nend DLWContract.ReportQRM\n",
+        "title": "理论起点",
+        "note": "将理论的双线性起点写为 StartPoint，供下一段定理调用使用。",
+        "lead": "将理论的双线性起点写为 StartPoint，供下一段定理调用使用。"
+      },
+      "endpoint": {
+        "stage": "endpoint",
+        "filename": "StepQRMEndpoint.lean",
+        "sha256": "17c27e03dd8f7daaea3439fb6f9681ce2236d5cbc85696bd5085cef706566075",
+        "code": "import StepQRMStart\n\nnoncomputable section\nopen DLWContract DLWContract.ReportQRM\n\n-- (21): equations for Q and R, and the lattice constraint.\nexample (a h : ℝ) (F G : Lattice) (hne : h ≠ 0)\n    (hF : SmoothL F) (hG : SmoothL G) (hFp : PositiveL F) (hGp : PositiveL G)\n    (hsp : StartPoint a h F G) :\n    residualQ a h F G = 0 ∧ residualR a h F G = 0 ∧\n      ∀ j x t, (M G (j+1) x t-M G j x t)/h + Q F G j x t*R h F G j x t = 1 :=\n  semiPair_implies_report21 a h F G hne hF hG hFp hGp hsp\n\n-- (22): reconstruction of u, ω and v.\nexample (h : ℝ) (F G : Lattice) (hne : h ≠ 0)\n    (hF : SmoothL F) (hG : SmoothL G) (hFp : PositiveL F) (hGp : PositiveL G) :\n    ∀ j x t,\n      physU F G j x t = 2 * lx (Q F G) j x t / Q F G j x t ∧\n      omega G j x t = h*(1-Q F G j x t*R h F G j x t) ∧\n      omega G j x t = M G (j+1) x t-M G j x t ∧\n      physV h F G j x t = 4*(1-Q F G j x t*R h F G j x t) +\n        (physU F G (j+1) x t-physU F G (j-1) x t)/(2*h) :=\n  report22 h F G hne hF hG hFp hGp\n\n#print axioms DLWContract.ReportQRM.semiPair_implies_report21\n#print axioms DLWContract.ReportQRM.report22\n",
+        "title": "终点定理调用",
+        "note": "在 h≠0、F/G 严格为正且联合实解析的条件下，从 StartPoint 推出式 (21)，给出式 (22) 的重构恒等式，并显示原始公理依赖。",
+        "lead": "在 h≠0、F/G 严格为正且联合实解析的条件下，从 StartPoint 推出式 (21)，给出式 (22) 的重构恒等式，并显示原始公理依赖。"
+      }
+    }
+  }
+}

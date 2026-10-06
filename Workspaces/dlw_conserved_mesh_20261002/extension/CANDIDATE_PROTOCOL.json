@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-02",
+  "frozen_before_runs": true,
+  "new_densities": {
+    "mass": {
+      "R": "R0-1 = mean_y(-v/4)",
+      "Q": "Q0",
+      "mechanism": "Remove background that keeps nodes away from wave; no free coefficient"
+    },
+    "strong": {
+      "R": "1+4*(R0-1) = mean_y(1-v)",
+      "Q": "4Q0",
+      "mechanism": "Use physical v without quarter normalization; fixed strength4 all cases, no search"
+    }
+  },
+  "positive_exact": "Original five v<0, so mass>0 and strong>1; numerical stage positivity checked independently",
+  "expected_geometry_before_errors": "Initial contrast mass/oldmean: A20.65/1.457, D4.493/1.419, B1.466,C1.678,E1.203; expect main effects A,D. StrongA2.708,D2.233.",
+  "fixed": "Same original five parameters, x/y[-1,1], initial physical u/v and boundary, h.125,nx33,RK4dt2.5e-5,T.01; same four controls and initial-grid-frozen controls as baseline",
+  "claim": "No density is selected by terminal ranking. No general error improvement predicted merely from positivity."
+}

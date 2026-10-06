@@ -1,0 +1,154 @@
+{
+  "date": "2026-10-02",
+  "scope": "Initial density shapes only; no PDE runs or accuracy comparisons",
+  "parameters": {
+    "A": {
+      "a": 2.0,
+      "p": [
+        1.0
+      ],
+      "q": [
+        2.0
+      ],
+      "c": [
+        1.0
+      ],
+      "phases": [
+        0.0
+      ]
+    },
+    "B": {
+      "a": 2.0,
+      "p": [
+        4.0
+      ],
+      "q": [
+        -3.0
+      ],
+      "c": [
+        1.0
+      ],
+      "phases": [
+        0.0
+      ]
+    },
+    "C": {
+      "a": 2.0,
+      "p": [
+        6.0,
+        4.0
+      ],
+      "q": [
+        -5.0,
+        -3.0
+      ],
+      "c": [
+        1.0,
+        1.0
+      ],
+      "phases": [
+        0.0,
+        0.0
+      ]
+    },
+    "D": {
+      "a": 2.0,
+      "p": [
+        1.0,
+        4.0
+      ],
+      "q": [
+        2.0,
+        -3.0
+      ],
+      "c": [
+        1.0,
+        1.0
+      ],
+      "phases": [
+        0.0,
+        0.0
+      ]
+    },
+    "E": {
+      "a": 2.0,
+      "p": [
+        1.75,
+        1.0
+      ],
+      "q": [
+        -1.6666666666666667,
+        -0.8
+      ],
+      "c": [
+        1.0,
+        1.0
+      ],
+      "phases": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "source_sha256": "119cce62c34050a3b402d34c0ffdfa30202b1c91e38c40f129f5eafce7accbe1",
+  "domain": {
+    "x": [
+      -1,
+      1
+    ],
+    "y": [
+      -1,
+      1
+    ]
+  },
+  "h": 0.125,
+  "sample_count_x": 2001,
+  "symbolic_checks": {
+    "constant_background_subtraction": "0",
+    "fixed_linear_amplification": "0",
+    "passive_weight": "0",
+    "geometric_mean_source": "-Derivative(rho(x, t), x)*Derivative(theta(x, t), x)"
+  },
+  "cases": [
+    {
+      "case": "A",
+      "excess_min": 0.023797286521541623,
+      "excess_max": 0.49137935104838376,
+      "excess_ratio": 20.648545396282074,
+      "r0_ratio": 1.4567135219858816,
+      "amplified4_ratio": 2.707767343012196
+    },
+    {
+      "case": "B",
+      "excess_min": 0.0819094933634706,
+      "excess_max": 0.12004835094000214,
+      "excess_ratio": 1.4656219445442258,
+      "r0_ratio": 1.0352514307439566,
+      "amplified4_ratio": 1.1149074019849323
+    },
+    {
+      "case": "C",
+      "excess_min": 0.08955887620051146,
+      "excess_max": 0.15025420405767853,
+      "excess_ratio": 1.6777142638690283,
+      "r0_ratio": 1.055706331418108,
+      "amplified4_ratio": 1.1787475813806327
+    },
+    {
+      "case": "D",
+      "excess_min": 0.1363070623065848,
+      "excess_max": 0.6124478363439049,
+      "excess_ratio": 4.49314823443538,
+      "r0_ratio": 1.4190247423709608,
+      "amplified4_ratio": 2.232544834138809
+    },
+    {
+      "case": "E",
+      "excess_min": 0.010745525923851888,
+      "excess_max": 0.012927374924083402,
+      "excess_ratio": 1.2030472045475649,
+      "r0_ratio": 1.0021586531369875,
+      "amplified4_ratio": 1.008367733223805
+    }
+  ]
+}

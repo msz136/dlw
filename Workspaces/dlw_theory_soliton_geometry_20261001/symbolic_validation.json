@@ -1,0 +1,234 @@
+{
+  "scope": "Independent exact symbolic algebra for frozen T03 N=1 theory; no approximate-zero tests, PDE evolution, fitting or scans.",
+  "status": "passed",
+  "checks_count": 16,
+  "passed_count": 16,
+  "failure": null,
+  "theory_version": "THEORY.md frozen 2026-10-01 version 1",
+  "python": "3.13.3",
+  "sympy": "1.13.3",
+  "script_sha256": "795435f719e3c9d5f60bcdd4f879060a771af4b944c7162d07cbf2ed9f0c61f0",
+  "source_sha256": {
+    "Workspaces\\dlw_theory_soliton_geometry_20261001\\THEORY.md": "818bb098f43268cbcfb246eeee43e7e465490eee7a2e1c5cea90d24481483335",
+    "Workspaces\\dlw_semidiscrete\\NONLINEAR_CLOSURE.md": "e03696fad89c37311cf3daaf5b8f54666f75c0f66b8a2a8214a14b66f873904b",
+    "Workspaces\\dlw_semidiscrete\\ALTERNATIVE_DISCRETIZATIONS.md": "00f0e38ddac6493f71660ba0437bfea011f8ccd908e6f1cc980ccc95ee3adf59",
+    "Workspaces\\dlw_semidiscrete\\numerics\\MANIFOLD_SCATTERING_REPORT.md": "da1274c7e0661009f7495456a77e54760f045aabba99e4381afaee37c9dd0cb0",
+    "Workspaces\\dlw_factor_model_20260930\\REPORT.md": "870838353b4da8ccd56e002449b732c43eb3b7d4f15b244ec3ebdeca77ed0ee7",
+    "Workspaces\\dlw_h2_bounds_20260930\\REPORT.md": "ce4cb32ac6a483ac53de7e4a3f51c7350616a7b584b556bccf02d7aa0310d0ae",
+    "Workspaces\\dlw_semidiscrete\\numerics\\lib\\dynamics.py": "8957bed3621135bafb39f505ace2ff8d365ce05839320476d32849b34b95bc9d"
+  },
+  "elapsed_seconds": 2.816772,
+  "checks": [
+    {
+      "name": "01_branch_algebra",
+      "passed": true,
+      "criterion": "Every exact symbolic residual is identically zero.",
+      "detail": "K>0 and Gamma>0 imply PQ<0, ell<0 and Gamma!=1 by these exact identities.",
+      "residuals": {
+        "ell_equals_K_over_PQ": "0",
+        "Gamma_minus_one": "0"
+      }
+    },
+    {
+      "name": "02_lambda_series",
+      "passed": true,
+      "criterion": "Every exact symbolic residual is identically zero.",
+      "detail": "Independent logarithm Taylor series through h^5 before dividing by h.",
+      "residuals": {
+        "through_h4": "0"
+      },
+      "exact_values": {
+        "ell": "1/Q + 1/P",
+        "c3": "1/(12*Q**3) + 1/(12*P**3)",
+        "c5": "1/(80*Q**5) + 1/(80*P**5)"
+      }
+    },
+    {
+      "name": "03_epsilon_exact_log_identity",
+      "passed": true,
+      "criterion": "Every exact symbolic residual is identically zero.",
+      "detail": "The rational squared identity yields the real logarithm identity on the positive regular branch.",
+      "residuals": {
+        "exp_twice_epsilon": "0"
+      }
+    },
+    {
+      "name": "04_epsilon_series",
+      "passed": true,
+      "criterion": "Every exact symbolic residual is identically zero.",
+      "detail": "Independent Taylor series of the centered F phase correction.",
+      "residuals": {
+        "through_h4": "0"
+      },
+      "exact_values": {
+        "gamma2": "1/(8*Q**2) - 1/(8*P**2)",
+        "gamma4": "1/(64*Q**4) - 1/(64*P**4)"
+      }
+    },
+    {
+      "name": "05_exact_physical_reconstruction",
+      "passed": true,
+      "criterion": "Every exact symbolic residual is identically zero.",
+      "detail": "Direct tau logarithmic x derivatives with E_x=K E, at the F midpoint.",
+      "residuals": {
+        "u_log_derivative": "0",
+        "W_log_derivative": "0"
+      }
+    },
+    {
+      "name": "06_Bu_direct_shift_jets",
+      "passed": true,
+      "criterion": "Every exact symbolic residual is identically zero.",
+      "detail": "Expand F and both G sigmoid jets at their three actual centered arguments.",
+      "residuals": {
+        "h0": "0",
+        "h1": "0",
+        "h2": "0",
+        "h3": "0"
+      }
+    },
+    {
+      "name": "07_Bv_direct_shift_jets",
+      "passed": true,
+      "criterion": "Every exact symbolic residual is identically zero.",
+      "detail": "Expand the exact v formula directly, including u(y+h) and u(y-h), to numerator order h^3.",
+      "residuals": {
+        "h0": "0",
+        "h1": "0",
+        "h2": "0"
+      }
+    },
+    {
+      "name": "08_full_u_tangents",
+      "passed": true,
+      "criterion": "Every exact symbolic residual is identically zero.",
+      "detail": "Differentiate the rational continuous field directly, including the E=e^z chain rule.",
+      "residuals": {
+        "p": "0",
+        "q": "0",
+        "phi": "0"
+      }
+    },
+    {
+      "name": "09_full_v_tangents",
+      "passed": true,
+      "criterion": "Every exact symbolic residual is identically zero.",
+      "detail": "Differentiate all amplitude, ell, Gamma and phase dependencies of v0 directly.",
+      "residuals": {
+        "p": "0",
+        "q": "0",
+        "phi": "0"
+      }
+    },
+    {
+      "name": "10_exact_even_parity",
+      "passed": true,
+      "criterion": "Every exact symbolic residual is identically zero.",
+      "detail": "h reversal exchanges the two G arguments; centered H remains even by the exact epsilon identity.",
+      "residuals": {
+        "u": "0",
+        "v": "0",
+        "chi_inverts": "0",
+        "lambda_even": "0",
+        "epsilon_even": "0"
+      }
+    },
+    {
+      "name": "11_logistic_Laurent_coefficients",
+      "passed": true,
+      "criterion": "Every exact symbolic residual is identically zero.",
+      "detail": "Laurent coefficients are evaluated by exact series and symbolic limits, not complex sampling.",
+      "residuals": {
+        "series": "0",
+        "s_second_derivative": "0",
+        "s_third_derivative": "0"
+      }
+    },
+    {
+      "name": "12_irremovable_pole_coefficients",
+      "passed": true,
+      "criterion": "Every exact symbolic residual is identically zero.",
+      "detail": "Gamma!=1 makes f regular at an s pole and s regular at an f pole.",
+      "residuals": {
+        "Bu_at_s": "0",
+        "Bv_at_s": "0",
+        "Bv_at_f": "0"
+      },
+      "exact_values": {
+        "Bu_cubic": "-K*ell**2/2",
+        "Bv_s_quartic": "5*K*ell**3/2",
+        "Bv_f_quartic": "-2*K*ell**3"
+      }
+    },
+    {
+      "name": "13_tangent_pole_order_and_rank_identity",
+      "passed": true,
+      "criterion": "Every exact symbolic residual is identically zero.",
+      "detail": "Cleared u/v tangents are polynomials in E, so pole orders are at most 2/3. With delta_q=-delta_p, delta_g=ell delta_p.",
+      "residuals": {
+        "u_denominator_clearing": "0",
+        "v_denominator_clearing": "0",
+        "delta_g_at_delta_K_zero": "0"
+      },
+      "exact_values": {
+        "u_pole_order_upper_bound": "2",
+        "v_pole_order_upper_bound": "3"
+      }
+    },
+    {
+      "name": "14_finite_h_collision_identities",
+      "passed": true,
+      "criterion": "Every exact symbolic residual is identically zero.",
+      "detail": "On the regular branch all denominators and P+d are nonzero; every possible pole-family collision forces K=0.",
+      "residuals": {
+        "chi_minus_one": "0",
+        "gamma_minus_one": "0",
+        "gamma_minus_chi": "0"
+      }
+    },
+    {
+      "name": "15_finite_and_continuous_x_residues",
+      "passed": true,
+      "criterion": "Every exact symbolic residual is identically zero.",
+      "detail": "Symbolic x-residues at distinct finite-h pole families and their continuous counterparts.",
+      "residuals": {
+        "finite_F": "0",
+        "finite_Gminus": "0",
+        "finite_Gplus": "0",
+        "continuous_F": "0",
+        "continuous_G": "0"
+      },
+      "exact_values": {
+        "finite_h": "[2, -1, -1]",
+        "continuous": "[2, -2]"
+      }
+    },
+    {
+      "name": "16_frozen_rational_point",
+      "passed": true,
+      "criterion": "Every exact symbolic residual is identically zero.",
+      "detail": "Evaluate only the single rational spectral point frozen in THEORY.md §9.",
+      "residuals": {
+        "K": "0",
+        "ell": "0",
+        "Gamma": "0",
+        "c3": "0",
+        "gamma2": "0",
+        "centered_phase": "0"
+      },
+      "exact_values": {
+        "K": "1",
+        "ell": "-1/2",
+        "Gamma": "2",
+        "c3": "-7/96",
+        "gamma2": "3/32"
+      }
+    }
+  ],
+  "proof_limits": [
+    "The regular real branch and analytic identity theorem are mathematical hypotheses/proofs, not inferred from CAS outputs.",
+    "Polynomial denominator clearing proves pole-order bounds; parameter factors affine in complex x do not add poles.",
+    "These checks verify formulas; they do not replace the functional analytic local-distance proof or certify a decimal integral.",
+    "The static family obstruction is not a common-initial-data evolution-error lower bound."
+  ]
+}

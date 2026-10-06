@@ -1,0 +1,63 @@
+[
+  {
+    "id": "hs-prepare",
+    "title": "准备数值环境",
+    "lead": "检查计算所需的数学函数和双精度数组。",
+    "requires": [],
+    "source": "import numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\n# 计算使用 IEEE 754 双精度。\nnp.set_printoptions(precision=12)\npd.set_option(\"display.precision\", 12)\n"
+  },
+  {
+    "id": "hs-config",
+    "title": "设置网格与时间步长",
+    "lead": "设置网格、RK4 时间步长和误差评价点。",
+    "requires": [
+      "hs-prepare"
+    ],
+    "source": "# 式（24）：p=5、q=1.25、c=1，初相位为零。\n# 加密同一辅助区间时，同时增大 N、减小 a。\nhs_cfg = dict(\n    N=1600, a=0.005, Xleft=-4.0,\n    dt=0.003125, T=0.5,\n    xMin=-1.0, xMax=1.0, evaluationPoints=32001,\n)\nhs_N, hs_a, hs_Xleft = (hs_cfg[k] for k in (\"N\", \"a\", \"Xleft\"))\nhs_dt, hs_T = (hs_cfg[k] for k in (\"dt\", \"T\"))\nhs_xmin, hs_xmax, hs_neval = (hs_cfg[k] for k in (\"xMin\", \"xMax\", \"evaluationPoints\"))\nif not np.isfinite([hs_a, hs_Xleft, hs_dt, hs_T, hs_xmin, hs_xmax]).all():\n    raise ValueError(\"网格、时间和评价区间须取有限实数。\")\nif not (hs_a > 0 and hs_dt > 0 and hs_T >= 0 and hs_xmax > hs_xmin):\n    raise ValueError(\"要求 a>0、dt>0、T≥0、xMax>xMin。\")\nif not isinstance(hs_N, int) or not 20 <= hs_N <= 6400:\n    raise ValueError(\"N 应为 20—6400 的整数。\")\nif not isinstance(hs_neval, int) or not 101 <= hs_neval <= 64001:\n    raise ValueError(\"评价点数应为 101—64001 的整数。\")\nhs_steps = round(hs_T / hs_dt)\nif abs(hs_steps * hs_dt - hs_T) > 1e-12 or hs_steps > 3200:\n    raise ValueError(\"T 须为 dt 的整数倍，且步数≤3200。\")\nhs_Xright = hs_Xleft + hs_N * hs_a\nprint(pd.DataFrame([{\n    \"N\": hs_N, \"a\": hs_a, \"X 左端\": hs_Xleft, \"X 右端\": hs_Xright,\n    \"dt\": hs_dt, \"T\": hs_T, \"时间步数\": hs_steps, \"评价点数\": hs_neval,\n}]).to_string(index=False))\n"
+  },
+  {
+    "id": "hs-reference",
+    "title": "定义连续参考解与物理网格",
+    "lead": "定义单孤子解析解，并构造初始物理网格。",
+    "requires": [
+      "hs-config"
+    ],
+    "source": "def hs_exact_X(X, t):\n    \"\"\"式（24）的解析场；X 可以是标量或数组。\"\"\"\n    X = np.asarray(X, dtype=float)\n    z = np.tanh((3.75 * X - 0.6 * t) / 2)\n    S = 1 - z * z\n    zX = 1.875 * S\n    zXX = -2 * zX * 1.875 * z\n    J, JX = 1 + 0.3 * zX, 0.3 * zXX\n    u, uX = 0.09 * S, -0.18 * z * zX\n    uXX = -0.18 * (zX * zX + z * zXX)\n    # 链式法则：d/dx=(1/J)d/dX，其中 J=dx/dX。\n    uxx = (uXX * J - uX * JX) / (J * J * J)\n    return dict(x=X - 0.5 + 0.3 * z, u=u, rho=1 / J, m=uxx + 2, X=X)\n\ndef hs_exact_physical(x, t):\n    \"\"\"利用 dx/dX>0，在 [x+0.2,x+0.8] 中二分反解 X。\"\"\"\n    x = np.asarray(x, dtype=float)\n    lo, hi = x + 0.2, x + 0.8\n    for _ in range(60):\n        mid = (lo + hi) / 2\n        lower = hs_exact_X(mid, t)[\"x\"] < x\n        lo, hi = np.where(lower, mid, lo), np.where(lower, hi, mid)\n    value = hs_exact_X((lo + hi) / 2, t)\n    if np.max(np.abs(value[\"x\"] - x)) > 2e-12:\n        raise ArithmeticError(\"物理坐标反解未达到容差。\")\n    return value\n\nhs_initial = hs_exact_X(hs_Xleft + np.arange(hs_N + 1) * hs_a, 0)\nhs_left, hs_right = hs_initial[\"x\"][[0, -1]]\nhs_dx = (hs_right - hs_left) / hs_N\n# 固定网格与初始动网格共用物理端点。\nhs_fixed_x = hs_left + np.arange(hs_N + 1) * hs_dx\nif hs_xmin <= hs_left or hs_xmax >= hs_right:\n    raise ValueError(\"评价区间必须位于初始物理端点内部。\")\nprint(pd.DataFrame([{\n    \"初始物理左端\": hs_left, \"初始物理右端\": hs_right,\n    \"FD 的 dx\": hs_dx, \"峰值 u\": 0.09, \"谷值 rho\": 0.64,\n}]).to_string(index=False))\n"
+  },
+  {
+    "id": "hs-spatial",
+    "title": "定义空间格式与场恢复",
+    "lead": "定义两种空间格式，并由三对角方程从 m 恢复 u。",
+    "requires": [
+      "hs-reference"
+    ],
+    "source": "def hs_integrable_fields(t, state):\n    # 状态：[b_0,...,b_(N-1), d_0,...,d_(N-1), x_0]。\n    b, d = state[:hs_N], state[hs_N:2 * hs_N]\n    if not np.isfinite(state).all() or np.any(d <= 0):\n        raise ArithmeticError(\"Integrable 出现非有限状态或非正胞元格距。\")\n    u0 = hs_exact_X(hs_Xleft, t)[\"u\"]\n    u = np.r_[u0, u0 + np.cumsum(b)]\n    x = np.r_[state[-1], state[-1] + np.cumsum(d)]\n    return dict(x=x, u=u, rhoX=(x[:-1] + x[1:]) / 2, rho=hs_a / d)\n\ndef hs_integrable_rhs(t, state):\n    # 式（25）：b、d 和 x_0 的时间导数。\n    u = hs_integrable_fields(t, state)[\"u\"]\n    b, d = state[:hs_N], state[hs_N:2 * hs_N]\n    C = d * d - hs_a * (hs_a - 1)\n    db = 2 * d * (u[1:] + u[:-1]) + (C * C - b * b) / (2 * d) - d / 2\n    return np.r_[db, -b, -u[0]]\n\ndef hs_recover_u(m, ub_left, ub_right):\n    # Thomas 消元：u_(i-1)-2u_i+u_(i+1)=dx^2*(m_i-2)。\n    count = hs_N - 1\n    c, d = np.zeros(count), np.zeros(count)\n    for j in range(count):\n        diagonal = -2 - (c[j - 1] if j else 0)\n        rhs = hs_dx * hs_dx * (m[j + 1] - 2)\n        if j == 0:\n            rhs -= ub_left\n        if j == count - 1:\n            rhs -= ub_right\n        c[j] = 1 / diagonal if j < count - 1 else 0\n        d[j] = (rhs - (d[j - 1] if j else 0)) / diagonal\n    u = np.empty(hs_N + 1)\n    u[0], u[-1] = ub_left, ub_right\n    for j in range(count - 1, -1, -1):\n        u[j + 1] = d[j] - (c[j] * u[j + 2] if j < count - 1 else 0)\n    return u\n\ndef hs_fd_fields(t, state):\n    # FD 状态为内部 m 与 rho，端点取解析边界。\n    boundary = hs_exact_physical(np.array([hs_left, hs_right]), t)\n    m = np.r_[boundary[\"m\"][0], state[:hs_N - 1], boundary[\"m\"][1]]\n    rho = np.r_[boundary[\"rho\"][0], state[hs_N - 1:], boundary[\"rho\"][1]]\n    if not np.isfinite(m).all() or not np.isfinite(rho).all() or np.any(rho <= 0):\n        raise ArithmeticError(\"FD 出现非有限状态或非正密度。\")\n    u = hs_recover_u(m, *boundary[\"u\"])\n    return dict(x=hs_fixed_x, u=u, rhoX=hs_fixed_x, rho=rho, m=m)\n\ndef hs_fd_rhs(t, state):\n    # 式（28）：固定网格上的一阶中心差分。\n    fields = hs_fd_fields(t, state)\n    m, rho, u = (fields[k] for k in (\"m\", \"rho\", \"u\"))\n    ux = (u[2:] - u[:-2]) / (2 * hs_dx)\n    mx = (m[2:] - m[:-2]) / (2 * hs_dx)\n    rx = (rho[2:] - rho[:-2]) / (2 * hs_dx)\n    return np.r_[u[1:-1] * mx + 2 * m[1:-1] * ux + rho[1:-1] * rx,\n                 u[1:-1] * rx + rho[1:-1] * ux]\n\ndef hs_initial_states():\n    # 初始 m 使用与演化一致的二阶差分模板。\n    fields = hs_exact_physical(hs_fixed_x, 0)\n    u0 = fields[\"u\"]\n    integrable = np.r_[np.diff(hs_initial[\"u\"]), np.diff(hs_initial[\"x\"]), hs_left]\n    m0 = (u0[2:] - 2 * u0[1:-1] + u0[:-2]) / (hs_dx * hs_dx) + 2\n    fd = np.r_[m0, fields[\"rho\"][1:-1]]\n    return integrable, fd\n\ndef hs_interpolate(xs, values, targets):\n    # 物理节点上的分段线性重构。\n    if targets[0] < xs[0] or targets[-1] > xs[-1]:\n        raise ValueError(\"数值网格未覆盖整个评价区间。\")\n    # side='left' 与原报告在恰好落于节点时采用相同的左区间。\n    j = np.clip(np.searchsorted(xs, targets, side=\"left\") - 1, 0, len(xs) - 2)\n    weight = (targets - xs[j]) / (xs[j + 1] - xs[j])\n    return values[j] + weight * (values[j + 1] - values[j])\n"
+  },
+  {
+    "id": "hs-rk4",
+    "title": "定义四阶时间步",
+    "lead": "定义一次 RK4 更新，依次计算空间方程的四个阶段。",
+    "requires": [
+      "hs-spatial"
+    ],
+    "source": "def hs_rk4_step(rhs, t, state, delta):\n    # 式（29）：每一级重新恢复场值和解析边界。\n    k1 = rhs(t, state)\n    k2 = rhs(t + delta / 2, state + delta / 2 * k1)\n    k3 = rhs(t + delta / 2, state + delta / 2 * k2)\n    k4 = rhs(t + delta, state + delta * k3)\n    return state + delta * (k1 + 2 * k2 + 2 * k3 + k4) / 6\n"
+  },
+  {
+    "id": "hs-evolve",
+    "title": "从初值实际推进至 T",
+    "lead": "从解析初值出发，将两种方案推进至 T。",
+    "requires": [
+      "hs-rk4"
+    ],
+    "source": "hs_integrable, hs_fd = hs_initial_states()\n# 时间层 t_n=n*dt；再次执行本单元会从当前配置的初值开始。\nfor hs_step in range(hs_steps):\n    hs_t = hs_step * hs_dt\n    hs_integrable = hs_rk4_step(hs_integrable_rhs, hs_t, hs_integrable, hs_dt)\n    hs_fd = hs_rk4_step(hs_fd_rhs, hs_t, hs_fd, hs_dt)\nhs_live_fields = {\n    \"Integrable\": hs_integrable_fields(hs_T, hs_integrable),\n    \"FD\": hs_fd_fields(hs_T, hs_fd),\n}\nprint(pd.DataFrame([\n    {\"方案\": name, \"已推进步数\": hs_steps, \"当前时间\": hs_T, \"物理节点数\": len(f[\"x\"])}\n    for name, f in hs_live_fields.items()\n]).to_string(index=False))\n"
+  },
+  {
+    "id": "hs-error",
+    "title": "计算终点误差并画图",
+    "lead": "将重构场与解析解比较，计算并绘制误差。",
+    "requires": [
+      "hs-evolve"
+    ],
+    "source": "# 式（30）：公共物理网格上的最大绝对误差。\nhs_xx = hs_xmin + (hs_xmax - hs_xmin) * np.arange(hs_neval) / (hs_neval - 1)\nhs_reference = hs_exact_physical(hs_xx, hs_T)\nhs_results, hs_result_rows = {}, []\nfor hs_name, hs_fields in hs_live_fields.items():\n    hs_u = hs_interpolate(hs_fields[\"x\"], hs_fields[\"u\"], hs_xx)\n    hs_rho = hs_interpolate(hs_fields[\"rhoX\"], hs_fields[\"rho\"], hs_xx)\n    hs_eu = np.abs(hs_u - hs_reference[\"u\"])\n    hs_er = np.abs(hs_rho - hs_reference[\"rho\"])\n    hs_r = dict(Eu=hs_eu.max(), Erho=hs_er.max(), eu=hs_eu, er=hs_er,\n                u=hs_u, rho=hs_rho, minDx=np.diff(hs_fields[\"x\"]).min(),\n                minRho=hs_fields[\"rho\"].min())\n    hs_results[hs_name] = hs_r\n    hs_result_rows.append({\"方案\": hs_name, \"E_u(T)\": hs_r[\"Eu\"],\n                           \"E_rho(T)\": hs_r[\"Erho\"], \"终点最小格距\": hs_r[\"minDx\"],\n                           \"终点最小密度\": hs_r[\"minRho\"]})\nprint(pd.DataFrame(hs_result_rows).to_string(index=False))\n\n# 每个绘图区间保留其评价点上的最大误差。\nhs_bins = 100\nhs_centers = hs_xmin + (np.arange(hs_bins) + 0.5) * (hs_xmax - hs_xmin) / hs_bins\nhs_bin_index = np.minimum(hs_bins - 1, np.floor(\n    (hs_xx - hs_xmin) / (hs_xmax - hs_xmin) * hs_bins).astype(int))\nfor hs_key, hs_label in ((\"eu\", \"u\"), (\"er\", r\"\\rho\")):\n    fig, ax = plt.subplots(figsize=(8, 3.5))\n    for hs_name, hs_style in ((\"Integrable\", \"-\"), (\"FD\", \"--\")):\n        hs_envelope = np.zeros(hs_bins)\n        np.maximum.at(hs_envelope, hs_bin_index, hs_results[hs_name][hs_key])\n        # 对数图的显示下限为 1e-16；误差范数不截断。\n        ax.plot(hs_centers, np.log10(np.maximum(hs_envelope, 1e-16)),\n                hs_style, label=hs_name)\n    ax.set(xlabel=r\"Physical coordinate $x$\",\n           ylabel=rf\"$\\log_{{10}}\\max|{hs_label}_h-{hs_label}|$\")\n    ax.legend()\n    ax.grid(alpha=0.25)\n    fig.tight_layout()\n    plt.show()\n\n# 仅原配置与原表核对；输出差值，不添加每段完成标记。\nhs_is_default = hs_cfg == dict(N=1600, a=0.005, Xleft=-4.0, dt=0.003125,\n                              T=0.5, xMin=-1.0, xMax=1.0, evaluationPoints=32001)\nif hs_is_default:\n    hs_saved = {\"Integrable\": (0.010012749796509766, 0.0011496748742060303),\n                \"FD\": (9.399310918062342e-7, 3.046420677166317e-6)}\n    hs_audit_rows = []\n    for hs_name, (hs_expected_u, hs_expected_rho) in hs_saved.items():\n        hs_r = hs_results[hs_name]\n        hs_audit_rows.append({\n            \"方案\": hs_name, \"原表 E_u\": hs_expected_u, \"原表 E_rho\": hs_expected_rho,\n            \"E_u 与原表之差\": abs(hs_r[\"Eu\"] - hs_expected_u),\n            \"E_rho 与原表之差\": abs(hs_r[\"Erho\"] - hs_expected_rho),\n        })\n    print(pd.DataFrame(hs_audit_rows).to_string(index=False))\n    if max(max(row[\"E_u 与原表之差\"], row[\"E_rho 与原表之差\"]) for row in hs_audit_rows) > 1e-8:\n        raise ArithmeticError(\"默认配置与原报告误差不吻合，请检查已编辑的核心代码。\")\n"
+  }
+]

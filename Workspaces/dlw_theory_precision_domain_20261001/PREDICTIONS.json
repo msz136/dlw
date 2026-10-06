@@ -1,0 +1,16 @@
+{
+  "question": "T04",
+  "frozen_on": "2026-10-01",
+  "stage": "analytic predictions frozen before numerical evaluation",
+  "model": {"x_period": "2*pi", "y_period": "2*pi", "eta": 1, "a": 0, "T": "1/8", "y_derivative": "exact", "x_derivative": "fourth-order centered D; D2=D*D", "initialization": "Fourier projection; common physical modal vector for each pair"},
+  "metric": "Euclidean physical (u,v) Fourier amplitude; L2 modal operator norm, not relative solution ranking",
+  "predictions": [
+    {"id": "P1", "claim": "Centered Gaussian q=(n+1/eta)^2 loses exactly T radius: bounded same-s operator iff r-r_prime >= T. Uncentered Gaussian endpoint fails without b-b_prime >= 2*T/abs(eta).", "kind": "linear theorem"},
+    {"id": "P2", "claim": "For high n and k*n -> 0: -(gamma(d_k)-gamma(n))/(k^4*n^6) -> 1/15. Euler -effective-rate defect/(dt*n^4) -> 1/2. RK4 analogous /(dt^4*n^10) -> 1/120.", "kind": "asymptotic identity", "checks": {"n": [10,20,40,80], "k": "n^(-2)", "Euler_dt": "n^(-4)", "RK4_dt": "n^(-3)"}},
+    {"id": "P3", "claim": "Exact-time spectral interpolation with centered-Gaussian unit input class r=1/4 and output L2 at T=1/8 has O(k^4) uniform physical error, including Fourier projection tail.", "kind": "operator approximation theorem", "checks": {"grid_N": [64,128,256,512], "represented_modes": "-N/2 < n < N/2; Nyquist excluded", "numeric_indicator": "sup represented weighted physical matrix error; analytic tail separately bounded"}},
+    {"id": "P4", "claim": "For the L2 unit band class, k^4*K^6*exp(T*gamma_max(K)) -> 0 is the absolute spatial convergence condition in the small cumulative-defect regime. K~c*sqrt(log(1/k)) converges for T*c^2<4 and has growing error witnesses for T*c^2>=4.", "kind": "joint-limit theorem and counterexample", "checks": {"grid_log2_N": [32,64,128,256], "K": "floor(c*sqrt(log(1/k)))", "c": [4,8], "input": "unit continuous growth eigenvector at +K, common for both propagators", "indicator": "log absolute physical amplitude error"}},
+    {"id": "P5", "claim": "Symbol maximum satisfies f_max^2=1/4+2*sqrt(6)/3; d_k(pi/k)=0. Tenfold seed reduction delays a fixed modal error threshold by log(10)/gamma.", "kind": "exact identity"}
+  ],
+  "excluded_claims": ["nonlinear well-posedness", "soliton-background stability", "present open-chain solver convergence", "new algorithm or tuning", "impossibility of all finite parameter improvements"],
+  "verification_scope": "Few direct modal calculations only; no PDE rerun, no parameter optimization, no historical trajectory access. Numerical checks support proofs and do not choose the claims."
+}

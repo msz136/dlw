@@ -1,0 +1,101 @@
+{
+  "kind": "exact local algebra; no numerical evolution or global error bound",
+  "passed": true,
+  "residuals": {
+    "continuum_r-1": "0",
+    "continuum_r+1": "0",
+    "continuum_r0": "0",
+    "SD_rminus": "0",
+    "SD_rplus": "0",
+    "SD_r0": "0",
+    "SD_flux_average": "0",
+    "FD_r-1": "0",
+    "FD_r+1": "0",
+    "FD_r0": "0",
+    "N2_C_positive_density_polynomial": "0",
+    "N2_general_density_polynomial": "0",
+    "fixed_endpoint_mass_coordinate": "0",
+    "fixed_left_endpoint": "0",
+    "fixed_right_endpoint": "0"
+  },
+  "N2_D_E_logxy_numerator_coefficients": {
+    "D": {
+      "(2, 1)": "-5/8",
+      "(1, 2)": "-45/16",
+      "(1, 1)": "-27/4",
+      "(1, 0)": "-9/4",
+      "(0, 1)": "-1/2"
+    },
+    "E": {
+      "(2, 1)": "-13/380",
+      "(1, 2)": "-13/152",
+      "(1, 1)": "-3311/13680",
+      "(1, 0)": "-1/12",
+      "(0, 1)": "-1/30"
+    }
+  },
+  "positivity_scope": {
+    "A": {
+      "p": [
+        1
+      ],
+      "q": [
+        2
+      ],
+      "a": 2,
+      "lower_bound": 1,
+      "strict": true
+    },
+    "B": {
+      "p": [
+        4
+      ],
+      "q": [
+        -3
+      ],
+      "a": 2,
+      "lower_bound": 1,
+      "strict": true
+    },
+    "C": {
+      "p": [
+        6,
+        4
+      ],
+      "q": [
+        -5,
+        -3
+      ],
+      "a": 2,
+      "lower_bound": 1,
+      "strict": true
+    },
+    "D": {
+      "p": [
+        1,
+        4
+      ],
+      "q": [
+        2,
+        -3
+      ],
+      "a": 2,
+      "lower_bound": 1,
+      "strict": true
+    },
+    "E": {
+      "p": [
+        "7/4",
+        1
+      ],
+      "q": [
+        "-5/3",
+        "-4/5"
+      ],
+      "a": 2,
+      "lower_bound": 1,
+      "strict": true
+    },
+    "meaning": "exact continuum rminus/r0/rplus globally >1; numerical positivity monitored separately"
+  }
+}

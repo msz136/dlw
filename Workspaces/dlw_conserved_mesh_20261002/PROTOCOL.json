@@ -1,0 +1,148 @@
+{
+  "date": "2026-10-02",
+  "scope": "Original DLW examples; conserved x-mass meshes; physical field error",
+  "physical_domain": {
+    "x": [
+      -1,
+      1
+    ],
+    "y": [
+      -1,
+      1
+    ]
+  },
+  "cases": {
+    "A": {
+      "a": 2,
+      "p": [
+        1
+      ],
+      "q": [
+        2
+      ],
+      "c": [
+        1
+      ],
+      "phi": [
+        0
+      ]
+    },
+    "B": {
+      "a": 2,
+      "p": [
+        4
+      ],
+      "q": [
+        -3
+      ],
+      "c": [
+        1
+      ],
+      "phi": [
+        0
+      ]
+    },
+    "C": {
+      "a": 2,
+      "p": [
+        6,
+        4
+      ],
+      "q": [
+        -5,
+        -3
+      ],
+      "c": [
+        1,
+        1
+      ],
+      "phi": [
+        0,
+        0
+      ]
+    },
+    "D": {
+      "a": 2,
+      "p": [
+        1,
+        4
+      ],
+      "q": [
+        2,
+        -3
+      ],
+      "c": [
+        1,
+        1
+      ],
+      "phi": [
+        0,
+        0
+      ]
+    },
+    "E": {
+      "a": 2,
+      "p": [
+        1.75,
+        1
+      ],
+      "q": [
+        -1.6666666666666667,
+        -0.8
+      ],
+      "c": [
+        1,
+        1
+      ],
+      "phi": [
+        0,
+        0
+      ]
+    }
+  },
+  "models": [
+    "SD",
+    "FD"
+  ],
+  "mesh_densities": [
+    "uniform",
+    "r_minus",
+    "r_zero",
+    "r_plus"
+  ],
+  "density_weights": "Fixed equal y averaging over physical band [-.75,.75], zero outside; same band under y refinement",
+  "time_method": "RK4",
+  "planned_T": [
+    0.0005,
+    0.001
+  ],
+  "main": {
+    "nx": 33,
+    "hy": 0.125,
+    "dt": 5e-06
+  },
+  "controls": [
+    "dt_half",
+    "nx_double_dt_half",
+    "hy_half",
+    "joint_refinement",
+    "evaluation_double",
+    "same_initial_density_grid_frozen"
+  ],
+  "boundary": "Nonperiodic exact physical x endpoints and lower-y u base; top-y numerical perturbation quadratically extrapolated around the exact background, same SD/FD closure. No interior exact forcing.",
+  "initialization": "Sample same continuous physical u,v; structural state derived from these same data. No exact interior reset or defect cancellation. Mesh initial coordinates from same density functional as evolution.",
+  "metrics": [
+    "signed physical e_u and e_v on same evaluation coordinates",
+    "u and v max absolute error independently",
+    "RMS error independently",
+    "relative max divided by fixed initial peak of each field",
+    "ratios against uniform SD, uniform FD and FD with same density",
+    "native-node errors and initial common-grid reconstruction error"
+  ],
+  "control_policy": "State disagreements compared at shared physical points; require dt-half disagreement <=5% of main exact error, evaluation change <=1%; x/y refinements reported separately rather than assumed negligible",
+  "stopping": "Any nonpositive density/J or divergence is reported as failure, not hidden; shorten T identically if necessary",
+  "meaning": "Measured exact-solution errors and refinement diagnostics. A rigorous nonlinear finite-time upper bound is not inferred from agreement of runs.",
+  "implemented_density": "Literal r_sigma,j=1-(v_j+sigma*delta0 u_j)/4, with true corrected finite-h flux of each method, same F layers; not staggered aligned rplus",
+  "source_freeze": "experiment.py sha256 stored with every run; changes require archiving previous runs, never silently mixing",
+  "boundary_review": "Before interpreting first230 results, independent source analysis identified O(h) global v contamination from a fixed-zero ghost error. First230 preserved in before_y_boundary_review. Same quadratic perturbation closure applied to SD and FD, then entire comparison rerun; parameters, meshes, time, metrics unchanged."
+}

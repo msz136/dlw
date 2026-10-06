@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-02",
+  "scope": "Independent symbolic algebra only; no PDE evolution or precision claim",
+  "checker_sha256": "d599fe72980082400aa3870d2bc304ece822343737119b9ed4c648762d4aa644",
+  "passed": 9,
+  "zero_residual_checks": {
+    "weighted_residual_factorization": "0",
+    "weighted_conservation_given_base_and_passive_transport": "0",
+    "absolute_label_x_is_density": "0",
+    "absolute_label_t_is_minus_flux": "0",
+    "absolute_label_material_derivative_zero": "0",
+    "normalized_label_source_formula": "0",
+    "label_weighted_conservation": "0",
+    "ALE_transport_velocity": "0",
+    "normalized_label_stationary_at_normalized_mesh_nodes": "0"
+  },
+  "normalized_label_material_source": "(M(t)*Q_left(t) - Q_left(t)*m(x, t) + Q_right(t)*m(x, t))/M(t)**2",
+  "interpretation": {
+    "base": "R_b,t + Q_b,x = 0; R_b > 0",
+    "passive_weight": "mu_t + (Q_b/R_b) mu_x = 0",
+    "weighted_pair": "R_mu = mu R_b; Q_mu = mu Q_b",
+    "absolute_label": "zeta = integral_left^x R_b ds - integral_0^t Q_b(left,s) ds",
+    "ALE": "dot(mu)|xi = (V-Q_b/R_b) mu_x",
+    "density_class": "Conserved density of an augmented passive-transport system, not a new local function of current u,v alone",
+    "limits": "No DLW stability, error reduction, integrability, or full-discrete product rule follows from these identities"
+  }
+}

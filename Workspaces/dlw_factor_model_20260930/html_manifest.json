@@ -1,0 +1,1241 @@
+{
+  "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_factor_model_20260930\\_src\\equations_and_estimates.md",
+  "source_sha256": "34e97759afc847b84e5c7768dfb84c6d18786f796c1fb530763259cf34eb79f7",
+  "equations": 94,
+  "math_segments": 308,
+  "sections": 12,
+  "formulas": [
+    {
+      "text": "$$\n\\begin{aligned}\nu_{yt}+v_{xx}+\\partial_x[(u+2a)u_y]&=0,\\\\\nv_t+u_{xxy}+\\partial_x[(u+2a)v-4u]&=0.\n\\end{aligned}\\tag{1}\n$$",
+      "display": true
+    },
+    {
+      "text": "$a$",
+      "display": false
+    },
+    {
+      "text": "$$\nb=u+2a,\\qquad A(u)=\\frac{u^2}{2}+2au,\\qquad\nw=v-u_y,\\qquad B(w)=\\frac{w^2}{32}-\\frac w4.\\tag{2}\n$$",
+      "display": true
+    },
+    {
+      "text": "$u_{yt}+v_{xx}+A(u)_{xy}=0$",
+      "display": false
+    },
+    {
+      "text": "$$\nU_{ty}+(\\eta_{xy}+2UU_y)_x=0,\\qquad\n\\eta_{ty}+(U_{xy}+2U\\eta_y)_x=0.\\tag{3}\n$$",
+      "display": true
+    },
+    {
+      "text": "$U=a+u/2$",
+      "display": false
+    },
+    {
+      "text": "$\\eta_y=(v-4)/2$",
+      "display": false
+    },
+    {
+      "text": "$2$",
+      "display": false
+    },
+    {
+      "text": "$-4$",
+      "display": false
+    },
+    {
+      "text": "$-4u_x$",
+      "display": false
+    },
+    {
+      "text": "$D_x,D_y,D_t$",
+      "display": false
+    },
+    {
+      "text": "$D_xf\\cdot g=f_xg-fg_x$",
+      "display": false
+    },
+    {
+      "text": "$$\nB_a=D_x^2+D_t+2aD_x,\\qquad\nB_af\\cdot g=0,\\qquad (D_yB_a-4D_x)f\\cdot g=0.\\tag{4}\n$$",
+      "display": true
+    },
+    {
+      "text": "$f,g$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\rho=\\log(f/g),\\qquad \\theta=\\log(fg),\\qquad\nu=2\\rho_x,\\qquad v=2\\theta_{xy}.\\tag{5}\n$$",
+      "display": true
+    },
+    {
+      "text": "$fg$",
+      "display": false
+    },
+    {
+      "text": "$$\nE:=\\frac{B_af\\cdot g}{fg}\n=\\theta_{xx}+\\rho_x^2+\\rho_t+2a\\rho_x=0.\\tag{6}\n$$",
+      "display": true
+    },
+    {
+      "text": "$2\\partial_{xy}$",
+      "display": false
+    },
+    {
+      "text": "$$\n2E_{xy}\n=v_{xx}+u_{yt}+\\partial_x[(u+2a)u_y]=0.\\tag{7}\n$$",
+      "display": true
+    },
+    {
+      "text": "$$\n\\frac{(D_yB_a-4D_x)f\\cdot g}{fg}\n=\\rho_yE+\\rho_{xxy}+\\theta_{yt}\n+2(\\rho_x+a)\\theta_{xy}-4\\rho_x.\\tag{8}\n$$",
+      "display": true
+    },
+    {
+      "text": "$E=0$",
+      "display": false
+    },
+    {
+      "text": "$2\\partial_x$",
+      "display": false
+    },
+    {
+      "text": "$h=\\Delta y$",
+      "display": false
+    },
+    {
+      "text": "$$\nB_{a-h/2}F_j\\cdot G_j=0,\\qquad\nB_{a+h/2}F_j\\cdot G_{j+1}=0.\\tag{9}\n$$",
+      "display": true
+    },
+    {
+      "text": "$F_j$",
+      "display": false
+    },
+    {
+      "text": "$y=(j+\\tfrac12)h$",
+      "display": false
+    },
+    {
+      "text": "$G_j$",
+      "display": false
+    },
+    {
+      "text": "$y=jh$",
+      "display": false
+    },
+    {
+      "text": "$x,t$",
+      "display": false
+    },
+    {
+      "text": "$\\ell_j=\\log F_j$",
+      "display": false
+    },
+    {
+      "text": "$m_j=\\log G_j$",
+      "display": false
+    },
+    {
+      "text": "$s$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\frac{B_sf\\cdot g}{fg}\n=(\\log f+\\log g)_{xx}+(\\log f-\\log g)_x^2\n+(\\log f-\\log g)_t+2s(\\log f-\\log g)_x.\\tag{10}\n$$",
+      "display": true
+    },
+    {
+      "text": "$$\n\\begin{aligned}\n0={}&(\\ell_j+m_j)_{xx}+(\\ell_j-m_j)_x^2\n+(\\ell_j-m_j)_t+(2a-h)(\\ell_j-m_j)_x,\\\\\n0={}&(\\ell_j+m_{j+1})_{xx}+(\\ell_j-m_{j+1})_x^2\n+(\\ell_j-m_{j+1})_t+(2a+h)(\\ell_j-m_{j+1})_x.\n\\end{aligned}\\tag{11}\n$$",
+      "display": true
+    },
+    {
+      "text": "$$\nu_j=(2\\ell_j-m_j-m_{j+1})_x,\\qquad\n\\omega_j=(m_{j+1}-m_j)_x,\\qquad\nZ_j=(2\\ell_j+m_j+m_{j+1})_x.\\tag{12}\n$$",
+      "display": true
+    },
+    {
+      "text": "$(u_j+\\omega_j)/2$",
+      "display": false
+    },
+    {
+      "text": "$(u_j-\\omega_j)/2$",
+      "display": false
+    },
+    {
+      "text": "$(u_j^2+\\omega_j^2)/2$",
+      "display": false
+    },
+    {
+      "text": "$u_j\\omega_j$",
+      "display": false
+    },
+    {
+      "text": "$2au_j-h\\omega_j$",
+      "display": false
+    },
+    {
+      "text": "$2a\\omega_j-hu_j$",
+      "display": false
+    },
+    {
+      "text": "$x$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\begin{aligned}\nu_{j,t}+\\partial_x\\!\\left[A(u_j)+\\frac{\\omega_j^2}{2}-h\\omega_j\\right]\n+Z_{j,xx}&=0,\\\\\n\\omega_{j,t}+\\partial_x[(u_j+2a)\\omega_j-hu_j]-\\omega_{j,xx}&=0.\n\\end{aligned}\\tag{13}\n$$",
+      "display": true
+    },
+    {
+      "text": "$$\n\\begin{aligned}\n\\delta_-f_j&=\\frac{f_j-f_{j-1}}h,&\nM_-f_j&=\\frac{f_j+f_{j-1}}2,\\\\\n\\delta_0f_j&=\\frac{f_{j+1}-f_{j-1}}{2h},&\n\\Delta_hf_j&=\\frac{f_{j+1}-2f_j+f_{j-1}}{h^2}.\n\\end{aligned}\\tag{14}\n$$",
+      "display": true
+    },
+    {
+      "text": "$Z_j-u_j=2(m_j+m_{j+1})_x$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\delta_-Z_j=\\delta_-u_j+\\frac4hM_-\\omega_j.\\tag{15}\n$$",
+      "display": true
+    },
+    {
+      "text": "$\\delta_-$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\boxed{\\begin{aligned}\n0={}&\\delta_-u_t+\\partial_x\\delta_-\n\\left[A(u)+\\frac{\\omega^2}{2}-h\\omega\\right]\n+\\partial_x^2\\left(\\delta_-u+\\frac4hM_-\\omega\\right),\\\\\n0={}&\\omega_t+\\partial_x[(u+2a)\\omega-hu]-\\omega_{xx}.\n\\end{aligned}}\\tag{16}\n$$",
+      "display": true
+    },
+    {
+      "text": "$u,v$",
+      "display": false
+    },
+    {
+      "text": "$$\nv=\\frac4h\\omega+\\delta_0u,\\qquad\nW_h=v-\\delta_0u=\\frac4h\\omega,\\qquad\nH=A(u)+h^2B(W_h).\\tag{17}\n$$",
+      "display": true
+    },
+    {
+      "text": "$\\omega=O(h)$",
+      "display": false
+    },
+    {
+      "text": "$v$",
+      "display": false
+    },
+    {
+      "text": "$$\nM_-\\delta_0=\\delta_-+\\frac{h^2}{4}\\Delta_h\\delta_-,\n\\qquad\n\\delta_0^2=\\Delta_h+\\frac{h^2}{4}\\Delta_h^2,\\tag{18}\n$$",
+      "display": true
+    },
+    {
+      "text": "$v_t=(W_h)_t+\\delta_0u_t$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\boxed{\\begin{aligned}\n\\mathcal R^{SD}_{1,h}={}&\\delta_-u_t+\\partial_x\\delta_-H\n+\\partial_x^2\\left(M_-v-\\frac{h^2}{4}\\Delta_h\\delta_-u\\right)=0,\\\\\n\\mathcal R^{SD}_{2,h}={}&v_t\n+\\partial_x[\\delta_0H+bW_h-4u]\\\\\n&+\\partial_x^2\\left(\\delta_0u+\\frac{h^2}{4}\\Delta_hW_h\\right)=0.\n\\end{aligned}}\\tag{19}\n$$",
+      "display": true
+    },
+    {
+      "text": "$h$",
+      "display": false
+    },
+    {
+      "text": "$M_j=(\\log G_j)_x$",
+      "display": false
+    },
+    {
+      "text": "$\\omega_j=M_{j+1}-M_j$",
+      "display": false
+    },
+    {
+      "text": "$Z_j=u_j+2(M_j+M_{j+1})$",
+      "display": false
+    },
+    {
+      "text": "$$\nQ_j=\\frac{F_j}{\\sqrt{G_jG_{j+1}}},\\qquad\nR_j=\\frac{1-\\omega_j/h}{Q_j},\\qquad\nu_j=2\\frac{Q_{j,x}}{Q_j},\\qquad \\omega_j=h(1-Q_jR_j).\\tag{20}\n$$",
+      "display": true
+    },
+    {
+      "text": "$$\nu_t=2\\partial_x(Q_t/Q),\\qquad\nu_x+\\frac{u^2}{2}=2\\frac{Q_{xx}}Q,\\qquad\n\\frac{\\omega^2}{4}-\\frac h2\\omega=\\frac{h^2}{4}[(QR)^2-1],\\tag{21}\n$$",
+      "display": true
+    },
+    {
+      "text": "$u$",
+      "display": false
+    },
+    {
+      "text": "$Q$",
+      "display": false
+    },
+    {
+      "text": "$S=QR$",
+      "display": false
+    },
+    {
+      "text": "$\\omega$",
+      "display": false
+    },
+    {
+      "text": "$$\nS_t-S_{xx}+2aS_x+2(Q_xR)_x=0.\\tag{22}\n$$",
+      "display": true
+    },
+    {
+      "text": "$-S_{xx}+2(Q_xR)_x=Q_{xx}R-QR_{xx}$",
+      "display": false
+    },
+    {
+      "text": "$Q$",
+      "display": false
+    },
+    {
+      "text": "$Q_t$",
+      "display": false
+    },
+    {
+      "text": "$R$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\boxed{\\begin{aligned}\nQ_t&=-Q_{xx}-2aQ_x-\\mathcal H Q,\\\\\nR_t&= R_{xx}-2aR_x+\\mathcal H R,\\\\\n\\mathcal H_j&=(M_j+M_{j+1})_x+\\frac{h^2}{4}[(Q_jR_j)^2-1],\\\\\nM_{j+1}-M_j&=h(1-Q_jR_j).\n\\end{aligned}}\\tag{23}\n$$",
+      "display": true
+    },
+    {
+      "text": "$$\nu=2Q_x/Q,\\qquad v=4(1-QR)+\\delta_0u.\\tag{24}\n$$",
+      "display": true
+    },
+    {
+      "text": "$Q\\ne0$",
+      "display": false
+    },
+    {
+      "text": "$h$",
+      "display": false
+    },
+    {
+      "text": "$x,t$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\boxed{\\begin{aligned}\n\\mathcal R^{FD}_{1,h}\n&=\\delta_-(u_t+A_x)+M_-v_{xx}=0,\\\\\n\\mathcal R^{FD}_{2,h}\n&=v_t+\\partial_x[bv-4u]+\\partial_x^2\\delta_0u=0.\n\\end{aligned}}\\tag{25}\n$$",
+      "display": true
+    },
+    {
+      "text": "$P=\\delta_-u$",
+      "display": false
+    },
+    {
+      "text": "$(P,W_h)$",
+      "display": false
+    },
+    {
+      "text": "$(Q,R)$",
+      "display": false
+    },
+    {
+      "text": "$(P,v)$",
+      "display": false
+    },
+    {
+      "text": "$x$",
+      "display": false
+    },
+    {
+      "text": "$$\n(Df)_i=\\frac{f_{i-2}-8f_{i-1}+8f_{i+1}-f_{i+2}}{12k},\n\\qquad k=\\Delta x,\\qquad D_2=D^2.\\tag{26}\n$$",
+      "display": true
+    },
+    {
+      "text": "$$\n\\begin{aligned}\nP_t^{SD}&=-\\delta_-DH-D^2\\left(M_-v-\\frac{h^2}{4}\\Delta_hP\\right),\\\\\n(W_h)_t^{SD}&=-D[bW_h-4u]+D^2W_h,\\\\\nP_t^{FD}&=-\\delta_-DA-D^2M_-v,\\\\\nv_t^{FD}&=-D[bv-4u]-D^2\\delta_0u.\n\\end{aligned}\\tag{27}\n$$",
+      "display": true
+    },
+    {
+      "text": "$Q,R$",
+      "display": false
+    },
+    {
+      "text": "$\\partial_x,\\partial_x^2$",
+      "display": false
+    },
+    {
+      "text": "$D,D^2$",
+      "display": false
+    },
+    {
+      "text": "$u=2DQ/Q$",
+      "display": false
+    },
+    {
+      "text": "$D$",
+      "display": false
+    },
+    {
+      "text": "$u,v$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\mathcal R_h^S[u,v]=h^2\\tau_y^S[u,v]+O(h^4).\\tag{28}\n$$",
+      "display": true
+    },
+    {
+      "text": "$\\tau_y^S$",
+      "display": false
+    },
+    {
+      "text": "$u_j,v_j$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\delta_-f=f_y+\\frac{h^2}{24}f_{yyy}+O(h^4),\\qquad\nM_-f=f+\\frac{h^2}{8}f_{yy}+O(h^4).\\tag{29}\n$$",
+      "display": true
+    },
+    {
+      "text": "$$\n\\delta_0f=f_y+\\frac{h^2}{6}f_{yyy}+O(h^4),\\qquad\n\\Delta_hf=f_{yy}+\\frac{h^2}{12}f_{yyyy}+O(h^4),\\tag{30}\n$$",
+      "display": true
+    },
+    {
+      "text": "$$\nW_h=w-\\frac{h^2}{6}u_{yyy}+O(h^4),\\qquad\nH=A(u)+h^2B(w)+O(h^4).\\tag{31}\n$$",
+      "display": true
+    },
+    {
+      "text": "$\\delta_-$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\begin{aligned}\n\\mathcal R^{FD}_{1,h}\n={}&(u_t+A_x)_y+v_{xx}\\\\\n&+h^2\\left[\\frac1{24}(u_t+A_x)_{yyy}\n+\\frac18v_{xxyy}\\right]+O(h^4).\n\\end{aligned}\\tag{32}\n$$",
+      "display": true
+    },
+    {
+      "text": "$(u_t+A_x)_y=-v_{xx}$",
+      "display": false
+    },
+    {
+      "text": "$(-1/24+1/8)v_{xxyy}$",
+      "display": false
+    },
+    {
+      "text": "$\\delta_0u$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\boxed{\\tau_y^{FD}\n=\\begin{pmatrix}\nv_{xxyy}/12\\\\[2pt]u_{xxyyy}/6\n\\end{pmatrix}.}\\tag{33}\n$$",
+      "display": true
+    },
+    {
+      "text": "$h^2\\delta_-B(W_h)_x$",
+      "display": false
+    },
+    {
+      "text": "$-h^2\\Delta_h\\delta_-u_{xx}/4$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\boxed{\\tau_{y,1}^{SD}\n=\\frac1{12}v_{xxyy}-\\frac14u_{xxyyy}+B(w)_{xy}.}\\tag{34}\n$$",
+      "display": true
+    },
+    {
+      "text": "$A$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\delta_0A(u)-b\\delta_0u\n=\\frac{(u_{j+1}-u_j)^2-(u_{j-1}-u_j)^2}{4h}\n=\\frac{h^2}{2}(\\Delta_hu)(\\delta_0u).\\tag{35}\n$$",
+      "display": true
+    },
+    {
+      "text": "$$\n\\delta_0H+bW_h-4u\n=bv-4u+h^2\\left[\\frac12u_yu_{yy}+B(w)_y\\right]+O(h^4).\\tag{36}\n$$",
+      "display": true
+    },
+    {
+      "text": "$$\n\\begin{aligned}\n\\delta_0u+\\frac{h^2}{4}\\Delta_hW_h\n&=u_y+h^2\\left(\\frac16u_{yyy}+\\frac14w_{yy}\\right)+O(h^4)\\\\\n&=u_y+h^2\\left(\\frac14v_{yy}-\\frac1{12}u_{yyy}\\right)+O(h^4).\n\\end{aligned}\\tag{37}\n$$",
+      "display": true
+    },
+    {
+      "text": "$$\n\\boxed{\\tau_y^{SD}=\\tau_y^{SDR}\n=\\begin{pmatrix}\n\\dfrac1{12}v_{xxyy}-\\dfrac14u_{xxyyy}+B(w)_{xy}\\\\[4pt]\n\\dfrac14v_{xxyy}-\\dfrac1{12}u_{xxyyy}\n+B(w)_{xy}+\\dfrac12(u_yu_{yy})_x\n\\end{pmatrix}.}\\tag{38}\n$$",
+      "display": true
+    },
+    {
+      "text": "$$\nB(w)_{xy}=\\frac{(w-4)w_{xy}+w_xw_y}{16}.\\tag{39}\n$$",
+      "display": true
+    },
+    {
+      "text": "$$\n\\begin{aligned}\nC_v&=\\|v_{xxyy}\\|_\\infty,\\qquad C_u=\\|u_{xxyyy}\\|_\\infty,\\\\\nC_B&=\\frac{\\|w-4\\|_\\infty\\|w_{xy}\\|_\\infty\n+\\|w_x\\|_\\infty\\|w_y\\|_\\infty}{16},\\\\\nC_N&=\\frac{\\|u_{xy}\\|_\\infty\\|u_{yy}\\|_\\infty\n+\\|u_y\\|_\\infty\\|u_{xyy}\\|_\\infty}{2}.\n\\end{aligned}\\tag{40}\n$$",
+      "display": true
+    },
+    {
+      "text": "$$\n\\begin{aligned}\n\\|\\tau_{y,1}^{FD}\\|_\\infty&\\le C_v/12,&\n\\|\\tau_{y,2}^{FD}\\|_\\infty&\\le C_u/6,\\\\\n\\|\\tau_{y,1}^{SD}\\|_\\infty&\\le C_v/12+C_u/4+C_B,&\n\\|\\tau_{y,2}^{SD}\\|_\\infty&\\le C_v/4+C_u/12+C_B+C_N.\n\\end{aligned}\\tag{41}\n$$",
+      "display": true
+    },
+    {
+      "text": "$y_c$",
+      "display": false
+    },
+    {
+      "text": "$g(s)=v_{xx}(x,y_c+s,t)$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\mathcal R^{FD}_{1,h}\n=\\frac{g(h/2)+g(-h/2)}2-\\frac1h\\int_{-h/2}^{h/2}g(s)\\,ds\n=\\int_{-h/2}^{h/2}K_h(s)g''(s)\\,ds,\\tag{42}\n$$",
+      "display": true
+    },
+    {
+      "text": "$K_h(s)=((h/2)^2-s^2)/(2h)\\ge0$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\int K_h(s)\\,ds=\\frac{h^2}{12},\\qquad\n\\frac12\\int s^2K_h(s)\\,ds=\\frac{h^4}{480}.\\tag{43}\n$$",
+      "display": true
+    },
+    {
+      "text": "$g''(s)$",
+      "display": false
+    },
+    {
+      "text": "$s=0$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\left|\\mathcal R^{FD}_{1,h}-\\frac{h^2}{12}v_{xxyy}(x,y_c,t)\\right|\n\\le\\frac{h^4}{480}\\sup_{|s|\\le h/2}|v_{xxyyyy}(x,y_c+s,t)|.\\tag{44}\n$$",
+      "display": true
+    },
+    {
+      "text": "$$\n\\left|\\mathcal R^{FD}_{2,h}-\\frac{h^2}{6}u_{xxyyy}(x,y_j,t)\\right|\n\\le\\frac{h^4}{120}\\sup_{|s|\\le h}|u_{xxyyyyy}(x,y_j+s,t)|.\\tag{45}\n$$",
+      "display": true
+    },
+    {
+      "text": "$$\nK=p+q>0,\\qquad P_s=p-a,\\qquad Q_s=q+a,\\qquad\n\\Gamma=-P_s/Q_s>0,\\tag{46}\n$$",
+      "display": true
+    },
+    {
+      "text": "$$\n\\ell=\\frac1{P_s}+\\frac1{Q_s}=\\frac K{P_sQ_s},\\qquad\n\\Omega=q^2-p^2,\\qquad\nz=Kx+\\ell y+\\Omega t+\\varphi.\\tag{47}\n$$",
+      "display": true
+    },
+    {
+      "text": "$\\tau$",
+      "display": false
+    },
+    {
+      "text": "$g=1+e^z$",
+      "display": false
+    },
+    {
+      "text": "$f=1+\\Gamma e^z$",
+      "display": false
+    },
+    {
+      "text": "$$\ns(z)=\\frac1{1+e^{-z}},\\quad\nf_1(z)=s(z+\\log\\Gamma),\\quad d=f_1-s,\\quad c=f_1+s.\\tag{48}\n$$",
+      "display": true
+    },
+    {
+      "text": "$$\nu=2Kd,\\qquad v=2K\\ell c',\\qquad w=4K\\ell s',\n\\qquad\n\\partial_x=K\\partial_z,\\quad\\partial_y=\\ell\\partial_z.\\tag{49}\n$$",
+      "display": true
+    },
+    {
+      "text": "$f_1$",
+      "display": false
+    },
+    {
+      "text": "$\\tau$",
+      "display": false
+    },
+    {
+      "text": "$f$",
+      "display": false
+    },
+    {
+      "text": "$\\zeta=K\\ell=K^2/(P_sQ_s)$",
+      "display": false
+    },
+    {
+      "text": "$K,\\ell$",
+      "display": false
+    },
+    {
+      "text": "$$\nv_{xxyy}=2\\zeta^3c^{(5)},\\qquad\nu_{xxyyy}=2\\zeta^3d^{(5)},\\qquad\nB(w)_{xy}=\\frac{\\zeta^3}{2}[(s')^2]''-\\zeta^2s'''.\\tag{50}\n$$",
+      "display": true
+    },
+    {
+      "text": "$$\n\\tau_{y,1}^{FD}=\\frac{\\zeta^3}{6}(f_1^{(5)}+s^{(5)}),\\qquad\n\\tau_{y,2}^{FD}=\\frac{\\zeta^3}{3}(f_1^{(5)}-s^{(5)}),\\tag{51}\n$$",
+      "display": true
+    },
+    {
+      "text": "$$\n\\begin{aligned}\n\\tau_{y,1}^{SD}\n&=\\zeta^3\\left[\\frac{2s^{(5)}-f_1^{(5)}}3\n+\\frac12[(s')^2]''\\right]-\\zeta^2s''',\\\\\n\\tau_{y,2}^{SD}\n&=\\zeta^3\\left[\\frac{f_1^{(5)}+2s^{(5)}}3\n+\\frac12[(s')^2]''+2(d'd'')'\\right]-\\zeta^2s'''.\n\\end{aligned}\\tag{52}\n$$",
+      "display": true
+    },
+    {
+      "text": "$\\zeta$",
+      "display": false
+    },
+    {
+      "text": "$\\log\\Gamma$",
+      "display": false
+    },
+    {
+      "text": "$z$",
+      "display": false
+    },
+    {
+      "text": "$\\zeta^2$",
+      "display": false
+    },
+    {
+      "text": "$S_m=\\sup_z|s^{(m)}(z)|$",
+      "display": false
+    },
+    {
+      "text": "$\\vartheta=s(1-s)\\in[0,1/4]$",
+      "display": false
+    },
+    {
+      "text": "$$\n(s'')^2=\\vartheta^2(1-4\\vartheta),\\qquad\ns'''=\\vartheta(1-6\\vartheta),\\qquad\ns^{(5)}=\\vartheta(1-30\\vartheta+120\\vartheta^2).\\tag{53}\n$$",
+      "display": true
+    },
+    {
+      "text": "$$\nS_1=\\frac14,\\quad S_2^2=\\frac1{108},\\quad\nS_3=\\frac18,\\quad S_5=\\frac14,\\qquad\nS_2^2+S_1S_3=\\frac{35}{864}.\\tag{54}\n$$",
+      "display": true
+    },
+    {
+      "text": "$f_1$",
+      "display": false
+    },
+    {
+      "text": "$s$",
+      "display": false
+    },
+    {
+      "text": "$\\|d^{(m)}\\|_\\infty\\le2S_m$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\frac12\\|[(s')^2]''\\|_\\infty\\le S_2^2+S_1S_3,\\qquad\n2\\|(d'd'')'\\|_\\infty\\le8(S_2^2+S_1S_3).\\tag{55}\n$$",
+      "display": true
+    },
+    {
+      "text": "$$\n\\boxed{\\begin{aligned}\n\\|\\tau_{y,1}^{FD}\\|_\\infty&\\le\\frac{|\\zeta|^3}{12},\\\\\n\\|\\tau_{y,2}^{FD}\\|_\\infty&\\le\\frac{|\\zeta|^3}{6},\\\\\n\\|\\tau_{y,1}^{SD}\\|_\\infty&\\le\\frac{251}{864}|\\zeta|^3+\\frac{\\zeta^2}{8},\\\\\n\\|\\tau_{y,2}^{SD}\\|_\\infty&\\le\\frac{59}{96}|\\zeta|^3+\\frac{\\zeta^2}{8}.\n\\end{aligned}}\\tag{56}\n$$",
+      "display": true
+    },
+    {
+      "text": "$P_sQ_s=0$",
+      "display": false
+    },
+    {
+      "text": "$|\\zeta|^2,|\\zeta|^3$",
+      "display": false
+    },
+    {
+      "text": "$\\zeta=K^2/(P_sQ_s)$",
+      "display": false
+    },
+    {
+      "text": "$\\Gamma=-P_s/Q_s$",
+      "display": false
+    },
+    {
+      "text": "$\\theta$",
+      "display": false
+    },
+    {
+      "text": "$\\partial_\\theta\\log|\\zeta|$",
+      "display": false
+    },
+    {
+      "text": "$\\partial_\\theta\\log\\Gamma$",
+      "display": false
+    },
+    {
+      "text": "$\\partial_\\theta\\Omega$",
+      "display": false
+    },
+    {
+      "text": "$a$",
+      "display": false
+    },
+    {
+      "text": "$1/P_s-1/Q_s$",
+      "display": false
+    },
+    {
+      "text": "$-1/P_s-1/Q_s$",
+      "display": false
+    },
+    {
+      "text": "$0$",
+      "display": false
+    },
+    {
+      "text": "$p$",
+      "display": false
+    },
+    {
+      "text": "$2/K-1/P_s$",
+      "display": false
+    },
+    {
+      "text": "$1/P_s$",
+      "display": false
+    },
+    {
+      "text": "$-2p$",
+      "display": false
+    },
+    {
+      "text": "$q$",
+      "display": false
+    },
+    {
+      "text": "$2/K-1/Q_s$",
+      "display": false
+    },
+    {
+      "text": "$-1/Q_s$",
+      "display": false
+    },
+    {
+      "text": "$2q$",
+      "display": false
+    },
+    {
+      "text": "$\\tau=\\zeta^3R_3(z,\\Gamma)+\\zeta^2R_2(z)$",
+      "display": false
+    },
+    {
+      "text": "$kK$",
+      "display": false
+    },
+    {
+      "text": "$h|\\ell|$",
+      "display": false
+    },
+    {
+      "text": "$\\delta|\\Omega|$",
+      "display": false
+    },
+    {
+      "text": "$\\delta=\\Delta t$",
+      "display": false
+    },
+    {
+      "text": "$a$",
+      "display": false
+    },
+    {
+      "text": "$2a$",
+      "display": false
+    },
+    {
+      "text": "$x$",
+      "display": false
+    },
+    {
+      "text": "$p,q$",
+      "display": false
+    },
+    {
+      "text": "$a$",
+      "display": false
+    },
+    {
+      "text": "$\\ell,\\Gamma$",
+      "display": false
+    },
+    {
+      "text": "$$\nD=\\partial_x-\\frac{k^4}{30}\\partial_x^5+O(k^6),\\qquad\nD^2=\\partial_x^2-\\frac{k^4}{15}\\partial_x^6+O(k^6).\\tag{57}\n$$",
+      "display": true
+    },
+    {
+      "text": "$h\\to0$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\chi_x=\n\\begin{pmatrix}\n-\\partial_x^5(bu_y)/30-\\partial_x^6v/15\\\\\n-\\partial_x^5(bv-4u)/30-\\partial_x^6u_y/15\n\\end{pmatrix}.\\tag{58}\n$$",
+      "display": true
+    },
+    {
+      "text": "$h$",
+      "display": false
+    },
+    {
+      "text": "$h^2k^4$",
+      "display": false
+    },
+    {
+      "text": "$D^2$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\begin{aligned}\n\\mathcal C_D(f,g)&:=D(fg)-fDg-gDf\\\\\n&=-\\frac{k^4}{30}\\sum_{r=1}^4\\binom5r\nf^{(r)}g^{(5-r)}+O(k^6).\n\\end{aligned}\\tag{59}\n$$",
+      "display": true
+    },
+    {
+      "text": "$r=DQ/Q$",
+      "display": false
+    },
+    {
+      "text": "$\\sigma=F_Q/Q$",
+      "display": false
+    },
+    {
+      "text": "$Q_t=F_Q=Q\\sigma$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\dot u=2\\left[\\frac{D(Q\\sigma)}Q-\\frac{DQ}{Q}\\sigma\\right]\n=2D\\sigma+\\frac{2\\mathcal C_D(Q,\\sigma)}Q.\\tag{60}\n$$",
+      "display": true
+    },
+    {
+      "text": "$D^2Q/Q=Dr+r^2+\\mathcal C_D(Q,r)/Q$",
+      "display": false
+    },
+    {
+      "text": "$u$",
+      "display": false
+    },
+    {
+      "text": "$$\nd_u=\\frac{2\\mathcal C_D(Q,\\sigma)}Q\n-2D\\left[\\frac{\\mathcal C_D(Q,r)}Q\\right].\\tag{61}\n$$",
+      "display": true
+    },
+    {
+      "text": "$W_h=4(1-QR)$",
+      "display": false
+    },
+    {
+      "text": "$$\nd_W=4\\left[\\mathcal C_D(Q,DR)-\\mathcal C_D(R,DQ)\n+D\\mathcal C_D(Q,R)-2a\\mathcal C_D(Q,R)\\right].\\tag{62}\n$$",
+      "display": true
+    },
+    {
+      "text": "$(P,v)$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\Delta_x=\n\\begin{pmatrix}\\delta_-d_u\\\\d_W+\\delta_0d_u\\end{pmatrix}.\\tag{63}\n$$",
+      "display": true
+    },
+    {
+      "text": "$k^4$",
+      "display": false
+    },
+    {
+      "text": "$Q,R$",
+      "display": false
+    },
+    {
+      "text": "$\\tau_y$",
+      "display": false
+    },
+    {
+      "text": "$Y_t=F(t,Y)$",
+      "display": false
+    },
+    {
+      "text": "$$\nY+\\delta F-Y(t+\\delta)\n=-\\frac{\\delta^2}{2}(F_t+F_YF)+O(\\delta^3).\\tag{64}\n$$",
+      "display": true
+    },
+    {
+      "text": "$z=\\mathcal T(Y)$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\mathcal T(Y+\\delta F)-\\mathcal T(Y)-\\delta\\mathcal T_YF\n=\\frac{\\delta^2}{2}\\mathcal T_{YY}[F,F]+O(\\delta^3).\\tag{65}\n$$",
+      "display": true
+    },
+    {
+      "text": "$Q^+=Q+\\delta F_Q$",
+      "display": false
+    },
+    {
+      "text": "$R^+=R+\\delta F_R$",
+      "display": false
+    },
+    {
+      "text": "$$\nu^+-u=\\frac{\\delta\\dot u}{1+\\delta F_Q/Q},\\qquad\nW_h^+-W_h=\\delta\\dot W_h-4\\delta^2F_QF_R.\\tag{66}\n$$",
+      "display": true
+    },
+    {
+      "text": "$Y_t=\\lambda Y$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\lambda_{E,\\mathrm{eff}}=\\lambda-\\frac{\\delta\\lambda^2}{2}+O(\\delta^2\\lambda^3),\n\\qquad\n\\lambda_{RK4,\\mathrm{eff}}=\\lambda-\\frac{\\delta^4\\lambda^5}{120}\n+O(\\delta^5\\lambda^6).\\tag{67}\n$$",
+      "display": true
+    },
+    {
+      "text": "$$\nu_h=u+h^2e+O(h^4),\\qquad v_h=v+h^2f+O(h^4).\\tag{68}\n$$",
+      "display": true
+    },
+    {
+      "text": "$h^2$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\boxed{\\begin{aligned}\ne_{yt}+f_{xx}+\\partial_x[be_y+u_ye]&=-\\tau_{y,1},\\\\\nf_t+e_{xxy}+\\partial_x[bf+(v-4)e]&=-\\tau_{y,2}.\n\\end{aligned}}\\tag{69}\n$$",
+      "display": true
+    },
+    {
+      "text": "$\\pi=u_y$",
+      "display": false
+    },
+    {
+      "text": "$\\mathcal Jg=\\int_{y_0}^y g(x,\\eta)\\,d\\eta$",
+      "display": false
+    },
+    {
+      "text": "$u$",
+      "display": false
+    },
+    {
+      "text": "$\\|\\mathcal J\\|_\\infty\\le L_y$",
+      "display": false
+    },
+    {
+      "text": "$E=(e_y,f)$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\dot E=\\mathcal A E-\\tau_y,\\qquad\n\\mathcal A\\binom{\\epsilon_\\pi}{\\epsilon_v}\n=\\binom{-\\epsilon_{v,xx}-\\partial_x[b\\epsilon_\\pi+\\pi\\mathcal J\\epsilon_\\pi]}\n{-\\epsilon_{\\pi,xx}-\\partial_x[b\\epsilon_v+(v-4)\\mathcal J\\epsilon_\\pi]}.\\tag{70}\n$$",
+      "display": true
+    },
+    {
+      "text": "$\\mathcal C(\\epsilon_\\pi,\\epsilon_v)=(\\mathcal J\\epsilon_\\pi,\\epsilon_v)$",
+      "display": false
+    },
+    {
+      "text": "$\\Phi(t,s)$",
+      "display": false
+    },
+    {
+      "text": "$E(0)=0$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\boxed{\na_y^S(T)=-\\mathcal C\\int_0^T\\Phi(T,s)\\tau_y^S(s)\\,ds.\n}\\tag{71}\n$$",
+      "display": true
+    },
+    {
+      "text": "$a_y^S=(e,f)$",
+      "display": false
+    },
+    {
+      "text": "$$\ne_t(x,y,0)=-\\int_{y_0}^y\\tau_{y,1}(x,\\eta,0)\\,d\\eta,\\qquad\nf_t(x,y,0)=-\\tau_{y,2}(x,y,0).\\tag{72}\n$$",
+      "display": true
+    },
+    {
+      "text": "$\\|\\Phi(T,s)\\|\\le e^{L(T-s)}$",
+      "display": false
+    },
+    {
+      "text": "$\\|\\tau_y(s)\\|\\le C_\\tau$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\|a_y(T)\\|\\le C_{\\mathrm{out}}C_\\tau\n\\begin{cases}(e^{LT}-1)/L,&L>0,\\\\T,&L=0,\\end{cases}\n\\qquad C_{\\mathrm{out}}\\le\\max\\{L_y,1\\}.\\tag{73}\n$$",
+      "display": true
+    },
+    {
+      "text": "$L$",
+      "display": false
+    },
+    {
+      "text": "$Y_*(t)$",
+      "display": false
+    },
+    {
+      "text": "$$\nr=F(t,Y_*)-\\dot Y_*,\\qquad A=F_Y(t,Y_*),\\qquad\n\\epsilon=Y-Y_*.\\tag{74}\n$$",
+      "display": true
+    },
+    {
+      "text": "$$\n\\dot\\epsilon=A\\epsilon+r+N(\\epsilon),\\qquad\nN(\\epsilon)=F(t,Y_*+\\epsilon)-F(t,Y_*)-A\\epsilon,\\tag{75}\n$$",
+      "display": true
+    },
+    {
+      "text": "$$\n\\epsilon(T)=\\Phi(T,0)\\epsilon(0)\n+\\int_0^T\\Phi(T,s)[r(s)+N(\\epsilon(s))]\\,ds.\\tag{76}\n$$",
+      "display": true
+    },
+    {
+      "text": "$\\|\\Phi(t,s)\\|\\le e^{L(t-s)}$",
+      "display": false
+    },
+    {
+      "text": "$\\|N(\\epsilon)\\|\\le C\\|\\epsilon\\|^2$",
+      "display": false
+    },
+    {
+      "text": "$B'=LB+CB^2+\\|r\\|$",
+      "display": false
+    },
+    {
+      "text": "$B(0)\\ge\\|\\epsilon(0)\\|$",
+      "display": false
+    },
+    {
+      "text": "$r$",
+      "display": false
+    },
+    {
+      "text": "$$\ne_{u,v}(T)=e_{\\mathrm{init}}(T)+h^2a_y^S(T)+k^4a_x^S(T)\n+\\delta^{\\,p_t}a_t^S(T)+e_{\\mathrm{boundary}}(T)\n+e_{\\mathrm{evaluation}}(T)+\\mathcal R(T),\\tag{77}\n$$",
+      "display": true
+    },
+    {
+      "text": "$p_t=1$",
+      "display": false
+    },
+    {
+      "text": "$p_t=4$",
+      "display": false
+    },
+    {
+      "text": "$\\widehat e_f$",
+      "display": false
+    },
+    {
+      "text": "$\\eta_f$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\boxed{\n\\max\\{0,\\|\\widehat e_f\\|_\\infty-\\eta_f\\}\n\\le \\|e_f\\|_\\infty\n\\le\\|\\widehat e_f\\|_\\infty+\\eta_f.\n}\\tag{78}\n$$",
+      "display": true
+    },
+    {
+      "text": "$\\eta$",
+      "display": false
+    },
+    {
+      "text": "$e^{i(\\xi x+\\eta y)}$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\frac{d}{dt}\\binom{\\widehat u}{\\widehat v}\n=M_0\\binom{\\widehat u}{\\widehat v},\\qquad\nM_0=\\begin{pmatrix}\n-2ia\\xi&-i\\xi^2/\\eta\\\\\ni(\\xi^2\\eta+4\\xi)&-2ia\\xi\n\\end{pmatrix},\\tag{79}\n$$",
+      "display": true
+    },
+    {
+      "text": "$$\n\\lambda_\\pm=-2ia\\xi\\pm\\sqrt{\\xi^4+4\\xi^3/\\eta}.\\tag{80}\n$$",
+      "display": true
+    },
+    {
+      "text": "$\\eta\\ne0$",
+      "display": false
+    },
+    {
+      "text": "$|\\xi|$",
+      "display": false
+    },
+    {
+      "text": "$\\xi^2$",
+      "display": false
+    },
+    {
+      "text": "$x$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\widetilde\\xi=\\frac{8\\sin(\\xi k)-\\sin(2\\xi k)}{6k},\\tag{81}\n$$",
+      "display": true
+    },
+    {
+      "text": "$\\xi k=\\pi$",
+      "display": false
+    },
+    {
+      "text": "$\\widetilde\\xi=0$",
+      "display": false
+    },
+    {
+      "text": "$\\tau$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\tau=\\sum_{S\\subset\\{1,\\ldots,N\\}}C_S\ne^{K_Sx+L_Sy+\\Omega_St},\\qquad C_S>0.\\tag{82}\n$$",
+      "display": true
+    },
+    {
+      "text": "$A_{ij}=(p_i-p_j)(q_i-q_j)/[(p_i+q_j)(p_j+q_i)]$",
+      "display": false
+    },
+    {
+      "text": "$C_S$",
+      "display": false
+    },
+    {
+      "text": "$\\pi_S$",
+      "display": false
+    },
+    {
+      "text": "$\\log\\tau$",
+      "display": false
+    },
+    {
+      "text": "$K_S,L_S$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\partial_x^r\\partial_y^s\\log\\tau\n=\\operatorname{cum}(\\underbrace{K_S,\\ldots,K_S}_{r},\n\\underbrace{L_S,\\ldots,L_S}_{s}).\\tag{83}\n$$",
+      "display": true
+    },
+    {
+      "text": "$K_\\Sigma=\\sum_i|K_i|$",
+      "display": false
+    },
+    {
+      "text": "$L_\\Sigma=\\sum_i|\\ell_i|$",
+      "display": false
+    },
+    {
+      "text": "$$\n|\\partial_x^r\\partial_y^s\\log\\tau|\n\\le c_{r+s}K_\\Sigma^rL_\\Sigma^s,\\qquad\nc_m=\\sum_{j=1}^m\n\\left\\{\\begin{matrix}m\\\\j\\end{matrix}\\right\\}(j-1)!.\\tag{84}\n$$",
+      "display": true
+    },
+    {
+      "text": "$\\tau$",
+      "display": false
+    },
+    {
+      "text": "$\\tau$",
+      "display": false
+    },
+    {
+      "text": "$x=X(\\xi,t)$",
+      "display": false
+    },
+    {
+      "text": "$\\partial_x=J^{-1}\\partial_\\xi$",
+      "display": false
+    },
+    {
+      "text": "$J=X_\\xi$",
+      "display": false
+    },
+    {
+      "text": "$J_h=1+D_\\xi(X-\\xi)$",
+      "display": false
+    },
+    {
+      "text": "$\\varepsilon$",
+      "display": false
+    },
+    {
+      "text": "$$\nD_x^hf=f_x+\\varepsilon^4E_Xf+O(\\varepsilon^6),\\qquad\nE_Xf=-\\frac{\\partial_\\xi^5\\widetilde f}{30J}\n+\\frac{X_{\\xi^5}}{30J}f_x.\\tag{85}\n$$",
+      "display": true
+    },
+    {
+      "text": "$\\partial_xE_X+E_X\\partial_x$",
+      "display": false
+    },
+    {
+      "text": "$J^{-1}$",
+      "display": false
+    },
+    {
+      "text": "$\\Phi(T,0)$",
+      "display": false
+    },
+    {
+      "text": "$a,p_i,q_i$",
+      "display": false
+    },
+    {
+      "text": "$\\tau$",
+      "display": false
+    },
+    {
+      "text": "$\\tau_y,\\chi_x$",
+      "display": false
+    },
+    {
+      "text": "$h,k,\\delta$",
+      "display": false
+    },
+    {
+      "text": "$h^2,k^4,\\delta^{p_t}$",
+      "display": false
+    },
+    {
+      "text": "$T$",
+      "display": false
+    },
+    {
+      "text": "$J^{-1}$",
+      "display": false
+    },
+    {
+      "text": "$\\theta$",
+      "display": false
+    },
+    {
+      "text": "$\\dot\\epsilon_L=A\\epsilon_L+r$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\dot S_\\theta=AS_\\theta+(\\partial_\\theta A)\\epsilon_L\n+\\partial_\\theta r,\\qquad S_\\theta=\\partial_\\theta\\epsilon_L.\\tag{86}\n$$",
+      "display": true
+    },
+    {
+      "text": "$h^2,h^3$",
+      "display": false
+    },
+    {
+      "text": "$a$",
+      "display": false
+    },
+    {
+      "text": "$h$",
+      "display": false
+    },
+    {
+      "text": "$$\ns_\\pm=a+\\alpha h^2\\pm\\frac{h+\\beta h^3}{2}.\\tag{87}\n$$",
+      "display": true
+    },
+    {
+      "text": "$v=4\\omega/h+\\delta_0u$",
+      "display": false
+    },
+    {
+      "text": "$$\nH^{\\alpha,\\beta}\n=A(u)+h^2B(W_h)+2\\alpha h^2u-\\frac{\\beta h^4}{4}W_h,\\tag{88}\n$$",
+      "display": true
+    },
+    {
+      "text": "$$\n(W_h)_t\n=-\\partial_x\\!\\left[bW_h-4u+h^2(2\\alpha W_h-4\\beta u)\\right]\n+(W_h)_{xx}.\\tag{89}\n$$",
+      "display": true
+    },
+    {
+      "text": "$2\\alpha u_{xy}$",
+      "display": false
+    },
+    {
+      "text": "$\\delta_0(2\\alpha u)+2\\alpha W_h$",
+      "display": false
+    },
+    {
+      "text": "$2\\alpha v$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\boxed{\n\\tau_y^{\\alpha,\\beta}\n=\\tau_y^{SD}\n+\\alpha\\begin{pmatrix}2u_{xy}\\\\2v_x\\end{pmatrix}\n+\\beta\\begin{pmatrix}0\\\\-4u_x\\end{pmatrix}.\n}\\tag{90}\n$$",
+      "display": true
+    },
+    {
+      "text": "$$\na_y^{\\alpha,\\beta}(T)=a_0(T)+\\alpha a_\\alpha(T)+\\beta a_\\beta(T).\\tag{91}\n$$",
+      "display": true
+    },
+    {
+      "text": "$$\n\\begin{pmatrix}\\alpha\\\\\\beta\\end{pmatrix}_{\\!*}\n=-G^{-1}b,\\qquad\nG_{ij}=\\langle a_i,a_j\\rangle,\\quad b_i=\\langle a_i,a_0\\rangle,\n\\quad i,j\\in\\{\\alpha,\\beta\\},\\tag{92}\n$$",
+      "display": true
+    },
+    {
+      "text": "$G$",
+      "display": false
+    },
+    {
+      "text": "$u=0$",
+      "display": false
+    },
+    {
+      "text": "$v$",
+      "display": false
+    },
+    {
+      "text": "$$\n\\tau_{y,1}^{SD,\\mathrm{lin}}\n=\\frac1{12}v_{xxyy}-\\frac14v_{xy}.\\tag{93}\n$$",
+      "display": true
+    },
+    {
+      "text": "$$\n\\boxed{\n\\text{方程与参数}\n\\longrightarrow\\text{背景解及导数}\n\\longrightarrow\\text{有符号残差}\n\\longrightarrow\\text{受迫误差场}\n\\longrightarrow\\text{误差范数}.\n}\\tag{94}\n$$",
+      "display": true
+    },
+    {
+      "text": "$\\zeta,\\Gamma,z$",
+      "display": false
+    },
+    {
+      "text": "$h$",
+      "display": false
+    },
+    {
+      "text": "$h^2$",
+      "display": false
+    }
+  ]
+}

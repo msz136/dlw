@@ -1,0 +1,247 @@
+{
+  "status": "passed",
+  "python": "3.13.3 (tags/v3.13.3:6280bb5, Apr  8 2025, 14:47:33) [MSC v.1943 64 bit (AMD64)]",
+  "python_executable": "C:\\Users\\msz\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+  "numpy": "2.2.5",
+  "pandas": "2.3.3",
+  "matplotlib": "3.10.1",
+  "cell_count": 7,
+  "source_sha256": {
+    "hs-prepare": "233acc52f4fb0df060119c9b7612f31c1bf1d0f26a04009568e5b80c73155c2e",
+    "hs-config": "b19439bb24dac7909f36d0b6e2a8933b68f13147b3f306e94b02a911a417d7ae",
+    "hs-reference": "28e6076dff13db6627afddfcfce3f4be0c8fae7c4fa97181b53e8f641a2143b0",
+    "hs-spatial": "9effc0d2aaa334006d3f89735b4b20a51b22d15d3978501601c5388d63a8bd4c",
+    "hs-rk4": "71941783e677bc76b790903874ddf37c14feb7fc0a6578258fcd9712854ef38d",
+    "hs-evolve": "2f595fc808ca5b434fad113a28d6680d0fbca6aaaadff76406da69dd424d7196",
+    "hs-error": "c7749dbc593c9444726eb03e96542ea549a8c904b28ca501ebcfbd9251de5e27"
+  },
+  "default": {
+    "configuration": {
+      "N": 1600,
+      "a": 0.005,
+      "Xleft": -4.0,
+      "dt": 0.003125,
+      "T": 0.5,
+      "xMin": -1.0,
+      "xMax": 1.0,
+      "evaluationPoints": 32001
+    },
+    "results": {
+      "Integrable": {
+        "Eu": 0.010012749796506865,
+        "Erho": 0.0011496748742059193,
+        "minDx": 0.0049858671877256455,
+        "minRho": 0.6404513440374358
+      },
+      "FD": {
+        "Eu": 9.399299530366001e-07,
+        "Erho": 3.046420503194369e-06,
+        "minDx": 0.0053749997705718755,
+        "minRho": 0.6400002675349974
+      }
+    },
+    "difference_from_report": {
+      "Integrable": {
+        "Eu": 2.9004576518332215e-15,
+        "Erho": 1.1102230246251565e-16
+      },
+      "FD": {
+        "Eu": 1.1387696341458309e-12,
+        "Erho": 1.7397194795876203e-13
+      }
+    },
+    "tolerance": 1e-08,
+    "sequential_execution": [
+      {
+        "id": "hs-prepare",
+        "execution_count": 1,
+        "seconds": 0.000197,
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "id": "hs-config",
+        "execution_count": 2,
+        "seconds": 0.015706,
+        "stdout": "   N     a  X 左端  X 右端       dt   T  时间步数  评价点数\n1600 0.005  -4.0   4.0 0.003125 0.5   160 32001\n",
+        "stderr": ""
+      },
+      {
+        "id": "hs-reference",
+        "execution_count": 3,
+        "seconds": 0.003302,
+        "stdout": "         初始物理左端         初始物理右端        FD 的 dx  峰值 u  谷值 rho\n-4.799999816459 3.799999816459 0.005374999771  0.09    0.64\n",
+        "stderr": ""
+      },
+      {
+        "id": "hs-spatial",
+        "execution_count": 4,
+        "seconds": 0.001105,
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "id": "hs-rk4",
+        "execution_count": 5,
+        "seconds": 0.000104,
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "id": "hs-evolve",
+        "execution_count": 6,
+        "seconds": 2.358712,
+        "stdout": "        方案  已推进步数  当前时间  物理节点数\nIntegrable    160   0.5   1601\n        FD    160   0.5   1601\n",
+        "stderr": ""
+      },
+      {
+        "id": "hs-error",
+        "execution_count": 7,
+        "seconds": 0.287779,
+        "stdout": "        方案         E_u(T)       E_rho(T)         终点最小格距         终点最小密度\nIntegrable 0.010012749797 0.001149674874 0.004985867188 0.640451344037\n        FD 0.000000939930 0.000003046421 0.005374999771 0.640000267535\n        方案         原表 E_u       原表 E_rho          E_u 与原表之差        E_rho 与原表之差\nIntegrable 0.010012749797 0.001149674874 2.900457651833e-15 1.110223024625e-16\n        FD 0.000000939931 0.000003046421 1.138769634146e-12 1.739719479588e-13\n",
+        "stderr": "<cell:hs-error>:37: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown\n"
+      }
+    ],
+    "figures": [
+      {
+        "lines": [
+          2
+        ],
+        "xlabels": [
+          "Physical coordinate $x$"
+        ],
+        "ylabels": [
+          "$\\log_{10}\\max|u_h-u|$"
+        ],
+        "finite_line_data": true
+      },
+      {
+        "lines": [
+          2
+        ],
+        "xlabels": [
+          "Physical coordinate $x$"
+        ],
+        "ylabels": [
+          "$\\log_{10}\\max|\\rho_h-\\rho|$"
+        ],
+        "finite_line_data": true
+      }
+    ]
+  },
+  "edited_parameter": {
+    "parameter": "T",
+    "value": 0.25,
+    "steps": 80,
+    "results": {
+      "Integrable": {
+        "Eu": 0.002627981361140265,
+        "Erho": 0.0001615549940870986,
+        "minDx": 0.004999269158885156,
+        "minRho": 0.6400869652759305
+      },
+      "FD": {
+        "Eu": 9.261686257505675e-07,
+        "Erho": 2.6267799779766676e-06,
+        "minDx": 0.0053749997705718755,
+        "minRho": 0.6400019015360483
+      }
+    },
+    "changed_actual_result": true,
+    "sequential_execution": [
+      {
+        "id": "hs-prepare",
+        "execution_count": 1,
+        "seconds": 0.000117,
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "id": "hs-config",
+        "execution_count": 2,
+        "seconds": 0.001924,
+        "stdout": "   N     a  X 左端  X 右端       dt    T  时间步数  评价点数\n1600 0.005  -4.0   4.0 0.003125 0.25    80 32001\n",
+        "stderr": ""
+      },
+      {
+        "id": "hs-reference",
+        "execution_count": 3,
+        "seconds": 0.001457,
+        "stdout": "         初始物理左端         初始物理右端        FD 的 dx  峰值 u  谷值 rho\n-4.799999816459 3.799999816459 0.005374999771  0.09    0.64\n",
+        "stderr": ""
+      },
+      {
+        "id": "hs-spatial",
+        "execution_count": 4,
+        "seconds": 0.000783,
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "id": "hs-rk4",
+        "execution_count": 5,
+        "seconds": 8.4e-05,
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "id": "hs-evolve",
+        "execution_count": 6,
+        "seconds": 1.16844,
+        "stdout": "        方案  已推进步数  当前时间  物理节点数\nIntegrable     80  0.25   1601\n        FD     80  0.25   1601\n",
+        "stderr": ""
+      },
+      {
+        "id": "hs-error",
+        "execution_count": 7,
+        "seconds": 0.215572,
+        "stdout": "        方案         E_u(T)       E_rho(T)         终点最小格距         终点最小密度\nIntegrable 0.002627981361 0.000161554994 0.004999269159 0.640086965276\n        FD 0.000000926169 0.000002626780 0.005374999771 0.640001901536\n",
+        "stderr": "<cell:hs-error>:37: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown\n"
+      }
+    ],
+    "figures": [
+      {
+        "lines": [
+          2
+        ],
+        "xlabels": [
+          "Physical coordinate $x$"
+        ],
+        "ylabels": [
+          "$\\log_{10}\\max|u_h-u|$"
+        ],
+        "finite_line_data": true
+      },
+      {
+        "lines": [
+          2
+        ],
+        "xlabels": [
+          "Physical coordinate $x$"
+        ],
+        "ylabels": [
+          "$\\log_{10}\\max|\\rho_h-\\rho|$"
+        ],
+        "finite_line_data": true
+      }
+    ]
+  },
+  "missing_preceding_cell": [
+    {
+      "cell": "hs-reference",
+      "exception": "NameError",
+      "message": "name 'hs_Xleft' is not defined"
+    },
+    {
+      "cell": "hs-evolve",
+      "exception": "NameError",
+      "message": "name 'hs_initial_states' is not defined"
+    },
+    {
+      "cell": "hs-error",
+      "exception": "NameError",
+      "message": "name 'hs_xmin' is not defined"
+    }
+  ],
+  "notes": "Sources are standard Python cells; figures and tables come from the current execution."
+}

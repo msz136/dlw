@@ -1,0 +1,13 @@
+{
+  "status": "frozen_before_exact_bound_evaluation",
+  "date": "2026-10-01",
+  "Gamma": 2,
+  "parameter_box": {"abs_alpha_max": 1, "abs_beta_max": 2},
+  "uniform_h0": "1/50",
+  "phase_certificates": [
+    {"interval": [1, 2], "h_max": "1/50", "claim": "Chebyshev constants have at least tenfold normalized phase improvement on the entire interval."},
+    {"interval": [1, 10], "h_max": "1/500", "claim": "Every constant pair in the frozen box fails tenfold normalized phase improvement on the entire interval."}
+  ],
+  "method": "Evaluate the analytically proved uniform remainder bound using exact rational arithmetic; no sampled supremum or parameter scan.",
+  "meaning": "Finite-h phase conclusions only, with fixed physical a,h in each comparison; no claim about evolved u/v field error."
+}

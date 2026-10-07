@@ -1,0 +1,33 @@
+{
+  "notebook": "C:\\Users\\msz\\aca\\notebook\\DLW数值分析report.ipynb",
+  "cells": 33,
+  "code_cells": 17,
+  "source_html_sha256": "20dd3bee5644ed94c929c4e0775996b7e267480780d33a78f03b813a2c2fe226",
+  "notebook_sha256": "828a11bfa4c7952bd469288c7b6b7747cca7fd479e575be8ad3d6027ba6e6e15",
+  "configuration": {
+    "nx": 256,
+    "h": 0.125,
+    "dt": 0.000125,
+    "T": 0.01,
+    "L": 40.0,
+    "eval_points": 4001
+  },
+  "spatial_discretization": {
+    "order": 2,
+    "D1": "(f[i+1]-f[i-1])/(2*dx)",
+    "D2": "(f[i+1]-2*f[i]+f[i-1])/dx**2",
+    "moving": "Dxx=J**-2*Dxxi-Jxi*J**-3*Dxi"
+  },
+  "primary_runs": 24,
+  "time_order_additional_runs": 12,
+  "self_contained": true,
+  "source_modules": [
+    "dlw_single_aligned_20260929/experiment.py",
+    "dlw_sd2_uv_init_20260929/consistent_sd2.py",
+    "dlw_two_soliton_20260929/models.py",
+    "dlw_two_soliton_20260929/reference.py",
+    "dlw_semidiscrete/numerics/lib/parametric_open.py",
+    "dlw_semidiscrete/numerics/lib/solver.py",
+    "dlw_sd2_20260929/sd2.py"
+  ]
+}

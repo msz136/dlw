@@ -1,0 +1,410 @@
+{
+  "passed": true,
+  "seconds": 3.810379299990018,
+  "spatial_scheme": "Dxi=(f[i+1]-f[i-1])/(2*deltaxi); Dxxi=(f[i+1]-2*f[i]+f[i-1])/deltaxi^2; D1=J^-1 Dxi; D2=J^-2 Dxxi-(Dxi J)J^-3 Dxi",
+  "endpoint_extension": "f(xi+L)=f(xi)+jump; Dxi jump corrections are +jump/(2*deltaxi) at both seam rows; Dxxi corrections are -jump/deltaxi^2 on first and +jump/deltaxi^2 on last row",
+  "time_methods_preserved": {
+    "SD": "Midpoint",
+    "SD2": [
+      "Euler",
+      "RK4"
+    ],
+    "FD": [
+      "Euler",
+      "RK4"
+    ]
+  },
+  "independent_raw_bilinear_residual": true,
+  "direct_D2_nyquist_max_error": 0.0,
+  "spatial_orders": [
+    {
+      "mesh": "fixed",
+      "errors": [
+        {
+          "n": 64,
+          "D1_error": 0.0016056069643816118,
+          "D2_error": 0.0008029324607775612,
+          "jump_D1_error": 0.0016056069643815007,
+          "jump_D2_error": 0.0008029324607775612
+        },
+        {
+          "n": 128,
+          "D1_error": 0.0004015468503242303,
+          "D2_error": 0.000200781488413182,
+          "jump_D1_error": 0.00040154685032534054,
+          "jump_D2_error": 0.000200781488413182
+        },
+        {
+          "n": 256,
+          "D1_error": 0.00010039578386156212,
+          "D2_error": 5.019839582909302e-05,
+          "jump_D1_error": 0.00010039578386278336,
+          "jump_D2_error": 5.0198396013390045e-05
+        }
+      ],
+      "observed_orders": {
+        "D1_error": [
+          1.9994785510072932,
+          1.999869639120549
+        ],
+        "D2_error": [
+          1.9996523772606365,
+          1.999913095916126
+        ],
+        "jump_D1_error": [
+          1.9994785510032045,
+          1.9998696391069886
+        ],
+        "jump_D2_error": [
+          1.9996523772606365,
+          1.9999130906194547
+        ]
+      }
+    },
+    {
+      "mesh": "moving",
+      "errors": [
+        {
+          "n": 64,
+          "D1_error": 0.0023103476680174095,
+          "D2_error": 0.0010387894612349236,
+          "jump_D1_error": 0.0023103476680168544,
+          "jump_D2_error": 0.0009414475371726239
+        },
+        {
+          "n": 128,
+          "D1_error": 0.0005781194378727816,
+          "D2_error": 0.0002603911007797999,
+          "jump_D1_error": 0.0005781194378735588,
+          "jump_D2_error": 0.00023550049581455568
+        },
+        {
+          "n": 256,
+          "D1_error": 0.00014456317507838268,
+          "D2_error": 6.510785608870862e-05,
+          "jump_D1_error": 0.00014456317507938188,
+          "jump_D2_error": 5.888379727636561e-05
+        }
+      ],
+      "observed_orders": {
+        "D1_error": [
+          1.99867048360999,
+          1.9996674823667784
+        ],
+        "D2_error": [
+          1.996151234327846,
+          1.9997766048162586
+        ],
+        "jump_D1_error": [
+          1.998670483607704,
+          1.9996674823587461
+        ],
+        "jump_D2_error": [
+          1.9991506046405143,
+          1.9997874817537769
+        ]
+      }
+    }
+  ],
+  "rows": [
+    {
+      "case": "A",
+      "mesh": "fixed",
+      "model": "SD",
+      "initial_uv_max_error": 9.251266419596504e-13,
+      "matrix_D1_max_difference": 3.608224830031759e-16,
+      "matrix_D2_max_difference": 1.2795320358804929e-14,
+      "independent_midpoint_bilinear_pairs": [
+        {
+          "max_relative_residual": 9.483589549407978e-11,
+          "max_residual_over_old_tau_product": 1.0437997977681003e-10,
+          "pair": "F_j,G_j"
+        },
+        {
+          "max_relative_residual": 1.095828723587284e-10,
+          "max_residual_over_old_tau_product": 1.2087497445333187e-10,
+          "pair": "F_j,G_(j+1)"
+        }
+      ],
+      "maximum_linear_residual": 4.440892098500626e-16,
+      "minimum_tau_ratio": 0.9999985661253366,
+      "mesh_iteration_count": 0,
+      "mesh_iteration_residual": 0.0,
+      "one_step_finite": true,
+      "one_step_min_J": 1.0,
+      "initial_uv_max_difference_from_SD": 0.0
+    },
+    {
+      "case": "A",
+      "mesh": "fixed",
+      "model": "SD2",
+      "initial_uv_max_error": 1.7674750552032492e-13,
+      "lift_jump_D1_max_difference": 3.608224830031759e-16,
+      "jump_D2_max_difference": 0.0,
+      "euler_step_finite": true,
+      "one_step_finite": true,
+      "one_step_min_J": 1.0,
+      "initial_uv_max_difference_from_SD": 8.906007869208353e-13
+    },
+    {
+      "case": "A",
+      "mesh": "fixed",
+      "model": "FD",
+      "initial_uv_max_error": 3.3306690738754696e-16,
+      "euler_step_finite": true,
+      "one_step_finite": true,
+      "one_step_min_J": 1.0,
+      "initial_uv_max_difference_from_SD": 9.251266419596504e-13
+    },
+    {
+      "case": "A",
+      "mesh": "moving",
+      "model": "SD",
+      "initial_uv_max_error": 1.0034018605788129e-12,
+      "matrix_D1_max_difference": 5.412337245047638e-16,
+      "matrix_D2_max_difference": 1.6403545188836688e-14,
+      "independent_midpoint_bilinear_pairs": [
+        {
+          "max_relative_residual": 1.0356354121798255e-10,
+          "max_residual_over_old_tau_product": 1.2414760204189606e-10,
+          "pair": "F_j,G_j"
+        },
+        {
+          "max_relative_residual": 9.824167651473071e-11,
+          "max_residual_over_old_tau_product": 1.2763454133302778e-10,
+          "pair": "F_j,G_(j+1)"
+        }
+      ],
+      "maximum_linear_residual": 4.440892098500626e-16,
+      "minimum_tau_ratio": 0.9999502328130542,
+      "mesh_iteration_count": 2,
+      "mesh_iteration_residual": 1.1728951143652466e-12,
+      "one_step_finite": true,
+      "one_step_min_J": 0.6765536434397621,
+      "initial_uv_max_difference_from_SD": 0.0
+    },
+    {
+      "case": "A",
+      "mesh": "moving",
+      "model": "SD2",
+      "initial_uv_max_error": 1.9752041511043135e-13,
+      "lift_jump_D1_max_difference": 6.661338147750939e-16,
+      "jump_D2_max_difference": 0.0,
+      "euler_step_finite": true,
+      "one_step_finite": true,
+      "one_step_min_J": 0.6765536472494829,
+      "initial_uv_max_difference_from_SD": 9.734677527222562e-13
+    },
+    {
+      "case": "A",
+      "mesh": "moving",
+      "model": "FD",
+      "initial_uv_max_error": 2.7755575615628914e-16,
+      "euler_step_finite": true,
+      "one_step_finite": true,
+      "one_step_min_J": 0.6765536501517282,
+      "initial_uv_max_difference_from_SD": 1.0034018605788129e-12
+    },
+    {
+      "case": "B",
+      "mesh": "fixed",
+      "model": "SD",
+      "initial_uv_max_error": 7.539080471178407e-13,
+      "matrix_D1_max_difference": 3.608224830031759e-16,
+      "matrix_D2_max_difference": 1.2795320358804929e-14,
+      "independent_midpoint_bilinear_pairs": [
+        {
+          "max_relative_residual": 5.154036082662973e-11,
+          "max_residual_over_old_tau_product": 5.154036082662973e-11,
+          "pair": "F_j,G_j"
+        },
+        {
+          "max_relative_residual": 4.953464107921341e-11,
+          "max_residual_over_old_tau_product": 4.953464107921341e-11,
+          "pair": "F_j,G_(j+1)"
+        }
+      ],
+      "maximum_linear_residual": 4.440892098500626e-16,
+      "minimum_tau_ratio": 0.9991253805713141,
+      "mesh_iteration_count": 0,
+      "mesh_iteration_residual": 0.0,
+      "one_step_finite": true,
+      "one_step_min_J": 1.0,
+      "initial_uv_max_difference_from_SD": 0.0
+    },
+    {
+      "case": "B",
+      "mesh": "fixed",
+      "model": "SD2",
+      "initial_uv_max_error": 3.9551925645232855e-14,
+      "lift_jump_D1_max_difference": 7.993605776473946e-16,
+      "jump_D2_max_difference": 0.0,
+      "euler_step_finite": true,
+      "one_step_finite": true,
+      "one_step_min_J": 1.0,
+      "initial_uv_max_difference_from_SD": 7.522356283149695e-13
+    },
+    {
+      "case": "B",
+      "mesh": "fixed",
+      "model": "FD",
+      "initial_uv_max_error": 4.163336342344337e-17,
+      "euler_step_finite": true,
+      "one_step_finite": true,
+      "one_step_min_J": 1.0,
+      "initial_uv_max_difference_from_SD": 7.539080471178407e-13
+    },
+    {
+      "case": "B",
+      "mesh": "moving",
+      "model": "SD",
+      "initial_uv_max_error": 7.204598753012358e-13,
+      "matrix_D1_max_difference": 4.163336342344337e-16,
+      "matrix_D2_max_difference": 1.3558598688234724e-14,
+      "independent_midpoint_bilinear_pairs": [
+        {
+          "max_relative_residual": 4.96934420775146e-11,
+          "max_residual_over_old_tau_product": 5.202216455198547e-11,
+          "pair": "F_j,G_j"
+        },
+        {
+          "max_relative_residual": 4.871371764839278e-11,
+          "max_residual_over_old_tau_product": 5.92802711249808e-11,
+          "pair": "F_j,G_(j+1)"
+        }
+      ],
+      "maximum_linear_residual": 4.440892098500626e-16,
+      "minimum_tau_ratio": 0.9991247072585128,
+      "mesh_iteration_count": 2,
+      "mesh_iteration_residual": 2.2470914018413168e-13,
+      "one_step_finite": true,
+      "one_step_min_J": 0.904597686102075,
+      "initial_uv_max_difference_from_SD": 0.0
+    },
+    {
+      "case": "B",
+      "mesh": "moving",
+      "model": "SD2",
+      "initial_uv_max_error": 4.7684078907650473e-14,
+      "lift_jump_D1_max_difference": 7.017706047261377e-16,
+      "jump_D2_max_difference": 0.0,
+      "euler_step_finite": true,
+      "one_step_finite": true,
+      "one_step_min_J": 0.9045976860371342,
+      "initial_uv_max_difference_from_SD": 7.061724255539006e-13
+    },
+    {
+      "case": "B",
+      "mesh": "moving",
+      "model": "FD",
+      "initial_uv_max_error": 1.3877787807814457e-17,
+      "euler_step_finite": true,
+      "one_step_finite": true,
+      "one_step_min_J": 0.9045976859979659,
+      "initial_uv_max_difference_from_SD": 7.204598753012358e-13
+    },
+    {
+      "case": "C",
+      "mesh": "fixed",
+      "model": "SD",
+      "initial_uv_max_error": 1.6675549829902938e-12,
+      "matrix_D1_max_difference": 3.608224830031759e-16,
+      "matrix_D2_max_difference": 1.2795320358804929e-14,
+      "independent_midpoint_bilinear_pairs": [
+        {
+          "max_relative_residual": 1.091026781646074e-10,
+          "max_residual_over_old_tau_product": 1.091026781646074e-10,
+          "pair": "F_j,G_j"
+        },
+        {
+          "max_relative_residual": 1.0194940460608362e-10,
+          "max_residual_over_old_tau_product": 1.0194940460608362e-10,
+          "pair": "F_j,G_(j+1)"
+        }
+      ],
+      "maximum_linear_residual": 4.440892098500626e-16,
+      "minimum_tau_ratio": 0.9977524889115393,
+      "mesh_iteration_count": 0,
+      "mesh_iteration_residual": 0.0,
+      "one_step_finite": true,
+      "one_step_min_J": 1.0,
+      "initial_uv_max_difference_from_SD": 0.0
+    },
+    {
+      "case": "C",
+      "mesh": "fixed",
+      "model": "SD2",
+      "initial_uv_max_error": 3.8882091990544154e-14,
+      "lift_jump_D1_max_difference": 1.7763568394002505e-15,
+      "jump_D2_max_difference": 0.0,
+      "euler_step_finite": true,
+      "one_step_finite": true,
+      "one_step_min_J": 1.0,
+      "initial_uv_max_difference_from_SD": 1.670170471752878e-12
+    },
+    {
+      "case": "C",
+      "mesh": "fixed",
+      "model": "FD",
+      "initial_uv_max_error": 3.469446951953614e-18,
+      "euler_step_finite": true,
+      "one_step_finite": true,
+      "one_step_min_J": 1.0,
+      "initial_uv_max_difference_from_SD": 1.6675549829902938e-12
+    },
+    {
+      "case": "C",
+      "mesh": "moving",
+      "model": "SD",
+      "initial_uv_max_error": 1.2672080236489159e-12,
+      "matrix_D1_max_difference": 4.3021142204224816e-16,
+      "matrix_D2_max_difference": 1.2420620087993939e-14,
+      "independent_midpoint_bilinear_pairs": [
+        {
+          "max_relative_residual": 1.0477418696605932e-10,
+          "max_residual_over_old_tau_product": 1.060407433841888e-10,
+          "pair": "F_j,G_j"
+        },
+        {
+          "max_relative_residual": 1.0407745028606274e-10,
+          "max_residual_over_old_tau_product": 1.0407745028606274e-10,
+          "pair": "F_j,G_(j+1)"
+        }
+      ],
+      "maximum_linear_residual": 4.440892098500626e-16,
+      "minimum_tau_ratio": 0.997751616807574,
+      "mesh_iteration_count": 2,
+      "mesh_iteration_residual": 5.765110611122282e-13,
+      "one_step_finite": true,
+      "one_step_min_J": 0.8823789912000126,
+      "initial_uv_max_difference_from_SD": 0.0
+    },
+    {
+      "case": "C",
+      "mesh": "moving",
+      "model": "SD2",
+      "initial_uv_max_error": 4.564306831794651e-14,
+      "lift_jump_D1_max_difference": 1.7508239923891414e-15,
+      "jump_D2_max_difference": 0.0,
+      "euler_step_finite": true,
+      "one_step_finite": true,
+      "one_step_min_J": 0.8823789906098572,
+      "initial_uv_max_difference_from_SD": 1.2673967193127017e-12
+    },
+    {
+      "case": "C",
+      "mesh": "moving",
+      "model": "FD",
+      "initial_uv_max_error": 1.734723475976807e-18,
+      "euler_step_finite": true,
+      "one_step_finite": true,
+      "one_step_min_J": 0.8823789904971224,
+      "initial_uv_max_difference_from_SD": 1.2672080236489159e-12
+    }
+  ],
+  "source_sha256": {
+    "dlw_numeric_cells.py": "a364424a86c254f5bee0295f8deaeb60385d1f2557b6ece6fbd26a83a5b176b4",
+    "sd_tau_cell.py": "8f2c80418034972d779e434e7031d19ed8165bd34a427b5264d0b2d5622d28e6"
+  },
+  "integer_input_affine_jump_check_passed": true
+}

@@ -8556,3 +8556,33 @@
 - [Workspaces/dlw_notebook_static_20261007/before_three_lines/report_table_print.png](Workspaces/dlw_notebook_static_20261007/before_three_lines/report_table_print.png)（三线表修正前原件）
 - [Workspaces/dlw_notebook_static_20261007/before_three_lines/trim_revision.json](Workspaces/dlw_notebook_static_20261007/before_three_lines/trim_revision.json)（三线表修正前原件）
 <!-- DLW_NUMERICAL_TRIM_INDEX_END -->
+
+<!-- DLW_GSG_SECOND_ORDER_INDEX_BEGIN -->
+**DLW 三点二阶空间差分（2026-10-07）：**
+
+- [Workspaces/notebook_reports_20261006/gsg_second_order/README.md](Workspaces/notebook_reports_20261006/gsg_second_order/README.md)
+- [Workspaces/notebook_reports_20261006/requirements_dlw.txt](Workspaces/notebook_reports_20261006/requirements_dlw.txt)
+- [Workspaces/notebook_reports_20261006/gsg_second_order/register_revision.py](Workspaces/notebook_reports_20261006/gsg_second_order/register_revision.py)
+- [Workspaces/notebook_reports_20261006/gsg_second_order/revision_manifest.json](Workspaces/notebook_reports_20261006/gsg_second_order/revision_manifest.json)
+- [notebook/DLW数值分析report.ipynb](notebook/DLW数值分析report.ipynb)
+- [dlw_numerical.html](dlw_numerical.html)
+- [Workspaces/notebook_reports_20261006/dlw_numeric_cells.py](Workspaces/notebook_reports_20261006/dlw_numeric_cells.py)
+- [Workspaces/notebook_reports_20261006/sd_tau_cell.py](Workspaces/notebook_reports_20261006/sd_tau_cell.py)
+- [Workspaces/notebook_reports_20261006/tau_report_cells.py](Workspaces/notebook_reports_20261006/tau_report_cells.py)
+- [Workspaces/notebook_reports_20261006/revise_dlw_structure.py](Workspaces/notebook_reports_20261006/revise_dlw_structure.py)
+- [Workspaces/notebook_reports_20261006/build_dlw_numerics_notebook.py](Workspaces/notebook_reports_20261006/build_dlw_numerics_notebook.py)
+- [Workspaces/notebook_reports_20261006/execute_dlw_notebook.py](Workspaces/notebook_reports_20261006/execute_dlw_notebook.py)
+- [Workspaces/notebook_reports_20261006/verify_dlw_tau.py](Workspaces/notebook_reports_20261006/verify_dlw_tau.py)
+- [Workspaces/notebook_reports_20261006/verify_second_order_spatial.py](Workspaces/notebook_reports_20261006/verify_second_order_spatial.py)
+- [Workspaces/notebook_reports_20261006/verify_direct_tau_delivery.py](Workspaces/notebook_reports_20261006/verify_direct_tau_delivery.py)
+- [Workspaces/notebook_reports_20261006/dlw_numeric_results.json](Workspaces/notebook_reports_20261006/dlw_numeric_results.json)
+- [Workspaces/notebook_reports_20261006/dlw_numeric_curves.npz](Workspaces/notebook_reports_20261006/dlw_numeric_curves.npz)
+- [Workspaces/notebook_reports_20261006/dlw_execution_validation.json](Workspaces/notebook_reports_20261006/dlw_execution_validation.json)
+- [Workspaces/notebook_reports_20261006/gsg_second_order/verify_second_order_spatial.json](Workspaces/notebook_reports_20261006/gsg_second_order/verify_second_order_spatial.json)
+- [Workspaces/notebook_reports_20261006/gsg_second_order/verify_dlw_tau.json](Workspaces/notebook_reports_20261006/gsg_second_order/verify_dlw_tau.json)
+- [Workspaces/notebook_reports_20261006/gsg_second_order/dlw_delivery_validation.json](Workspaces/notebook_reports_20261006/gsg_second_order/dlw_delivery_validation.json)
+- [Workspaces/notebook_reports_20261006/gsg_second_order/result_comparison.json](Workspaces/notebook_reports_20261006/gsg_second_order/result_comparison.json)
+- [Workspaces/dlw_notebook_static_20261007/build_validation.json](Workspaces/dlw_notebook_static_20261007/build_validation.json)
+- [Workspaces/dlw_notebook_static_20261007/content_validation.json](Workspaces/dlw_notebook_static_20261007/content_validation.json)
+- [Workspaces/dlw_notebook_static_20261007/browser_validation.json](Workspaces/dlw_notebook_static_20261007/browser_validation.json)
+<!-- DLW_GSG_SECOND_ORDER_INDEX_END -->

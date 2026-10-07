@@ -1,0 +1,393 @@
+{
+  "date": "2026-10-07",
+  "source_reference": {
+    "title": "Integrable semi-discretizations and self-adaptive moving mesh method for a generalized sine-Gordon equation",
+    "authors": "Bao-Feng Feng, Han-Han Sheng, Guo-Fu Yu",
+    "doi": "10.1007/s11075-023-01504-1",
+    "paper_page": 364,
+    "pdf_page": 14,
+    "scheme": 5,
+    "equations": [
+      "4.13",
+      "4.14"
+    ],
+    "local_pdf": "Paper/sources/Numerical_Algorithms_gsg (1).pdf",
+    "interpretation": "GSG directly uses the three-point second derivative. DLW D1 uses the standard three-point centered first derivative; moving D2 follows the hodograph chain rule."
+  },
+  "old_spatial_order": 4,
+  "new_spatial_order": 2,
+  "operators": {
+    "Dxi": "(f[i+1]-f[i-1])/(2*dx)",
+    "Dxxi": "(f[i+1]-2*f[i]+f[i-1])/dx**2",
+    "D1": "Dxi(f)/J",
+    "D2": "Dxxi(f)/J**2-Dxi(J)*Dxi(f)/J**3"
+  },
+  "configuration": {
+    "nx": 256,
+    "h": 0.125,
+    "dt": 0.000125,
+    "T": 0.01,
+    "L": 40.0,
+    "eval_points": 4001
+  },
+  "time_methods": {
+    "SD": "Midpoint",
+    "SD2": [
+      "Euler",
+      "RK4"
+    ],
+    "FD": [
+      "Euler",
+      "RK4"
+    ]
+  },
+  "primary_runs": 24,
+  "additional_time_refinement_runs": 12,
+  "code_cells": 17,
+  "executed_cells": 17,
+  "image_outputs": 3,
+  "execution_seconds": 158.458,
+  "sd_midpoint_order_range": [
+    1.9952774704046727,
+    2.000008518946767
+  ],
+  "sd2_euler_order_range": [
+    0.9948192538191271,
+    1.0000830590505179
+  ],
+  "initial_node_field_maximum_difference": 7.763566265556188e-13,
+  "independent_raw_bilinear_relative_residual": 1.0958287235878883e-10,
+  "spatial_audit": {
+    "success": true,
+    "scope": "Analytic spatial modes and moving coordinates; matrix and six initial-lift checks; no complete PDE run",
+    "independent_derivatives": true,
+    "operator": "D1=J^-1 Dxi; D2=J^-2 Dxi2-(Dxi J)J^-3 Dxi",
+    "uniform": {
+      "rows": [
+        {
+          "nx": 64,
+          "D1_error": 0.043184557511474875,
+          "D2_error": 0.06487060305049219
+        },
+        {
+          "nx": 128,
+          "D1_error": 0.010831320090902707,
+          "D2_error": 0.016252854194748423
+        },
+        {
+          "nx": 256,
+          "D1_error": 0.0027100330790030824,
+          "D2_error": 0.004065416960429502
+        }
+      ],
+      "observed_orders": {
+        "D1_error": [
+          1.9953064219059806,
+          1.99882671877022
+        ],
+        "D2_error": [
+          1.9968717556493074,
+          1.9992178630168798
+        ]
+      },
+      "symbols": [
+        {
+          "nx": 64,
+          "mode": 1,
+          "D1_symbol_scaled_error": 3.5405497909262118e-15,
+          "D2_symbol_scaled_error": 1.0429935237163662e-13
+        },
+        {
+          "nx": 64,
+          "mode": 3,
+          "D1_symbol_scaled_error": 4.107853488530318e-15,
+          "D2_symbol_scaled_error": 4.095691970632266e-14
+        },
+        {
+          "nx": 64,
+          "mode": 32,
+          "D1_symbol_scaled_error": 1.2474149864062002e-15,
+          "D2_symbol_scaled_error": 0.0
+        },
+        {
+          "nx": 128,
+          "mode": 1,
+          "D1_symbol_scaled_error": 6.527695982012237e-15,
+          "D2_symbol_scaled_error": 4.2881363676567647e-13
+        },
+        {
+          "nx": 128,
+          "mode": 3,
+          "D1_symbol_scaled_error": 8.678093184987474e-15,
+          "D2_symbol_scaled_error": 1.9656238126590145e-13
+        },
+        {
+          "nx": 128,
+          "mode": 64,
+          "D1_symbol_scaled_error": 2.4948299728124003e-15,
+          "D2_symbol_scaled_error": 0.0
+        },
+        {
+          "nx": 256,
+          "mode": 1,
+          "D1_symbol_scaled_error": 1.5982970556924733e-14,
+          "D2_symbol_scaled_error": 1.7970131334517357e-12
+        },
+        {
+          "nx": 256,
+          "mode": 3,
+          "D1_symbol_scaled_error": 1.5701320309237477e-14,
+          "D2_symbol_scaled_error": 6.670443219514586e-13
+        },
+        {
+          "nx": 256,
+          "mode": 128,
+          "D1_symbol_scaled_error": 4.989659945624801e-15,
+          "D2_symbol_scaled_error": 0.0
+        }
+      ],
+      "D1_symbol": "i sin(theta)/d",
+      "D2_symbol": "-4 sin(theta/2)^2/d^2",
+      "Nyquist_D2_checked": true
+    },
+    "moving": {
+      "rows": [
+        {
+          "nx": 64,
+          "min_J": 0.8686117610768653,
+          "J_error": 0.0008982119998801608,
+          "D1_error": 0.026347907355662503,
+          "D2_error": 0.033218622727338776
+        },
+        {
+          "nx": 128,
+          "min_J": 0.8681980927124832,
+          "J_error": 0.00022480819249026673,
+          "D1_error": 0.006615826246815004,
+          "D2_error": 0.00832904902190812
+        },
+        {
+          "nx": 256,
+          "min_J": 0.8680389700359106,
+          "J_error": 5.6218010450193034e-05,
+          "D1_error": 0.001655767542524611,
+          "D2_error": 0.002083791780596478
+        }
+      ],
+      "observed_orders": {
+        "J_error": [
+          1.9983613848763122,
+          1.9995903085026872
+        ],
+        "D1_error": [
+          1.9936951322108372,
+          1.9984212017510439
+        ],
+        "D2_error": [
+          1.9957685703083177,
+          1.9989406578096294
+        ]
+      },
+      "mapping": "x=xi+0.16 sin(xi)+0.05 sin(2xi)",
+      "field": "sin(2x)+0.2 cos(3x)"
+    },
+    "SD_matrices": {
+      "nx": 128,
+      "min_J": 0.8681980927124832,
+      "checks": {
+        "D1_matrix_visible_scaled_error": 2.3261671302293754e-16,
+        "D2_matrix_visible_scaled_error": 3.2584234392008452e-15,
+        "D1_matrix_independent_scaled_error": 2.3261671302293754e-16,
+        "D2_matrix_independent_scaled_error": 3.2584234392008452e-15,
+        "D1_tau_ratio_scaled_error": 3.6637359812630166e-15,
+        "D2_tau_ratio_scaled_error": 2.5529578451255475e-13,
+        "F_linearized_bilinear_scaled_error": 1.9543777514001776e-13,
+        "G_linearized_bilinear_scaled_error": 1.760093643247827e-13
+      }
+    },
+    "SD2_lifts": [
+      {
+        "case": "A",
+        "mesh": "fixed",
+        "min_Q": 0.2507717901762965,
+        "min_endpoint_Q_ratio": 0.2507718466028749,
+        "boundary_material_derivative_scaled_error": 3.6937286135260534e-09,
+        "checks": {
+          "lift_scaled_residual": 1.866101674227738e-15,
+          "D_matrix_scaled_error": 1.852277940289651e-16,
+          "jump_vector_error": 0.0,
+          "Q_jump_D1_scaled_error": 0.0,
+          "R_jump_D1_scaled_error": 0.0,
+          "Q_jump_D2_scaled_error": 0.0,
+          "R_jump_D2_scaled_error": 0.0,
+          "normalization_error": 4.440892098500626e-16,
+          "reciprocal_endpoint_jump_error": 0.0,
+          "analytic_initial_uv_error": 1.7674750552032492e-13,
+          "common_initial_SD_uv_error": 8.906007869208353e-13,
+          "common_initial_FD_uv_error": 1.7674750552032492e-13
+        }
+      },
+      {
+        "case": "A",
+        "mesh": "moving",
+        "min_Q": 0.24999471512868335,
+        "min_endpoint_Q_ratio": 0.24999473026622143,
+        "boundary_material_derivative_scaled_error": 7.736900202968966e-09,
+        "checks": {
+          "lift_scaled_residual": 1.6473977672466777e-15,
+          "D_matrix_scaled_error": 1.8503587065115564e-16,
+          "jump_vector_error": 0.0,
+          "Q_jump_D1_scaled_error": 0.0,
+          "R_jump_D1_scaled_error": 0.0,
+          "Q_jump_D2_scaled_error": 0.0,
+          "R_jump_D2_scaled_error": 0.0,
+          "normalization_error": 7.771561172376096e-16,
+          "reciprocal_endpoint_jump_error": 1.1102230246251565e-16,
+          "analytic_initial_uv_error": 1.9752041511043135e-13,
+          "common_initial_SD_uv_error": 9.734677527222562e-13,
+          "common_initial_FD_uv_error": 1.9752041511043135e-13
+        }
+      },
+      {
+        "case": "B",
+        "mesh": "fixed",
+        "min_Q": 0.9999999990339662,
+        "min_endpoint_Q_ratio": 1.9999109742571988,
+        "boundary_material_derivative_scaled_error": 2.0194295698937697e-08,
+        "checks": {
+          "lift_scaled_residual": 1.7355908377147955e-15,
+          "D_matrix_scaled_error": 2.22064373851526e-16,
+          "jump_vector_error": 0.0,
+          "Q_jump_D1_scaled_error": 0.0,
+          "R_jump_D1_scaled_error": 0.0,
+          "Q_jump_D2_scaled_error": 0.0,
+          "R_jump_D2_scaled_error": 0.0,
+          "normalization_error": 4.440892098500626e-16,
+          "reciprocal_endpoint_jump_error": 1.1102230246251565e-16,
+          "analytic_initial_uv_error": 3.9551925645232855e-14,
+          "common_initial_SD_uv_error": 7.522356283149695e-13,
+          "common_initial_FD_uv_error": 3.9551925645232855e-14
+        }
+      },
+      {
+        "case": "B",
+        "mesh": "moving",
+        "min_Q": 0.999999999082058,
+        "min_endpoint_Q_ratio": 1.9999730740464186,
+        "boundary_material_derivative_scaled_error": 1.4967146978766096e-08,
+        "checks": {
+          "lift_scaled_residual": 1.897787482718627e-15,
+          "D_matrix_scaled_error": 2.220450357896415e-16,
+          "jump_vector_error": 0.0,
+          "Q_jump_D1_scaled_error": 0.0,
+          "R_jump_D1_scaled_error": 0.0,
+          "Q_jump_D2_scaled_error": 0.0,
+          "R_jump_D2_scaled_error": 0.0,
+          "normalization_error": 3.3306690738754696e-16,
+          "reciprocal_endpoint_jump_error": 1.1102230246251565e-16,
+          "analytic_initial_uv_error": 4.7684078907650473e-14,
+          "common_initial_SD_uv_error": 7.061724255539006e-13,
+          "common_initial_FD_uv_error": 4.7684078907650473e-14
+        }
+      },
+      {
+        "case": "C",
+        "mesh": "fixed",
+        "min_Q": 0.9999999991912486,
+        "min_endpoint_Q_ratio": 2.666285885866441,
+        "boundary_material_derivative_scaled_error": 8.765944271020426e-08,
+        "checks": {
+          "lift_scaled_residual": 3.693868013691286e-15,
+          "D_matrix_scaled_error": 2.6651113008254035e-16,
+          "jump_vector_error": 0.0,
+          "Q_jump_D1_scaled_error": 0.0,
+          "R_jump_D1_scaled_error": 0.0,
+          "Q_jump_D2_scaled_error": 0.0,
+          "R_jump_D2_scaled_error": 0.0,
+          "normalization_error": 6.661338147750939e-16,
+          "reciprocal_endpoint_jump_error": 2.220446049250313e-16,
+          "analytic_initial_uv_error": 3.8882091990544154e-14,
+          "common_initial_SD_uv_error": 1.670170471752878e-12,
+          "common_initial_FD_uv_error": 3.8882091990544154e-14
+        }
+      },
+      {
+        "case": "C",
+        "mesh": "moving",
+        "min_Q": 0.9999999981864176,
+        "min_endpoint_Q_ratio": 2.6665114491971518,
+        "boundary_material_derivative_scaled_error": 6.177950630073118e-08,
+        "checks": {
+          "lift_scaled_residual": 3.2963265465455176e-15,
+          "D_matrix_scaled_error": 3.330904315078084e-16,
+          "jump_vector_error": 0.0,
+          "Q_jump_D1_scaled_error": 0.0,
+          "R_jump_D1_scaled_error": 0.0,
+          "Q_jump_D2_scaled_error": 0.0,
+          "R_jump_D2_scaled_error": 0.0,
+          "normalization_error": 4.440892098500626e-16,
+          "reciprocal_endpoint_jump_error": 2.220446049250313e-16,
+          "analytic_initial_uv_error": 4.564306831794651e-14,
+          "common_initial_SD_uv_error": 1.2673967193127017e-12,
+          "common_initial_FD_uv_error": 4.564306831794651e-14
+        }
+      }
+    ],
+    "notebook_definition_sources_sha256": {
+      "dlw-spatial": "113eb665cd201fe7ee85c7b0da965890f4b149d4620ce63c707577506b49b850",
+      "dlw-sd": "afc84b5ae6f8d39e6e3c71a584780a863806be02ab5d63b6b147041f06284a58",
+      "dlw-sd2_lift": "6f850e1a36ee1a692f25e61e0c93db414744441231aea53220dacbcd9fcd220f",
+      "dlw-sd2_evolution": "5a03ffb47cfb88afa6ac8f2709e2866287c2f88bc870bf0ea791d28c29e225da"
+    },
+    "seconds": 7.2170691000064835
+  },
+  "presentation": {
+    "sections": 7,
+    "table_of_contents": false,
+    "code_appendix": false,
+    "tables": "five three-line tables",
+    "local_error_figures": 3
+  },
+  "backup": "Workspaces/notebook_reports_20261006/before_gsg_second_order/",
+  "file_hashes": {
+    "notebook/DLW数值分析report.ipynb": "14d33d87d0c4d8eeca716162d70489f2aedc6472ea1efcdc9b9e60ab272ee5a7",
+    "dlw_numerical.html": "5125bebd928f2c9b9c9b01cedc243c5b306bbcbeba39c9e090106a68fce52f37",
+    "Workspaces/notebook_reports_20261006/dlw_numeric_cells.py": "a364424a86c254f5bee0295f8deaeb60385d1f2557b6ece6fbd26a83a5b176b4",
+    "Workspaces/notebook_reports_20261006/sd_tau_cell.py": "8f2c80418034972d779e434e7031d19ed8165bd34a427b5264d0b2d5622d28e6",
+    "Workspaces/notebook_reports_20261006/tau_report_cells.py": "313b4c65c201bad823f24f0ba47afd353206408a5b234f5eaf528e83e1f04219",
+    "Workspaces/notebook_reports_20261006/revise_dlw_structure.py": "809296859f1f9b6eae278ca996e61b35a8f6ad5ff3908af91342e5721b25842e",
+    "Workspaces/notebook_reports_20261006/build_dlw_numerics_notebook.py": "d5a70997b2339e1c8bc7b8124df0ee2f87aec94277f4bfb45cdb7805cf4d39c1",
+    "Workspaces/notebook_reports_20261006/execute_dlw_notebook.py": "5b67ff617af5366e54dbbd7a2141d64d0520a1123b5590b762ec4f58ad97c11d",
+    "Workspaces/notebook_reports_20261006/verify_dlw_tau.py": "adf72b1740b5298e6900945b828567d8fc27381803c1cf76eed53cec5cef61fa",
+    "Workspaces/notebook_reports_20261006/verify_second_order_spatial.py": "bacdcfd9d9fa5fcdc753ee6cd63d1c3d59b69d7aa1c1033792147d1d912c17d0",
+    "Workspaces/notebook_reports_20261006/verify_direct_tau_delivery.py": "9bdaa85b630418c61f4c2aa4fb23b93ee651a9070614f273b6afed9b7c2de350",
+    "Workspaces/notebook_reports_20261006/dlw_numeric_results.json": "824d509f269821ede25565989d269e2bbc9fad259ea9fe3eb8d0a9089a759d44",
+    "Workspaces/notebook_reports_20261006/dlw_numeric_curves.npz": "8eec748e86039c3a71120440c5741300d5066cd88703915273197d8934682fa3",
+    "Workspaces/notebook_reports_20261006/dlw_execution_validation.json": "a9325706765e7656cd09ddbf3068271cf3f16287f01dbbb4ccf71e34a2173b5a",
+    "Workspaces/notebook_reports_20261006/gsg_second_order/verify_second_order_spatial.json": "b4a79c92c90d03beccf9ddee21896c7e12f012b455c7ffb3ad5d53b243327662",
+    "Workspaces/notebook_reports_20261006/gsg_second_order/verify_dlw_tau.json": "af08e3346b4d9e09ca8b753b31e7cf94b674b9069be002cdf03265222ce88bb7",
+    "Workspaces/notebook_reports_20261006/gsg_second_order/dlw_delivery_validation.json": "7edf926f4e2496ef57e7fd53f30834699b4c0a85a4194afab6a59db48537205a",
+    "Workspaces/notebook_reports_20261006/gsg_second_order/result_comparison.json": "7bf0e92e412f6de86a88255ebe0538386b24fb86f9b63deca4c89dea16d663b8",
+    "Workspaces/dlw_notebook_static_20261007/build_validation.json": "1ba14ae8395f55f06d3f351d1f705dffc905ca0b55d13bbac1f6f81ace0bb1ae",
+    "Workspaces/dlw_notebook_static_20261007/content_validation.json": "759ae82f9889dff4b1776b827942fcc07f13c3f9b80bdedbd02e4a3b0d1c55e4",
+    "Workspaces/dlw_notebook_static_20261007/browser_validation.json": "1e1bda5bfec8fb73a2a5509d54318ae5002d0b595cee7fb6f17cb19c49c1e1bd"
+  },
+  "images_sha256": {
+    "dlw_notebook_figure_1.png": "db081a68c7b9da6002416e7d4d381742cc85159a931d2a1ef21ccc946a73b5eb",
+    "dlw_notebook_figure_2.png": "1a36970fbaed7fc53c8223fd2e2c90b45200157ca5e3a380a4be4c1e9be9fb0b",
+    "dlw_notebook_figure_3.png": "1900dc7e745adf4aff3367280b0932504e1f5d85a35a79c7cf2df8bac2375dc2"
+  },
+  "browser_screenshots_sha256": {
+    "report_1440.png": "02aa650353e6c0991360b5ee9e332a2746fbc41c7846a469e91d443c33f307be",
+    "report_390.png": "3e6538e03ca641a6e8ec18ff94370fb164d0a36b6b7f16a67f784e8bcf51fa8c",
+    "report_figure_1440.png": "66cbcd425d5db1ce6c2e609f7831fc5fdd956438b74853200e68a4953d6cba97",
+    "report_sd_1440.png": "d9407efb9f5960b8e632cc10fb415c4cd93cdc972188438cb6942b6cae20701a",
+    "report_sd_390.png": "f8d4f4c422d7d5ed3011d0fa70f5094ac7c9ce5e09cb03c4a85cfbb9742b3c47",
+    "report_sd_code_1440.png": "2174e37a37169962e7f30424ed4059893bc3681d0c61e61e017e2edaf3008419",
+    "report_sd_code_print.png": "48bdcb6f9f46d6ba3913901906956ffda8d649f93274e025b08e8026777d8c05",
+    "report_sd_print.png": "b585f4c2086128b603bcd77195bed97e9cfe7cdeb6c8b70af4ede904994a03af",
+    "report_table_1440.png": "f689350b0c72f4161d4b0df89ff62f6c39f0e49b05a4cc723d5fa323c777c57a",
+    "report_table_390.png": "6f3d6e152612191c37eb987633c17f63a72941f4798e2a2572ba53e937416b64",
+    "report_table_print.png": "1edfe9dafc60bc92710233969018aeed5f65b3640e7787229e2a4a944f8cefe9"
+  }
+}

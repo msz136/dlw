@@ -1,0 +1,324 @@
+{
+  "passed": true,
+  "seconds": 6.109187599999132,
+  "scope": "Six independent one-step A/B/C fixed/moving audits; not a full-time completion test",
+  "residual_formula": "delta_t(F)*Gbar-Fbar*delta_t(G)+D2(Fbar)*Gbar-2*D1(Fbar)*D1(Gbar)+Fbar*D2(Gbar)+(2s-V)*(D1(Fbar)*Gbar-Fbar*D1(Gbar))",
+  "independent_stencils": true,
+  "time_sign": "Same Fnew*Gold-Fold*Gnew sign for both B equations",
+  "space_metric": "J=1+Dxi((s_old+s_new)/2); D1=J^-1 Dxi; D2=J^-2 Dxi2-(Dxi J)J^-3 Dxi",
+  "stencils": "Dxi=(f[i+1]-f[i-1])/(2d); Dxi2=(f[i+1]-2f[i]+f[i-1])/d^2",
+  "recurrence": "G_j(new) -> F_j(new) -> G_(j+1)(new)",
+  "report_matches": {
+    "first_linear_equation_has_plus_LHS_minus_RHS": true,
+    "second_linear_equation_has_minus_LHS_plus_RHS": true,
+    "ALE_report_has_minus_V_over_2": true,
+    "solve_dispatches_SD_direct_midpoint": true
+  },
+  "notebook_definition_sources_sha256": {
+    "dlw-imports": "6f105610da1115ccfcfbeb86bd7e4e539c698ca7853f60952adcd35e4df2d744",
+    "dlw-config": "0bccdb7e105ee49d3c72d94719493b48d45094909c37cbc685ea5e322166e5bc",
+    "dlw-reference": "598117dcc541968e1b3af3f07bf52a94ce3f7e6e7c19288475c44cef25f11e3b",
+    "dlw-spatial": "113eb665cd201fe7ee85c7b0da965890f4b149d4620ce63c707577506b49b850",
+    "dlw-sd_fd": "34914259f2ece6035348067a2fa2e2f515f306a306f9278ae1a3f3ccd0b58f48",
+    "dlw-sd": "afc84b5ae6f8d39e6e3c71a584780a863806be02ab5d63b6b147041f06284a58",
+    "dlw-sd2_lift": "6f850e1a36ee1a692f25e61e0c93db414744441231aea53220dacbcd9fcd220f",
+    "dlw-sd2_evolution": "5a03ffb47cfb88afa6ac8f2709e2866287c2f88bc870bf0ea791d28c29e225da",
+    "dlw-fd": "02da4819c1336176f08feff83d92aac3478e0e3358b4add5af692d9f4c147757",
+    "dlw-mesh": "9269fc420226825d9eadb1e046269c3f852a09dc4ddb71152b8a582000866f6a",
+    "dlw-time": "4d82072f22182f030df9de4195c5c6dadd51559287ea910d0792f72e3cf8fdd2",
+    "dlw-space_experiment": "f03d77aa1f30cadec2542ec97876c2ba79426e19792fd07aa8f76ebfae096c21",
+    "dlw-time_experiment": "a7d6f4c895b0e866f5b2a9f1cd2d5711d5be023e6679029ba2ace718cc68b831",
+    "dlw-order": "48910dbdcfbc5795916b4c4f9ac8842af0963f6baed6ac66b0769700402be8c5",
+    "dlw-mesh_experiment": "bbe9ea81bb0bf38a5b2d88da02c938bb30018aa8f675659d807f02cffb332e4b",
+    "dlw-curves": "3db82393ad164655e9824a1316f276b98399fe757284ec390b67c8edb19ac295",
+    "dlw-summary": "c52da4b3178c1e675b1e107d76a4437f4ab9b7a636c969735230115e829c29ee"
+  },
+  "old_P_W_independence": {
+    "old_PhysicalModel_methods_disabled_during_SD_test": true,
+    "SDModel_has_no_PhysicalModel_base": true,
+    "state_components": [
+      "log_F_all_24_layers",
+      "log_G_all_25_layers",
+      "mesh_shift"
+    ],
+    "old_P_W_state_used": false
+  },
+  "rows": [
+    {
+      "case": "A",
+      "mesh": "fixed",
+      "dt": 0.000125,
+      "raw_bilinear_pairs": [
+        {
+          "maximum_B_divided_by_old_tau_product": 1.0437997977681003e-10,
+          "maximum_B_relative_to_term_sum": 9.48358954789648e-11,
+          "maximum_temporal_term_divided_by_old_tau_product": 1.0294790003056178,
+          "pair": "F_j,G_j",
+          "passed": true
+        },
+        {
+          "maximum_B_divided_by_old_tau_product": 1.2087502866564615e-10,
+          "maximum_B_relative_to_term_sum": 1.0958287235878883e-10,
+          "maximum_temporal_term_divided_by_old_tau_product": 1.0295605470701357,
+          "pair": "F_j,G_(j+1)",
+          "passed": true
+        }
+      ],
+      "shared_initial_u_v_max_error": 9.251266419596504e-13,
+      "initial_u_v_difference_from_other_schemes": {
+        "SD2": 8.906007869208353e-13,
+        "FD": 9.251266419596504e-13
+      },
+      "prescribed_boundary_checks": {
+        "lowest_G_log_error": 0.0,
+        "F_boundary_strip_log_error": 3.2968768076379956e-30,
+        "G_boundary_strip_log_error": 1.2528743256628099e-29
+      },
+      "midpoint_mesh_equation_max_error": 0.0,
+      "minimum_midpoint_J": 1.0,
+      "maximum_mesh_velocity": 0.0,
+      "wrong_ALE_plus_velocity_B_residual": [],
+      "using_old_instead_of_midpoint_J_B_residual": [],
+      "negative_control_detection_threshold": 1e-07,
+      "ALE_and_midpoint_metric_negative_controls_detected": true,
+      "initial_tau_perturbation_max": 9.997558891861047e-08,
+      "propagated_tau_perturbation_max": 1.0001583036767236e-07,
+      "perturbation_remains_in_evolved_interior": true,
+      "linear_solves_including_perturbed_step": 96,
+      "maximum_mesh_iterations": 0
+    },
+    {
+      "case": "A",
+      "mesh": "moving",
+      "dt": 0.000125,
+      "raw_bilinear_pairs": [
+        {
+          "maximum_B_divided_by_old_tau_product": 1.2414765180499483e-10,
+          "maximum_B_relative_to_term_sum": 1.03563559399239e-10,
+          "maximum_temporal_term_divided_by_old_tau_product": 1.4455994737732474,
+          "pair": "F_j,G_j",
+          "passed": true
+        },
+        {
+          "maximum_B_divided_by_old_tau_product": 1.2763454274690527e-10,
+          "maximum_B_relative_to_term_sum": 9.824167282021664e-11,
+          "maximum_temporal_term_divided_by_old_tau_product": 1.4508805905484519,
+          "pair": "F_j,G_(j+1)",
+          "passed": true
+        }
+      ],
+      "shared_initial_u_v_max_error": 1.0034018605788129e-12,
+      "initial_u_v_difference_from_other_schemes": {
+        "SD2": 9.734677527222562e-13,
+        "FD": 1.0034018605788129e-12
+      },
+      "prescribed_boundary_checks": {
+        "lowest_G_log_error": 0.0,
+        "F_boundary_strip_log_error": 3.3850929967874785e-30,
+        "G_boundary_strip_log_error": 1.2863981134570787e-29
+      },
+      "midpoint_mesh_equation_max_error": 1.1728835642239779e-12,
+      "minimum_midpoint_J": 0.6765553517400211,
+      "maximum_mesh_velocity": 0.3373074861396097,
+      "wrong_ALE_plus_velocity_B_residual": [
+        0.7130852662781005,
+        0.6699464350702997
+      ],
+      "using_old_instead_of_midpoint_J_B_residual": [
+        0.00022685803887077097,
+        0.00022609301118158492
+      ],
+      "negative_control_detection_threshold": 1e-07,
+      "ALE_and_midpoint_metric_negative_controls_detected": true,
+      "initial_tau_perturbation_max": 9.981380114099103e-08,
+      "propagated_tau_perturbation_max": 9.985579754734353e-08,
+      "perturbation_remains_in_evolved_interior": true,
+      "linear_solves_including_perturbed_step": 192,
+      "maximum_mesh_iterations": 2
+    },
+    {
+      "case": "B",
+      "mesh": "fixed",
+      "dt": 0.000125,
+      "raw_bilinear_pairs": [
+        {
+          "maximum_B_divided_by_old_tau_product": 5.154036083493678e-11,
+          "maximum_B_relative_to_term_sum": 5.154036083493678e-11,
+          "maximum_temporal_term_divided_by_old_tau_product": 1.1510202212791978,
+          "pair": "F_j,G_j",
+          "passed": true
+        },
+        {
+          "maximum_B_divided_by_old_tau_product": 4.9534642076151915e-11,
+          "maximum_B_relative_to_term_sum": 4.9534642076151915e-11,
+          "maximum_temporal_term_divided_by_old_tau_product": 1.2579178832973255,
+          "pair": "F_j,G_(j+1)",
+          "passed": true
+        }
+      ],
+      "shared_initial_u_v_max_error": 7.539080471178407e-13,
+      "initial_u_v_difference_from_other_schemes": {
+        "SD2": 7.522356283149695e-13,
+        "FD": 7.539080471178407e-13
+      },
+      "prescribed_boundary_checks": {
+        "lowest_G_log_error": 0.0,
+        "F_boundary_strip_log_error": 5.453749099429207e-17,
+        "G_boundary_strip_log_error": 5.5278429342590014e-17
+      },
+      "midpoint_mesh_equation_max_error": 0.0,
+      "minimum_midpoint_J": 1.0,
+      "maximum_mesh_velocity": 0.0,
+      "wrong_ALE_plus_velocity_B_residual": [],
+      "using_old_instead_of_midpoint_J_B_residual": [],
+      "negative_control_detection_threshold": 1e-07,
+      "ALE_and_midpoint_metric_negative_controls_detected": true,
+      "initial_tau_perturbation_max": 9.997558891861047e-08,
+      "propagated_tau_perturbation_max": 1.0001711170382066e-07,
+      "perturbation_remains_in_evolved_interior": true,
+      "linear_solves_including_perturbed_step": 96,
+      "maximum_mesh_iterations": 0
+    },
+    {
+      "case": "B",
+      "mesh": "moving",
+      "dt": 0.000125,
+      "raw_bilinear_pairs": [
+        {
+          "maximum_B_divided_by_old_tau_product": 5.202216455198547e-11,
+          "maximum_B_relative_to_term_sum": 4.969344193737588e-11,
+          "maximum_temporal_term_divided_by_old_tau_product": 1.055406012844601,
+          "pair": "F_j,G_j",
+          "passed": true
+        },
+        {
+          "maximum_B_divided_by_old_tau_product": 5.92802711249808e-11,
+          "maximum_B_relative_to_term_sum": 4.871371730560606e-11,
+          "maximum_temporal_term_divided_by_old_tau_product": 1.151579603198219,
+          "pair": "F_j,G_(j+1)",
+          "passed": true
+        }
+      ],
+      "shared_initial_u_v_max_error": 7.204598753012358e-13,
+      "initial_u_v_difference_from_other_schemes": {
+        "SD2": 7.061724255539006e-13,
+        "FD": 7.204598753012358e-13
+      },
+      "prescribed_boundary_checks": {
+        "lowest_G_log_error": 0.0,
+        "F_boundary_strip_log_error": 5.540645084522393e-17,
+        "G_boundary_strip_log_error": 5.4965657256937535e-17
+      },
+      "midpoint_mesh_equation_max_error": 2.247215068651616e-13,
+      "minimum_midpoint_J": 0.9045976957665928,
+      "maximum_mesh_velocity": 0.7469852040704381,
+      "wrong_ALE_plus_velocity_B_residual": [
+        0.24612555092118127,
+        0.26889449049136216
+      ],
+      "using_old_instead_of_midpoint_J_B_residual": [
+        3.270382292552141e-05,
+        3.364197562935183e-05
+      ],
+      "negative_control_detection_threshold": 1e-07,
+      "ALE_and_midpoint_metric_negative_controls_detected": true,
+      "initial_tau_perturbation_max": 9.995383165595229e-08,
+      "propagated_tau_perturbation_max": 9.999088645962217e-08,
+      "perturbation_remains_in_evolved_interior": true,
+      "linear_solves_including_perturbed_step": 192,
+      "maximum_mesh_iterations": 2
+    },
+    {
+      "case": "C",
+      "mesh": "fixed",
+      "dt": 0.000125,
+      "raw_bilinear_pairs": [
+        {
+          "maximum_B_divided_by_old_tau_product": 1.091026781646074e-10,
+          "maximum_B_relative_to_term_sum": 1.091026781646074e-10,
+          "maximum_temporal_term_divided_by_old_tau_product": 2.0822466735129335,
+          "pair": "F_j,G_j",
+          "passed": true
+        },
+        {
+          "maximum_B_divided_by_old_tau_product": 1.0194940519323895e-10,
+          "maximum_B_relative_to_term_sum": 1.0194940519323895e-10,
+          "maximum_temporal_term_divided_by_old_tau_product": 2.232200344989659,
+          "pair": "F_j,G_(j+1)",
+          "passed": true
+        }
+      ],
+      "shared_initial_u_v_max_error": 1.6675549829902938e-12,
+      "initial_u_v_difference_from_other_schemes": {
+        "SD2": 1.670170471752878e-12,
+        "FD": 1.6675549829902938e-12
+      },
+      "prescribed_boundary_checks": {
+        "lowest_G_log_error": 0.0,
+        "F_boundary_strip_log_error": 5.5015638611475286e-17,
+        "G_boundary_strip_log_error": 5.549688898313619e-17
+      },
+      "midpoint_mesh_equation_max_error": 0.0,
+      "minimum_midpoint_J": 1.0,
+      "maximum_mesh_velocity": 0.0,
+      "wrong_ALE_plus_velocity_B_residual": [],
+      "using_old_instead_of_midpoint_J_B_residual": [],
+      "negative_control_detection_threshold": 1e-07,
+      "ALE_and_midpoint_metric_negative_controls_detected": true,
+      "initial_tau_perturbation_max": 9.997558869656586e-08,
+      "propagated_tau_perturbation_max": 1.000180560595254e-07,
+      "perturbation_remains_in_evolved_interior": true,
+      "linear_solves_including_perturbed_step": 96,
+      "maximum_mesh_iterations": 0
+    },
+    {
+      "case": "C",
+      "mesh": "moving",
+      "dt": 0.000125,
+      "raw_bilinear_pairs": [
+        {
+          "maximum_B_divided_by_old_tau_product": 1.0604064967989659e-10,
+          "maximum_B_relative_to_term_sum": 1.0477417718858188e-10,
+          "maximum_temporal_term_divided_by_old_tau_product": 1.8350773102652205,
+          "pair": "F_j,G_j",
+          "passed": true
+        },
+        {
+          "maximum_B_divided_by_old_tau_product": 1.0407745017964585e-10,
+          "maximum_B_relative_to_term_sum": 1.0407745017964585e-10,
+          "maximum_temporal_term_divided_by_old_tau_product": 1.964971067447678,
+          "pair": "F_j,G_(j+1)",
+          "passed": true
+        }
+      ],
+      "shared_initial_u_v_max_error": 1.2672080236489159e-12,
+      "initial_u_v_difference_from_other_schemes": {
+        "SD2": 1.2673967193127017e-12,
+        "FD": 1.2672080236489159e-12
+      },
+      "prescribed_boundary_checks": {
+        "lowest_G_log_error": 0.0,
+        "F_boundary_strip_log_error": 5.359024759736881e-17,
+        "G_boundary_strip_log_error": 5.549688898313619e-17
+      },
+      "midpoint_mesh_equation_max_error": 5.765166583059436e-13,
+      "minimum_midpoint_J": 0.8823786621161789,
+      "maximum_mesh_velocity": 1.0155494486635526,
+      "wrong_ALE_plus_velocity_B_residual": [
+        0.5167361517062893,
+        0.5558002834019261
+      ],
+      "using_old_instead_of_midpoint_J_B_residual": [
+        0.00010161855458939145,
+        0.00010259153823081276
+      ],
+      "negative_control_detection_threshold": 1e-07,
+      "ALE_and_midpoint_metric_negative_controls_detected": true,
+      "initial_tau_perturbation_max": 9.972011039138806e-08,
+      "propagated_tau_perturbation_max": 9.97543452285754e-08,
+      "perturbation_remains_in_evolved_interior": true,
+      "linear_solves_including_perturbed_step": 192,
+      "maximum_mesh_iterations": 2
+    }
+  ]
+}

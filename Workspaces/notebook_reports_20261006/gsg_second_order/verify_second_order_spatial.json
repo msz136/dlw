@@ -1,0 +1,284 @@
+{
+  "success": true,
+  "scope": "Analytic spatial modes and moving coordinates; matrix and six initial-lift checks; no complete PDE run",
+  "independent_derivatives": true,
+  "operator": "D1=J^-1 Dxi; D2=J^-2 Dxi2-(Dxi J)J^-3 Dxi",
+  "uniform": {
+    "rows": [
+      {
+        "nx": 64,
+        "D1_error": 0.043184557511474875,
+        "D2_error": 0.06487060305049219
+      },
+      {
+        "nx": 128,
+        "D1_error": 0.010831320090902707,
+        "D2_error": 0.016252854194748423
+      },
+      {
+        "nx": 256,
+        "D1_error": 0.0027100330790030824,
+        "D2_error": 0.004065416960429502
+      }
+    ],
+    "observed_orders": {
+      "D1_error": [
+        1.9953064219059806,
+        1.99882671877022
+      ],
+      "D2_error": [
+        1.9968717556493074,
+        1.9992178630168798
+      ]
+    },
+    "symbols": [
+      {
+        "nx": 64,
+        "mode": 1,
+        "D1_symbol_scaled_error": 3.5405497909262118e-15,
+        "D2_symbol_scaled_error": 1.0429935237163662e-13
+      },
+      {
+        "nx": 64,
+        "mode": 3,
+        "D1_symbol_scaled_error": 4.107853488530318e-15,
+        "D2_symbol_scaled_error": 4.095691970632266e-14
+      },
+      {
+        "nx": 64,
+        "mode": 32,
+        "D1_symbol_scaled_error": 1.2474149864062002e-15,
+        "D2_symbol_scaled_error": 0.0
+      },
+      {
+        "nx": 128,
+        "mode": 1,
+        "D1_symbol_scaled_error": 6.527695982012237e-15,
+        "D2_symbol_scaled_error": 4.2881363676567647e-13
+      },
+      {
+        "nx": 128,
+        "mode": 3,
+        "D1_symbol_scaled_error": 8.678093184987474e-15,
+        "D2_symbol_scaled_error": 1.9656238126590145e-13
+      },
+      {
+        "nx": 128,
+        "mode": 64,
+        "D1_symbol_scaled_error": 2.4948299728124003e-15,
+        "D2_symbol_scaled_error": 0.0
+      },
+      {
+        "nx": 256,
+        "mode": 1,
+        "D1_symbol_scaled_error": 1.5982970556924733e-14,
+        "D2_symbol_scaled_error": 1.7970131334517357e-12
+      },
+      {
+        "nx": 256,
+        "mode": 3,
+        "D1_symbol_scaled_error": 1.5701320309237477e-14,
+        "D2_symbol_scaled_error": 6.670443219514586e-13
+      },
+      {
+        "nx": 256,
+        "mode": 128,
+        "D1_symbol_scaled_error": 4.989659945624801e-15,
+        "D2_symbol_scaled_error": 0.0
+      }
+    ],
+    "D1_symbol": "i sin(theta)/d",
+    "D2_symbol": "-4 sin(theta/2)^2/d^2",
+    "Nyquist_D2_checked": true
+  },
+  "moving": {
+    "rows": [
+      {
+        "nx": 64,
+        "min_J": 0.8686117610768653,
+        "J_error": 0.0008982119998801608,
+        "D1_error": 0.026347907355662503,
+        "D2_error": 0.033218622727338776
+      },
+      {
+        "nx": 128,
+        "min_J": 0.8681980927124832,
+        "J_error": 0.00022480819249026673,
+        "D1_error": 0.006615826246815004,
+        "D2_error": 0.00832904902190812
+      },
+      {
+        "nx": 256,
+        "min_J": 0.8680389700359106,
+        "J_error": 5.6218010450193034e-05,
+        "D1_error": 0.001655767542524611,
+        "D2_error": 0.002083791780596478
+      }
+    ],
+    "observed_orders": {
+      "J_error": [
+        1.9983613848763122,
+        1.9995903085026872
+      ],
+      "D1_error": [
+        1.9936951322108372,
+        1.9984212017510439
+      ],
+      "D2_error": [
+        1.9957685703083177,
+        1.9989406578096294
+      ]
+    },
+    "mapping": "x=xi+0.16 sin(xi)+0.05 sin(2xi)",
+    "field": "sin(2x)+0.2 cos(3x)"
+  },
+  "SD_matrices": {
+    "nx": 128,
+    "min_J": 0.8681980927124832,
+    "checks": {
+      "D1_matrix_visible_scaled_error": 2.3261671302293754e-16,
+      "D2_matrix_visible_scaled_error": 3.2584234392008452e-15,
+      "D1_matrix_independent_scaled_error": 2.3261671302293754e-16,
+      "D2_matrix_independent_scaled_error": 3.2584234392008452e-15,
+      "D1_tau_ratio_scaled_error": 3.6637359812630166e-15,
+      "D2_tau_ratio_scaled_error": 2.5529578451255475e-13,
+      "F_linearized_bilinear_scaled_error": 1.9543777514001776e-13,
+      "G_linearized_bilinear_scaled_error": 1.760093643247827e-13
+    }
+  },
+  "SD2_lifts": [
+    {
+      "case": "A",
+      "mesh": "fixed",
+      "min_Q": 0.2507717901762965,
+      "min_endpoint_Q_ratio": 0.2507718466028749,
+      "boundary_material_derivative_scaled_error": 3.6937286135260534e-09,
+      "checks": {
+        "lift_scaled_residual": 1.866101674227738e-15,
+        "D_matrix_scaled_error": 1.852277940289651e-16,
+        "jump_vector_error": 0.0,
+        "Q_jump_D1_scaled_error": 0.0,
+        "R_jump_D1_scaled_error": 0.0,
+        "Q_jump_D2_scaled_error": 0.0,
+        "R_jump_D2_scaled_error": 0.0,
+        "normalization_error": 4.440892098500626e-16,
+        "reciprocal_endpoint_jump_error": 0.0,
+        "analytic_initial_uv_error": 1.7674750552032492e-13,
+        "common_initial_SD_uv_error": 8.906007869208353e-13,
+        "common_initial_FD_uv_error": 1.7674750552032492e-13
+      }
+    },
+    {
+      "case": "A",
+      "mesh": "moving",
+      "min_Q": 0.24999471512868335,
+      "min_endpoint_Q_ratio": 0.24999473026622143,
+      "boundary_material_derivative_scaled_error": 7.736900202968966e-09,
+      "checks": {
+        "lift_scaled_residual": 1.6473977672466777e-15,
+        "D_matrix_scaled_error": 1.8503587065115564e-16,
+        "jump_vector_error": 0.0,
+        "Q_jump_D1_scaled_error": 0.0,
+        "R_jump_D1_scaled_error": 0.0,
+        "Q_jump_D2_scaled_error": 0.0,
+        "R_jump_D2_scaled_error": 0.0,
+        "normalization_error": 7.771561172376096e-16,
+        "reciprocal_endpoint_jump_error": 1.1102230246251565e-16,
+        "analytic_initial_uv_error": 1.9752041511043135e-13,
+        "common_initial_SD_uv_error": 9.734677527222562e-13,
+        "common_initial_FD_uv_error": 1.9752041511043135e-13
+      }
+    },
+    {
+      "case": "B",
+      "mesh": "fixed",
+      "min_Q": 0.9999999990339662,
+      "min_endpoint_Q_ratio": 1.9999109742571988,
+      "boundary_material_derivative_scaled_error": 2.0194295698937697e-08,
+      "checks": {
+        "lift_scaled_residual": 1.7355908377147955e-15,
+        "D_matrix_scaled_error": 2.22064373851526e-16,
+        "jump_vector_error": 0.0,
+        "Q_jump_D1_scaled_error": 0.0,
+        "R_jump_D1_scaled_error": 0.0,
+        "Q_jump_D2_scaled_error": 0.0,
+        "R_jump_D2_scaled_error": 0.0,
+        "normalization_error": 4.440892098500626e-16,
+        "reciprocal_endpoint_jump_error": 1.1102230246251565e-16,
+        "analytic_initial_uv_error": 3.9551925645232855e-14,
+        "common_initial_SD_uv_error": 7.522356283149695e-13,
+        "common_initial_FD_uv_error": 3.9551925645232855e-14
+      }
+    },
+    {
+      "case": "B",
+      "mesh": "moving",
+      "min_Q": 0.999999999082058,
+      "min_endpoint_Q_ratio": 1.9999730740464186,
+      "boundary_material_derivative_scaled_error": 1.4967146978766096e-08,
+      "checks": {
+        "lift_scaled_residual": 1.897787482718627e-15,
+        "D_matrix_scaled_error": 2.220450357896415e-16,
+        "jump_vector_error": 0.0,
+        "Q_jump_D1_scaled_error": 0.0,
+        "R_jump_D1_scaled_error": 0.0,
+        "Q_jump_D2_scaled_error": 0.0,
+        "R_jump_D2_scaled_error": 0.0,
+        "normalization_error": 3.3306690738754696e-16,
+        "reciprocal_endpoint_jump_error": 1.1102230246251565e-16,
+        "analytic_initial_uv_error": 4.7684078907650473e-14,
+        "common_initial_SD_uv_error": 7.061724255539006e-13,
+        "common_initial_FD_uv_error": 4.7684078907650473e-14
+      }
+    },
+    {
+      "case": "C",
+      "mesh": "fixed",
+      "min_Q": 0.9999999991912486,
+      "min_endpoint_Q_ratio": 2.666285885866441,
+      "boundary_material_derivative_scaled_error": 8.765944271020426e-08,
+      "checks": {
+        "lift_scaled_residual": 3.693868013691286e-15,
+        "D_matrix_scaled_error": 2.6651113008254035e-16,
+        "jump_vector_error": 0.0,
+        "Q_jump_D1_scaled_error": 0.0,
+        "R_jump_D1_scaled_error": 0.0,
+        "Q_jump_D2_scaled_error": 0.0,
+        "R_jump_D2_scaled_error": 0.0,
+        "normalization_error": 6.661338147750939e-16,
+        "reciprocal_endpoint_jump_error": 2.220446049250313e-16,
+        "analytic_initial_uv_error": 3.8882091990544154e-14,
+        "common_initial_SD_uv_error": 1.670170471752878e-12,
+        "common_initial_FD_uv_error": 3.8882091990544154e-14
+      }
+    },
+    {
+      "case": "C",
+      "mesh": "moving",
+      "min_Q": 0.9999999981864176,
+      "min_endpoint_Q_ratio": 2.6665114491971518,
+      "boundary_material_derivative_scaled_error": 6.177950630073118e-08,
+      "checks": {
+        "lift_scaled_residual": 3.2963265465455176e-15,
+        "D_matrix_scaled_error": 3.330904315078084e-16,
+        "jump_vector_error": 0.0,
+        "Q_jump_D1_scaled_error": 0.0,
+        "R_jump_D1_scaled_error": 0.0,
+        "Q_jump_D2_scaled_error": 0.0,
+        "R_jump_D2_scaled_error": 0.0,
+        "normalization_error": 4.440892098500626e-16,
+        "reciprocal_endpoint_jump_error": 2.220446049250313e-16,
+        "analytic_initial_uv_error": 4.564306831794651e-14,
+        "common_initial_SD_uv_error": 1.2673967193127017e-12,
+        "common_initial_FD_uv_error": 4.564306831794651e-14
+      }
+    }
+  ],
+  "notebook_definition_sources_sha256": {
+    "dlw-spatial": "113eb665cd201fe7ee85c7b0da965890f4b149d4620ce63c707577506b49b850",
+    "dlw-sd": "afc84b5ae6f8d39e6e3c71a584780a863806be02ab5d63b6b147041f06284a58",
+    "dlw-sd2_lift": "6f850e1a36ee1a692f25e61e0c93db414744441231aea53220dacbcd9fcd220f",
+    "dlw-sd2_evolution": "5a03ffb47cfb88afa6ac8f2709e2866287c2f88bc870bf0ea791d28c29e225da"
+  },
+  "seconds": 7.2170691000064835
+}

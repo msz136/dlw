@@ -1,10 +1,10 @@
 # DLW notebook 的单文件静态报告
 
-当前交付：根目录 `dlw_numerical.html`，来源为已重新执行的 `notebook/DLW数值分析report.ipynb`。SD（raw bilinear）直接推进原双线性方程中的 F、G，采用隐式中点时间递推；SD2、FD 使用 Euler／RK4。三种方案由共同连续 u、v 初值出发，在公共物理点比较误差。
+当前交付：根目录 `dlw_numerical.html`，来源为已重新执行的 `notebook/DLW数值分析report.ipynb`。空间差分已按 GSG 对照格式改为三点二阶；固定与动网格、SD 线性矩阵及 SD2 跃量延拓同步。SD（raw bilinear）直接推进原双线性方程中的 F、G，采用隐式中点时间递推；SD2、FD 使用 Euler／RK4。三种方案由共同连续 u、v 初值出发，在公共物理点比较误差。
 
-当前报告保留第 1—7 节，结束于局部误差曲线；移除目录、第 8 节“结果”、参考资料与完整代码附录。共有 30 个展示单元、112 个数学表达式及 8 项保存输出，其中有 5 张表、3 张 PNG 图。正文仍显示 6 段关键源码，共 54 行；SD 摘录 `SDModel.solve_one` 和 `advance`，其余为 SD2／FD 右端、Euler／RK4 与公共点误差代码。HTML 内嵌 KaTeX 公式及字体，可离线打开或发送单个文件。
+当前报告保留第 1—7 节，结束于局部误差曲线；移除目录、第 8 节“结果”、参考资料与完整代码附录。共有 30 个展示单元、115 个数学表达式及 8 项保存输出，其中有 5 张表、3 张 PNG 图。正文仍显示 6 段关键源码，共 54 行；SD 摘录 `SDModel.solve_one` 和 `advance`，其余为 SD2／FD 右端、Euler／RK4 与公共点误差代码。HTML 内嵌 KaTeX 公式及字体，可离线打开或发送单个文件。
 
-静态生成器只读取 Notebook 的源码和保存输出。Notebook SHA-256 为 `831fad81459e614dfffc3b890c4c6dcbda4b7ee386dfa471826f781a9042bb8b`，HTML SHA-256 为 `20dd3bee5644ed94c929c4e0775996b7e267480780d33a78f03b813a2c2fe226`。本轮选取的 30 个单元 DOM 与精简前逐项相同，全部 112 个数学表达式保持；Notebook 文件字节保持。三线表修正的最新登记为 `three_line_revision.json`，正文精简登记保留在 `trim_revision.json`，精简前 HTML、脚本、共享记录、核验证据与截图保存在 `before_trim/`。
+静态生成器只读取 Notebook 的源码和保存输出。本次三点二阶版本的 Notebook SHA-256 为 `14d33d87d0c4d8eeca716162d70489f2aedc6472ea1efcdc9b9e60ab272ee5a7`，HTML SHA-256 为 `5125bebd928f2c9b9c9b01cedc243c5b306bbcbeba39c9e090106a68fce52f37`。17 个代码单元在新内核中执行 158.458 秒，24 组主试验与 12 组附加时间细化完成。公式、源码、表值与原图字节逐项核对；桌面／390px／打印的三线表及真实字体检查通过。最新登记见 [GSG 对齐记录](../notebook_reports_20261006/gsg_second_order/README.md)，四阶原件保存在 `../notebook_reports_20261006/before_gsg_second_order/`。此前三线表与正文精简登记分别保留为 `three_line_revision.json`、`trim_revision.json`。
 
 ## 生成与核验
 
@@ -19,7 +19,7 @@ $staticPython = 'C:\Users\msz\aca\Workspaces\report_colab_20261006\.venv\Scripts
 
 `build_static.py` 只转换内容，不执行 Notebook；SD 的完整核心方法通过 AST 摘录。`render_math.cjs` 使用已有本地 KaTeX 生成 HTML/MathML。`verify_static.py` 核对保留单元的关键摘录、正文（允许三项展示措辞替换）、公式源、表格数值、输出文本与原图字节，并确认目录与三个文末部分均已移除。各项计数读取当前 `build_validation.json`。`check_static.cjs` 用 Edge 在断网且禁用 JavaScript 的情况下检查桌面、390px 窄屏、打印样式，同时核对实际参与字形绘制的字体。
 
-当前证据为 `build_validation.json`、`content_validation.json`、`browser_validation.json`、`three_line_revision.json`。11 张 `report_*.png` 覆盖桌面与手机首页、SD 公式、SD 核心代码、比较表、误差图和打印样式；本轮截图哈希由 `three_line_revision.json` 登记。`direct_tau_visual_validation.json` 保留此前完整报告的历史视觉记录。
+当前证据为 `build_validation.json`、`content_validation.json`、`browser_validation.json` 以及 `../notebook_reports_20261006/gsg_second_order/revision_manifest.json`。11 张 `report_*.png` 覆盖桌面与手机首页、SD 公式、SD 核心代码、比较表、误差图和打印样式；本轮截图哈希由 GSG 对齐记录登记。`three_line_revision.json` 与 `direct_tau_visual_validation.json` 保留此前版本的历史视觉记录。
 
 ## 字体与版式
 

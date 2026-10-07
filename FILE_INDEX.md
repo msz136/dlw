@@ -8586,3 +8586,11 @@
 - [Workspaces/dlw_notebook_static_20261007/content_validation.json](Workspaces/dlw_notebook_static_20261007/content_validation.json)
 - [Workspaces/dlw_notebook_static_20261007/browser_validation.json](Workspaces/dlw_notebook_static_20261007/browser_validation.json)
 <!-- DLW_GSG_SECOND_ORDER_INDEX_END -->
+
+<!-- DLW_INTRO_REVISION_INDEX_BEGIN -->
+**DLW 开篇与精确解计算说明（2026-10-07）：**
+
+- [Workspaces/dlw_notebook_static_20261007/revise_intro.py](Workspaces/dlw_notebook_static_20261007/revise_intro.py)
+- [Workspaces/dlw_notebook_static_20261007/register_intro_revision.py](Workspaces/dlw_notebook_static_20261007/register_intro_revision.py)
+- [Workspaces/dlw_notebook_static_20261007/intro_revision.json](Workspaces/dlw_notebook_static_20261007/intro_revision.json)
+<!-- DLW_INTRO_REVISION_INDEX_END -->

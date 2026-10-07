@@ -1,0 +1,57 @@
+{
+  "success": true,
+  "date": "2026-10-07",
+  "old_intro": "以 DLW 单孤子与二孤子的解析解为参照，比较 SD、SD2 与 FD，以及固定网格与动网格。SD 直接推进双线性方程，采用隐式中点；SD2、FD 比较 Euler 与 RK4。",
+  "new_intro": "以 DLW 单孤子与二孤子的解析解为参照，采用两种可积半离散方法（SD、SD2）和一种直接差分方法（FD）计算数值解，比较固定网格、动网格及不同时间算法下的误差。",
+  "changed_cells": [
+    "dlw-title",
+    "dlw-exact-text"
+  ],
+  "all_other_cells_unchanged": true,
+  "exact_solution_methods": [
+    "Exact.tau",
+    "Exact.mean",
+    "Exact.cov",
+    "Exact.uv"
+  ],
+  "html_core_excerpt": "Exact.tau through Exact.uv",
+  "code_cells_unchanged": true,
+  "execution_counts_and_saved_outputs_unchanged": true,
+  "numerical_reexecution": false,
+  "original_notebook_sha256": "14d33d87d0c4d8eeca716162d70489f2aedc6472ea1efcdc9b9e60ab272ee5a7",
+  "notebook_sha256": "0a8bcb20201f13a35f64f36a75a4201f62d94af0afef4dd2f01858ce657fe00e",
+  "builder_sha256": "c10fad9435fe97d536391c370ae0e46832356960e7e69d501f03d08cf51ffb15",
+  "numerical_execution_evidence": "Workspaces/notebook_reports_20261006/dlw_execution_validation.json",
+  "numerical_execution_evidence_sha256": "a9325706765e7656cd09ddbf3068271cf3f16287f01dbbb4ccf71e34a2173b5a",
+  "code_cell_hashes": {
+    "dlw-imports": "d3971dd452d9f150dd86b76493ece1f88a46a6ddbb3e30e4b64227cf5228c472",
+    "dlw-config": "0a59ad3ccc9da61f9aa79cf84e86dd07c6b441e6d866e9d0658099aa0b9ad72c",
+    "dlw-reference": "89a7d61d9737f4e033f132b7f2423b8bf7e5fed415faef6c1ee45bcbf33acd10",
+    "dlw-spatial": "894aacefafe0bf957544689946ec4cf2cd90c40ae2d60a26d692e81d03442d1b",
+    "dlw-sd_fd": "be350eef2204d93663db92e776357a5fca1cf9beb88b6c853202f34b588934f3",
+    "dlw-sd": "4b1dc61852e76783f6e1d7722e0798e22e7d1223920063cc5b247091dd95572b",
+    "dlw-sd2_lift": "73e304932270720388e3806633e32cbeba4b13a43e8e584be5fe97cc7a0c876b",
+    "dlw-sd2_evolution": "5a2129e4fa6914c15e5a9bdb31d3894ceef3c880a46269b9fee0661c58904191",
+    "dlw-fd": "fb8ece4df79896e6e36f10075f8bdb8fbdaf6e0c944d7c43c0be7177c0a6396c",
+    "dlw-mesh": "d731ec4010d630e931e24c817119fa8acb9873db5dcdd04218f6ecb40c52ebca",
+    "dlw-time": "bfbe022e6a46c4c16a93711d453545ae4bbb0cab642273d79285dbbc7e8e2c31",
+    "dlw-space_experiment": "878dab3204eb0582a31623d96e4c6c5c09aff87fe4922515d71385b052a028f2",
+    "dlw-time_experiment": "090aba5adcf5c309e7f7a5735ab2c0c36cada42ff9d380328370ec1fcf810125",
+    "dlw-order": "e8317b1a5bc3bdb08c9b3c1ca9e27ad684ceb8528bbab8f7b6229875d7a594d4",
+    "dlw-mesh_experiment": "bddcbd12e453bcb63bbf59f2dd1136553914551e02b96dec5191ffe823393913",
+    "dlw-curves": "3cddf0cfb8b7194b29c3c30b0b065d0296d2d259029f1cd65834a29b318f114d",
+    "dlw-summary": "d0b3041a23a6eb7651faa9eaa9e06562dcdd4087187a51b9c8667f25aec67eee"
+  },
+  "backup": "C:\\Users\\msz\\aca\\Workspaces\\dlw_notebook_static_20261007\\before_intro_revision",
+  "html_sha256": "fb875e43ac779f50e4089035531533c4000cd91b4dce8ab5b6c1e40552fd47ad",
+  "saved_png_sha256": [
+    "db081a68c7b9da6002416e7d4d381742cc85159a931d2a1ef21ccc946a73b5eb",
+    "1a36970fbaed7fc53c8223fd2e2c90b45200157ca5e3a380a4be4c1e9be9fb0b",
+    "1900dc7e745adf4aff3367280b0932504e1f5d85a35a79c7cf2df8bac2375dc2"
+  ],
+  "code_excerpts": 7,
+  "code_lines": 83,
+  "mathematical_expressions": 121,
+  "content_validation_sha256": "ceb85e517a7c537c0f30d1992d8aa02077824de65cc46cc7105dd658382429c1",
+  "browser_validation_sha256": "d656d72e47c57401c40e2fd41ea3e0c0c5c924664765dfbf1fd7cf7dee6008a7"
+}

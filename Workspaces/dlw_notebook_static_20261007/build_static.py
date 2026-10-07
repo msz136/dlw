@@ -26,6 +26,7 @@ MARKDOWN_EDITS = {
     'dlw-sd2-text': [('先定义初值与下边界的求解，再定义递推；代码中的', '代码中的')],
 }
 KEY_CODE = {
+    'dlw-reference': [('孤子精确解：τ 函数的解析求导与 u、v 计算', 'def tau(', 'return tuple(v.copy()')],
     'dlw-sd2_evolution': [('SD2：势导数递推与 Q、R 更新', 'H = self.h**2/4', 'rt = rxx')],
     'dlw-fd': [('FD：连续方程的差分右端', 'fp = -np.diff', 'fv = -d1')],
     'dlw-time': [('Euler 与 RK4 的时间更新', 'def step(', 'return state+dt*(k1'),

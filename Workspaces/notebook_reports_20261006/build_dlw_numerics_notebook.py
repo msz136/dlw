@@ -18,7 +18,7 @@ def build():
         cells.append(nbf.v4.new_code_cell(CELLS[name].strip(), id='dlw-'+name))
     md('title', r'''# DLW 数值分析 report
 
-以 DLW 单孤子与二孤子的解析解为参照，比较 SD、SD2 与 FD，以及固定网格与动网格。SD 直接推进双线性方程，采用隐式中点；SD2、FD 比较 Euler 与 RK4。''')
+以 DLW 单孤子与二孤子的解析解为参照，采用两种可积半离散方法（SD、SD2）和一种直接差分方法（FD）计算数值解，比较固定网格、动网格及不同时间算法下的误差。''')
     code('imports')
     md('design', r'''## 1　模型与实验设计
 
@@ -31,7 +31,7 @@ v_t&=-\partial_x[(u+2a)v-4u]-u_{xxy}.
 
 采用 Sheng–Yu 原文的三组孤子参数，$a=2$、$c_i=1$，初相位为零。A、B 分别对应图 1(a)、1(b)，C 对应图 3；具体 $p_i,q_i$ 如下表。取 $\Delta t=0.000125$、$T=0.01$。''')
     code('config')
-    md('exact-text', r'''### 1.1　孤子参照
+    md('exact-text', r'''### 1.1　孤子精确解
 
 记 $S_i=p_i+q_i$、$\omega_i=q_i^2-p_i^2$、$\ell_i=(p_i-a)^{-1}+(q_i+a)^{-1}$，并令 $\theta_i=S_ix+\omega_it+\ell_i y$。单孤子的 $g=1+e^{\theta_1}/S_1$；二孤子的
 
@@ -44,7 +44,7 @@ $f$ 在各指数项中加入因子 $\gamma_i=-(p_i-a)/(q_i+a)$。物理场取
 $$u_*=2\partial_x(\log f-\log g),\qquad
 v_*=2\partial_x\partial_y(\log f+\log g).$$
 
-用对数和计算正系数 tau 函数；对数的一阶、二阶导数分别是指数率的加权均值、协方差。''')
+精确参照由 `Exact` 类按上述孤子公式计算。`tau` 用 `logsumexp` 求 τ 函数的对数及各指数项的归一化权重；`mean`、`cov` 分别计算 $\partial_x\log\tau$ 和 $\partial_x\partial_y\log\tau$，`uv` 按上式组合成 $u_*,v_*$。调用 `uv(js, x, t)`，得到各 $y_j$ 层、$x$ 点和 $t$ 时刻的精确参照值。''')
     code('reference')
     cells.extend(build_spatial_cells(CELLS))
     md('time-text', r'''## 3　时间推进与误差评价

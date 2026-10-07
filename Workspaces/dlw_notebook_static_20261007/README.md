@@ -2,9 +2,11 @@
 
 当前交付：根目录 `dlw_numerical.html`，来源为已重新执行的 `notebook/DLW数值分析report.ipynb`。空间差分已按 GSG 对照格式改为三点二阶；固定与动网格、SD 线性矩阵及 SD2 跃量延拓同步。SD（raw bilinear）直接推进原双线性方程中的 F、G，采用隐式中点时间递推；SD2、FD 使用 Euler／RK4。三种方案由共同连续 u、v 初值出发，在公共物理点比较误差。
 
-当前报告保留第 1—7 节，结束于局部误差曲线；移除目录、第 8 节“结果”、参考资料与完整代码附录。共有 30 个展示单元、115 个数学表达式及 8 项保存输出，其中有 5 张表、3 张 PNG 图。正文仍显示 6 段关键源码，共 54 行；SD 摘录 `SDModel.solve_one` 和 `advance`，其余为 SD2／FD 右端、Euler／RK4 与公共点误差代码。HTML 内嵌 KaTeX 公式及字体，可离线打开或发送单个文件。
+当前报告保留第 1—7 节，结束于局部误差曲线；移除目录、第 8 节“结果”、参考资料与完整代码附录。共有 30 个展示单元、121 个数学表达式及 8 项保存输出，其中有 5 张表、3 张 PNG 图。正文仍显示 7 段关键源码，共 83 行；精确解摘录 `Exact.tau` 至 `uv`；SD 摘录 `SDModel.solve_one` 和 `advance`，其余为 SD2／FD 右端、Euler／RK4 与公共点误差代码。HTML 内嵌 KaTeX 公式及字体，可离线打开或发送单个文件。
 
-静态生成器只读取 Notebook 的源码和保存输出。本次三点二阶版本的 Notebook SHA-256 为 `14d33d87d0c4d8eeca716162d70489f2aedc6472ea1efcdc9b9e60ab272ee5a7`，HTML SHA-256 为 `5125bebd928f2c9b9c9b01cedc243c5b306bbcbeba39c9e090106a68fce52f37`。17 个代码单元在新内核中执行 158.458 秒，24 组主试验与 12 组附加时间细化完成。公式、源码、表值与原图字节逐项核对；桌面／390px／打印的三线表及真实字体检查通过。最新登记见 [GSG 对齐记录](../notebook_reports_20261006/gsg_second_order/README.md)，四阶原件保存在 `../notebook_reports_20261006/before_gsg_second_order/`。此前三线表与正文精简登记分别保留为 `three_line_revision.json`、`trim_revision.json`。
+静态生成器只读取 Notebook 的源码和保存输出。本次三点二阶版本的 Notebook SHA-256 为 `0a8bcb20201f13a35f64f36a75a4201f62d94af0afef4dd2f01858ce657fe00e`，HTML SHA-256 为 `fb875e43ac779f50e4089035531533c4000cd91b4dce8ab5b6c1e40552fd47ad`。17 个代码单元在新内核中执行 158.458 秒，24 组主试验与 12 组附加时间细化完成。公式、源码、表值与原图字节逐项核对；桌面／390px／打印的三线表及真实字体检查通过。最新登记见 [GSG 对齐记录](../notebook_reports_20261006/gsg_second_order/README.md)，四阶原件保存在 `../notebook_reports_20261006/before_gsg_second_order/`。此前三线表与正文精简登记分别保留为 `three_line_revision.json`、`trim_revision.json`。
+
+开篇与第1.1节的叙述修订见 `intro_revision.json`；计算代码、执行计数和保存输出逐项保持，数值执行证据继续记录原始执行时的文件哈希。
 
 ## 生成与核验
 

@@ -94,8 +94,8 @@ code,pre{font-family:Consolas,"Microsoft YaHei",monospace}p code,li code{font-si
 .source{margin:8px 0 22px;padding:12px 15px;border:1px solid #ddd;background:#fafafa;overflow-x:auto;font-size:9.5pt;line-height:1.65;tab-size:4;text-align:left}
 .source code{white-space:pre;font-size:inherit;color:#333}.code-caption{text-indent:0;margin:18px 0 6px;font-size:10.5pt;color:#444}
 .output{margin:18px 0 24px}.output pre{font-size:10pt;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere;margin:0;padding:8px 0}.result-text{white-space:pre-line;text-indent:0}
-.table-wrap{overflow-x:auto;margin:18px 0}table{border-collapse:collapse;font-size:10.5pt;line-height:1.6;width:100%;font-variant-numeric:tabular-nums;border-top:1.5px solid;border-bottom:1.5px solid}
-th,td{padding:9px 8px;text-align:right;vertical-align:middle;white-space:nowrap;border-bottom:1px solid #ddd}thead th{border-bottom:1px solid #333;font-weight:bold}tbody th{font-weight:400}table tr:last-child td,table tr:last-child th{border-bottom:0}
+.table-wrap{overflow-x:auto;margin:18px 0}table{border-collapse:collapse;font-size:10.5pt;line-height:1.6;width:100%;font-variant-numeric:tabular-nums;border:0;border-top:1.5px solid #111;border-bottom:1.5px solid #111}
+tr,th,td{border:0}th,td{padding:9px 8px;text-align:right;vertical-align:middle;white-space:nowrap}thead{border-bottom:1px solid #111}thead th{font-weight:bold}tbody th{font-weight:400}
 figure{margin:24px 0}img{display:block;width:100%;height:auto;margin:auto}
 .katex-display{overflow-x:auto;overflow-y:hidden;font-size:.88em;padding:8px 0;margin:18px 0}.katex-display>.katex{min-width:max-content}
 ul,ol{padding-left:1.5em}blockquote{margin:16px 0;padding-left:16px;border-left:2px solid #ddd;color:#555}

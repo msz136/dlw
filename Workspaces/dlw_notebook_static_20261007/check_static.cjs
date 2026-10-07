@@ -28,6 +28,20 @@ const manifest=JSON.parse(fs.readFileSync(path.join(__dirname,'build_validation.
     mathErrors:document.querySelectorAll('.katex-error').length,
     images:[...document.images].map(x=>({width:x.naturalWidth,height:x.naturalHeight,loaded:x.complete&&x.naturalWidth>0})),
     tables:document.querySelectorAll('table').length,
+    tableRules:[...document.querySelectorAll('table')].map(table=>{
+      const edge=(node,side)=>parseFloat(getComputedStyle(node)['border'+side+'Width']);
+      return {
+        id:table.id,
+        headerRows:table.tHead.rows.length,
+        top:edge(table,'Top'),
+        headerBottom:edge(table.tHead,'Bottom'),
+        bottom:edge(table,'Bottom'),
+        sideBorders:edge(table,'Left')+edge(table,'Right'),
+        headerOtherBorders:edge(table.tHead,'Top')+edge(table.tHead,'Left')+edge(table.tHead,'Right'),
+        interiorBorders:[...table.querySelectorAll('tr,th,td,tbody,tfoot')].filter(node=>
+          ['Top','Bottom','Left','Right'].some(side=>edge(node,side)>0)).length
+      };
+    }),
     overflow:document.documentElement.scrollWidth>innerWidth+1,
     controls:document.querySelectorAll('button,textarea,input,script').length,
     badAnchors:[...document.querySelectorAll('nav a')].filter(x=>!document.getElementById(x.hash.slice(1))).length,
@@ -81,7 +95,7 @@ const manifest=JSON.parse(fs.readFileSync(path.join(__dirname,'build_validation.
     usedFonts[label]=(await cdp.send('CSS.getPlatformFontsForNode',{nodeId})).fonts;
   }
   await fontPage.close();
-  const success=[desktop,mobile,print].every(x=>!x.overflow&&!x.mathErrors&&!x.controls&&!x.badAnchors&&!x.fonts.length&&x.registeredFonts>=20&&x.mathFont.includes('KaTeX_Main')&&x.bodyFont.includes('SimSun')&&x.math===manifest.math_expressions&&x.cells===manifest.cells&&x.code===manifest.visible_code_excerpts&&x.codeLines===manifest.visible_code_lines&&!x.fullCode&&!x.appendices&&x.sections===7&&!x.tocLinks&&x.lastCell==='dlw-curves'&&x.images.length===manifest.image_outputs&&x.images.every(y=>y.loaded))
+  const success=[desktop,mobile,print].every(x=>!x.overflow&&!x.mathErrors&&!x.controls&&!x.badAnchors&&!x.fonts.length&&x.registeredFonts>=20&&x.mathFont.includes('KaTeX_Main')&&x.bodyFont.includes('SimSun')&&x.math===manifest.math_expressions&&x.cells===manifest.cells&&x.code===manifest.visible_code_excerpts&&x.codeLines===manifest.visible_code_lines&&!x.fullCode&&!x.appendices&&x.sections===7&&!x.tocLinks&&x.lastCell==='dlw-curves'&&x.images.length===manifest.image_outputs&&x.images.every(y=>y.loaded)&&x.tables===5&&x.tableRules.every(t=>t.top>0&&t.headerBottom>0&&t.bottom>0&&!t.sideBorders&&!t.headerOtherBorders&&!t.interiorBorders))
     &&usedFonts.math.some(x=>x.isCustomFont&&x.familyName.includes('KaTeX'))
     &&usedFonts.body.some(x=>/SimSun|宋体/.test(x.familyName))
     &&!requests.length&&!errors.length&&!failed.length;

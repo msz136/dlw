@@ -8532,4 +8532,27 @@
 - [Workspaces/dlw_notebook_static_20261007/report_table_1440.png](Workspaces/dlw_notebook_static_20261007/report_table_1440.png)（精简前原件或当前布局截图）
 - [Workspaces/dlw_notebook_static_20261007/report_table_390.png](Workspaces/dlw_notebook_static_20261007/report_table_390.png)（精简前原件或当前布局截图）
 - [Workspaces/dlw_notebook_static_20261007/report_table_print.png](Workspaces/dlw_notebook_static_20261007/report_table_print.png)（精简前原件或当前布局截图）
+- [Workspaces/dlw_notebook_static_20261007/three_line_revision.json](Workspaces/dlw_notebook_static_20261007/three_line_revision.json)（三线表样式、实际边框与视觉核验，最新交付哈希）
+- [Workspaces/dlw_notebook_static_20261007/before_three_lines/browser_validation.json](Workspaces/dlw_notebook_static_20261007/before_three_lines/browser_validation.json)（三线表修正前原件）
+- [Workspaces/dlw_notebook_static_20261007/before_three_lines/build_static.py](Workspaces/dlw_notebook_static_20261007/before_three_lines/build_static.py)（三线表修正前原件）
+- [Workspaces/dlw_notebook_static_20261007/before_three_lines/build_validation.json](Workspaces/dlw_notebook_static_20261007/before_three_lines/build_validation.json)（三线表修正前原件）
+- [Workspaces/dlw_notebook_static_20261007/before_three_lines/check_static.cjs](Workspaces/dlw_notebook_static_20261007/before_three_lines/check_static.cjs)（三线表修正前原件）
+- [Workspaces/dlw_notebook_static_20261007/before_three_lines/content_validation.json](Workspaces/dlw_notebook_static_20261007/before_three_lines/content_validation.json)（三线表修正前原件）
+- [Workspaces/dlw_notebook_static_20261007/before_three_lines/dlw_numerical.html](Workspaces/dlw_notebook_static_20261007/before_three_lines/dlw_numerical.html)（三线表修正前原件）
+- [Workspaces/dlw_notebook_static_20261007/before_three_lines/FILE_INDEX.md](Workspaces/dlw_notebook_static_20261007/before_three_lines/FILE_INDEX.md)（三线表修正前原件）
+- [Workspaces/dlw_notebook_static_20261007/before_three_lines/input_hashes.json](Workspaces/dlw_notebook_static_20261007/before_three_lines/input_hashes.json)（三线表修正前原件）
+- [Workspaces/dlw_notebook_static_20261007/before_three_lines/PROGRESS_LOG.md](Workspaces/dlw_notebook_static_20261007/before_three_lines/PROGRESS_LOG.md)（三线表修正前原件）
+- [Workspaces/dlw_notebook_static_20261007/before_three_lines/README.md](Workspaces/dlw_notebook_static_20261007/before_three_lines/README.md)（三线表修正前原件）
+- [Workspaces/dlw_notebook_static_20261007/before_three_lines/report_1440.png](Workspaces/dlw_notebook_static_20261007/before_three_lines/report_1440.png)（三线表修正前原件）
+- [Workspaces/dlw_notebook_static_20261007/before_three_lines/report_390.png](Workspaces/dlw_notebook_static_20261007/before_three_lines/report_390.png)（三线表修正前原件）
+- [Workspaces/dlw_notebook_static_20261007/before_three_lines/report_figure_1440.png](Workspaces/dlw_notebook_static_20261007/before_three_lines/report_figure_1440.png)（三线表修正前原件）
+- [Workspaces/dlw_notebook_static_20261007/before_three_lines/report_sd_1440.png](Workspaces/dlw_notebook_static_20261007/before_three_lines/report_sd_1440.png)（三线表修正前原件）
+- [Workspaces/dlw_notebook_static_20261007/before_three_lines/report_sd_390.png](Workspaces/dlw_notebook_static_20261007/before_three_lines/report_sd_390.png)（三线表修正前原件）
+- [Workspaces/dlw_notebook_static_20261007/before_three_lines/report_sd_code_1440.png](Workspaces/dlw_notebook_static_20261007/before_three_lines/report_sd_code_1440.png)（三线表修正前原件）
+- [Workspaces/dlw_notebook_static_20261007/before_three_lines/report_sd_code_print.png](Workspaces/dlw_notebook_static_20261007/before_three_lines/report_sd_code_print.png)（三线表修正前原件）
+- [Workspaces/dlw_notebook_static_20261007/before_three_lines/report_sd_print.png](Workspaces/dlw_notebook_static_20261007/before_three_lines/report_sd_print.png)（三线表修正前原件）
+- [Workspaces/dlw_notebook_static_20261007/before_three_lines/report_table_1440.png](Workspaces/dlw_notebook_static_20261007/before_three_lines/report_table_1440.png)（三线表修正前原件）
+- [Workspaces/dlw_notebook_static_20261007/before_three_lines/report_table_390.png](Workspaces/dlw_notebook_static_20261007/before_three_lines/report_table_390.png)（三线表修正前原件）
+- [Workspaces/dlw_notebook_static_20261007/before_three_lines/report_table_print.png](Workspaces/dlw_notebook_static_20261007/before_three_lines/report_table_print.png)（三线表修正前原件）
+- [Workspaces/dlw_notebook_static_20261007/before_three_lines/trim_revision.json](Workspaces/dlw_notebook_static_20261007/before_three_lines/trim_revision.json)（三线表修正前原件）
 <!-- DLW_NUMERICAL_TRIM_INDEX_END -->

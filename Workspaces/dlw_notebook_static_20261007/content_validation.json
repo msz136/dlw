@@ -1,0 +1,252 @@
+{
+  "success": true,
+  "cells": [
+    {
+      "cell": "dlw-title",
+      "markdown_content_exact_except_presentation_edits": true
+    },
+    {
+      "cell": "dlw-imports",
+      "key_excerpts_exact": true,
+      "outputs_exact": true,
+      "outputs": 0
+    },
+    {
+      "cell": "dlw-design",
+      "markdown_content_exact_except_presentation_edits": true
+    },
+    {
+      "cell": "dlw-config",
+      "key_excerpts_exact": true,
+      "outputs_exact": true,
+      "outputs": 1
+    },
+    {
+      "cell": "dlw-exact-text",
+      "markdown_content_exact_except_presentation_edits": true
+    },
+    {
+      "cell": "dlw-reference",
+      "key_excerpts_exact": true,
+      "outputs_exact": true,
+      "outputs": 0
+    },
+    {
+      "cell": "dlw-spatial-text",
+      "markdown_content_exact_except_presentation_edits": true
+    },
+    {
+      "cell": "dlw-spatial",
+      "key_excerpts_exact": true,
+      "outputs_exact": true,
+      "outputs": 0
+    },
+    {
+      "cell": "dlw-sd_fd",
+      "key_excerpts_exact": true,
+      "outputs_exact": true,
+      "outputs": 0
+    },
+    {
+      "cell": "dlw-sd-text",
+      "markdown_content_exact_except_presentation_edits": true
+    },
+    {
+      "cell": "dlw-sd",
+      "key_excerpts_exact": true,
+      "outputs_exact": true,
+      "outputs": 0
+    },
+    {
+      "cell": "dlw-sd2-text",
+      "markdown_content_exact_except_presentation_edits": true
+    },
+    {
+      "cell": "dlw-sd2_lift",
+      "key_excerpts_exact": true,
+      "outputs_exact": true,
+      "outputs": 0
+    },
+    {
+      "cell": "dlw-sd2_evolution",
+      "key_excerpts_exact": true,
+      "outputs_exact": true,
+      "outputs": 0
+    },
+    {
+      "cell": "dlw-fd-text",
+      "markdown_content_exact_except_presentation_edits": true
+    },
+    {
+      "cell": "dlw-fd",
+      "key_excerpts_exact": true,
+      "outputs_exact": true,
+      "outputs": 0
+    },
+    {
+      "cell": "dlw-mesh-text",
+      "markdown_content_exact_except_presentation_edits": true
+    },
+    {
+      "cell": "dlw-mesh",
+      "key_excerpts_exact": true,
+      "outputs_exact": true,
+      "outputs": 0
+    },
+    {
+      "cell": "dlw-time-text",
+      "markdown_content_exact_except_presentation_edits": true
+    },
+    {
+      "cell": "dlw-time",
+      "key_excerpts_exact": true,
+      "outputs_exact": true,
+      "outputs": 0
+    },
+    {
+      "cell": "dlw-space-text",
+      "markdown_content_exact_except_presentation_edits": true
+    },
+    {
+      "cell": "dlw-space_experiment",
+      "key_excerpts_exact": true,
+      "outputs_exact": true,
+      "outputs": 1
+    },
+    {
+      "cell": "dlw-temporal-text",
+      "markdown_content_exact_except_presentation_edits": true
+    },
+    {
+      "cell": "dlw-time_experiment",
+      "key_excerpts_exact": true,
+      "outputs_exact": true,
+      "outputs": 1
+    },
+    {
+      "cell": "dlw-order-text",
+      "markdown_content_exact_except_presentation_edits": true
+    },
+    {
+      "cell": "dlw-order",
+      "key_excerpts_exact": true,
+      "outputs_exact": true,
+      "outputs": 1
+    },
+    {
+      "cell": "dlw-moving-text",
+      "markdown_content_exact_except_presentation_edits": true
+    },
+    {
+      "cell": "dlw-mesh_experiment",
+      "key_excerpts_exact": true,
+      "outputs_exact": true,
+      "outputs": 1
+    },
+    {
+      "cell": "dlw-curve-text",
+      "markdown_content_exact_except_presentation_edits": true
+    },
+    {
+      "cell": "dlw-curves",
+      "key_excerpts_exact": true,
+      "outputs_exact": true,
+      "outputs": 3
+    }
+  ],
+  "formula_sources_exact": true,
+  "math_expressions": 112,
+  "png_sha256": [
+    "e5d4980cda00b8947826249ef6c099e8f02c8f1b4847cb42611734c46a4de17e",
+    "7a023234addf89c97b0aaf83a11e873f0d95523ee73e84ba45754482d76eab81",
+    "4ac820d926bd0766c48a46491415ece56774a02d483a46c59e31195964145b04"
+  ],
+  "retained_saved_outputs_preserved": true,
+  "standalone_no_execution_controls": true,
+  "visible_code_excerpts": 6,
+  "visible_code_lines": 54,
+  "full_code_included": false,
+  "omitted_cells": [
+    "dlw-conclusion-text",
+    "dlw-limits",
+    "dlw-summary"
+  ],
+  "markdown_presentation_edits": {
+    "dlw-title": [
+      [
+        "# DLW 数值分析 report",
+        "# DLW 数值分析"
+      ]
+    ],
+    "dlw-spatial-text": [
+      [
+        "下方代码定义共用网格、差分与场值恢复。",
+        "FD 与 SD2 共用上述网格、差分与场值恢复。"
+      ]
+    ],
+    "dlw-sd2-text": [
+      [
+        "先定义初值与下边界的求解，再定义递推；代码中的",
+        "代码中的"
+      ]
+    ]
+  },
+  "key_methods": {
+    "dlw-sd": [
+      [
+        "SD：单层线性求解",
+        "solve_one"
+      ],
+      [
+        "SD：逐层交替更新 F 与 G",
+        "advance"
+      ]
+    ]
+  },
+  "key_code": [
+    {
+      "cell": "dlw-sd",
+      "label": "SD：单层线性求解",
+      "first_line": 108,
+      "last_line": 126,
+      "method": "solve_one"
+    },
+    {
+      "cell": "dlw-sd",
+      "label": "SD：逐层交替更新 F 与 G",
+      "first_line": 128,
+      "last_line": 140,
+      "method": "advance"
+    },
+    {
+      "cell": "dlw-sd2_evolution",
+      "label": "SD2：势导数递推与 Q、R 更新",
+      "first_line": 24,
+      "last_line": 30,
+      "method": null
+    },
+    {
+      "cell": "dlw-fd",
+      "label": "FD：连续方程的差分右端",
+      "first_line": 8,
+      "last_line": 9,
+      "method": null
+    },
+    {
+      "cell": "dlw-time",
+      "label": "Euler 与 RK4 的时间更新",
+      "first_line": 1,
+      "last_line": 8,
+      "method": null
+    },
+    {
+      "cell": "dlw-time",
+      "label": "公共物理点上的误差评价",
+      "first_line": 37,
+      "last_line": 41,
+      "method": null
+    }
+  ],
+  "html_sha256": "25087fdada5a52387911782bcf203f8e5796acf0606cb0d5e072a43562c7d5c0",
+  "notebook_sha256": "831fad81459e614dfffc3b890c4c6dcbda4b7ee386dfa471826f781a9042bb8b"
+}

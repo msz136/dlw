@@ -8485,3 +8485,51 @@
 - `Workspaces/numerics_review_20260922/upgrade_regressions.py`
 - `Workspaces/numerics_review_20260922/validate_final.py`
 
+<!-- DLW_NUMERICAL_TRIM_INDEX_BEGIN -->
+**DLW 数值静态报告精简（2026-10-07）：**
+
+- [dlw_numerical.html](dlw_numerical.html)（第1—7节，移除目录、结果节、参考资料与完整代码附录）
+- [notebook/DLW数值分析report.ipynb](notebook/DLW数值分析report.ipynb)（报告生成所用的原始可执行Notebook，本轮字节保持）
+- [Workspaces/dlw_notebook_static_20261007/build_static.py](Workspaces/dlw_notebook_static_20261007/build_static.py)（静态报告的权威生成器）
+- [Workspaces/dlw_notebook_static_20261007/render_math.cjs](Workspaces/dlw_notebook_static_20261007/render_math.cjs)（KaTeX公式预渲染）
+- [Workspaces/dlw_notebook_static_20261007/verify_static.py](Workspaces/dlw_notebook_static_20261007/verify_static.py)（保留单元、公式、关键代码及表图核验）
+- [Workspaces/dlw_notebook_static_20261007/check_static.cjs](Workspaces/dlw_notebook_static_20261007/check_static.cjs)（离线桌面、390px及打印检查）
+- [Workspaces/dlw_notebook_static_20261007/README.md](Workspaces/dlw_notebook_static_20261007/README.md)（当前构建、布局与历史记录说明）
+- [Workspaces/dlw_notebook_static_20261007/build_validation.json](Workspaces/dlw_notebook_static_20261007/build_validation.json)（当前构建证据）
+- [Workspaces/dlw_notebook_static_20261007/content_validation.json](Workspaces/dlw_notebook_static_20261007/content_validation.json)（当前正文与输出比对证据）
+- [Workspaces/dlw_notebook_static_20261007/browser_validation.json](Workspaces/dlw_notebook_static_20261007/browser_validation.json)（当前浏览器与字体证据）
+- [Workspaces/dlw_notebook_static_20261007/trim_revision.json](Workspaces/dlw_notebook_static_20261007/trim_revision.json)（本轮快照、保留性核验及交付哈希）
+- [Workspaces/dlw_notebook_static_20261007/before_trim/browser_validation.json](Workspaces/dlw_notebook_static_20261007/before_trim/browser_validation.json)（精简前原件或当前布局截图）
+- [Workspaces/dlw_notebook_static_20261007/before_trim/build_static.py](Workspaces/dlw_notebook_static_20261007/before_trim/build_static.py)（精简前原件或当前布局截图）
+- [Workspaces/dlw_notebook_static_20261007/before_trim/build_validation.json](Workspaces/dlw_notebook_static_20261007/before_trim/build_validation.json)（精简前原件或当前布局截图）
+- [Workspaces/dlw_notebook_static_20261007/before_trim/check_static.cjs](Workspaces/dlw_notebook_static_20261007/before_trim/check_static.cjs)（精简前原件或当前布局截图）
+- [Workspaces/dlw_notebook_static_20261007/before_trim/content_validation.json](Workspaces/dlw_notebook_static_20261007/before_trim/content_validation.json)（精简前原件或当前布局截图）
+- [Workspaces/dlw_notebook_static_20261007/before_trim/dlw_numerical.html](Workspaces/dlw_notebook_static_20261007/before_trim/dlw_numerical.html)（精简前原件或当前布局截图）
+- [Workspaces/dlw_notebook_static_20261007/before_trim/FILE_INDEX.md](Workspaces/dlw_notebook_static_20261007/before_trim/FILE_INDEX.md)（精简前原件或当前布局截图）
+- [Workspaces/dlw_notebook_static_20261007/before_trim/input_hashes.json](Workspaces/dlw_notebook_static_20261007/before_trim/input_hashes.json)（精简前原件或当前布局截图）
+- [Workspaces/dlw_notebook_static_20261007/before_trim/PROGRESS_LOG.md](Workspaces/dlw_notebook_static_20261007/before_trim/PROGRESS_LOG.md)（精简前原件或当前布局截图）
+- [Workspaces/dlw_notebook_static_20261007/before_trim/README.md](Workspaces/dlw_notebook_static_20261007/before_trim/README.md)（精简前原件或当前布局截图）
+- [Workspaces/dlw_notebook_static_20261007/before_trim/report_1440.png](Workspaces/dlw_notebook_static_20261007/before_trim/report_1440.png)（精简前原件或当前布局截图）
+- [Workspaces/dlw_notebook_static_20261007/before_trim/report_390.png](Workspaces/dlw_notebook_static_20261007/before_trim/report_390.png)（精简前原件或当前布局截图）
+- [Workspaces/dlw_notebook_static_20261007/before_trim/report_figure_1440.png](Workspaces/dlw_notebook_static_20261007/before_trim/report_figure_1440.png)（精简前原件或当前布局截图）
+- [Workspaces/dlw_notebook_static_20261007/before_trim/report_sd_1440.png](Workspaces/dlw_notebook_static_20261007/before_trim/report_sd_1440.png)（精简前原件或当前布局截图）
+- [Workspaces/dlw_notebook_static_20261007/before_trim/report_sd_390.png](Workspaces/dlw_notebook_static_20261007/before_trim/report_sd_390.png)（精简前原件或当前布局截图）
+- [Workspaces/dlw_notebook_static_20261007/before_trim/report_sd_code_1440.png](Workspaces/dlw_notebook_static_20261007/before_trim/report_sd_code_1440.png)（精简前原件或当前布局截图）
+- [Workspaces/dlw_notebook_static_20261007/before_trim/report_sd_code_print.png](Workspaces/dlw_notebook_static_20261007/before_trim/report_sd_code_print.png)（精简前原件或当前布局截图）
+- [Workspaces/dlw_notebook_static_20261007/before_trim/report_sd_print.png](Workspaces/dlw_notebook_static_20261007/before_trim/report_sd_print.png)（精简前原件或当前布局截图）
+- [Workspaces/dlw_notebook_static_20261007/before_trim/report_table_1440.png](Workspaces/dlw_notebook_static_20261007/before_trim/report_table_1440.png)（精简前原件或当前布局截图）
+- [Workspaces/dlw_notebook_static_20261007/before_trim/report_table_390.png](Workspaces/dlw_notebook_static_20261007/before_trim/report_table_390.png)（精简前原件或当前布局截图）
+- [Workspaces/dlw_notebook_static_20261007/before_trim/report_table_print.png](Workspaces/dlw_notebook_static_20261007/before_trim/report_table_print.png)（精简前原件或当前布局截图）
+- [Workspaces/dlw_notebook_static_20261007/before_trim/verify_static.py](Workspaces/dlw_notebook_static_20261007/before_trim/verify_static.py)（精简前原件或当前布局截图）
+- [Workspaces/dlw_notebook_static_20261007/report_1440.png](Workspaces/dlw_notebook_static_20261007/report_1440.png)（精简前原件或当前布局截图）
+- [Workspaces/dlw_notebook_static_20261007/report_390.png](Workspaces/dlw_notebook_static_20261007/report_390.png)（精简前原件或当前布局截图）
+- [Workspaces/dlw_notebook_static_20261007/report_figure_1440.png](Workspaces/dlw_notebook_static_20261007/report_figure_1440.png)（精简前原件或当前布局截图）
+- [Workspaces/dlw_notebook_static_20261007/report_sd_1440.png](Workspaces/dlw_notebook_static_20261007/report_sd_1440.png)（精简前原件或当前布局截图）
+- [Workspaces/dlw_notebook_static_20261007/report_sd_390.png](Workspaces/dlw_notebook_static_20261007/report_sd_390.png)（精简前原件或当前布局截图）
+- [Workspaces/dlw_notebook_static_20261007/report_sd_code_1440.png](Workspaces/dlw_notebook_static_20261007/report_sd_code_1440.png)（精简前原件或当前布局截图）
+- [Workspaces/dlw_notebook_static_20261007/report_sd_code_print.png](Workspaces/dlw_notebook_static_20261007/report_sd_code_print.png)（精简前原件或当前布局截图）
+- [Workspaces/dlw_notebook_static_20261007/report_sd_print.png](Workspaces/dlw_notebook_static_20261007/report_sd_print.png)（精简前原件或当前布局截图）
+- [Workspaces/dlw_notebook_static_20261007/report_table_1440.png](Workspaces/dlw_notebook_static_20261007/report_table_1440.png)（精简前原件或当前布局截图）
+- [Workspaces/dlw_notebook_static_20261007/report_table_390.png](Workspaces/dlw_notebook_static_20261007/report_table_390.png)（精简前原件或当前布局截图）
+- [Workspaces/dlw_notebook_static_20261007/report_table_print.png](Workspaces/dlw_notebook_static_20261007/report_table_print.png)（精简前原件或当前布局截图）
+<!-- DLW_NUMERICAL_TRIM_INDEX_END -->

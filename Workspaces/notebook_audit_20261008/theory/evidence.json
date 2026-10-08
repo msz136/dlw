@@ -1,0 +1,2897 @@
+{
+  "notebook": "C:\\Users\\msz\\aca\\notebook\\DLW理论.ipynb",
+  "notebook_sha256": "96e7e880b4f3107798f2ab1c73297080c93f23bdaa14bcf0ba89749287ffdf26",
+  "scope": "31 cells of DLW theory; only directly imported local proof closure and runner",
+  "symbolic_checks": [
+    {
+      "name": "C1 normalized residual identity",
+      "passed": true,
+      "residual": "0",
+      "cell": 3,
+      "line": 27
+    },
+    {
+      "name": "C2 normalized residual identity",
+      "passed": true,
+      "residual": "0",
+      "cell": 3,
+      "line": 27
+    },
+    {
+      "name": "N8 first residual equals N7 first residual",
+      "passed": true,
+      "residual": "0",
+      "cell": 18,
+      "line": 37
+    },
+    {
+      "name": "N8 second residual decomposition",
+      "passed": true,
+      "residual": "0",
+      "identity": "N8_2 = (4/h) N7_2 + M_plus N7_1",
+      "cell": 18,
+      "line": 37
+    },
+    {
+      "name": "N8 leaves a time-dependent lattice mean",
+      "passed": true,
+      "residual": "0",
+      "cell": 18,
+      "line": 29,
+      "field": "u_j=c(t), v_j=0",
+      "equation": 1
+    },
+    {
+      "name": "N8 leaves a time-dependent lattice mean",
+      "passed": true,
+      "residual": "0",
+      "cell": 18,
+      "line": 29,
+      "field": "u_j=c(t), v_j=0",
+      "equation": 2
+    },
+    {
+      "name": "Q residual over Q equals (A+C)/2",
+      "passed": true,
+      "residual": "0",
+      "cell": 28,
+      "line": 35
+    },
+    {
+      "name": "N18 product equation matches omega equation",
+      "passed": true,
+      "residual": "0",
+      "cell": 28,
+      "line": 66
+    },
+    {
+      "name": "Q/R residual product split",
+      "passed": true,
+      "residual": "0",
+      "cell": 28,
+      "line": 78
+    },
+    {
+      "name": "S2 centered sum through fourth order",
+      "passed": true,
+      "residual": "0",
+      "cell": 5,
+      "line": 41
+    },
+    {
+      "name": "S2 centered difference through fourth order",
+      "passed": true,
+      "residual": "0",
+      "cell": 5,
+      "line": 50
+    },
+    {
+      "name": "T22 spectral wall shift",
+      "passed": true,
+      "residual": "0",
+      "cell": 8,
+      "line": 45
+    },
+    {
+      "name": "T18 to T19 scalar cancellation",
+      "passed": true,
+      "residual": "0",
+      "cell": 8,
+      "line": 31
+    },
+    {
+      "name": "F interpolation normalized amplitude is even in h",
+      "passed": true,
+      "residual": "0",
+      "cell": 22,
+      "line": 15
+    },
+    {
+      "name": "lattice phase Taylor series",
+      "passed": true,
+      "residual": "0",
+      "cell": 22,
+      "line": 15
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 1,
+      "s": "15/8",
+      "n": -2,
+      "j": -2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 1,
+      "s": "15/8",
+      "n": -2,
+      "j": 0,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 1,
+      "s": "15/8",
+      "n": -2,
+      "j": 2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 1,
+      "s": "15/8",
+      "n": 0,
+      "j": -2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 1,
+      "s": "15/8",
+      "n": 0,
+      "j": 0,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 1,
+      "s": "15/8",
+      "n": 0,
+      "j": 2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 1,
+      "s": "15/8",
+      "n": 1,
+      "j": -2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 1,
+      "s": "15/8",
+      "n": 1,
+      "j": 0,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 1,
+      "s": "15/8",
+      "n": 1,
+      "j": 2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 1,
+      "s": "17/8",
+      "n": -2,
+      "j": -2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 1,
+      "s": "17/8",
+      "n": -2,
+      "j": 0,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 1,
+      "s": "17/8",
+      "n": -2,
+      "j": 2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 1,
+      "s": "17/8",
+      "n": 0,
+      "j": -2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 1,
+      "s": "17/8",
+      "n": 0,
+      "j": 0,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 1,
+      "s": "17/8",
+      "n": 0,
+      "j": 2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 1,
+      "s": "17/8",
+      "n": 1,
+      "j": -2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 1,
+      "s": "17/8",
+      "n": 1,
+      "j": 0,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 1,
+      "s": "17/8",
+      "n": 1,
+      "j": 2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 1,
+      "s": "7/5",
+      "n": -2,
+      "j": -2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 1,
+      "s": "7/5",
+      "n": -2,
+      "j": 0,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 1,
+      "s": "7/5",
+      "n": -2,
+      "j": 2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 1,
+      "s": "7/5",
+      "n": 0,
+      "j": -2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 1,
+      "s": "7/5",
+      "n": 0,
+      "j": 0,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 1,
+      "s": "7/5",
+      "n": 0,
+      "j": 2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 1,
+      "s": "7/5",
+      "n": 1,
+      "j": -2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 1,
+      "s": "7/5",
+      "n": 1,
+      "j": 0,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 1,
+      "s": "7/5",
+      "n": 1,
+      "j": 2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "S1 minus wall determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 1,
+      "j": -2,
+      "cell": 7,
+      "line": 18
+    },
+    {
+      "name": "S1 plus wall determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 1,
+      "j": -2,
+      "cell": 7,
+      "line": 18
+    },
+    {
+      "name": "T5/T6 G expansion",
+      "passed": true,
+      "residual": "0",
+      "N": 1,
+      "j": -2,
+      "cell": 10,
+      "line": 43
+    },
+    {
+      "name": "T5/T6 F expansion",
+      "passed": true,
+      "residual": "0",
+      "N": 1,
+      "j": -2,
+      "cell": 10,
+      "line": 43
+    },
+    {
+      "name": "S1 minus wall determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 1,
+      "j": 0,
+      "cell": 7,
+      "line": 18
+    },
+    {
+      "name": "S1 plus wall determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 1,
+      "j": 0,
+      "cell": 7,
+      "line": 18
+    },
+    {
+      "name": "T5/T6 G expansion",
+      "passed": true,
+      "residual": "0",
+      "N": 1,
+      "j": 0,
+      "cell": 10,
+      "line": 43
+    },
+    {
+      "name": "T5/T6 F expansion",
+      "passed": true,
+      "residual": "0",
+      "N": 1,
+      "j": 0,
+      "cell": 10,
+      "line": 43
+    },
+    {
+      "name": "S1 minus wall determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 1,
+      "j": 2,
+      "cell": 7,
+      "line": 18
+    },
+    {
+      "name": "S1 plus wall determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 1,
+      "j": 2,
+      "cell": 7,
+      "line": 18
+    },
+    {
+      "name": "T5/T6 G expansion",
+      "passed": true,
+      "residual": "0",
+      "N": 1,
+      "j": 2,
+      "cell": 10,
+      "line": 43
+    },
+    {
+      "name": "T5/T6 F expansion",
+      "passed": true,
+      "residual": "0",
+      "N": 1,
+      "j": 2,
+      "cell": 10,
+      "line": 43
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 2,
+      "s": "15/8",
+      "n": -2,
+      "j": -2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 2,
+      "s": "15/8",
+      "n": -2,
+      "j": 0,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 2,
+      "s": "15/8",
+      "n": -2,
+      "j": 2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 2,
+      "s": "15/8",
+      "n": 0,
+      "j": -2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 2,
+      "s": "15/8",
+      "n": 0,
+      "j": 0,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 2,
+      "s": "15/8",
+      "n": 0,
+      "j": 2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 2,
+      "s": "15/8",
+      "n": 1,
+      "j": -2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 2,
+      "s": "15/8",
+      "n": 1,
+      "j": 0,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 2,
+      "s": "15/8",
+      "n": 1,
+      "j": 2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 2,
+      "s": "17/8",
+      "n": -2,
+      "j": -2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 2,
+      "s": "17/8",
+      "n": -2,
+      "j": 0,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 2,
+      "s": "17/8",
+      "n": -2,
+      "j": 2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 2,
+      "s": "17/8",
+      "n": 0,
+      "j": -2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 2,
+      "s": "17/8",
+      "n": 0,
+      "j": 0,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 2,
+      "s": "17/8",
+      "n": 0,
+      "j": 2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 2,
+      "s": "17/8",
+      "n": 1,
+      "j": -2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 2,
+      "s": "17/8",
+      "n": 1,
+      "j": 0,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 2,
+      "s": "17/8",
+      "n": 1,
+      "j": 2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 2,
+      "s": "7/5",
+      "n": -2,
+      "j": -2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 2,
+      "s": "7/5",
+      "n": -2,
+      "j": 0,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 2,
+      "s": "7/5",
+      "n": -2,
+      "j": 2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 2,
+      "s": "7/5",
+      "n": 0,
+      "j": -2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 2,
+      "s": "7/5",
+      "n": 0,
+      "j": 0,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 2,
+      "s": "7/5",
+      "n": 0,
+      "j": 2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 2,
+      "s": "7/5",
+      "n": 1,
+      "j": -2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 2,
+      "s": "7/5",
+      "n": 1,
+      "j": 0,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 2,
+      "s": "7/5",
+      "n": 1,
+      "j": 2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "S1 minus wall determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 2,
+      "j": -2,
+      "cell": 7,
+      "line": 18
+    },
+    {
+      "name": "S1 plus wall determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 2,
+      "j": -2,
+      "cell": 7,
+      "line": 18
+    },
+    {
+      "name": "T5/T6 G expansion",
+      "passed": true,
+      "residual": "0",
+      "N": 2,
+      "j": -2,
+      "cell": 10,
+      "line": 49
+    },
+    {
+      "name": "T5/T6 F expansion",
+      "passed": true,
+      "residual": "0",
+      "N": 2,
+      "j": -2,
+      "cell": 10,
+      "line": 50
+    },
+    {
+      "name": "S1 minus wall determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 2,
+      "j": 0,
+      "cell": 7,
+      "line": 18
+    },
+    {
+      "name": "S1 plus wall determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 2,
+      "j": 0,
+      "cell": 7,
+      "line": 18
+    },
+    {
+      "name": "T5/T6 G expansion",
+      "passed": true,
+      "residual": "0",
+      "N": 2,
+      "j": 0,
+      "cell": 10,
+      "line": 49
+    },
+    {
+      "name": "T5/T6 F expansion",
+      "passed": true,
+      "residual": "0",
+      "N": 2,
+      "j": 0,
+      "cell": 10,
+      "line": 50
+    },
+    {
+      "name": "S1 minus wall determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 2,
+      "j": 2,
+      "cell": 7,
+      "line": 18
+    },
+    {
+      "name": "S1 plus wall determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 2,
+      "j": 2,
+      "cell": 7,
+      "line": 18
+    },
+    {
+      "name": "T5/T6 G expansion",
+      "passed": true,
+      "residual": "0",
+      "N": 2,
+      "j": 2,
+      "cell": 10,
+      "line": 49
+    },
+    {
+      "name": "T5/T6 F expansion",
+      "passed": true,
+      "residual": "0",
+      "N": 2,
+      "j": 2,
+      "cell": 10,
+      "line": 50
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 3,
+      "s": "15/8",
+      "n": -2,
+      "j": -2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 3,
+      "s": "15/8",
+      "n": -2,
+      "j": 0,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 3,
+      "s": "15/8",
+      "n": -2,
+      "j": 2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 3,
+      "s": "15/8",
+      "n": 0,
+      "j": -2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 3,
+      "s": "15/8",
+      "n": 0,
+      "j": 0,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 3,
+      "s": "15/8",
+      "n": 0,
+      "j": 2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 3,
+      "s": "15/8",
+      "n": 1,
+      "j": -2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 3,
+      "s": "15/8",
+      "n": 1,
+      "j": 0,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 3,
+      "s": "15/8",
+      "n": 1,
+      "j": 2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 3,
+      "s": "17/8",
+      "n": -2,
+      "j": -2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 3,
+      "s": "17/8",
+      "n": -2,
+      "j": 0,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 3,
+      "s": "17/8",
+      "n": -2,
+      "j": 2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 3,
+      "s": "17/8",
+      "n": 0,
+      "j": -2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 3,
+      "s": "17/8",
+      "n": 0,
+      "j": 0,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 3,
+      "s": "17/8",
+      "n": 0,
+      "j": 2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 3,
+      "s": "17/8",
+      "n": 1,
+      "j": -2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 3,
+      "s": "17/8",
+      "n": 1,
+      "j": 0,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 3,
+      "s": "17/8",
+      "n": 1,
+      "j": 2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 3,
+      "s": "7/5",
+      "n": -2,
+      "j": -2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 3,
+      "s": "7/5",
+      "n": -2,
+      "j": 0,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 3,
+      "s": "7/5",
+      "n": -2,
+      "j": 2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 3,
+      "s": "7/5",
+      "n": 0,
+      "j": -2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 3,
+      "s": "7/5",
+      "n": 0,
+      "j": 0,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 3,
+      "s": "7/5",
+      "n": 0,
+      "j": 2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 3,
+      "s": "7/5",
+      "n": 1,
+      "j": -2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 3,
+      "s": "7/5",
+      "n": 1,
+      "j": 0,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 3,
+      "s": "7/5",
+      "n": 1,
+      "j": 2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "S1 minus wall determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 3,
+      "j": -2,
+      "cell": 7,
+      "line": 18
+    },
+    {
+      "name": "S1 plus wall determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 3,
+      "j": -2,
+      "cell": 7,
+      "line": 18
+    },
+    {
+      "name": "S1 minus wall determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 3,
+      "j": 0,
+      "cell": 7,
+      "line": 18
+    },
+    {
+      "name": "S1 plus wall determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 3,
+      "j": 0,
+      "cell": 7,
+      "line": 18
+    },
+    {
+      "name": "S1 minus wall determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 3,
+      "j": 2,
+      "cell": 7,
+      "line": 18
+    },
+    {
+      "name": "S1 plus wall determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 3,
+      "j": 2,
+      "cell": 7,
+      "line": 18
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 4,
+      "s": "15/8",
+      "n": -2,
+      "j": -2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 4,
+      "s": "15/8",
+      "n": -2,
+      "j": 0,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 4,
+      "s": "15/8",
+      "n": -2,
+      "j": 2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 4,
+      "s": "15/8",
+      "n": 0,
+      "j": -2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 4,
+      "s": "15/8",
+      "n": 0,
+      "j": 0,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 4,
+      "s": "15/8",
+      "n": 0,
+      "j": 2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 4,
+      "s": "15/8",
+      "n": 1,
+      "j": -2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 4,
+      "s": "15/8",
+      "n": 1,
+      "j": 0,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 4,
+      "s": "15/8",
+      "n": 1,
+      "j": 2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 4,
+      "s": "17/8",
+      "n": -2,
+      "j": -2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 4,
+      "s": "17/8",
+      "n": -2,
+      "j": 0,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 4,
+      "s": "17/8",
+      "n": -2,
+      "j": 2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 4,
+      "s": "17/8",
+      "n": 0,
+      "j": -2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 4,
+      "s": "17/8",
+      "n": 0,
+      "j": 0,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 4,
+      "s": "17/8",
+      "n": 0,
+      "j": 2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 4,
+      "s": "17/8",
+      "n": 1,
+      "j": -2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 4,
+      "s": "17/8",
+      "n": 1,
+      "j": 0,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 4,
+      "s": "17/8",
+      "n": 1,
+      "j": 2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 4,
+      "s": "7/5",
+      "n": -2,
+      "j": -2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 4,
+      "s": "7/5",
+      "n": -2,
+      "j": 0,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 4,
+      "s": "7/5",
+      "n": -2,
+      "j": 2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 4,
+      "s": "7/5",
+      "n": 0,
+      "j": -2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 4,
+      "s": "7/5",
+      "n": 0,
+      "j": 0,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 4,
+      "s": "7/5",
+      "n": 0,
+      "j": 2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 4,
+      "s": "7/5",
+      "n": 1,
+      "j": -2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 4,
+      "s": "7/5",
+      "n": 1,
+      "j": 0,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "T13 exact rational determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 4,
+      "s": "7/5",
+      "n": 1,
+      "j": 2,
+      "cell": 8,
+      "line": 7
+    },
+    {
+      "name": "S1 minus wall determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 4,
+      "j": -2,
+      "cell": 7,
+      "line": 18
+    },
+    {
+      "name": "S1 plus wall determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 4,
+      "j": -2,
+      "cell": 7,
+      "line": 18
+    },
+    {
+      "name": "S1 minus wall determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 4,
+      "j": 0,
+      "cell": 7,
+      "line": 18
+    },
+    {
+      "name": "S1 plus wall determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 4,
+      "j": 0,
+      "cell": 7,
+      "line": 18
+    },
+    {
+      "name": "S1 minus wall determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 4,
+      "j": 2,
+      "cell": 7,
+      "line": 18
+    },
+    {
+      "name": "S1 plus wall determinant jets",
+      "passed": true,
+      "residual": "0",
+      "N": 4,
+      "j": 2,
+      "cell": 7,
+      "line": 18
+    },
+    {
+      "name": "T13 extends through tau_n=0",
+      "passed": true,
+      "residual": "0",
+      "cell": 8,
+      "line": 41
+    },
+    {
+      "name": "T13 nonnegative layer also permits p=s in a mathematical example",
+      "passed": true,
+      "residual": "0",
+      "cell": 7,
+      "line": 22,
+      "n": 0,
+      "s": "1/5"
+    }
+  ],
+  "symbolic_check_count": 161,
+  "all_symbolic_checks_passed": true,
+  "cell_compile_correspondence": [
+    {
+      "cell": 4,
+      "module": "TheoryContinuousImport",
+      "compiler_payload_sha256": "6af546f682b7a2ad8120a6ed98ffeedc31e6dff22b0c4a7e7624614a9cb75d81",
+      "raw_notebook_body_sha256": "5e803c16d864478d3a8fcfc20eb52d2e4ad1b50c5545489a5e4f04bc4249946f",
+      "normalization": "final newline only",
+      "saved_source_matches": true,
+      "successful_compile_matches": true,
+      "saved_artifact_matches": true
+    },
+    {
+      "cell": 6,
+      "module": "TheoryWallsImport",
+      "compiler_payload_sha256": "a94f164c498fd65cf820224c276cdfa6724d01eaf9f86ce86c042c5011138712",
+      "raw_notebook_body_sha256": "4382a186b6dc997eba601f17d8ce24187159dd9769aed7cadacc54941128edf1",
+      "normalization": "final newline only",
+      "saved_source_matches": true,
+      "successful_compile_matches": true,
+      "saved_artifact_matches": true
+    },
+    {
+      "cell": 9,
+      "module": "TheoryGramImport",
+      "compiler_payload_sha256": "38a9d91b35486a8ffd6375121801d3f15caad2f1d1ee8df5dcfbebdc18ecdfdf",
+      "raw_notebook_body_sha256": "621fe59a4af5aa114695cb3abad0e0b70125fbe89e9607179d7bb2757ff9f7f1",
+      "normalization": "final newline only",
+      "saved_source_matches": true,
+      "successful_compile_matches": true,
+      "saved_artifact_matches": true
+    },
+    {
+      "cell": 11,
+      "module": "TheoryInteractionImport",
+      "compiler_payload_sha256": "a8e5e4463e1b5d711c28b60b646373ec050ee96736ea3a45b931d95dba940d03",
+      "raw_notebook_body_sha256": "7b849eacd7be0f7c190abb76f7245ac2c4d32effcd1853eac901549fe90b9c8b",
+      "normalization": "final newline only",
+      "saved_source_matches": true,
+      "successful_compile_matches": true,
+      "saved_artifact_matches": true
+    },
+    {
+      "cell": 13,
+      "module": "TheoryRegularImport",
+      "compiler_payload_sha256": "2eaf53174438c780e7f5f15e5684bc684f00800ae3c925a183f980a04c1ef2f7",
+      "raw_notebook_body_sha256": "279d9a593940c52acf47daff21533f24b03f8243ac2f12744fb8717b04871baf",
+      "normalization": "final newline only",
+      "saved_source_matches": true,
+      "successful_compile_matches": true,
+      "saved_artifact_matches": true
+    },
+    {
+      "cell": 15,
+      "module": "StepUWImport",
+      "compiler_payload_sha256": "fde5382cea8b31e8656ad856e12b1966e12eea55b2f93d0a43223a9e1891072d",
+      "raw_notebook_body_sha256": "fde5382cea8b31e8656ad856e12b1966e12eea55b2f93d0a43223a9e1891072d",
+      "normalization": "none",
+      "saved_source_matches": true,
+      "successful_compile_matches": true,
+      "saved_artifact_matches": true
+    },
+    {
+      "cell": 17,
+      "module": "StepUWStart",
+      "compiler_payload_sha256": "f982c49797586241fa2d16cc3d7be17a261dcd93f840b1ee385a43ca4768aee6",
+      "raw_notebook_body_sha256": "f982c49797586241fa2d16cc3d7be17a261dcd93f840b1ee385a43ca4768aee6",
+      "normalization": "none",
+      "saved_source_matches": true,
+      "successful_compile_matches": true,
+      "saved_artifact_matches": true
+    },
+    {
+      "cell": 19,
+      "module": "StepUWEndpoint",
+      "compiler_payload_sha256": "83c568b92a41da5060a1ebd9e8702829864418030dee6b4ccd547dfcfa2be36c",
+      "raw_notebook_body_sha256": "83c568b92a41da5060a1ebd9e8702829864418030dee6b4ccd547dfcfa2be36c",
+      "normalization": "none",
+      "saved_source_matches": true,
+      "successful_compile_matches": true,
+      "saved_artifact_matches": true
+    },
+    {
+      "cell": 21,
+      "module": "TheoryLimitImport",
+      "compiler_payload_sha256": "9291c3652b4cee177e6e3d59d9dedb7d45e0dc6400f3b5c41df9e29fad0c936e",
+      "raw_notebook_body_sha256": "01a3506b9ceb3e6f919455cc24866e315b15d8a123dcb1ee7126e7b40a272ee0",
+      "normalization": "final newline only",
+      "saved_source_matches": true,
+      "successful_compile_matches": true,
+      "saved_artifact_matches": true
+    },
+    {
+      "cell": 23,
+      "module": "TheorySolutionlimitImport",
+      "compiler_payload_sha256": "9b15b92f66eaacdd018270c90629a450ebcbd5e9396a2d30741634ee2893bd9e",
+      "raw_notebook_body_sha256": "d828d6641da2a8de12a9b7df7591ab5eee6428c777225d3f1eb0bbbdfef55355",
+      "normalization": "final newline only",
+      "saved_source_matches": true,
+      "successful_compile_matches": true,
+      "saved_artifact_matches": true
+    },
+    {
+      "cell": 25,
+      "module": "StepQRMImport",
+      "compiler_payload_sha256": "a40068712eadd8a76899a5c64a0af043e9828884cd82c4f2cbb9f422681fe78f",
+      "raw_notebook_body_sha256": "a40068712eadd8a76899a5c64a0af043e9828884cd82c4f2cbb9f422681fe78f",
+      "normalization": "none",
+      "saved_source_matches": true,
+      "successful_compile_matches": true,
+      "saved_artifact_matches": true
+    },
+    {
+      "cell": 27,
+      "module": "StepQRMStart",
+      "compiler_payload_sha256": "2c64133bcbcc92c6e3f0cdcf7d5a6f05bd4bb58a3c7dce54bcf71b49f7d026a0",
+      "raw_notebook_body_sha256": "2c64133bcbcc92c6e3f0cdcf7d5a6f05bd4bb58a3c7dce54bcf71b49f7d026a0",
+      "normalization": "none",
+      "saved_source_matches": true,
+      "successful_compile_matches": true,
+      "saved_artifact_matches": true
+    },
+    {
+      "cell": 29,
+      "module": "StepQRMEndpoint",
+      "compiler_payload_sha256": "b3b6655b539fcf75c4a4fdc634e602f4d186cd9fa6f53e0b684c1614accab689",
+      "raw_notebook_body_sha256": "b3b6655b539fcf75c4a4fdc634e602f4d186cd9fa6f53e0b684c1614accab689",
+      "normalization": "none",
+      "saved_source_matches": true,
+      "successful_compile_matches": true,
+      "saved_artifact_matches": true
+    }
+  ],
+  "local_proof_sources": {
+    "PkgC02": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC02.lean",
+      "sha256": "7087d9e8f8de7b861d84264b17b8f6c72072d5bfb5a8ed7f0527eb749a72f087",
+      "imports": [
+        "Contracts",
+        "Mathlib.Analysis.Calculus.FDeriv.Symmetric",
+        "Mathlib.Analysis.Calculus.FDeriv.CompCLM",
+        "Mathlib.Analysis.Calculus.FDeriv.Prod",
+        "Mathlib.Analysis.Calculus.ContDiff.Comp",
+        "Mathlib.Analysis.Calculus.Deriv.Prod",
+        "Mathlib.Analysis.Calculus.ContDiff.Operations",
+        "Mathlib.Analysis.Calculus.ContDiff.Deriv",
+        "Mathlib.Analysis.Calculus.Deriv.Mul",
+        "Mathlib.Analysis.Calculus.Deriv.Add",
+        "Mathlib.Analysis.SpecialFunctions.Log.Deriv",
+        "Mathlib.Tactic"
+      ],
+      "untrusted_axiom_or_placeholder": false
+    },
+    "Contracts": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\Contracts.lean",
+      "sha256": "e70876c538d52939b030e7813a6b1c60917a79e56e28b29146d22df8da98d656",
+      "imports": [
+        "Mathlib.Analysis.Calculus.ContDiff.Basic",
+        "Mathlib.Analysis.Calculus.Deriv.Basic",
+        "Mathlib.Analysis.SpecialFunctions.ExpDeriv",
+        "Mathlib.Analysis.SpecialFunctions.Log.Deriv",
+        "Mathlib.LinearAlgebra.Matrix.Determinant.Basic",
+        "Mathlib.Topology.Algebra.Order.Field"
+      ],
+      "untrusted_axiom_or_placeholder": false
+    },
+    "PkgContinuous": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgContinuous.lean",
+      "sha256": "755a7b1a0dc366ff85f2c7ec4e9d43f93614e36fed7bbf4af921a99ac8b52c0a",
+      "imports": [
+        "Contracts",
+        "Mathlib.Analysis.Calculus.FDeriv.Symmetric",
+        "Mathlib.Analysis.Calculus.FDeriv.CompCLM",
+        "Mathlib.Analysis.Calculus.FDeriv.Prod",
+        "Mathlib.Analysis.Calculus.ContDiff.Comp",
+        "Mathlib.Analysis.Calculus.Deriv.Prod",
+        "Mathlib.Tactic"
+      ],
+      "untrusted_axiom_or_placeholder": false
+    },
+    "PkgC11": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC11.lean",
+      "sha256": "b523e601dfcac8e45b61ae96d4b84dfae441c0c6673983c934c9013fc7ccb881",
+      "imports": [
+        "Contracts",
+        "PkgNumeric",
+        "Mathlib.Analysis.Calculus.FDeriv.Symmetric",
+        "Mathlib.Analysis.Calculus.FDeriv.CompCLM",
+        "Mathlib.Analysis.Calculus.FDeriv.Prod",
+        "Mathlib.Analysis.Calculus.ContDiff.Comp",
+        "Mathlib.Analysis.Calculus.ContDiff.Operations",
+        "Mathlib.Analysis.Calculus.Deriv.Prod",
+        "Mathlib.Analysis.Calculus.Deriv.Mul",
+        "Mathlib.Analysis.Calculus.Taylor",
+        "Mathlib.Tactic"
+      ],
+      "untrusted_axiom_or_placeholder": false
+    },
+    "PkgNumeric": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgNumeric.lean",
+      "sha256": "71ae80c3f6879e15a168043ae5b195c332dcb469a55f40971dcab10f7f571cec",
+      "imports": [
+        "Contracts",
+        "Mathlib.Analysis.Calculus.Taylor",
+        "Mathlib.Tactic"
+      ],
+      "untrusted_axiom_or_placeholder": false
+    },
+    "PkgGramComplete": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramComplete.lean",
+      "sha256": "caee87670e23907dc339569a9c05920a2b94a6f5a00a86a17969f6c75485dd7a",
+      "imports": [
+        "PkgC07Complete",
+        "PkgGramBridges",
+        "PkgC09Complete"
+      ],
+      "untrusted_axiom_or_placeholder": false
+    },
+    "PkgC07Complete": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC07Complete.lean",
+      "sha256": "6accaa50142717464c7c0215ba0d0b675cca50af97323b6c310cb46b2797bdfb",
+      "imports": [
+        "PkgGramActual",
+        "PkgGramHirota"
+      ],
+      "untrusted_axiom_or_placeholder": false
+    },
+    "PkgGramActual": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramActual.lean",
+      "sha256": "5116f5ad6c2c87ef40125093526b8bee041fc046de99a108da9e34d195dbba7f",
+      "imports": [
+        "Contracts",
+        "Mathlib.Analysis.Calculus.Deriv.Prod",
+        "Mathlib.Topology.Instances.Matrix",
+        "Mathlib.Tactic"
+      ],
+      "untrusted_axiom_or_placeholder": false
+    },
+    "PkgGramHirota": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramHirota.lean",
+      "sha256": "f94cda236d821bebf3074d932d9cc533676fe71fccd7878db4f846e3dc606eb4",
+      "imports": [
+        "PkgGramIdentity",
+        "PkgGramCalculus"
+      ],
+      "untrusted_axiom_or_placeholder": false
+    },
+    "PkgGramIdentity": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramIdentity.lean",
+      "sha256": "10888d695d8cd8ddd23241e20eed96a7f0a1811f72c132e0c838ec837fcb6221",
+      "imports": [
+        "PkgGramPlucker",
+        "Mathlib.Analysis.Calculus.Deriv.Prod"
+      ],
+      "untrusted_axiom_or_placeholder": false
+    },
+    "PkgGramPlucker": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramPlucker.lean",
+      "sha256": "42fedc534be7cf18fd265a42a4c4d6cc463933ba5ba749214f7940f848b2d983",
+      "imports": [
+        "PkgGramDeterminant"
+      ],
+      "untrusted_axiom_or_placeholder": false
+    },
+    "PkgGramDeterminant": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramDeterminant.lean",
+      "sha256": "caa6452ce636da231818745fbd546baddd9ade13528fcd24c3dbadadce188fe2",
+      "imports": [
+        "Contracts",
+        "Mathlib.Analysis.Calculus.FDeriv.Analytic",
+        "Mathlib.Topology.Instances.Matrix",
+        "Mathlib.LinearAlgebra.Matrix.SchurComplement",
+        "Mathlib.LinearAlgebra.Matrix.Charpoly.Coeff",
+        "Mathlib.Analysis.Polynomial.Basic",
+        "Mathlib.Tactic"
+      ],
+      "untrusted_axiom_or_placeholder": false
+    },
+    "PkgGramCalculus": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramCalculus.lean",
+      "sha256": "8c0b95945f4298164391bab92561659570f8c9ea38a52af01f2d4243508708f8",
+      "imports": [
+        "PkgGramDeterminant",
+        "Mathlib.Analysis.Calculus.Deriv.Prod"
+      ],
+      "untrusted_axiom_or_placeholder": false
+    },
+    "PkgGramBridges": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramBridges.lean",
+      "sha256": "462236c97aab6a226eb339ec0a0ca72b32967adcc83e82b5273dffa5607f95b9",
+      "imports": [
+        "Contracts",
+        "PkgGramEntry",
+        "PkgNonlinear",
+        "Mathlib.Tactic"
+      ],
+      "untrusted_axiom_or_placeholder": false
+    },
+    "PkgGramEntry": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramEntry.lean",
+      "sha256": "4d20e096b17a2512e370d924f029af0a9153b10259e06a2c7e0afdc06b1776ae",
+      "imports": [
+        "Contracts",
+        "Mathlib.Analysis.SpecialFunctions.Exponential",
+        "Mathlib.Tactic"
+      ],
+      "untrusted_axiom_or_placeholder": false
+    },
+    "PkgNonlinear": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgNonlinear.lean",
+      "sha256": "58ee97d70c67417c428a4b4c67e94525f7408ea0fde65b532913a3682e68d284",
+      "imports": [
+        "Contracts",
+        "Mathlib.Analysis.Calculus.ContDiff.Operations",
+        "Mathlib.Analysis.Calculus.ContDiff.Deriv",
+        "Mathlib.Analysis.Calculus.ContDiff.Comp",
+        "Mathlib.Analysis.Calculus.Deriv.Mul",
+        "Mathlib.Analysis.Calculus.Deriv.Add",
+        "Mathlib.Analysis.Calculus.Deriv.Pow",
+        "Mathlib.Analysis.Calculus.Deriv.Inv",
+        "Mathlib.Analysis.Calculus.FDeriv.Symmetric",
+        "Mathlib.Analysis.Calculus.FDeriv.Linear",
+        "Mathlib.Analysis.Calculus.ContDiff.FTaylorSeries",
+        "Mathlib.Analysis.Normed.Operator.Bilinear",
+        "Mathlib.Analysis.SpecialFunctions.Log.Deriv",
+        "Mathlib.Tactic"
+      ],
+      "untrusted_axiom_or_placeholder": false
+    },
+    "PkgC09Complete": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC09Complete.lean",
+      "sha256": "40afa70ab22c6c8850221b5a3ac58e517839a6693587be7a815ce782bf903e22",
+      "imports": [
+        "Contracts",
+        "Mathlib.LinearAlgebra.Matrix.SchurComplement",
+        "Mathlib.LinearAlgebra.Matrix.Charpoly.Coeff",
+        "Mathlib.Algebra.BigOperators.Group.Finset.Powerset",
+        "Mathlib.Tactic"
+      ],
+      "untrusted_axiom_or_placeholder": false
+    },
+    "ReportNonlinearUW": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\ReportNonlinearUW.lean",
+      "sha256": "413d45c48b64d5dc1214c7931e1581b3e1a8c49d3c81132289aba387b5c67975",
+      "imports": [
+        "PkgNonlinear",
+        "PkgLattice"
+      ],
+      "untrusted_axiom_or_placeholder": false
+    },
+    "PkgLattice": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgLattice.lean",
+      "sha256": "c28f849bac9607fef3bf0a9e104ff761daf60be4742d6d0884f83b86cf193f3f",
+      "imports": [
+        "Contracts",
+        "Mathlib.Analysis.Calculus.Deriv.Add",
+        "Mathlib.Analysis.Calculus.Deriv.Mul",
+        "Mathlib.Analysis.Calculus.Deriv.Pow",
+        "Mathlib.Analysis.Calculus.ContDiff.Deriv",
+        "Mathlib.Analysis.Calculus.ContDiff.Comp",
+        "Mathlib.Analysis.Calculus.ContDiff.Operations",
+        "Mathlib.Analysis.Calculus.FDeriv.Prod",
+        "Mathlib.Tactic"
+      ],
+      "untrusted_axiom_or_placeholder": false
+    },
+    "PkgC17": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC17.lean",
+      "sha256": "2bf3682f3e61d83d72171d894552f7176e374e1654d747efcb2bfa92e6446441",
+      "imports": [
+        "Contracts",
+        "PkgNumeric",
+        "PkgC11",
+        "PkgC02",
+        "Mathlib.Analysis.Calculus.Taylor",
+        "Mathlib.Tactic"
+      ],
+      "untrusted_axiom_or_placeholder": false
+    },
+    "PkgC18Complete": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC18Complete.lean",
+      "sha256": "2bea013d2bfb034f7b67e96a47571e984d983e8000375233d4f777f6ac20e490",
+      "imports": [
+        "PkgC02",
+        "PkgC11",
+        "PkgLattice",
+        "Mathlib.Analysis.Calculus.IteratedDeriv.Lemmas"
+      ],
+      "untrusted_axiom_or_placeholder": false
+    },
+    "PkgC22Complete": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC22Complete.lean",
+      "sha256": "fb070f668292030ce371518839b8b7a49016b34a7e80fb2b88af70c91a756b7b",
+      "imports": [
+        "PkgGramExtensionAnalytic",
+        "PkgCenteredUniform"
+      ],
+      "untrusted_axiom_or_placeholder": false
+    },
+    "PkgGramExtensionAnalytic": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramExtensionAnalytic.lean",
+      "sha256": "35ffc304cc21d037ef02f2fd33bd06cf48741756bd577432310c508ca29f9235",
+      "imports": [
+        "PkgGramExtensionBridge",
+        "PkgAnalyticJets",
+        "PkgC02"
+      ],
+      "untrusted_axiom_or_placeholder": false
+    },
+    "PkgGramExtensionBridge": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramExtensionBridge.lean",
+      "sha256": "4d4e5ede44c1939a6d848657348f45dde7a752c0d5fc40768549ea3ff1027aac",
+      "imports": [
+        "PkgGramInterpolationBridge"
+      ],
+      "untrusted_axiom_or_placeholder": false
+    },
+    "PkgGramInterpolationBridge": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramInterpolationBridge.lean",
+      "sha256": "8d8478e7598c934611a160037bd54669a5dd877b29a2b2242ab071344cad5599",
+      "imports": [
+        "PkgGramInterpolation"
+      ],
+      "untrusted_axiom_or_placeholder": false
+    },
+    "PkgGramInterpolation": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramInterpolation.lean",
+      "sha256": "e9847658d61bb6722b0b28926dec0d26e939a22143d1c876835d7bce1673ee31",
+      "imports": [
+        "PkgGramRateExtension",
+        "PkgC09Complete",
+        "Mathlib.Analysis.Analytic.IsolatedZeros"
+      ],
+      "untrusted_axiom_or_placeholder": false
+    },
+    "PkgGramRateExtension": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramRateExtension.lean",
+      "sha256": "0bfd611dec7afd45e4dc4f79a2bdcf460e5a0f93a0e69f2faac3ec9bce0eb3df",
+      "imports": [
+        "Contracts",
+        "Mathlib.Analysis.Analytic.IsolatedZeros",
+        "Mathlib.Tactic"
+      ],
+      "untrusted_axiom_or_placeholder": false
+    },
+    "PkgAnalyticJets": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgAnalyticJets.lean",
+      "sha256": "e9a2b095b0cd8836dada85caa2ff9a1c73289fe082923acb91c186a1d6516428",
+      "imports": [
+        "PkgUniformAnalytic",
+        "Mathlib.Analysis.Calculus.Deriv.Shift"
+      ],
+      "untrusted_axiom_or_placeholder": false
+    },
+    "PkgUniformAnalytic": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgUniformAnalytic.lean",
+      "sha256": "d45c4e99ec7cb5dddcb7d18de5973ff6ef0f54cb183974e22626546b474d11f8",
+      "imports": [
+        "PkgUniformTaylor",
+        "Mathlib.Analysis.Calculus.FDeriv.Analytic",
+        "Mathlib.Analysis.Analytic.Constructions",
+        "Mathlib.Analysis.Calculus.Deriv.Prod"
+      ],
+      "untrusted_axiom_or_placeholder": false
+    },
+    "PkgUniformTaylor": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgUniformTaylor.lean",
+      "sha256": "96842cda750c0b39a0bfb6167a30ce7b20cd40cada07acff7d95175fae7f6842",
+      "imports": [
+        "Contracts",
+        "Mathlib.Analysis.Calculus.MeanValue",
+        "Mathlib.Analysis.Normed.Group.Bounded",
+        "Mathlib.Tactic"
+      ],
+      "untrusted_axiom_or_placeholder": false
+    },
+    "PkgCenteredUniform": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgCenteredUniform.lean",
+      "sha256": "a25c8172b9007d46dd4c1f1127528314a1a4a1c80b11515cef04793cacbdfb12",
+      "imports": [
+        "PkgCenteredFamily"
+      ],
+      "untrusted_axiom_or_placeholder": false
+    },
+    "PkgCenteredFamily": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgCenteredFamily.lean",
+      "sha256": "c55f2238b18d89b755a453a3573dc4177bfcbb7f3de20defabf9b8882d02a403",
+      "imports": [
+        "PkgAnalyticJets"
+      ],
+      "untrusted_axiom_or_placeholder": false
+    },
+    "PkgC23Complete": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC23Complete.lean",
+      "sha256": "631fabb1154d1f33bd3b8ca61767a9a1bf1eb385d541228724ecdc0c44c25871",
+      "imports": [
+        "PkgContinuousGramCurve"
+      ],
+      "untrusted_axiom_or_placeholder": false
+    },
+    "PkgContinuousGramCurve": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgContinuousGramCurve.lean",
+      "sha256": "0a89d556861a04e3fdff597d84be1b4d2794f3db7ca8a764ce9ad104d8b34d7e",
+      "imports": [
+        "PkgContinuousGram"
+      ],
+      "untrusted_axiom_or_placeholder": false
+    },
+    "PkgContinuousGram": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgContinuousGram.lean",
+      "sha256": "7e9be6b772cad1027e495593af2392b7f3579a77c971f7b71cdda85eeeaf6184",
+      "imports": [
+        "PkgC07Complete",
+        "PkgC02",
+        "PkgC09Complete"
+      ],
+      "untrusted_axiom_or_placeholder": false
+    },
+    "PkgQuotientRate": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgQuotientRate.lean",
+      "sha256": "0e46edfe575e80fac40682c21fb07de62673570b0a2b4ca9e4fb4c7e425f011a",
+      "imports": [
+        "Contracts",
+        "Mathlib.Analysis.Calculus.ContDiff.Operations",
+        "Mathlib.Analysis.Calculus.ContDiff.Deriv",
+        "Mathlib.Analysis.Calculus.Deriv.MeanValue",
+        "Mathlib.Analysis.Calculus.Deriv.Inv",
+        "Mathlib.Analysis.Calculus.Deriv.Mul",
+        "Mathlib.Analysis.Calculus.Deriv.Add",
+        "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+        "Mathlib.Tactic"
+      ],
+      "untrusted_axiom_or_placeholder": false
+    },
+    "ReportNonlinearQRM": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\ReportNonlinearQRM.lean",
+      "sha256": "ed1d1b6473c3567ec27f5a15969d02579c114475cd1d8c3239d5b956d03d4804",
+      "imports": [
+        "ReportQRMCalculus",
+        "ReportNonlinearUW"
+      ],
+      "untrusted_axiom_or_placeholder": false
+    },
+    "ReportQRMCalculus": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\ReportQRMCalculus.lean",
+      "sha256": "874992d19778987c5810d010381f235b0494820bce878580489209ff9373aacd",
+      "imports": [
+        "PkgLattice",
+        "PkgQuotientRate",
+        "Mathlib.Analysis.SpecialFunctions.ExpDeriv",
+        "Mathlib.Analysis.Calculus.Deriv.Inv",
+        "Mathlib.Tactic"
+      ],
+      "untrusted_axiom_or_placeholder": false
+    }
+  },
+  "proof_source_cache_correspondence": [
+    {
+      "module": "PkgC02",
+      "source_sha256": "7087d9e8f8de7b861d84264b17b8f6c72072d5bfb5a8ed7f0527eb749a72f087",
+      "cached_source_matches": true,
+      "manifests": [
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\00cf406ec6e8e302ec132c067f140bce2f430df2b5492289e2732e312ad9b387\\build_0ae2960e938d450e873af31704e2ba6b",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        },
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\00cf406ec6e8e302ec132c067f140bce2f430df2b5492289e2732e312ad9b387\\build_0ae2960e938d450e873af31704e2ba6b",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        },
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\00cf406ec6e8e302ec132c067f140bce2f430df2b5492289e2732e312ad9b387\\build_0ae2960e938d450e873af31704e2ba6b",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        }
+      ]
+    },
+    {
+      "module": "Contracts",
+      "source_sha256": "e70876c538d52939b030e7813a6b1c60917a79e56e28b29146d22df8da98d656",
+      "cached_source_matches": true,
+      "manifests": [
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\618d0c44480ae6e82d7c2980ab033d39f38170579f8af7d65994e324fe784ec7\\build_a5f024408469453da695fd35ed5ae894",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        },
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\618d0c44480ae6e82d7c2980ab033d39f38170579f8af7d65994e324fe784ec7\\build_a5f024408469453da695fd35ed5ae894",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        },
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\618d0c44480ae6e82d7c2980ab033d39f38170579f8af7d65994e324fe784ec7\\build_a5f024408469453da695fd35ed5ae894",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        },
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\618d0c44480ae6e82d7c2980ab033d39f38170579f8af7d65994e324fe784ec7\\build_a5f024408469453da695fd35ed5ae894",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        },
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\618d0c44480ae6e82d7c2980ab033d39f38170579f8af7d65994e324fe784ec7\\build_a5f024408469453da695fd35ed5ae894",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        },
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\618d0c44480ae6e82d7c2980ab033d39f38170579f8af7d65994e324fe784ec7\\build_a5f024408469453da695fd35ed5ae894",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        },
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\618d0c44480ae6e82d7c2980ab033d39f38170579f8af7d65994e324fe784ec7\\build_a5f024408469453da695fd35ed5ae894",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        },
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\618d0c44480ae6e82d7c2980ab033d39f38170579f8af7d65994e324fe784ec7\\build_a5f024408469453da695fd35ed5ae894",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        },
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\618d0c44480ae6e82d7c2980ab033d39f38170579f8af7d65994e324fe784ec7\\build_a5f024408469453da695fd35ed5ae894",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        }
+      ]
+    },
+    {
+      "module": "PkgContinuous",
+      "source_sha256": "755a7b1a0dc366ff85f2c7ec4e9d43f93614e36fed7bbf4af921a99ac8b52c0a",
+      "cached_source_matches": true,
+      "manifests": [
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\1a26b337c5e1daad0207090704ba694b595cf168c33c143dd4ef7fbf71c8ec33\\build_5fe03b1318ed4f7199c022e7c45fb4f0",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        }
+      ]
+    },
+    {
+      "module": "PkgC11",
+      "source_sha256": "b523e601dfcac8e45b61ae96d4b84dfae441c0c6673983c934c9013fc7ccb881",
+      "cached_source_matches": true,
+      "manifests": [
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\f319cdfed51dec400897f7427ca9e5ba103ec32b9c14edaedece8a28b9d7d31a\\build_42c0e5e3d503474fbfe67862e1a429b1",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        },
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\f319cdfed51dec400897f7427ca9e5ba103ec32b9c14edaedece8a28b9d7d31a\\build_42c0e5e3d503474fbfe67862e1a429b1",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        }
+      ]
+    },
+    {
+      "module": "PkgNumeric",
+      "source_sha256": "71ae80c3f6879e15a168043ae5b195c332dcb469a55f40971dcab10f7f571cec",
+      "cached_source_matches": true,
+      "manifests": [
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\8746d4b22c9e679b2fb4fa84d7e39d919e470c30a60b5593b3550fb5cf8847eb\\build_f9b215a8eacd49769cb822e42f857448",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        },
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\8746d4b22c9e679b2fb4fa84d7e39d919e470c30a60b5593b3550fb5cf8847eb\\build_f9b215a8eacd49769cb822e42f857448",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        }
+      ]
+    },
+    {
+      "module": "PkgGramComplete",
+      "source_sha256": "caee87670e23907dc339569a9c05920a2b94a6f5a00a86a17969f6c75485dd7a",
+      "cached_source_matches": true,
+      "manifests": [
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\de3d9e4849b2b2b4888dc1495a00feead18475730df0275fb9f237d40aa6d7ef\\build_acc31b7292944bb7a41bcfcde133e9d0",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        },
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\de3d9e4849b2b2b4888dc1495a00feead18475730df0275fb9f237d40aa6d7ef\\build_acc31b7292944bb7a41bcfcde133e9d0",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        }
+      ]
+    },
+    {
+      "module": "PkgC07Complete",
+      "source_sha256": "6accaa50142717464c7c0215ba0d0b675cca50af97323b6c310cb46b2797bdfb",
+      "cached_source_matches": true,
+      "manifests": [
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\16306b4c6dfe14d19d09734ef8e0e6a62e21bae914ab5b32eaa3d1b41bcc9e07\\build_8cb19a24dcd14e0bba8df6facebae1e4",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        },
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\16306b4c6dfe14d19d09734ef8e0e6a62e21bae914ab5b32eaa3d1b41bcc9e07\\build_8cb19a24dcd14e0bba8df6facebae1e4",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        },
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\16306b4c6dfe14d19d09734ef8e0e6a62e21bae914ab5b32eaa3d1b41bcc9e07\\build_8cb19a24dcd14e0bba8df6facebae1e4",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        }
+      ]
+    },
+    {
+      "module": "PkgGramActual",
+      "source_sha256": "5116f5ad6c2c87ef40125093526b8bee041fc046de99a108da9e34d195dbba7f",
+      "cached_source_matches": true,
+      "manifests": [
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\bc5af35d234fa1d5697cd5945c618907c8c0c779cd40cbdbf27f50cc7f1edc19\\build_23f837e292a541bd80b694b354fb22af",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        },
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\bc5af35d234fa1d5697cd5945c618907c8c0c779cd40cbdbf27f50cc7f1edc19\\build_23f837e292a541bd80b694b354fb22af",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        },
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\bc5af35d234fa1d5697cd5945c618907c8c0c779cd40cbdbf27f50cc7f1edc19\\build_23f837e292a541bd80b694b354fb22af",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        }
+      ]
+    },
+    {
+      "module": "PkgGramHirota",
+      "source_sha256": "f94cda236d821bebf3074d932d9cc533676fe71fccd7878db4f846e3dc606eb4",
+      "cached_source_matches": true,
+      "manifests": [
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\a07fae94bd260f646ca124c478a3e588888361c2c0e0b7450a93097f1ae22b3f\\build_9ca21589dfc7477ea223543bff7495f2",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        },
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\a07fae94bd260f646ca124c478a3e588888361c2c0e0b7450a93097f1ae22b3f\\build_9ca21589dfc7477ea223543bff7495f2",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        },
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\a07fae94bd260f646ca124c478a3e588888361c2c0e0b7450a93097f1ae22b3f\\build_9ca21589dfc7477ea223543bff7495f2",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        }
+      ]
+    },
+    {
+      "module": "PkgGramIdentity",
+      "source_sha256": "10888d695d8cd8ddd23241e20eed96a7f0a1811f72c132e0c838ec837fcb6221",
+      "cached_source_matches": true,
+      "manifests": [
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\86e3ca8328eb8f5477a83d808ac70703c5e04ba4bb01b4b8bd53aad6dfad99ae\\build_366c416af490496fa71ffc113ef5f87a",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        },
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\86e3ca8328eb8f5477a83d808ac70703c5e04ba4bb01b4b8bd53aad6dfad99ae\\build_366c416af490496fa71ffc113ef5f87a",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        },
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\86e3ca8328eb8f5477a83d808ac70703c5e04ba4bb01b4b8bd53aad6dfad99ae\\build_366c416af490496fa71ffc113ef5f87a",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        }
+      ]
+    },
+    {
+      "module": "PkgGramPlucker",
+      "source_sha256": "42fedc534be7cf18fd265a42a4c4d6cc463933ba5ba749214f7940f848b2d983",
+      "cached_source_matches": true,
+      "manifests": [
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\903287758ca22dd2dcbefadf320c054c2a0ff3667f56af73cf24373e120f41da\\build_734834655a484ec49500f534bcf952b5",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        },
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\903287758ca22dd2dcbefadf320c054c2a0ff3667f56af73cf24373e120f41da\\build_734834655a484ec49500f534bcf952b5",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        },
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\903287758ca22dd2dcbefadf320c054c2a0ff3667f56af73cf24373e120f41da\\build_734834655a484ec49500f534bcf952b5",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        }
+      ]
+    },
+    {
+      "module": "PkgGramDeterminant",
+      "source_sha256": "caa6452ce636da231818745fbd546baddd9ade13528fcd24c3dbadadce188fe2",
+      "cached_source_matches": true,
+      "manifests": [
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\f819b5e729eaa65eb806fa749210b5f76f2f0d78a6d2bb73a5c882c9ea788b9e\\build_ebae0326d4cb452bb40373339953802a",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        },
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\f819b5e729eaa65eb806fa749210b5f76f2f0d78a6d2bb73a5c882c9ea788b9e\\build_ebae0326d4cb452bb40373339953802a",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        },
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\f819b5e729eaa65eb806fa749210b5f76f2f0d78a6d2bb73a5c882c9ea788b9e\\build_ebae0326d4cb452bb40373339953802a",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        }
+      ]
+    },
+    {
+      "module": "PkgGramCalculus",
+      "source_sha256": "8c0b95945f4298164391bab92561659570f8c9ea38a52af01f2d4243508708f8",
+      "cached_source_matches": true,
+      "manifests": [
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\fee4aa0a11097ec27a2dfb9083273f4eeb68a13fb0472579a5561b016c203240\\build_97c662a0401a400d8ecc7015f0d192e0",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        },
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\fee4aa0a11097ec27a2dfb9083273f4eeb68a13fb0472579a5561b016c203240\\build_97c662a0401a400d8ecc7015f0d192e0",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        },
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\fee4aa0a11097ec27a2dfb9083273f4eeb68a13fb0472579a5561b016c203240\\build_97c662a0401a400d8ecc7015f0d192e0",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        }
+      ]
+    },
+    {
+      "module": "PkgGramBridges",
+      "source_sha256": "462236c97aab6a226eb339ec0a0ca72b32967adcc83e82b5273dffa5607f95b9",
+      "cached_source_matches": true,
+      "manifests": [
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\c2e9b0bec3880d6ce8604db6f07d436ec6840e03c70036301b0f099d26977b29\\build_bf8c930b53fe4896b585eee6f76e80fb",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        },
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\c2e9b0bec3880d6ce8604db6f07d436ec6840e03c70036301b0f099d26977b29\\build_bf8c930b53fe4896b585eee6f76e80fb",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        }
+      ]
+    },
+    {
+      "module": "PkgGramEntry",
+      "source_sha256": "4d20e096b17a2512e370d924f029af0a9153b10259e06a2c7e0afdc06b1776ae",
+      "cached_source_matches": true,
+      "manifests": [
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\a0f8bd0203bfd389d1f4a0255aa33b7743f96da11a7e625f77c973b3df749eea\\build_215c93f1f9d942c9a4384e921f17fe69",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        },
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\a0f8bd0203bfd389d1f4a0255aa33b7743f96da11a7e625f77c973b3df749eea\\build_215c93f1f9d942c9a4384e921f17fe69",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        },
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\a0f8bd0203bfd389d1f4a0255aa33b7743f96da11a7e625f77c973b3df749eea\\build_215c93f1f9d942c9a4384e921f17fe69",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        }
+      ]
+    },
+    {
+      "module": "PkgNonlinear",
+      "source_sha256": "58ee97d70c67417c428a4b4c67e94525f7408ea0fde65b532913a3682e68d284",
+      "cached_source_matches": true,
+      "manifests": [
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\87162114fa5cff4a340cee62acc5a0c73241d696125293a3cdc00ebc7d28bc79\\build_ff890ddecc774749940f59a8227cd86b",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        },
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\87162114fa5cff4a340cee62acc5a0c73241d696125293a3cdc00ebc7d28bc79\\build_ff890ddecc774749940f59a8227cd86b",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        },
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\87162114fa5cff4a340cee62acc5a0c73241d696125293a3cdc00ebc7d28bc79\\build_ff890ddecc774749940f59a8227cd86b",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        },
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\87162114fa5cff4a340cee62acc5a0c73241d696125293a3cdc00ebc7d28bc79\\build_ff890ddecc774749940f59a8227cd86b",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        }
+      ]
+    },
+    {
+      "module": "PkgC09Complete",
+      "source_sha256": "40afa70ab22c6c8850221b5a3ac58e517839a6693587be7a815ce782bf903e22",
+      "cached_source_matches": true,
+      "manifests": [
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\54f49cab1cc2cbf0be5d58216b8206f21c25bf25c337d3cb2c56c27285193bac\\build_6477e123769e48f8b8810e1c0762812d",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        },
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\54f49cab1cc2cbf0be5d58216b8206f21c25bf25c337d3cb2c56c27285193bac\\build_6477e123769e48f8b8810e1c0762812d",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        },
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\54f49cab1cc2cbf0be5d58216b8206f21c25bf25c337d3cb2c56c27285193bac\\build_6477e123769e48f8b8810e1c0762812d",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        }
+      ]
+    },
+    {
+      "module": "ReportNonlinearUW",
+      "source_sha256": "413d45c48b64d5dc1214c7931e1581b3e1a8c49d3c81132289aba387b5c67975",
+      "cached_source_matches": true,
+      "manifests": [
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\73492590c23f7b9c3b3c76ed953badd070f733e8ab80c951d72552280f8b3844\\build_a452544a33534b06b89225060451b865",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        },
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\73492590c23f7b9c3b3c76ed953badd070f733e8ab80c951d72552280f8b3844\\build_a452544a33534b06b89225060451b865",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        }
+      ]
+    },
+    {
+      "module": "PkgLattice",
+      "source_sha256": "c28f849bac9607fef3bf0a9e104ff761daf60be4742d6d0884f83b86cf193f3f",
+      "cached_source_matches": true,
+      "manifests": [
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\11a9253ee55909de480ba8c3ea6280451289d5f2c4f87a9efe99cec6485ba3e7\\build_24cde95606df421a81998f2b548e03fa",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        },
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\11a9253ee55909de480ba8c3ea6280451289d5f2c4f87a9efe99cec6485ba3e7\\build_24cde95606df421a81998f2b548e03fa",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        },
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\11a9253ee55909de480ba8c3ea6280451289d5f2c4f87a9efe99cec6485ba3e7\\build_24cde95606df421a81998f2b548e03fa",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        }
+      ]
+    },
+    {
+      "module": "PkgC17",
+      "source_sha256": "2bf3682f3e61d83d72171d894552f7176e374e1654d747efcb2bfa92e6446441",
+      "cached_source_matches": true,
+      "manifests": [
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\0b88318e37263dafe03ea778b56bfe05748db1262d8c4fbe52eaefc9325b16a4\\build_d35dc1674a3e406396694240c6a3e5f5",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        }
+      ]
+    },
+    {
+      "module": "PkgC18Complete",
+      "source_sha256": "2bea013d2bfb034f7b67e96a47571e984d983e8000375233d4f777f6ac20e490",
+      "cached_source_matches": true,
+      "manifests": [
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\18a395f5cb1707612c2208e6f268cb8c729166ac84bc9111715a886e034b3cb9\\build_9a1f24fa65b64d6c90991f8100ab8c27",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        }
+      ]
+    },
+    {
+      "module": "PkgC22Complete",
+      "source_sha256": "fb070f668292030ce371518839b8b7a49016b34a7e80fb2b88af70c91a756b7b",
+      "cached_source_matches": true,
+      "manifests": [
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\f344f8dfaaaa726f2fb6761e1f2e4f24e13b315b5a211fc972fb8a3db348e72e\\build_541d6075a27c4725997e6398bdd590a6",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        }
+      ]
+    },
+    {
+      "module": "PkgGramExtensionAnalytic",
+      "source_sha256": "35ffc304cc21d037ef02f2fd33bd06cf48741756bd577432310c508ca29f9235",
+      "cached_source_matches": true,
+      "manifests": [
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\3e4a77507ae1f9e9a3bc05e069ddc094eff0e3cbc089f3517f2cbd2bfbb5f35d\\build_5544328d8a584499afe2fe27da5e45f1",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        }
+      ]
+    },
+    {
+      "module": "PkgGramExtensionBridge",
+      "source_sha256": "4d4e5ede44c1939a6d848657348f45dde7a752c0d5fc40768549ea3ff1027aac",
+      "cached_source_matches": true,
+      "manifests": [
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\a92e97e02aaaaf49fb699455eae3f20d8bc299fba422919087eb0b677afa865f\\build_f1a29d66f77b467a96d2f2bb046cb45a",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        }
+      ]
+    },
+    {
+      "module": "PkgGramInterpolationBridge",
+      "source_sha256": "8d8478e7598c934611a160037bd54669a5dd877b29a2b2242ab071344cad5599",
+      "cached_source_matches": true,
+      "manifests": [
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\583adbf2cd6bc4899f9da9019bea6de89ff90acbce985cee622c1877d2589eaf\\build_79256f5ee96540a099d7d64272667252",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        }
+      ]
+    },
+    {
+      "module": "PkgGramInterpolation",
+      "source_sha256": "e9847658d61bb6722b0b28926dec0d26e939a22143d1c876835d7bce1673ee31",
+      "cached_source_matches": true,
+      "manifests": [
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\e814603ddae9e4c71e0efb022c4136f305f36f5c2a562755ce98bdb991b9736a\\build_1bb028e0b3ab4c2b85000f7c89a32119",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        }
+      ]
+    },
+    {
+      "module": "PkgGramRateExtension",
+      "source_sha256": "0bfd611dec7afd45e4dc4f79a2bdcf460e5a0f93a0e69f2faac3ec9bce0eb3df",
+      "cached_source_matches": true,
+      "manifests": [
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\ad4ec62424ec32613f60ecacd21545ce5dcb657e3feca205331a3f9aac502b9f\\build_26c3966a1be84dfcb21ce7d594a18d8f",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        }
+      ]
+    },
+    {
+      "module": "PkgAnalyticJets",
+      "source_sha256": "e9a2b095b0cd8836dada85caa2ff9a1c73289fe082923acb91c186a1d6516428",
+      "cached_source_matches": true,
+      "manifests": [
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\689769cda71cd080e28b90d19ee30ee111c4a46403c860bce6882a5bdd212061\\build_2243c9f558da4a63bbb719946f75dbc3",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        }
+      ]
+    },
+    {
+      "module": "PkgUniformAnalytic",
+      "source_sha256": "d45c4e99ec7cb5dddcb7d18de5973ff6ef0f54cb183974e22626546b474d11f8",
+      "cached_source_matches": true,
+      "manifests": [
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\58d048da2eee7faa84339bda992389598d33df18c3cb96bfc63cf6b57b9ea945\\build_f0644145c42946008aa5ee22b8db42d4",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        }
+      ]
+    },
+    {
+      "module": "PkgUniformTaylor",
+      "source_sha256": "96842cda750c0b39a0bfb6167a30ce7b20cd40cada07acff7d95175fae7f6842",
+      "cached_source_matches": true,
+      "manifests": [
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\fddc53f59480a1e3adf2978a409164219e07da8f6ebc1e70b4e4ec667fc23e01\\build_2128a8832c59459286de8b2b2e24ce4c",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        }
+      ]
+    },
+    {
+      "module": "PkgCenteredUniform",
+      "source_sha256": "a25c8172b9007d46dd4c1f1127528314a1a4a1c80b11515cef04793cacbdfb12",
+      "cached_source_matches": true,
+      "manifests": [
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\749d8f8f8484850bb975c4dab16281cafcb4d3a7c2cd1eb10b9d2b4a6ef3f1f1\\build_c560699d5cf3424fb99ea2ee95c02808",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        }
+      ]
+    },
+    {
+      "module": "PkgCenteredFamily",
+      "source_sha256": "c55f2238b18d89b755a453a3573dc4177bfcbb7f3de20defabf9b8882d02a403",
+      "cached_source_matches": true,
+      "manifests": [
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\df5d88be1d3bdb255b65457667a99549b431710e687a15f097103469199ff9cd\\build_21d6677798e94a838ca2cc1ec909b366",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        }
+      ]
+    },
+    {
+      "module": "PkgC23Complete",
+      "source_sha256": "631fabb1154d1f33bd3b8ca61767a9a1bf1eb385d541228724ecdc0c44c25871",
+      "cached_source_matches": true,
+      "manifests": [
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\a5f2b105f8f7f53c55353eed24f839ce03a51036c1e66ec56f01bf5e2efd1b0e\\build_4f899411e9564cbb957df5d6b199e043",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        }
+      ]
+    },
+    {
+      "module": "PkgContinuousGramCurve",
+      "source_sha256": "0a89d556861a04e3fdff597d84be1b4d2794f3db7ca8a764ce9ad104d8b34d7e",
+      "cached_source_matches": true,
+      "manifests": [
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\a2215a8e998cf53482c0412a7cc39f69bfb749a1c07e350736e5156abec0b92f\\build_b18820d74e874429b596bdb1d72cfe53",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        }
+      ]
+    },
+    {
+      "module": "PkgContinuousGram",
+      "source_sha256": "7e9be6b772cad1027e495593af2392b7f3579a77c971f7b71cdda85eeeaf6184",
+      "cached_source_matches": true,
+      "manifests": [
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\e876465e31a0ced9a5d7260aceddff0e3c0070e0a6b9b50b40061d9108b29b1b\\build_ff13280db94747ceb1105a3f2b92b955",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        }
+      ]
+    },
+    {
+      "module": "PkgQuotientRate",
+      "source_sha256": "0e46edfe575e80fac40682c21fb07de62673570b0a2b4ca9e4fb4c7e425f011a",
+      "cached_source_matches": true,
+      "manifests": [
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\bcbc1f8687616cd047a2caa504da5477660ba79c72ef5d5e64d61692550355c6\\build_dbe7149bd3994945b0444eb421b9fcb7",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        },
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\bcbc1f8687616cd047a2caa504da5477660ba79c72ef5d5e64d61692550355c6\\build_dbe7149bd3994945b0444eb421b9fcb7",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        }
+      ]
+    },
+    {
+      "module": "ReportNonlinearQRM",
+      "source_sha256": "ed1d1b6473c3567ec27f5a15969d02579c114475cd1d8c3239d5b956d03d4804",
+      "cached_source_matches": true,
+      "manifests": [
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\ce24a9d94bf2f58b2653e04c6651aa8189a60d1004a1e185fca39f09b282707e\\build_de1845d2cccd45dcaa1345e8f1559a2e",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        }
+      ]
+    },
+    {
+      "module": "ReportQRMCalculus",
+      "source_sha256": "874992d19778987c5810d010381f235b0494820bce878580489209ff9373aacd",
+      "cached_source_matches": true,
+      "manifests": [
+        {
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\a56876de9c80569e1f10d47c97af0c13bf39433197258350b085ea6c80038cd9\\build_8cf28e04e5f94adca5ff783bbc7ea649",
+          "artifact_matches": true,
+          "transitive_sources_match": true
+        }
+      ]
+    }
+  ],
+  "contdiff_top_semantics": {
+    "path": "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\Mathlib\\Analysis\\Calculus\\ContDiff\\Defs.lean",
+    "lines": [
+      91,
+      1196
+    ],
+    "meaning": "ContDiff real top is real analytic (omega), not the infinite smoothness index."
+  },
+  "scope_notes": [
+    {
+      "cell": 18,
+      "line": 1,
+      "classification": "domain wording",
+      "priority": "P3",
+      "text": "非零区域不足以定义实值 log F、log G；本节后文以及全部 Lean 终点实际采用 F,G>0。改为严格为正的区域，或明确使用 log|F|, log|G| 并另证局部版本。",
+      "invalidates_current_theorems": false
+    },
+    {
+      "cell": 7,
+      "line": 22,
+      "classification": "formal coverage wording",
+      "priority": "P3",
+      "text": "正文仅在 n<0 时要求 p_i-s≠0；C07 实际通过 LayerOK 对所有 n 要求 p_i-s≠0。正文通用辅助层引理在 n≥0 的退化参数情形比当前 Lean 定理更宽。F/G 采用 s=a±h/2，Admissible 已排除这些退化，故主定理无缺口。",
+      "proof_file": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\Contracts.lean",
+      "proof_lines": [
+        104,
+        105,
+        134,
+        135
+      ],
+      "invalidates_current_theorems": false
+    },
+    {
+      "cell": 18,
+      "line": 29,
+      "classification": "boundary caveat for numerical consumers",
+      "priority": "note",
+      "text": "N7/N8 为两场封闭残差系统，但 δ_-u_t 留有格点常数模态。若解释为时间推进系统，还须给均值/边界规范。u_j=c(t),v_j=0 为任意 c 的残差解。此处未断言适定性，因此不作为理论错误。"
+    }
+  ],
+  "lean_recompiled": false,
+  "limitations": "Finite-N exact spot checks supplement endpoint/source audit; they do not independently prove arbitrary-N theorems or uniform compact rates."
+}

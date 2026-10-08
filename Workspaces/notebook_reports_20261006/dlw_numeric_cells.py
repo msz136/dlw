@@ -316,6 +316,21 @@ CELLS['mesh'] = r'''class Problem:
 CELLS['time'] = r'''def step(fun, t, state, dt, method):
     if method == 'Euler':
         return state+dt*fun(t, state)
+    if method == 'CN':
+        # 隐式梯形法：两端右端的平均，不是中点状态的右端。
+        f0 = fun(t, state)
+        candidate = state+dt*f0
+        tolerance = 1e-12+1e-11*max(1., float(np.max(abs(state))))
+        for iteration in range(1, 81):
+            residual = candidate-state-dt*(f0+fun(t+dt, candidate))/2
+            residual_max = float(np.max(abs(residual)))
+            if residual_max <= tolerance:
+                step.cn_last = dict(iterations=iteration, residual=residual_max, tolerance=tolerance)
+                return candidate
+            candidate = candidate-residual
+        raise ValueError(f'Crank–Nicolson 隐式迭代未收敛：残差 {residual_max:.3e}')
+    if method != 'RK4':
+        raise ValueError('时间算法应为 Euler、RK4 或 CN')
     k1 = fun(t, state)
     k2 = fun(t+dt/2, state+dt*k1/2)
     k3 = fun(t+dt/2, state+dt*k2/2)
@@ -323,8 +338,8 @@ CELLS['time'] = r'''def step(fun, t, state, dt, method):
     return state+dt*(k1+2*k2+2*k3+k4)/6
 
 def solve(case, model, method, mesh, config=CONFIG):
-    if method not in ('Euler', 'RK4'):
-        raise ValueError('时间算法应为 Euler 或 RK4')
+    if method not in ('Euler', 'RK4', 'CN'):
+        raise ValueError('时间算法应为 Euler、RK4 或 CN')
     p = Problem(case, model, mesh, config)
     state = p.initial()
     initial = p.fields(state, 0.)
@@ -336,10 +351,13 @@ def solve(case, model, method, mesh, config=CONFIG):
     if not np.isclose(nsteps*config['dt'], config['T'], rtol=0, atol=1e-13):
         raise ValueError('T 必须是 dt 的整数倍')
     reached, reason = 0., ''
+    cn_diagnostics = []
     for n in range(nsteps):
         try:
             with np.errstate(over='raise', invalid='raise', divide='raise'):
                 candidate = step(p.stage, n*config['dt'], state, config['dt'], method)
+                if method == 'CN':
+                    cn_diagnostics.append(dict(step.cn_last))
                 if not np.all(np.isfinite(candidate)) or abs(candidate).max() > 1000:
                     raise ValueError('状态非有限或绝对值超过 1000')
                 p.X.set_s(candidate[-p.X.n:])
@@ -356,7 +374,8 @@ def solve(case, model, method, mesh, config=CONFIG):
         reached=reached, completed=not reason and np.isclose(reached, config['T']), reason=reason,
         initial_error=initial_error, x=xx, y=p.m.y, fields=sampled, exact=exact,
         errors=errors, max_errors={f: float(e.max()) for f, e in errors.items()},
-        min_J=float(p.X.J.min()), native_x=p.X.x.copy(), native_fields=native)
+        min_J=float(p.X.J.min()), native_x=p.X.x.copy(), native_fields=native,
+        cn_diagnostics=cn_diagnostics)
 
 results = {}
 def calculate(method, mesh):
@@ -381,9 +400,10 @@ space_table = error_table('RK4', 'fixed')
 space_table.style.format('{:.3e}').highlight_min(axis=1, props='font-weight: bold')
 '''
 CELLS['time_experiment'] = r'''calculate('Euler', 'fixed')
+calculate('CN', 'fixed')
 time_table = pd.DataFrame([{'算例': case, '方案': model, '场': field,
-    **{method: results[case, model, method, 'fixed']['max_errors'][field]
-       for method in ('Euler', 'RK4')}}
+    **{('Crank–Nicolson' if method == 'CN' else method): results[case, model, method, 'fixed']['max_errors'][field]
+       for method in ('Euler', 'RK4', 'CN')}}
     for case in CASES for model in MODELS for field in ('u', 'v')]).set_index(['算例', '方案', '场'])
 time_table.style.format('{:.3e}').highlight_min(axis=1, props='font-weight: bold')
 '''

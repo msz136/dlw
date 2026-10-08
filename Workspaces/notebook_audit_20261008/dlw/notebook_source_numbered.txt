@@ -1,0 +1,907 @@
+CELL 1 markdown
+0001 # DLW 数值分析 report
+0002 
+0003 以 DLW 单孤子与二孤子的解析解为参照，采用两种可积半离散方法（SD、SD2）和一种直接差分方法（FD）计算数值解，比较固定网格、动网格及不同时间算法下的误差。
+
+CELL 2 code
+0001 import numpy as np
+0002 import pandas as pd
+0003 import matplotlib.pyplot as plt
+0004 from scipy.special import logsumexp
+0005 from scipy.interpolate import CubicSpline
+0006 from scipy.sparse import bmat, csc_matrix, coo_matrix, diags
+0007 from scipy.sparse.linalg import splu
+0008 from IPython.display import display
+0009 
+0010 plt.rcParams.update({'font.family': 'DejaVu Serif', 'font.size': 11,
+0011     'axes.linewidth': .7, 'axes.spines.top': False,
+0012     'axes.spines.right': False, 'xtick.direction': 'in',
+0013     'ytick.direction': 'in', 'figure.dpi': 110})
+
+CELL 3 markdown
+0001 ## 1　模型与实验设计
+0002 
+0003 连续 DLW 方程为
+0004 
+0005 $$\begin{aligned}
+0006 u_{yt}&=-\partial_x[(u+2a)u_y]-v_{xx},\\
+0007 v_t&=-\partial_x[(u+2a)v-4u]-u_{xxy}.
+0008 \end{aligned}$$
+0009 
+0010 采用 Sheng–Yu 原文的三组孤子参数，$a=2$、$c_i=1$，初相位为零。A、B 分别对应图 1(a)、1(b)，C 对应图 3；具体 $p_i,q_i$ 如下表。取 $\Delta t=0.000125$、$T=0.01$。
+
+CELL 4 code
+0001 CASES = {'A': ((1.,), (2.,)), 'B': ((4.,), (-3.,)),
+0002          'C': ((6., 4.), (-5., -3.))}
+0003 # 计算域为 x∈[-L/2, L/2]；绘图参数在末尾独立设置。
+0004 CONFIG = dict(
+0005     a=2., h=.125, yhalf=1.5,       # 方程参数、y 格距、y 半宽
+0006     L=40., nx=256,                 # x 计算域长度、网格点数
+0007     dt=.000125, T=.01,             # 时间步长、终止时间
+0008     eval_half=10., eval_points=4001,  # 误差评价区间 [-eval_half, eval_half]
+0009 )
+0010 if not (0 < CONFIG['eval_half'] < CONFIG['L']/2):
+0011     raise ValueError('评价区间须位于计算域 (-L/2, L/2) 内。')
+0012 MODELS = ('SD', 'SD2', 'FD')
+0013 COLORS = dict(SD='#1776bc', SD2='#d47b19', FD='#38965f')
+0014 pd.DataFrame([{'算例': k, 'p': p, 'q': q} for k, (p, q) in CASES.items()])
+
+
+CELL 5 markdown
+0001 ### 1.1　孤子精确解
+0002 
+0003 $x,y$ 为空间坐标，$t$ 为时间。由表中的 $p_i,q_i$ 及 $a=2$，确定
+0004 
+0005 $$S_i=p_i+q_i,\qquad \omega_i=q_i^2-p_i^2,\qquad
+0006 \ell_i=\frac1{p_i-a}+\frac1{q_i+a},\qquad
+0007 \gamma_i=-\frac{p_i-a}{q_i+a}.$$
+0008 
+0009 在给定的 $(x,y,t)$ 处，记
+0010 
+0011 $$\theta_i(x,y,t)=S_ix+\omega_it+\ell_i y,\qquad
+0012 E_i(x,y,t)=e^{\theta_i(x,y,t)}.$$
+0013 
+0014 单孤子的解析式为
+0015 
+0016 $$\begin{aligned}
+0017 g(x,y,t)&=1+\frac{E_1(x,y,t)}{S_1},\\
+0018 f(x,y,t)&=1+\frac{\gamma_1E_1(x,y,t)}{S_1}.
+0019 \end{aligned}$$
+0020 
+0021 二孤子记
+0022 
+0023 $$C_{12}=\frac{(p_1-p_2)(q_1-q_2)}
+0024 {(p_1+q_1)(p_1+q_2)(p_2+q_1)(p_2+q_2)},$$
+0025 
+0026 则
+0027 
+0028 $$\begin{aligned}
+0029 g(x,y,t)&=1+\frac{E_1(x,y,t)}{S_1}+\frac{E_2(x,y,t)}{S_2}
+0030 +C_{12}E_1(x,y,t)E_2(x,y,t),\\
+0031 f(x,y,t)&=1+\frac{\gamma_1E_1(x,y,t)}{S_1}+\frac{\gamma_2E_2(x,y,t)}{S_2}
+0032 +\gamma_1\gamma_2C_{12}E_1(x,y,t)E_2(x,y,t).
+0033 \end{aligned}$$
+0034 
+0035 精确解由这两个解析函数直接求导：
+0036 
+0037 $$\begin{aligned}
+0038 u_*(x,y,t)&=2\partial_x[\log f(x,y,t)-\log g(x,y,t)],\\
+0039 v_*(x,y,t)&=2\partial_x\partial_y[\log f(x,y,t)+\log g(x,y,t)].
+0040 \end{aligned}$$
+0041 
+0042 展开对数导数，即可直接计算其值：
+0043 
+0044 $$\begin{aligned}
+0045 u_*(x,y,t)&=2\left[\frac{f_x(x,y,t)}{f(x,y,t)}-\frac{g_x(x,y,t)}{g(x,y,t)}\right],\\
+0046 v_*(x,y,t)&=2\Bigg[\frac{f_{xy}(x,y,t)}{f(x,y,t)}
+0047 -\frac{f_x(x,y,t)f_y(x,y,t)}{f(x,y,t)^2}\\
+0048 &\qquad+\frac{g_{xy}(x,y,t)}{g(x,y,t)}
+0049 -\frac{g_x(x,y,t)g_y(x,y,t)}{g(x,y,t)^2}\Bigg].
+0050 \end{aligned}$$
+0051 
+0052 这些导数由指数项的解析式得到：$\partial_xE_i=S_iE_i$、$\partial_yE_i=\ell_iE_i$、$\partial_x\partial_yE_i=S_i\ell_iE_i$；交叉项 $E_1E_2$ 的 $x,y$ 指数率分别为 $S_1+S_2$、$\ell_1+\ell_2$。给定 $(x,y,t)$，计算相应的 $f,g$ 及其导数，再代入上式，即得到该点的精确参照值。
+0053 
+0054 精确参照由 `Exact` 类按上述解析式计算；调用 `uv(js, x, t)`，返回指定空间点与时刻的精确参照值。
+
+CELL 6 code
+0001 class Exact:
+0002     def __init__(self, case, h, a=2.):
+0003         p, q = map(np.asarray, CASES[case])
+0004         self.h = h
+0005         s, omega, ell = p+q, q*q-p*p, 1/(p-a)+1/(q+a)
+0006         gamma = np.log(-(p-a)/(q+a))
+0007         if len(p) == 1:
+0008             self.coeff = np.array([1., 1/s[0]])
+0009             subsets = np.array([[0.], [1.]])
+0010         else:
+0011             cross = ((p[0]-p[1])*(q[0]-q[1]) /
+0012                 ((p[0]+q[0])*(p[0]+q[1])*(p[1]+q[0])*(p[1]+q[1])))
+0013             self.coeff = np.array([1., 1/s[0], 1/s[1], cross])
+0014             subsets = np.array([[0., 0.], [1., 0.], [0., 1.], [1., 1.]])
+0015         self.rates = subsets @ np.stack((s, omega, ell), axis=1)
+0016         self.gamma = subsets @ gamma
+0017         self._key, self._cache = None, {}
+0018 
+0019     def tau(self, js, x, t, is_f=False):
+0020         y = (np.atleast_1d(js)+.5)*self.h
+0021         logs = (np.log(self.coeff)[:, None, None]
+0022             + self.rates[:, 0, None, None]*np.atleast_1d(x)[None, None, :]
+0023             + self.rates[:, 1, None, None]*t
+0024             + self.rates[:, 2, None, None]*y[None, :, None])
+0025         if is_f:
+0026             logs = logs + self.gamma[:, None, None]
+0027         total = logsumexp(logs, axis=0)
+0028         return total, np.exp(logs-total[None, :, :])
+0029 
+0030     def mean(self, w, k):
+0031         return np.einsum('i,ijk->jk', self.rates[:, k], w)
+0032 
+0033     def cov(self, w, a, b):
+0034         return (np.einsum('i,ijk->jk', self.rates[:, a]*self.rates[:, b], w)
+0035                 - self.mean(w, a)*self.mean(w, b))
+0036 
+0037     def uv(self, js, x, t):
+0038         key = (float(t), np.asarray(x).tobytes())
+0039         if key != self._key:
+0040             self._key, self._cache = key, {}
+0041         sub = tuple(np.atleast_1d(js))
+0042         if sub not in self._cache:
+0043             _, f = self.tau(js, x, t, True)
+0044             _, g = self.tau(js, x, t)
+0045             self._cache[sub] = (2*(self.mean(f, 0)-self.mean(g, 0)),
+0046                 2*(self.cov(f, 0, 2)+self.cov(g, 0, 2)))
+0047         return tuple(v.copy() for v in self._cache[sub])
+
+CELL 7 markdown
+0001 ## 2　空间离散与边界
+0002 
+0003 $x\in[-20,20)$ 分为 256 份，$\Delta x=40/256=0.15625$；$y\in[-1.5,1.5]$ 分为 24 份，$h=0.125$，场值取各份中点。
+0004 
+0005 记 $\delta_-f_j=(f_j-f_{j-1})/h$、$\delta_0f_j=(f_{j+1}-f_{j-1})/(2h)$、$M_-f_j=(f_j+f_{j-1})/2$。$x$ 向采用三点二阶中心差分；二阶导数与 GSG 对照格式的式 (4.13)–(4.14) 使用相同的三点算子：
+0006 
+0007 $$D_1f_i=\frac{f_{i+1}-f_{i-1}}{2\Delta x},\qquad D_2f_i=\frac{f_{i+1}-2f_i+f_{i-1}}{\Delta x^2}.$$
+0008 
+0009 $y$ 下侧取解析值，上侧虚点取解析背景加扰动的二次外推；SD、FD 的 $x$ 差分按周期延拓，SD2 按端点跃变量延拓。
+0010 
+0011 **对应代码。** 下方定义共用网格、三点差分与场值恢复。
+
+CELL 8 code
+0001 class Grid:
+0002     def __init__(self, n, L):
+0003         self.n, self.L, self.dx = n, L, L/n
+0004         self.xi = -L/2 + np.arange(n)*self.dx
+0005         ii = np.arange(n)
+0006         self.Dxi = coo_matrix((np.concatenate([np.full(n, c/(2*self.dx))
+0007             for c in (-1, 1)]), (np.tile(ii, 2),
+0008             np.concatenate([(ii+k) % n for k in (-1, 1)]))),
+0009             shape=(n, n)).tocsr()
+0010         self.Dxxi = coo_matrix((np.concatenate([np.full(n, c/self.dx**2)
+0011             for c in (1, -2, 1)]), (np.tile(ii, 3),
+0012             np.concatenate([(ii+k) % n for k in (-1, 0, 1)]))),
+0013             shape=(n, n)).tocsr()
+0014         self.set_s(np.zeros(n))
+0015 
+0016     def neighbors(self, f, jump=0.):
+0017         # f(xi+L)=f(xi)+jump；周期场取 jump=0。
+0018         f = np.asarray(f, dtype=np.result_type(f, jump, float))
+0019         left, right = np.roll(f, 1, axis=-1), np.roll(f, -1, axis=-1)
+0020         left[..., :1] -= jump
+0021         right[..., -1:] += jump
+0022         return left, right
+0023 
+0024     def dxi(self, f, jump=0.):
+0025         left, right = self.neighbors(f, jump)
+0026         return (right-left)/(2*self.dx)
+0027 
+0028     def dxxi(self, f, jump=0.):
+0029         left, right = self.neighbors(f, jump)
+0030         return (right-2*f+left)/self.dx**2
+0031 
+0032     def set_s(self, s):
+0033         self.s = np.asarray(s).copy()
+0034         self.x, self.J = self.xi+self.s, 1+self.dxi(self.s)
+0035         self.Jxi = self.dxi(self.J)
+0036         if self.J.min() <= 0 or np.diff(np.r_[self.x, self.x[0]+self.L]).min() <= 0:
+0037             raise ValueError('网格 Jacobian 非正或节点交叉')
+0038 
+0039     def d1(self, f, jump=0.):
+0040         return self.dxi(f, jump)/self.J
+0041 
+0042     def d2(self, f, jump=0.):
+0043         return (self.dxxi(f, jump)/self.J**2
+0044                 -self.Jxi*self.dxi(f, jump)/self.J**3)
+0045 
+0046 def delta0(u, ghosts, h):
+0047     ext = np.concatenate((ghosts[0][None, :], u, ghosts[1][None, :]))
+0048     return (ext[2:]-ext[:-2])/(2*h)
+0049 
+0050 def ghost_u(G, js, x, t, u):
+0051     gl, gr = G.uv([js[0]-1, js[-1]+1], x, t)[0]
+0052     # 上侧外推扰动；解析背景与内部数值解分开处理。
+0053     e = u[-3:]-G.uv(js[-3:], x, t)[0]
+0054     return gl, gr+3*e[-1]-3*e[-2]+e[-3]
+
+CELL 9 code
+0001 class PhysicalModel:
+0002     def __init__(self, case, model, config):
+0003         self.kind, self.h, self.a = model, config['h'], config['a']
+0004         self.X = Grid(config['nx'], config['L'])
+0005         self.G = Exact(case, self.h, self.a)
+0006         n = round(config['yhalf']/self.h)
+0007         self.js = np.arange(-n, n)
+0008         self.y = (self.js+.5)*self.h
+0009         self.shape = (len(self.js), self.X.n)
+0010         self.np = (len(self.js)-1)*self.X.n
+0011 
+0012     def pack(self, p, w):
+0013         return np.r_[p.ravel(), w.ravel()]
+0014 
+0015     def unpack(self, z):
+0016         return z[:self.np].reshape(self.shape[0]-1, -1), z[self.np:].reshape(self.shape)
+0017 
+0018     def recover_u(self, p, t):
+0019         base = self.G.uv([self.js[0]], self.X.x, t)[0][0]
+0020         return np.vstack((base, base+self.h*np.cumsum(p, axis=0)))
+0021 
+0022     def initial(self):
+0023         u, v = self.G.uv(self.js, self.X.x, 0.)
+0024         ghosts = self.G.uv([self.js[0]-1, self.js[-1]+1], self.X.x, 0.)[0]
+0025         w = v
+0026         return self.pack(np.diff(u, axis=0)/self.h, w)
+0027 
+0028     def fields(self, z, t):
+0029         p, w = self.unpack(z)
+0030         u = self.recover_u(p, t)
+0031         ghosts = ghost_u(self.G, self.js, self.X.x, t, u)
+0032         return u, w
+
+CELL 10 markdown
+0001 ### 2.1　SD
+0002 
+0003 **半离散非线性方程。** 以 $u_j,\omega_j$ 表示第一种非线性形式：
+0004 
+0005 $$\begin{aligned}
+0006 \delta_-u_{j,t}
+0007 &+\partial_x\delta_-\left[\frac{u_j^2+\omega_j^2}{2}+2au_j-h\omega_j\right]
+0008 +\partial_x^2\left(\delta_-u_j+\frac4hM_-\omega_j\right)=0,\\
+0009 \omega_{j,t}&+\partial_x[(u_j+2a)\omega_j-hu_j]-\omega_{j,xx}=0.
+0010 \end{aligned}$$
+0011 
+0012 $\omega_j=\partial_x(\log G_{j+1}-\log G_j)$，物理场为 $v_j=4\omega_j/h+\delta_0u_j$。取演化变量
+0013 
+0014 $$P_j=\delta_-u_j,\qquad W_j=\frac4h\omega_j=v_j-\delta_0u_j,$$
+0015 
+0016 并记
+0017 
+0018 $$H_j=\frac{u_j^2}{2}+2au_j+h^2\left(\frac{W_j^2}{32}-\frac{W_j}{4}\right).$$
+0019 
+0020 上式成为
+0021 
+0022 $$\begin{aligned}
+0023 P_{j,t}&=-\delta_-\partial_xH_j-\partial_x^2(P_j+M_-W_j),\\
+0024 W_{j,t}&=-\partial_x[(u_j+2a)W_j-4u_j]+\partial_x^2W_j.
+0025 \end{aligned}$$
+0026 
+0027 **离散递推。** 每个时间级先由下侧解析边界恢复
+0028 
+0029 $$u_{j,i}(t)=u_{j_L,i}(t)+h\sum_{k=j_L+1}^{j}P_{k,i}(t),\qquad
+0030 v=W+\delta_0u,$$
+0031 
+0032 再计算
+0033 
+0034 $$\begin{aligned}
+0035 F_P&=-\delta_-D_1H-D_2(P+M_-W),\\
+0036 F_W&=-D_1[(u+2a)W-4u]+D_2W,\\
+0037 P^{n+1}&=P^n+\Delta t\,F_P(t_n),\qquad
+0038 W^{n+1}=W^n+\Delta t\,F_W(t_n).
+0039 \end{aligned}$$
+0040 
+0041 参数：$a=2$、$h=0.125$、$\Delta x=0.15625$、$\Delta t=0.000125$、$T=0.01$。初值为 $P^0=\delta_-u_*(0)$、$W^0=v_*(0)-\delta_0u_*(0)$，$u_{j_L}(t)$ 取解析值。以上为 Euler 更新；同一右端的 RK4 更新见第 3 节。
+0042 
+0043 **对应代码。** `pt`、`wt` 分别是 $F_P,F_W$；`axis=0` 沿 $y$，`d1,d2` 沿 $x$。
+
+CELL 11 code
+0001 class SDModel(PhysicalModel):
+0002     def initial(self):
+0003         u, v = self.G.uv(self.js, self.X.x, 0.)
+0004         ghosts = self.G.uv([self.js[0]-1, self.js[-1]+1], self.X.x, 0.)[0]
+0005         # P = delta_- u, W = 4 omega / h = v - delta_0 u.
+0006         return self.pack(np.diff(u, axis=0)/self.h,
+0007                          v-delta0(u, ghosts, self.h))
+0008 
+0009     def fields(self, z, t):
+0010         p, w = self.unpack(z)
+0011         u = self.recover_u(p, t)
+0012         ghosts = ghost_u(self.G, self.js, self.X.x, t, u)
+0013         return u, w+delta0(u, ghosts, self.h)
+0014 
+0015     def rhs(self, t, z):
+0016         p, w = self.unpack(z)
+0017         u = self.recover_u(p, t)
+0018         d1, d2, h, a = self.X.d1, self.X.d2, self.h, self.a
+0019         # This is Report (7) after omega = h W / 4.
+0020         H = u*u/2+2*a*u+h*h*(w*w/32-w/4)
+0021         pt = -np.diff(d1(H), axis=0)/h-d2(p+(w[1:]+w[:-1])/2)
+0022         wt = -d1((u+2*a)*w-4*u)+d2(w)
+0023         return self.pack(pt, wt)
+
+CELL 12 markdown
+0001 ### 2.2　SD2
+0002 
+0003 **原半离散方程。** 以 $Q,R$ 为演化变量：
+0004 
+0005 $$\begin{aligned}
+0006 Q_{j,t}&=-Q_{j,xx}-2aQ_{j,x}-\left[(M_j+M_{j+1})_x+\frac{h^2}{4}(Q_j^2R_j^2-1)\right]Q_j,\\
+0007 R_{j,t}&=R_{j,xx}-2aR_{j,x}+\left[(M_j+M_{j+1})_x+\frac{h^2}{4}(Q_j^2R_j^2-1)\right]R_j,\\
+0008 M_{j+1}-M_j&=h(1-Q_jR_j).
+0009 \end{aligned}$$
+0010 
+0011 **离散递推。** 令 $S_j=Q_jR_j$、$G_j=h^2(S_j^2-1)/4$、$m_j=M_{j,x}$，下边界确定 $Q_0,Q_{0,t}$，然后计算
+0012 
+0013 $$\begin{aligned}
+0014 m_0&=-\frac{Q_{0,t}+D_2Q_0+2aD_1Q_0}{2Q_0}-\frac{G_0}{2}+\frac h2D_1S_0,\\
+0015 m_{j+1}&=m_j-hD_1S_j,\qquad A_j=m_j+m_{j+1},\\
+0016 F_Q&=-D_2Q-2aD_1Q-(A+G)Q,\\
+0017 F_R&=D_2R-2aD_1R+(A+G)R,\\
+0018 Q_j^{n+1}&=Q_j^n+\Delta t\,F_{Q,j}(t_n)\quad(j\ge1),\qquad
+0019 R_j^{n+1}=R_j^n+\Delta t\,F_{R,j}(t_n)\quad(j\ge0),\\
+0020 u&=2(D_1Q)/Q,\qquad v=4(1-QR)+\delta_0u.
+0021 \end{aligned}$$
+0022 
+0023 参数：$a=2$、$h=0.125$、$\Delta x=0.15625$、$\Delta t=0.000125$、$T=0.01$。初值与下边界通过
+0024 
+0025 $$D_1Q_j^0=\tfrac12u_j^0Q_j^0,\qquad Q_{j,0}^0=1,\qquad
+0026 R_j^0=\frac{1-(v_j^0-\delta_0u_j^0)/4}{Q_j^0}$$
+0027 
+0028 确定。下边界每个时间级求解 $D_1Q_0(t)=u_{*,0}(t)Q_0(t)/2$、$Q_{0,0}(t)=1$；这里的 $D_1$ 使用代码 `dx` 的端点跃变量修正。内部 $Q$ 与全部 $R$ 按上述右端推进，Euler 与 RK4 共用此右端。
+0029 
+0030 **对应代码。** 先定义初值与下边界的求解，再定义递推；代码中的 `w` 对应 $S$、`H` 对应 $G$、`mx` 对应 $m$。
+
+CELL 13 code
+0001 class SD2Lift(PhysicalModel):
+0002     def __init__(self, case, config):
+0003         super().__init__(case, 'SD2', config)
+0004         n, dx = self.X.n, self.X.dx
+0005         self.D = self.X.Dxi.tocsc()
+0006         self.b = np.zeros(n)
+0007         self.b[0] = self.b[-1] = 1/(2*dx)
+0008         self.norm = csc_matrix(([1.], ([0], [0])), shape=(1, n))
+0009         self.initial_right, self._boundary_key = None, None
+0010         self.jump = self.rjump = 0.
+0011 
+0012     def dx(self, f, jump=0.):
+0013         return self.X.d1(f, jump)
+0014 
+0015     def lift(self, u):
+0016         A = bmat([[self.D-diags(.5*self.X.J*u), csc_matrix(self.b[:, None])],
+0017                   [self.norm, csc_matrix((1, 1))]], format='csc')
+0018         lu = splu(A)
+0019         sol = lu.solve(np.r_[np.zeros(self.X.n), 1.])
+0020         q, jump = sol[:-1], sol[-1]
+0021         if q.min() <= 0 or 1+jump <= 0:
+0022             raise ValueError('SD2 提升后的 Q 或端点比值非正')
+0023         return q, jump, lu
+0024 
+0025     def boundary(self, t):
+0026         key = (float(t), self.X.x.tobytes(), self.X.J.tobytes())
+0027         if key != self._boundary_key:
+0028             _, f = self.G.tau([self.js[0]], self.X.x, t, True)
+0029             _, g = self.G.tau([self.js[0]], self.X.x, t)
+0030             u = 2*(self.G.mean(f, 0)-self.G.mean(g, 0))[0]
+0031             ut = 2*(self.G.cov(f, 0, 1)-self.G.cov(g, 0, 1))[0]
+0032             ux = 2*(self.G.cov(f, 0, 0)-self.G.cov(g, 0, 0))[0]
+0033             q, jump, lu = self.lift(u)
+0034             self._boundary_key = key
+0035             self._boundary_value = q, jump, lu, u, ut, ux
+0036         q, jump, lu, u, ut, ux = self._boundary_value
+0037         if self.initial_right is not None:
+0038             right = self.initial_right*(1+jump)/self.initial_right[0]
+0039             self.jump, self.rjump = (right-1)[:, None], (1/right-1)[:, None]
+0040         return self._boundary_value
+0041 
+0042     def boundary_derivative(self, t, velocity):
+0043         q, jump, lu, u, ut, ux = self.boundary(t)
+0044         rhs = .5*(self.D@velocity*u+self.X.J*(ut+velocity*ux))*q
+0045         material_qt = lu.solve(np.r_[rhs, 0.])[:-1]
+0046         qx = (self.D@q+self.b*jump)/self.X.J
+0047         return material_qt-velocity*qx
+0048 
+0049     def pack(self, q, r):
+0050         return np.r_[q[1:].ravel(), r.ravel()]
+0051 
+0052     def unpack(self, z, t):
+0053         q = np.vstack((self.boundary(t)[0], z[:self.np].reshape(self.shape[0]-1, -1)))
+0054         return q, z[self.np:].reshape(self.shape)
+0055 
+0056     def initial(self):
+0057         u, v = self.G.uv(self.js, self.X.x, 0.)
+0058         lifted = [self.lift(row) for row in u]
+0059         q = np.array([v[0] for v in lifted])
+0060         self.initial_right = 1+np.array([v[1] for v in lifted])
+0061         self._boundary_key = None
+0062         self.boundary(0.)
+0063         ghosts = self.G.uv([self.js[0]-1, self.js[-1]+1], self.X.x, 0.)[0]
+0064         r = (1-(v-delta0(u, ghosts, self.h))/4)/q
+0065         return self.pack(q, r)
+
+CELL 14 code
+0001 class SD2Model(SD2Lift):
+0002     def fields(self, z, t):
+0003         q, r = self.unpack(z, t)
+0004         u = 2*self.dx(q, self.jump)/q
+0005         ghosts = ghost_u(self.G, self.js, self.X.x, t, u)
+0006         return u, 4*(1-q*r)+delta0(u, ghosts, self.h)
+0007 
+0008     def stage(self, t, state, mesh):
+0009         self.X.set_s(state[-self.X.n:])
+0010         q, r = self.unpack(state[:-self.X.n], t)
+0011         if q.min() <= 0:
+0012             raise ValueError('演化后的 Q 非正')
+0013         qx, rx = self.dx(q, self.jump), self.dx(r, self.rjump)
+0014         w = q*r
+0015         velocity = np.zeros(self.X.n)
+0016         if mesh == 'moving':
+0017             density = w.mean(axis=0)
+0018             flux = ((2*qx/q+2*self.a)*w-self.dx(w)-2*self.a).mean(axis=0)
+0019             if density.min() <= 0:
+0020                 raise ValueError('动网格监测密度非正')
+0021             velocity = (flux-flux[0])/density
+0022         qt0 = self.boundary_derivative(t, velocity)
+0023         qxx = self.X.d2(q, self.jump)
+0024         rxx, wx = self.X.d2(r, self.rjump), self.dx(w)
+0025         H = self.h**2/4*(w*w-1)
+0026         A0 = -(qt0+qxx[0]+2*self.a*qx[0])/q[0]-H[0]
+0027         mx0 = (A0+self.h*wx[0])/2
+0028         mx = mx0-self.h*np.vstack((np.zeros(self.X.n), np.cumsum(wx, axis=0)))
+0029         A = mx[:-1]+mx[1:]
+0030         qt = -qxx-2*self.a*qx-(A+H)*q
+0031         rt = rxx-2*self.a*rx+(A+H)*r
+0032         return np.r_[self.pack(qt+velocity*qx, rt+velocity*rx), velocity]
+
+CELL 15 markdown
+0001 ### 2.3　FD
+0002 
+0003 **原连续方程。**
+0004 
+0005 $$\begin{aligned}
+0006 u_{yt}&=-\partial_x[(u+2a)u_y]-v_{xx},\\
+0007 v_t&=-\partial_x[(u+2a)v-4u]-u_{xxy}.
+0008 \end{aligned}$$
+0009 
+0010 **离散递推。** 取 $P=\delta_-u$，每个时间级由 $u_{j,i}=u_{j-1,i}+hP_{j,i}$ 恢复 $u$，然后计算
+0011 
+0012 $$\begin{aligned}
+0013 F_P&=-\delta_-D_1\left(\frac{u^2}{2}+2au\right)-D_2M_-v,\\
+0014 F_v&=-D_1[(u+2a)v-4u]-D_2\delta_0u,\\
+0015 P^{n+1}&=P^n+\Delta t\,F_P(t_n),\qquad v^{n+1}=v^n+\Delta t\,F_v(t_n).
+0016 \end{aligned}$$
+0017 
+0018 参数：$a=2$、$h=0.125$、$\Delta x=0.15625$、$\Delta t=0.000125$、$T=0.01$。初值为 $P^0=\delta_-u_*(0)$、$v^0=v_*(0)$。Euler 与 RK4 共用此右端。
+0019 
+0020 **对应代码。** `fp`、`fv` 分别是 $F_P,F_v$，`uy` 是 $\delta_0u$。
+
+CELL 16 code
+0001 class FDModel(PhysicalModel):
+0002     def rhs(self, t, z):
+0003         p, v = self.unpack(z)
+0004         u = self.recover_u(p, t)
+0005         ghosts = ghost_u(self.G, self.js, self.X.x, t, u)
+0006         uy = delta0(u, ghosts, self.h)
+0007         d1, d2, h, a = self.X.d1, self.X.d2, self.h, self.a
+0008         fp = -np.diff(d1(u*u/2+2*a*u), axis=0)/h-d2((v[1:]+v[:-1])/2)
+0009         fv = -d1((u+2*a)*v)-d2(uy)+4*d1(u)
+0010         return self.pack(fp, fv)
+
+CELL 17 markdown
+0001 ### 2.4　网格策略
+0002 
+0003 固定网格取 $s=0$、$V=0$。动网格初始节点按 $\bar\rho$ 的累积积分等分，之后使用
+0004 
+0005 $$\begin{aligned}
+0006 x_i&=\xi_i+s_i,\qquad J_i=1+D_\xi s_i,\qquad D_1=J^{-1}D_\xi,\\
+0007 D_2f&=J^{-2}D_{\xi\xi}f-J^{-3}(D_\xi J)(D_\xi f),\\
+0008 \rho_j&=1-(v_j-\delta_0u_j)/4,\qquad
+0009 \bar\rho=\frac1{24}\sum_j\rho_j,\\
+0010 \bar q&=\frac1{24}\sum_j[(u_j+2a)\rho_j-D_1\rho_j-2a],\qquad
+0011 V_i=\frac{\bar q_i-\bar q_0}{\bar\rho_i},\\
+0012 \dot x_i&=V_i,\qquad \dot z=\mathcal F(t,z)+VD_1z.
+0013 \end{aligned}$$
+0014 
+0015 $D_\xi$、$D_{\xi\xi}$ 为前述三点二阶中心差分，$\Delta\xi=0.15625$；节点与场值同步使用 Euler 或 RK4 更新。
+
+CELL 18 code
+0001 class Problem:
+0002     def __init__(self, case, model, mesh, config=CONFIG):
+0003         self.mesh, self.model = mesh, model
+0004         self.m = SD2Model(case, config) if model == 'SD2' else (SDModel if model == 'SD' else FDModel)(case, model, config)
+0005         self.X = self.m.X
+0006 
+0007     def initial(self):
+0008         if self.mesh == 'moving':
+0009             x = np.linspace(-self.X.L/2, self.X.L/2, 40001)
+0010             u, v = self.m.G.uv(self.m.js, x, 0.)
+0011             gh = self.m.G.uv([self.m.js[0]-1, self.m.js[-1]+1], x, 0.)[0]
+0012             density = 1-(v-delta0(u, gh, self.m.h)).mean(axis=0)/4
+0013             if density.min() <= 0:
+0014                 raise ValueError('初始监测密度非正')
+0015             mass = np.r_[0, np.cumsum((density[:-1]+density[1:])*np.diff(x)/2)]
+0016             nodes = np.interp(np.arange(self.X.n)/self.X.n*mass[-1], mass, x)
+0017             self.X.set_s(nodes-self.X.xi)
+0018         return np.r_[self.m.initial(), self.X.s]
+0019 
+0020     def fields(self, state, t):
+0021         self.X.set_s(state[-self.X.n:])
+0022         return self.m.fields(state[:-self.X.n], t)
+0023 
+0024     def stage(self, t, state):
+0025         if self.model == 'SD2':
+0026             return self.m.stage(t, state, self.mesh)
+0027         z = state[:-self.X.n]
+0028         self.X.set_s(state[-self.X.n:])
+0029         physical = self.m.rhs(t, z)
+0030         velocity = np.zeros(self.X.n)
+0031         if self.mesh == 'moving':
+0032             u, v = self.m.fields(z, t)
+0033             ghosts = ghost_u(self.m.G, self.m.js, self.X.x, t, u)
+0034             rho = 1-(v-delta0(u, ghosts, self.m.h))/4
+0035             density = rho.mean(axis=0)
+0036             flux = ((u+2*self.m.a)*rho-self.X.d1(rho)-2*self.m.a).mean(axis=0)
+0037             if density.min() <= 0:
+0038                 raise ValueError('动网格监测密度非正')
+0039             velocity = (flux-flux[0])/density
+0040             p, w = self.m.unpack(z)
+0041             physical += self.m.pack(self.X.d1(p)*velocity, self.X.d1(w)*velocity)
+0042         return np.r_[physical, velocity]
+
+CELL 19 markdown
+0001 ## 3　时间推进与误差评价
+0002 
+0003 三种方案分别以第 2 节的离散右端 $\mathcal F$ 推进。Euler 更新为 $z^{n+1}=z^n+\Delta t\,\mathcal F(t_n,z^n)$；RK4 的递推为
+0004 
+0005 $$\begin{aligned}
+0006 k_1&=\mathcal F(t_n,z^n),\\
+0007 k_2&=\mathcal F\left(t_n+\frac{\Delta t}{2},z^n+\frac{\Delta t}{2}k_1\right),\\
+0008 k_3&=\mathcal F\left(t_n+\frac{\Delta t}{2},z^n+\frac{\Delta t}{2}k_2\right),\\
+0009 k_4&=\mathcal F(t_n+\Delta t,z^n+\Delta t k_3),\\
+0010 z^{n+1}&=z^n+\frac{\Delta t}{6}(k_1+2k_2+2k_3+k_4).
+0011 \end{aligned}$$
+0012 
+0013 状态与节点使用同一时间算法同步更新。
+0014 
+0015 在 $x\in[-10,10]$ 的 4001 个等距点及全部 $y$ 层上，三次样条重构数值场，计算
+0016 
+0017 $$E_f(T)=\max_{(x,y)\in\mathcal G}|f_h(x,y,T)-f_*(x,y,T)|,\qquad f\in\{u,v\}.$$
+0018 
+0019 三种方案从相同的物理初值 $u_*(0),v_*(0)$ 出发。
+
+CELL 20 code
+0001 def step(fun, t, state, dt, method):
+0002     if method == 'Euler':
+0003         return state+dt*fun(t, state)
+0004     k1 = fun(t, state)
+0005     k2 = fun(t+dt/2, state+dt*k1/2)
+0006     k3 = fun(t+dt/2, state+dt*k2/2)
+0007     k4 = fun(t+dt, state+dt*k3)
+0008     return state+dt*(k1+2*k2+2*k3+k4)/6
+0009 
+0010 def solve(case, model, method, mesh, config=CONFIG):
+0011     if method not in ('Euler', 'RK4'):
+0012         raise ValueError('时间算法应为 Euler 或 RK4')
+0013     p = Problem(case, model, mesh, config)
+0014     state = p.initial()
+0015     initial = p.fields(state, 0.)
+0016     initial_ref = p.m.G.uv(p.m.js, p.X.x, 0.)
+0017     mask = abs(p.X.x) <= config['eval_half']
+0018     initial_error = max(float(abs(u[:, mask]-v[:, mask]).max())
+0019                         for u, v in zip(initial, initial_ref))
+0020     nsteps = round(config['T']/config['dt'])
+0021     if not np.isclose(nsteps*config['dt'], config['T'], rtol=0, atol=1e-13):
+0022         raise ValueError('T 必须是 dt 的整数倍')
+0023     reached, reason = 0., ''
+0024     for n in range(nsteps):
+0025         try:
+0026             with np.errstate(over='raise', invalid='raise', divide='raise'):
+0027                 candidate = step(p.stage, n*config['dt'], state, config['dt'], method)
+0028                 if not np.all(np.isfinite(candidate)) or abs(candidate).max() > 1000:
+0029                     raise ValueError('状态非有限或绝对值超过 1000')
+0030                 p.X.set_s(candidate[-p.X.n:])
+0031         except (ValueError, FloatingPointError, OverflowError) as e:
+0032             reason = str(e)
+0033             break
+0034         state, reached = candidate, (n+1)*config['dt']
+0035     xx = np.linspace(-config['eval_half'], config['eval_half'], config['eval_points'])
+0036     native = p.fields(state, reached)
+0037     sampled = [CubicSpline(p.X.x, f, axis=-1)(xx) for f in native]
+0038     exact = p.m.G.uv(p.m.js, xx, reached)
+0039     errors = {f: abs(u-v) for f, u, v in zip(('u', 'v'), sampled, exact)}
+0040     return dict(case=case, model=model, method=method, mesh=mesh,
+0041         reached=reached, completed=not reason and np.isclose(reached, config['T']), reason=reason,
+0042         initial_error=initial_error, x=xx, y=p.m.y, fields=sampled, exact=exact,
+0043         errors=errors, max_errors={f: float(e.max()) for f, e in errors.items()},
+0044         min_J=float(p.X.J.min()), native_x=p.X.x.copy(), native_fields=native)
+0045 
+0046 results = {}
+0047 def calculate(method, mesh):
+0048     for case in CASES:
+0049         for model in MODELS:
+0050             key = case, model, method, mesh
+0051             if key not in results:
+0052                 results[key] = solve(case, model, method, mesh)
+0053     failed = [r for r in results.values() if not r['completed']]
+0054     if failed:
+0055         display(pd.DataFrame([{k: r[k] for k in ('case', 'model', 'method', 'mesh', 'reached', 'reason')}
+0056                              for r in failed]))
+0057         raise RuntimeError('未到达共同终点，停止配对比较')
+0058 
+0059 def error_table(method, mesh):
+0060     return pd.DataFrame([{'算例': case, '场': field,
+0061         **{m: results[case, m, method, mesh]['max_errors'][field] for m in MODELS}}
+0062         for case in CASES for field in ('u', 'v')]).set_index(['算例', '场'])
+
+CELL 21 markdown
+0001 ## 4　空间方案的比较
+0002 
+0003 在均匀固定网格上比较三种方案，时间算法统一为 RK4，时间步长为 $0.000125$，终点为 $T=0.01$。每行加粗值为最小误差。
+
+CELL 22 code
+0001 calculate('RK4', 'fixed')
+0002 space_table = error_table('RK4', 'fixed')
+0003 space_table.style.format('{:.3e}').highlight_min(axis=1, props='font-weight: bold')
+
+CELL 23 markdown
+0001 ## 5　时间算法的比较
+0002 
+0003 在固定网格上分别比较 SD、SD2、FD 的 Euler 与 RK4。
+
+CELL 24 code
+0001 calculate('Euler', 'fixed')
+0002 time_table = pd.DataFrame([{'算例': case, '方案': model, '场': field,
+0003     **{method: results[case, model, method, 'fixed']['max_errors'][field]
+0004        for method in ('Euler', 'RK4')}}
+0005     for case in CASES for model in MODELS for field in ('u', 'v')]).set_index(['算例', '方案', '场'])
+0006 time_table.style.format('{:.3e}').highlight_min(axis=1, props='font-weight: bold')
+
+CELL 25 markdown
+0001 取 $\Delta t$、$\Delta t/2$、$\Delta t/4$，以相邻时间步长的数值场差估计时间阶：
+0002 
+0003 $$p_f=\log_2\frac{\|f_{\Delta t}-f_{\Delta t/2}\|_{\infty,\mathcal G}}
+0004 {\|f_{\Delta t/2}-f_{\Delta t/4}\|_{\infty,\mathcal G}}.$$
+0005 
+0006 下面计算 SD 与 SD2 在 Euler 更新下的时间观测阶。
+
+CELL 26 code
+0001 order_rows = []
+0002 refinement_rows = []
+0003 for case in CASES:
+0004     for model in ('SD', 'SD2'):
+0005         fields = [results[case, model, 'Euler', 'fixed']['fields']]
+0006         for divisor in (2, 4):
+0007             refined = solve(case, model, 'Euler', 'fixed',
+0008                             dict(CONFIG, dt=CONFIG['dt']/divisor))
+0009             if not refined['completed']:
+0010                 raise RuntimeError(refined['reason'])
+0011             fields.append(refined['fields'])
+0012             refinement_rows.append(dict(case=case, model=model, method='Euler',
+0013                 mesh='fixed', dt=CONFIG['dt']/divisor, reached=refined['reached'],
+0014                 completed=bool(refined['completed']), min_J=refined['min_J']))
+0015         for i, field in enumerate(('u', 'v')):
+0016             d1 = np.max(abs(fields[0][i]-fields[1][i]))
+0017             d2 = np.max(abs(fields[1][i]-fields[2][i]))
+0018             order_rows.append({'算例': case, '方案': model, '场': field,
+0019                               'dt 与 dt/2 场差': d1, 'dt/2 与 dt/4 场差': d2,
+0020                               '观测阶': np.log2(d1/d2)})
+0021 pd.DataFrame(order_rows).set_index(['算例', '方案', '场']).style.format({
+0022     'dt 与 dt/2 场差': '{:.3e}', 'dt/2 与 dt/4 场差': '{:.3e}', '观测阶': '{:.4f}'})
+
+CELL 27 markdown
+0001 ## 6　固定网格与动网格的比较
+0002 
+0003 保持节点数与时间步长一致，三种方案均使用 RK4，比较固定网格与动网格。
+
+CELL 28 code
+0001 calculate('RK4', 'moving')
+0002 mesh_table = pd.DataFrame([{'算例': case, '方案': model, '场': field,
+0003     **{mesh: results[case, model, 'RK4', mesh]['max_errors'][field]
+0004        for mesh in ('fixed', 'moving')}}
+0005     for case in CASES for model in MODELS for field in ('u', 'v')]).set_index(['算例', '方案', '场'])
+0006 mesh_table.style.format('{:.3e}').highlight_min(axis=1, props='font-weight: bold')
+
+CELL 29 markdown
+0001 ## 7　结果
+0002 
+0003 配对表给出空间方案的最小误差与动网格相对固定网格的误差比；比值小于 1 表示该场误差降低。
+
+CELL 30 code
+0001 for case in CASES:
+0002     best_u = space_table.loc[(case, 'u')].idxmin()
+0003     best_v = space_table.loc[(case, 'v')].idxmin()
+0004     print(f'算例 {case}：RK4 固定网格下，u / v 的最小误差方案为 {best_u} / {best_v}。')
+0005 mesh_ratios = mesh_table['moving']/mesh_table['fixed']
+0006 ratio_table = mesh_ratios.unstack('场').rename(columns={'u': 'u 动格/固定', 'v': 'v 动格/固定'})
+0007 display(ratio_table.style.format('{:.3f}'))
+0008 print(f'全部 {len(results)} 组主试验到达 T={CONFIG["T"]:g}；'
+0009       f'初始物理场的最大节点差为 {max(r["initial_error"] for r in results.values()):.3e}。')
+
+CELL 31 markdown
+0001 参考资料：H.-H. Sheng and G.-F. Yu, *Solitons, breathers and rational solutions for a (2+1)-dimensional dispersive long wave system*, Physica D 432 (2022), 133140。
+
+CELL 32 markdown
+0001 ## 8　物理场与误差分布
+0002 
+0003 固定 $t=0.01$，A 在 $x\in[-3,4]$、$y\in[-3,3]$ 展示完整波谷；B、C 在 $x,y\in[-30,30]$ 展示全貌。每个算例上行为 $u$，下行为 $v$；三列依次为数值曲面、数值二维彩图、解析二维彩图，后两者共用色标与等高线高度。物理场零值为白色，负值为蓝色，正值为红色；另图显示绝对误差曲面和二维误差分布，零误差也为白色。
+0004 
+0005 场图采用 SD2、RK4 与固定网格；实际计算域扩大为 $x\in[-40,40)$、$y\in[-30,30)$，保持 $\Delta x=0.15625$、$h=0.125$、$\Delta t=0.000125$。此前误差表仍取各自的原计算与评价范围。A、B 为单孤子，C 的两条相互作用波脊在宽 $y$ 范围内可分辨。
+
+CELL 33 code
+0001 # 与前面的误差表分开准备宽域场图；保持原空间、时间步长。
+0002 # 改变计算范围、方案或时间后运行本单元；只改 PLOT_CONFIG 不用运行它。
+0003 FIELD_CONFIG = dict(CONFIG, L=80., nx=512, yhalf=30.,
+0004                     eval_half=30., eval_points=1201)
+0005 FIELD_MODEL, FIELD_METHOD, FIELD_MESH = 'SD2', 'RK4', 'fixed'
+0006 if not 0 < FIELD_CONFIG['eval_half'] < FIELD_CONFIG['L']/2:
+0007     raise ValueError('场图评价范围须位于 x 计算域内部。')
+0008 if FIELD_CONFIG['yhalf'] <= 0 or FIELD_CONFIG['h'] <= 0:
+0009     raise ValueError('y 计算域半宽与格距必须为正。')
+0010 dlw_field_cache = globals().get('dlw_field_cache', {})
+0011 field_signature = (tuple(sorted(FIELD_CONFIG.items())), FIELD_MODEL, FIELD_METHOD, FIELD_MESH)
+0012 for field_case in CASES:
+0013     cache_key = field_signature, field_case
+0014     if cache_key not in dlw_field_cache:
+0015         computed = solve(field_case, FIELD_MODEL, FIELD_METHOD, FIELD_MESH, FIELD_CONFIG)
+0016         if not computed['completed']:
+0017             raise RuntimeError(f"Case {field_case} 未达到指定时间：{computed['reason']}")
+0018         dlw_field_cache[cache_key] = computed
+0019 print(f"场数据已准备：{FIELD_MODEL}, {FIELD_METHOD}, {FIELD_MESH}, T={FIELD_CONFIG['T']:g}。")
+
+CELL 34 markdown
+0001 绘图参数集中在下方；改变展示范围、颜色、等高线数量或视角后，只需运行配置与最后的画图单元。超出已计算范围时，需要先扩大场数据计算域。
+
+CELL 35 code
+0001 # 只调整下面的绘图参数，并重运行本单元与最后的画图单元。
+0002 # 不改变已经计算好的数值场；时间取 FIELD_CONFIG['T']。
+0003 PLOT_CONFIG = dict(
+0004     cases=('A', 'B', 'C'),
+0005     windows={
+0006         'A': dict(xlim=(-3., 4.), ylim=(-3., 3.)),
+0007         'B': dict(xlim=(-30., 30.), ylim=(-30., 30.)),
+0008         'C': dict(xlim=(-30., 30.), ylim=(-30., 30.)),
+0009     },
+0010     # KP 参考图：jet 彩色等高线，二维白底；可改为 map_style='mesh'。
+0011     cmap='jet', error_cmap='jet', map_style='contour', levels=11, contour_width=1.1,
+0012     elev=28., azim=-62.,
+0013 )
+
+CELL 36 code
+0001 from matplotlib.colors import Normalize, BoundaryNorm, ListedColormap, LinearSegmentedColormap
+0002 from matplotlib.ticker import MaxNLocator
+0003 
+0004 def checked_window(window, available, label):
+0005     lo, hi = window
+0006     if not np.isfinite([lo, hi]).all() or lo >= hi:
+0007         raise ValueError(f'{label} 必须是有限且递增的 (下限, 上限)。')
+0008     if lo < available[0]-1e-10 or hi > available[1]+1e-10:
+0009         raise ValueError(f'{label}={window} 超出已计算范围 {available}；请扩大计算域后重新准备场数据。')
+0010     return lo, hi
+0011 
+0012 def draw_field_panels(x, y, numerical, exact, title, names, config, second_axis='y'):
+0013     # 只裁剪已有数据；完整数组保留，改变展示参数不会触发计算。
+0014     xm = (x >= config['xlim'][0]) & (x <= config['xlim'][1])
+0015     ym = (y >= config['ylim'][0]) & (y <= config['ylim'][1])
+0016     if xm.sum() < 3 or ym.sum() < 2:
+0017         raise ValueError('绘图区间至少需要三个 x 点和两个纵向采样点。')
+0018     xx, yy = x[xm], y[ym]
+0019     X, Y = np.meshgrid(xx, yy)
+0020     fig = plt.figure(figsize=(14, 8.5), layout='constrained')
+0021     grid = fig.add_gridspec(2, 3, width_ratios=(1.15, 1, 1))
+0022     cropped = []
+0023     for row, name in enumerate(names):
+0024         n = numerical[row][np.ix_(ym, xm)]
+0025         e = exact[row][np.ix_(ym, xm)]
+0026         cropped.append(abs(n-e))
+0027         lower, upper = min(n.min(), e.min()), max(n.max(), e.max())
+0028         if upper <= lower:
+0029             upper = lower+1e-12
+0030         center = config.get('centers', {}).get(name, 0.)
+0031         color_map = config['cmap']
+0032         if color_map == 'zero_white':
+0033             # 线性色阶保持幅值含义；零附近留白，其余用清楚、柔和的分层颜色。
+0034             steps = config.get('color_steps', 12)
+0035             blue = LinearSegmentedColormap.from_list('muted_blue', ['#a9c6d1', '#668fa3', '#355c73'])
+0036             red = LinearSegmentedColormap.from_list('muted_red', ['#d7b4a4', '#bc8574', '#965e54'])
+0037             negative = [blue(t) for t in np.linspace(1, 0, steps-1)] + ['#ffffff']
+0038             positive = ['#ffffff'] + [red(t) for t in np.linspace(0, 1, steps-1)]
+0039             tolerance = max(abs(lower-center), abs(upper-center), 1e-12)*1e-6
+0040             if upper <= center+tolerance:
+0041                 color_map = ListedColormap(negative)
+0042                 bounds = np.linspace(lower, center, steps+1)
+0043             elif lower >= center-tolerance:
+0044                 color_map = ListedColormap(positive)
+0045                 bounds = np.linspace(center, upper, steps+1)
+0046             else:
+0047                 # 两侧使用相同幅值尺度，不把微小异号误差放大成深色波峰。
+0048                 span = max(abs(lower-center), abs(upper-center))
+0049                 color_map = ListedColormap(negative + positive)
+0050                 bounds = np.linspace(center-span, center+span, 2*steps+1)
+0051             norm = BoundaryNorm(bounds, color_map.N, clip=True)
+0052         else:
+0053             norm = Normalize(lower, upper)
+0054         error_map = config['error_cmap']
+0055         if error_map == 'white_red':
+0056             muted = LinearSegmentedColormap.from_list('muted_error', ['#d8bd91', '#b98c59', '#896540'])
+0057             error_map = ListedColormap(['#ffffff'] + [muted(t) for t in np.linspace(0, 1, config.get('color_steps', 12)-1)])
+0058         levels = np.linspace(lower, upper, config['levels']+2)[1:-1]
+0059         ax = fig.add_subplot(grid[row, 0], projection='3d')
+0060         sy, sx = max(1, len(yy)//160), max(1, len(xx)//300)
+0061         ax.plot_surface(X[::sy, ::sx], Y[::sy, ::sx], n[::sy, ::sx],
+0062                         cmap=color_map, norm=norm, linewidth=0,
+0063                         rcount=len(yy[::sy]), ccount=len(xx[::sx]), antialiased=False, shade=False)
+0064         ax.set(xlabel='$x$', ylabel=f'${second_axis}$', zlabel=f'${name}$',
+0065                xlim=config['xlim'], ylim=config['ylim'])
+0066         ax.view_init(config['elev'], config['azim'])
+0067         ax.set_box_aspect((1.2, 1, .85))
+0068         ax.set_title(f'${name}$: numerical surface')
+0069         for axis in (ax.xaxis, ax.yaxis, ax.zaxis):
+0070             axis.set_major_locator(MaxNLocator(4))
+0071         for col, values, label in ((1, n, 'Numerical'), (2, e, 'Exact')):
+0072             ax = fig.add_subplot(grid[row, col])
+0073             if config.get('map_style', 'contour') == 'contour':
+0074                 if values.max() > values.min():
+0075                     ax.contour(xx, yy, values, levels=levels, cmap=color_map, norm=norm,
+0076                                linewidths=config.get('contour_width', 1.1))
+0077                 image = plt.cm.ScalarMappable(norm=norm, cmap=color_map)
+0078                 label += ' contours'
+0079                 ax.grid(color='#dddddd', linewidth=.4, alpha=.45)
+0080             else:
+0081                 image = ax.pcolormesh(xx, yy, values, cmap=color_map, norm=norm, shading='auto')
+0082                 label += ' field'
+0083             ax.set(xlabel='$x$', ylabel=f'${second_axis}$',
+0084                    xlim=config['xlim'], ylim=config['ylim'], title=f'${name}$: {label}')
+0085             ax.set_box_aspect(1)
+0086             if col == 2:
+0087                 fig.colorbar(image, ax=ax, fraction=.045, pad=.025, label=f'${name}$')
+0088     fig.suptitle(title, fontsize=16)
+0089     plt.show()
+0090 
+0091     fig = plt.figure(figsize=(11, 8), layout='constrained')
+0092     grid = fig.add_gridspec(2, 2)
+0093     for row, name in enumerate(names):
+0094         error = cropped[row]
+0095         ax = fig.add_subplot(grid[row, 0], projection='3d')
+0096         ax.plot_surface(X[::sy, ::sx], Y[::sy, ::sx], error[::sy, ::sx],
+0097                         cmap=error_map, vmin=0, vmax=float(error.max()), linewidth=0,
+0098                         rcount=len(yy[::sy]), ccount=len(xx[::sx]), antialiased=False, shade=False)
+0099         ax.set(xlabel='$x$', ylabel=f'${second_axis}$', zlabel=f'$e_{{{name}}}$',
+0100                xlim=config['xlim'], ylim=config['ylim'])
+0101         ax.view_init(config['elev'], config['azim'])
+0102         ax.set_box_aspect((1.2, 1, .85))
+0103         ax.ticklabel_format(axis='z', style='sci', scilimits=(0, 0))
+0104         ax.set_title(f'${name}$: absolute error surface')
+0105         ax = fig.add_subplot(grid[row, 1])
+0106         error_norm = Normalize(0, max(float(error.max()), 1e-15))
+0107         if config.get('map_style', 'contour') == 'contour':
+0108             error_levels = np.linspace(0, error_norm.vmax, config['levels']+2)[1:-1]
+0109             if error.max() > 0:
+0110                 ax.contour(xx, yy, error, levels=error_levels, cmap=error_map, norm=error_norm,
+0111                            linewidths=config.get('contour_width', 1.1))
+0112             image = plt.cm.ScalarMappable(norm=error_norm, cmap=error_map)
+0113             ax.grid(color='#dddddd', linewidth=.4, alpha=.45)
+0114         else:
+0115             image = ax.pcolormesh(xx, yy, error, shading='auto', cmap=error_map, norm=error_norm)
+0116         ax.set(xlabel='$x$', ylabel=f'${second_axis}$', xlim=config['xlim'],
+0117                ylim=config['ylim'], title=f'${name}$: absolute error '+config.get('map_style', 'contour'))
+0118         ax.set_box_aspect(1)
+0119         fig.colorbar(image, ax=ax, fraction=.045, pad=.025, format='%.1e')
+0120     fig.suptitle(title+' | absolute error', fontsize=16)
+0121     plt.show()
+
+CELL 37 code
+0001 # 范围检查基于缓存建立时的计算参数，避免使用尚未重新计算的新参数。
+0002 saved_field_config = dict(field_signature[0])
+0003 for field_case in PLOT_CONFIG['cases']:
+0004     record = dlw_field_cache[field_signature, field_case]
+0005     drawing = dict(PLOT_CONFIG, **PLOT_CONFIG['windows'][field_case])
+0006     checked_window(drawing['xlim'], (-saved_field_config['eval_half'], saved_field_config['eval_half']), f'{field_case}: xlim')
+0007     checked_window(drawing['ylim'], (-saved_field_config['yhalf'], saved_field_config['yhalf']), f'{field_case}: ylim')
+0008     draw_field_panels(record['x'], record['y'], record['fields'], record['exact'],
+0009         f"DLW Case {field_case} | {record['model']} + {record['method']}, {record['mesh']} | t={record['reached']:g}",
+0010         ('u', 'v'), drawing)

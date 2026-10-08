@@ -101,6 +101,12 @@ z^{n+1}&=z^n+\frac{\Delta t}{6}(k_1+2k_2+2k_3+k_4).
 
 状态与节点使用同一时间算法同步更新。
 
+时间算法比较另加入 Crank–Nicolson（C–N）：
+
+$$z^{n+1}=z^n+\frac{\Delta t}{2}\left[\mathcal F(t_n,z^n)+\mathcal F(t_{n+1},z^{n+1})\right].$$
+
+这是二阶隐式梯形法，采用迭代求解并检查隐式方程残差。
+
 在 $x\in[-10,10]$ 的 4001 个等距点及全部 $y$ 层上，三次样条重构数值场，计算
 
 $$E_f(T)=\max_{(x,y)\in\mathcal G}|f_h(x,y,T)-f_*(x,y,T)|,\qquad f\in\{u,v\}.$$
@@ -113,7 +119,7 @@ $$E_f(T)=\max_{(x,y)\in\mathcal G}|f_h(x,y,T)-f_*(x,y,T)|,\qquad f\in\{u,v\}.$$
     code('space_experiment')
     md('temporal-text', r'''## 5　时间算法的比较
 
-在固定网格上分别比较 SD、SD2、FD 的 Euler 与 RK4。''')
+在固定网格上分别比较 SD、SD2、FD 的 Euler、RK4 与 Crank–Nicolson。保持相同的初值、空间格距、时间步长 $\Delta t=0.000125$ 和终点 $T=0.01$。其他实验的时间算法保持原设置。''')
     code('time_experiment')
     md('order-text', r'''取 $\Delta t$、$\Delta t/2$、$\Delta t/4$，以相邻时间步长的数值场差估计时间阶：
 

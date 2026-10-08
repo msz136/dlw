@@ -1,0 +1,332 @@
+[
+  {
+    "mode": "actual",
+    "model": "SD",
+    "refinement_diagnostics": [
+      {
+        "divisor": 1,
+        "dt": 0.000125,
+        "steps": 80,
+        "iteration_histogram": {
+          "3": 80
+        },
+        "max_residual": 1.2961880578739836e-13,
+        "max_tolerance": 1.0999999999999999e-11
+      },
+      {
+        "divisor": 2,
+        "dt": 6.25e-05,
+        "steps": 160,
+        "iteration_histogram": {
+          "3": 160
+        },
+        "max_residual": 8.148823611973412e-15,
+        "max_tolerance": 1.0999999999999999e-11
+      },
+      {
+        "divisor": 4,
+        "dt": 3.125e-05,
+        "steps": 320,
+        "iteration_histogram": {
+          "2": 320
+        },
+        "max_residual": 2.05656190455138e-12,
+        "max_tolerance": 1.0999999999999999e-11
+      }
+    ],
+    "field_orders": [
+      {
+        "field": "u",
+        "d1": 2.709177493454007e-09,
+        "d2": 1.315180186978182e-09,
+        "order": 1.0425944454230347
+      },
+      {
+        "field": "v",
+        "d1": 1.9423799235696038e-09,
+        "d2": 9.634695263827098e-10,
+        "order": 1.0115144737992152
+      }
+    ],
+    "quarter_dt_difference_from_euler": {
+      "u": 2.6629150254864342e-06,
+      "v": 3.3123513912824976e-06
+    },
+    "first_quarter_step_difference_from_euler": 1.1711453695717466e-08,
+    "first_quarter_step_cn_diagnostic": {
+      "iterations": 2,
+      "residual": 2.0563839666460845e-12,
+      "tolerance": 1.0999999999999999e-11
+    }
+  },
+  {
+    "mode": "actual",
+    "model": "SD2",
+    "refinement_diagnostics": [
+      {
+        "divisor": 1,
+        "dt": 0.000125,
+        "steps": 80,
+        "iteration_histogram": {
+          "3": 80
+        },
+        "max_residual": 2.2932773301870268e-14,
+        "max_tolerance": 2.766305922994577e-11
+      },
+      {
+        "divisor": 2,
+        "dt": 6.25e-05,
+        "steps": 160,
+        "iteration_histogram": {
+          "2": 160
+        },
+        "max_residual": 5.391439166857817e-12,
+        "max_tolerance": 2.766305935692314e-11
+      },
+      {
+        "divisor": 4,
+        "dt": 3.125e-05,
+        "steps": 320,
+        "iteration_histogram": {
+          "2": 320
+        },
+        "max_residual": 6.740678978531256e-13,
+        "max_tolerance": 2.7663059420432146e-11
+      }
+    ],
+    "field_orders": [
+      {
+        "field": "u",
+        "d1": 4.029808209349284e-09,
+        "d2": 4.315048873770877e-10,
+        "order": 3.223262373122018
+      },
+      {
+        "field": "v",
+        "d1": 1.8126443346311305e-08,
+        "d2": 1.4438411577444299e-09,
+        "order": 3.6501119366427903
+      }
+    ],
+    "quarter_dt_difference_from_euler": {
+      "u": 3.7012313519602102e-06,
+      "v": 1.647529077752896e-05
+    },
+    "first_quarter_step_difference_from_euler": 6.772792326970034e-09,
+    "first_quarter_step_cn_diagnostic": {
+      "iterations": 2,
+      "residual": 6.714218482410661e-13,
+      "tolerance": 2.7663039542801302e-11
+    }
+  },
+  {
+    "mode": "actual",
+    "model": "FD",
+    "refinement_diagnostics": [
+      {
+        "divisor": 1,
+        "dt": 0.000125,
+        "steps": 80,
+        "iteration_histogram": {
+          "3": 80
+        },
+        "max_residual": 1.0171190604167657e-13,
+        "max_tolerance": 1.0999999999999999e-11
+      },
+      {
+        "divisor": 2,
+        "dt": 6.25e-05,
+        "steps": 160,
+        "iteration_histogram": {
+          "3": 160
+        },
+        "max_residual": 6.396155848888141e-15,
+        "max_tolerance": 1.0999999999999999e-11
+      },
+      {
+        "divisor": 4,
+        "dt": 3.125e-05,
+        "steps": 320,
+        "iteration_histogram": {
+          "2": 320
+        },
+        "max_residual": 1.6516691917693553e-12,
+        "max_tolerance": 1.0999999999999999e-11
+      }
+    ],
+    "field_orders": [
+      {
+        "field": "u",
+        "d1": 2.706527002516168e-09,
+        "d2": 1.313954778314752e-09,
+        "order": 1.0425271575802482
+      },
+      {
+        "field": "v",
+        "d1": 1.9417404351074197e-09,
+        "d2": 9.62029345075166e-10,
+        "order": 1.013197552603715
+      }
+    ],
+    "quarter_dt_difference_from_euler": {
+      "u": 2.6608786367621207e-06,
+      "v": 3.3127239368324624e-06
+    },
+    "first_quarter_step_difference_from_euler": 1.0549232043466361e-08,
+    "first_quarter_step_cn_diagnostic": {
+      "iterations": 2,
+      "residual": 1.6419467104315452e-12,
+      "tolerance": 1.0999999999999999e-11
+    }
+  },
+  {
+    "mode": "tight_tol_min3",
+    "model": "SD",
+    "refinement_diagnostics": [
+      {
+        "divisor": 1,
+        "dt": 0.000125,
+        "steps": 80,
+        "iteration_histogram": {
+          "4": 80
+        },
+        "max_residual": 2.1133810847173695e-16,
+        "max_tolerance": 1.1e-14
+      },
+      {
+        "divisor": 2,
+        "dt": 6.25e-05,
+        "steps": 160,
+        "iteration_histogram": {
+          "3": 160
+        },
+        "max_residual": 8.148823611973412e-15,
+        "max_tolerance": 1.1e-14
+      },
+      {
+        "divisor": 4,
+        "dt": 3.125e-05,
+        "steps": 320,
+        "iteration_histogram": {
+          "3": 320
+        },
+        "max_residual": 5.610356607456748e-16,
+        "max_tolerance": 1.1e-14
+      }
+    ],
+    "field_orders": [
+      {
+        "field": "u",
+        "d1": 2.7067940111535904e-09,
+        "d2": 6.770337623862588e-10,
+        "order": 1.9992854165013627
+      },
+      {
+        "field": "v",
+        "d1": 1.939016280871897e-09,
+        "d2": 4.852254154030788e-10,
+        "order": 1.9985978932035136
+      }
+    ]
+  },
+  {
+    "mode": "tight_tol_min3",
+    "model": "SD2",
+    "refinement_diagnostics": [
+      {
+        "divisor": 1,
+        "dt": 0.000125,
+        "steps": 80,
+        "iteration_histogram": {
+          "3": 80
+        },
+        "max_residual": 2.2932773301870268e-14,
+        "max_tolerance": 2.766305922994577e-14
+      },
+      {
+        "divisor": 2,
+        "dt": 6.25e-05,
+        "steps": 160,
+        "iteration_histogram": {
+          "3": 160
+        },
+        "max_residual": 1.6290679742680947e-15,
+        "max_tolerance": 2.766305935693076e-14
+      },
+      {
+        "divisor": 4,
+        "dt": 3.125e-05,
+        "steps": 320,
+        "iteration_histogram": {
+          "3": 320
+        },
+        "max_residual": 3.0921445959286586e-16,
+        "max_tolerance": 2.766305942043407e-14
+      }
+    ],
+    "field_orders": [
+      {
+        "field": "u",
+        "d1": 2.714961977456909e-09,
+        "d2": 6.7872946152292e-10,
+        "order": 2.0000234510169044
+      },
+      {
+        "field": "v",
+        "d1": 1.264370119713476e-08,
+        "d2": 3.1616820272972745e-09,
+        "order": 1.9996546590033757
+      }
+    ]
+  },
+  {
+    "mode": "tight_tol_min3",
+    "model": "FD",
+    "refinement_diagnostics": [
+      {
+        "divisor": 1,
+        "dt": 0.000125,
+        "steps": 80,
+        "iteration_histogram": {
+          "4": 80
+        },
+        "max_residual": 1.689186984732416e-16,
+        "max_tolerance": 1.1e-14
+      },
+      {
+        "divisor": 2,
+        "dt": 6.25e-05,
+        "steps": 160,
+        "iteration_histogram": {
+          "3": 160
+        },
+        "max_residual": 6.396155848888141e-15,
+        "max_tolerance": 1.1e-14
+      },
+      {
+        "divisor": 4,
+        "dt": 3.125e-05,
+        "steps": 320,
+        "iteration_histogram": {
+          "3": 320
+        },
+        "max_residual": 4.536539058904582e-16,
+        "max_tolerance": 1.1e-14
+      }
+    ],
+    "field_orders": [
+      {
+        "field": "u",
+        "d1": 2.7041504035985042e-09,
+        "d2": 6.763721804858847e-10,
+        "order": 1.9992861685468866
+      },
+      {
+        "field": "v",
+        "d1": 1.9383872285061443e-09,
+        "d2": 4.850677637335821e-10,
+        "order": 1.9985985941215063
+      }
+    ]
+  }
+]

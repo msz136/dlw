@@ -1,0 +1,428 @@
+{
+  "notebook_sha256": "831fad81459e614dfffc3b890c4c6dcbda4b7ee386dfa471826f781a9042bb8b",
+  "live_SD_matches_generator": true,
+  "one_step": [
+    {
+      "case": "A",
+      "mesh": "fixed",
+      "dt": 0.000125,
+      "raw_bilinear_pairs": [
+        {
+          "maximum_B_divided_by_old_tau_product": 1.26255086499649e-10,
+          "maximum_B_relative_to_term_sum": 9.460011148404749e-11,
+          "maximum_temporal_term_divided_by_old_tau_product": 1.025905929352958,
+          "pair": "F_j,G_j",
+          "passed": true
+        },
+        {
+          "maximum_B_divided_by_old_tau_product": 1.220646325908894e-10,
+          "maximum_B_relative_to_term_sum": 9.301614628522617e-11,
+          "maximum_temporal_term_divided_by_old_tau_product": 0.9640960480368321,
+          "pair": "F_j,G_(j+1)",
+          "passed": true
+        }
+      ],
+      "shared_initial_u_v_max_error": 1.985730098870893e-12,
+      "initial_u_v_difference_from_other_schemes": {
+        "SD2": 2.193170589048619e-12,
+        "FD": 1.985730098870893e-12
+      },
+      "prescribed_boundary_checks": {
+        "lowest_G_log_error": 0.0,
+        "F_boundary_strip_log_error": 3.2968768076379956e-30,
+        "G_boundary_strip_log_error": 1.2528743256628099e-29
+      },
+      "midpoint_mesh_equation_max_error": 0.0,
+      "minimum_midpoint_J": 1.0,
+      "maximum_mesh_velocity": 0.0,
+      "wrong_ALE_plus_velocity_B_residual": [],
+      "using_old_instead_of_midpoint_J_B_residual": [],
+      "initial_tau_perturbation_max": 9.997558891861047e-08,
+      "propagated_tau_perturbation_max": 1.0001546554838647e-07,
+      "perturbation_remains_in_evolved_interior": true,
+      "linear_solves_including_perturbed_step": 96,
+      "maximum_mesh_iterations": 0
+    },
+    {
+      "case": "A",
+      "mesh": "moving",
+      "dt": 0.000125,
+      "raw_bilinear_pairs": [
+        {
+          "maximum_B_divided_by_old_tau_product": 1.1777906840256304e-10,
+          "maximum_B_relative_to_term_sum": 9.365824246320715e-11,
+          "maximum_temporal_term_divided_by_old_tau_product": 0.8028143867889943,
+          "pair": "F_j,G_j",
+          "passed": true
+        },
+        {
+          "maximum_B_divided_by_old_tau_product": 9.82988507612402e-11,
+          "maximum_B_relative_to_term_sum": 9.820963735449574e-11,
+          "maximum_temporal_term_divided_by_old_tau_product": 0.7563017826482457,
+          "pair": "F_j,G_(j+1)",
+          "passed": true
+        }
+      ],
+      "shared_initial_u_v_max_error": 2.0384584726853436e-12,
+      "initial_u_v_difference_from_other_schemes": {
+        "SD2": 2.0180000028739487e-12,
+        "FD": 2.0384584726853436e-12
+      },
+      "prescribed_boundary_checks": {
+        "lowest_G_log_error": 0.0,
+        "F_boundary_strip_log_error": 3.38496235475888e-30,
+        "G_boundary_strip_log_error": 1.2863484670661737e-29
+      },
+      "midpoint_mesh_equation_max_error": 4.299337985234561e-14,
+      "minimum_midpoint_J": 0.6751509902332797,
+      "maximum_mesh_velocity": 0.3377571600231555,
+      "wrong_ALE_plus_velocity_B_residual": [
+        0.6961785508120536,
+        0.6541091230990774
+      ],
+      "using_old_instead_of_midpoint_J_B_residual": [
+        0.00022285508721332236,
+        0.00022174255782857685
+      ],
+      "initial_tau_perturbation_max": 9.981380114099103e-08,
+      "propagated_tau_perturbation_max": 9.985580010085648e-08,
+      "perturbation_remains_in_evolved_interior": true,
+      "linear_solves_including_perturbed_step": 192,
+      "maximum_mesh_iterations": 2
+    },
+    {
+      "case": "B",
+      "mesh": "fixed",
+      "dt": 0.000125,
+      "raw_bilinear_pairs": [
+        {
+          "maximum_B_divided_by_old_tau_product": 5.004044731705985e-11,
+          "maximum_B_relative_to_term_sum": 5.004044731705985e-11,
+          "maximum_temporal_term_divided_by_old_tau_product": 1.1484118285705296,
+          "pair": "F_j,G_j",
+          "passed": true
+        },
+        {
+          "maximum_B_divided_by_old_tau_product": 4.912280777720682e-11,
+          "maximum_B_relative_to_term_sum": 4.912280777720682e-11,
+          "maximum_temporal_term_divided_by_old_tau_product": 1.2545155914729562,
+          "pair": "F_j,G_(j+1)",
+          "passed": true
+        }
+      ],
+      "shared_initial_u_v_max_error": 8.251547593267473e-13,
+      "initial_u_v_difference_from_other_schemes": {
+        "SD2": 8.466124318978146e-13,
+        "FD": 8.251547593267473e-13
+      },
+      "prescribed_boundary_checks": {
+        "lowest_G_log_error": 0.0,
+        "F_boundary_strip_log_error": 5.453749099429207e-17,
+        "G_boundary_strip_log_error": 5.5278429342590014e-17
+      },
+      "midpoint_mesh_equation_max_error": 0.0,
+      "minimum_midpoint_J": 1.0,
+      "maximum_mesh_velocity": 0.0,
+      "wrong_ALE_plus_velocity_B_residual": [],
+      "using_old_instead_of_midpoint_J_B_residual": [],
+      "initial_tau_perturbation_max": 9.997558891861047e-08,
+      "propagated_tau_perturbation_max": 1.0001660277758617e-07,
+      "perturbation_remains_in_evolved_interior": true,
+      "linear_solves_including_perturbed_step": 96,
+      "maximum_mesh_iterations": 0
+    },
+    {
+      "case": "B",
+      "mesh": "moving",
+      "dt": 0.000125,
+      "raw_bilinear_pairs": [
+        {
+          "maximum_B_divided_by_old_tau_product": 5.319856811450017e-11,
+          "maximum_B_relative_to_term_sum": 5.319856811450017e-11,
+          "maximum_temporal_term_divided_by_old_tau_product": 1.052012364727894,
+          "pair": "F_j,G_j",
+          "passed": true
+        },
+        {
+          "maximum_B_divided_by_old_tau_product": 5.091153440862573e-11,
+          "maximum_B_relative_to_term_sum": 5.091153440862573e-11,
+          "maximum_temporal_term_divided_by_old_tau_product": 1.1479108864229637,
+          "pair": "F_j,G_(j+1)",
+          "passed": true
+        }
+      ],
+      "shared_initial_u_v_max_error": 1.2053536043630106e-12,
+      "initial_u_v_difference_from_other_schemes": {
+        "SD2": 1.197972379663182e-12,
+        "FD": 1.2053536043630106e-12
+      },
+      "prescribed_boundary_checks": {
+        "lowest_G_log_error": 0.0,
+        "F_boundary_strip_log_error": 5.509509220444315e-17,
+        "G_boundary_strip_log_error": 5.4965657256937535e-17
+      },
+      "midpoint_mesh_equation_max_error": 2.248329018621209e-13,
+      "minimum_midpoint_J": 0.9044585218099639,
+      "maximum_mesh_velocity": 0.7469851058706087,
+      "wrong_ALE_plus_velocity_B_residual": [
+        0.24489263203637926,
+        0.2675505167241034
+      ],
+      "using_old_instead_of_midpoint_J_B_residual": [
+        3.2974623850755444e-05,
+        3.363848402645303e-05
+      ],
+      "initial_tau_perturbation_max": 9.995383165595229e-08,
+      "propagated_tau_perturbation_max": 9.99905676035695e-08,
+      "perturbation_remains_in_evolved_interior": true,
+      "linear_solves_including_perturbed_step": 192,
+      "maximum_mesh_iterations": 2
+    },
+    {
+      "case": "C",
+      "mesh": "fixed",
+      "dt": 0.000125,
+      "raw_bilinear_pairs": [
+        {
+          "maximum_B_divided_by_old_tau_product": 1.0485705742204116e-10,
+          "maximum_B_relative_to_term_sum": 1.0139652562492166e-10,
+          "maximum_temporal_term_divided_by_old_tau_product": 2.0837827529534656,
+          "pair": "F_j,G_j",
+          "passed": true
+        },
+        {
+          "maximum_B_divided_by_old_tau_product": 9.921646930543287e-11,
+          "maximum_B_relative_to_term_sum": 9.904799513247622e-11,
+          "maximum_temporal_term_divided_by_old_tau_product": 2.231334887711672,
+          "pair": "F_j,G_(j+1)",
+          "passed": true
+        }
+      ],
+      "shared_initial_u_v_max_error": 2.054267866923096e-12,
+      "initial_u_v_difference_from_other_schemes": {
+        "SD2": 2.0605127165222275e-12,
+        "FD": 2.054267866923096e-12
+      },
+      "prescribed_boundary_checks": {
+        "lowest_G_log_error": 0.0,
+        "F_boundary_strip_log_error": 5.5015638611475286e-17,
+        "G_boundary_strip_log_error": 5.549688898313619e-17
+      },
+      "midpoint_mesh_equation_max_error": 0.0,
+      "minimum_midpoint_J": 1.0,
+      "maximum_mesh_velocity": 0.0,
+      "wrong_ALE_plus_velocity_B_residual": [],
+      "using_old_instead_of_midpoint_J_B_residual": [],
+      "initial_tau_perturbation_max": 9.997558869656586e-08,
+      "propagated_tau_perturbation_max": 1.0001682548832491e-07,
+      "perturbation_remains_in_evolved_interior": true,
+      "linear_solves_including_perturbed_step": 96,
+      "maximum_mesh_iterations": 0
+    },
+    {
+      "case": "C",
+      "mesh": "moving",
+      "dt": 0.000125,
+      "raw_bilinear_pairs": [
+        {
+          "maximum_B_divided_by_old_tau_product": 1.0298381541762252e-10,
+          "maximum_B_relative_to_term_sum": 9.733060538062028e-11,
+          "maximum_temporal_term_divided_by_old_tau_product": 1.8314458143916714,
+          "pair": "F_j,G_j",
+          "passed": true
+        },
+        {
+          "maximum_B_divided_by_old_tau_product": 1.022531647369825e-10,
+          "maximum_B_relative_to_term_sum": 1.022531647369825e-10,
+          "maximum_temporal_term_divided_by_old_tau_product": 1.9596466258008427,
+          "pair": "F_j,G_(j+1)",
+          "passed": true
+        }
+      ],
+      "shared_initial_u_v_max_error": 1.8785233941483094e-12,
+      "initial_u_v_difference_from_other_schemes": {
+        "SD2": 1.925175244394984e-12,
+        "FD": 1.8785233941483094e-12
+      },
+      "prescribed_boundary_checks": {
+        "lowest_G_log_error": 0.0,
+        "F_boundary_strip_log_error": 5.4472523401801544e-17,
+        "G_boundary_strip_log_error": 5.549688898313619e-17
+      },
+      "midpoint_mesh_equation_max_error": 5.505473870846475e-13,
+      "minimum_midpoint_J": 0.8821833723330482,
+      "maximum_mesh_velocity": 1.0155417825867123,
+      "wrong_ALE_plus_velocity_B_residual": [
+        0.5091701244605737,
+        0.5476924769055315
+      ],
+      "using_old_instead_of_midpoint_J_B_residual": [
+        0.00010297653117537075,
+        0.0001039237023015943
+      ],
+      "initial_tau_perturbation_max": 9.972011039138806e-08,
+      "propagated_tau_perturbation_max": 9.975369019699087e-08,
+      "perturbation_remains_in_evolved_interior": true,
+      "linear_solves_including_perturbed_step": 192,
+      "maximum_mesh_iterations": 2
+    }
+  ],
+  "initial_lift_grid_checks": [
+    {
+      "nx": 128,
+      "case": "A",
+      "initial_node_error": 4.94478531996742e-13,
+      "lift_log_tau_correction": 0.003949493600337486,
+      "initial_interpolated_error": {
+        "u": 0.005700241777929715,
+        "v": 0.002485557735496524
+      },
+      "one_step_finite": true,
+      "maximum_log_tau_state": 59.08888771133189
+    },
+    {
+      "nx": 128,
+      "case": "B",
+      "initial_node_error": 1.9632442915286374e-13,
+      "lift_log_tau_correction": 4.598899126628808e-05,
+      "initial_interpolated_error": {
+        "u": 8.705046426860097e-06,
+        "v": 1.027106378709286e-05
+      },
+      "one_step_finite": true,
+      "maximum_log_tau_state": 21.099397181247124
+    },
+    {
+      "nx": 128,
+      "case": "C",
+      "initial_node_error": 5.258015702523655e-13,
+      "lift_log_tau_correction": 7.98501087693193e-05,
+      "initial_interpolated_error": {
+        "u": 2.1790464047488634e-05,
+        "v": 2.1142590677203366e-05
+      },
+      "one_step_finite": true,
+      "maximum_log_tau_state": 41.482052994051394
+    },
+    {
+      "nx": 255,
+      "case": "A",
+      "initial_node_error": 7.143780931073254e-06,
+      "lift_log_tau_correction": 166226142.8438461,
+      "initial_interpolated_error": {
+        "u": 0.000225977164395319,
+        "v": 9.936586946501791e-05
+      },
+      "error": "RuntimeError: Factor is exactly singular"
+    },
+    {
+      "nx": 255,
+      "case": "B",
+      "initial_node_error": 1.228773124917204e-10,
+      "lift_log_tau_correction": 2647.105661226253,
+      "initial_interpolated_error": {
+        "u": 5.144188488515056e-07,
+        "v": 6.138514634934644e-07
+      },
+      "error": "RuntimeError: Factor is exactly singular"
+    },
+    {
+      "nx": 255,
+      "case": "C",
+      "initial_node_error": 1.0726702859287229e-10,
+      "lift_log_tau_correction": 2628.1007167852567,
+      "initial_interpolated_error": {
+        "u": 1.25278406570839e-06,
+        "v": 1.2325818253833276e-06
+      },
+      "error": "RuntimeError: Factor is exactly singular"
+    },
+    {
+      "nx": 256,
+      "case": "A",
+      "initial_node_error": 1.0642745943793074e-12,
+      "lift_log_tau_correction": 0.0002584652824180189,
+      "initial_interpolated_error": {
+        "u": 0.00022281626407605337,
+        "v": 9.611740328607787e-05
+      },
+      "one_step_finite": true,
+      "maximum_log_tau_state": 59.55763771133189
+    },
+    {
+      "nx": 256,
+      "case": "B",
+      "initial_node_error": 5.031826192693212e-13,
+      "lift_log_tau_correction": 2.9264700273090583e-06,
+      "initial_interpolated_error": {
+        "u": 5.060932534717288e-07,
+        "v": 6.039533757551396e-07
+      },
+      "one_step_finite": true,
+      "maximum_log_tau_state": 21.255647181147726
+    },
+    {
+      "nx": 256,
+      "case": "C",
+      "initial_node_error": 8.275749877051375e-13,
+      "lift_log_tau_correction": 5.109033147876474e-06,
+      "initial_interpolated_error": {
+        "u": 1.2350944293970656e-06,
+        "v": 1.2146000747392804e-06
+      },
+      "one_step_finite": true,
+      "maximum_log_tau_state": 41.79455299377348
+    },
+    {
+      "nx": 257,
+      "case": "A",
+      "error": "RuntimeError: Factor is exactly singular"
+    },
+    {
+      "nx": 257,
+      "case": "B",
+      "error": "RuntimeError: Factor is exactly singular"
+    },
+    {
+      "nx": 257,
+      "case": "C",
+      "error": "RuntimeError: Factor is exactly singular"
+    },
+    {
+      "nx": 512,
+      "case": "A",
+      "initial_node_error": 2.100838022064035e-12,
+      "lift_log_tau_correction": 1.6598997664818427e-05,
+      "initial_interpolated_error": {
+        "u": 1.2171342268940677e-05,
+        "v": 5.069526733736396e-06
+      },
+      "one_step_finite": true,
+      "maximum_log_tau_state": 59.79201271133189
+    },
+    {
+      "nx": 512,
+      "case": "B",
+      "initial_node_error": 9.01456535286338e-13,
+      "lift_log_tau_correction": 1.8380917488070025e-07,
+      "initial_interpolated_error": {
+        "u": 3.106610868552906e-08,
+        "v": 3.717573276995623e-08
+      },
+      "one_step_finite": true,
+      "maximum_log_tau_state": 21.333772181103548
+    },
+    {
+      "nx": 512,
+      "case": "C",
+      "initial_node_error": 1.961097923592822e-12,
+      "lift_log_tau_correction": 3.214370803972244e-07,
+      "initial_interpolated_error": {
+        "u": 7.516209576952093e-08,
+        "v": 7.421635583870767e-08
+      },
+      "one_step_finite": true,
+      "maximum_log_tau_state": 41.95080299364999
+    }
+  ]
+}

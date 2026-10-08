@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DLW SD 递推实现审查</title>
+<style>body{max-width:880px;margin:48px auto;padding:0 24px;color:#202020;background:#fff;font:17px/1.85 "Times New Roman",SimSun,serif}h1{font-size:28px}h2{font-size:21px;margin-top:30px}p{margin:12px 0}a{color:#235984}table{width:100%;border-collapse:collapse;margin:18px 0;font-size:16px}th,td{padding:8px 12px;border-bottom:1px solid #ddd;text-align:left}code{font-size:14px;overflow-wrap:anywhere}.date{color:#666;font-size:14px}@media(max-width:600px){body{margin:24px auto;padding:0 18px;font-size:16px}th,td{padding:6px}}@media print{body{max-width:none;margin:0;font-size:11pt}a{color:inherit}}</style></head>
+<body><h1>DLW SD 递推实现审查</h1><p class="date">2026年10月7日</p>
+<p>当前 SD 双线性中点递推的符号、系数、逐层求解顺序与动网格变换均与展示公式一致。A、B、C 的固定／动网格六组默认实验重新运行至 T = 0.01，终点误差与原保存值完全一致。发现两处参数接口问题，均不改变当前页面的默认结果。</p>
+<h2>1　递推与数值复核</h2>
+<p>两条双线性方程的时间项均为 (F<sup>n+1</sup>G<sup>n</sup> − F<sup>n</sup>G<sup>n+1</sup>)/Δt。第一式求 F 时空间项移至左侧取正号，第二式求 G 时取负号；代码的两次线性求解与此一致。最低层 G 给定后，沿 G<sub>j</sub> → F<sub>j</sub> → G<sub>j+1</sub> 递推。</p>
+<p>对当前 notebook 的六组固定／动网格单步，用独立差分模板重新计算双线性残差；按各项绝对值之和归一化后的最大残差为 1.03 × 10<sup>−10</sup>。初值物理场匹配、解析边界和内部扰动传播均通过检查。动网格的系数为 2a ± h − V，空间算子使用中点 Jacobian；速度项的负号正确。</p>
+<p>原保存的固定网格时间观测阶为 1.979–2.000。本次另以 A 组动网格、T = 0.002 和 Δt、Δt/2、Δt/4 复核，u、v 的观测阶分别为 2.0005、2.0020。该补测支持局部二阶时间精度。</p>
+<h2>2　应修正的实现问题</h2>
+<p><strong>奇数节点导致初值提升奇异。</strong> <a href="../Workspaces/notebook_reports_20261006/sd_tau_cell.py">SD 初值实现</a>直接反演 D<sub>1</sub>[I,I]，内部节点数为 nx − 8。均匀网格上这一矩阵为实反对称矩阵，奇数阶时行列式必为零；动网格仅在左侧乘可逆对角矩阵，也不能消除奇异性。nx = 257 的三组初值均报“Factor is exactly singular”；nx = 255 还可能先生成极大的伪解，再在推进时失败。当前 nx = 256 可正常运行。</p>
+<p>建议先明确检查 nx 为偶数且大于 8，并在提升后验证重构残差；如需支持奇数节点，应重新设计有明确规范条件的积分／提升方法。</p>
+<p><strong>请求的时间方法与实际方法可能不一致。</strong> <a href="../Workspaces/notebook_reports_20261006/tau_report_cells.py">solve 接口</a>对 SD 总是调用中点更新，但仍按传入的 method 保存结果标签。本次调用 SD/Euler 与 SD/Midpoint，单步物理场逐值相同，前者却标为 Euler。后续通过 calculate 的默认模型列表调用 Euler 时，同样可能产生错误标签。</p>
+<p>建议 SD 只接受 Midpoint，其他方法立即给出明确错误，或统一记录实际执行的方法。当前主表已正确使用 Midpoint。</p>
+<h2>3　初始误差的评价口径</h2>
+<p>当前 initial_error 衡量节点上的初值重构差，终点 E<sub>u</sub>、E<sub>v</sub>则在 4001 个公共点上用三次样条评价。二者不是同一口径。以默认固定网格为例，节点差约为 10<sup>−12</sup>，但 T = 0 的公共点误差为：</p>
+<table><thead><tr><th>算例</th><th>E<sub>u</sub>(0)</th><th>E<sub>v</sub>(0)</th></tr></thead><tbody><tr><td>A</td><td>2.2282 × 10<sup>−4</sup></td><td>9.6117 × 10<sup>−5</sup></td></tr><tr><td>B</td><td>5.0609 × 10<sup>−7</sup></td><td>6.0395 × 10<sup>−7</sup></td></tr><tr><td>C</td><td>1.2351 × 10<sup>−6</sup></td><td>1.2146 × 10<sup>−6</sup></td></tr></tbody></table>
+<p>这不是初值提升失败，而是公共点重构本身已有误差。建议与终点表同时给出 E(0)，避免把全部终点误差解释为时间演化产生的误差；E(T) − E(0) 也不能直接当作误差场的增长范数。</p>
+<h2>4　比较结果的含义</h2>
+<p>当前结果是给定格距、时间步长、初值提升与边界闭合下的完整数值方案比较。SD 给定最低层 G 和两端各四个解析 τ 节点，SD2／FD 给定最低层 u，且 x 端点分别采用跃变量／周期延拓。页面已列出这些处理。若要把排名归因于空间递推本身，仍应增加统一物理边界及空间加密对照。</p>
+<p>连续孤子在此用作共同物理初值和误差参照；不能要求其在有限 h 下精确满足 SD 双线性方程。独立的有限 h Gram τ 实验与当前共同物理初值实验采用不同参照，本次审查未将两者混用。</p>
+<p>本次检查覆盖当前六组默认 SD 轨道、六组单步残差、15 组初值网格检查及 A 组短时间动网格减步；未改动数值实现或原表格。复核材料：<a href="../Workspaces/dlw_direct_tau_20261007/review_20261007/audit.json">单步与初值</a>、<a href="../Workspaces/dlw_direct_tau_20261007/review_20261007/runs.json">完整复跑与时间阶</a>、<a href="../Workspaces/dlw_direct_tau_20261007/review_20261007/method_check.json">方法标签复现</a>。</p>
+</body></html>

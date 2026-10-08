@@ -1,0 +1,32 @@
+{
+  "success": true,
+  "date": "2026-10-07",
+  "html_sha256": "c44acfa25fb698b653875243abf967ab7f39d7c2fc40ad2580fa85808e4f0fe4",
+  "notebook_sha256": "0a8bcb20201f13a35f64f36a75a4201f62d94af0afef4dd2f01858ce657fe00e",
+  "notebook_bytes_unchanged": true,
+  "numerical_reexecution": false,
+  "source_code_elements": 0,
+  "removed_code_excerpts": 7,
+  "original_display_formulas_preserved": true,
+  "added_display_formulas": [
+    "\\tau=\\sum_r A_r e^{k_rx+\\omega_rt+\\ell_ry},\\qquad\nw_r=\\frac{A_re^{k_rx+\\omega_rt+\\ell_ry}}{\\tau}.",
+    "\\begin{aligned}\n\\partial_x\\log\\tau&=\\sum_r w_rk_r,\\\\\n\\partial_x\\partial_y\\log\\tau\n&=\\sum_r w_rk_r\\ell_r-\\left(\\sum_r w_rk_r\\right)\\left(\\sum_r w_r\\ell_r\\right).\n\\end{aligned}",
+    "\\begin{aligned}\nk_1&=\\mathcal F(t_n,z^n),\\\\\nk_2&=\\mathcal F\\left(t_n+\\frac{\\Delta t}{2},z^n+\\frac{\\Delta t}{2}k_1\\right),\\\\\nk_3&=\\mathcal F\\left(t_n+\\frac{\\Delta t}{2},z^n+\\frac{\\Delta t}{2}k_2\\right),\\\\\nk_4&=\\mathcal F(t_n+\\Delta t,z^n+\\Delta t k_3),\\\\\nz^{n+1}&=z^n+\\frac{\\Delta t}{6}(k_1+2k_2+2k_3+k_4).\n\\end{aligned}"
+  ],
+  "table_numerical_entries_unchanged": true,
+  "png_sha256": [
+    "db081a68c7b9da6002416e7d4d381742cc85159a931d2a1ef21ccc946a73b5eb",
+    "1a36970fbaed7fc53c8223fd2e2c90b45200157ca5e3a380a4be4c1e9be9fb0b",
+    "1900dc7e745adf4aff3367280b0932504e1f5d85a35a79c7cf2df8bac2375dc2"
+  ],
+  "retained_sections": 7,
+  "tables": 5,
+  "figures": 3,
+  "table_labels": "Chinese method/mesh labels; delta-t notation; scalar single-soliton parameters",
+  "content_validation_sha256": "7d97204364bc21c602345d89da2aaab64470280bdb967b821a1c734cd9243a3a",
+  "browser_validation_sha256": "bece2c3a057c36da4a836adfb318993162907bb98fb01f9221ecaeceea970444",
+  "builder_sha256": "27dee0c097fe9eabddb17f04d7c810190b2345cd17c636c73d61d01610a7cf3b",
+  "backup": "C:\\Users\\msz\\aca\\Workspaces\\dlw_notebook_static_20261007\\before_no_code",
+  "committed": false,
+  "pushed": false
+}

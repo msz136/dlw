@@ -1,0 +1,115 @@
+{
+  "date": "2026-10-07",
+  "success": true,
+  "sd_formulation": "Report (7), nonlinear u/omega; P=delta_-u, W=4omega/h",
+  "configuration": {
+    "nx": 256,
+    "h": 0.125,
+    "dt": 0.000125,
+    "T": 0.01,
+    "L": 40.0,
+    "eval_points": 4001
+  },
+  "spatial_order": 2,
+  "time_methods": {
+    "SD": [
+      "Euler",
+      "RK4"
+    ],
+    "SD2": [
+      "Euler",
+      "RK4"
+    ],
+    "FD": [
+      "Euler",
+      "RK4"
+    ]
+  },
+  "spatial_and_mesh_tables": "RK4",
+  "local_error_curves": "Euler",
+  "primary_runs": 36,
+  "temporal_refinement_runs": 12,
+  "code_cells": 17,
+  "executed_cells": 17,
+  "execution_seconds": 36.895,
+  "image_outputs": 3,
+  "euler_order_ranges": {
+    "SD": [
+      0.9971368845212252,
+      1.000293518795346
+    ],
+    "SD2": [
+      0.9948192538191271,
+      1.0000830590505179
+    ]
+  },
+  "initial_maximum_evaluation_node_error": 1.9752041511043135e-13,
+  "unchanged_SD2_FD_runs": 18,
+  "exact_prose_preserved": true,
+  "presentation": {
+    "sections": 7,
+    "tables": 5,
+    "figures": 3,
+    "code": false,
+    "table_of_contents": false,
+    "math_expressions": 107,
+    "font_style": "Original Times New Roman / SimSun; intact embedded KaTeX fonts",
+    "offline": true
+  },
+  "no_commit": true,
+  "no_push": true,
+  "backup": "Workspaces/notebook_reports_20261006/before_nonlinear_sd_20261007",
+  "source_modules_sha256": {
+    "dlw_numeric_cells.py": "b0caeb07e2004f584ccc28440d5d9e95e0496f1e8b9c36226fb0e3f92b24f90c",
+    "sd_nonlinear_cell.py": "91d9f54210b17df83a2d44686e76c33b87f87be69a27682e37c25f0bf566ccff",
+    "execute_dlw_notebook.py": "d159f80d11250e9d0c7c8e465b1bee72fa38009991d31d24112172cfdbb3a602",
+    "build_dlw_numerics_notebook.py": "db14f66e45148d5b04fb8ca8cb3f7e9c13faaeb4423cf7421f6fedc9c358187d",
+    "revise_dlw_structure.py": "f797fb9951c314d547f6c61456f910d70e874b16ffcde7b4afade44b4490fd82"
+  },
+  "file_hashes": {
+    "notebook/DLW数值分析report.ipynb": "03d051287aad5bbe9af167081466d54e7142107c0eb412053d5f0796c73ef473",
+    "dlw_numerical.html": "0e8dea4f857464ecaa1d13af541cc397497d6dbf4169c414998c2cc9279f949d",
+    "report/DLW数值分析_双线性SD留档_20261007.html": "90df160d1d1e9eab74b771e2e36e2918146cb9372dc83bf3b9430b9312985870",
+    "Workspaces/notebook_reports_20261006/dlw_numeric_cells.py": "b0caeb07e2004f584ccc28440d5d9e95e0496f1e8b9c36226fb0e3f92b24f90c",
+    "Workspaces/notebook_reports_20261006/sd_nonlinear_cell.py": "91d9f54210b17df83a2d44686e76c33b87f87be69a27682e37c25f0bf566ccff",
+    "Workspaces/notebook_reports_20261006/execute_dlw_notebook.py": "d159f80d11250e9d0c7c8e465b1bee72fa38009991d31d24112172cfdbb3a602",
+    "Workspaces/notebook_reports_20261006/build_dlw_numerics_notebook.py": "db14f66e45148d5b04fb8ca8cb3f7e9c13faaeb4423cf7421f6fedc9c358187d",
+    "Workspaces/notebook_reports_20261006/revise_dlw_structure.py": "f797fb9951c314d547f6c61456f910d70e874b16ffcde7b4afade44b4490fd82",
+    "Workspaces/notebook_reports_20261006/dlw_build_validation.json": "7ade40ae77995ddf057d1912f0aca584b1f8f1dcaa61d98e0637248f9100c6b0",
+    "Workspaces/notebook_reports_20261006/dlw_numeric_results.json": "10ad848750bac9d53eda613014ab49f287b75c1019d11986bbec93b69ac8caa8",
+    "Workspaces/notebook_reports_20261006/dlw_numeric_curves.npz": "3bb587dc4722cc8f5f84b80c8ede0b0cafe434212cf524e608a74d2ba738bed4",
+    "Workspaces/notebook_reports_20261006/dlw_execution_validation.json": "2293357110adfe3363b3d72d94018a5c07fbb364f67c926dc5cca76685e755d8",
+    "Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/verify_nonlinear_sd_kernel.py": "368e49540e57de0b1fcddc348c79f0ac09aba44d73dd240f352a05921e5a132f",
+    "Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/verify_nonlinear_delivery.py": "a2a7be85046768c6d574e8b121561904b436d9acfa7890cee6d1f27791811891",
+    "Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/kernel_validation.json": "1f27049deae02c12d03af983beeb81f5c6f4d508becda26125aea51d90a86e7d",
+    "Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/spatial_validation.json": "78ed16fac88caa0a40c59deb28ee344d6be821584845ce363f6bd2a2426e3071",
+    "Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/delivery_validation.json": "54b459b6b960b706fa7b25ebbffeeadce8cbf416960e3a85f733f31246b99946",
+    "Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/register_revision.py": "bb85d934735484bfd41acb1ffa68eefe16bbc64aa453d6339cfe733bd0c5263c",
+    "Workspaces/dlw_notebook_static_20261007/build_static.py": "9cada01ad2ed9e68548cc627aea64927e3c1592b85732eab6185f00de740da10",
+    "Workspaces/dlw_notebook_static_20261007/verify_static.py": "d23a1799798fef764c16e3db31f76a474e140d931296b9a62833699866923b9c",
+    "Workspaces/dlw_notebook_static_20261007/check_static.cjs": "9c191c46a5fc0d9652338cbeb5ef940b6d43ca9104d7020b6572da224d39ef0d",
+    "Workspaces/dlw_notebook_static_20261007/build_validation.json": "45472f61e7a2dcf016425e3478ec96580b7a227abafa400ee785e846330839fc",
+    "Workspaces/dlw_notebook_static_20261007/content_validation.json": "cdf5c0f3447bcfb7fbca9a76769efad22f18f7ed14fec9a97a4916a3d52c2939",
+    "Workspaces/dlw_notebook_static_20261007/browser_validation.json": "ddb0bc43197f79b464163b474f6e24c57c755b92811951b19eea9201a6ef09c1",
+    "Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/dlw_notebook_figure_1.png": "a3e997099db99249858e72ea77ba4786e9b8c06af5627677a5346fdeb81cdaf1",
+    "Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/dlw_notebook_figure_2.png": "3425e3ffd66d165220cc88a22537829ad9066632b51e8a97c02162b737ffca80",
+    "Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/dlw_notebook_figure_3.png": "0f757a667b69b859963ec908bb64c19805641ab87a244df655b69dcac2c9d5d1",
+    "Workspaces/dlw_notebook_static_20261007/report_1440.png": "1f5055d62c35986344a5e10e4c279ab277ea259a46530c451d04f785e5e3dad5",
+    "Workspaces/dlw_notebook_static_20261007/report_390.png": "35200bfb6ccaa3b81286fbf1dfb540761d840eeaffbe47124b20fb15704588a4",
+    "Workspaces/dlw_notebook_static_20261007/report_exact_1440.png": "b811ad6530b1c67b03fcc199d773ead5473f9d81635026cd8a515ca1282450f3",
+    "Workspaces/dlw_notebook_static_20261007/report_figure_1440.png": "3c982860c2ba6af086d0734e8137ed644da74145923f86239d709d7ec38a21c7",
+    "Workspaces/dlw_notebook_static_20261007/report_sd_1440.png": "25385a4511c422c7ad8708866d0b4f40b64b775af93fe758dc82a2af381ae398",
+    "Workspaces/dlw_notebook_static_20261007/report_sd_390.png": "b2498288ea8dd21ab0fdd933c9be44619ba68652c13e04e92be4979ec0a436a6",
+    "Workspaces/dlw_notebook_static_20261007/report_sd_code_1440.png": "b4da97d39ccf4a012c31464d54e5686d37b2c45a7c70eff9bce7dae81d5561eb",
+    "Workspaces/dlw_notebook_static_20261007/report_sd_code_print.png": "45f1ffe170a5024933993237bffde3ce48501990b6f43512beb69ef538597201",
+    "Workspaces/dlw_notebook_static_20261007/report_sd_print.png": "951e8f6827741897b87de8d3d07178f0ff7016573dfc0951fda45f453fd47236",
+    "Workspaces/dlw_notebook_static_20261007/report_table_1440.png": "00f5b9a0c13e226884118ca3df11e22aa035cb5f56fa0e5fd2658bfa291deb5f",
+    "Workspaces/dlw_notebook_static_20261007/report_table_390.png": "c4629316caf47cb2629ff1334e79ad2054a49dbca36cd66f6ef38a6e550091a5",
+    "Workspaces/dlw_notebook_static_20261007/report_table_print.png": "e9340606748b67af77be48e583f6424bc58e9b3a7d75baef359d493e88f88b69",
+    "Workspaces/dlw_notebook_static_20261007/report_time_print.png": "e9340606748b67af77be48e583f6424bc58e9b3a7d75baef359d493e88f88b69"
+  },
+  "previous_record_hashes": {
+    "PROGRESS_LOG.md": "772f23a9004840b5d090a81747b988ca9fc771e23fd29a7c9c43caf516f96f26",
+    "FILE_INDEX.md": "52d09c98c145171174427c3d613fa37c50b5630fe467474079895f958971b1ad"
+  }
+}

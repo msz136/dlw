@@ -4,7 +4,6 @@ import base64
 import hashlib
 import json
 import re
-import textwrap
 
 from bs4 import BeautifulSoup
 import mistune
@@ -23,7 +22,12 @@ def verify():
     assert not any(page.find(attrs={'data-cell':cid}) for cid in build.OMITTED_CELLS)
     assert len(page.select('h2')) == 7
     assert not page.select('nav')
-    assert page.select('main > section')[-1]['data-cell'] == 'dlw-curves'
+    assert not page.select('main pre,main code,.key-code,.code-caption')
+    visible_text = page.main.get_text()
+    assert not any(term in visible_text for term in (
+        '代码', 'Exact', 'logsumexp', 'solve_one', 'advance', 'uv(js',
+        'mean', 'cov', 'axis=', 'fp', 'fv', 'mx'))
+    assert page.select('main > section')[-1]['data-cell'] == 'dlw-field-plots'
     assert '参考资料' not in page.get_text() and '完整代码' not in page.get_text()
     build.FORMULAS.clear()
     markdown = mistune.create_markdown(renderer=build.Renderer(escape=False),plugins=['math','table','strikethrough'])
@@ -32,10 +36,6 @@ def verify():
     for cell in cells:
         section=page.find('section',attrs={'data-cell':cell.id})
         if cell.cell_type=='code':
-            for pre in section.select('pre.key-code'):
-                first,last=int(pre['data-first-line']),int(pre['data-last-line'])
-                expected=textwrap.dedent('\n'.join(cell.source.splitlines()[first-1:last]))
-                assert pre.code.get_text() == expected,cell.id
             actual_outputs=section.select('div.output')
             assert len(actual_outputs)==len(cell.outputs)
             for actual,output in zip(actual_outputs,cell.outputs):
@@ -48,12 +48,15 @@ def verify():
                     assert actual_png==source_png
                     png_hashes.append(hashlib.sha256(actual_png).hexdigest())
                 elif 'text/html' in data:
-                    expected=BeautifulSoup(data['text/html'],'html.parser')
+                    original=BeautifulSoup(data['text/html'],'html.parser')
+                    expected=BeautifulSoup(build.output_html(output),'html.parser')
                     assert actual.get_text().split() == expected.get_text().split(), cell.id
                     assert len(actual.select('table'))==len(expected.select('table'))
+                    numeric = lambda soup:[re.findall(r'-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?',td.get_text()) for td in soup.select('td')]
+                    assert numeric(actual)==numeric(original),cell.id
                 else:
-                    assert actual.pre.get_text()==data['text/plain']
-            results.append({'cell':cell.id,'key_excerpts_exact':True,'outputs_exact':True,'outputs':len(cell.outputs)})
+                    assert actual.get_text()==data['text/plain']
+            results.append({'cell':cell.id,'source_code_omitted':True,'outputs_exact':True,'outputs':len(cell.outputs)})
         else:
             expected=BeautifulSoup(markdown(build.markdown_source(cell)),'html.parser')
             actual=BeautifulSoup(str(section),'html.parser')
@@ -69,15 +72,8 @@ def verify():
     assert not page.select('[href]:not([href^="#"]),[src]:not([src^="data:"])')
     assert 'url(fonts/' not in page.style.get_text()
     assert '.katex{font:normal 1.21em KaTeX_Main' in page.style.get_text()
-    assert len(page.select('.key-code'))==manifest['visible_code_excerpts']
-    assert sum(len(p.code.get_text().splitlines()) for p in page.select('.key-code'))==manifest['visible_code_lines']
-    for snippet in manifest['key_code']:
-        section=page.find('section',attrs={'data-cell':snippet['cell']})
-        pre=section.find('pre',attrs={'data-first-line':str(snippet['first_line']),
-                                      'data-last-line':str(snippet['last_line'])})
-        assert pre is not None
-        if snippet['method']:
-            assert pre.code.get_text().startswith('def '+snippet['method']+'(')
+    assert manifest['visible_code_excerpts']==manifest['visible_code_lines']==0
+    assert not manifest['key_code']
     assert not any(x in page.get_text() for x in ['$$','\\[','\\]'])
     result={'success':True,'cells':results,'formula_sources_exact':True,'math_expressions':len(annotations),
             'png_sha256':png_hashes,'retained_saved_outputs_preserved':True,'standalone_no_execution_controls':True,
@@ -85,7 +81,7 @@ def verify():
             'visible_code_lines':sum(len(p.code.get_text().splitlines()) for p in page.select('.key-code')),
             'full_code_included':False,'omitted_cells':sorted(build.OMITTED_CELLS),
             'markdown_presentation_edits':build.MARKDOWN_EDITS,
-            'key_methods':build.KEY_METHODS,'key_code':manifest['key_code'],
+            'no_code_elements_or_implementation_prose':True,'key_code':manifest['key_code'],
             'html_sha256':hashlib.sha256(build.DEST.read_bytes()).hexdigest(),
             'notebook_sha256':hashlib.sha256(build.NOTEBOOK.read_bytes()).hexdigest()}
     (build.HERE/'content_validation.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')

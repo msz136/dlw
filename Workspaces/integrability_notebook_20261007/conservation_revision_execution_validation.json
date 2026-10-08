@@ -1,0 +1,62 @@
+{
+  "notebook": "C:\\Users\\msz\\aca\\Workspaces\\integrability_notebook_20261007\\conservation_revision.executed.ipynb",
+  "notebook_sha256": "1046571e2ba15f68d7fefd9445e7b1a3bcff530e251ac356bbefc9ffd8eb61e4",
+  "input_sha256": "ceff6458ec0ce0ac936e0932700a79c1a1a71041394640c5b142320bb8d84a3f",
+  "backup": "C:\\Users\\msz\\aca\\Workspaces\\integrability_notebook_20261007\\execution_inputs\\conservation_revision_07065e92e8da4355b26dd3d0c076ad54.ipynb",
+  "python": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\.venv\\Scripts\\python.exe",
+  "kernel": "fresh native project Python kernel",
+  "elapsed_seconds": 35.394,
+  "success": true,
+  "schema_valid": true,
+  "sources_unchanged": true,
+  "code_cell_count": 3,
+  "errors": [],
+  "failure": null,
+  "cell_timings": [
+    {
+      "id": "python-load",
+      "seconds": 0.143
+    },
+    {
+      "id": "lean-library",
+      "seconds": 17.898
+    },
+    {
+      "id": "lean-conservation",
+      "seconds": 16.197
+    }
+  ],
+  "code_cells": [
+    {
+      "id": "python-load",
+      "execution_count": 1,
+      "source_sha256": "f4dd3fb66e1c7fbe83cdb8e0828f0d8d63f70bc647677a2284efb4df487f65ac",
+      "outputs": []
+    },
+    {
+      "id": "lean-library",
+      "execution_count": 2,
+      "source_sha256": "f7d876b3837297665ec5ff6df7d998328dd370601e0afdfccdd0d5af89376316",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "DLWLean.StartPoint (par : DLWLean.FieldParameters) : Type\nDLWLean.GlobalPDO.constructedCharge (par : DLWLean.FieldParameters) (n : ℕ) (z : DLWLean.ClosedPeriodicPair par) : ℝ\n"
+        }
+      ]
+    },
+    {
+      "id": "lean-conservation",
+      "execution_count": 3,
+      "source_sha256": "9e95a8ddc64b4879008789d893ee2767bc17376546a0843facbbf06139909078",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "NotebookDLWConservation.chargeConserved (par : FieldParameters) (foundation : FactorSpectralFoundation par)\n  (start : StartPoint par) (n : ℕ) (hn : 0 < n) (t : ℝ) :\n  HasDerivAt (fun τ => GlobalPDO.constructedCharge par n (start.closedCurve τ)) 0 t\nNotebookDLWConservation.familyConserved (par : FieldParameters) (foundation : FactorSpectralFoundation par)\n  (start : StartPoint par) (n : ℕ) (t : ℝ) : HasDerivAt (fun τ => actualPhysicalFamily par n (start.closedCurve τ)) 0 t\nNotebookDLWConservation.hamiltonianConserved (par : FieldParameters) (foundation : FactorSpectralFoundation par)\n  (start : StartPoint par) (t : ℝ) : HasDerivAt (fun τ => actualPhysicalK par (start.closedCurve τ)) 0 t\nNotebookDLWConservation.momentumConserved (par : FieldParameters) (foundation : FactorSpectralFoundation par)\n  (start : StartPoint par) (t : ℝ) : HasDerivAt (fun τ => coefficientMomentum par (start.closedCurve τ)) 0 t\n'NotebookDLWConservation.chargeConserved' depends on axioms: [propext, Classical.choice, Quot.sound]\n'NotebookDLWConservation.familyConserved' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+        }
+      ]
+    }
+  ],
+  "outputs_saved": true
+}

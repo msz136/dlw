@@ -1,13 +1,11 @@
 """Export the current DLW notebook, without execution, to a standalone report."""
 from pathlib import Path
-import ast
 import base64
 import hashlib
 import html
 import json
 import re
 import subprocess
-import textwrap
 
 from bs4 import BeautifulSoup
 import mistune
@@ -19,49 +17,36 @@ NOTEBOOK = ROOT / 'notebook' / 'DLW数值分析report.ipynb'
 DEST = ROOT / 'dlw_numerical.html'
 KATEX = ROOT / 'Workspaces' / 'gsg_project' / 'dlw_report' / '_assets' / 'package'
 FORMULAS = []
-OMITTED_CELLS = {'dlw-conclusion-text', 'dlw-summary', 'dlw-limits'}
+OMITTED_CELLS = {'dlw-conclusion-text', 'dlw-summary', 'dlw-limits',
+                 'dlw-field-data', 'dlw-plot-config-text', 'dlw-field-config', 'dlw-field-helpers'}
 MARKDOWN_EDITS = {
+    'dlw-field-text': [('## 8', '## 7')],
     'dlw-title': [('# DLW 数值分析 report', '# DLW 数值分析')],
-    'dlw-spatial-text': [('下方代码定义共用网格、差分与场值恢复。', 'FD 与 SD2 共用上述网格、差分与场值恢复。')],
-    'dlw-sd2-text': [('先定义初值与下边界的求解，再定义递推；代码中的', '代码中的')],
+    'dlw-spatial-text': [('下方代码定义共用网格、差分与场值恢复。', '')],
+    'dlw-sd2-text': [('这里的 $D_1$ 使用代码 `dx` 的端点跃变量修正。', '算子 $D_1$ 按端点跃变量延拓。')],
 }
-KEY_CODE = {
-    'dlw-reference': [('孤子精确解：τ 函数的解析求导与 u、v 计算', 'def tau(', 'return tuple(v.copy()')],
-    'dlw-sd2_evolution': [('SD2：势导数递推与 Q、R 更新', 'H = self.h**2/4', 'rt = rxx')],
-    'dlw-fd': [('FD：连续方程的差分右端', 'fp = -np.diff', 'fv = -d1')],
-    'dlw-time': [('Euler 与 RK4 的时间更新', 'def step(', 'return state+dt*(k1'),
-                 ('公共物理点上的误差评价', 'xx = np.linspace', 'errors = {f:')],
-}
-KEY_METHODS = {
-    'dlw-sd': [('SD：单层线性求解', 'solve_one'),
-               ('SD：逐层交替更新 F 与 G', 'advance')],
-}
+RK4_RECURRENCE = r'''记 $\mathcal F$ 为对应空间离散的右端，RK4 的递推为
+
+$$\begin{aligned}
+k_1&=\mathcal F(t_n,z^n),\\
+k_2&=\mathcal F\left(t_n+\frac{\Delta t}{2},z^n+\frac{\Delta t}{2}k_1\right),\\
+k_3&=\mathcal F\left(t_n+\frac{\Delta t}{2},z^n+\frac{\Delta t}{2}k_2\right),\\
+k_4&=\mathcal F(t_n+\Delta t,z^n+\Delta t k_3),\\
+z^{n+1}&=z^n+\frac{\Delta t}{6}(k_1+2k_2+2k_3+k_4).
+\end{aligned}$$'''
 
 
 def markdown_source(cell):
     source = cell.source
+    source = source.split('\n\n**对应代码。**', 1)[0]
+    if cell.id == 'dlw-exact-text':
+        source = source.split('\n\n精确参照由 `Exact`', 1)[0]
+    if cell.id == 'dlw-time-text' and 'k_1&=' not in source:
+        source = source.replace('\n\n在 $x\\in[-10,10]$', '\n\n'+RK4_RECURRENCE+'\n\n在 $x\\in[-10,10]$',1)
     for old, new in MARKDOWN_EDITS.get(cell.id, []):
         if old in source:
             source = source.replace(old, new, 1)
     return source
-
-
-def excerpt(source, start, end):
-    lines = source.splitlines()
-    first = next(i for i, line in enumerate(lines) if line.strip().startswith(start))
-    last = next(i for i, line in enumerate(lines) if i >= first and line.strip().startswith(end))
-    return textwrap.dedent('\n'.join(lines[first:last+1])), first+1, last+1
-
-
-def method_excerpt(source, method_name):
-    methods = [node for node in ast.walk(ast.parse(source))
-               if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
-               and node.name == method_name]
-    assert len(methods) == 1, (method_name, len(methods))
-    method = methods[0]
-    first, last = method.lineno, method.end_lineno
-    fragment = textwrap.dedent('\n'.join(source.splitlines()[first-1:last]))
-    return fragment, first, last
 
 
 def sha(data):
@@ -91,17 +76,14 @@ h3{font-size:12pt;line-height:1.55;margin:28px 0 12px}
 h1,h2,h3{text-wrap:balance}p{margin:12px 0;text-align:justify;text-indent:2em;text-wrap:pretty}
 #dlw-title>p{text-indent:0;font-size:11pt;line-height:1.8;margin:0 0 24px}
 a{color:#222;text-underline-offset:3px}strong{font-weight:bold}
-code,pre{font-family:Consolas,"Microsoft YaHei",monospace}p code,li code{font-size:.88em;overflow-wrap:anywhere}
-.source{margin:8px 0 22px;padding:12px 15px;border:1px solid #ddd;background:#fafafa;overflow-x:auto;font-size:9.5pt;line-height:1.65;tab-size:4;text-align:left}
-.source code{white-space:pre;font-size:inherit;color:#333}.code-caption{text-indent:0;margin:18px 0 6px;font-size:10.5pt;color:#444}
-.output{margin:18px 0 24px}.output pre{font-size:10pt;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere;margin:0;padding:8px 0}.result-text{white-space:pre-line;text-indent:0}
+.output{margin:18px 0 24px}.result-text{white-space:pre-line;text-indent:0}
 .table-wrap{overflow-x:auto;margin:18px 0}table{border-collapse:collapse;font-size:10.5pt;line-height:1.6;width:100%;font-variant-numeric:tabular-nums;border:0;border-top:1.5px solid #111;border-bottom:1.5px solid #111}
 tr,th,td{border:0}th,td{padding:9px 8px;text-align:right;vertical-align:middle;white-space:nowrap}thead{border-bottom:1px solid #111}thead th{font-weight:bold}tbody th{font-weight:400}
 figure{margin:24px 0}img{display:block;width:100%;height:auto;margin:auto}
 .katex-display{overflow-x:auto;overflow-y:hidden;font-size:.88em;padding:8px 0;margin:18px 0}.katex-display>.katex{min-width:max-content}
 ul,ol{padding-left:1.5em}blockquote{margin:16px 0;padding-left:16px;border-left:2px solid #ddd;color:#555}
-@media(max-width:650px){body{font-size:11pt}main{margin:0;padding:28px 18px}h1{font-size:16pt}h2{font-size:13pt}h3{font-size:11.5pt}#dlw-title>p{font-size:10.5pt}.source{font-size:9pt;padding:10px}table{font-size:9pt}th,td{padding:7px}}
-@media print{@page{size:A4;margin:22mm 20mm}body{background:white;font-size:11pt}main{max-width:none;margin:0;padding:0}h1{font-size:18pt}h2{font-size:14pt;break-after:avoid}h3{font-size:12pt;break-after:avoid}.source{font-size:8.5pt;padding:8px;overflow:visible}.source code{white-space:pre-wrap;overflow-wrap:anywhere}.table-wrap{overflow:visible}table{font-size:9pt}th,td{padding:5px;white-space:normal}tr,figure{break-inside:avoid}.katex-display{overflow:visible}a{color:inherit}}
+@media(max-width:650px){body{font-size:11pt}main{margin:0;padding:28px 18px}h1{font-size:16pt}h2{font-size:13pt}h3{font-size:11.5pt}#dlw-title>p{font-size:10.5pt}table{font-size:9pt}th,td{padding:7px}}
+@media print{@page{size:A4;margin:22mm 20mm}body{background:white;font-size:11pt}main{max-width:none;margin:0;padding:0}h1{font-size:18pt}h2{font-size:14pt;break-after:avoid}h3{font-size:12pt;break-after:avoid}.table-wrap{overflow:visible}table{font-size:9pt}th,td{padding:5px;white-space:normal}tr,figure{break-inside:avoid}.katex-display{overflow:visible}a{color:inherit}}
 '''
 
 
@@ -128,16 +110,32 @@ def output_html(output):
         raise ValueError('The notebook contains an error output')
     data = output.get('data', {})
     if 'image/png' in data:
-        return '<figure><img alt="DLW 局部误差曲线" src="data:image/png;base64,' + data['image/png'].replace('\n', '') + '"></figure>'
+        return '<figure><img alt="DLW 数值与解析物理场或绝对误差分布" src="data:image/png;base64,' + data['image/png'].replace('\n', '') + '"></figure>'
     if 'text/html' in data:
         soup = BeautifulSoup(data['text/html'], 'html.parser')
         assert not soup.find('script')
         for table in soup.find_all('table'):
+            if 'dataframe' in table.get('class', []):
+                for row in table.find_all('tr'):
+                    first = row.find(['th','td'])
+                    assert first.name == 'th'
+                    first.decompose()
+                for td in table.find_all('td'):
+                    singleton = re.fullmatch(r'\((-?\d+(?:\.\d+)?),\)',td.get_text(strip=True))
+                    if singleton:
+                        td.string = singleton.group(1)
+            labels = {'fixed':'固定网格', 'moving':'动网格', 'Midpoint':'隐式中点',
+                      'dt 与 dt/2 场差':'Δt 与 Δt/2 场差',
+                      'dt/2 与 dt/4 场差':'Δt/2 与 Δt/4 场差'}
+            for cell in table.find_all(['th','td']):
+                label = cell.get_text(strip=True)
+                if label in labels:
+                    cell.string = labels[label]
             wrapper = soup.new_tag('div', attrs={'class': 'table-wrap'})
             table.wrap(wrapper)
         return str(soup)
     if 'text/plain' in data:
-        return '<pre>' + html.escape(data['text/plain']) + '</pre>'
+        return '<p class="result-text">' + html.escape(data['text/plain']) + '</p>'
     raise ValueError('Unsupported output MIME: ' + str(list(data)))
 
 
@@ -149,29 +147,14 @@ def build():
     cells = [cell for cell in notebook.cells if cell.id not in OMITTED_CELLS]
     markdown = mistune.create_markdown(renderer=Renderer(escape=False), plugins=['math', 'table', 'strikethrough'])
     parts = []
-    visible_lines = 0
-    excerpt_count = 0
-    excerpt_manifest = []
     for cell in cells:
         cid = html.escape(cell.id, quote=True)
         if cell.cell_type == 'markdown':
             content = markdown(markdown_source(cell))
             parts.append(f'<section class="markdown-cell" id="{cid}" data-cell="{cid}">{content}</section>')
         elif cell.cell_type == 'code':
-            snippets = []
-            excerpts = [(label, *excerpt(cell.source, start, end), None)
-                        for label, start, end in KEY_CODE.get(cell.id, [])]
-            excerpts.extend((label, *method_excerpt(cell.source, method), method)
-                            for label, method in KEY_METHODS.get(cell.id, []))
-            for label, fragment, first, last, method in excerpts:
-                visible_lines += last-first+1
-                excerpt_count += 1
-                excerpt_manifest.append({'cell':cell.id, 'label':label,
-                                         'first_line':first, 'last_line':last,
-                                         'method':method})
-                snippets.append(f'<p class="code-caption">{html.escape(label)}</p><pre class="source key-code" data-first-line="{first}" data-last-line="{last}"><code>{html.escape(fragment)}</code></pre>')
             outputs = ''.join(f'<div class="output" data-output="{i}">{output_html(o)}</div>' for i,o in enumerate(cell.outputs))
-            parts.append(f'<section class="code-cell" id="{cid}" data-cell="{cid}">{"".join(snippets)}{outputs}</section>')
+            parts.append(f'<section class="output-cell" id="{cid}" data-cell="{cid}">{outputs}</section>')
         else:
             raise ValueError('Unsupported cell type ' + cell.cell_type)
     soup = BeautifulSoup(''.join(parts), 'html.parser')
@@ -188,7 +171,7 @@ def build():
     style = font_css() + CSS
     license_text = (KATEX/'LICENSE').read_text('utf-8').replace('--','—')
     result = '<!doctype html>\n<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
-    result += '<title>' + html.escape(title) + '</title><meta name="description" content="DLW 孤子数值分析：模型、推导、代码、误差表与结果图。">'
+    result += '<title>' + html.escape(title) + '</title><meta name="description" content="DLW 孤子数值分析：精确解、离散递推、误差比较与结果图。">'
     result += '<style>' + style + '</style></head><body><main>' + str(soup) + '</main></body></html>\n'
     result += '<!-- KaTeX license\n' + license_text + '\n-->\n'
     before = HERE/'before'
@@ -207,8 +190,9 @@ def build():
         'code_cells':sum(c.cell_type=='code' for c in cells),
         'omitted_cells':[c.id for c in notebook.cells if c.id in OMITTED_CELLS],
         'table_of_contents':False,
-        'visible_code_excerpts':excerpt_count,'visible_code_lines':visible_lines,
-        'key_code':excerpt_manifest,'image_outputs':len(soup.select('figure img')),
+        'visible_code_excerpts':0,'visible_code_lines':0,
+        'key_code':[],'image_outputs':len(soup.select('figure img')),
+        'presentation':'mathematical exposition and saved numerical results',
         'full_sources_included':False,'font_style':'Original Times New Roman / SimSun; intact embedded KaTeX fonts',
         'saved_outputs':sum(len(c.get('outputs',[])) for c in cells),'math_expressions':len(FORMULAS),
         'backup':str(before/'index.html'),'backup_sha256':sha((before/'index.html').read_bytes()),

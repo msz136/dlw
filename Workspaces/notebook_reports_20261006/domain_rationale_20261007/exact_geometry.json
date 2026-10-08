@@ -1,0 +1,54 @@
+{
+  "success": true,
+  "analysis": "analytic reference only; no PDE integration",
+  "boundary_sampling": {
+    "x": [
+      -20,
+      20
+    ],
+    "y_points": 25,
+    "time_points": 11,
+    "decimal_precision": 50
+  },
+  "boundary_fields": [
+    {
+      "case": "A",
+      "max_boundary_u": 1.4564854074054548e-24,
+      "max_boundary_v": 1.8206067592568184e-24
+    },
+    {
+      "case": "B",
+      "max_boundary_u": 8.726924391648588e-09,
+      "max_boundary_v": 1.3090386568433078e-08
+    },
+    {
+      "case": "C",
+      "max_boundary_u": 1.0283986431676534e-08,
+      "max_boundary_v": 1.3998672774201453e-08
+    }
+  ],
+  "centers": {
+    "A": {
+      "formula": ".597253-t+.25y",
+      "minimum": 0.212253,
+      "max": 0.972253
+    },
+    "B": {
+      "formula": "-.346574+7t+.5y",
+      "minimum": -1.096574,
+      "max": 0.473426
+    }
+  },
+  "two_mode_phase_difference": "5y/12-4t",
+  "two_mode_exponential_ratio": [
+    0.5142735277066319,
+    1.8682459574322223
+  ],
+  "two_mode_equal_phase_line_y": [
+    0,
+    0.096
+  ],
+  "largest_strip_halfwidth_for_factor_two": 1.5675532333438686,
+  "largest_integer_h_below_halfwidth": 1.5,
+  "source_sha256": "b0caeb07e2004f584ccc28440d5d9e95e0496f1e8b9c36226fb0e3f92b24f90c"
+}

@@ -1,0 +1,118 @@
+{
+  "notebook_unchanged": true,
+  "source_sha256": "ec01306900b061b3cc21ec84e3495d2800cb0e1b3ba36ed1a42055f0dceda4a9",
+  "config": {
+    "a": 2.0,
+    "h": 0.125,
+    "yhalf": 30.0,
+    "L": 80.0,
+    "nx": 512,
+    "dt": 0.000125,
+    "T": 0.01,
+    "eval_half": 30.0,
+    "eval_points": 1201,
+    "plot_xlim": [
+      -5.0,
+      5.0
+    ]
+  },
+  "runs": [
+    {
+      "case": "A",
+      "model": "SD2",
+      "method": "RK4",
+      "mesh": "fixed",
+      "config": {
+        "a": 2.0,
+        "h": 0.125,
+        "yhalf": 30.0,
+        "L": 80.0,
+        "nx": 512,
+        "dt": 0.000125,
+        "T": 0.01,
+        "eval_half": 30.0,
+        "eval_points": 1201,
+        "plot_xlim": [
+          -5.0,
+          5.0
+        ]
+      },
+      "source_sha256": "ec01306900b061b3cc21ec84e3495d2800cb0e1b3ba36ed1a42055f0dceda4a9",
+      "completed": true,
+      "reached": 0.01,
+      "elapsed_seconds": 14.301285099994857,
+      "min_J": 1.0,
+      "initial_node_error": 1.6815509488316005e-13,
+      "max_errors": {
+        "u": 0.011761391970114499,
+        "v": 0.007262316784083511
+      }
+    },
+    {
+      "case": "B",
+      "model": "SD2",
+      "method": "RK4",
+      "mesh": "fixed",
+      "config": {
+        "a": 2.0,
+        "h": 0.125,
+        "yhalf": 30.0,
+        "L": 80.0,
+        "nx": 512,
+        "dt": 0.000125,
+        "T": 0.01,
+        "eval_half": 30.0,
+        "eval_points": 1201,
+        "plot_xlim": [
+          -5.0,
+          5.0
+        ]
+      },
+      "source_sha256": "ec01306900b061b3cc21ec84e3495d2800cb0e1b3ba36ed1a42055f0dceda4a9",
+      "completed": true,
+      "reached": 0.01,
+      "elapsed_seconds": 19.618716500001028,
+      "min_J": 1.0,
+      "initial_node_error": 4.4629402381296236e-14,
+      "max_errors": {
+        "u": 0.0001287863895588215,
+        "v": 6.186166484983824e-05
+      }
+    },
+    {
+      "case": "C",
+      "model": "SD2",
+      "method": "RK4",
+      "mesh": "fixed",
+      "config": {
+        "a": 2.0,
+        "h": 0.125,
+        "yhalf": 30.0,
+        "L": 80.0,
+        "nx": 512,
+        "dt": 0.000125,
+        "T": 0.01,
+        "eval_half": 30.0,
+        "eval_points": 1201,
+        "plot_xlim": [
+          -5.0,
+          5.0
+        ]
+      },
+      "source_sha256": "ec01306900b061b3cc21ec84e3495d2800cb0e1b3ba36ed1a42055f0dceda4a9",
+      "completed": true,
+      "reached": 0.01,
+      "elapsed_seconds": 17.19473819999257,
+      "min_J": 1.0,
+      "initial_node_error": 6.986735399193049e-14,
+      "max_errors": {
+        "u": 0.0002044357321864254,
+        "v": 0.0001321856441943714
+      }
+    }
+  ],
+  "plot_definition": "Numerical colored surface plus exact unshifted wire mesh; right column absolute error at the same x,y,t.",
+  "gsg_variables": "Physical variables x,t; y,tau are transformed coordinates, not a second physical spatial dimension.",
+  "report_local_links_valid": true,
+  "contour_definition": "Same-level numerical white solid and exact black dashed contours; paired absolute errors; full cached x,y arrays."
+}

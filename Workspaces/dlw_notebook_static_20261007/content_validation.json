@@ -7,7 +7,7 @@
     },
     {
       "cell": "dlw-imports",
-      "key_excerpts_exact": true,
+      "source_code_omitted": true,
       "outputs_exact": true,
       "outputs": 0
     },
@@ -17,7 +17,7 @@
     },
     {
       "cell": "dlw-config",
-      "key_excerpts_exact": true,
+      "source_code_omitted": true,
       "outputs_exact": true,
       "outputs": 1
     },
@@ -27,7 +27,7 @@
     },
     {
       "cell": "dlw-reference",
-      "key_excerpts_exact": true,
+      "source_code_omitted": true,
       "outputs_exact": true,
       "outputs": 0
     },
@@ -37,13 +37,13 @@
     },
     {
       "cell": "dlw-spatial",
-      "key_excerpts_exact": true,
+      "source_code_omitted": true,
       "outputs_exact": true,
       "outputs": 0
     },
     {
       "cell": "dlw-sd_fd",
-      "key_excerpts_exact": true,
+      "source_code_omitted": true,
       "outputs_exact": true,
       "outputs": 0
     },
@@ -53,7 +53,7 @@
     },
     {
       "cell": "dlw-sd",
-      "key_excerpts_exact": true,
+      "source_code_omitted": true,
       "outputs_exact": true,
       "outputs": 0
     },
@@ -63,13 +63,13 @@
     },
     {
       "cell": "dlw-sd2_lift",
-      "key_excerpts_exact": true,
+      "source_code_omitted": true,
       "outputs_exact": true,
       "outputs": 0
     },
     {
       "cell": "dlw-sd2_evolution",
-      "key_excerpts_exact": true,
+      "source_code_omitted": true,
       "outputs_exact": true,
       "outputs": 0
     },
@@ -79,7 +79,7 @@
     },
     {
       "cell": "dlw-fd",
-      "key_excerpts_exact": true,
+      "source_code_omitted": true,
       "outputs_exact": true,
       "outputs": 0
     },
@@ -89,7 +89,7 @@
     },
     {
       "cell": "dlw-mesh",
-      "key_excerpts_exact": true,
+      "source_code_omitted": true,
       "outputs_exact": true,
       "outputs": 0
     },
@@ -99,7 +99,7 @@
     },
     {
       "cell": "dlw-time",
-      "key_excerpts_exact": true,
+      "source_code_omitted": true,
       "outputs_exact": true,
       "outputs": 0
     },
@@ -109,7 +109,7 @@
     },
     {
       "cell": "dlw-space_experiment",
-      "key_excerpts_exact": true,
+      "source_code_omitted": true,
       "outputs_exact": true,
       "outputs": 1
     },
@@ -119,7 +119,7 @@
     },
     {
       "cell": "dlw-time_experiment",
-      "key_excerpts_exact": true,
+      "source_code_omitted": true,
       "outputs_exact": true,
       "outputs": 1
     },
@@ -129,7 +129,7 @@
     },
     {
       "cell": "dlw-order",
-      "key_excerpts_exact": true,
+      "source_code_omitted": true,
       "outputs_exact": true,
       "outputs": 1
     },
@@ -139,39 +139,52 @@
     },
     {
       "cell": "dlw-mesh_experiment",
-      "key_excerpts_exact": true,
+      "source_code_omitted": true,
       "outputs_exact": true,
       "outputs": 1
     },
     {
-      "cell": "dlw-curve-text",
+      "cell": "dlw-field-text",
       "markdown_content_exact_except_presentation_edits": true
     },
     {
-      "cell": "dlw-curves",
-      "key_excerpts_exact": true,
+      "cell": "dlw-field-plots",
+      "source_code_omitted": true,
       "outputs_exact": true,
-      "outputs": 3
+      "outputs": 6
     }
   ],
   "formula_sources_exact": true,
-  "math_expressions": 121,
+  "math_expressions": 117,
   "png_sha256": [
-    "db081a68c7b9da6002416e7d4d381742cc85159a931d2a1ef21ccc946a73b5eb",
-    "1a36970fbaed7fc53c8223fd2e2c90b45200157ca5e3a380a4be4c1e9be9fb0b",
-    "1900dc7e745adf4aff3367280b0932504e1f5d85a35a79c7cf2df8bac2375dc2"
+    "0b8fccaa51b089c2cd319c126ea325bb34df3c5ae00bd47f0b4ecddc31a16666",
+    "3fd1c9ed73e204544be0729f320fd31fa9ebf776c57eb75daac0d0c82f19e611",
+    "6b6fbce32153a8fd18b69cfeea9e15a7e3cb289eba4dade8dfa23d76f6e52d6c",
+    "03e0b4c195acbcc1f99eba96df49d2c2ef8591bcf791ccee509407fb497695f2",
+    "0cc46c40aa93e42ef66bebb8484be9b55894c4f80ff315caa39aeb8c5ee0e2e5",
+    "dad1e47aea0a2a917e2597ed1e4244ea0f65363785acec7826ad3fde4c16e02f"
   ],
   "retained_saved_outputs_preserved": true,
   "standalone_no_execution_controls": true,
-  "visible_code_excerpts": 7,
-  "visible_code_lines": 83,
+  "visible_code_excerpts": 0,
+  "visible_code_lines": 0,
   "full_code_included": false,
   "omitted_cells": [
     "dlw-conclusion-text",
+    "dlw-field-config",
+    "dlw-field-data",
+    "dlw-field-helpers",
     "dlw-limits",
+    "dlw-plot-config-text",
     "dlw-summary"
   ],
   "markdown_presentation_edits": {
+    "dlw-field-text": [
+      [
+        "## 8",
+        "## 7"
+      ]
+    ],
     "dlw-title": [
       [
         "# DLW 数值分析 report",
@@ -181,79 +194,18 @@
     "dlw-spatial-text": [
       [
         "下方代码定义共用网格、差分与场值恢复。",
-        "FD 与 SD2 共用上述网格、差分与场值恢复。"
+        ""
       ]
     ],
     "dlw-sd2-text": [
       [
-        "先定义初值与下边界的求解，再定义递推；代码中的",
-        "代码中的"
+        "这里的 $D_1$ 使用代码 `dx` 的端点跃变量修正。",
+        "算子 $D_1$ 按端点跃变量延拓。"
       ]
     ]
   },
-  "key_methods": {
-    "dlw-sd": [
-      [
-        "SD：单层线性求解",
-        "solve_one"
-      ],
-      [
-        "SD：逐层交替更新 F 与 G",
-        "advance"
-      ]
-    ]
-  },
-  "key_code": [
-    {
-      "cell": "dlw-reference",
-      "label": "孤子精确解：τ 函数的解析求导与 u、v 计算",
-      "first_line": 19,
-      "last_line": 47,
-      "method": null
-    },
-    {
-      "cell": "dlw-sd",
-      "label": "SD：单层线性求解",
-      "first_line": 106,
-      "last_line": 124,
-      "method": "solve_one"
-    },
-    {
-      "cell": "dlw-sd",
-      "label": "SD：逐层交替更新 F 与 G",
-      "first_line": 126,
-      "last_line": 138,
-      "method": "advance"
-    },
-    {
-      "cell": "dlw-sd2_evolution",
-      "label": "SD2：势导数递推与 Q、R 更新",
-      "first_line": 25,
-      "last_line": 31,
-      "method": null
-    },
-    {
-      "cell": "dlw-fd",
-      "label": "FD：连续方程的差分右端",
-      "first_line": 8,
-      "last_line": 9,
-      "method": null
-    },
-    {
-      "cell": "dlw-time",
-      "label": "Euler 与 RK4 的时间更新",
-      "first_line": 1,
-      "last_line": 8,
-      "method": null
-    },
-    {
-      "cell": "dlw-time",
-      "label": "公共物理点上的误差评价",
-      "first_line": 37,
-      "last_line": 41,
-      "method": null
-    }
-  ],
-  "html_sha256": "fb875e43ac779f50e4089035531533c4000cd91b4dce8ab5b6c1e40552fd47ad",
-  "notebook_sha256": "0a8bcb20201f13a35f64f36a75a4201f62d94af0afef4dd2f01858ce657fe00e"
+  "no_code_elements_or_implementation_prose": true,
+  "key_code": [],
+  "html_sha256": "c3a3b1253d138ac787b6cce08e7757a9c5ba357332678fd6ff2959571075e9ff",
+  "notebook_sha256": "ee692341450d6c3b284070986bd87f84f41c48d432ab88d9bb8747a995852c94"
 }

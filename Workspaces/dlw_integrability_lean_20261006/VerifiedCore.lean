@@ -1,0 +1,36 @@
+import PhysicalEnergyEndpoint
+import ActualConservationEndpoint
+import ActualHamiltonianFlow
+import ActualSpectralWard
+import PolynomialReductionEndpoint
+import NormalModelResidue
+import FourierMomentum
+import QuadraticFrequencyPolynomial
+import QuadraticMonomialDecomposition
+import BalancedSpectralRealization
+import PolynomialMatrixWitness
+
+/-! Unified, audited core. The remaining universal witness and actual
+Adler transport application will be joined in the final endpoint.
+-/
+namespace DLWLean
+
+#check PeriodicPhysicalState
+#check StartPoint
+#check physical_spectral_conservation
+#check GlobalPDO.NormalizedRealization.constructedCharge_eq_spectralInvariant
+#check actualPhysicalK_eq_first_charge
+#check actualPhysicalKGradient_eq_first_charge
+#check StartPoint.physicalK_generates_coordinates
+#check actualSpectralCommonWard
+#check actualPhysicalFamily_hasDerivAt
+#check actualPhysicalFamily_covector_eq_density
+#check actualPhysicalFamily_generically_independent_from_witness
+
+#print axioms physical_spectral_conservation
+#print axioms actualPhysicalK_eq_first_charge
+#print axioms actualPhysicalKGradient_eq_first_charge
+#print axioms actualSpectralCommonWard
+#print axioms actualPhysicalFamily_covector_eq_density
+#print axioms actualPhysicalFamily_generically_independent_from_witness
+end DLWLean

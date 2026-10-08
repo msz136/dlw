@@ -1,0 +1,10 @@
+const fs=require('fs'),path=require('path');
+const root=path.resolve(__dirname,'../..');
+const katex=require(path.join(root,'Workspaces/gsg_project/dlw_report/_assets/package/dist/katex.js'));
+let count=0;
+let body=fs.readFileSync(path.join(__dirname,'report.src.html'),'utf8').replace(/@@M ([\s\S]*?) @@/g,(_,tex)=>{count++;return '<div class="eq">'+katex.renderToString(tex,{output:'mathml',displayMode:true,throwOnError:true})+'</div>';});
+if(body.includes('@@'))throw Error('Unrendered formula');
+const css='body{margin:0;background:#faf9f6;color:#222;font-family:"Times New Roman","SimSun",serif;font-size:18px;line-height:1.85}main{max-width:1000px;margin:auto;padding:45px 30px 75px}h1{font-size:32px;font-weight:600}h2{font-size:24px;font-weight:600;margin-top:35px}p{margin:16px 0}.abstract{border-left:3px solid #999;padding:8px 20px}.eq{overflow-x:auto;padding:16px 2px}math{font-size:1.05em}.note{font-size:15px;color:#555}a{color:#315d77}@media(max-width:600px){main{padding:24px 16px}body{font-size:17px}h1{font-size:26px}h2{font-size:22px}}@media print{body{background:white;font-size:12pt}main{max-width:none;padding:0}.eq{overflow:visible}h2{break-after:avoid}}';
+const out=path.join(root,'report/dlw_tau_solution_proof.html');
+fs.writeFileSync(out,'<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>半离散 DLW 的 τ 函数及其证明</title><style>'+css+'</style></head><body><main>'+body+'</main></body></html>');
+console.log(JSON.stringify({output:out,formulas:count}));

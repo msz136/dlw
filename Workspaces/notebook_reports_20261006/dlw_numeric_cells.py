@@ -16,8 +16,20 @@ plt.rcParams.update({'font.family': 'DejaVu Serif', 'font.size': 11,
 '''
 CELLS['config'] = r'''CASES = {'A': ((1.,), (2.,)), 'B': ((4.,), (-3.,)),
          'C': ((6., 4.), (-5., -3.))}
-CONFIG = dict(a=2., nx=256, L=40., h=.125, dt=.000125, T=.01,
-              yhalf=1.5, eval_half=10., eval_points=4001)
+# 计算域为 x∈[-L/2, L/2]；绘图区间须包含在评价区间内。
+CONFIG = dict(
+    a=2., h=.125, yhalf=1.5,       # 方程参数、y 格距、y 半宽
+    L=40., nx=256,                 # x 计算域长度、网格点数
+    dt=.000125, T=.01,             # 时间步长、终止时间
+    eval_half=10., eval_points=4001,  # 误差评价区间 [-eval_half, eval_half]
+    plot_xlim=(-5., 5.),           # 误差曲线的 x 范围
+)
+if not (0 < CONFIG['eval_half'] < CONFIG['L']/2):
+    raise ValueError('评价区间须位于计算域 (-L/2, L/2) 内。')
+if not np.isfinite(CONFIG['plot_xlim']).all() or not (
+    -CONFIG['eval_half'] <= CONFIG['plot_xlim'][0] < CONFIG['plot_xlim'][1] <= CONFIG['eval_half']
+):
+    raise ValueError('plot_xlim 须递增且位于评价区间内；可调整 eval_half 和 L。')
 MODELS = ('SD', 'SD2', 'FD')
 COLORS = dict(SD='#1776bc', SD2='#d47b19', FD='#38965f')
 pd.DataFrame([{'算例': k, 'p': p, 'q': q} for k, (p, q) in CASES.items()])
@@ -311,11 +323,15 @@ CELLS['time'] = r'''def step(fun, t, state, dt, method):
     return state+dt*(k1+2*k2+2*k3+k4)/6
 
 def solve(case, model, method, mesh, config=CONFIG):
+    if method not in ('Euler', 'RK4'):
+        raise ValueError('时间算法应为 Euler 或 RK4')
     p = Problem(case, model, mesh, config)
     state = p.initial()
     initial = p.fields(state, 0.)
     initial_ref = p.m.G.uv(p.m.js, p.X.x, 0.)
-    initial_error = max(float(np.max(abs(u-v))) for u, v in zip(initial, initial_ref))
+    mask = abs(p.X.x) <= config['eval_half']
+    initial_error = max(float(abs(u[:, mask]-v[:, mask]).max())
+                        for u, v in zip(initial, initial_ref))
     nsteps = round(config['T']/config['dt'])
     if not np.isclose(nsteps*config['dt'], config['T'], rtol=0, atol=1e-13):
         raise ValueError('T 必须是 dt 的整数倍')
@@ -337,7 +353,7 @@ def solve(case, model, method, mesh, config=CONFIG):
     exact = p.m.G.uv(p.m.js, xx, reached)
     errors = {f: abs(u-v) for f, u, v in zip(('u', 'v'), sampled, exact)}
     return dict(case=case, model=model, method=method, mesh=mesh,
-        reached=reached, completed=np.isclose(reached, config['T']), reason=reason,
+        reached=reached, completed=not reason and np.isclose(reached, config['T']), reason=reason,
         initial_error=initial_error, x=xx, y=p.m.y, fields=sampled, exact=exact,
         errors=errors, max_errors={f: float(e.max()) for f, e in errors.items()},
         min_J=float(p.X.J.min()), native_x=p.X.x.copy(), native_fields=native)
@@ -347,7 +363,8 @@ def calculate(method, mesh):
     for case in CASES:
         for model in MODELS:
             key = case, model, method, mesh
-            results[key] = solve(case, model, method, mesh)
+            if key not in results:
+                results[key] = solve(case, model, method, mesh)
     failed = [r for r in results.values() if not r['completed']]
     if failed:
         display(pd.DataFrame([{k: r[k] for k in ('case', 'model', 'method', 'mesh', 'reached', 'reason')}
@@ -378,39 +395,54 @@ mesh_table = pd.DataFrame([{'算例': case, '方案': model, '场': field,
 mesh_table.style.format('{:.3e}').highlight_min(axis=1, props='font-weight: bold')
 '''
 CELLS['order'] = r'''order_rows = []
+refinement_rows = []
 for case in CASES:
-    fields = [results[case, 'SD2', 'Euler', 'fixed']['fields']]
-    for divisor in (2, 4):
-        refined = solve(case, 'SD2', 'Euler', 'fixed',
-                        dict(CONFIG, dt=CONFIG['dt']/divisor))
-        if not refined['completed']:
-            raise RuntimeError(refined['reason'])
-        fields.append(refined['fields'])
-    for i, field in enumerate(('u', 'v')):
-        d1 = np.max(abs(fields[0][i]-fields[1][i]))
-        d2 = np.max(abs(fields[1][i]-fields[2][i]))
-        order_rows.append({'算例': case, '方案': 'SD2', '场': field,
-                          'dt 与 dt/2 场差': d1, 'dt/2 与 dt/4 场差': d2,
-                          '观测阶': np.log2(d1/d2)})
+    for model in ('SD', 'SD2'):
+        fields = [results[case, model, 'Euler', 'fixed']['fields']]
+        for divisor in (2, 4):
+            refined = solve(case, model, 'Euler', 'fixed',
+                            dict(CONFIG, dt=CONFIG['dt']/divisor))
+            if not refined['completed']:
+                raise RuntimeError(refined['reason'])
+            fields.append(refined['fields'])
+            refinement_rows.append(dict(case=case, model=model, method='Euler',
+                mesh='fixed', dt=CONFIG['dt']/divisor, reached=refined['reached'],
+                completed=bool(refined['completed']), min_J=refined['min_J']))
+        for i, field in enumerate(('u', 'v')):
+            d1 = np.max(abs(fields[0][i]-fields[1][i]))
+            d2 = np.max(abs(fields[1][i]-fields[2][i]))
+            order_rows.append({'算例': case, '方案': model, '场': field,
+                              'dt 与 dt/2 场差': d1, 'dt/2 与 dt/4 场差': d2,
+                              '观测阶': np.log2(d1/d2)})
 pd.DataFrame(order_rows).set_index(['算例', '方案', '场']).style.format({
     'dt 与 dt/2 场差': '{:.3e}', 'dt/2 与 dt/4 场差': '{:.3e}', '观测阶': '{:.4f}'})
 '''
-CELLS['curves'] = r'''calculate('Euler', 'moving')
+CELLS['curves'] = r'''plot_lo, plot_hi = CONFIG['plot_xlim']
+if not np.isfinite([plot_lo, plot_hi]).all() or plot_lo >= plot_hi:
+    raise ValueError('plot_xlim 须为有限且递增的 (左端, 右端)。')
+calculate('Euler', 'moving')
+for case in CASES:
+    for model in MODELS:
+        for mesh in ('fixed', 'moving'):
+            xx = results[case, model, 'Euler', mesh]['x']
+            if plot_lo < xx[0] or plot_hi > xx[-1] or np.count_nonzero((xx >= plot_lo) & (xx <= plot_hi)) < 2:
+                raise ValueError('plot_xlim 须位于已计算的评价区间内且包含至少两点；扩大 eval_half 后需重新计算。')
 for case in CASES:
     fig, axes = plt.subplots(2, 2, figsize=(10.5, 7), layout='constrained')
     for i, field in enumerate(('u', 'v')):
         upper = max(results[case, model, 'Euler', mesh]['errors'][field][:,
-            (results[case, model, 'Euler', mesh]['x'] >= -1) &
-            (results[case, model, 'Euler', mesh]['x'] <= 1)].max()
+            (results[case, model, 'Euler', mesh]['x'] >= plot_lo) &
+            (results[case, model, 'Euler', mesh]['x'] <= plot_hi)].max()
             for model in MODELS for mesh in ('fixed', 'moving'))
         for j, mesh in enumerate(('fixed', 'moving')):
             ax = axes[i, j]
-            for model in MODELS:
+            for model, style in zip(MODELS, ('-', '--', ':')):
                 r = results[case, model, 'Euler', mesh]
-                take = (r['x'] >= -1) & (r['x'] <= 1)
+                take = (r['x'] >= plot_lo) & (r['x'] <= plot_hi)
                 curve = r['errors'][field].max(axis=0)
-                ax.plot(r['x'][take], curve[take], color=COLORS[model], lw=1.3, label=model)
-            ax.set(xlabel='$x$', ylabel=f'$e_{field}(x)$', xlim=(-1, 1),
+                ax.plot(r['x'][take], curve[take], color=COLORS[model], ls=style,
+                        lw=1.3, label=model)
+            ax.set(xlabel='$x$', ylabel=f'$e_{field}(x)$', xlim=(plot_lo, plot_hi),
                    ylim=(0, upper*1.06), title=f'{field}: {mesh}')
             ax.ticklabel_format(axis='y', style='sci', scilimits=(0, 0))
             ax.grid(alpha=.16, lw=.5)
@@ -428,8 +460,7 @@ display(ratio_table.style.format('{:.3f}'))
 print(f'全部 {len(results)} 组主试验到达 T={CONFIG["T"]:g}；'
       f'初始物理场的最大节点差为 {max(r["initial_error"] for r in results.values()):.3e}。')
 '''
-
-from sd_tau_cell import CELLS_SD
+from sd_nonlinear_cell import CELLS_SD
 CELLS['sd'] = CELLS_SD
 
 CELLS['fd'] = r'''class FDModel(PhysicalModel):
@@ -443,6 +474,3 @@ CELLS['fd'] = r'''class FDModel(PhysicalModel):
         fv = -d1((u+2*a)*v)-d2(uy)+4*d1(u)
         return self.pack(fp, fv)
 '''
-
-from tau_report_cells import CELLS_UPDATE
-CELLS.update(CELLS_UPDATE)

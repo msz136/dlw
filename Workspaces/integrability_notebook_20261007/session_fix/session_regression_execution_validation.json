@@ -1,0 +1,119 @@
+{
+  "notebook": "C:\\Users\\msz\\aca\\Workspaces\\integrability_notebook_20261007\\session_fix\\session_regression.ipynb",
+  "notebook_sha256": "b04c064e5cf8689496b108729a04d030eaf1629fb2b1f2837688a68b8ed3084e",
+  "input_sha256": "c6747fd004bbaced4013dff510fa8c1026f6b4e3cbf5fadb4b08bcccde018b3c",
+  "backup": "C:\\Users\\msz\\aca\\Workspaces\\integrability_notebook_20261007\\session_fix\\execution_inputs\\session_regression_a15ad474d76b4ca89fdd5955446f8b1c.ipynb",
+  "python": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\.venv\\Scripts\\python.exe",
+  "kernel": "fresh native project Python kernel",
+  "elapsed_seconds": 66.237,
+  "success": true,
+  "schema_valid": true,
+  "sources_unchanged": true,
+  "code_cell_count": 7,
+  "errors": [],
+  "failure": null,
+  "cell_timings": [
+    {
+      "id": "legacy-prepare",
+      "seconds": 0.135
+    },
+    {
+      "id": "legacy-library",
+      "seconds": 19.54
+    },
+    {
+      "id": "reproduce-reset-and-reload",
+      "seconds": 0.273
+    },
+    {
+      "id": "conditions-without-library",
+      "seconds": 22.351
+    },
+    {
+      "id": "repeat-prepare-and-magic-switch",
+      "seconds": 0.01
+    },
+    {
+      "id": "conditions-after-repeat-prepare",
+      "seconds": 22.519
+    },
+    {
+      "id": "record-session-evidence",
+      "seconds": 0.013
+    }
+  ],
+  "code_cells": [
+    {
+      "id": "legacy-prepare",
+      "execution_count": 1,
+      "source_sha256": "fed90a3c7170d36ad59924a57c8da0e07b9bede59daf8952553c6f5b9d9c2103",
+      "outputs": []
+    },
+    {
+      "id": "legacy-library",
+      "execution_count": 2,
+      "source_sha256": "59244c137725c447c3b4171503bc1068c1571dd90f7c821de175f74b26a2e0e9",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "DLWLean.StartPoint (par : DLWLean.FieldParameters) : Type\n"
+        }
+      ]
+    },
+    {
+      "id": "reproduce-reset-and-reload",
+      "execution_count": 3,
+      "source_sha256": "a522ff2557508b7c7b5abd1b68d0fe8445ad0c26dd969500a338eb819045f79a",
+      "outputs": []
+    },
+    {
+      "id": "conditions-without-library",
+      "execution_count": 4,
+      "source_sha256": "1b9d34b25a816bae9e2b9e4c51d2b6c41014af7be96829ff6ff855cbf364a495",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "structure DLWLean.FieldParameters : Type\nnumber of parameters: 0\nfields:\n  DLWLean.FieldParameters.M : ℕ\n  DLWLean.FieldParameters.M_ge_two : 2 ≤ self.M\n  DLWLean.FieldParameters.Lx : ℝ\n  DLWLean.FieldParameters.Lx_pos : 0 < self.Lx\n  DLWLean.FieldParameters.h : ℝ\n  DLWLean.FieldParameters.h_pos : 0 < self.h\n  DLWLean.FieldParameters.c : ℝ\n  DLWLean.FieldParameters.c_ne_zero : self.c ≠ 0\n  DLWLean.FieldParameters.gamma : ℝ\nconstructor:\n  DLWLean.FieldParameters.mk (M : ℕ) (M_ge_two : 2 ≤ M) (Lx : ℝ) (Lx_pos : 0 < Lx) (h : ℝ) (h_pos : 0 < h) (c : ℝ)\n    (c_ne_zero : c ≠ 0) (gamma : ℝ) : FieldParameters\nstructure DLWLean.SmoothPeriodicField (M : ℕ) (Lx : ℝ) : Type\nnumber of parameters: 2\nfields:\n  DLWLean.SmoothPeriodicField.value : Fin M → ℝ → ℝ\n  DLWLean.SmoothPeriodicField.smooth : ∀ (j : Fin M), ContDiff ℝ ∞ (self.value j)\n  DLWLean.SmoothPeriodicField.periodic : ∀ (j : Fin M), Function.Periodic (self.value j) Lx\nconstructor:\n  DLWLean.SmoothPeriodicField.mk {M : ℕ} {Lx : ℝ} (value : Fin M → ℝ → ℝ)\n    (smooth : ∀ (j : Fin M), ContDiff ℝ ∞ (value j)) (periodic : ∀ (j : Fin M), Function.Periodic (value j) Lx) :\n    SmoothPeriodicField M Lx\nstructure DLWLean.PeriodicPhysicalState (par : FieldParameters) : Type\nnumber of parameters: 1\nfields:\n  DLWLean.PeriodicPhysicalState.U : SmoothPeriodicField par.M par.Lx\n  DLWLean.PeriodicPhysicalState.w : SmoothPeriodicField par.M par.Lx\n  DLWLean.PeriodicPhysicalState.mean_w : ∀ (x : ℝ), (latticeMean fun j => self.w.value j x) = par.c\n  DLWLean.PeriodicPhysicalState.mean_Uw : ∀ (x : ℝ),\n      (latticeMean fun j => self.U.value j x * self.w.value j x) = par.gamma\nconstructor:\n  DLWLean.PeriodicPhysicalState.mk {par : FieldParameters} (U w : SmoothPeriodicField par.M par.Lx)\n    (mean_w : ∀ (x : ℝ), (latticeMean fun j => w.value j x) = par.c)\n    (mean_Uw : ∀ (x : ℝ), (latticeMean fun j => U.value j x * w.value j x) = par.gamma) : PeriodicPhysicalState par\nNotebookDLWConditions.fixedMeans (par : FieldParameters) (f : PeriodicPhysicalState par) (x : ℝ) :\n  (latticeMean fun j => f.w.value j x) = par.c ∧ (latticeMean fun j => f.U.value j x * f.w.value j x) = par.gamma\n"
+        }
+      ]
+    },
+    {
+      "id": "repeat-prepare-and-magic-switch",
+      "execution_count": 5,
+      "source_sha256": "915e456f665ade4a8ae6063c2501e83af27dd5e44024b9903673f4324045611c",
+      "outputs": []
+    },
+    {
+      "id": "conditions-after-repeat-prepare",
+      "execution_count": 6,
+      "source_sha256": "1b9d34b25a816bae9e2b9e4c51d2b6c41014af7be96829ff6ff855cbf364a495",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "structure DLWLean.FieldParameters : Type\nnumber of parameters: 0\nfields:\n  DLWLean.FieldParameters.M : ℕ\n  DLWLean.FieldParameters.M_ge_two : 2 ≤ self.M\n  DLWLean.FieldParameters.Lx : ℝ\n  DLWLean.FieldParameters.Lx_pos : 0 < self.Lx\n  DLWLean.FieldParameters.h : ℝ\n  DLWLean.FieldParameters.h_pos : 0 < self.h\n  DLWLean.FieldParameters.c : ℝ\n  DLWLean.FieldParameters.c_ne_zero : self.c ≠ 0\n  DLWLean.FieldParameters.gamma : ℝ\nconstructor:\n  DLWLean.FieldParameters.mk (M : ℕ) (M_ge_two : 2 ≤ M) (Lx : ℝ) (Lx_pos : 0 < Lx) (h : ℝ) (h_pos : 0 < h) (c : ℝ)\n    (c_ne_zero : c ≠ 0) (gamma : ℝ) : FieldParameters\nstructure DLWLean.SmoothPeriodicField (M : ℕ) (Lx : ℝ) : Type\nnumber of parameters: 2\nfields:\n  DLWLean.SmoothPeriodicField.value : Fin M → ℝ → ℝ\n  DLWLean.SmoothPeriodicField.smooth : ∀ (j : Fin M), ContDiff ℝ ∞ (self.value j)\n  DLWLean.SmoothPeriodicField.periodic : ∀ (j : Fin M), Function.Periodic (self.value j) Lx\nconstructor:\n  DLWLean.SmoothPeriodicField.mk {M : ℕ} {Lx : ℝ} (value : Fin M → ℝ → ℝ)\n    (smooth : ∀ (j : Fin M), ContDiff ℝ ∞ (value j)) (periodic : ∀ (j : Fin M), Function.Periodic (value j) Lx) :\n    SmoothPeriodicField M Lx\nstructure DLWLean.PeriodicPhysicalState (par : FieldParameters) : Type\nnumber of parameters: 1\nfields:\n  DLWLean.PeriodicPhysicalState.U : SmoothPeriodicField par.M par.Lx\n  DLWLean.PeriodicPhysicalState.w : SmoothPeriodicField par.M par.Lx\n  DLWLean.PeriodicPhysicalState.mean_w : ∀ (x : ℝ), (latticeMean fun j => self.w.value j x) = par.c\n  DLWLean.PeriodicPhysicalState.mean_Uw : ∀ (x : ℝ),\n      (latticeMean fun j => self.U.value j x * self.w.value j x) = par.gamma\nconstructor:\n  DLWLean.PeriodicPhysicalState.mk {par : FieldParameters} (U w : SmoothPeriodicField par.M par.Lx)\n    (mean_w : ∀ (x : ℝ), (latticeMean fun j => w.value j x) = par.c)\n    (mean_Uw : ∀ (x : ℝ), (latticeMean fun j => U.value j x * w.value j x) = par.gamma) : PeriodicPhysicalState par\nNotebookDLWConditions.fixedMeans (par : FieldParameters) (f : PeriodicPhysicalState par) (x : ℝ) :\n  (latticeMean fun j => f.w.value j x) = par.c ∧ (latticeMean fun j => f.U.value j x * f.w.value j x) = par.gamma\n"
+        }
+      ]
+    },
+    {
+      "id": "record-session-evidence",
+      "execution_count": 7,
+      "source_sha256": "0a916ab1bb5330d6341a42475e29cc65c0f559fca7fa4661eaba11c8b8bbc2c6",
+      "outputs": [
+        {
+          "type": "execute_result",
+          "mime_types": [
+            "text/plain"
+          ],
+          "payload_sha256": {
+            "text/plain": "814bb6b8dc12188a44b71e378dc20a4292e01979aa9ab95b09b8a681391dfc9d"
+          },
+          "text_plain": "423"
+        }
+      ]
+    }
+  ],
+  "outputs_saved": true
+}

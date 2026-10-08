@@ -18,6 +18,7 @@ const manifest=JSON.parse(fs.readFileSync(path.join(__dirname,'build_validation.
     h1:document.querySelector('h1').innerText,
     cells:document.querySelectorAll('main > section[data-cell]').length,
     code:document.querySelectorAll('.key-code').length,
+    codeElements:document.querySelectorAll('main code,main pre,.code-caption').length,
     codeLines:[...document.querySelectorAll('.key-code code')].reduce((n,x)=>n+x.textContent.split('\n').length,0),
     fullCode:document.querySelectorAll('.full-source').length,
     appendices:document.querySelectorAll('.code-appendix,details,summary').length,
@@ -54,11 +55,11 @@ const manifest=JSON.parse(fs.readFileSync(path.join(__dirname,'build_validation.
   await page.screenshot({path:path.join(__dirname,'report_1440.png')});
   await page.locator('#dlw-sd-text').scrollIntoViewIfNeeded();
   await page.screenshot({path:path.join(__dirname,'report_sd_1440.png')});
-  await page.locator('#dlw-sd').scrollIntoViewIfNeeded();
-  await page.screenshot({path:path.join(__dirname,'report_sd_code_1440.png')});
+  await page.locator('#dlw-exact-text').scrollIntoViewIfNeeded();
+  await page.screenshot({path:path.join(__dirname,'report_exact_1440.png')});
   await page.locator('#dlw-space-text').scrollIntoViewIfNeeded();
   await page.screenshot({path:path.join(__dirname,'report_table_1440.png')});
-  await page.locator('#dlw-curves .output').first().scrollIntoViewIfNeeded();
+  await page.locator('#dlw-field-plots .output').first().scrollIntoViewIfNeeded();
   await page.screenshot({path:path.join(__dirname,'report_figure_1440.png')});
   await page.setViewportSize({width:390,height:844});
   await page.evaluate(()=>scrollTo(0,0));
@@ -73,8 +74,8 @@ const manifest=JSON.parse(fs.readFileSync(path.join(__dirname,'build_validation.
   const print=await inspect();
   await page.locator('#dlw-sd-text').scrollIntoViewIfNeeded();
   await page.screenshot({path:path.join(__dirname,'report_sd_print.png')});
-  await page.locator('#dlw-sd').scrollIntoViewIfNeeded();
-  await page.screenshot({path:path.join(__dirname,'report_sd_code_print.png')});
+  await page.locator('#dlw-time-text').scrollIntoViewIfNeeded();
+  await page.screenshot({path:path.join(__dirname,'report_time_print.png')});
   await page.locator('#dlw-space-text').scrollIntoViewIfNeeded();
   await page.screenshot({path:path.join(__dirname,'report_table_print.png')});
   await page.emulateMedia({media:'screen'});
@@ -95,7 +96,7 @@ const manifest=JSON.parse(fs.readFileSync(path.join(__dirname,'build_validation.
     usedFonts[label]=(await cdp.send('CSS.getPlatformFontsForNode',{nodeId})).fonts;
   }
   await fontPage.close();
-  const success=[desktop,mobile,print].every(x=>!x.overflow&&!x.mathErrors&&!x.controls&&!x.badAnchors&&!x.fonts.length&&x.registeredFonts>=20&&x.mathFont.includes('KaTeX_Main')&&x.bodyFont.includes('SimSun')&&x.math===manifest.math_expressions&&x.cells===manifest.cells&&x.code===manifest.visible_code_excerpts&&x.codeLines===manifest.visible_code_lines&&!x.fullCode&&!x.appendices&&x.sections===7&&!x.tocLinks&&x.lastCell==='dlw-curves'&&x.images.length===manifest.image_outputs&&x.images.every(y=>y.loaded)&&x.tables===5&&x.tableRules.every(t=>t.top>0&&t.headerBottom>0&&t.bottom>0&&!t.sideBorders&&!t.headerOtherBorders&&!t.interiorBorders))
+  const success=[desktop,mobile,print].every(x=>!x.overflow&&!x.mathErrors&&!x.controls&&!x.codeElements&&!x.badAnchors&&!x.fonts.length&&x.registeredFonts>=20&&x.mathFont.includes('KaTeX_Main')&&x.bodyFont.includes('SimSun')&&x.math===manifest.math_expressions&&x.cells===manifest.cells&&x.code===manifest.visible_code_excerpts&&x.codeLines===manifest.visible_code_lines&&!x.fullCode&&!x.appendices&&x.sections===7&&!x.tocLinks&&x.lastCell==='dlw-field-plots'&&x.images.length===manifest.image_outputs&&x.images.every(y=>y.loaded)&&x.tables===5&&x.tableRules.every(t=>t.top>0&&t.headerBottom>0&&t.bottom>0&&!t.sideBorders&&!t.headerOtherBorders&&!t.interiorBorders))
     &&usedFonts.math.some(x=>x.isCustomFont&&x.familyName.includes('KaTeX'))
     &&usedFonts.body.some(x=>/SimSun|宋体/.test(x.familyName))
     &&!requests.length&&!errors.length&&!failed.length;

@@ -1,0 +1,1047 @@
+{
+  "runtime_identity": {
+    "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+    "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+    "toolchain": "leanprover/lean4:v4.34.0",
+    "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+    "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+    "lean_paths": [
+      "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+      "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+      "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+      "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+      "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+      "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+      "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+      "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+      "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+      "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+    ]
+  },
+  "result": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\result.json",
+  "result_sha256": "704e92e1cf0a62ebd6fa806b7096e8d402f3e46b3a3ffd6da450015f75589a6d",
+  "library": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean",
+  "sources": {
+    "Genericity": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\Genericity.lean",
+      "sha256": "c26f283d5f742273a1dc5150a24243669cf0c506f4ed8ad00026cfce337dc63d",
+      "imports": [
+        "Mathlib.Algebra.Polynomial.Roots",
+        "Mathlib.Topology.Algebra.Module.Basic",
+        "Mathlib.Topology.Baire.Lemmas",
+        "Mathlib.Topology.Instances.Real.Lemmas"
+      ]
+    },
+    "PolynomialMatrixWitness": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\PolynomialMatrixWitness.lean",
+      "sha256": "5152486ca29ca7c010ea90c596d7fb70f46a3c2bee8dc2d2d6151dc25ba85ac4",
+      "imports": [
+        "Genericity",
+        "Mathlib.Algebra.Polynomial.Div",
+        "Mathlib.LinearAlgebra.Matrix.Determinant.Basic"
+      ]
+    },
+    "FieldCoordinates": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\FieldCoordinates.lean",
+      "sha256": "54dfedcd791744618226b1775591371bb47fbc76254f4bb295b005ed7b67bb59",
+      "imports": [
+        "Mathlib.Analysis.Calculus.ContDiff.Operations",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic",
+        "Mathlib.Algebra.Ring.Periodic",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Ring"
+      ]
+    },
+    "CyclicTrace": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\CyclicTrace.lean",
+      "sha256": "4333679aa2fd8adf0e6e0a26a2865a8db430b9322227b9f6f739aa41d6a999cd",
+      "imports": [
+        "Mathlib.Basic.Real.Basic",
+        "Mathlib.Algebra.Algebra.Defs",
+        "Mathlib.Algebra.Module.LinearMap.Basic",
+        "Mathlib.Tactic.NoncommRing"
+      ]
+    },
+    "PeriodicCoefficients": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\PeriodicCoefficients.lean",
+      "sha256": "fbbdc9fdccaf17f3f4f63023d839edbab9540cb67470cc6c7eaedf5f456a4ed4",
+      "imports": [
+        "FieldCoordinates",
+        "CyclicTrace",
+        "Mathlib.Algebra.Algebra.Subalgebra.Basic",
+        "Mathlib.Analysis.Calculus.ContDiff.Deriv",
+        "Mathlib.Analysis.Calculus.Deriv.Shift",
+        "Mathlib.Analysis.Calculus.Deriv.Mul"
+      ]
+    },
+    "ResidueIntegral": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\ResidueIntegral.lean",
+      "sha256": "360cfab305afd98b8b70cbb491c8ebd74cb151e5b6609f46c50adb80672061a3",
+      "imports": [
+        "PeriodicCoefficients",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus"
+      ]
+    },
+    "ReducedPairing": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\ReducedPairing.lean",
+      "sha256": "e45250fc12e66beabe37f88fc99208a838f75b71ae0f89cc1a43290c110ee418",
+      "imports": [
+        "FieldCoordinates"
+      ]
+    },
+    "PhysicalBracket": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\PhysicalBracket.lean",
+      "sha256": "007d4b6a92310ddfe51d7da2f5fe7c3767b2e0dcfc6195f98ca5d0ed39eee55d",
+      "imports": [
+        "ResidueIntegral",
+        "ReducedPairing",
+        "Mathlib.Analysis.Calculus.Deriv.Pow",
+        "Mathlib.Tactic"
+      ]
+    },
+    "Independence": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\Independence.lean",
+      "sha256": "aac3d3add68ba9c5159de322f2b66e396e03cedb923193f639d64447d4601a25",
+      "imports": [
+        "Mathlib.LinearAlgebra.Vandermonde",
+        "Mathlib.LinearAlgebra.Matrix.ToLin",
+        "Mathlib.LinearAlgebra.LinearIndependent.Lemmas",
+        "Mathlib.Basic.Real.Basic",
+        "Mathlib.Tactic.NormNum"
+      ]
+    },
+    "FieldGenericity": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\FieldGenericity.lean",
+      "sha256": "ae26b33c81bcd42c55b9c2417d80540309b271ff43ec2ac013fed64619cf249e",
+      "imports": [
+        "PhysicalBracket",
+        "Genericity",
+        "Mathlib.Topology.ContinuousMap.Compact",
+        "Mathlib.Topology.Order.ProjIcc",
+        "Mathlib.Topology.Algebra.MvPolynomial",
+        "Mathlib.Algebra.Polynomial.Eval.Defs",
+        "Mathlib.LinearAlgebra.Matrix.Determinant.Basic",
+        "Mathlib.Analysis.Calculus.IteratedDeriv.Defs",
+        "Mathlib.Algebra.MvPolynomial.Derivation",
+        "Mathlib.Analysis.Calculus.Deriv.Comp",
+        "Independence",
+        "Mathlib.Analysis.Calculus.Deriv.Polynomial"
+      ]
+    },
+    "BalancedCoefficientRecurrence": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\BalancedCoefficientRecurrence.lean",
+      "sha256": "4ee5b4fb1e8e1e2888d8883702f99df13a1225be1ebfc351010225c4a423d5e7",
+      "imports": [
+        "Mathlib.Algebra.MvPolynomial.Derivation",
+        "Mathlib.RingTheory.MvPolynomial.WeightedHomogeneous",
+        "Mathlib.RingTheory.Binomial",
+        "Mathlib.Algebra.MvPolynomial.Polynomial",
+        "Mathlib.Tactic"
+      ]
+    },
+    "Monodromy": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\Monodromy.lean",
+      "sha256": "be8fc6ce020ce5c68b134e184efd40ec9f41bab4cea21ec938b1bf3346a63123",
+      "imports": [
+        "CyclicTrace",
+        "Mathlib.Algebra.Group.Units.Basic",
+        "Mathlib.Algebra.Ring.Commute"
+      ]
+    },
+    "SpectralVariation": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\SpectralVariation.lean",
+      "sha256": "aee1e29056b8e0144a0dfc1473e5749570f140227ebf10890e9105167325d234",
+      "imports": [
+        "Monodromy",
+        "Mathlib.Tactic.Ring"
+      ]
+    },
+    "QuadraticSymbol": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\QuadraticSymbol.lean",
+      "sha256": "03afaa6eae402cfb2e4bb168ead63bc142524a596285ddea4b8313282088522c",
+      "imports": [
+        "Mathlib.RingTheory.Binomial",
+        "Mathlib.Analysis.Calculus.IteratedDeriv.Defs",
+        "Mathlib.Analysis.Calculus.Deriv.Shift",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.IntegrationByParts",
+        "Mathlib.Tactic.Ring"
+      ]
+    },
+    "QuadraticResolvent": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\QuadraticResolvent.lean",
+      "sha256": "feab79531cf5e7b810c7c1cd21f6820a1a11ce750f370209891b9e02bf5ca4b3",
+      "imports": [
+        "SpectralVariation",
+        "Mathlib.Algebra.Algebra.Hom",
+        "Mathlib.Tactic.FieldSimp",
+        "QuadraticSymbol",
+        "Independence",
+        "Mathlib.Analysis.SpecialFunctions.Integrals.Basic",
+        "Mathlib.Analysis.Calculus.IteratedDeriv.Lemmas"
+      ]
+    },
+    "NormalResidueBridge": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\NormalResidueBridge.lean",
+      "sha256": "a71797b6fcc8ffbe1b3971f5717fb6640781639f139061d7ec58bae75dd58acb",
+      "imports": [
+        "QuadraticResolvent",
+        "ResidueIntegral"
+      ]
+    },
+    "EtaLimit": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\EtaLimit.lean",
+      "sha256": "374fe17d81ba7cb7f8640f083942740cee856a5b589c87fff95c431c7630c161",
+      "imports": [
+        "QuadraticResolvent",
+        "Mathlib.Algebra.BigOperators.GroupWithZero.Action"
+      ]
+    },
+    "BalancedRealization": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\BalancedRealization.lean",
+      "sha256": "a503cc9b26fc8fb2ba61fd04dd409fdadeae01eec4ae52101ce12a09dbf5c9eb",
+      "imports": [
+        "BalancedCoefficientRecurrence",
+        "NormalResidueBridge",
+        "EtaLimit"
+      ]
+    },
+    "GlobalCoefficientRecurrence": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\GlobalCoefficientRecurrence.lean",
+      "sha256": "9c99c734a6dc376f6c9ddafe124500c8313c7eabeb616177f132d8d6c290ec04",
+      "imports": [
+        "FieldGenericity",
+        "BalancedRealization"
+      ]
+    },
+    "GlobalRealization": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\GlobalRealization.lean",
+      "sha256": "f3b6bcb120cec4f7a5e56ed1cb33a9af378602a65974d06c4a7e7adc91df32d4",
+      "imports": [
+        "GlobalCoefficientRecurrence"
+      ]
+    },
+    "NormalInverseRecurrence": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\NormalInverseRecurrence.lean",
+      "sha256": "9da00014258159464fa199a010d1ea11603224323964fd18a1ded971b9deda84",
+      "imports": [
+        "BalancedRealization"
+      ]
+    },
+    "GlobalSpectralRealization": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\GlobalSpectralRealization.lean",
+      "sha256": "098fef4a6f57000b4665dcf35d4ec32c9d6e051865047b1568f678b4f172b6cb",
+      "imports": [
+        "GlobalRealization",
+        "NormalInverseRecurrence"
+      ]
+    },
+    "HeatIntertwiner": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\HeatIntertwiner.lean",
+      "sha256": "4c490eb8167207984b6c2e45ac402e4abd4a34c7cc8a892cea404f6e17a7e9ec",
+      "imports": [
+        "Monodromy",
+        "Mathlib.Algebra.Algebra.Hom",
+        "Mathlib.Tactic.Ring"
+      ]
+    },
+    "NormalizationCoefficients": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\NormalizationCoefficients.lean",
+      "sha256": "87f66356b6987c9f9af4d95a8bcad7ab16d2582478ce32dfb250a7ceceeb53c3",
+      "imports": [
+        "HeatIntertwiner",
+        "Mathlib.RingTheory.Binomial",
+        "Mathlib.Tactic.FieldSimp"
+      ]
+    },
+    "FirstResidueEnergy": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\FirstResidueEnergy.lean",
+      "sha256": "fc09136886a17195232fb7afacb011234cfac016133d1c36ba05ab7e03553bef",
+      "imports": [
+        "NormalizationCoefficients",
+        "Mathlib.Tactic.Linarith"
+      ]
+    },
+    "HamiltonianFamily": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\HamiltonianFamily.lean",
+      "sha256": "7314ae63b93e8cd4fb634385faf1e0f581469aafa2c122ae2d33463ca05ccab9",
+      "imports": [
+        "Mathlib.Basic.Real.Basic",
+        "Mathlib.Algebra.Module.LinearMap.Basic",
+        "Mathlib.Analysis.Calculus.Deriv.Basic",
+        "Mathlib.Tactic"
+      ]
+    },
+    "StartPoint": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\StartPoint.lean",
+      "sha256": "4a0854f0257c50cda7c417a58aea2d18c02624dd5a6794c67e355da5ddb2381f",
+      "imports": [
+        "FieldCoordinates",
+        "HamiltonianFamily",
+        "Mathlib.Analysis.Calculus.Deriv.Basic"
+      ]
+    },
+    "LatticeResolvent": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\LatticeResolvent.lean",
+      "sha256": "d426f858fbe830e66e2b86cd133f5ad3353263ba1cc1a8ee75533587b17d7925",
+      "imports": [
+        "StartPoint"
+      ]
+    },
+    "PhysicalFirstResidue": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\PhysicalFirstResidue.lean",
+      "sha256": "e5ea2d1559813ac0f215578353e8c60cd66301f752582cb668693f5d6f035271",
+      "imports": [
+        "FirstResidueEnergy",
+        "ResidueIntegral",
+        "LatticeResolvent"
+      ]
+    },
+    "GlobalFirstResidueBridge": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\GlobalFirstResidueBridge.lean",
+      "sha256": "7dae435f540686cc1817d8580ade53a5c9368d6ba7514919d2cd24c02b797617",
+      "imports": [
+        "GlobalSpectralRealization",
+        "PhysicalFirstResidue"
+      ]
+    },
+    "PeriodicVariationalCalculus": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\PeriodicVariationalCalculus.lean",
+      "sha256": "f16947f90fcfbf4ce299f5b5f95ebd7bcf1ac0ba42d688038d678d510113e42a",
+      "imports": [
+        "NormalResidueBridge"
+      ]
+    },
+    "ClosureJets": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\ClosureJets.lean",
+      "sha256": "7cb3f21fea1bf40e9507b6e211d6da1125191f49c34ef2cba6221a15eb9b4f60",
+      "imports": [
+        "FieldCoordinates"
+      ]
+    },
+    "DifferentialMean": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\DifferentialMean.lean",
+      "sha256": "99e9081580b81323b0868f46461bf0656aca617c62f524d1b07a092e12eb20e7",
+      "imports": [
+        "FieldCoordinates",
+        "Mathlib.Analysis.Calculus.ContDiff.Deriv",
+        "Mathlib.Analysis.Calculus.Deriv.Add",
+        "Mathlib.Analysis.Calculus.Deriv.Mul"
+      ]
+    },
+    "PhysicalClosure": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\PhysicalClosure.lean",
+      "sha256": "96c60b712895959aa844e91852586778082ea9b1b1245c3873ee4670687c7f1d",
+      "imports": [
+        "LatticeResolvent",
+        "ClosureJets",
+        "DifferentialMean"
+      ]
+    },
+    "FiniteLinearCalculus": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\FiniteLinearCalculus.lean",
+      "sha256": "a23e59a956ca0a79e35876c7b575705b1ef856e9d2851d5cc247a96638e3e70d",
+      "imports": [
+        "LatticeResolvent",
+        "DifferentialMean",
+        "Mathlib.Analysis.Calculus.Deriv.Prod",
+        "Mathlib.Analysis.Calculus.Deriv.Comp",
+        "Mathlib.Analysis.Calculus.Deriv.Pow",
+        "Mathlib.Analysis.Normed.Module.FiniteDimension"
+      ]
+    },
+    "ActualPhysicalSource": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\ActualPhysicalSource.lean",
+      "sha256": "5dad7c77605ff4b66aa044f4a4fadc5ecc05627b1c8ab7132e00018f346986d2",
+      "imports": [
+        "StartPoint",
+        "PhysicalClosure",
+        "FiniteLinearCalculus",
+        "PeriodicCoefficients",
+        "Mathlib.Analysis.Calculus.ContDiff.Operations"
+      ]
+    },
+    "PolynomialIntegralVariation": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\PolynomialIntegralVariation.lean",
+      "sha256": "af2e1d29d16ca4b47ef97f57aa62cb9ba506edf65a429608ba91682f9ae1c84c",
+      "imports": [
+        "Mathlib.Algebra.Polynomial.Coeff",
+        "Mathlib.Algebra.Algebra.Hom",
+        "Mathlib.Analysis.Calculus.Deriv.Pow",
+        "Mathlib.Analysis.Calculus.Deriv.Mul",
+        "Mathlib.Analysis.Calculus.Deriv.Add",
+        "Mathlib.Tactic"
+      ]
+    },
+    "PhysicalHamiltonianVariation": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\PhysicalHamiltonianVariation.lean",
+      "sha256": "5d8a9732669429c72ace599d16a2a92bb7cfce2a4c8c94f18fbccf9d69c40a2d",
+      "imports": [
+        "PhysicalBracket",
+        "ActualPhysicalSource",
+        "PhysicalFirstResidue",
+        "PolynomialIntegralVariation"
+      ]
+    },
+    "ActualHamiltonianDerivative": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\ActualHamiltonianDerivative.lean",
+      "sha256": "090837325aaa345dbb5268dc0ca3a00b3e948b2344ea70d0ea03e338bddf9783",
+      "imports": [
+        "PhysicalHamiltonianVariation"
+      ]
+    },
+    "VariationalReduction": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\VariationalReduction.lean",
+      "sha256": "1524e7a929ec44e7530f03807ded5f562140621f6b3a9a53e49206e2b6d52dbf",
+      "imports": [
+        "ActualHamiltonianDerivative",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Periodic"
+      ]
+    },
+    "AmbientEulerVariational": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\AmbientEulerVariational.lean",
+      "sha256": "2a0dcfacd5e685f4c36fa15e690c513345d0d7a5c0ac44058633ec730663ec8a",
+      "imports": [
+        "PeriodicVariationalCalculus",
+        "VariationalReduction",
+        "PolynomialIntegralVariation",
+        "Mathlib.Algebra.MvPolynomial.PDeriv"
+      ]
+    },
+    "EulerVariationalGradient": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\EulerVariationalGradient.lean",
+      "sha256": "b0bb653a4d1018b69e77bd259395bb86d2d24e78b5fc260c17afbb21762f4f0d",
+      "imports": [
+        "FieldGenericity",
+        "PeriodicVariationalCalculus",
+        "VariationalReduction",
+        "Mathlib.Algebra.MvPolynomial.PDeriv",
+        "AmbientEulerVariational"
+      ]
+    },
+    "ConstructedChargeMomentum": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\ConstructedChargeMomentum.lean",
+      "sha256": "c5055dcccf0b59e1c89305dc7119c022bfa5d7e4f2d710a38b48fa47a6eff68a",
+      "imports": [
+        "GlobalCoefficientRecurrence",
+        "EulerVariationalGradient"
+      ]
+    },
+    "GradientNondegeneracy": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\GradientNondegeneracy.lean",
+      "sha256": "4f8b61048ea91d0eae904bf5a79728600be65c1ca32c53019732917a6237b398",
+      "imports": [
+        "VariationalReduction"
+      ]
+    },
+    "ActualPhysicalFamily": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\ActualPhysicalFamily.lean",
+      "sha256": "26594f4733466650cd501586058dfaab87af25c38390e83032659f17b5e75b69",
+      "imports": [
+        "ConstructedChargeMomentum",
+        "GradientNondegeneracy",
+        "ActualHamiltonianDerivative",
+        "Independence"
+      ]
+    },
+    "CovectorWitness": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\CovectorWitness.lean",
+      "sha256": "06052f7c937cb87031ca17ba529a540c857f6def5e7dafccba0ad71fe1ebad64",
+      "imports": [
+        "Independence",
+        "Mathlib.LinearAlgebra.Dual.Lemmas"
+      ]
+    },
+    "PhysicalFamilyGenericity": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\PhysicalFamilyGenericity.lean",
+      "sha256": "2fb65d0369a7aa3ed66e07c229b475cf4e0e4fad80098b1c84c7f6b577728176",
+      "imports": [
+        "ActualPhysicalFamily",
+        "CovectorWitness"
+      ]
+    },
+    "PhysicalEnergyEndpoint": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\PhysicalEnergyEndpoint.lean",
+      "sha256": "27e7f426ea1af3ede2d399e4a23de0e5108066c8501b54823cbf2dd169ead7f7",
+      "imports": [
+        "GlobalFirstResidueBridge",
+        "PhysicalFamilyGenericity"
+      ]
+    },
+    "MomentumWitness": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\MomentumWitness.lean",
+      "sha256": "5019db46736dcf8867af493edd40cb27636f2d2b877f2e526a8b51c0101622fa",
+      "imports": [
+        "PhysicalBracket",
+        "Mathlib.Tactic"
+      ]
+    },
+    "FourierMomentum": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\FourierMomentum.lean",
+      "sha256": "f7059f99820b6f38866824b748a0a707cef5845ba1fbf93a4765999a27aff76c",
+      "imports": [
+        "MomentumWitness",
+        "QuadraticResolvent"
+      ]
+    },
+    "FourierAmplitudeWitness": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\FourierAmplitudeWitness.lean",
+      "sha256": "75ba7c2a5b907fc59571b48cb1382141781905aa3016c50fbb60d613972816c1",
+      "imports": [
+        "PolynomialMatrixWitness",
+        "PhysicalEnergyEndpoint",
+        "FourierMomentum"
+      ]
+    },
+    "ActualFourierEntries": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\ActualFourierEntries.lean",
+      "sha256": "29fa7948fceb5924f263d6e2bc43ffc8db4ea518abbeb1699d567286a8b054d4",
+      "imports": [
+        "FourierAmplitudeWitness"
+      ]
+    },
+    "BalancedSpectralRealization": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\BalancedSpectralRealization.lean",
+      "sha256": "bd53ec7d0de9684c1de87f7dfcca7f014fec1a17854df83d93bd51b28f75d87b",
+      "imports": [
+        "BalancedRealization",
+        "NormalInverseRecurrence"
+      ]
+    },
+    "NormalModelResidue": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\NormalModelResidue.lean",
+      "sha256": "b7babe82a8c4472e3df9dfb440fc658933452f158236d7fc58fb4e06e3f717e6",
+      "imports": [
+        "BalancedRealization"
+      ]
+    },
+    "CommonGauge": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\CommonGauge.lean",
+      "sha256": "87f62a68e383711ec61d04f19e135d330072a50f7db320a27829750a8e9aae80",
+      "imports": [
+        "HeatIntertwiner",
+        "QuadraticSymbol"
+      ]
+    },
+    "NormalScalarResidue": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\NormalScalarResidue.lean",
+      "sha256": "22c69b2f822e942107ef6e9d396b2612aa12cfa2171903384b672d97ab99b845",
+      "imports": [
+        "NormalModelResidue",
+        "CommonGauge"
+      ]
+    },
+    "GlobalBalancedSliceBridge": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\GlobalBalancedSliceBridge.lean",
+      "sha256": "24834ab3df8f65345f1595db0a535cd8884b52c259d37450fd0d5681eff3bd92",
+      "imports": [
+        "GlobalCoefficientRecurrence",
+        "BalancedSpectralRealization",
+        "MomentumWitness",
+        "NormalScalarResidue"
+      ]
+    },
+    "FourierDirectionJets": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\FourierDirectionJets.lean",
+      "sha256": "ae58a96e02fa27c71dde4dd5f798e1b97ec1a939e3fd75f51215146a78dae007",
+      "imports": [
+        "GlobalBalancedSliceBridge",
+        "FourierAmplitudeWitness"
+      ]
+    },
+    "ActualFourierMatrix": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\ActualFourierMatrix.lean",
+      "sha256": "7505fceee783e77ac10d045c6457b50e5a52105608f6bc1a7c9d0561b6ae09d6",
+      "imports": [
+        "ActualFourierEntries",
+        "FourierDirectionJets"
+      ]
+    },
+    "BalancedAmplitudePolynomial": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\BalancedAmplitudePolynomial.lean",
+      "sha256": "032b9b2719b07eea97422685b1f580ddfada5af3cbc63a2bf3d5b969865963ab",
+      "imports": [
+        "BalancedCoefficientRecurrence"
+      ]
+    },
+    "QuadraticMonomialDecomposition": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\QuadraticMonomialDecomposition.lean",
+      "sha256": "183f0dc6d2e88c6a217c65bfcf647a689d62513f60b6b5f6dec40b73b2fd9c63",
+      "imports": [
+        "BalancedAmplitudePolynomial",
+        "Mathlib.Data.Finsupp.Multiset"
+      ]
+    },
+    "QuadraticPairings": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\QuadraticPairings.lean",
+      "sha256": "252c2e4183a4fb296116dc709e6dd8174c7d84d1ab2d3f16de9f45bdd6c55627",
+      "imports": [
+        "QuadraticSymbol",
+        "QuadraticResolvent"
+      ]
+    },
+    "QuadraticFrequencyPolynomial": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\QuadraticFrequencyPolynomial.lean",
+      "sha256": "edf20bd636e22ab4fd39ce1c90baa9d5154adb5d38c85a71c9b823720984df40",
+      "imports": [
+        "QuadraticPairings"
+      ]
+    },
+    "BalancedQuadraticFrequency": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\BalancedQuadraticFrequency.lean",
+      "sha256": "f649e2428bcff6fd48cb43ef2bec910c59ffdb03108a12f9667dac18e07a4956",
+      "imports": [
+        "QuadraticMonomialDecomposition",
+        "QuadraticFrequencyPolynomial"
+      ]
+    },
+    "FrequencyPolynomialIdentification": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\FrequencyPolynomialIdentification.lean",
+      "sha256": "658d0e783aee4f17a70284183c16f235f32ac9866e2d3cf0383eb9c220bf1602",
+      "imports": [
+        "QuadraticFrequencyPolynomial"
+      ]
+    },
+    "ActualOddFrequency": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\ActualOddFrequency.lean",
+      "sha256": "a30770dd24f7a59a7f525286b738fbbfe32a64b197bbdac04f65f8acea151b9a",
+      "imports": [
+        "BalancedQuadraticFrequency",
+        "GlobalBalancedSliceBridge",
+        "FrequencyPolynomialIdentification"
+      ]
+    },
+    "DifferentialJetEvaluation": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\DifferentialJetEvaluation.lean",
+      "sha256": "c4606794a9a74d758905586aa2bd85150a17cb1cbc1737354babcddf7f643076",
+      "imports": [
+        "BalancedRealization",
+        "NormalInverseRecurrence"
+      ]
+    },
+    "BalancedCoefficientJet": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\BalancedCoefficientJet.lean",
+      "sha256": "8b87fe8d557d350eadfc6a70f16b1418c6571cd9e0284fd2e706fe76f8b64dfd",
+      "imports": [
+        "DifferentialJetEvaluation"
+      ]
+    },
+    "CoefficientJetPointwise": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\CoefficientJetPointwise.lean",
+      "sha256": "ff216d6f1cd7326e3146e57b63d2b32f12cfd8db18b2cac114a929a31b6bf412",
+      "imports": [
+        "BalancedCoefficientJet",
+        "PeriodicCoefficients",
+        "Mathlib.Algebra.Polynomial.AlgebraMap"
+      ]
+    },
+    "BalancedAmplitudeEvaluationCore": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\BalancedAmplitudeEvaluationCore.lean",
+      "sha256": "cbebd3ea8e507c2a0c5d12621b2487063cdd1fccae7c84bfa2311f40f0392b69",
+      "imports": [
+        "GlobalBalancedSliceBridge",
+        "CoefficientJetPointwise"
+      ]
+    },
+    "ActualBalancedAmplitudeBridge": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\ActualBalancedAmplitudeBridge.lean",
+      "sha256": "5da69e7f39fb1372ad8a7c3d7fb81a0279f11e464bb460d4e0ae1d0a80dc232e",
+      "imports": [
+        "ActualFourierEntries",
+        "ActualOddFrequency",
+        "BalancedAmplitudeEvaluationCore",
+        "FourierDirectionJets"
+      ]
+    },
+    "CoefficientJetRealization": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\CoefficientJetRealization.lean",
+      "sha256": "bd87740445efae71b18377d4a7a7f7c732b6d1d710a4f58f025b76540582f05a",
+      "imports": [
+        "DifferentialJetEvaluation"
+      ]
+    },
+    "BalancedResolventCoefficientJet": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\BalancedResolventCoefficientJet.lean",
+      "sha256": "f07a3cbcb35507b5e574bc43053a016a47812bb6df86c95f3c0efa3024135204",
+      "imports": [
+        "CoefficientJetRealization"
+      ]
+    },
+    "BalancedQuotientCoefficientJet": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\BalancedQuotientCoefficientJet.lean",
+      "sha256": "1b4f839757f02fcad2e0da0ba7a0aaf3e6b100a5e90b54be27b523ed77d37e61",
+      "imports": [
+        "BalancedResolventCoefficientJet"
+      ]
+    },
+    "CoefficientJetPower": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\CoefficientJetPower.lean",
+      "sha256": "3c56b0cafae0bc4d62791e2d5de36b84d27ceb64b3b4320a00fc367d49dca724",
+      "imports": [
+        "CoefficientJetRealization"
+      ]
+    },
+    "BalancedNormalizedCoefficientJet": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\BalancedNormalizedCoefficientJet.lean",
+      "sha256": "ba2b968536f4534d7a906702f7fd38a2170da459264af3346df2556e7019463e",
+      "imports": [
+        "BalancedQuotientCoefficientJet",
+        "BalancedCoefficientJet",
+        "CoefficientJetPower"
+      ]
+    },
+    "BalancedActualCoefficientJet": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\BalancedActualCoefficientJet.lean",
+      "sha256": "0b1cc0320ff67db58a76ca12817f8abadcae38f1f861e5a20fa3412b152b677a",
+      "imports": [
+        "BalancedNormalizedCoefficientJet",
+        "CoefficientJetPointwise",
+        "NormalModelResidue"
+      ]
+    },
+    "BalancedOddCoefficientIntegral": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\BalancedOddCoefficientIntegral.lean",
+      "sha256": "3766d8ef63a6494eea7fe6ded80256014fb2dd5f03e2088297e375b559b92db8",
+      "imports": [
+        "BalancedActualCoefficientJet"
+      ]
+    },
+    "AmbientSpectralRecurrence": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\AmbientSpectralRecurrence.lean",
+      "sha256": "46d111871c838b1cac583d3ccf043455ec49201d2fec71e0daa9333bc326c5d7",
+      "imports": [
+        "AmbientEulerVariational",
+        "BalancedRealization"
+      ]
+    },
+    "AmbientSpectralRealization": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\AmbientSpectralRealization.lean",
+      "sha256": "e8d5fbce016e392c6149db7a17b64068ed2d608af251dd0d636db808b96c76f8",
+      "imports": [
+        "AmbientSpectralRecurrence"
+      ]
+    },
+    "AmbientNormalizedRealization": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\AmbientNormalizedRealization.lean",
+      "sha256": "32b87eb582487f9f30d320d6c266ecceef56613a2a103949e0dfb9feb19d5f86",
+      "imports": [
+        "AmbientSpectralRealization",
+        "NormalInverseRecurrence"
+      ]
+    },
+    "PeriodicSpacetimeCoefficients": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\PeriodicSpacetimeCoefficients.lean",
+      "sha256": "f7cb1af7627e7faa1f81d8556130bd4a313eed9db598a1da004c9702f6ed6def",
+      "imports": [
+        "PeriodicCoefficients",
+        "Mathlib.Analysis.Calculus.ContDiff.Comp",
+        "Mathlib.Analysis.Calculus.Deriv.Prod"
+      ]
+    },
+    "ActualTraceDerivative": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\ActualTraceDerivative.lean",
+      "sha256": "94d7b65f55eeb84d764a390dfa4752df46e0bd65dbe266100340638498224e34",
+      "imports": [
+        "PeriodicSpacetimeCoefficients",
+        "ResidueIntegral",
+        "Mathlib.Analysis.Calculus.ParametricIntervalIntegral",
+        "Mathlib.Analysis.Normed.Group.Bounded",
+        "Mathlib.Topology.Order.Compact",
+        "Mathlib.Tactic"
+      ]
+    },
+    "AmbientChartDerivative": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\AmbientChartDerivative.lean",
+      "sha256": "51087e3840ac725d3a9abff64cadd6c8782ad9bf10f844794a5fcf457b90ffc8",
+      "imports": [
+        "AmbientEulerVariational"
+      ]
+    },
+    "PolynomialReductionEndpoint": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\PolynomialReductionEndpoint.lean",
+      "sha256": "e78f01b05ea1696aee08cc556b06eeb5860b5ebaa80af95955efa4e6477457a1",
+      "imports": [
+        "AmbientChartDerivative",
+        "EulerVariationalGradient"
+      ]
+    },
+    "AmbientSpectralVariation": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\AmbientSpectralVariation.lean",
+      "sha256": "0a03105c7fdc9557ca6868db2da58de5d757b96b68e8d7b50f2395654b701e96",
+      "imports": [
+        "AmbientNormalizedRealization",
+        "ActualTraceDerivative",
+        "PolynomialReductionEndpoint",
+        "SpectralVariation"
+      ]
+    },
+    "SmoothPrimitive": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\SmoothPrimitive.lean",
+      "sha256": "58d150c41fb7f95e142e434de7715d60f6ecddc0477cc37a6f137440356aaa21",
+      "imports": [
+        "PeriodicCoefficients",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus"
+      ]
+    },
+    "ActualCommonGaugeSource": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\ActualCommonGaugeSource.lean",
+      "sha256": "ce036ba70ca7e9500bc917e6c137c1a06420b4e0324c550ad937ad8517d3cea2",
+      "imports": [
+        "PeriodicSpacetimeCoefficients",
+        "SmoothPrimitive",
+        "CommonGauge"
+      ]
+    },
+    "CommonGaugeDensityVariation": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\CommonGaugeDensityVariation.lean",
+      "sha256": "38aeaf894d16c4ac5d6f29e8bde6f51875f6b4af8d7cceb4c662c6ebd972ed93",
+      "imports": [
+        "ActualCommonGaugeSource",
+        "AmbientNormalizedRealization",
+        "PolynomialReductionEndpoint"
+      ]
+    },
+    "PhysicalAmbientSpectrumIdentity": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\PhysicalAmbientSpectrumIdentity.lean",
+      "sha256": "ef305d2946fa79160fb02d5da0526d9851a7612408757be1ed407f3c90d94489",
+      "imports": [
+        "GlobalSpectralRealization",
+        "AmbientNormalizedRealization",
+        "AmbientChartDerivative"
+      ]
+    },
+    "ActualSpectralWard": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\ActualSpectralWard.lean",
+      "sha256": "583bf1a535a3264d709c68f738baa3e593489ec8901fe9a39b6eb5566366bb09",
+      "imports": [
+        "CommonGaugeDensityVariation",
+        "NormalScalarResidue",
+        "PhysicalAmbientSpectrumIdentity"
+      ]
+    },
+    "AmbientAdlerInvolution": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\AmbientAdlerInvolution.lean",
+      "sha256": "08676d8129bcf37ee5d40ec1d0c27c20a0f4088bf48f461a6d10bf167f1480d2",
+      "imports": [
+        "AmbientSpectralVariation",
+        "ActualSpectralWard"
+      ]
+    },
+    "ActualSpectralInvolution": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\ActualSpectralInvolution.lean",
+      "sha256": "eb48fcd28081a35fd81b493e0cdab128ef1067251e3ca0a1957af4f674d5f976",
+      "imports": [
+        "AmbientAdlerInvolution",
+        "ConstructedChargeMomentum",
+        "GradientNondegeneracy"
+      ]
+    },
+    "ActualFrequencyLeading": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\ActualFrequencyLeading.lean",
+      "sha256": "9a03fd48b2c11740ef61da47ec9b23bfeb1c305c4812450b44a2772894deadf4",
+      "imports": [
+        "ActualOddFrequency",
+        "BalancedOddCoefficientIntegral",
+        "ActualSpectralInvolution",
+        "FourierMomentum"
+      ]
+    },
+    "ActualGenericIndependence": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\ActualGenericIndependence.lean",
+      "sha256": "abadb210aacc064cb15d9799a7bfd9ac7b4eeb6400167ac8d7dbc2ec8aba5ace",
+      "imports": [
+        "ActualFourierMatrix",
+        "ActualBalancedAmplitudeBridge",
+        "ActualFrequencyLeading"
+      ]
+    },
+    "PeriodicMixedDerivatives": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\PeriodicMixedDerivatives.lean",
+      "sha256": "ecfa7199a63be0ff558fbc4f425e43756001d733780cf25516df06aca24773b9",
+      "imports": [
+        "ActualTraceDerivative",
+        "Mathlib.Analysis.Calculus.FDeriv.Symmetric"
+      ]
+    },
+    "ActualHamiltonianFlow": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\ActualHamiltonianFlow.lean",
+      "sha256": "26f4b8964d2644796748152b97580630bdcee814367e08bb78c666f54b5cc7e2",
+      "imports": [
+        "ActualHamiltonianDerivative",
+        "ActualPhysicalSource"
+      ]
+    },
+    "ActualPolynomialCurveDerivative": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\ActualPolynomialCurveDerivative.lean",
+      "sha256": "174f7036b2d9e9801a08af9d38a0bf2d0e507aa42b3697609a3e6d8bbc3b9b39",
+      "imports": [
+        "PeriodicMixedDerivatives",
+        "ActualHamiltonianFlow",
+        "EulerVariationalGradient"
+      ]
+    },
+    "ActualHamiltonianConservation": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\ActualHamiltonianConservation.lean",
+      "sha256": "9af4b5fa3f32d72fb5284859f13020a49ad851a97461c8e0ac2afe3dce068572",
+      "imports": [
+        "ActualPolynomialCurveDerivative",
+        "ActualSpectralInvolution",
+        "PhysicalEnergyEndpoint"
+      ]
+    },
+    "AdlerFactorCoordinates": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\AdlerFactorCoordinates.lean",
+      "sha256": "a493990a7491b297919ca1a853452daaff61d8c17d4fb10ef1d59c50767ac21c",
+      "imports": [
+        "ActualSpectralInvolution"
+      ]
+    },
+    "StaticFactorVariation": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\StaticFactorVariation.lean",
+      "sha256": "e565995bcafbe64b12ebe001d99e07c216cc23c93720eee296b76546c7095f51",
+      "imports": [
+        "AdlerFactorCoordinates"
+      ]
+    },
+    "StaticFactorTraceCotangent": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\StaticFactorTraceCotangent.lean",
+      "sha256": "b14dadc826f41e9baa49ce758628a50e108740722695194c46000a012948912e",
+      "imports": [
+        "StaticFactorVariation"
+      ]
+    },
+    "FactorProjectionAlgebra": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\FactorProjectionAlgebra.lean",
+      "sha256": "e80adf5b8fc11d8831fab889674d971d6dee9172b8cdd9b623b239f56e8a082e",
+      "imports": [
+        "AdlerFactorCoordinates",
+        "Mathlib.Tactic.Abel"
+      ]
+    },
+    "FactorAdlerFoundation": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\FactorAdlerFoundation.lean",
+      "sha256": "25dd159b6d873ec7b43deae071d7f34ed77a1925ccd33e49026e5c7f9bca160c",
+      "imports": [
+        "StaticFactorTraceCotangent",
+        "FactorProjectionAlgebra"
+      ]
+    },
+    "FinalEndpoint": {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\FinalEndpoint.lean",
+      "sha256": "ca45080624be97499bdcdd10ade31074ebe88083e6297d41f1bdad6adee1ba92",
+      "imports": [
+        "ActualGenericIndependence",
+        "ActualHamiltonianConservation",
+        "FactorAdlerFoundation"
+      ]
+    }
+  },
+  "artifacts": {
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\Genericity.olean": "e12baef20af70754254d3f798afbb41c1bb534b6bd15fd603fe8df4282404d58",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\PolynomialMatrixWitness.olean": "2243dea6756d444bb24d05eaa2285484fca88faba10cf28da20668c1fff678a8",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\FieldCoordinates.olean": "f53629d76915c086e3505e6147cb25ca87b434c2d064b3ea85b91d4466949c19",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\CyclicTrace.olean": "a2c169408e9179c247b4c8fdbed46212095fa3ea8c3a53f553396602dcc87e8e",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\PeriodicCoefficients.olean": "4a74efb96de2841529d0103ab03cab9f8c0187e361545ebf41da8bcd5b83d94f",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\ResidueIntegral.olean": "209369317dba8fc703d4c2b787bb3ad9b92e5252ab8c82997cdc83a747619af7",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\ReducedPairing.olean": "c0bd868bef2a81331050d7fc93058080b3f901148eb51926c7a0c2238358c6a2",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\PhysicalBracket.olean": "76116d237269c8b8721f63af51bcc834be4da7b165fa3dd01af75a943d013510",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\Independence.olean": "31f85edd8fd99c0a11aaf98f533164e67697c8b82f3e54b1e2e5ba63168b5360",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\FieldGenericity.olean": "f59a51515da2e97be3addca385122e8ad2dc4d6252d172cb74c4263535f146cf",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\BalancedCoefficientRecurrence.olean": "5d602f27a432f474a079d57315b7edbb9b52f4441dcd952796fd2b3cec3edc31",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\Monodromy.olean": "1191651807825017e82659e38a98630ef1216a1b93665c9b44df8cf143655644",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\SpectralVariation.olean": "a03713e784d2958dbc971523c0591cb943d61a8a044bede920b2387a6d8e9d9a",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\QuadraticSymbol.olean": "16fdd79695c3830d5cb1cb51bea7160aac708a2aebacad7bf0b2a5da2324ecde",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\QuadraticResolvent.olean": "bb1ab7b37b6cd3c19947e6e2d24470efc38f26e2ec2d62ab013e951f8a6a7541",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\NormalResidueBridge.olean": "008c8b19b26e191d78c69e82483acc3ce4ad03a87e0efaadbce0e1810f153e82",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\EtaLimit.olean": "ca328d014226e347bd1e8d3175fdcc26fb4c86a76b568fc1cf910b4dbae9aa8e",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\BalancedRealization.olean": "db698524845f4a146fb36c45f3fe4e420c1c06cdc79dbea3b1f80f38d201c04c",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\GlobalCoefficientRecurrence.olean": "a583459e25a0c96b4b7387ef9b49d302844fc5d398c566e7b09eaa3a5296d218",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\GlobalRealization.olean": "0bcd3ed4233063c09f8854150878117020ab382b9ec0773c273986206783fcab",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\NormalInverseRecurrence.olean": "7d0907aa5de12381cc12d493a1243bbb6272b3fcab4c956e0ced3f287dd5ed1c",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\GlobalSpectralRealization.olean": "af65c925be1151f4c6daa4c363430f4efeeb6f2f1f225a5e2e8b1903b833aa9f",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\HeatIntertwiner.olean": "e7f6c9ebce704d62c11b4744ea428a706d76a323168fc588939a23a459b1bdd2",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\NormalizationCoefficients.olean": "d54b041321c487a5fd87153f58e6e758f0bb10478c99d42a6c6ac6b9c22d68e6",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\FirstResidueEnergy.olean": "724591d10a7e087b3ea2a3c0a28081cc9146a66da01841b714f772ccd3346a4d",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\HamiltonianFamily.olean": "43553b40eccff248002e580e332504ba2b485d88e1d8684f5f2c9f27f790ca5a",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\StartPoint.olean": "e8e9c2ad623e039b5d2c3b98451cffcb5793404db2d75d5a8d11f8d3692941a9",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\LatticeResolvent.olean": "309658605962003db6dc9ffb1f582d588c942c76cc9dcbb1659758c31fd91614",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\PhysicalFirstResidue.olean": "8034036a838f32fb29b664fdf1f4e73c703c1a51c237dff4667a7d8388ec419c",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\GlobalFirstResidueBridge.olean": "d42a77323f2360fd88dcbba520260f9f619f80fd701d5c484468e9b28c69537d",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\PeriodicVariationalCalculus.olean": "79fa6f849fa700f791e3dafae9c25bf12bbd044b9f612b0ac31f793814150196",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\ClosureJets.olean": "9919f6f4bceb5ec02b95d8c41139d5d8185575b0ae608e91fee41f6f264faf3c",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\DifferentialMean.olean": "b744c957fd23566c5c3517c7ce957d51112f17afadf8e784f1994765639e5789",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\PhysicalClosure.olean": "f2d057d469a3edce50ec455cea41d94fc66e73b89b8e69b04954aa50345fe733",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\FiniteLinearCalculus.olean": "9fb36a946c11211688c21a2cbd2c5542df39f1f823a6884e8b838c4946c65c4a",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\ActualPhysicalSource.olean": "f6fed45e72cd9e78f7f4b173346cc0b3ad21b763bc764d06de346e4abf777f98",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\PolynomialIntegralVariation.olean": "fb1582ed39fa80a1f4fc4644bcb4518fe0aa5ddde0d977553473f9f661b51845",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\PhysicalHamiltonianVariation.olean": "10d68448c6296cb3027f77782a9103f4a98458275b39e9b23427f35294907109",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\ActualHamiltonianDerivative.olean": "514077d3ac5a7d85233015db252265cd2fd65f43b85b86df3e861dda1caf6fdb",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\VariationalReduction.olean": "5a570debac7fb913b45f3e7bd8f4a8a8c408d33a4dbfc19449102a10c6570116",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\AmbientEulerVariational.olean": "882e8ef01a70a20c1038086c6896820de2858743d1d6c716d7be55cc598787ac",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\EulerVariationalGradient.olean": "1435ca8d1f17af423f68988ff0a23243193310698cecc42af155a62198fb05f9",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\ConstructedChargeMomentum.olean": "941734eede045e81067520d76329cccf82f52813c4994c860dad8653d9df60d6",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\GradientNondegeneracy.olean": "6df5e3c064d50cc60ff96561781211b7a37a9469c123760c96a2972dcd58156c",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\ActualPhysicalFamily.olean": "3cede82f2eb2cab88f9f6fe4419380ad4ca9ce7996b220a6c3c3dec86310fc3a",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\CovectorWitness.olean": "800687fafa76e9aee5800bd1aaa2c2b6c13730fcd3544bb054a85d8d292d75f9",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\PhysicalFamilyGenericity.olean": "8d144256c338a6a0350f3e6d0a7318590b126b071aa672d1828691676ef6229c",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\PhysicalEnergyEndpoint.olean": "503ae3295858c3d207954b597a5d90347ed49189b8dcc759c761d77402a65e18",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\MomentumWitness.olean": "f165ec3277f63810724bde559f4633c71f04c062b583d366fa74b0526e9f5227",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\FourierMomentum.olean": "c0837aa4a88822dd22c6242b3002fecc7f9d391d2ae9ac1264c944a2066360c7",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\FourierAmplitudeWitness.olean": "2659c005ca09925f60438dd5b584e8ec6b56172685994aa9fdb022b30bb50d28",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\ActualFourierEntries.olean": "b5fed2a4b9b594540d71089e78571c5434685b85420f522b91979604c7b7c352",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\BalancedSpectralRealization.olean": "1bd23f8414dd932dbb705ee3ce213475670239eb4aa5e9f5622e9b5462bcd060",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\NormalModelResidue.olean": "0ee7e7528c5909502016269a9b86c546322996f33d5d0eff19fb1df09f485e53",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\CommonGauge.olean": "f65a4df664173a159eda47d47471d928597fdf5d8ca7d02c274bb6d808aadf3b",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\NormalScalarResidue.olean": "c444d7479063ea9cd7d526622a9f6f6b83f97063a17cc5cc79b144e532b0149d",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\GlobalBalancedSliceBridge.olean": "6f633e95c14618da0430133baf14965f08080520bd04b7d828a0f79f19ef0f89",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\FourierDirectionJets.olean": "fa967d27bc9c58b94b427b9b6f9fdfdf7d1fa94eb3f59f17c5ee04e52586ae47",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\ActualFourierMatrix.olean": "6d6f0ee2f43c9dbccd1ab825a282cdb6804a20eae2144363aa25c110c4c05025",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\BalancedAmplitudePolynomial.olean": "8272399b552c9199bb18dcc57ff85d48c2920d08d51ef44158261390bdcb5ba8",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\QuadraticMonomialDecomposition.olean": "46372effe179fea603991223a8f2199de6e12caef86daf8ba2749339c27c3b1d",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\QuadraticPairings.olean": "e371587af74056506879efa315984dae8ecd0f0f7f04e88b597d33b20057a66d",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\QuadraticFrequencyPolynomial.olean": "e2476e356944ba8e232cb99bb725b88877498a0934a1437550c0148d5a11e5b1",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\BalancedQuadraticFrequency.olean": "290c8d343bf2c44f5918464e2bc5675d85be0c574fa71cfd8f7a7422610ba0fa",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\FrequencyPolynomialIdentification.olean": "fc0f35e9a185f2a06f2e1a01c2e258c7728d23fe1a4dd8bc847b16c67094e12c",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\ActualOddFrequency.olean": "739f25f64de6358df8b56eb945df77d2b4da545915c89637e9806769746c4de3",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\DifferentialJetEvaluation.olean": "73311bfda99f07697eff41217976b2d3a67147df556eda740845e68eb798650b",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\BalancedCoefficientJet.olean": "5fa50e27ad04de93d9e92fa4cd92f8ad9fdd379849cd354d270828299953d90f",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\CoefficientJetPointwise.olean": "de0a47c813f061a1cdbb650286c66cfb2d18c51d6d186c9097bdcaa300fa4886",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\BalancedAmplitudeEvaluationCore.olean": "a759e4a36e64e4ca8953b5dc6c71bb03fc54d535216454eda3f14ce37cbc2e95",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\ActualBalancedAmplitudeBridge.olean": "aa5be6020fbd173ebe9e85ca2f33971db20ff737ed608d71a3c7e070d430f3a7",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\CoefficientJetRealization.olean": "40990a027160f21a0f37f0944da914da1a629d9388cef126566adb9fe6d23df9",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\BalancedResolventCoefficientJet.olean": "fb7ef705291eafee207145975e2873822fd7680341e769de135a006c6ef0252a",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\BalancedQuotientCoefficientJet.olean": "0a2cb2750fae62913a2d17efb5eb19b1c793bcd31ac427cebb5ef29df8a527cb",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\CoefficientJetPower.olean": "8734b59d707157d7c827d1e6d22d0d9e56e1eca2c9121e173d55182f15e04bfd",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\BalancedNormalizedCoefficientJet.olean": "2a547de52fe2312497816adc3e38c72e64b0a954ff055cdd340dcff80540a2b4",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\BalancedActualCoefficientJet.olean": "cf37239dce551f0983b244e8723e3afe0b03ca5938d6a2696b227be5ad8f9ffe",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\BalancedOddCoefficientIntegral.olean": "6ff2f0453ba26a9ab50ea4c816c1af33862e29e88f9fa5c4b5dab3057aa8a1e4",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\AmbientSpectralRecurrence.olean": "66811ba3ce4c43df2a7a5529e9a98010f45f973f05868d8a4d5d9b53bbd66ca6",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\AmbientSpectralRealization.olean": "d8f7b5594709bd91a8c772a0abdf9ad0702fe3d4d2fedb6efe28e5f6ec084823",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\AmbientNormalizedRealization.olean": "aa3206434ef3d572d3ffc069622c71f5b1397de73ef22747f456df55acbb2ca8",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\PeriodicSpacetimeCoefficients.olean": "f8eeaa442437a90ea6346c6af234e5d24d9308dc758f192408fb40768014c3a6",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\ActualTraceDerivative.olean": "8506a71050f9bfc7900d7bba55fd8b66ad9cd093cbf23db07f5367e62eb51982",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\AmbientChartDerivative.olean": "a635306e9dfbb8f946fdd5c43421eddd04181a5bff145c9a89f053eb16ff4473",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\PolynomialReductionEndpoint.olean": "fdcc1b4e33297421bf4629e9f48a2a9b1741dc15113e20c4c73003958a3aaffc",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\AmbientSpectralVariation.olean": "5c4bf2c8d0f06b6942293485420ed622a70e1f4ec86329c58d2242c59dd6fb23",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\SmoothPrimitive.olean": "1b3898fd20022607b2cf5f3c76f75a02afeece66000a55b6779d82d3de830a7b",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\ActualCommonGaugeSource.olean": "978ca160513471a33fe9a720c8e79644e93e1dbf82c0193d28ec77e6ee209e37",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\CommonGaugeDensityVariation.olean": "11fcb545dd86a130d6cb1e95aeecd75aa82e32878723a4be56fe047e56de9447",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\PhysicalAmbientSpectrumIdentity.olean": "2bdec56df80b8cb6321e1533efc6e76b6c26ca79c9e0ec7a60f2ff632eb41ec2",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\ActualSpectralWard.olean": "8ea6121d168d15c607648eebe8c5b98214d1db99f596f5679dc582e236e411b6",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\AmbientAdlerInvolution.olean": "af1e45b20710f3e66135ac08fa3a19af8da73cfba40a002b7c252c646b04c149",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\ActualSpectralInvolution.olean": "dff403620ff4a9f888b6e4811865e2f12c8d85b199d12f9cb48efa6ce5e990e2",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\ActualFrequencyLeading.olean": "851335996f3e6cf4d6868131a10c7472c44b273a8321fd6901290e82f6efcdd7",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\ActualGenericIndependence.olean": "0754a2121afa7a1371b3feea9e3cb8cc28a7b769b033b3d9db5b5cc8842b262f",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\PeriodicMixedDerivatives.olean": "5b700f40d0a63924dc3ba23d0ed73464bd0a5825a5fe3c93ad5452d8c1abdef5",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\ActualHamiltonianFlow.olean": "097467c8bcfd079912a3091d505b6deb7ccf18587ef21b39e670d3088596396b",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\ActualPolynomialCurveDerivative.olean": "d89d48f1cfafd298671298ae48aad01f97d077a641cc718f7ab9a2c4aa41bf45",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\ActualHamiltonianConservation.olean": "e64c07dffd551803cf2a61f898691891ae65ec3f984d7a9960bd8e81d721103a",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\AdlerFactorCoordinates.olean": "36281497d13b0f737503d042b24458a9fde1c63de2f592afc44d42b1159585f4",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\StaticFactorVariation.olean": "3ba8b6c103a300f0705b385583b7c6e3df500c9c0824022df2d1fc99b0ea1d47",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\StaticFactorTraceCotangent.olean": "e0d7fb44086d54e891fe09018d12ec44672eca64e857d363a0f6e451b44a42e0",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\FactorProjectionAlgebra.olean": "c848231f8064d9b5944e815ac62c294c6e7e98232c6aaf40a94db40115e4af70",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\FactorAdlerFoundation.olean": "31ca9c8a153550801d9883cfd02c9c0518580098b4f1e09a732dcb9ea0139cbd",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_integrability_lean_20261006\\.lean-runs\\20261007_112653_73c4af05\\lib\\lean\\FinalEndpoint.olean": "2f2bcd3612122ed11ddf1ea7816b0fda26eb6d3b6ab636a198897bdfc682a0fc"
+  }
+}

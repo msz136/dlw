@@ -1,0 +1,448 @@
+{
+  "success": true,
+  "primary_runs": 36,
+  "temporal_refinement_runs": 12,
+  "initial_maximum_evaluation_node_error": 1.9752041511043135e-13,
+  "scalar_curve_maxima_comparisons": 72,
+  "maximum_scalar_curve_difference": 0.0,
+  "euler_order_ranges": {
+    "SD": [
+      0.9971368845212252,
+      1.000293518795346
+    ],
+    "SD2": [
+      0.9948192538191271,
+      1.0000830590505179
+    ]
+  },
+  "diagrams": 3,
+  "code_cells": 17,
+  "all_code_executed": true,
+  "minimum_final_J": 0.6762810583385988,
+  "sd_results": [
+    {
+      "case": "A",
+      "model": "SD",
+      "method": "RK4",
+      "mesh": "fixed",
+      "completed": true,
+      "reached": 0.01,
+      "errors": {
+        "u": 0.0015603083413080476,
+        "v": 0.003229397823496738
+      },
+      "initial_error": 1.4432899320127035e-15,
+      "min_J": 1.0
+    },
+    {
+      "case": "B",
+      "model": "SD",
+      "method": "RK4",
+      "mesh": "fixed",
+      "completed": true,
+      "reached": 0.01,
+      "errors": {
+        "u": 6.639277360998008e-05,
+        "v": 6.664598270172961e-05
+      },
+      "initial_error": 2.220446049250313e-16,
+      "min_J": 1.0
+    },
+    {
+      "case": "C",
+      "model": "SD",
+      "method": "RK4",
+      "mesh": "fixed",
+      "completed": true,
+      "reached": 0.01,
+      "errors": {
+        "u": 0.00012998755339527213,
+        "v": 0.00012671849195311502
+      },
+      "initial_error": 5.551115123125783e-17,
+      "min_J": 1.0
+    },
+    {
+      "case": "A",
+      "model": "SD",
+      "method": "Euler",
+      "mesh": "fixed",
+      "completed": true,
+      "reached": 0.01,
+      "errors": {
+        "u": 0.001559148753593309,
+        "v": 0.003228608036818903
+      },
+      "initial_error": 1.4432899320127035e-15,
+      "min_J": 1.0
+    },
+    {
+      "case": "B",
+      "model": "SD",
+      "method": "Euler",
+      "mesh": "fixed",
+      "completed": true,
+      "reached": 0.01,
+      "errors": {
+        "u": 6.674179210225395e-05,
+        "v": 6.968000790574802e-05
+      },
+      "initial_error": 2.220446049250313e-16,
+      "min_J": 1.0
+    },
+    {
+      "case": "C",
+      "model": "SD",
+      "method": "Euler",
+      "mesh": "fixed",
+      "completed": true,
+      "reached": 0.01,
+      "errors": {
+        "u": 0.00013061265010194667,
+        "v": 0.00013324718066443086
+      },
+      "initial_error": 5.551115123125783e-17,
+      "min_J": 1.0
+    },
+    {
+      "case": "A",
+      "model": "SD",
+      "method": "RK4",
+      "mesh": "moving",
+      "completed": true,
+      "reached": 0.01,
+      "errors": {
+        "u": 0.0011981425917193533,
+        "v": 0.0021721590190799667
+      },
+      "initial_error": 8.881784197001252e-16,
+      "min_J": 0.6762939487470249
+    },
+    {
+      "case": "B",
+      "model": "SD",
+      "method": "RK4",
+      "mesh": "moving",
+      "completed": true,
+      "reached": 0.01,
+      "errors": {
+        "u": 4.533360697467348e-05,
+        "v": 5.568002574785069e-05
+      },
+      "initial_error": 9.71445146547012e-17,
+      "min_J": 0.9046766358001551
+    },
+    {
+      "case": "C",
+      "model": "SD",
+      "method": "RK4",
+      "mesh": "moving",
+      "completed": true,
+      "reached": 0.01,
+      "errors": {
+        "u": 8.193644533183164e-05,
+        "v": 8.860847965064256e-05
+      },
+      "initial_error": 1.0408340855860843e-17,
+      "min_J": 0.8824706516063446
+    },
+    {
+      "case": "A",
+      "model": "SD",
+      "method": "Euler",
+      "mesh": "moving",
+      "completed": true,
+      "reached": 0.01,
+      "errors": {
+        "u": 0.0011992991392189012,
+        "v": 0.0021723677544218667
+      },
+      "initial_error": 8.881784197001252e-16,
+      "min_J": 0.6762938315935838
+    },
+    {
+      "case": "B",
+      "model": "SD",
+      "method": "Euler",
+      "mesh": "moving",
+      "completed": true,
+      "reached": 0.01,
+      "errors": {
+        "u": 4.5361873220017834e-05,
+        "v": 5.797546413438548e-05
+      },
+      "initial_error": 9.71445146547012e-17,
+      "min_J": 0.9046756359658636
+    },
+    {
+      "case": "C",
+      "model": "SD",
+      "method": "Euler",
+      "mesh": "moving",
+      "completed": true,
+      "reached": 0.01,
+      "errors": {
+        "u": 8.236715616527501e-05,
+        "v": 9.281979376929428e-05
+      },
+      "initial_error": 1.0408340855860843e-17,
+      "min_J": 0.882468746408056
+    }
+  ],
+  "unchanged_SD2_FD_runs": [
+    {
+      "key": [
+        "A",
+        "FD",
+        "Euler",
+        "fixed"
+      ],
+      "maximum_scalar_difference": 0.0,
+      "maximum_curve_difference": 0.0
+    },
+    {
+      "key": [
+        "A",
+        "FD",
+        "RK4",
+        "fixed"
+      ],
+      "maximum_scalar_difference": 0.0,
+      "maximum_curve_difference": 0.0
+    },
+    {
+      "key": [
+        "A",
+        "FD",
+        "RK4",
+        "moving"
+      ],
+      "maximum_scalar_difference": 0.0,
+      "maximum_curve_difference": 0.0
+    },
+    {
+      "key": [
+        "A",
+        "SD2",
+        "Euler",
+        "fixed"
+      ],
+      "maximum_scalar_difference": 0.0,
+      "maximum_curve_difference": 0.0
+    },
+    {
+      "key": [
+        "A",
+        "SD2",
+        "RK4",
+        "fixed"
+      ],
+      "maximum_scalar_difference": 0.0,
+      "maximum_curve_difference": 0.0
+    },
+    {
+      "key": [
+        "A",
+        "SD2",
+        "RK4",
+        "moving"
+      ],
+      "maximum_scalar_difference": 0.0,
+      "maximum_curve_difference": 0.0
+    },
+    {
+      "key": [
+        "B",
+        "FD",
+        "Euler",
+        "fixed"
+      ],
+      "maximum_scalar_difference": 0.0,
+      "maximum_curve_difference": 0.0
+    },
+    {
+      "key": [
+        "B",
+        "FD",
+        "RK4",
+        "fixed"
+      ],
+      "maximum_scalar_difference": 0.0,
+      "maximum_curve_difference": 0.0
+    },
+    {
+      "key": [
+        "B",
+        "FD",
+        "RK4",
+        "moving"
+      ],
+      "maximum_scalar_difference": 0.0,
+      "maximum_curve_difference": 0.0
+    },
+    {
+      "key": [
+        "B",
+        "SD2",
+        "Euler",
+        "fixed"
+      ],
+      "maximum_scalar_difference": 0.0,
+      "maximum_curve_difference": 0.0
+    },
+    {
+      "key": [
+        "B",
+        "SD2",
+        "RK4",
+        "fixed"
+      ],
+      "maximum_scalar_difference": 0.0,
+      "maximum_curve_difference": 0.0
+    },
+    {
+      "key": [
+        "B",
+        "SD2",
+        "RK4",
+        "moving"
+      ],
+      "maximum_scalar_difference": 0.0,
+      "maximum_curve_difference": 0.0
+    },
+    {
+      "key": [
+        "C",
+        "FD",
+        "Euler",
+        "fixed"
+      ],
+      "maximum_scalar_difference": 0.0,
+      "maximum_curve_difference": 0.0
+    },
+    {
+      "key": [
+        "C",
+        "FD",
+        "RK4",
+        "fixed"
+      ],
+      "maximum_scalar_difference": 0.0,
+      "maximum_curve_difference": 0.0
+    },
+    {
+      "key": [
+        "C",
+        "FD",
+        "RK4",
+        "moving"
+      ],
+      "maximum_scalar_difference": 0.0,
+      "maximum_curve_difference": 0.0
+    },
+    {
+      "key": [
+        "C",
+        "SD2",
+        "Euler",
+        "fixed"
+      ],
+      "maximum_scalar_difference": 0.0,
+      "maximum_curve_difference": 0.0
+    },
+    {
+      "key": [
+        "C",
+        "SD2",
+        "RK4",
+        "fixed"
+      ],
+      "maximum_scalar_difference": 0.0,
+      "maximum_curve_difference": 0.0
+    },
+    {
+      "key": [
+        "C",
+        "SD2",
+        "RK4",
+        "moving"
+      ],
+      "maximum_scalar_difference": 0.0,
+      "maximum_curve_difference": 0.0
+    }
+  ],
+  "notebook_sha256": "03d051287aad5bbe9af167081466d54e7142107c0eb412053d5f0796c73ef473",
+  "notebook_code_sources_sha256": {
+    "dlw-imports": "6f105610da1115ccfcfbeb86bd7e4e539c698ca7853f60952adcd35e4df2d744",
+    "dlw-config": "0bccdb7e105ee49d3c72d94719493b48d45094909c37cbc685ea5e322166e5bc",
+    "dlw-reference": "598117dcc541968e1b3af3f07bf52a94ce3f7e6e7c19288475c44cef25f11e3b",
+    "dlw-spatial": "113eb665cd201fe7ee85c7b0da965890f4b149d4620ce63c707577506b49b850",
+    "dlw-sd_fd": "34914259f2ece6035348067a2fa2e2f515f306a306f9278ae1a3f3ccd0b58f48",
+    "dlw-sd2_lift": "6f850e1a36ee1a692f25e61e0c93db414744441231aea53220dacbcd9fcd220f",
+    "dlw-sd2_evolution": "5a03ffb47cfb88afa6ac8f2709e2866287c2f88bc870bf0ea791d28c29e225da",
+    "dlw-mesh": "9269fc420226825d9eadb1e046269c3f852a09dc4ddb71152b8a582000866f6a",
+    "dlw-time": "c74d02f2ebc84a1d778866dc653337ffd8d4a1d13e33d176784fe163042c9ffd",
+    "dlw-space_experiment": "d81e49d1a898498bb8f483863de8242fe493683e45073531ad3ebae3670d1b5d",
+    "dlw-time_experiment": "a44b01ee298bfd7f515cf39012eeb1060e8ccda6b31d04c0061af745d1c126dd",
+    "dlw-mesh_experiment": "8ed8dda15885a10e831fcab5b1cfd658db9f1a5eb3216cdcca9cfbedd9927ddf",
+    "dlw-order": "b9edfd4904cf32effc8d097f6000c747868da037adec9fc3149bd606a311a3bb",
+    "dlw-curves": "7330953b8cb0a3da631c40a29159890e30ef967368aa70c74bc95ee98598bd0d",
+    "dlw-summary": "2efe5cbe6b61886b2ece1775e0a36ade4674f91f67d4b477c6b418ed1f4ad017",
+    "dlw-sd": "82ffcf6bea2377ee9f3ef1759235c188f656fd89034b594091711377119f7f80",
+    "dlw-fd": "02da4819c1336176f08feff83d92aac3478e0e3358b4add5af692d9f4c147757"
+  },
+  "exported_results_sha256": "10ad848750bac9d53eda613014ab49f287b75c1019d11986bbec93b69ac8caa8",
+  "exported_curves_sha256": "3bb587dc4722cc8f5f84b80c8ede0b0cafe434212cf524e608a74d2ba738bed4",
+  "native_execution_sha256": "2293357110adfe3363b3d72d94018a5c07fbb364f67c926dc5cca76685e755d8",
+  "independent_spatial_audit_sha256": "78ed16fac88caa0a40c59deb28ee344d6be821584845ce363f6bd2a2426e3071",
+  "uniform_orders": {
+    "D1_error": [
+      1.9953064219059806,
+      1.99882671877022
+    ],
+    "D2_error": [
+      1.9968717556493074,
+      1.9992178630168798
+    ]
+  },
+  "moving_orders": {
+    "J_error": [
+      1.9983613848763122,
+      1.9995903085026872
+    ],
+    "D1_error": [
+      1.9936951322108372,
+      1.9984212017510439
+    ],
+    "D2_error": [
+      1.9957685703083177,
+      1.9989406578096294
+    ]
+  },
+  "source_modules_sha256": {
+    "dlw_numeric_cells.py": "b0caeb07e2004f584ccc28440d5d9e95e0496f1e8b9c36226fb0e3f92b24f90c",
+    "sd_nonlinear_cell.py": "91d9f54210b17df83a2d44686e76c33b87f87be69a27682e37c25f0bf566ccff",
+    "execute_dlw_notebook.py": "d159f80d11250e9d0c7c8e465b1bee72fa38009991d31d24112172cfdbb3a602",
+    "build_dlw_numerics_notebook.py": "db14f66e45148d5b04fb8ca8cb3f7e9c13faaeb4423cf7421f6fedc9c358187d",
+    "revise_dlw_structure.py": "f797fb9951c314d547f6c61456f910d70e874b16ffcde7b4afade44b4490fd82"
+  },
+  "fresh_native_exports_checked": true,
+  "figures": [
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\notebook_reports_20261006\\nonlinear_sd_20261007\\dlw_notebook_figure_1.png",
+      "sha256": "a3e997099db99249858e72ea77ba4786e9b8c06af5627677a5346fdeb81cdaf1",
+      "cell": "dlw-curves"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\notebook_reports_20261006\\nonlinear_sd_20261007\\dlw_notebook_figure_2.png",
+      "sha256": "3425e3ffd66d165220cc88a22537829ad9066632b51e8a97c02162b737ffca80",
+      "cell": "dlw-curves"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\notebook_reports_20261006\\nonlinear_sd_20261007\\dlw_notebook_figure_3.png",
+      "sha256": "0f757a667b69b859963ec908bb64c19805641ab87a244df655b69dcac2c9d5d1",
+      "cell": "dlw-curves"
+    }
+  ],
+  "seconds": 1.7920765000017127
+}

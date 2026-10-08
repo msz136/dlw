@@ -1,0 +1,270 @@
+{
+  "notebook": "C:\\Users\\msz\\aca\\Workspaces\\integrability_notebook_20261007\\DLW刘维尔可积性report.ipynb",
+  "notebook_sha256": "1bb3e881c082479dbfa770e5b481a086af404945e238a1a1b36895223c090aed",
+  "input_sha256": "d81541a319aeba1b30957eb731fd12c9d91a7e5640f31beb42c2bf3cef54d039",
+  "backup": "C:\\Users\\msz\\aca\\Workspaces\\integrability_notebook_20261007\\execution_inputs\\integrability_6ddfc2364f7d4949a7791172516dd81f.ipynb",
+  "python": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\.venv\\Scripts\\python.exe",
+  "kernel": "fresh native project Python kernel",
+  "elapsed_seconds": 253.193,
+  "success": true,
+  "schema_valid": true,
+  "sources_unchanged": true,
+  "code_cell_count": 15,
+  "errors": [],
+  "failure": null,
+  "cell_timings": [
+    {
+      "id": "python-load",
+      "seconds": 0.169
+    },
+    {
+      "id": "lean-library",
+      "seconds": 24.361
+    },
+    {
+      "id": "lean-conditions",
+      "seconds": 24.331
+    },
+    {
+      "id": "lean-coordinates",
+      "seconds": 16.259
+    },
+    {
+      "id": "lean-start",
+      "seconds": 16.379
+    },
+    {
+      "id": "lean-foundation",
+      "seconds": 15.99
+    },
+    {
+      "id": "lean-charges",
+      "seconds": 16.657
+    },
+    {
+      "id": "lean-energy",
+      "seconds": 17.408
+    },
+    {
+      "id": "lean-bracket",
+      "seconds": 16.153
+    },
+    {
+      "id": "lean-conservation",
+      "seconds": 16.197,
+      "execution_provenance": "C:\\Users\\msz\\aca\\Workspaces\\integrability_notebook_20261007\\conservation_revision_execution_validation.json"
+    },
+    {
+      "id": "lean-involution",
+      "seconds": 16.99
+    },
+    {
+      "id": "lean-frequency",
+      "seconds": 17.239
+    },
+    {
+      "id": "lean-jacobian",
+      "seconds": 17.415
+    },
+    {
+      "id": "lean-generic",
+      "seconds": 17.48
+    },
+    {
+      "id": "lean-endpoint",
+      "seconds": 16.907
+    }
+  ],
+  "code_cells": [
+    {
+      "id": "python-load",
+      "execution_count": 1,
+      "source_sha256": "f4dd3fb66e1c7fbe83cdb8e0828f0d8d63f70bc647677a2284efb4df487f65ac",
+      "outputs": []
+    },
+    {
+      "id": "lean-library",
+      "execution_count": 2,
+      "source_sha256": "f7d876b3837297665ec5ff6df7d998328dd370601e0afdfccdd0d5af89376316",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "DLWLean.StartPoint (par : DLWLean.FieldParameters) : Type\nDLWLean.GlobalPDO.constructedCharge (par : DLWLean.FieldParameters) (n : ℕ) (z : DLWLean.ClosedPeriodicPair par) : ℝ\n"
+        }
+      ]
+    },
+    {
+      "id": "lean-conditions",
+      "execution_count": 3,
+      "source_sha256": "1b9d34b25a816bae9e2b9e4c51d2b6c41014af7be96829ff6ff855cbf364a495",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "structure DLWLean.FieldParameters : Type\nnumber of parameters: 0\nfields:\n  DLWLean.FieldParameters.M : ℕ\n  DLWLean.FieldParameters.M_ge_two : 2 ≤ self.M\n  DLWLean.FieldParameters.Lx : ℝ\n  DLWLean.FieldParameters.Lx_pos : 0 < self.Lx\n  DLWLean.FieldParameters.h : ℝ\n  DLWLean.FieldParameters.h_pos : 0 < self.h\n  DLWLean.FieldParameters.c : ℝ\n  DLWLean.FieldParameters.c_ne_zero : self.c ≠ 0\n  DLWLean.FieldParameters.gamma : ℝ\nconstructor:\n  DLWLean.FieldParameters.mk (M : ℕ) (M_ge_two : 2 ≤ M) (Lx : ℝ) (Lx_pos : 0 < Lx) (h : ℝ) (h_pos : 0 < h) (c : ℝ)\n    (c_ne_zero : c ≠ 0) (gamma : ℝ) : FieldParameters\nstructure DLWLean.SmoothPeriodicField (M : ℕ) (Lx : ℝ) : Type\nnumber of parameters: 2\nfields:\n  DLWLean.SmoothPeriodicField.value : Fin M → ℝ → ℝ\n  DLWLean.SmoothPeriodicField.smooth : ∀ (j : Fin M), ContDiff ℝ ∞ (self.value j)\n  DLWLean.SmoothPeriodicField.periodic : ∀ (j : Fin M), Function.Periodic (self.value j) Lx\nconstructor:\n  DLWLean.SmoothPeriodicField.mk {M : ℕ} {Lx : ℝ} (value : Fin M → ℝ → ℝ)\n    (smooth : ∀ (j : Fin M), ContDiff ℝ ∞ (value j)) (periodic : ∀ (j : Fin M), Function.Periodic (value j) Lx) :\n    SmoothPeriodicField M Lx\nstructure DLWLean.PeriodicPhysicalState (par : FieldParameters) : Type\nnumber of parameters: 1\nfields:\n  DLWLean.PeriodicPhysicalState.U : SmoothPeriodicField par.M par.Lx\n  DLWLean.PeriodicPhysicalState.w : SmoothPeriodicField par.M par.Lx\n  DLWLean.PeriodicPhysicalState.mean_w : ∀ (x : ℝ), (latticeMean fun j => self.w.value j x) = par.c\n  DLWLean.PeriodicPhysicalState.mean_Uw : ∀ (x : ℝ),\n      (latticeMean fun j => self.U.value j x * self.w.value j x) = par.gamma\nconstructor:\n  DLWLean.PeriodicPhysicalState.mk {par : FieldParameters} (U w : SmoothPeriodicField par.M par.Lx)\n    (mean_w : ∀ (x : ℝ), (latticeMean fun j => w.value j x) = par.c)\n    (mean_Uw : ∀ (x : ℝ), (latticeMean fun j => U.value j x * w.value j x) = par.gamma) : PeriodicPhysicalState par\nNotebookDLWConditions.fixedMeans (par : FieldParameters) (f : PeriodicPhysicalState par) (x : ℝ) :\n  (latticeMean fun j => f.w.value j x) = par.c ∧ (latticeMean fun j => f.U.value j x * f.w.value j x) = par.gamma\n"
+        }
+      ]
+    },
+    {
+      "id": "lean-coordinates",
+      "execution_count": 4,
+      "source_sha256": "f1ba391911946bb8e4a8f3e7fb73e1dc9dcb8572046ed374b0c4bb5779abd620",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "structure DLWLean.FieldCoordinates (par : FieldParameters) : Type\nnumber of parameters: 1\nfields:\n  DLWLean.FieldCoordinates.p : SmoothPeriodicField par.M par.Lx\n  DLWLean.FieldCoordinates.s : SmoothPeriodicField par.M par.Lx\n  DLWLean.FieldCoordinates.p_zero : ∀ (x : ℝ), (latticeMean fun j => self.p.value j x) = 0\n  DLWLean.FieldCoordinates.s_zero : ∀ (x : ℝ), (latticeMean fun j => self.s.value j x) = 0\nconstructor:\n  DLWLean.FieldCoordinates.mk {par : FieldParameters} (p s : SmoothPeriodicField par.M par.Lx)\n    (p_zero : ∀ (x : ℝ), (latticeMean fun j => p.value j x) = 0)\n    (s_zero : ∀ (x : ℝ), (latticeMean fun j => s.value j x) = 0) : FieldCoordinates par\nNotebookDLWCoordinates.reconstruction {par : FieldParameters} (f : PeriodicPhysicalState par) (j : Fin par.M) (x : ℝ) :\n  f.toCoordinates.U j x = f.U.value j x ∧ f.toCoordinates.w j x = f.w.value j x\n"
+        }
+      ]
+    },
+    {
+      "id": "lean-start",
+      "execution_count": 5,
+      "source_sha256": "1b5ea771666ec4c5f74a64aee8d8df090e4c4cbe7b861c7d4be55a1657407f82",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "def DLWLean.previousSite : (par : FieldParameters) → Fin par.M → Fin par.M :=\nfun par j => ⟨(↑j + par.M - 1) % par.M, ⋯⟩\nstructure DLWLean.StartPoint (par : FieldParameters) : Type\nnumber of parameters: 1\nfields:\n  DLWLean.StartPoint.trajectory : ℝ → FieldCoordinates par\n  DLWLean.StartPoint.joint_smooth_p : ∀ (j : Fin par.M), ContDiff ℝ ∞ fun tx => (self.trajectory tx.1).p.value j tx.2\n  DLWLean.StartPoint.joint_smooth_s : ∀ (j : Fin par.M), ContDiff ℝ ∞ fun tx => (self.trajectory tx.1).s.value j tx.2\n  DLWLean.StartPoint.physical_equations : PhysicalDLW par self.trajectory\nconstructor:\n  DLWLean.StartPoint.mk {par : FieldParameters} (trajectory : ℝ → FieldCoordinates par)\n    (joint_smooth_p : ∀ (j : Fin par.M), ContDiff ℝ ∞ fun tx => (trajectory tx.1).p.value j tx.2)\n    (joint_smooth_s : ∀ (j : Fin par.M), ContDiff ℝ ∞ fun tx => (trajectory tx.1).s.value j tx.2)\n    (physical_equations : PhysicalDLW par trajectory) : StartPoint par\nNotebookDLWStart.originalEquations {par : FieldParameters} (start : StartPoint par) : physicalDLW par start.trajectory\n"
+        }
+      ]
+    },
+    {
+      "id": "lean-foundation",
+      "execution_count": 6,
+      "source_sha256": "dca3e3db8242a9cd8870cf3c93b59c37d0a3e03cebd75821c145b281d5d094e8",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "structure DLWLean.PhysicalFactorSpectrumRepresentation (par : FieldParameters) (z : ClosedPeriodicPair par) : Type 1\nnumber of parameters: 2\nfields:\n  DLWLean.PhysicalFactorSpectrumRepresentation.A : Type\n  DLWLean.PhysicalFactorSpectrumRepresentation.ringA : Ring self.A\n  DLWLean.PhysicalFactorSpectrumRepresentation.algebraA : Algebra ℝ self.A\n  DLWLean.PhysicalFactorSpectrumRepresentation.base : AmbientSpectrumBase par\n      (coordinateAmbient (closedPairCoordinates par z)) self.A\n  DLWLean.PhysicalFactorSpectrumRepresentation.adlerFoundation : FactorAdlerFoundation self.base\n  DLWLean.PhysicalFactorSpectrumRepresentation.wardFoundation : ActualSpectralWardFoundation par\n      (coordinateAmbient (closedPairCoordinates par z))\nconstructor:\n  DLWLean.PhysicalFactorSpectrumRepresentation.mk {par : FieldParameters} {z : ClosedPeriodicPair par} (A : Type)\n    (ringA : Ring A) (algebraA : Algebra ℝ A)\n    (base : AmbientSpectrumBase par (coordinateAmbient (closedPairCoordinates par z)) A)\n    (adlerFoundation : FactorAdlerFoundation base)\n    (wardFoundation : ActualSpectralWardFoundation par (coordinateAmbient (closedPairCoordinates par z))) :\n    PhysicalFactorSpectrumRepresentation par z\nstructure DLWLean.FactorAdlerFoundation.{u_1} {par : FieldParameters} {z : AmbientPeriodicPair par} {A : Type u_1}\n  [Ring A] [Algebra ℝ A] (base : AmbientSpectrumBase par z A) : Type (max 1 u_1)\nnumber of parameters: 6\nfields:\n  DLWLean.FactorAdlerFoundation.sources : (v : AmbientPeriodicPair par) → AmbientSpectrumSpecialization base v\n  DLWLean.FactorAdlerFoundation.plus : A →ₗ[ℝ] A\n  DLWLean.FactorAdlerFoundation.plus_coefficient : ∀ (X : A) (e : ℤ),\n      base.model.coefficients (self.plus X) e = if 0 ≤ e then base.model.coefficients X e else 0\n  DLWLean.FactorAdlerFoundation.product_inverse_transport : ∀ (f g : FactorPeriodicPair par) (X Y : A),\n      (∀ (v : FactorPeriodicPair par),\n          factorPairing par f v = base.tr.toLinearMap (X * staticMonodromyVariation base v par.M)) →\n        (∀ (v : FactorPeriodicPair par),\n            factorPairing par g v = base.tr.toLinearMap (Y * staticMonodromyVariation base v par.M)) →\n          standardFactorBracket par f g = base.tr.toLinearMap (X * adler self.plus (base.factors.monodromy par.M) Y)\nconstructor:\n  DLWLean.FactorAdlerFoundation.mk.{u_1} {par : FieldParameters} {z : AmbientPeriodicPair par} {A : Type u_1} [Ring A]\n    [Algebra ℝ A] {base : AmbientSpectrumBase par z A}\n    (sources : (v : AmbientPeriodicPair par) → AmbientSpectrumSpecialization base v) (plus : A →ₗ[ℝ] A)\n    (plus_coefficient :\n      ∀ (X : A) (e : ℤ), base.model.coefficients (plus X) e = if 0 ≤ e then base.model.coefficients X e else 0)\n    (product_inverse_transport :\n      ∀ (f g : FactorPeriodicPair par) (X Y : A),\n        (∀ (v : FactorPeriodicPair par),\n            factorPairing par f v = base.tr.toLinearMap (X * staticMonodromyVariation base v par.M)) →\n          (∀ (v : FactorPeriodicPair par),\n              factorPairing par g v = base.tr.toLinearMap (Y * staticMonodromyVariation base v par.M)) →\n            standardFactorBracket par f g = base.tr.toLinearMap (X * adler plus (base.factors.monodromy par.M) Y)) :\n    FactorAdlerFoundation base\nDLWLean.FactorSpectralFoundation.toActual {par : FieldParameters} (foundation : FactorSpectralFoundation par) :\n  ActualSpectralFoundation par\n"
+        }
+      ]
+    },
+    {
+      "id": "lean-charges",
+      "execution_count": 7,
+      "source_sha256": "6e86645b68b5645603acda9da60eaf88189ea02a732f6acdc45c8e4aaa94ce1b",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "NotebookDLWCharges.traceIdentification {par : FieldParameters} {z : ClosedPeriodicPair par}\n  (rep : PhysicalSpectrumRepresentation par z) (n : ℕ) :\n  C par n z = (↑n)⁻¹ * rep.base.tr.toLinearMap (spectralL rep ^ n)\n'NotebookDLWCharges.traceIdentification' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+        }
+      ]
+    },
+    {
+      "id": "lean-energy",
+      "execution_count": 8,
+      "source_sha256": "4ab6d67d6b5cc44fac4b198b10b0b24eecaff0676ac1b8903e3c88fa66909867",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "NotebookDLWEnergy.energyIdentity (par : FieldParameters) (z : ClosedPeriodicPair par) :\n  actualPhysicalK par z =\n    -8 * par.G * GlobalPDO.constructedCharge par 1 z + par.gamma / par.c * coefficientMomentum par z +\n      energyConstant par\n'NotebookDLWEnergy.energyIdentity' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+        }
+      ]
+    },
+    {
+      "id": "lean-bracket",
+      "execution_count": 9,
+      "source_sha256": "2e7a4d71526bccc50741a34ae5e80900002358ee72521826bf192f8286679770",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "NotebookDLWBracket.chargeDifferential (par : FieldParameters) (n : ℕ) (z v : ClosedPeriodicPair par) :\n  HasDerivAt (fun a => GlobalPDO.constructedCharge par n (z + a • v))\n    ((gradientCovector par (GlobalPDO.constructedChargeGradient par n z)) v) 0\n"
+        }
+      ]
+    },
+    {
+      "id": "lean-conservation",
+      "execution_count": 3,
+      "source_sha256": "9e95a8ddc64b4879008789d893ee2767bc17376546a0843facbbf06139909078",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "NotebookDLWConservation.chargeConserved (par : FieldParameters) (foundation : FactorSpectralFoundation par)\n  (start : StartPoint par) (n : ℕ) (hn : 0 < n) (t : ℝ) :\n  HasDerivAt (fun τ => GlobalPDO.constructedCharge par n (start.closedCurve τ)) 0 t\nNotebookDLWConservation.familyConserved (par : FieldParameters) (foundation : FactorSpectralFoundation par)\n  (start : StartPoint par) (n : ℕ) (t : ℝ) : HasDerivAt (fun τ => actualPhysicalFamily par n (start.closedCurve τ)) 0 t\nNotebookDLWConservation.hamiltonianConserved (par : FieldParameters) (foundation : FactorSpectralFoundation par)\n  (start : StartPoint par) (t : ℝ) : HasDerivAt (fun τ => actualPhysicalK par (start.closedCurve τ)) 0 t\nNotebookDLWConservation.momentumConserved (par : FieldParameters) (foundation : FactorSpectralFoundation par)\n  (start : StartPoint par) (t : ℝ) : HasDerivAt (fun τ => coefficientMomentum par (start.closedCurve τ)) 0 t\n'NotebookDLWConservation.chargeConserved' depends on axioms: [propext, Classical.choice, Quot.sound]\n'NotebookDLWConservation.familyConserved' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+        }
+      ],
+      "execution_provenance": "C:\\Users\\msz\\aca\\Workspaces\\integrability_notebook_20261007\\conservation_revision_execution_validation.json"
+    },
+    {
+      "id": "lean-involution",
+      "execution_count": 11,
+      "source_sha256": "d15913e268b63a2fa11a056ad8f39b63f69f0c8415b0d0d5696f27234925e804",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "NotebookDLWInvolution.spectralCommutes (par : FieldParameters) (foundation : FactorSpectralFoundation par) (m n : ℕ)\n  (z : ClosedPeriodicPair par) (hm : 0 < m) (hn : 0 < n) :\n  reducedBracketValue par (GlobalPDO.constructedChargeGradient par m z) (GlobalPDO.constructedChargeGradient par n z) =\n    0\nNotebookDLWInvolution.withMomentum (par : FieldParameters) (n : ℕ) (z : ClosedPeriodicPair par) :\n  reducedBracketValue par (GlobalPDO.constructedChargeGradient par n z) (momentumGradient z) = 0\nNotebookDLWInvolution.familyCommutes (par : FieldParameters) (foundation : FactorSpectralFoundation par) (m n : ℕ)\n  (z : ClosedPeriodicPair par) :\n  reducedBracketValue par (actualPhysicalFamilyGradient par m z) (actualPhysicalFamilyGradient par n z) = 0\n'NotebookDLWInvolution.familyCommutes' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+        }
+      ]
+    },
+    {
+      "id": "lean-frequency",
+      "execution_count": 12,
+      "source_sha256": "555467b0acad5f6875fcf91cccd20fb3deee1dd1d8199d63f51c33e797fbc3af",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "NotebookDLWFrequency.degreeBound (par : FieldParameters) (k : ℕ) : (actualOddFrequencyPolynomial par k).natDegree ≤ k\nNotebookDLWFrequency.topCoefficient (par : FieldParameters) (foundation : FactorSpectralFoundation par) (k : ℕ) :\n  (actualOddFrequencyPolynomial par k).coeff k = par.Lx / ↑par.M * (-1) ^ (k + 1)\nNotebookDLWFrequency.topCoefficientNonzero (par : FieldParameters) (foundation : FactorSpectralFoundation par) (k : ℕ) :\n  (actualOddFrequencyPolynomial par k).coeff k ≠ 0\n'NotebookDLWFrequency.topCoefficient' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+        }
+      ]
+    },
+    {
+      "id": "lean-jacobian",
+      "execution_count": 13,
+      "source_sha256": "4cc8d1a998aa5429c780536c57f0b6cc403ce6dab93a3581097cbec724795ef9",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "def DLWLean.covectorMinor.{u_1} : {V : Type u_1} →\n  [inst : AddCommGroup V] →\n    [inst_1 : Module ℝ V] → {N : ℕ} → (Fin N → V →ₗ[ℝ] ℝ) → (Fin N → V) → Matrix (Fin N) (Fin N) ℝ :=\nfun {V} [AddCommGroup V] [Module ℝ V] {N} covectors directions i j => (covectors i) (directions j)\nNotebookDLWJacobian.nonzeroJacobian (par : FieldParameters) (foundation : FactorSpectralFoundation par) (N : ℕ)\n  (radius : ℝ) (hradius : 0 < radius) :\n  ∃ eps,\n    0 < eps ∧\n      eps < radius ∧\n        (covectorMinor\n              (fun i =>\n                gradientCovector par\n                  (GlobalPDO.constructedChargeGradient par (2 * ↑i + 1)\n                    (balancedMomentumState par\n                      (eps • periodicCosineSumCoefficient par canonicalWitnessMode fun x => 1))))\n              (balancedFourierDirection par canonicalWitnessMode)).det ≠\n          0\n'NotebookDLWJacobian.nonzeroJacobian' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+        }
+      ]
+    },
+    {
+      "id": "lean-generic",
+      "execution_count": 14,
+      "source_sha256": "fc33ad84f018cc07de0faac9401aa7b34ead0df2adbb5edc8fca6b248ed4dd27",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "NotebookDLWGeneric.oddGeneric (par : FieldParameters) (foundation : FactorSpectralFoundation par) (N : ℕ) :\n  ∃ S,\n    IsOpen S ∧\n      Dense S ∧\n        ∀ z ∈ S,\n          LinearIndependent ℝ fun i => gradientCovector par (GlobalPDO.constructedChargeGradient par (2 * ↑i + 1) z)\nNotebookDLWGeneric.familyGeneric (par : FieldParameters) (foundation : FactorSpectralFoundation par) (N : ℕ) :\n  ∃ S,\n    IsOpen S ∧\n      Dense S ∧ ∀ z ∈ S, LinearIndependent ℝ fun i => gradientCovector par (actualPhysicalFamilyGradient par (↑i) z)\n'NotebookDLWGeneric.oddGeneric' depends on axioms: [propext, Classical.choice, Quot.sound]\n'NotebookDLWGeneric.familyGeneric' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+        }
+      ]
+    },
+    {
+      "id": "lean-endpoint",
+      "execution_count": 15,
+      "source_sha256": "3cdf4b6207ab89c530e98ef8d42daa76f1cfa989411983d4fa3a94309e517578",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "structure DLWLean.PeriodicIntegrabilityConclusion (par : FieldParameters) : Prop\nnumber of parameters: 1\nfields:\n  DLWLean.PeriodicIntegrabilityConclusion.traceIdentification : ∀ (z : ClosedPeriodicPair par),\n      ∃ rep, ∀ (n : ℕ), GlobalPDO.constructedCharge par n z = (↑n)⁻¹ * rep.base.tr.toLinearMap (rep.L ^ n)\n  DLWLean.PeriodicIntegrabilityConclusion.energy : ∀ (z : ClosedPeriodicPair par),\n      actualPhysicalK par z =\n        -8 * par.G * GlobalPDO.constructedCharge par 1 z + par.gamma / par.c * coefficientMomentum par z +\n          energyConstant par\n  DLWLean.PeriodicIntegrabilityConclusion.physicalHamiltonianEvolution : ∀ (start : StartPoint par) (t x : ℝ)\n      (j : Fin par.M),\n      ↑(↑(reducedHamiltonianVector par (actualPhysicalKGradient par (start.closedCurve t))).1 j) x =\n          deriv (fun τ => (start.trajectory τ).p.value j x) t ∧\n        ↑(↑(reducedHamiltonianVector par (actualPhysicalKGradient par (start.closedCurve t))).2 j) x =\n          deriv (fun τ => (start.trajectory τ).s.value j x) t\n  DLWLean.PeriodicIntegrabilityConclusion.spectralInvolution : ∀ (m n : ℕ) (z : ClosedPeriodicPair par),\n      0 < m →\n        0 < n →\n          reducedBracketValue par (GlobalPDO.constructedChargeGradient par m z)\n              (GlobalPDO.constructedChargeGradient par n z) =\n            0\n  DLWLean.PeriodicIntegrabilityConclusion.oddGeneric : ∀ (N : ℕ),\n      ∃ S,\n        IsOpen S ∧\n          Dense S ∧\n            ∀ z ∈ S,\n              LinearIndependent ℝ fun i => gradientCovector par (GlobalPDO.constructedChargeGradient par (2 * ↑i + 1) z)\n  DLWLean.PeriodicIntegrabilityConclusion.familyInvolution : ∀ (m n : ℕ) (z : ClosedPeriodicPair par),\n      reducedBracketValue par (actualPhysicalFamilyGradient par m z) (actualPhysicalFamilyGradient par n z) = 0\n  DLWLean.PeriodicIntegrabilityConclusion.familyGeneric : ∀ (N : ℕ),\n      ∃ S,\n        IsOpen S ∧\n          Dense S ∧ ∀ z ∈ S, LinearIndependent ℝ fun i => gradientCovector par (actualPhysicalFamilyGradient par (↑i) z)\n  DLWLean.PeriodicIntegrabilityConclusion.spectralConservation : ∀ (start : StartPoint par) (n : ℕ),\n      0 < n → ∀ (t : ℝ), HasDerivAt (fun τ => GlobalPDO.constructedCharge par n (start.closedCurve τ)) 0 t\n  DLWLean.PeriodicIntegrabilityConclusion.familyConservation : ∀ (start : StartPoint par) (n : ℕ) (t : ℝ),\n      HasDerivAt (fun τ => actualPhysicalFamily par n (start.closedCurve τ)) 0 t\nconstructor:\n  DLWLean.PeriodicIntegrabilityConclusion.mk {par : FieldParameters}\n    (traceIdentification :\n      ∀ (z : ClosedPeriodicPair par),\n        ∃ rep, ∀ (n : ℕ), GlobalPDO.constructedCharge par n z = (↑n)⁻¹ * rep.base.tr.toLinearMap (rep.L ^ n))\n    (energy :\n      ∀ (z : ClosedPeriodicPair par),\n        actualPhysicalK par z =\n          -8 * par.G * GlobalPDO.constructedCharge par 1 z + par.gamma / par.c * coefficientMomentum par z +\n            energyConstant par)\n    (physicalHamiltonianEvolution :\n      ∀ (start : StartPoint par) (t x : ℝ) (j : Fin par.M),\n        ↑(↑(reducedHamiltonianVector par (actualPhysicalKGradient par (start.closedCurve t))).1 j) x =\n            deriv (fun τ => (start.trajectory τ).p.value j x) t ∧\n          ↑(↑(reducedHamiltonianVector par (actualPhysicalKGradient par (start.closedCurve t))).2 j) x =\n            deriv (fun τ => (start.trajectory τ).s.value j x) t)\n    (spectralInvolution :\n      ∀ (m n : ℕ) (z : ClosedPeriodicPair par),\n        0 < m →\n          0 < n →\n            reducedBracketValue par (GlobalPDO.constructedChargeGradient par m z)\n                (GlobalPDO.constructedChargeGradient par n z) =\n              0)\n    (oddGeneric :\n      ∀ (N : ℕ),\n        ∃ S,\n          IsOpen S ∧\n            Dense S ∧\n              ∀ z ∈ S,\n                LinearIndependent ℝ fun i =>\n                  gradientCovector par (GlobalPDO.constructedChargeGradient par (2 * ↑i + 1) z))\n    (familyInvolution :\n      ∀ (m n : ℕ) (z : ClosedPeriodicPair par),\n        reducedBracketValue par (actualPhysicalFamilyGradient par m z) (actualPhysicalFamilyGradient par n z) = 0)\n    (familyGeneric :\n      ∀ (N : ℕ),\n        ∃ S,\n          IsOpen S ∧\n            Dense S ∧\n              ∀ z ∈ S, LinearIndependent ℝ fun i => gradientCovector par (actualPhysicalFamilyGradient par (↑i) z))\n    (spectralConservation :\n      ∀ (start : StartPoint par) (n : ℕ),\n        0 < n → ∀ (t : ℝ), HasDerivAt (fun τ => GlobalPDO.constructedCharge par n (start.closedCurve τ)) 0 t)\n    (familyConservation :\n      ∀ (start : StartPoint par) (n : ℕ) (t : ℝ),\n        HasDerivAt (fun τ => actualPhysicalFamily par n (start.closedCurve τ)) 0 t) :\n    PeriodicIntegrabilityConclusion par\nNotebookDLWEndpoint.periodicIntegrability (par : FieldParameters) (foundation : FactorSpectralFoundation par) :\n  PeriodicIntegrabilityConclusion par\n'NotebookDLWEndpoint.periodicIntegrability' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+        }
+      ]
+    }
+  ],
+  "outputs_saved": true,
+  "executed_notebook_sha256": "ee0acc66fa4348f124203e2682b341733095460e4c87b8fbb62e63a393532de9",
+  "original_full_execution_validation": "C:\\Users\\msz\\aca\\Workspaces\\integrability_notebook_20261007\\before_conservation_revision\\integrability_execution_validation.json",
+  "original_full_execution_notebook": "C:\\Users\\msz\\aca\\Workspaces\\integrability_notebook_20261007\\before_conservation_revision\\DLW刘维尔可积性report.ipynb",
+  "verification_mode": "initial complete execution plus a fresh three-cell native-kernel revision",
+  "post_execution_lean_revision": "C:\\Users\\msz\\aca\\Workspaces\\integrability_notebook_20261007\\conservation_revision_validation.json",
+  "partial_revision_execution_validation": "C:\\Users\\msz\\aca\\Workspaces\\integrability_notebook_20261007\\conservation_revision_execution_validation.json",
+  "full_execution_elapsed_seconds": 253.193,
+  "partial_revision_elapsed_seconds": 35.394,
+  "elapsed_seconds_note": "Original complete execution; the later partial revision is reported separately.",
+  "original_full_conservation_timing": {
+    "id": "lean-conservation",
+    "seconds": 17.833
+  },
+  "preserved_other_code_cells": 14
+}

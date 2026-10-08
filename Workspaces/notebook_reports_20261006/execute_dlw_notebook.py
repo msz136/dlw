@@ -24,7 +24,8 @@ rows = [dict(case=r['case'], model=r['model'], method=r['method'], mesh=r['mesh'
     errors=r['max_errors'], initial_error=r['initial_error'], min_J=r['min_J'])
     for r in results.values()]
 Path({str(HERE/'dlw_numeric_results.json')!r}).write_text(
-    json.dumps(dict(rows=rows, order_rows=order_rows, source_hashes={source_hashes!r}), indent=2), encoding='utf-8')
+    json.dumps(dict(rows=rows, order_rows=order_rows, refinement_rows=refinement_rows,
+        source_hashes={source_hashes!r}), indent=2), encoding='utf-8')
 archive = {{}}
 for key, r in results.items():
     label = '_'.join(key)

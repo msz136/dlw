@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-07",
+  "scope": "Read-only GSG formulation and current DLW SD implementation comparison; no numerical recomputation or report edit",
+  "paper": {
+    "path": "Paper/sources/Numerical_Algorithms_gsg (1).pdf",
+    "doi": "10.1007/s11075-023-01504-1",
+    "pages": [
+      363,
+      364
+    ],
+    "pdf_pages": [
+      13,
+      14
+    ],
+    "schemes_1_2_equations": [
+      "4.1",
+      "4.2",
+      "4.3",
+      "4.4"
+    ],
+    "advanced_variables": [
+      "p_k=u_(k+1)-u_k",
+      "delta_k=x_(k+1)-x_k"
+    ],
+    "time_method_authors_name": "semi-implicit Euler",
+    "tau_role": "bilinear construction and analytic soliton reference / initialization",
+    "three_point_second_derivative": "direct finite-difference baseline Scheme 5, equations 4.13-4.14"
+  },
+  "current_dlw": {
+    "unknowns": "F_j,G_j; stored as logarithms, solved as new/old tau ratios",
+    "time_method": "implicit midpoint",
+    "initial_fields": "common physical u,v obtained by discrete lift",
+    "nonlinear_transformation_commutes_with_discretization": false,
+    "continuous_identity": "B_s(F,G)/(FG)=(alpha-beta)_t+(alpha+beta)_xx+(alpha_x-beta_x)^2+2s*(alpha_x-beta_x)",
+    "counterexample": "For F=exp(k*x), D1(F)/F=sinh(k*dx)/dx whereas D1(log F)=k",
+    "raw_bilinear_audit": "Workspaces/notebook_reports_20261006/gsg_second_order/verify_dlw_tau.json",
+    "raw_bilinear_residual_meaning": "accuracy of solving the stated tau-discretized equations; not equivalence to the nonlinear discrete system or proof of full-discrete integrability",
+    "source_sha256": "8f2c80418034972d779e434e7031d19ed8165bd34a427b5264d0b2d5622d28e6"
+  },
+  "conclusion": "A direct bilinear tau scheme is a legitimate separate numerical route; reproducing GSG methodology requires advancing the nonlinear DLW semi-discrete system and aligning time integration/comparison conditions.",
+  "user_report_preserved_sha256": "90df160d1d1e9eab74b771e2e36e2918146cb9372dc83bf3b9430b9312985870",
+  "report_edited": false,
+  "notebook_edited": false,
+  "committed": false,
+  "pushed": false
+}

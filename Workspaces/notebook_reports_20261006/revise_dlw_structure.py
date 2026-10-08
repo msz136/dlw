@@ -16,71 +16,56 @@ TEXT = {
 
 $x\in[-20,20)$ 分为 256 份，$\Delta x=40/256=0.15625$；$y\in[-1.5,1.5]$ 分为 24 份，$h=0.125$，场值取各份中点。
 
-记 $\delta_-f_j=(f_j-f_{j-1})/h$、$\delta_0f_j=(f_{j+1}-f_{j-1})/(2h)$、$M_-f_j=(f_j+f_{j-1})/2$、$\Delta_hf_j=(f_{j+1}-2f_j+f_{j-1})/h^2$。固定网格的 $x$ 向算子为
+记 $\delta_-f_j=(f_j-f_{j-1})/h$、$\delta_0f_j=(f_{j+1}-f_{j-1})/(2h)$、$M_-f_j=(f_j+f_{j-1})/2$。$x$ 向采用三点二阶中心差分；二阶导数与 GSG 对照格式的式 (4.13)–(4.14) 使用相同的三点算子：
 
 $$D_1f_i=\frac{f_{i+1}-f_{i-1}}{2\Delta x},\qquad D_2f_i=\frac{f_{i+1}-2f_i+f_{i-1}}{\Delta x^2}.$$
 
-下方代码定义共用网格、差分与场值恢复。$y$ 下侧取解析值，上侧虚点取解析背景加扰动的二次外推；SD、FD 的 $x$ 差分按周期延拓，SD2 按端点跃变量延拓。''',
+$y$ 下侧取解析值，上侧虚点取解析背景加扰动的二次外推；SD、FD 的 $x$ 差分按周期延拓，SD2 按端点跃变量延拓。
+
+**对应代码。** 下方定义共用网格、三点差分与场值恢复。''',
     'sd-text': r'''### 2.1　SD
 
-**双线性方程与变量。** SD 从两条方程出发：
-
-$$B_{a-h/2}F_j\!\cdot G_j=0,\qquad
-B_{a+h/2}F_j\!\cdot G_{j+1}=0,\qquad B_s=D_x^2+D_t+2sD_x.$$
-
-令 $\alpha_j=\log F_j$、$\beta_j=\log G_j$。除以对应的 $\tau$ 函数乘积，使用
-
-$$\frac{B_sF\!\cdot G}{FG}
-=(\alpha+\beta)_{xx}+(\alpha-\beta)_x^2
-+(\alpha-\beta)_t+2s(\alpha-\beta)_x,$$
-
-分别得到归一化方程 $E_j^-=0$、$E_j^+=0$，其中 $E_j^-$ 配对 $\alpha_j,\beta_j$，$E_j^+$ 配对 $\alpha_j,\beta_{j+1}$。定义
+**半离散非线性方程。** 以 $u_j,\omega_j$ 表示第一种非线性形式：
 
 $$\begin{aligned}
-u_j&=(2\alpha_j-\beta_j-\beta_{j+1})_x,\qquad
-W_j=\frac4h(\beta_{j+1}-\beta_j)_x,\\
-v_j&=W_j+\delta_0u_j,\qquad P_j=\delta_-u_j.
+\delta_-u_{j,t}
+&+\partial_x\delta_-\left[\frac{u_j^2+\omega_j^2}{2}+2au_j-h\omega_j\right]
++\partial_x^2\left(\delta_-u_j+\frac4hM_-\omega_j\right)=0,\\
+\omega_{j,t}&+\partial_x[(u_j+2a)\omega_j-hu_j]-\omega_{j,xx}=0.
 \end{aligned}$$
 
-**取和、取差。** 两式中的 $x$ 向斜率为 $X_j=(\alpha_j-\beta_j)_x=u_j/2+hW_j/8$、$Y_j=(\alpha_j-\beta_{j+1})_x=u_j/2-hW_j/8$，因此非线性项的和为
+$\omega_j=\partial_x(\log G_{j+1}-\log G_j)$，物理场为 $v_j=4\omega_j/h+\delta_0u_j$。取演化变量
 
-$$H_j=X_j^2+Y_j^2+(2a-h)X_j+(2a+h)Y_j
-=\frac{u_j^2}{2}+2au_j+h^2\left(\frac{W_j^2}{32}-\frac{W_j}{4}\right).$$
+$$P_j=\delta_-u_j,\qquad W_j=\frac4h\omega_j=v_j-\delta_0u_j,$$
 
-记 $Z_j=(2\alpha_j+\beta_j+\beta_{j+1})_x$。两式的和与差对 $x$ 求导，整理得
+并记
 
-$$\begin{aligned}
-u_{j,t}+\partial_xH_j+Z_{j,xx}
-&=\partial_x(E_j^-+E_j^+)=0,\\
-W_{j,t}+\partial_x[(u_j+2a)W_j-4u_j]-W_{j,xx}
-&=\frac4h\partial_x(E_j^--E_j^+)=0.
-\end{aligned}$$
+$$H_j=\frac{u_j^2}{2}+2au_j+h^2\left(\frac{W_j^2}{32}-\frac{W_j}{4}\right).$$
 
-**消去中间势。** 由变量定义及 $M_-\delta_0=(1+h^2\Delta_h/4)\delta_-$，有
-
-$$\delta_-Z_j=P_j+M_-W_j
-=P_j+M_-v_j-M_-\delta_0u_j
-=M_-v_j-\frac{h^2}{4}\Delta_hP_j.$$
-
-对和式作 $\delta_-$，差式直接解出 $W_{j,t}$，便得到实际采用的半离散演化方程：
+上式成为
 
 $$\begin{aligned}
-P_{j,t}&=-\delta_-\partial_xH_j-\partial_x^2\left(M_-v_j-\frac{h^2}{4}\Delta_hP_j\right),\\
+P_{j,t}&=-\delta_-\partial_xH_j-\partial_x^2(P_j+M_-W_j),\\
 W_{j,t}&=-\partial_x[(u_j+2a)W_j-4u_j]+\partial_x^2W_j.
 \end{aligned}$$
 
-**离散递推。** 每个时间级先恢复 $u_{j,i}=u_{j-1,i}+hP_{j,i}$、$v=W+\delta_0u$，再计算
+**离散递推。** 每个时间级先由下侧解析边界恢复
+
+$$u_{j,i}(t)=u_{j_L,i}(t)+h\sum_{k=j_L+1}^{j}P_{k,i}(t),\qquad
+v=W+\delta_0u,$$
+
+再计算
 
 $$\begin{aligned}
-F_P&=-\delta_-D_1H-D_2\left(M_-v-\frac{h^2}{4}\Delta_hP\right),\\
+F_P&=-\delta_-D_1H-D_2(P+M_-W),\\
 F_W&=-D_1[(u+2a)W-4u]+D_2W,\\
 P^{n+1}&=P^n+\Delta t\,F_P(t_n),\qquad
 W^{n+1}=W^n+\Delta t\,F_W(t_n).
 \end{aligned}$$
 
-参数：$a=2$、$h=0.125$、$\Delta x=0.15625$、$\Delta t=0.000125$、$T=0.01$。初值为 $P^0=\delta_-u_*(0)$、$W^0=v_*(0)-\delta_0u_*(0)$。以上为 Euler 更新；同一右端的 RK4 更新见第 3 节。
+参数：$a=2$、$h=0.125$、$\Delta x=0.15625$、$\Delta t=0.000125$、$T=0.01$。初值为 $P^0=\delta_-u_*(0)$、$W^0=v_*(0)-\delta_0u_*(0)$，$u_{j_L}(t)$ 取解析值。以上为 Euler 更新；同一右端的 RK4 更新见第 3 节。
 
-**对应代码。** `fp`、`fw` 分别是 $F_P,F_W$；`axis=0` 沿 $y$，`d1,d2` 沿 $x$。''',
+**对应代码。** `pt`、`wt` 分别是 $F_P,F_W$；`axis=0` 沿 $y$，`d1,d2` 沿 $x$。''',
     'sd2-text': r'''### 2.2　SD2
 
 **原半离散方程。** 以 $Q,R$ 为演化变量：
@@ -174,9 +159,6 @@ FD = '''class FDModel(PhysicalModel):
         fv = -d1((u+2*a)*v)-d2(uy)+4*d1(u)
         return self.pack(fp, fv)
 '''
-
-from tau_report_cells import TEXT_UPDATE
-TEXT.update(TEXT_UPDATE)
 
 def build_spatial_cells(codes):
     cells = []

@@ -33,23 +33,73 @@ v_t&=-\partial_x[(u+2a)v-4u]-u_{xxy}.
     code('config')
     md('exact-text', r'''### 1.1　孤子精确解
 
-记 $S_i=p_i+q_i$、$\omega_i=q_i^2-p_i^2$、$\ell_i=(p_i-a)^{-1}+(q_i+a)^{-1}$，并令 $\theta_i=S_ix+\omega_it+\ell_i y$。单孤子的 $g=1+e^{\theta_1}/S_1$；二孤子的
+$x,y$ 为空间坐标，$t$ 为时间。由表中的 $p_i,q_i$ 及 $a=2$，确定
 
-$$g=1+\frac{e^{\theta_1}}{S_1}+\frac{e^{\theta_2}}{S_2}
-+\frac{(p_1-p_2)(q_1-q_2)e^{\theta_1+\theta_2}}
-{(p_1+q_1)(p_1+q_2)(p_2+q_1)(p_2+q_2)}.$$
+$$S_i=p_i+q_i,\qquad \omega_i=q_i^2-p_i^2,\qquad
+\ell_i=\frac1{p_i-a}+\frac1{q_i+a},\qquad
+\gamma_i=-\frac{p_i-a}{q_i+a}.$$
 
-$f$ 在各指数项中加入因子 $\gamma_i=-(p_i-a)/(q_i+a)$。物理场取
+在给定的 $(x,y,t)$ 处，记
 
-$$u_*=2\partial_x(\log f-\log g),\qquad
-v_*=2\partial_x\partial_y(\log f+\log g).$$
+$$\theta_i(x,y,t)=S_ix+\omega_it+\ell_i y,\qquad
+E_i(x,y,t)=e^{\theta_i(x,y,t)}.$$
 
-精确参照由 `Exact` 类按上述孤子公式计算。`tau` 用 `logsumexp` 求 τ 函数的对数及各指数项的归一化权重；`mean`、`cov` 分别计算 $\partial_x\log\tau$ 和 $\partial_x\partial_y\log\tau$，`uv` 按上式组合成 $u_*,v_*$。调用 `uv(js, x, t)`，得到各 $y_j$ 层、$x$ 点和 $t$ 时刻的精确参照值。''')
+单孤子的解析式为
+
+$$\begin{aligned}
+g(x,y,t)&=1+\frac{E_1(x,y,t)}{S_1},\\
+f(x,y,t)&=1+\frac{\gamma_1E_1(x,y,t)}{S_1}.
+\end{aligned}$$
+
+二孤子记
+
+$$C_{12}=\frac{(p_1-p_2)(q_1-q_2)}
+{(p_1+q_1)(p_1+q_2)(p_2+q_1)(p_2+q_2)},$$
+
+则
+
+$$\begin{aligned}
+g(x,y,t)&=1+\frac{E_1(x,y,t)}{S_1}+\frac{E_2(x,y,t)}{S_2}
++C_{12}E_1(x,y,t)E_2(x,y,t),\\
+f(x,y,t)&=1+\frac{\gamma_1E_1(x,y,t)}{S_1}+\frac{\gamma_2E_2(x,y,t)}{S_2}
++\gamma_1\gamma_2C_{12}E_1(x,y,t)E_2(x,y,t).
+\end{aligned}$$
+
+精确解由这两个解析函数直接求导：
+
+$$\begin{aligned}
+u_*(x,y,t)&=2\partial_x[\log f(x,y,t)-\log g(x,y,t)],\\
+v_*(x,y,t)&=2\partial_x\partial_y[\log f(x,y,t)+\log g(x,y,t)].
+\end{aligned}$$
+
+展开对数导数，即可直接计算其值：
+
+$$\begin{aligned}
+u_*(x,y,t)&=2\left[\frac{f_x(x,y,t)}{f(x,y,t)}-\frac{g_x(x,y,t)}{g(x,y,t)}\right],\\
+v_*(x,y,t)&=2\Bigg[\frac{f_{xy}(x,y,t)}{f(x,y,t)}
+-\frac{f_x(x,y,t)f_y(x,y,t)}{f(x,y,t)^2}\\
+&\qquad+\frac{g_{xy}(x,y,t)}{g(x,y,t)}
+-\frac{g_x(x,y,t)g_y(x,y,t)}{g(x,y,t)^2}\Bigg].
+\end{aligned}$$
+
+这些导数由指数项的解析式得到：$\partial_xE_i=S_iE_i$、$\partial_yE_i=\ell_iE_i$、$\partial_x\partial_yE_i=S_i\ell_iE_i$；交叉项 $E_1E_2$ 的 $x,y$ 指数率分别为 $S_1+S_2$、$\ell_1+\ell_2$。给定 $(x,y,t)$，计算相应的 $f,g$ 及其导数，再代入上式，即得到该点的精确参照值。
+
+精确参照由 `Exact` 类按上述解析式计算；调用 `uv(js, x, t)`，返回指定空间点与时刻的精确参照值。''')
     code('reference')
     cells.extend(build_spatial_cells(CELLS))
     md('time-text', r'''## 3　时间推进与误差评价
 
-SD 使用第 2.1 节的隐式中点递推。SD2、FD 的 Euler 更新为 $z^{n+1}=z^n+\Delta t\,\mathcal F(t_n,z^n)$；RK4 使用同一右端的四个时间级，状态与节点同步更新。
+三种方案分别以第 2 节的离散右端 $\mathcal F$ 推进。Euler 更新为 $z^{n+1}=z^n+\Delta t\,\mathcal F(t_n,z^n)$；RK4 的递推为
+
+$$\begin{aligned}
+k_1&=\mathcal F(t_n,z^n),\\
+k_2&=\mathcal F\left(t_n+\frac{\Delta t}{2},z^n+\frac{\Delta t}{2}k_1\right),\\
+k_3&=\mathcal F\left(t_n+\frac{\Delta t}{2},z^n+\frac{\Delta t}{2}k_2\right),\\
+k_4&=\mathcal F(t_n+\Delta t,z^n+\Delta t k_3),\\
+z^{n+1}&=z^n+\frac{\Delta t}{6}(k_1+2k_2+2k_3+k_4).
+\end{aligned}$$
+
+状态与节点使用同一时间算法同步更新。
 
 在 $x\in[-10,10]$ 的 4001 个等距点及全部 $y$ 层上，三次样条重构数值场，计算
 
@@ -59,26 +109,26 @@ $$E_f(T)=\max_{(x,y)\in\mathcal G}|f_h(x,y,T)-f_*(x,y,T)|,\qquad f\in\{u,v\}.$$
     code('time')
     md('space-text', r'''## 4　空间方案的比较
 
-在均匀固定网格上比较三种方案。SD 使用隐式中点，SD2、FD 使用 RK4；时间步长均为 $0.000125$，终点均为 $T=0.01$。每行加粗值为最小误差。''')
+在均匀固定网格上比较三种方案，时间算法统一为 RK4，时间步长为 $0.000125$，终点为 $T=0.01$。每行加粗值为最小误差。''')
     code('space_experiment')
     md('temporal-text', r'''## 5　时间算法的比较
 
-在固定网格上比较 SD2、FD 的 Euler 与 RK4。''')
+在固定网格上分别比较 SD、SD2、FD 的 Euler 与 RK4。''')
     code('time_experiment')
     md('order-text', r'''取 $\Delta t$、$\Delta t/2$、$\Delta t/4$，以相邻时间步长的数值场差估计时间阶：
 
 $$p_f=\log_2\frac{\|f_{\Delta t}-f_{\Delta t/2}\|_{\infty,\mathcal G}}
 {\|f_{\Delta t/2}-f_{\Delta t/4}\|_{\infty,\mathcal G}}.$$
 
-下面分别计算 SD 隐式中点与 SD2 Euler 的时间观测阶。''')
+下面计算 SD 与 SD2 在 Euler 更新下的时间观测阶。''')
     code('order')
     md('moving-text', r'''## 6　固定网格与动网格的比较
 
-保持节点数、时间步长与各方案的时间算法一致，比较固定网格与动网格。SD 使用隐式中点，SD2、FD 使用 RK4。''')
+保持节点数与时间步长一致，三种方案均使用 RK4，比较固定网格与动网格。''')
     code('mesh_experiment')
     md('curve-text', r'''## 7　局部误差曲线
 
-取 $x\in[-1,1]$，画出 $e_f(x)=\max_j|f_h(x,y_j,T)-f_*(x,y_j,T)|$。SD 使用隐式中点，SD2、FD 使用 RK4；蓝、橙、绿分别对应三种方案，同一场的两幅图使用相同纵轴尺度。''')
+取 $x\in[-1,1]$，画出 $e_f(x)=\max_j|f_h(x,y_j,T)-f_*(x,y_j,T)|$。三种方案均使用 Euler；蓝、橙、绿分别对应 SD、SD2、FD，同一场的两幅图使用相同纵轴尺度。''')
     code('curves')
     md('conclusion-text', r'''## 8　结果
 
@@ -93,6 +143,9 @@ $$p_f=\log_2\frac{\|f_{\Delta t}-f_{\Delta t/2}\|_{\infty,\mathcal G}}
                    'spatial_accuracy_order': 2,
                    'spatial_stencil': 'three-point centered D1 and direct D2',
                    'runtime': 'Python; no Lean or external project files required'}})
+    from static_field_plots import apply_dlw
+    nb = apply_dlw(nb)
+    cells = nb.cells
     nbf.validate(nb)
     DEST.parent.mkdir(exist_ok=True)
     nbf.write(nb, DEST)
@@ -103,8 +156,8 @@ $$p_f=\log_2\frac{\|f_{\Delta t}-f_{\Delta t/2}\|_{\infty,\mathcal G}}
         spatial_discretization={'order':2,'D1':'(f[i+1]-f[i-1])/(2*dx)',
                                 'D2':'(f[i+1]-2*f[i]+f[i-1])/dx**2',
                                 'moving':'Dxx=J**-2*Dxxi-Jxi*J**-3*Dxi'},
-        primary_runs=24, time_order_additional_runs=12, self_contained=True,
-        source_modules=['dlw_numeric_cells.py', 'sd_tau_cell.py', 'tau_report_cells.py',
+        primary_runs=36, time_order_additional_runs=12, self_contained=True,
+        source_modules=['dlw_numeric_cells.py', 'sd_nonlinear_cell.py',
                         'revise_dlw_structure.py'],
         original_model_references=['dlw_single_aligned_20260929/experiment.py',
         'dlw_sd2_uv_init_20260929/consistent_sd2.py', 'dlw_two_soliton_20260929/models.py',

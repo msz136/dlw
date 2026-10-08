@@ -1,0 +1,168 @@
+[
+  {
+    "width": 1440,
+    "scrollWidth": 1440,
+    "math": 183,
+    "headings": [
+      "1　连续 DLW 与双线性表示",
+      "2　交错格点与半离散双线性方程",
+      "3　孤子解与 Gram 行列式",
+      "4　Gram 解的双线性恒等式",
+      "5　正则性与非线性化",
+      "6　半离散方程的连续极限",
+      "附录　保留势的非线性表示"
+    ],
+    "resources": 0,
+    "code": 0,
+    "background": "rgb(255, 255, 255)",
+    "bodyFont": "KaTeX_Main, PaperSerif, serif",
+    "wideEquations": []
+  },
+  {
+    "width": 390,
+    "scrollWidth": 390,
+    "math": 183,
+    "headings": [
+      "1　连续 DLW 与双线性表示",
+      "2　交错格点与半离散双线性方程",
+      "3　孤子解与 Gram 行列式",
+      "4　Gram 解的双线性恒等式",
+      "5　正则性与非线性化",
+      "6　半离散方程的连续极限",
+      "附录　保留势的非线性表示"
+    ],
+    "resources": 0,
+    "code": 0,
+    "background": "rgb(255, 255, 255)",
+    "bodyFont": "KaTeX_Main, PaperSerif, serif",
+    "wideEquations": [
+      {
+        "width": 485,
+        "available": 354,
+        "tex": "\\Phi(s)=B_{a+s}f(x,y,t)\\cdot g(x,y+s,t)\n=B_af\\cdot g(y+s)+2sD_xf\\cdot g(y+s)."
+      },
+      {
+        "width": 455,
+        "available": 354,
+        "tex": "\\mathcal B_h^{\\pm}=\\Phi(0)\\pm\\frac h2\\Phi'(0)\n+\\frac{h^2}{8}\\Phi''(0)\\pm\\frac{h^3}{48}\\Phi^{(3)}(0)\n+\\frac{h^4}{384}\\Phi^{(4)}(0)+O(h^5)."
+      },
+      {
+        "width": 389,
+        "available": 354,
+        "tex": "\\begin{aligned}\n\\frac{\\mathcal B_h^++\\mathcal B_h^-}{2}\n&=\\Phi(0)+\\frac{h^2}{8}\\Phi''(0)+O(h^4)\\\\\n&=B_af\\cdot g+\\frac{h^2}{8}\n\\left(B_af\\cdot g_{yy}+4D_xf\\cdot g_y\\right)+O(h^4).\n\\end{aligned}"
+      },
+      {
+        "width": 483,
+        "available": 354,
+        "tex": "\\begin{aligned}\n\\frac{\\mathcal B_h^+-\\mathcal B_h^-}{h}\n&=\\Phi'(0)+\\frac{h^2}{24}\\Phi^{(3)}(0)+O(h^4)\\\\\n&=B_af\\cdot g_y+2D_xf\\cdot g\n+\\frac{h^2}{24}\\left(B_af\\cdot g_{yyy}+6D_xf\\cdot g_{yy}\\right)+O(h^4).\n\\end{aligned}"
+      },
+      {
+        "width": 464,
+        "available": 354,
+        "tex": "\\lambda_h(z)=\\frac{z+d}{z-d},\\qquad \\chi_i=\\lambda_h(p_i-a)\\lambda_h(q_i+a),\\qquad \\gamma_i=-\\frac{p_i-a+d}{q_i+a-d}, \\tag{7}"
+      },
+      {
+        "width": 450,
+        "available": 354,
+        "tex": "E_i(j,x,t)=\\frac{\\rho_i}{p_i+q_i}\\chi_i^j e^{(p_i+q_i)x+(q_i^2-p_i^2)t},\\qquad A_{ik}=\\frac{(p_i-p_k)(q_i-q_k)}{(p_i+q_k)(p_k+q_i)}. \\tag{8}"
+      },
+      {
+        "width": 573,
+        "available": 354,
+        "tex": "\\tau_n(j;s)=\\det_{1\\le i,k\\le N}\\!\\left[\\delta_{ik}+\\frac{\\rho_i}{p_i+q_k}\\left(-\\frac{p_i-s}{q_k+s}\\right)^n\\bigl(\\lambda_h(p_i-a)\\lambda_h(q_k+a)\\bigr)^j e^{(p_i+q_k)x+(q_k^2-p_i^2)t}\\right]. \\tag{10}"
+      },
+      {
+        "width": 512,
+        "available": 354,
+        "tex": "r_i=\\rho_i[-(p_i-s)]^n\\lambda_h(p_i-a)^j e^{p_ix-p_i^2t},\\qquad c_k=(q_k+s)^{-n}\\lambda_h(q_k+a)^j e^{q_kx+q_k^2t}. \\tag{14}"
+      },
+      {
+        "width": 408,
+        "available": 354,
+        "tex": "\\begin{gathered}r_x=Pr,\\quad r_t=-P^2r,\\quad c_x=Qc,\\quad c_t=Q^2c,\\quad b_x=c-sb,\\\\M_x=rc^{\\mathsf T},\\quad M_t=-Pr c^{\\mathsf T}+rc^{\\mathsf T}Q,\\quad M_{n+1}=M-rb^{\\mathsf T}.\\end{gathered} \\tag{15}"
+      },
+      {
+        "width": 436,
+        "available": 354,
+        "tex": "H=M^{-1},\\quad z=Hr,\\quad\\kappa=c^{\\mathsf T}z,\\quad\\zeta=b^{\\mathsf T}z,\\quad\\psi=\\frac{\\tau_{n+1}}{\\tau_n}=1-\\zeta. \\tag{16}"
+      },
+      {
+        "width": 390,
+        "available": 354,
+        "tex": "\\mu=c^{\\mathsf T}Qz,\\quad\\nu=c^{\\mathsf T}HPr,\\quad\\eta_1=b^{\\mathsf T}HPr,\\quad\\eta_2=b^{\\mathsf T}HP^2r. \\tag{17}"
+      },
+      {
+        "width": 493,
+        "available": 354,
+        "tex": "\\begin{aligned}\\zeta_{xx}+\\zeta_t+2s\\zeta_x&=(\\kappa_x+\\mu+\\nu)(1-\\zeta)+(s-\\kappa)\\zeta_x-s\\eta_1-s\\kappa+s^2\\zeta+\\kappa\\eta_1\\\\&=(\\kappa_x+\\mu+\\nu-\\kappa^2)(1-\\zeta)\\\\&=2\\kappa_x(1-\\zeta).\\end{aligned} \\tag{19}"
+      },
+      {
+        "width": 512,
+        "available": 354,
+        "tex": "h>0,\\qquad0<p_1<\\cdots<p_N<a-h/2,\\qquad0<q_1<\\cdots<q_N,\\qquad\\rho_i>0."
+      },
+      {
+        "width": 557,
+        "available": 354,
+        "tex": "\\frac{B_sf\\cdot g}{fg}=(\\log f+\\log g)_{xx}+(\\log f-\\log g)_x^2\n+(\\log f-\\log g)_t+2s(\\log f-\\log g)_x,\\tag{25}"
+      },
+      {
+        "width": 523,
+        "available": 354,
+        "tex": "\\begin{aligned}\nA_j={}&(\\alpha_j+\\beta_j)_{xx}+(\\alpha_j-\\beta_j)_x^2+(\\alpha_j-\\beta_j)_t+(2a-h)(\\alpha_j-\\beta_j)_x=0,\\\\\nC_j={}&(\\alpha_j+\\beta_{j+1})_{xx}+(\\alpha_j-\\beta_{j+1})_x^2+(\\alpha_j-\\beta_{j+1})_t+(2a+h)(\\alpha_j-\\beta_{j+1})_x=0.\n\\end{aligned}\\tag{26}"
+      },
+      {
+        "width": 463,
+        "available": 354,
+        "tex": "\\boxed{\\begin{aligned}\n\\delta_-u_{j,t}+\\partial_x\\delta_-\\!\\left[\\frac{u_j^2+\\omega_j^2}{2}+2au_j-h\\omega_j\\right]\n+\\partial_x^2\\left(\\delta_-u_j+\\frac4hM_-\\omega_j\\right)&=0,\\\\\n\\omega_{j,t}+\\partial_x[(u_j+2a)\\omega_j-hu_j]-\\omega_{j,xx}&=0.\n\\end{aligned}}\\tag{30}"
+      },
+      {
+        "width": 487,
+        "available": 354,
+        "tex": "\\begin{aligned}\n0={}&\\delta_-u_{j,t}\n+\\partial_x\\delta_-\\!\\left[\\frac{u_j^2}{2}+2au_j+h^2\\left(\\frac{W_j^2}{32}-\\frac{W_j}{4}\\right)\\right]\\\\\n&+\\partial_x^2\\left(M_-v_j-\\frac{h^2}{4}\\Delta_h\\delta_-u_j\\right),\\\\\n0={}&v_{j,t}+\\partial_x\\!\\left[\\delta_0\\!\\left(\\frac{u_j^2}{2}+2au_j+h^2\\left(\\frac{W_j^2}{32}-\\frac{W_j}{4}\\right)\\right)\n+(u_j+2a)W_j-4u_j\\right]\\\\\n&+\\partial_x^2\\left[\\delta_0u_j+\\frac{h^2}{4}\\Delta_hW_j\\right],\n\\end{aligned}\\tag{31}"
+      },
+      {
+        "width": 413,
+        "available": 354,
+        "tex": "u^{[h]}=2(\\log(f/g))_x+O(h^2),\\qquad v^{[h]}=2(\\log(fg))_{xy}+O(h^2).\\tag{33}"
+      },
+      {
+        "width": 537,
+        "available": 354,
+        "tex": "\\tau_n^{(0)}(x,y,t)=\\det\\left[\\delta_{ik}+\\frac{\\rho_i}{p_i+q_k}\n\\left(-\\frac{p_i-a}{q_k+a}\\right)^n\ne^{(p_i+q_k)x+(q_k^2-p_i^2)t+y((p_i-a)^{-1}+(q_k+a)^{-1})}\\right].\\tag{34}"
+      },
+      {
+        "width": 437,
+        "available": 354,
+        "tex": "\\begin{aligned}\n0={}&u_{j,t}+\\partial_x\\!\\left[\nu_{j,x}+\\frac{u_j^2}{2}+2au_j\n+2(M_j+M_{j+1})_x+\\frac{\\omega_j^2}{2}-h\\omega_j\\right],\\\\\n0={}&\\omega_{j,t}-\\omega_{j,xx}\n+\\partial_x[(u_j+2a)\\omega_j-hu_j],\\\\\n\\omega_j={}&M_{j+1}-M_j.\n\\end{aligned}\\tag{37}"
+      },
+      {
+        "width": 395,
+        "available": 354,
+        "tex": "Q_j=\\exp\\!\\left(\\alpha_j-\\frac{\\beta_j+\\beta_{j+1}}2\\right)\n=\\frac{F_j}{\\sqrt{G_jG_{j+1}}},\\qquad\nu_j=2\\frac{Q_{j,x}}{Q_j}.\\tag{38}"
+      },
+      {
+        "width": 412,
+        "available": 354,
+        "tex": "\\partial_x\\!\\left[\n\\frac{Q_{j,t}+Q_{j,xx}+2aQ_{j,x}}{Q_j}\n+(M_j+M_{j+1})_x+\\frac{\\omega_j^2}{4}-\\frac h2\\omega_j\n\\right]=0.\\tag{40}"
+      },
+      {
+        "width": 466,
+        "available": 354,
+        "tex": "R_j=\\frac{1-\\omega_j/h}{Q_j},\\qquad\n\\omega_j=h(1-Q_jR_j),\\qquad\n\\frac{M_{j+1}-M_j}{h}+Q_jR_j=1.\\tag{42}"
+      },
+      {
+        "width": 393,
+        "available": 354,
+        "tex": "R_j(Q_{j,t}+Q_{j,xx}+2aQ_{j,x})\n+Q_j(R_{j,t}-R_{j,xx}+2aR_{j,x})=0.\\tag{46}"
+      }
+    ]
+  },
+  {
+    "print": true,
+    "width": 658,
+    "scrollWidth": 658,
+    "background": "rgb(255, 255, 255)",
+    "wideEquations": 0
+  }
+]

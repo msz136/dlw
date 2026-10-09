@@ -1,5 +1,5 @@
 const fs=require('fs'),path=require('path');
-const katex=require(path.resolve(__dirname,'../gsg_project/dlw_report/_assets/package/dist/katex.js'));
+const katex=require(process.env.DLW_KATEX_PATH || path.resolve(__dirname,'../gsg_project/dlw_report/_assets/package/dist/katex.js'));
 const formulas=JSON.parse(fs.readFileSync(path.join(__dirname,'formulas.json'),'utf8'));
 const result=formulas.map(({tex,display},i)=>{
 try{return (display?'<span class="eq">':'')+katex.renderToString(tex,{output:'htmlAndMathml',displayMode:display,throwOnError:true})+(display?'</span>':'');}

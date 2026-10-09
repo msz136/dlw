@@ -23,3 +23,10 @@ Notebook 使用 Colab 本地运行时或本地 Jupyter。Lean 4.34.0 与固定 M
 ## 主线精简
 
 `focus_theory.py` 在构建器的文字修订后调用，使正文集中于一般 N Gram 精确解。连续表示只留起点，双孤子系数不单列推论，解族连续极限压为6.1。HTML以独立 `paper.src.md` 同步精简。最新证据为 `focus_validation.json`；全部14代码单元与保存输出保持，本轮未重跑Lean。
+
+
+## 理论论文初稿重写
+
+2026-10-09：以 `paper.src.md` 为理论正文唯一源，重写摘要、引言和六节理论主线，统一48个公式编号；保留一般N Gram证明、正则谱域、物理变量映射、二阶一致性与紧集上一致二阶极限，Q/R/M推导置于附录。未改Notebook、证明库或数值实现。`paper_revision.json` 记录本轮检查。
+
+`export.py` 支持 Python Markdown 或 Pandoc，生成完全内联的 KaTeX HTML/MathML 与字体。在精简云端工作副本中可复用原HTML内嵌的KaTeX样式；完整仓库仍优先使用既有 `_assets`。可用 `DLW_KATEX_PATH`、`DLW_PAPER_FONT` 指定本机依赖。`check_layout.cjs` 支持 `DLW_PLAYWRIGHT_PATH` 与 `DLW_BROWSER_PATH`，并跟随新版章节定位。

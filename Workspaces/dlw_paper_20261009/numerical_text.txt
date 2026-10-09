@@ -1,0 +1,270 @@
+CELL 0
+# DLW 数值分析 report
+
+以 DLW 单孤子与二孤子的解析解为参照，采用两种可积半离散方法（SD、SD2）和一种直接差分方法（FD）计算数值解，比较固定网格、动网格及不同时间算法下的误差。
+
+CELL 2
+## 1　模型与实验设计
+
+连续 DLW 方程为
+
+$$\begin{aligned}
+u_{yt}&=-\partial_x[(u+2a)u_y]-v_{xx},\\
+v_t&=-\partial_x[(u+2a)v-4u]-u_{xxy}.
+\end{aligned}$$
+
+采用 Sheng–Yu 原文的三组孤子参数，$a=2$、$c_i=1$，初相位为零。A、B 分别对应图 1(a)、1(b)，C 对应图 3；具体 $p_i,q_i$ 如下表。取 $\Delta t=0.000125$、$T=0.01$。
+
+CELL 4
+### 1.1　孤子精确解
+
+$x,y$ 为空间坐标，$t$ 为时间。由表中的 $p_i,q_i$ 及 $a=2$，确定
+
+$$S_i=p_i+q_i,\qquad \omega_i=q_i^2-p_i^2,\qquad
+\ell_i=\frac1{p_i-a}+\frac1{q_i+a},\qquad
+\gamma_i=-\frac{p_i-a}{q_i+a}.$$
+
+在给定的 $(x,y,t)$ 处，记
+
+$$\theta_i(x,y,t)=S_ix+\omega_it+\ell_i y,\qquad
+E_i(x,y,t)=e^{\theta_i(x,y,t)}.$$
+
+单孤子的解析式为
+
+$$\begin{aligned}
+g(x,y,t)&=1+\frac{E_1(x,y,t)}{S_1},\\
+f(x,y,t)&=1+\frac{\gamma_1E_1(x,y,t)}{S_1}.
+\end{aligned}$$
+
+二孤子记
+
+$$C_{12}=\frac{(p_1-p_2)(q_1-q_2)}
+{(p_1+q_1)(p_1+q_2)(p_2+q_1)(p_2+q_2)},$$
+
+则
+
+$$\begin{aligned}
+g(x,y,t)&=1+\frac{E_1(x,y,t)}{S_1}+\frac{E_2(x,y,t)}{S_2}
++C_{12}E_1(x,y,t)E_2(x,y,t),\\
+f(x,y,t)&=1+\frac{\gamma_1E_1(x,y,t)}{S_1}+\frac{\gamma_2E_2(x,y,t)}{S_2}
++\gamma_1\gamma_2C_{12}E_1(x,y,t)E_2(x,y,t).
+\end{aligned}$$
+
+精确解由这两个解析函数直接求导：
+
+$$\begin{aligned}
+u_*(x,y,t)&=2\partial_x[\log f(x,y,t)-\log g(x,y,t)],\\
+v_*(x,y,t)&=2\partial_x\partial_y[\log f(x,y,t)+\log g(x,y,t)].
+\end{aligned}$$
+
+展开对数导数，即可直接计算其值：
+
+$$\begin{aligned}
+u_*(x,y,t)&=2\left[\frac{f_x(x,y,t)}{f(x,y,t)}-\frac{g_x(x,y,t)}{g(x,y,t)}\right],\\
+v_*(x,y,t)&=2\Bigg[\frac{f_{xy}(x,y,t)}{f(x,y,t)}
+-\frac{f_x(x,y,t)f_y(x,y,t)}{f(x,y,t)^2}\\
+&\qquad+\frac{g_{xy}(x,y,t)}{g(x,y,t)}
+-\frac{g_x(x,y,t)g_y(x,y,t)}{g(x,y,t)^2}\Bigg].
+\end{aligned}$$
+
+这些导数由指数项的解析式得到：$\partial_xE_i=S_iE_i$、$\partial_yE_i=\ell_iE_i$、$\partial_x\partial_yE_i=S_i\ell_iE_i$；交叉项 $E_1E_2$ 的 $x,y$ 指数率分别为 $S_1+S_2$、$\ell_1+\ell_2$。给定 $(x,y,t)$，计算相应的 $f,g$ 及其导数，再代入上式，即得到该点的精确参照值。
+
+精确参照由 `Exact` 类按上述解析式计算；调用 `uv(js, x, t)`，返回指定空间点与时刻的精确参照值。
+
+CELL 6
+## 2　空间离散与边界
+
+$x\in[-20,20)$ 分为 256 份，$\Delta x=40/256=0.15625$；$y\in[-1.5,1.5]$ 分为 24 份，$h=0.125$，场值取各份中点。
+
+记 $\delta_-f_j=(f_j-f_{j-1})/h$、$\delta_0f_j=(f_{j+1}-f_{j-1})/(2h)$、$M_-f_j=(f_j+f_{j-1})/2$。$x$ 向采用三点二阶中心差分；二阶导数与 GSG 对照格式的式 (4.13)–(4.14) 使用相同的三点算子：
+
+$$D_1f_i=\frac{f_{i+1}-f_{i-1}}{2\Delta x},\qquad D_2f_i=\frac{f_{i+1}-2f_i+f_{i-1}}{\Delta x^2}.$$
+
+$y$ 下侧取解析值，上侧虚点取解析背景加扰动的二次外推；SD、FD 的 $x$ 差分按周期延拓，SD2 按端点跃变量延拓。
+
+**对应代码。** 下方定义共用网格、三点差分与场值恢复。
+
+CELL 9
+### 2.1　SD
+
+**半离散非线性方程。** 以 $u_j,\omega_j$ 表示第一种非线性形式：
+
+$$\begin{aligned}
+\delta_-u_{j,t}
+&+\partial_x\delta_-\left[\frac{u_j^2+\omega_j^2}{2}+2au_j-h\omega_j\right]
++\partial_x^2\left(\delta_-u_j+\frac4hM_-\omega_j\right)=0,\\
+\omega_{j,t}&+\partial_x[(u_j+2a)\omega_j-hu_j]-\omega_{j,xx}=0.
+\end{aligned}$$
+
+$\omega_j=\partial_x(\log G_{j+1}-\log G_j)$，物理场为 $v_j=4\omega_j/h+\delta_0u_j$。取演化变量
+
+$$P_j=\delta_-u_j,\qquad W_j=\frac4h\omega_j=v_j-\delta_0u_j,$$
+
+并记
+
+$$H_j=\frac{u_j^2}{2}+2au_j+h^2\left(\frac{W_j^2}{32}-\frac{W_j}{4}\right).$$
+
+上式成为
+
+$$\begin{aligned}
+P_{j,t}&=-\delta_-\partial_xH_j-\partial_x^2(P_j+M_-W_j),\\
+W_{j,t}&=-\partial_x[(u_j+2a)W_j-4u_j]+\partial_x^2W_j.
+\end{aligned}$$
+
+**离散递推。** 每个时间级先由下侧解析边界恢复
+
+$$u_{j,i}(t)=u_{j_L,i}(t)+h\sum_{k=j_L+1}^{j}P_{k,i}(t),\qquad
+v=W+\delta_0u,$$
+
+再计算
+
+$$\begin{aligned}
+F_P&=-\delta_-D_1H-D_2(P+M_-W),\\
+F_W&=-D_1[(u+2a)W-4u]+D_2W,\\
+P^{n+1}&=P^n+\Delta t\,F_P(t_n),\qquad
+W^{n+1}=W^n+\Delta t\,F_W(t_n).
+\end{aligned}$$
+
+参数：$a=2$、$h=0.125$、$\Delta x=0.15625$、$\Delta t=0.000125$、$T=0.01$。初值为 $P^0=\delta_-u_*(0)$、$W^0=v_*(0)-\delta_0u_*(0)$，$u_{j_L}(t)$ 取解析值。以上为 Euler 更新；同一右端的 RK4 更新见第 3 节。
+
+**对应代码。** `pt`、`wt` 分别是 $F_P,F_W$；`axis=0` 沿 $y$，`d1,d2` 沿 $x$。
+
+CELL 11
+### 2.2　SD2
+
+**原半离散方程。** 以 $Q,R$ 为演化变量：
+
+$$\begin{aligned}
+Q_{j,t}&=-Q_{j,xx}-2aQ_{j,x}-\left[(M_j+M_{j+1})_x+\frac{h^2}{4}(Q_j^2R_j^2-1)\right]Q_j,\\
+R_{j,t}&=R_{j,xx}-2aR_{j,x}+\left[(M_j+M_{j+1})_x+\frac{h^2}{4}(Q_j^2R_j^2-1)\right]R_j,\\
+M_{j+1}-M_j&=h(1-Q_jR_j).
+\end{aligned}$$
+
+**离散递推。** 令 $S_j=Q_jR_j$、$G_j=h^2(S_j^2-1)/4$、$m_j=M_{j,x}$，下边界确定 $Q_0,Q_{0,t}$，然后计算
+
+$$\begin{aligned}
+m_0&=-\frac{Q_{0,t}+D_2Q_0+2aD_1Q_0}{2Q_0}-\frac{G_0}{2}+\frac h2D_1S_0,\\
+m_{j+1}&=m_j-hD_1S_j,\qquad A_j=m_j+m_{j+1},\\
+F_Q&=-D_2Q-2aD_1Q-(A+G)Q,\\
+F_R&=D_2R-2aD_1R+(A+G)R,\\
+Q_j^{n+1}&=Q_j^n+\Delta t\,F_{Q,j}(t_n)\quad(j\ge1),\qquad
+R_j^{n+1}=R_j^n+\Delta t\,F_{R,j}(t_n)\quad(j\ge0),\\
+u&=2(D_1Q)/Q,\qquad v=4(1-QR)+\delta_0u.
+\end{aligned}$$
+
+参数：$a=2$、$h=0.125$、$\Delta x=0.15625$、$\Delta t=0.000125$、$T=0.01$。初值与下边界通过
+
+$$D_1Q_j^0=\tfrac12u_j^0Q_j^0,\qquad Q_{j,0}^0=1,\qquad
+R_j^0=\frac{1-(v_j^0-\delta_0u_j^0)/4}{Q_j^0}$$
+
+确定。下边界每个时间级求解 $D_1Q_0(t)=u_{*,0}(t)Q_0(t)/2$、$Q_{0,0}(t)=1$；这里的 $D_1$ 使用代码 `dx` 的端点跃变量修正。内部 $Q$ 与全部 $R$ 按上述右端推进，Euler 与 RK4 共用此右端。
+
+**对应代码。** 先定义初值与下边界的求解，再定义递推；代码中的 `w` 对应 $S$、`H` 对应 $G$、`mx` 对应 $m$。
+
+CELL 14
+### 2.3　FD
+
+**原连续方程。**
+
+$$\begin{aligned}
+u_{yt}&=-\partial_x[(u+2a)u_y]-v_{xx},\\
+v_t&=-\partial_x[(u+2a)v-4u]-u_{xxy}.
+\end{aligned}$$
+
+**离散递推。** 取 $P=\delta_-u$，每个时间级由 $u_{j,i}=u_{j-1,i}+hP_{j,i}$ 恢复 $u$，然后计算
+
+$$\begin{aligned}
+F_P&=-\delta_-D_1\left(\frac{u^2}{2}+2au\right)-D_2M_-v,\\
+F_v&=-D_1[(u+2a)v-4u]-D_2\delta_0u,\\
+P^{n+1}&=P^n+\Delta t\,F_P(t_n),\qquad v^{n+1}=v^n+\Delta t\,F_v(t_n).
+\end{aligned}$$
+
+参数：$a=2$、$h=0.125$、$\Delta x=0.15625$、$\Delta t=0.000125$、$T=0.01$。初值为 $P^0=\delta_-u_*(0)$、$v^0=v_*(0)$。Euler 与 RK4 共用此右端。
+
+**对应代码。** `fp`、`fv` 分别是 $F_P,F_v$，`uy` 是 $\delta_0u$。
+
+CELL 16
+### 2.4　网格策略
+
+固定网格取 $s=0$、$V=0$。动网格初始节点按 $\bar\rho$ 的累积积分等分，之后使用
+
+$$\begin{aligned}
+x_i&=\xi_i+s_i,\qquad J_i=1+D_\xi s_i,\qquad D_1=J^{-1}D_\xi,\\
+D_2f&=J^{-2}D_{\xi\xi}f-J^{-3}(D_\xi J)(D_\xi f),\\
+\rho_j&=1-(v_j-\delta_0u_j)/4,\qquad
+\bar\rho=\frac1{24}\sum_j\rho_j,\\
+\bar q&=\frac1{24}\sum_j[(u_j+2a)\rho_j-D_1\rho_j-2a],\qquad
+V_i=\frac{\bar q_i-\bar q_0}{\bar\rho_i},\\
+\dot x_i&=V_i,\qquad \dot z=\mathcal F(t,z)+VD_1z.
+\end{aligned}$$
+
+$D_\xi$、$D_{\xi\xi}$ 为前述三点二阶中心差分，$\Delta\xi=0.15625$；节点与场值同步使用 Euler 或 RK4 更新。
+
+CELL 18
+## 3　时间推进与误差评价
+
+三种方案分别以第 2 节的离散右端 $\mathcal F$ 推进。Euler 更新为 $z^{n+1}=z^n+\Delta t\,\mathcal F(t_n,z^n)$；RK4 的递推为
+
+$$\begin{aligned}
+k_1&=\mathcal F(t_n,z^n),\\
+k_2&=\mathcal F\left(t_n+\frac{\Delta t}{2},z^n+\frac{\Delta t}{2}k_1\right),\\
+k_3&=\mathcal F\left(t_n+\frac{\Delta t}{2},z^n+\frac{\Delta t}{2}k_2\right),\\
+k_4&=\mathcal F(t_n+\Delta t,z^n+\Delta t k_3),\\
+z^{n+1}&=z^n+\frac{\Delta t}{6}(k_1+2k_2+2k_3+k_4).
+\end{aligned}$$
+
+状态与节点使用同一时间算法同步更新。
+
+在 $x\in[-10,10]$ 的 4001 个等距点及全部 $y$ 层上，三次样条重构数值场，计算
+
+$$E_f(T)=\max_{(x,y)\in\mathcal G}|f_h(x,y,T)-f_*(x,y,T)|,\qquad f\in\{u,v\}.$$
+
+三种方案从相同的物理初值 $u_*(0),v_*(0)$ 出发。
+
+时间算法比较另加入 Crank–Nicolson（C–N）：
+
+$$z^{n+1}=z^n+\frac{\Delta t}{2}\left[\mathcal F(t_n,z^n)+\mathcal F(t_{n+1},z^{n+1})\right].$$
+
+这是二阶隐式梯形法，采用迭代求解并检查隐式方程残差。
+
+
+CELL 20
+## 4　空间方案的比较
+
+在均匀固定网格上比较三种方案，时间算法统一为 RK4，时间步长为 $0.000125$，终点为 $T=0.01$。每行加粗值为最小误差。
+
+CELL 22
+## 5　时间算法的比较
+
+在固定网格上分别比较 SD、SD2、FD 的 Euler、RK4 与 Crank–Nicolson。保持相同的初值、空间格距、时间步长 $\Delta t=0.000125$ 和终点 $T=0.01$。其他实验的时间算法保持原设置。
+
+CELL 24
+取 $\Delta t$、$\Delta t/2$、$\Delta t/4$，以相邻时间步长的数值场差估计时间阶：
+
+$$p_f=\log_2\frac{\|f_{\Delta t}-f_{\Delta t/2}\|_{\infty,\mathcal G}}
+{\|f_{\Delta t/2}-f_{\Delta t/4}\|_{\infty,\mathcal G}}.$$
+
+下面计算 SD 与 SD2 在 Euler 更新下的时间观测阶。
+
+CELL 26
+## 6　固定网格与动网格的比较
+
+保持节点数与时间步长一致，三种方案均使用 RK4，比较固定网格与动网格。
+
+CELL 28
+## 7　结果
+
+配对表给出空间方案的最小误差与动网格相对固定网格的误差比；比值小于 1 表示该场误差降低。
+
+CELL 30
+参考资料：H.-H. Sheng and G.-F. Yu, *Solitons, breathers and rational solutions for a (2+1)-dimensional dispersive long wave system*, Physica D 432 (2022), 133140。
+
+CELL 31
+## 8　物理场与误差分布
+
+固定 $t=0.01$，A 在 $x\in[-3,4]$、$y\in[-3,3]$ 展示完整波谷；B、C 在 $x,y\in[-30,30]$ 展示全貌。每个算例上行为 $u$，下行为 $v$；三列依次为数值曲面、数值二维彩图、解析二维彩图，后两者共用色标与等高线高度。物理场零值为白色，负值为蓝色，正值为红色；另图显示绝对误差曲面和二维误差分布，零误差也为白色。
+
+场图采用 SD2、RK4 与固定网格；实际计算域扩大为 $x\in[-40,40)$、$y\in[-30,30)$，保持 $\Delta x=0.15625$、$h=0.125$、$\Delta t=0.000125$。此前误差表仍取各自的原计算与评价范围。A、B 为单孤子，C 的两条相互作用波脊在宽 $y$ 范围内可分辨。
+
+CELL 33
+绘图参数集中在下方；改变展示范围、颜色、等高线数量或视角后，只需运行配置与最后的画图单元。超出已计算范围时，需要先扩大场数据计算域。

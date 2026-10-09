@@ -1,0 +1,314 @@
+{
+  "config": {
+    "a": 2.0,
+    "h": 0.125,
+    "yhalf": 30.0,
+    "L": 80.0,
+    "nx": 512,
+    "dt": 0.000125,
+    "T": 0.01,
+    "eval_half": 30.0,
+    "eval_points": 1201
+  },
+  "records": [
+    {
+      "case": "A",
+      "method": "PF",
+      "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_precision_surface_20261008\\case_A.npz",
+      "reused": true,
+      "metadata": {
+        "case": "A",
+        "model": "SD2",
+        "method": "RK4",
+        "mesh": "fixed",
+        "config": {
+          "a": 2.0,
+          "h": 0.125,
+          "yhalf": 30.0,
+          "L": 80.0,
+          "nx": 512,
+          "dt": 0.000125,
+          "T": 0.01,
+          "eval_half": 30.0,
+          "eval_points": 1201,
+          "plot_xlim": [
+            -5.0,
+            5.0
+          ]
+        },
+        "source_sha256": "ec01306900b061b3cc21ec84e3495d2800cb0e1b3ba36ed1a42055f0dceda4a9",
+        "completed": true,
+        "reached": 0.01,
+        "elapsed_seconds": 14.301285099994857,
+        "min_J": 1.0,
+        "initial_node_error": 1.6815509488316005e-13,
+        "max_errors": {
+          "u": 0.011761391970114499,
+          "v": 0.007262316784083511
+        }
+      }
+    },
+    {
+      "case": "A",
+      "method": "PE",
+      "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_20261009\\comparison_fields\\A_PE.npz",
+      "reused": false,
+      "metadata": {
+        "case": "A",
+        "method": "PE",
+        "model": "SD",
+        "config": {
+          "a": 2.0,
+          "h": 0.125,
+          "yhalf": 30.0,
+          "L": 80.0,
+          "nx": 512,
+          "dt": 0.000125,
+          "T": 0.01,
+          "eval_half": 30.0,
+          "eval_points": 1201
+        },
+        "source_sha256": "1061f774c69dc1e3dfc1dd0f1bd6f9510f66760fda635a02fd342746db508635",
+        "completed": true,
+        "reached": 0.01,
+        "elapsed_seconds": 16.305398199998308,
+        "max_errors": {
+          "u": 0.001534477104038201,
+          "v": 0.00324818330110066
+        },
+        "initial_error": 1.2066731777065334e-15
+      }
+    },
+    {
+      "case": "A",
+      "method": "FD",
+      "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_20261009\\comparison_fields\\A_FD.npz",
+      "reused": false,
+      "metadata": {
+        "case": "A",
+        "method": "FD",
+        "model": "FD",
+        "config": {
+          "a": 2.0,
+          "h": 0.125,
+          "yhalf": 30.0,
+          "L": 80.0,
+          "nx": 512,
+          "dt": 0.000125,
+          "T": 0.01,
+          "eval_half": 30.0,
+          "eval_points": 1201
+        },
+        "source_sha256": "1061f774c69dc1e3dfc1dd0f1bd6f9510f66760fda635a02fd342746db508635",
+        "completed": true,
+        "reached": 0.01,
+        "elapsed_seconds": 18.475014699972235,
+        "max_errors": {
+          "u": 0.0013149578379794136,
+          "v": 0.00302001080689851
+        },
+        "initial_error": 1.2066731777065334e-15
+      }
+    },
+    {
+      "case": "B",
+      "method": "PF",
+      "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_precision_surface_20261008\\case_B.npz",
+      "reused": true,
+      "metadata": {
+        "case": "B",
+        "model": "SD2",
+        "method": "RK4",
+        "mesh": "fixed",
+        "config": {
+          "a": 2.0,
+          "h": 0.125,
+          "yhalf": 30.0,
+          "L": 80.0,
+          "nx": 512,
+          "dt": 0.000125,
+          "T": 0.01,
+          "eval_half": 30.0,
+          "eval_points": 1201,
+          "plot_xlim": [
+            -5.0,
+            5.0
+          ]
+        },
+        "source_sha256": "ec01306900b061b3cc21ec84e3495d2800cb0e1b3ba36ed1a42055f0dceda4a9",
+        "completed": true,
+        "reached": 0.01,
+        "elapsed_seconds": 19.618716500001028,
+        "min_J": 1.0,
+        "initial_node_error": 4.4629402381296236e-14,
+        "max_errors": {
+          "u": 0.0001287863895588215,
+          "v": 6.186166484983824e-05
+        }
+      }
+    },
+    {
+      "case": "B",
+      "method": "PE",
+      "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_20261009\\comparison_fields\\B_PE.npz",
+      "reused": false,
+      "metadata": {
+        "case": "B",
+        "method": "PE",
+        "model": "SD",
+        "config": {
+          "a": 2.0,
+          "h": 0.125,
+          "yhalf": 30.0,
+          "L": 80.0,
+          "nx": 512,
+          "dt": 0.000125,
+          "T": 0.01,
+          "eval_half": 30.0,
+          "eval_points": 1201
+        },
+        "source_sha256": "1061f774c69dc1e3dfc1dd0f1bd6f9510f66760fda635a02fd342746db508635",
+        "completed": true,
+        "reached": 0.01,
+        "elapsed_seconds": 22.23959680000553,
+        "max_errors": {
+          "u": 6.742566262035732e-05,
+          "v": 6.730873104471291e-05
+        },
+        "initial_error": 5.968445756205744e-16
+      }
+    },
+    {
+      "case": "B",
+      "method": "FD",
+      "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_20261009\\comparison_fields\\B_FD.npz",
+      "reused": false,
+      "metadata": {
+        "case": "B",
+        "method": "FD",
+        "model": "FD",
+        "config": {
+          "a": 2.0,
+          "h": 0.125,
+          "yhalf": 30.0,
+          "L": 80.0,
+          "nx": 512,
+          "dt": 0.000125,
+          "T": 0.01,
+          "eval_half": 30.0,
+          "eval_points": 1201
+        },
+        "source_sha256": "1061f774c69dc1e3dfc1dd0f1bd6f9510f66760fda635a02fd342746db508635",
+        "completed": true,
+        "reached": 0.01,
+        "elapsed_seconds": 24.014900300011504,
+        "max_errors": {
+          "u": 8.03659610524865e-05,
+          "v": 6.509919027980482e-05
+        },
+        "initial_error": 5.968445756205744e-16
+      }
+    },
+    {
+      "case": "C",
+      "method": "PF",
+      "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_precision_surface_20261008\\case_C.npz",
+      "reused": true,
+      "metadata": {
+        "case": "C",
+        "model": "SD2",
+        "method": "RK4",
+        "mesh": "fixed",
+        "config": {
+          "a": 2.0,
+          "h": 0.125,
+          "yhalf": 30.0,
+          "L": 80.0,
+          "nx": 512,
+          "dt": 0.000125,
+          "T": 0.01,
+          "eval_half": 30.0,
+          "eval_points": 1201,
+          "plot_xlim": [
+            -5.0,
+            5.0
+          ]
+        },
+        "source_sha256": "ec01306900b061b3cc21ec84e3495d2800cb0e1b3ba36ed1a42055f0dceda4a9",
+        "completed": true,
+        "reached": 0.01,
+        "elapsed_seconds": 17.19473819999257,
+        "min_J": 1.0,
+        "initial_node_error": 6.986735399193049e-14,
+        "max_errors": {
+          "u": 0.0002044357321864254,
+          "v": 0.0001321856441943714
+        }
+      }
+    },
+    {
+      "case": "C",
+      "method": "PE",
+      "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_20261009\\comparison_fields\\C_PE.npz",
+      "reused": false,
+      "metadata": {
+        "case": "C",
+        "method": "PE",
+        "model": "SD",
+        "config": {
+          "a": 2.0,
+          "h": 0.125,
+          "yhalf": 30.0,
+          "L": 80.0,
+          "nx": 512,
+          "dt": 0.000125,
+          "T": 0.01,
+          "eval_half": 30.0,
+          "eval_points": 1201
+        },
+        "source_sha256": "1061f774c69dc1e3dfc1dd0f1bd6f9510f66760fda635a02fd342746db508635",
+        "completed": true,
+        "reached": 0.01,
+        "elapsed_seconds": 17.19297569995979,
+        "max_errors": {
+          "u": 9.065994622919904e-05,
+          "v": 0.00013030079999321043
+        },
+        "initial_error": 6.99570135965492e-16
+      }
+    },
+    {
+      "case": "C",
+      "method": "FD",
+      "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_20261009\\comparison_fields\\C_FD.npz",
+      "reused": false,
+      "metadata": {
+        "case": "C",
+        "method": "FD",
+        "model": "FD",
+        "config": {
+          "a": 2.0,
+          "h": 0.125,
+          "yhalf": 30.0,
+          "L": 80.0,
+          "nx": 512,
+          "dt": 0.000125,
+          "T": 0.01,
+          "eval_half": 30.0,
+          "eval_points": 1201
+        },
+        "source_sha256": "1061f774c69dc1e3dfc1dd0f1bd6f9510f66760fda635a02fd342746db508635",
+        "completed": true,
+        "reached": 0.01,
+        "elapsed_seconds": 16.36555689998204,
+        "max_errors": {
+          "u": 0.00010093244546560687,
+          "v": 0.0001273750522849948
+        },
+        "initial_error": 6.99570135965492e-16
+      }
+    }
+  ],
+  "notebook_unchanged": true,
+  "original_tables_rerun": false
+}

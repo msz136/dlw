@@ -74,6 +74,12 @@ from determinant_only import revise as retain_determinants
 source=retain_determinants(source)
 from methods_revision import revise as revise_methods
 source=revise_methods(source)
+from narrative_revision import revise as revise_narrative
+source=revise_narrative(source)
+from structure_revision import revise as revise_structure
+source=revise_structure(source)
+from full_comparison_revision import revise as revise_full_comparison
+source=revise_full_comparison(source)
 tags=re.findall(r'\\tag\{([^}]+)\}',source)
 (HERE/'style_revision/prose_changes.json').write_text(json.dumps(prose_changes,ensure_ascii=False,indent=2),encoding='utf-8')
 (HERE/'manuscript.md').write_text(source,encoding='utf-8')
@@ -81,6 +87,7 @@ tags=re.findall(r'\\tag\{([^}]+)\}',source)
 build=(ROOT/'Workspaces/dlw_lax_derivation_20261009/build.py').read_text(encoding='utf-8')
 build=build.replace("'compact_manuscript.md'","'manuscript.md'").replace('半离散 DLW 的 Lax 对','（2+1）维 DLW 方程的半离散化、Lax 表示与数值模拟')
 build=build.replace("'report/dlw_lax_derivation.html'","'report/dlw_paper_draft.html'")
+build=build.replace('原半离散 DLW 方程、所需条件、辅助线性对及其相容性证明。','DLW 方程的交错半离散化、Gram 行列式解、两种非线性形式、连续极限与孤子数值比较。')
 start=build.index('assert tags ==')
 end=build.index("assert 'MATHSLOT'",start)
 build=build[:start]+f'assert tags == list(range(1,{len(tags)+1})), tags\n'+build[end:]

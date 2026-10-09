@@ -1,0 +1,158 @@
+[
+  {
+    "before": "通过与解析解及直接差分方法比较，考察两种非线性形式的误差以及网格移动对计算精度的影响。",
+    "after": "固定网格计算中，三种格式的误差排序随算例和物理场变化；在所考察的单孤子与二孤子算例中，动网格均降低了两个物理场的误差。"
+  },
+  {
+    "before": "Hirota 双线性方法为构造非线性可积方程的行列式解及其离散形式提供了有效途径。",
+    "after": "色散长波（DLW）方程描述具有有限水深的宽水道或开阔水域中的长波运动，其中两个物理场分别对应水平速度与相对静水面的波高 [1]。其孤子解为研究波形及相互作用提供了解析模型，也为检验数值方法提供了明确的参照。Hirota 双线性方法通过因变量变换，将非线性方程转化为适合行列式构造的双线性关系。"
+  },
+  {
+    "before": "本文以该双线性表示为基础，研究 DLW 系统的半离散化。",
+    "after": "本文以该双线性表示为基础，研究 DLW 系统的半离散化。\n\n本文关注的离散化需要同时连接解的构造与物理场的演化。一方面，离散后的双线性方程应保留可直接验证的行列式解；另一方面，通过该解恢复的物理场应在格距趋于零时回到连续 DLW 解。这两个要求分别涉及离散恒等式与连续极限，也是下文组织理论推导的依据。"
+  },
+  {
+    "before": "第 9 节比较两种形式与直接差分方法的数值结果，第 10 节给出结论。",
+    "after": "第 9 节给出空间差分、动网格与时间推进方法，第 10 节按格式比较、网格改善和孤子波形组织数值结果，第 11 节给出结论。附录收录完整误差表和补充算例图。"
+  },
+  {
+    "before": "## 1　连续 DLW 方程的双线性表示",
+    "after": "## 1　连续 DLW 方程的双线性表示\n\n先给出连续方程与 τ 函数之间的对应关系。它既确定半离散系统应恢复的极限方程，也确定后续比较解时所采用的物理变量。"
+  },
+  {
+    "before": "由于\n\n$$D_yB_af",
+    "after": "为使第二条双线性关系便于沿 $y$ 方向离散，先将其中的 $y$ 导数集中到第二个因子上。利用\n\n$$D_yB_af"
+  },
+  {
+    "before": "**命题 1.1（双线性表示与物理场）。** 设 $f,g$ 在开区域内严格为正且实解析，并满足（3）。则由（2）定义的 $u,v$ 满足（1）。",
+    "after": "**命题 1.1（双线性表示与物理场）。** 设 $f,g$ 在开区域内严格为正且实解析，并满足（3）。则由（2）定义的 $u,v$ 满足（1）。\n\n证明中先从第一条双线性关系得到 $u$ 的演化关系，再借助组合 $v-u_y$ 恢复第二条方程。该组合在半离散情形中将对应后文的变量 $W_j$。"
+  },
+  {
+    "before": "## 2　交错格点双线性系统",
+    "after": "## 2　交错格点双线性系统\n\n式（4）表明，连续双线性对可由同一算子作用于 $g$ 及其 $y$ 导数来描述。因此，将 $f$ 放在两个相邻 $g$ 格点的中间，并同时对算子参数作对称平移，可以使两条离散关系的平均与差商分别对应连续双线性对。"
+  },
+  {
+    "before": "## 3　Gram 行列式解",
+    "after": "## 3　Gram 行列式解\n\n接下来构造式（5）的精确解。保留连续解在 $x,t$ 方向的指数因子，以有理格点乘子的幂表示 $y$ 方向的依赖。辅助层的相邻关系用于证明双线性恒等式，格点乘子则把这一层间关系连接到相邻空间格点。"
+  },
+  {
+    "before": "本节证明式（9）满足半离散双线性方程（5）。首先建立相邻辅助层之间的双线性恒等式。",
+    "after": "证明分为两步。首先固定空间格点，利用相邻辅助层之间的秩一更新得到算子 $B_s$ 的双线性恒等式。随后利用格点乘子与参数平移的关系，将同一恒等式分别用于 $G_j$ 和 $G_{j+1}$，从而得到式（5）的两条方程。"
+  },
+  {
+    "before": "**证明。** 将第 $n$ 层矩阵写为",
+    "after": "**证明。** 将矩阵元的行参数与列参数分开，使求导和辅助层移位都能写成低秩矩阵关系。将第 $n$ 层矩阵写为"
+  },
+  {
+    "before": "式（13）的最后一式由矩阵行列式引理得到。由 Jacobi 微分公式，有 $\\kappa=\\tau_{n,x}/\\tau_n$。再令",
+    "after": "式（13）的最后一式由矩阵行列式引理得到。由 Jacobi 微分公式，有 $\\kappa=\\tau_{n,x}/\\tau_n$。再令\n\n这里的 $\\psi$ 是相邻两个行列式的比值，$\\kappa$ 是第 $n$ 层行列式的对数导数。只需建立这两个标量之间的微分关系，即可通过双线性算子的展开恢复所需恒等式。为收集求导产生的项，记"
+  },
+  {
+    "before": "由 Jacobi 微分公式，有 $\\kappa=\\tau_{n,x}/\\tau_n$。再令",
+    "after": "由 Jacobi 微分公式，有 $\\kappa=\\tau_{n,x}/\\tau_n$。"
+  },
+  {
+    "before": "即（15）的第二式。对该式再求一次 $x$ 导数，并代入其余三式，得到",
+    "after": "即（15）的第二式。接下来的消元将消去 $\\eta_1,\\eta_2$，使结果仅含 $\\zeta$ 与 $\\kappa_x$。为此，对该式再求一次 $x$ 导数，并代入其余三式，得到"
+  },
+  {
+    "before": "**证明。** 在（10）中取 $n=0$、$s=a-d$，得到（5）的第一条方程。对于第二条，逐矩阵元有",
+    "after": "**证明。** 第一条方程直接来自相邻层恒等式：在（10）中取 $n=0$、$s=a-d$ 即可。第二条涉及格点 $j+1$，需要先将 $F_j$ 改写为该格点上参数为 $a+d$ 的第一层。逐矩阵元有"
+  },
+  {
+    "before": "## 5　正则性与 PE 形式",
+    "after": "## 5　正则性与 PE 形式\n\n由双线性解转向非线性物理场时，需要对 τ 函数取对数。以下先确定使这一变换保持正则的谱参数条件，再从双线性方程的和与差导出演化关系。PE 形式通过对辅助势作格点差分完成闭合。"
+  },
+  {
+    "before": "### 5.2　PE 形式的推导",
+    "after": "### 5.2　PE 形式的推导\n\n交错格点上，两侧 τ 函数对数差的平均给出 $u_j$，相邻 $G$ 层的对数差则给出 $\\omega_j$。为与连续变量 $v$ 对应，再将 $\\omega_j$ 与 $u_j$ 的中心差分组合。下面先固定这些变量及差分记号。"
+  },
+  {
+    "before": "两侧对数差的 $x$ 导数分别为 $(u_j+\\omega_j)/2$ 和 $(u_j-\\omega_j)/2$。再记",
+    "after": "两侧对数差的 $x$ 导数分别为 $(u_j+\\omega_j)/2$ 和 $(u_j-\\omega_j)/2$，因此式（23）的平方项可由 $u_j,\\omega_j$ 表示。两式相加时还会出现对数和的导数，将其记为辅助势"
+  },
+  {
+    "before": "为消去式（26）中的辅助势 $Z_j$，由式（24）、（25）可得",
+    "after": "式（26）是两种非线性化的共同起点。其中 $\\omega_j$ 的演化已由 $u_j,\\omega_j$ 决定，第一式还含辅助势 $Z_j$。在 PE 路线中，对第一式作格点差分；这一操作之所以能闭合，是因为 $Z_j$ 的相邻差已由物理变量确定。由式（24）、（25）可得"
+  },
+  {
+    "before": "本节通过引入势函数，将式（26）化为另一种非线性形式。",
+    "after": "PF 路线保留式（26）中的辅助势，以整数格点上的势函数表示它。这样可以直接推进势变量，并由对数导数和乘积恢复物理场。PE 与 PF 的区别由此归结为对同一 $Z_j$ 的不同处理。"
+  },
+  {
+    "before": "进一步引入因变量变换\n\n$$Q_j=",
+    "after": "第一条方程中同时出现 $u_{j,x}$ 与 $u_j^2/2$。取 $u_j$ 为一个函数的对数导数，可将这两个项合并为该函数的二阶导数与自身之比。相应地引入\n\n$$Q_j="
+  },
+  {
+    "before": "再定义\n\n$$R_j=",
+    "after": "为将 $\\omega_j$ 的演化也写成势变量的方程，将 $1-\\omega_j/h$ 分解为 $Q_jR_j$。其中 $Q_j$ 已由 τ 函数确定，因而定义\n\n$$R_j="
+  },
+  {
+    "before": "代入式（37）的第一式，得到 PF 系统",
+    "after": "此时第一组括号已由 $Q_j$ 方程确定，消去它便得到 $R_j$ 的演化方程。两条演化方程与 $M_j$ 的格点约束合在一起，构成 PF 系统"
+  },
+  {
+    "before": "下面分别考察非线性方程、物理变量变换及 Gram 解族的连续极限。所有估计均在固定紧集上进行。",
+    "after": "连续极限需要处理三个相互衔接的问题。首先，将光滑物理场代入半离散方程，比较其残差与连续 DLW 方程；其次，检验交错 τ 重构是否保持物理变量的二阶精度；最后，对随 $h$ 变化的精确 Gram 解族证明同样的二阶收敛。前两步给出局部展开，第三步将展开用于实际解族。所有估计均在固定紧集上进行。"
+  },
+  {
+    "before": "### 7.1　非线性方程的一致性",
+    "after": "### 7.1　非线性方程的一致性\n\n第一条非线性方程含后向差分，其自然评价点位于相邻物理层的中间；第二条方程含中心差分，评价点仍位于物理层。分别围绕这两个位置展开，可保留交错离散的对称性。"
+  },
+  {
+    "before": "即（42）的第一式。第二条中的通量满足",
+    "after": "即（42）的第一式。对于第二条方程，关键是来自中心差分的 $(u+2a)u_y$ 与 $W$ 中的 $-u_y$ 相互抵消，使极限通量恢复为连续方程的通量。具体地，"
+  },
+  {
+    "before": "### 7.2　物理变量重构的一致性",
+    "after": "### 7.2　物理变量重构的一致性\n\n方程的一致性之外，还需检查变量变换本身。这里先固定一对连续 τ 函数，只考察半格点平均和中心差商引入的误差。这一结果将在下一节用于随格距变化的 τ 解族。"
+  },
+  {
+    "before": "### 7.3　固定谱参数的 Gram 解族",
+    "after": "### 7.3　固定谱参数的 Gram 解族\n\n精确半离散 τ 函数的格点相位和振幅均依赖 $h$。因此，需要先在同一连续坐标下比较离散与连续行列式，再将估计传递给物理场。下面固定谱数据，通过正实指数插值把格点解延伸到连续 $y$ 坐标。"
+  },
+  {
+    "before": "**证明。** 记 $z_i=p_i-a<0$、$w_k=q_k+a>0$。",
+    "after": "**证明。** 先分别估计矩阵元的相位和振幅，再利用有限阶行列式及对数变换传递误差。记 $z_i=p_i-a<0$、$w_k=q_k+a>0$。"
+  },
+  {
+    "before": "对 $f^{(h)}$，半格移位后的矩阵元振幅因子为",
+    "after": "对 $f^{(h)}$，辅助层参数的平移与物理位置的半格移位同时作用于振幅。将两者合并后，一阶误差消去，矩阵元振幅因子为"
+  },
+  {
+    "before": "## 8　两种非线性形式的 Lax 表示",
+    "after": "## 8　两种非线性形式的 Lax 表示\n\n本节给出连接格点移位与时间演化的辅助线性问题，并检验两种操作的相容性。先在 PE 变量中构造一阶格点关系和二阶时间方程，再通过第 6 节的变量变换得到 PF 表示。证明的关键是将相容条件化为两项标量残差，其和与差分别对应非线性演化关系。"
+  },
+  {
+    "before": "取辅助函数 $\\psi_j$，定义",
+    "after": "格点关系描述辅助函数从 $j$ 到 $j+1$ 的变化，时间方程规定每一层的演化。要求先移位后演化与先演化后移位给出相同结果，便得到相容条件。取辅助函数 $\\psi_j$，定义"
+  },
+  {
+    "before": "定义残差\n\n$$\\begin{aligned}\n\\mathcal E_j",
+    "after": "为比较这两种演化次序，分别考察一阶算子 $A_j,B_j$ 与时间算子的交织关系。其未抵消的零阶项由以下两个残差表示：\n\n$$\\begin{aligned}\n\\mathcal E_j"
+  },
+  {
+    "before": "在 PF 中，$U_j=",
+    "after": "PE 与 PF 对应同一组物理场，因此可将前述线性问题直接写成势变量形式。在 PF 中，$U_j="
+  },
+  {
+    "before": "## 9　数值方法与数值结果",
+    "after": "## 9　数值方法"
+  },
+  {
+    "before": "本节基于 PE 和 PF 两种非线性形式构造数值格式，并与连续 DLW 方程的直接差分格式（FD）比较。以单孤子和二孤子解析解为参照，考察不同时间算法以及固定、动网格下的数值误差。",
+    "after": "前述构造给出了沿 $y$ 方向离散、在 $x,t$ 方向连续的非线性系统。数值计算以 PE 的 $P,W$ 或 PF 的 $Q,R$ 为演化变量，通过相应重构得到 $u,v$。本节依次说明空间差分、网格运动和时间推进，并给出连续 DLW 方程的直接差分格式（FD）作为比较对象。三种格式均以连续解析解确定初始物理场与边界数据。"
+  },
+  {
+    "before": "## 10　结论",
+    "after": "## 11　结论"
+  },
+  {
+    "before": "固定网格上的精度排序随算例及物理场变化；在所考察的算例中，动网格均降低了两个物理场的误差。",
+    "after": "固定网格比较中，PE、PF 与 FD 的误差排序随算例和物理场变化。采用同一密度驱动的动网格后，所考察的十八组场误差均减小，误差约为固定网格结果的 0.332 至 0.838。单孤子和二孤子图进一步给出数值波形与解析等高线的对应，以及误差在空间中的分布。"
+  },
+  {
+    "before": "## 参考文献",
+    "after": "## 数据与代码说明\n\n本文的理论推导与数值计算材料分别收录于随稿文件 [DLW理论.ipynb](../notebook/DLW理论.ipynb) 和 [DLW数值分析report.ipynb](../notebook/DLW数值分析report.ipynb)。数值文件包含算例参数、可执行计算代码及保存的图表输出；正文和附录中的误差表使用这些既有结果。\n\n\n## 附录 A　完整误差比较\n\n### A.1　时间算法\n\n表 A1 使用第 10.1 节的固定网格、时间步长和终止时刻，分别列出 Euler、RK4 与 C–N 的误差。每一行比较同一算例、同一空间格式和同一物理场，供第 10.2 节的时间算法讨论参照。\n\n**表 A1　固定网格上不同时间算法的最大绝对误差。每行最小值加粗。**\n\n<div class=\"table-wrap\"><table class=\"comparison\">\n<thead><tr><th scope=\"col\">算例</th><th scope=\"col\">格式</th><th scope=\"col\">场</th><th scope=\"col\">Euler</th><th scope=\"col\">RK4</th><th scope=\"col\">C–N</th></tr></thead>\n<tbody>\n<tr>\n<th rowspan=\"6\" scope=\"rowgroup\">A</th>\n<th rowspan=\"2\" scope=\"rowgroup\">PE</th>\n<th scope=\"row\">u</th>\n<td><strong>1.559149e-03</strong></td>\n<td>1.560308e-03</td>\n<td>1.560309e-03</td>\n</tr>\n<tr>\n<th scope=\"row\">v</th>\n<td><strong>3.228608e-03</strong></td>\n<td>3.229398e-03</td>\n<td>3.229404e-03</td>\n</tr>\n<tr>\n<th rowspan=\"2\" scope=\"rowgroup\">PF</th>\n<th scope=\"row\">u</th>\n<td><strong>1.186363e-02</strong></td>\n<td>1.187746e-02</td>\n<td>1.187746e-02</td>\n</tr>\n<tr>\n<th scope=\"row\">v</th>\n<td><strong>7.210650e-03</strong></td>\n<td>7.254773e-03</td>\n<td>7.254804e-03</td>\n</tr>\n<tr>\n<th rowspan=\"2\" scope=\"rowgroup\">FD</th>\n<th scope=\"row\">u</th>\n<td><strong>1.160637e-03</strong></td>\n<td>1.161402e-03</td>\n<td>1.161404e-03</td>\n</tr>\n<tr>\n<th scope=\"row\">v</th>\n<td><strong>3.008253e-03</strong></td>\n<td>3.008503e-03</td>\n<td>3.008508e-03</td>\n</tr>\n<tr>\n<th rowspan=\"6\" scope=\"rowgroup\">B</th>\n<th rowspan=\"2\" scope=\"rowgroup\">PE</th>\n<th scope=\"row\">u</th>\n<td>6.674179e-05</td>\n<td><strong>6.639277e-05</strong></td>\n<td>6.639418e-05</td>\n</tr>\n<tr>\n<th scope=\"row\">v</th>\n<td>6.968001e-05</td>\n<td><strong>6.664598e-05</strong></td>\n<td>6.664697e-05</td>\n</tr>\n<tr>\n<th rowspan=\"2\" scope=\"rowgroup\">PF</th>\n<th scope=\"row\">u</th>\n<td>1.302977e-04</td>\n<td>1.266358e-04</td>\n<td><strong>1.266346e-04</strong></td>\n</tr>\n<tr>\n<th scope=\"row\">v</th>\n<td>8.322184e-05</td>\n<td><strong>6.194167e-05</strong></td>\n<td>6.194314e-05</td>\n</tr>\n<tr>\n<th rowspan=\"2\" scope=\"rowgroup\">FD</th>\n<th scope=\"row\">u</th>\n<td>7.824931e-05</td>\n<td><strong>7.809306e-05</strong></td>\n<td>7.809446e-05</td>\n</tr>\n<tr>\n<th scope=\"row\">v</th>\n<td>6.738482e-05</td>\n<td><strong>6.429802e-05</strong></td>\n<td>6.429896e-05</td>\n</tr>\n<tr>\n<th rowspan=\"6\" scope=\"rowgroup\">C</th>\n<th rowspan=\"2\" scope=\"rowgroup\">PE</th>\n<th scope=\"row\">u</th>\n<td>1.306127e-04</td>\n<td><strong>1.299876e-04</strong></td>\n<td>1.299912e-04</td>\n</tr>\n<tr>\n<th scope=\"row\">v</th>\n<td>1.332472e-04</td>\n<td><strong>1.267185e-04</strong></td>\n<td>1.267211e-04</td>\n</tr>\n<tr>\n<th rowspan=\"2\" scope=\"rowgroup\">PF</th>\n<th scope=\"row\">u</th>\n<td>2.745545e-04</td>\n<td><strong>2.620490e-04</strong></td>\n<td>2.620512e-04</td>\n</tr>\n<tr>\n<th scope=\"row\">v</th>\n<td>1.986149e-04</td>\n<td><strong>1.405303e-04</strong></td>\n<td>1.405323e-04</td>\n</tr>\n<tr>\n<th rowspan=\"2\" scope=\"rowgroup\">FD</th>\n<th scope=\"row\">u</th>\n<td>1.447371e-04</td>\n<td><strong>1.442262e-04</strong></td>\n<td>1.442298e-04</td>\n</tr>\n<tr>\n<th scope=\"row\">v</th>\n<td>1.300531e-04</td>\n<td><strong>1.242170e-04</strong></td>\n<td>1.242195e-04</td>\n</tr>\n</tbody>\n</table></div>\n\n### A.2　固定网格与动网格\n\n表 A2 给出第 10.3 节误差比对应的原始误差。各组采用 RK4，节点数、时间步长和终止时刻相同。\n\n**表 A2　固定网格与动网格的最大绝对误差（RK4）。每行最小值加粗。**\n\n<div class=\"table-wrap\"><table class=\"comparison\">\n<thead><tr><th scope=\"col\">算例</th><th scope=\"col\">格式</th><th scope=\"col\">场</th><th scope=\"col\">固定网格</th><th scope=\"col\">动网格</th></tr></thead>\n<tbody>\n<tr>\n<th rowspan=\"6\" scope=\"rowgroup\">A</th>\n<th rowspan=\"2\" scope=\"rowgroup\">PE</th>\n<th scope=\"row\">u</th>\n<td>1.560308e-03</td>\n<td><strong>1.198143e-03</strong></td>\n</tr>\n<tr>\n<th scope=\"row\">v</th>\n<td>3.229398e-03</td>\n<td><strong>2.172159e-03</strong></td>\n</tr>\n<tr>\n<th rowspan=\"2\" scope=\"rowgroup\">PF</th>\n<th scope=\"row\">u</th>\n<td>1.187746e-02</td>\n<td><strong>3.940103e-03</strong></td>\n</tr>\n<tr>\n<th scope=\"row\">v</th>\n<td>7.254773e-03</td>\n<td><strong>3.703664e-03</strong></td>\n</tr>\n<tr>\n<th rowspan=\"2\" scope=\"rowgroup\">FD</th>\n<th scope=\"row\">u</th>\n<td>1.161402e-03</td>\n<td><strong>8.878667e-04</strong></td>\n</tr>\n<tr>\n<th scope=\"row\">v</th>\n<td>3.008503e-03</td>\n<td><strong>1.960738e-03</strong></td>\n</tr>\n<tr>\n<th rowspan=\"6\" scope=\"rowgroup\">B</th>\n<th rowspan=\"2\" scope=\"rowgroup\">PE</th>\n<th scope=\"row\">u</th>\n<td>6.639277e-05</td>\n<td><strong>4.533361e-05</strong></td>\n</tr>\n<tr>\n<th scope=\"row\">v</th>\n<td>6.664598e-05</td>\n<td><strong>5.568003e-05</strong></td>\n</tr>\n<tr>\n<th rowspan=\"2\" scope=\"rowgroup\">PF</th>\n<th scope=\"row\">u</th>\n<td>1.266358e-04</td>\n<td><strong>8.467373e-05</strong></td>\n</tr>\n<tr>\n<th scope=\"row\">v</th>\n<td>6.194167e-05</td>\n<td><strong>4.606240e-05</strong></td>\n</tr>\n<tr>\n<th rowspan=\"2\" scope=\"rowgroup\">FD</th>\n<th scope=\"row\">u</th>\n<td>7.809306e-05</td>\n<td><strong>5.709006e-05</strong></td>\n</tr>\n<tr>\n<th scope=\"row\">v</th>\n<td>6.429802e-05</td>\n<td><strong>5.387754e-05</strong></td>\n</tr>\n<tr>\n<th rowspan=\"6\" scope=\"rowgroup\">C</th>\n<th rowspan=\"2\" scope=\"rowgroup\">PE</th>\n<th scope=\"row\">u</th>\n<td>1.299876e-04</td>\n<td><strong>8.193645e-05</strong></td>\n</tr>\n<tr>\n<th scope=\"row\">v</th>\n<td>1.267185e-04</td>\n<td><strong>8.860848e-05</strong></td>\n</tr>\n<tr>\n<th rowspan=\"2\" scope=\"rowgroup\">PF</th>\n<th scope=\"row\">u</th>\n<td>2.620490e-04</td>\n<td><strong>1.626438e-04</strong></td>\n</tr>\n<tr>\n<th scope=\"row\">v</th>\n<td>1.405303e-04</td>\n<td><strong>8.423511e-05</strong></td>\n</tr>\n<tr>\n<th rowspan=\"2\" scope=\"rowgroup\">FD</th>\n<th scope=\"row\">u</th>\n<td>1.442262e-04</td>\n<td><strong>9.643247e-05</strong></td>\n</tr>\n<tr>\n<th scope=\"row\">v</th>\n<td>1.242170e-04</td>\n<td><strong>8.548888e-05</strong></td>\n</tr>\n</tbody>\n</table></div>\n\n## 附录 B　算例 B 的波形与误差\n\n算例 B 取 $p_1=4,q_1=-3$，计算与展示范围同第 10.4 节的扩域设置，展示 $x,y\\in[-30,30]$。图 B1 中，$u$ 的正脉冲与 $v$ 的负脉冲沿同一斜向波带分布；数值与解析等高线在图示尺度下相近。\n\n<figure><img src=\"../Workspaces/dlw_paper_20261009/figure_3.png\" alt=\"算例B：数值物理场与解析场对照\" loading=\"lazy\"><figcaption>图 B1　算例 B 的数值物理场与解析场对照。PF，RK4，固定网格，T = 0.01。</figcaption></figure>\n\n图 B2 显示两个场的误差空间分布并不完全相同。$u$ 的较大误差出现在图示波带的下端附近，$v$ 的误差则沿斜带分布。因而，对两个物理场分别报告误差，有助于保留各自的数值表现。\n\n<figure><img src=\"../Workspaces/dlw_paper_20261009/figure_4.png\" alt=\"算例B：绝对误差分布\" loading=\"lazy\"><figcaption>图 B2　算例 B 的绝对误差分布。PF，RK4，固定网格，T = 0.01。</figcaption></figure>\n\n\n## 参考文献"
+  }
+]

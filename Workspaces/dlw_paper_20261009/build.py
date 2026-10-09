@@ -40,11 +40,11 @@ def heading(m):
     toc.append(f'<a href="#s{count}">{html.escape(re.sub("<[^>]*>", "", m[1]))}</a>')
     return f'<h2 id="s{count}">{m[1]}</h2>'
 body = re.sub(r'<h2>(.*?)</h2>', heading, body)
-page = '<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>（2+1）维 DLW 方程的半离散化、Lax 表示与数值模拟</title><meta name="description" content="原半离散 DLW 方程、所需条件、辅助线性对及其相容性证明。"><style>' + css + '</style></head><body><main>' + body + '</main></body></html>'
+page = '<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>（2+1）维 DLW 方程的半离散化、Lax 表示与数值模拟</title><meta name="description" content="DLW 方程的交错半离散化、Gram 行列式解、两种非线性形式、连续极限与孤子数值比较。"><style>' + css + '</style></head><body><main>' + body + '</main></body></html>'
 dest = ROOT / 'report/dlw_paper_draft.html'
 dest.write_text(page, encoding='utf-8')
 tags = [int(n) for f in formulas for n in re.findall(r'\\tag\{(\d+)\}', f['tex'])]
-assert tags == list(range(1,75)), tags
+assert tags == list(range(1,76)), tags
 assert 'MATHSLOT' not in page
 for link in re.findall(r'href="([^"#]+)"', page):
     if not link.startswith(('https://','http://')): assert (dest.parent / link).exists(), link

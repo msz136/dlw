@@ -14,7 +14,7 @@ def save(name, value):
 
 async def main():
     CONTROL.mkdir(exist_ok=True)
-    params = StdioServerParameters(command=str(HERE / '.venv/Scripts/colab-mcp.exe'), args=[])
+    params = StdioServerParameters(command=sys.executable, args=[str(HERE / 'colab_server.py')])
     with (CONTROL / 'server-stderr.log').open('w', encoding='utf-8') as errors:
         async with stdio_client(params, errlog=errors) as (read, write):
             async with ClientSession(read, write) as session:
@@ -23,7 +23,10 @@ async def main():
                 save('initial_tools.json', available.model_dump(mode='json'))
                 save('client_status.json', {'status':'initialized', 'server':init.serverInfo.model_dump(mode='json')})
                 print('Official Colab MCP initialized.', flush=True)
-                seen = set()
+                seen = {
+                    item.name.replace('response-', 'request-')
+                    for item in CONTROL.glob('response-*.json')
+                }
                 while not (CONTROL / 'stop.json').exists():
                     for request_file in sorted(CONTROL.glob('request-*.json')):
                         if request_file.name in seen:

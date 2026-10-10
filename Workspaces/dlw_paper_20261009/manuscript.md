@@ -2,7 +2,7 @@
 
 # Semi-discretization, Darboux–Lax representation and numerical simulations of the (2+1)-dimensional DLW system {#en-title}
 
-**Abstract.** We construct a staggered semi-discrete bilinear system for the (2+1)-dimensional dispersive long wave (DLW) equation and derive its Gram determinant solutions. A rank-one update between adjacent auxiliary layers establishes the bilinear identities for determinants of arbitrary finite order. Two nonlinear formulations follow by eliminating a common logarithmic potential through lattice differences or retaining it through potential variables. They reconstruct identical physical fields from a common positive τ-function pair and admit a Darboux–Lax representation. We establish second-order consistency and the uniform second-order continuum limit of the exact Gram solutions for fixed regular spectral parameters. Numerical experiments compare the nonlinear formulations, time integrators and self-adaptive moving mesh methods against a direct finite-difference discretization. In the fixed-grid tests, the potential-elimination formulation gives smaller errors in u than the potential formulation. RK4 and Crank–Nicolson differ by less than 0.003% in terminal error, while the moving mesh reduces the errors in both physical fields by 16.2%–66.8% across the reported comparisons.
+**Abstract.** We construct a staggered semi-discrete bilinear system for the (2+1)-dimensional dispersive long wave (DLW) equation and derive its Gram determinant solutions. A rank-one update between adjacent auxiliary layers establishes the bilinear identities for determinants of arbitrary finite order. Two nonlinear formulations follow by eliminating a common logarithmic potential through lattice differences or retaining it through potential variables. They reconstruct identical physical fields from a common positive τ-function pair and admit a Darboux–Lax representation. We establish second-order consistency and the uniform second-order continuum limit of the exact Gram solutions for fixed regular spectral parameters. Numerical experiments compare the nonlinear formulations, time integrators and self-adaptive moving mesh methods against a direct finite-difference discretization. The fixed-grid comparison gives PF-to-PE u-error ratios of 4.78, 5.68, 2.11, 6.48 for the four tests, respectively. The largest relative difference between RK4 and C–N terminal errors is 0.0599%. The moving mesh lowers 24 of the twenty-four field errors; the percentage changes, measured as reductions relative to the corresponding fixed-grid errors, range from 0.469% to 20.7%.
 
 **Keywords:** dispersive long wave equation; semi-discretization; Gram determinant; Darboux–Lax representation; continuum limit; self-adaptive moving mesh
 
@@ -885,7 +885,11 @@ $$\begin{aligned}u_*&=\frac{2k(c-1)E}{(1+cE)(1+E)},\\v_*&=2k\ell\left[\frac{cE}{
 
 For $p+q>0$ and $c>0$, the sign of the u pulse is determined by $c-1$, while that of v is determined by $\ell$. We choose $(p,q)=(1,2)$ and $(4,-3)$ to obtain a negative and a positive u pulse, respectively. In the first case, $c=1/4$ and $\ell=-3/4$; in the second, $c=2$ and $\ell=-1/2$. Both choices give a negative v pulse.
 
-**Two-soliton solution.** For $N=2$, expanding the Gram determinant gives
+<figure><img src="../Workspaces/dlw_paper_20261009/figures/exact_single_1_2.png" alt="Exact one-soliton solution with (p,q)=(1,2) at t=0. Left: u; right: v. Display window: x ∈ [−5,5], y ∈ [−5,5]." loading="lazy"><figcaption>Exact one-soliton solution with (p,q)=(1,2) at t=0. Left: u; right: v. Display window: x ∈ [−5,5], y ∈ [−5,5].</figcaption></figure>
+
+<figure><img src="../Workspaces/dlw_paper_20261009/figures/exact_single_4_m3.png" alt="Exact one-soliton solution with (p,q)=(4,−3) at t=0. Left: u; right: v. Display window: x ∈ [−10,10], y ∈ [−10,10]." loading="lazy"><figcaption>Exact one-soliton solution with (p,q)=(4,−3) at t=0. Left: u; right: v. Display window: x ∈ [−10,10], y ∈ [−10,10].</figcaption></figure>
+
+**Two-soliton solutions.** For $N=2$, expanding the Gram determinant gives
 
 <a id="en-eq-108"></a>
 
@@ -897,17 +901,23 @@ where
 
 $$\begin{gathered}E_i=\frac{e^{\theta_i}}{p_i+q_i},\qquad c_i=-\frac{p_i-a}{q_i+a},\\\theta_i=(p_i+q_i)x+(q_i^2-p_i^2)t+\left(\frac1{p_i-a}+\frac1{q_i+a}\right)y,\qquad i=1,2,\\A_{12}=\frac{(p_1-p_2)(q_1-q_2)}{(p_1+q_2)(p_2+q_1)}.\end{gathered}\tag{109}$$
 
-The physical fields are obtained from $u_*=2\partial_x\log(f_*/g_*)$ and $v_*=2\partial_x\partial_y\log(f_*g_*)$. For the two-soliton solution, we take $p_1=6$, $q_1=-5$, $p_2=4$, and $q_2=-3$, giving $c_1=4/3$, $c_2=2$ and $A_{12}=4/3$. The phases are $\theta_1=x-11t-y/12$ and $\theta_2=x-7t-y/2$, so the two constituent waves have different spatial orientations and propagation rates. This case extends the comparison to a two-wave interaction.
+The physical fields are obtained from $u_*=2\partial_x\log(f_*/g_*)$ and $v_*=2\partial_x\partial_y\log(f_*g_*)$. For the first two-soliton test, we take $p_1=6$, $q_1=-5$, $p_2=4$, and $q_2=-3$, giving $c_1=4/3$, $c_2=2$ and $A_{12}=4/3$. The phases are $\theta_1=x-11t-y/12$ and $\theta_2=x-7t-y/2$, so the two constituent waves have different spatial orientations and propagation rates. This case extends the comparison to a two-wave interaction.
+
+<figure><img src="../Workspaces/dlw_paper_20261009/figures/exact_two_soliton.png" alt="Exact two-soliton solution with (p₁,q₁)=(6,−5), (p₂,q₂)=(4,−3) at t=0. Left: u; right: v. Display window: x ∈ [−30,30], y ∈ [−30,30]." loading="lazy"><figcaption>Exact two-soliton solution with (p₁,q₁)=(6,−5), (p₂,q₂)=(4,−3) at t=0. Left: u; right: v. Display window: x ∈ [−30,30], y ∈ [−30,30].</figcaption></figure>
+
+The second two-soliton test takes $(p_1,q_1)=(1,2)$ and $(p_2,q_2)=(4,-3)$, with $c_1=1/4$, $c_2=2$ and $A_{12}=5/4$. Its phases are $\theta_1=3x+3t-3y/4$ and $\theta_2=x-7t-y/2$, producing positive and negative wave bands in u.
+
+<figure><img src="../Workspaces/dlw_paper_20261009/figures/exact_two_soliton_mixed.png" alt="Exact two-soliton solution: (1,2; 4,-3), t=0; u / v; [-30,30]²." loading="lazy"><figcaption>Exact two-soliton solution: (1,2; 4,-3), t=0; u / v; [-30,30]².</figcaption></figure>
 
 **Initial and boundary data.** PE is initialized with $P^0=\delta_-u_*(0)$ and $W^0=v_*(0)-\delta_0u_*(0)$; FD uses the same $P^0$ and $v^0=v_*(0)$. For PF, Q is determined by $D_1Q_j^0=u_{*,j}(0)Q_j^0/2$ with normalization $Q_{j,0}^0=1$, and $R_j^0=[1-(v_{*,j}(0)-\delta_0u_{*,j}(0))/4]/Q_j^0$. The lower boundary $Q_0(t)$ is obtained from $u_{*,0}(t)$ by the same relation. The three schemes therefore use common initial physical fields.
 
-The computational boundaries are placed where the soliton tails approach their backgrounds. PE and FD use periodic x differences; PF uses the left and right background values of Q,R. In y, the lower boundary is exact and the difference between the numerical solution and the exact background is quadratically extrapolated at the upper boundary.
+PE and FD use periodic x differences; PF uses the left and right background values of Q,R. In y, the lower boundary is exact and the difference between the numerical solution and the exact background is quadratically extrapolated at the upper boundary.
 
 **Computational settings and error measures.**
 
-For Tables 1–3, the computational domain is $x\in[-20,20)$ and $y\in[-1.5,1.5]$. Use $N_x=256$, fixed-grid spacing $\Delta x=0.15625$, and 24 cells in y with $h=0.125$. The time step is $\Delta t=1.25\times10^{-4}$ and the final time is $T=0.01$.
+The four tests are computed on $[-10,10]^2$, $[-20,20]^2$, $[-40,40]^2$ and $[-40,40]^2$, respectively. Plots and error evaluation use the interior squares $[-5,5]^2$, $[-10,10]^2$, $[-30,30]^2$ and $[-30,30]^2$, matching the display ranges of Figures 1(a), 1(b), 3 and 4 in the Physica D reference. All tests use $\Delta x=h=0.1$, giving 200, 400, 800 and 800 computational cells in each direction. The moving mesh redistributes x nodes while retaining the node counts and y layers. Starting at $t=0$, each run advances 100 steps with $\Delta t=10^{-4}$ to $T=0.01$.
 
-The evaluation grid $\mathcal G$ consists of 4001 equally spaced x points on $[-10,10]$ and all y layers. Cubic splines interpolate each numerical physical field from its actual x nodes. Define
+The common evaluation grid $\mathcal G$ consists of x points spaced by $0.01$ over the interior interval and the interior y-cell centres. Numerical fields are interpolated by cubic splines on the actual x nodes, whose support contains every evaluation point. Tables and field plots use these same interior regions and numerical solutions. Define
 
 <a id="en-eq-110"></a>
 
@@ -916,242 +926,75 @@ $$E_f(T)=\max_{(x,y)\in\mathcal G}|f_{\rm num}(x,y,T)-f_*(x,y,T)|,
 
 ### 3.5 Numerical results {#en-results}
 
-Table 1 compares the maximum absolute errors of the three spatial schemes, using common initial physical fields, the same fixed grid and RK4 time integration. The difference between PE and PF is most pronounced in u: the PF errors are approximately 7.61, 1.91 and 2.02 times the PE errors for the one-soliton solution with p=1 and q=2, the one-soliton solution with p=4 and q=−3 and the two-soliton case, respectively. The corresponding ratios for v are 2.25, 0.929 and 1.11. Thus PE gives smaller u errors in all three tests, while the relative v errors depend on the soliton parameters.
+**Spatial-method comparison.** Table 1 compares maximum absolute errors on the same domain and fixed grid with RK4. All errors use the common evaluation grid specified in Section 3.4.
 
-**Table 1. Maximum absolute errors on the fixed grid with RK4. The smallest entry in each row is bold.**
+**Table 1. Maximum absolute errors on the fixed grid with RK4; row minima are bold.**
 
-<div class="table-wrap"><table class="comparison">
-<thead><tr><th scope="col">Case</th><th scope="col">Field</th><th scope="col">PE</th><th scope="col">PF</th><th scope="col">FD</th></tr></thead>
-<tbody>
-<tr>
-<th rowspan="2" scope="rowgroup">One-soliton (p=1, q=2)</th>
-<th scope="row">u</th>
-<td>1.560308e-03</td>
-<td>1.187746e-02</td>
-<td><strong>1.161402e-03</strong></td>
-</tr>
-<tr>
-<th scope="row">v</th>
-<td>3.229398e-03</td>
-<td>7.254773e-03</td>
-<td><strong>3.008503e-03</strong></td>
-</tr>
-<tr>
-<th rowspan="2" scope="rowgroup">One-soliton (p=4, q=−3)</th>
-<th scope="row">u</th>
-<td><strong>6.639277e-05</strong></td>
-<td>1.266358e-04</td>
-<td>7.809306e-05</td>
-</tr>
-<tr>
-<th scope="row">v</th>
-<td>6.664598e-05</td>
-<td><strong>6.194167e-05</strong></td>
-<td>6.429802e-05</td>
-</tr>
-<tr>
-<th rowspan="2" scope="rowgroup">Two-soliton</th>
-<th scope="row">u</th>
-<td><strong>1.299876e-04</strong></td>
-<td>2.620490e-04</td>
-<td>1.442262e-04</td>
-</tr>
-<tr>
-<th scope="row">v</th>
-<td>1.267185e-04</td>
-<td>1.405303e-04</td>
-<td><strong>1.242170e-04</strong></td>
-</tr>
-</tbody>
-</table></div>
+<div class="table-wrap"><table class="comparison"><thead><tr><th>Case</th><th>Field</th><th>PE</th><th>PF</th><th>FD</th></tr></thead><tbody><tr><th>One-soliton (p=1, q=2)</th><th>u</th><td>6.406395e-04</td><td>3.061201e-03</td><td><strong>4.715088e-04</strong></td></tr><tr><th>One-soliton (p=1, q=2)</th><th>v</th><td>1.339511e-03</td><td>3.067031e-03</td><td><strong>1.201923e-03</strong></td></tr><tr><th>One-soliton (p=4, q=−3)</th><th>u</th><td><strong>1.419616e-05</strong></td><td>8.067776e-05</td><td>1.718043e-05</td></tr><tr><th>One-soliton (p=4, q=−3)</th><th>v</th><td>2.745967e-05</td><td>4.377502e-04</td><td><strong>2.605300e-05</strong></td></tr><tr><th>Two-soliton (6,−5; 4,−3)</th><th>u</th><td><strong>3.552455e-05</strong></td><td>7.501357e-05</td><td>3.989986e-05</td></tr><tr><th>Two-soliton (6,−5; 4,−3)</th><th>v</th><td>5.359645e-05</td><td>5.394947e-05</td><td><strong>5.173628e-05</strong></td></tr><tr><th>Two-soliton (1,2; 4,−3)</th><th>u</th><td>6.329588e-04</td><td>4.102555e-03</td><td><strong>4.782980e-04</strong></td></tr><tr><th>Two-soliton (1,2; 4,−3)</th><th>v</th><td>1.511271e-03</td><td>3.252786e-03</td><td><strong>1.350627e-03</strong></td></tr></tbody></table></div>
 
-Relative to FD, PE reduces the u error by about 15.0% and 9.87% for the one-soliton solution with p=4 and q=−3 and the two-soliton case, while increasing the v error by about 3.65% and 2.01%. For the one-soliton solution with p=1 and q=2, its u and v errors exceed FD by about 34.3% and 7.34%. PF gives the smallest v error for the one-soliton solution with p=4 and q=−3, approximately 3.66% below FD. The differences between PE and FD are smaller in the latter two cases than in the one-soliton solution with p=1 and q=2, with different trends in the two physical fields. We next compare time integration and mesh selection for each scheme.
+For one-soliton (p=1, q=2), the smallest u and v errors are obtained by FD and FD, respectively. For one-soliton (p=4, q=−3), the smallest u and v errors are obtained by PE and FD, respectively. For two-soliton (6,−5; 4,−3), the smallest u and v errors are obtained by PE and FD, respectively. For two-soliton (1,2; 4,−3), the smallest u and v errors are obtained by FD and FD, respectively.
 
-**Time-integrator comparison.**
+The PF-to-PE error ratios are 4.78, 5.68, 2.11, 6.48 for u and 2.29, 15.9, 1.01, 2.15 for v, in case order. Thus the choice of nonlinear variables affects the physical-field errors obtained from the common semi-discrete construction.
 
-Table 2 compares the terminal errors of Euler, RK4 and C–N on the fixed spatial grid with the same time step. Error reductions are relative to Euler, while differences between RK4 and C–N are relative to RK4.
+**Time-integrator comparison.** Euler, RK4 and C–N are compared at the same spatial resolution and time step.
 
-**Table 2. Maximum absolute errors of the time integrators on the fixed grid. The smallest entry in each row is bold.**
+**Table 2. Maximum absolute errors of the time integrators on the fixed grid; row minima are bold.**
 
-<div class="table-wrap"><table class="comparison">
-<thead><tr><th scope="col">Case</th><th scope="col">Method</th><th scope="col">Field</th><th scope="col">Euler</th><th scope="col">RK4</th><th scope="col">C–N</th></tr></thead>
-<tbody>
-<tr>
-<th rowspan="6" scope="rowgroup">One-soliton (p=1, q=2)</th>
-<th rowspan="2" scope="rowgroup">PE</th>
-<th scope="row">u</th>
-<td><strong>1.559149e-03</strong></td>
-<td>1.560308e-03</td>
-<td>1.560309e-03</td>
-</tr>
-<tr>
-<th scope="row">v</th>
-<td><strong>3.228608e-03</strong></td>
-<td>3.229398e-03</td>
-<td>3.229404e-03</td>
-</tr>
-<tr>
-<th rowspan="2" scope="rowgroup">PF</th>
-<th scope="row">u</th>
-<td><strong>1.186363e-02</strong></td>
-<td>1.187746e-02</td>
-<td>1.187746e-02</td>
-</tr>
-<tr>
-<th scope="row">v</th>
-<td><strong>7.210650e-03</strong></td>
-<td>7.254773e-03</td>
-<td>7.254804e-03</td>
-</tr>
-<tr>
-<th rowspan="2" scope="rowgroup">FD</th>
-<th scope="row">u</th>
-<td><strong>1.160637e-03</strong></td>
-<td>1.161402e-03</td>
-<td>1.161404e-03</td>
-</tr>
-<tr>
-<th scope="row">v</th>
-<td><strong>3.008253e-03</strong></td>
-<td>3.008503e-03</td>
-<td>3.008508e-03</td>
-</tr>
-<tr>
-<th rowspan="6" scope="rowgroup">One-soliton (p=4, q=−3)</th>
-<th rowspan="2" scope="rowgroup">PE</th>
-<th scope="row">u</th>
-<td>6.674179e-05</td>
-<td><strong>6.639277e-05</strong></td>
-<td>6.639418e-05</td>
-</tr>
-<tr>
-<th scope="row">v</th>
-<td>6.968001e-05</td>
-<td><strong>6.664598e-05</strong></td>
-<td>6.664697e-05</td>
-</tr>
-<tr>
-<th rowspan="2" scope="rowgroup">PF</th>
-<th scope="row">u</th>
-<td>1.302977e-04</td>
-<td>1.266358e-04</td>
-<td><strong>1.266346e-04</strong></td>
-</tr>
-<tr>
-<th scope="row">v</th>
-<td>8.322184e-05</td>
-<td><strong>6.194167e-05</strong></td>
-<td>6.194314e-05</td>
-</tr>
-<tr>
-<th rowspan="2" scope="rowgroup">FD</th>
-<th scope="row">u</th>
-<td>7.824931e-05</td>
-<td><strong>7.809306e-05</strong></td>
-<td>7.809446e-05</td>
-</tr>
-<tr>
-<th scope="row">v</th>
-<td>6.738482e-05</td>
-<td><strong>6.429802e-05</strong></td>
-<td>6.429896e-05</td>
-</tr>
-<tr>
-<th rowspan="6" scope="rowgroup">Two-soliton</th>
-<th rowspan="2" scope="rowgroup">PE</th>
-<th scope="row">u</th>
-<td>1.306127e-04</td>
-<td><strong>1.299876e-04</strong></td>
-<td>1.299912e-04</td>
-</tr>
-<tr>
-<th scope="row">v</th>
-<td>1.332472e-04</td>
-<td><strong>1.267185e-04</strong></td>
-<td>1.267211e-04</td>
-</tr>
-<tr>
-<th rowspan="2" scope="rowgroup">PF</th>
-<th scope="row">u</th>
-<td>2.745545e-04</td>
-<td><strong>2.620490e-04</strong></td>
-<td>2.620512e-04</td>
-</tr>
-<tr>
-<th scope="row">v</th>
-<td>1.986149e-04</td>
-<td><strong>1.405303e-04</strong></td>
-<td>1.405323e-04</td>
-</tr>
-<tr>
-<th rowspan="2" scope="rowgroup">FD</th>
-<th scope="row">u</th>
-<td>1.447371e-04</td>
-<td><strong>1.442262e-04</strong></td>
-<td>1.442298e-04</td>
-</tr>
-<tr>
-<th scope="row">v</th>
-<td>1.300531e-04</td>
-<td><strong>1.242170e-04</strong></td>
-<td>1.242195e-04</td>
-</tr>
-</tbody>
-</table></div>
+<div class="table-wrap"><table class="comparison"><thead><tr><th>Case</th><th>Method</th><th>Field</th><th>Euler</th><th>RK4</th><th>C–N</th></tr></thead><tbody><tr><th>One-soliton (p=1, q=2)</th><th>PE</th><th>u</th><td><strong>6.396711e-04</strong></td><td>6.406395e-04</td><td>6.406384e-04</td></tr><tr><th>One-soliton (p=1, q=2)</th><th>PE</th><th>v</th><td>1.340634e-03</td><td><strong>1.339511e-03</strong></td><td>1.339513e-03</td></tr><tr><th>One-soliton (p=1, q=2)</th><th>PF</th><th>u</th><td>3.062643e-03</td><td><strong>3.061201e-03</strong></td><td>3.061204e-03</td></tr><tr><th>One-soliton (p=1, q=2)</th><th>PF</th><th>v</th><td><strong>3.061804e-03</strong></td><td>3.067031e-03</td><td>3.067044e-03</td></tr><tr><th>One-soliton (p=1, q=2)</th><th>FD</th><th>u</th><td><strong>4.707623e-04</strong></td><td>4.715088e-04</td><td>4.715079e-04</td></tr><tr><th>One-soliton (p=1, q=2)</th><th>FD</th><th>v</th><td>1.203189e-03</td><td><strong>1.201923e-03</strong></td><td>1.201924e-03</td></tr><tr><th>One-soliton (p=4, q=−3)</th><th>PE</th><th>u</th><td>1.422394e-05</td><td><strong>1.419616e-05</strong></td><td>1.419664e-05</td></tr><tr><th>One-soliton (p=4, q=−3)</th><th>PE</th><th>v</th><td>3.005484e-05</td><td><strong>2.745967e-05</strong></td><td>2.746028e-05</td></tr><tr><th>One-soliton (p=4, q=−3)</th><th>PF</th><th>u</th><td><strong>7.497904e-05</strong></td><td>8.067776e-05</td><td>8.071976e-05</td></tr><tr><th>One-soliton (p=4, q=−3)</th><th>PF</th><th>v</th><td><strong>4.012601e-04</strong></td><td>4.377502e-04</td><td>4.380126e-04</td></tr><tr><th>One-soliton (p=4, q=−3)</th><th>FD</th><th>u</th><td>1.883910e-05</td><td><strong>1.718043e-05</strong></td><td>1.718091e-05</td></tr><tr><th>One-soliton (p=4, q=−3)</th><th>FD</th><th>v</th><td>2.860127e-05</td><td><strong>2.605300e-05</strong></td><td>2.605361e-05</td></tr><tr><th>Two-soliton (6,−5; 4,−3)</th><th>PE</th><th>u</th><td>3.840649e-05</td><td><strong>3.552455e-05</strong></td><td>3.552653e-05</td></tr><tr><th>Two-soliton (6,−5; 4,−3)</th><th>PE</th><th>v</th><td>5.901085e-05</td><td><strong>5.359645e-05</strong></td><td>5.359819e-05</td></tr><tr><th>Two-soliton (6,−5; 4,−3)</th><th>PF</th><th>u</th><td>8.221511e-05</td><td>7.501357e-05</td><td><strong>7.501289e-05</strong></td></tr><tr><th>Two-soliton (6,−5; 4,−3)</th><th>PF</th><th>v</th><td>6.201458e-05</td><td>5.394947e-05</td><td><strong>5.394912e-05</strong></td></tr><tr><th>Two-soliton (6,−5; 4,−3)</th><th>FD</th><th>u</th><td>4.502895e-05</td><td><strong>3.989986e-05</strong></td><td>3.990183e-05</td></tr><tr><th>Two-soliton (6,−5; 4,−3)</th><th>FD</th><th>v</th><td>5.711359e-05</td><td><strong>5.173628e-05</strong></td><td>5.173802e-05</td></tr><tr><th>Two-soliton (1,2; 4,−3)</th><th>PE</th><th>u</th><td><strong>6.188417e-04</strong></td><td>6.329588e-04</td><td>6.330018e-04</td></tr><tr><th>Two-soliton (1,2; 4,−3)</th><th>PE</th><th>v</th><td>1.515498e-03</td><td><strong>1.511271e-03</strong></td><td>1.511273e-03</td></tr><tr><th>Two-soliton (1,2; 4,−3)</th><th>PF</th><th>u</th><td><strong>4.018327e-03</strong></td><td>4.102555e-03</td><td>4.102862e-03</td></tr><tr><th>Two-soliton (1,2; 4,−3)</th><th>PF</th><th>v</th><td>3.260613e-03</td><td><strong>3.252786e-03</strong></td><td>3.252802e-03</td></tr><tr><th>Two-soliton (1,2; 4,−3)</th><th>FD</th><th>u</th><td><strong>4.666671e-04</strong></td><td>4.782980e-04</td><td>4.783295e-04</td></tr><tr><th>Two-soliton (1,2; 4,−3)</th><th>FD</th><th>v</th><td>1.355028e-03</td><td><strong>1.350627e-03</strong></td><td>1.350630e-03</td></tr></tbody></table></div>
 
-Across all eighteen comparisons, the relative difference between RK4 and C–N is below 0.003%. At the tested spatial resolution and time step, the two methods give nearly identical terminal errors.
+The largest relative difference between RK4 and C–N terminal errors is 0.0599%. For PE, replacing Euler by RK4 changes the errors by reductions ranging from -2.28% to 9.18%. For PF, replacing Euler by RK4 changes the errors by reductions ranging from -9.09% to 13%. For FD, replacing Euler by RK4 changes the errors by reductions ranging from -2.49% to 11.4%. Negative reductions denote increases. RK4 is used for the mesh comparison and field plots.
 
-Replacing Euler by RK4 reduces the PE and FD errors for the one-soliton solution with p=4 and q=−3 and the two-soliton case by 0.20%–0.52% in u and 4.35%–4.90% in v. PF is more sensitive: its u errors decrease by 2.81% and 4.55%, and its v errors by 25.6% and 29.2%, respectively. The trend reverses for the one-soliton solution with p=1 and q=2, where RK4 errors exceed Euler errors by 0.0083%–0.612%. Under these settings, the largest effect of time integration occurs in the PF v field; the RK4–C–N difference is much smaller than the change from Euler. RK4 is used for the remaining mesh comparisons and field plots.
+**Fixed and moving meshes.** Table 3 keeps the node counts, time step and final time identical. Each cell lists the u and v errors in that order.
 
-**Fixed and moving meshes.**
+**Table 3. Maximum absolute errors on fixed and moving meshes; the smaller value for each field is bold.**
 
-Table 3 compares fixed and moving meshes for each spatial scheme, with identical node counts, RK4, time step and final time. Each cell lists $E_u$ followed by $E_v$. Reductions are relative to the corresponding fixed-grid errors.
+<div class="table-wrap"><table class="comparison"><thead><tr><th>Case</th><th>Method</th><th>Fixed mesh: u / v</th><th>Moving mesh: u / v</th></tr></thead><tbody><tr><th>One-soliton (p=1, q=2)</th><th>PE</th><td>6.406395e-04 / 1.339511e-03</td><td><strong>5.781845e-04</strong> / <strong>1.091714e-03</strong></td></tr><tr><th>One-soliton (p=1, q=2)</th><th>PF</th><td>3.061201e-03 / 3.067031e-03</td><td><strong>2.579691e-03</strong> / <strong>2.493117e-03</strong></td></tr><tr><th>One-soliton (p=1, q=2)</th><th>FD</th><td>4.715088e-04 / 1.201923e-03</td><td><strong>4.067585e-04</strong> / <strong>9.530188e-04</strong></td></tr><tr><th>One-soliton (p=4, q=−3)</th><th>PE</th><td>1.419616e-05 / 2.745967e-05</td><td><strong>1.334447e-05</strong> / <strong>2.621326e-05</strong></td></tr><tr><th>One-soliton (p=4, q=−3)</th><th>PF</th><td>8.067776e-05 / 4.377502e-04</td><td><strong>7.189305e-05</strong> / <strong>4.356979e-04</strong></td></tr><tr><th>One-soliton (p=4, q=−3)</th><th>FD</th><td>1.718043e-05 / 2.605300e-05</td><td><strong>1.639786e-05</strong> / <strong>2.480555e-05</strong></td></tr><tr><th>Two-soliton (6,−5; 4,−3)</th><th>PE</th><td>3.552455e-05 / 5.359645e-05</td><td><strong>3.304157e-05</strong> / <strong>5.060189e-05</strong></td></tr><tr><th>Two-soliton (6,−5; 4,−3)</th><th>PF</th><td>7.501357e-05 / 5.394947e-05</td><td><strong>7.084743e-05</strong> / <strong>5.107477e-05</strong></td></tr><tr><th>Two-soliton (6,−5; 4,−3)</th><th>FD</th><td>3.989986e-05 / 5.173628e-05</td><td><strong>3.741541e-05</strong> / <strong>4.873899e-05</strong></td></tr><tr><th>Two-soliton (1,2; 4,−3)</th><th>PE</th><td>6.329588e-04 / 1.511271e-03</td><td><strong>6.156957e-04</strong> / <strong>1.428010e-03</strong></td></tr><tr><th>Two-soliton (1,2; 4,−3)</th><th>PF</th><td>4.102555e-03 / 3.252786e-03</td><td><strong>3.988918e-03</strong> / <strong>3.102108e-03</strong></td></tr><tr><th>Two-soliton (1,2; 4,−3)</th><th>FD</th><td>4.782980e-04 / 1.350627e-03</td><td><strong>4.626593e-04</strong> / <strong>1.267296e-03</strong></td></tr></tbody></table></div>
 
-**Table 3. Maximum absolute errors on fixed and moving meshes with RK4. Each cell gives $E_u/E_v$; the smaller error for each field is bold.**
+The moving mesh lowers 24 of the twenty-four field errors. Reductions relative to the corresponding fixed-grid errors range from 0.469% to 20.7%. For PE, the range is 2.73% to 18.5%. For PF, the range is 0.469% to 18.7%. For FD, the range is 3.27% to 20.7%.
 
-<div class="table-wrap"><table class="comparison paired-errors"><thead><tr><th>Case</th><th>Method</th><th>Fixed mesh: u / v</th><th>Moving mesh: u / v</th></tr></thead><tbody><tr><th>One-soliton (p=1, q=2)</th><th>PE</th><td>1.560308e-03 / 3.229398e-03</td><td><strong>1.198143e-03 / 2.172159e-03</strong></td></tr><tr><th>One-soliton (p=1, q=2)</th><th>PF</th><td>1.187746e-02 / 7.254773e-03</td><td><strong>3.940103e-03 / 3.703664e-03</strong></td></tr><tr><th>One-soliton (p=1, q=2)</th><th>FD</th><td>1.161402e-03 / 3.008503e-03</td><td><strong>8.878667e-04 / 1.960738e-03</strong></td></tr><tr><th>One-soliton (p=4, q=−3)</th><th>PE</th><td>6.639277e-05 / 6.664598e-05</td><td><strong>4.533361e-05 / 5.568003e-05</strong></td></tr><tr><th>One-soliton (p=4, q=−3)</th><th>PF</th><td>1.266358e-04 / 6.194167e-05</td><td><strong>8.467373e-05 / 4.606240e-05</strong></td></tr><tr><th>One-soliton (p=4, q=−3)</th><th>FD</th><td>7.809306e-05 / 6.429802e-05</td><td><strong>5.709006e-05 / 5.387754e-05</strong></td></tr><tr><th>Two-soliton</th><th>PE</th><td>1.299876e-04 / 1.267185e-04</td><td><strong>8.193645e-05 / 8.860848e-05</strong></td></tr><tr><th>Two-soliton</th><th>PF</th><td>2.620490e-04 / 1.405303e-04</td><td><strong>1.626438e-04 / 8.423511e-05</strong></td></tr><tr><th>Two-soliton</th><th>FD</th><td>1.442262e-04 / 1.242170e-04</td><td><strong>9.643247e-05 / 8.548888e-05</strong></td></tr></tbody></table></div>
+**Numerical fields and error distributions.** Figures 1–8 use the same interior evaluation regions as Tables 1–3: $[-5,5]^2$, $[-10,10]^2$ and $[-30,30]^2$, respectively. The columns are PE, PF and FD; the rows show the u surface, u contours, v surface and v contours. Absolute-error plots follow the same arrangement. Each physical quantity uses common colour and height scales across methods.
 
-Moving-mesh errors are lower in all eighteen field comparisons, with reductions of 16.2%–66.8%. The ranges are 16.5%–37.0% for PE, 25.6%–66.8% for PF and 16.2%–34.8% for FD. PF improves most for the one-soliton solution with p=1 and q=2, with reductions of 66.8% in u and 48.9% in v. In the two-soliton case, both fields improve by approximately 30%–40% across the three schemes.
+**One-soliton (p=1, q=2)**
 
-At the same node count, conserved-density-based placement and motion consistently improve both physical fields for all three schemes. The response to mesh allocation and motion is substantially larger than the below-0.003% difference between RK4 and C–N in Table 2.
-
-**One-soliton (p=1, q=2): fields and errors.**
-
-The field plots compare PE, PF and FD throughout. To display the spatial wave profiles, all three schemes are computed on $x\in[-40,40)$ and $y\in[-30,30)$ using a fixed grid, RK4, $\Delta x=0.15625$, $h=0.125$, $\Delta t=1.25\times10^{-4}$ and $T=0.01$. Tables 1–3 use the smaller domain and common evaluation grid specified above; Figures 1–6 show the expanded-domain fields and pointwise errors.
-
-Each figure has three columns, ordered PE, PF and FD, and four rows showing the u surface, u contours, v surface and v contours. Error figures use the same arrangement for $|u_{\rm num}-u_*|$ and $|v_{\rm num}-v_*|$. Colour scales and height ranges are shared across methods for the same quantity.
-
-Both physical fields of the one-soliton solution with p=1 and q=2 are negative pulses along an oblique line. Figure 1 shows the local profiles on $x\in[-3,4]$, $y\in[-3,3]$, and Figure 2 shows the errors on the same region, comparing the profiles and locations of deviations across methods.
+Both fields of the first one-soliton solution are negative pulses along an oblique wave band. Figures 1 and 2 show the numerical profiles and their absolute errors.
 
 <figure><a href="../Workspaces/dlw_paper_20261009/figures/A_fields.png"><img src="../Workspaces/dlw_paper_20261009/figures/A_fields.png" alt="One-soliton (p=1, q=2): numerical physical fields comparison" loading="lazy"></a><figcaption>Figure 1. One-soliton (p=1, q=2): numerical physical fields. Columns: PE, PF, FD. Rows: u surface, u contours, v surface and v contours. RK4, fixed mesh, T = 0.01. Each quantity uses a common colour scale across methods.</figcaption></figure>
 
 <figure><a href="../Workspaces/dlw_paper_20261009/figures/A_errors.png"><img src="../Workspaces/dlw_paper_20261009/figures/A_errors.png" alt="One-soliton (p=1, q=2): absolute errors comparison" loading="lazy"></a><figcaption>Figure 2. One-soliton (p=1, q=2): absolute errors. Columns: PE, PF, FD. Rows: u error surface, u error contours, v error surface and v error contours. RK4, fixed mesh, T = 0.01. Each quantity uses a common colour scale across methods.</figcaption></figure>
 
-**One-soliton (p=4, q=−3): fields and errors.**
+**One-soliton (p=4, q=−3)**
 
-For the one-soliton solution with p=4 and q=−3, u is a positive pulse and v a negative pulse. Figures 3 and 4 show the fields and absolute errors on $x,y\in[-30,30]$, with the method order, panel arrangement and numerical parameters of Figures 1 and 2. The surfaces and contours compare the wave locations and errors along the wave bands.
+The second one-soliton solution has a positive u pulse and a negative v pulse. Figures 3 and 4 compare the wave profiles and error distributions of the three methods.
 
 <figure><a href="../Workspaces/dlw_paper_20261009/figures/B_fields.png"><img src="../Workspaces/dlw_paper_20261009/figures/B_fields.png" alt="One-soliton (p=4, q=−3): numerical physical fields comparison" loading="lazy"></a><figcaption>Figure 3. One-soliton (p=4, q=−3): numerical physical fields. Columns: PE, PF, FD. Rows: u surface, u contours, v surface and v contours. RK4, fixed mesh, T = 0.01. Each quantity uses a common colour scale across methods.</figcaption></figure>
 
 <figure><a href="../Workspaces/dlw_paper_20261009/figures/B_errors.png"><img src="../Workspaces/dlw_paper_20261009/figures/B_errors.png" alt="One-soliton (p=4, q=−3): absolute errors comparison" loading="lazy"></a><figcaption>Figure 4. One-soliton (p=4, q=−3): absolute errors. Columns: PE, PF, FD. Rows: u error surface, u error contours, v error surface and v error contours. RK4, fixed mesh, T = 0.01. Each quantity uses a common colour scale across methods.</figcaption></figure>
 
-**Two-soliton fields and errors.**
+**Two-soliton (6,−5; 4,−3)**
 
-The two-soliton solution contains two sets of spectral parameters. Figure 5 shows the two wave bands and their interaction on $x,y\in[-30,30]$. Relative to the one-soliton profiles, the contours bend and develop local extrema near the intersection. Figure 6 compares the errors near the interaction and along the distant wave bands.
+The two-soliton solution has two differently oriented wave bands. Figure 5 shows the interaction region and the separated branches; Figure 6 gives the corresponding errors.
 
-<figure><a href="../Workspaces/dlw_paper_20261009/figures/C_fields.png"><img src="../Workspaces/dlw_paper_20261009/figures/C_fields.png" alt="Two-soliton: numerical physical fields comparison" loading="lazy"></a><figcaption>Figure 5. Two-soliton: numerical physical fields. Columns: PE, PF, FD. Rows: u surface, u contours, v surface and v contours. RK4, fixed mesh, T = 0.01. Each quantity uses a common colour scale across methods.</figcaption></figure>
+<figure><a href="../Workspaces/dlw_paper_20261009/figures/C_fields.png"><img src="../Workspaces/dlw_paper_20261009/figures/C_fields.png" alt="Two-soliton (6,−5; 4,−3): numerical physical fields comparison" loading="lazy"></a><figcaption>Figure 5. Two-soliton (6,−5; 4,−3): numerical physical fields. Columns: PE, PF, FD. Rows: u surface, u contours, v surface and v contours. RK4, fixed mesh, T = 0.01. Each quantity uses a common colour scale across methods.</figcaption></figure>
 
-<figure><a href="../Workspaces/dlw_paper_20261009/figures/C_errors.png"><img src="../Workspaces/dlw_paper_20261009/figures/C_errors.png" alt="Two-soliton: absolute errors comparison" loading="lazy"></a><figcaption>Figure 6. Two-soliton: absolute errors. Columns: PE, PF, FD. Rows: u error surface, u error contours, v error surface and v error contours. RK4, fixed mesh, T = 0.01. Each quantity uses a common colour scale across methods.</figcaption></figure>
+<figure><a href="../Workspaces/dlw_paper_20261009/figures/C_errors.png"><img src="../Workspaces/dlw_paper_20261009/figures/C_errors.png" alt="Two-soliton (6,−5; 4,−3): absolute errors comparison" loading="lazy"></a><figcaption>Figure 6. Two-soliton (6,−5; 4,−3): absolute errors. Columns: PE, PF, FD. Rows: u error surface, u error contours, v error surface and v error contours. RK4, fixed mesh, T = 0.01. Each quantity uses a common colour scale across methods.</figcaption></figure>
+
+**Two-soliton (1,2; 4,−3)**
+
+The second two-soliton test combines positive and negative u pulses. Figures 7 and 8 show the numerical fields and absolute errors.
+
+<figure><img src="../Workspaces/dlw_paper_20261009/figures/D_fields.png" alt="Figure 7. Two-soliton (1,2; 4,−3): numerical fields. Columns: PE, PF, FD. Rows: u surface, u contours, v surface, v contours; error plots show the corresponding absolute errors. Fixed mesh, RK4, T=0.01." loading="lazy"><figcaption>Figure 7. Two-soliton (1,2; 4,−3): numerical fields. Columns: PE, PF, FD. Rows: u surface, u contours, v surface, v contours; error plots show the corresponding absolute errors. Fixed mesh, RK4, T=0.01.</figcaption></figure>
+
+<figure><img src="../Workspaces/dlw_paper_20261009/figures/D_errors.png" alt="Figure 8. Two-soliton (1,2; 4,−3): absolute errors. Columns: PE, PF, FD. Rows: u surface, u contours, v surface, v contours; error plots show the corresponding absolute errors. Fixed mesh, RK4, T=0.01." loading="lazy"><figcaption>Figure 8. Two-soliton (1,2; 4,−3): absolute errors. Columns: PE, PF, FD. Rows: u surface, u contours, v surface, v contours; error plots show the corresponding absolute errors. Fixed mesh, RK4, T=0.01.</figcaption></figure>
 
 ## 4. Conclusion {#en-conclusion}
 
 The combination of a staggered lattice and a shifted operator parameter generates both semi-discrete DLW bilinear relations from a common Gram determinant sequence. Rank-one updates yield exact solutions of arbitrary finite order, and logarithmic transformations lead to the PE and PF formulations. Both recover the same physical fields on positive τ-function solutions and are linked to the Darboux–Lax compatibility relations and second-order continuum limits.
 
-In numerical computation, the choice of formulation affects the errors in the physical fields. On the fixed grid with RK4, PF u errors are approximately 1.91–7.61 times the PE errors. PE reduces u errors relative to FD by about 15.0% and 9.87% for the one-soliton solution with p=4 and q=−3 and the two-soliton case, while v comparisons depend on the spectral parameters. RK4 and C–N terminal errors differ by less than 0.003%; replacing Euler by RK4 has its largest effect on PF v, reducing errors by 25.6% and 29.2% in these two cases. Conserved-density-based node placement and motion reduce all eighteen field errors by 16.2%–66.8%. The common semi-discrete structure therefore leads to distinct numerical behaviour: the nonlinear representation changes the distribution of error between fields, the influence of time integration depends on the evolved variables, and SAMM improves both fields in all three tests.
+The fixed-grid comparison gives PF-to-PE u-error ratios of 4.78, 5.68, 2.11, 6.48 for the four tests, respectively. The largest relative difference between RK4 and C–N terminal errors is 0.0599%. The moving mesh lowers 24 of the twenty-four field errors; the percentage changes, measured as reductions relative to the corresponding fixed-grid errors, range from 0.469% to 20.7%.
 
 ## Data and code availability {#en-data}
 
-The theoretical derivations and numerical materials are provided in [DLW theory](../notebook/DLW理论.ipynb) and [DLW numerical analysis](../notebook/DLW数值分析report.ipynb). The numerical notebook contains parameters, executable code and saved results; the tables use these recorded data. The expanded-domain comparisons additionally use the [field preparation script](../Workspaces/dlw_paper_20261009/prepare_comparison_fields.py) and [plotting script](../Workspaces/dlw_paper_20261009/plot_comparison_fields.py).
+The theoretical derivations and numerical materials are provided in [DLW theory](../notebook/DLW理论.ipynb) and [DLW numerical analysis](../notebook/DLW数值分析report.ipynb). The numerical notebook contains parameters, executable code and saved results; the tables use these recorded data. The common-domain comparisons additionally use the [field preparation script](../Workspaces/dlw_paper_20261009/rerun_buffered.py) and [plotting script](../Workspaces/dlw_paper_20261009/plot_buffered_fields.py).
 
 ## References {#en-references}
 
@@ -1175,7 +1018,7 @@ The theoretical derivations and numerical materials are provided in [DLW theory]
 
 # （2+1）维 DLW 系统的半离散化、Darboux–Lax 表示与数值模拟 {#zh-title}
 
- **摘要。** 本文构造（2+1）维色散长波（DLW）方程的交错半离散双线性系统，并给出其 Gram 行列式解。通过相邻辅助层之间的秩一更新，建立任意有限阶行列式满足的双线性恒等式。对共同的对数势作格点差分消元或引入势变量，得到两种非线性表示；它们由同一正 τ 函数对恢复相同的物理场，并具有相应的 Darboux–Lax 表示。进一步建立二阶一致性，以及固定正则谱参数下精确 Gram 解族在紧集上的一致二阶连续极限。数值实验以连续方程的直接差分为参照，比较非线性表示、时间算法及自适应动网格方法的影响。在固定网格算例中，差分消势形式的 u 误差均小于势函数形式；RK4 与 Crank–Nicolson 的终止误差相对差异小于 0.003%；动网格使所报告比较中的两个物理场误差降低 16.2%—66.8%。
+ **摘要。** 本文构造（2+1）维色散长波（DLW）方程的交错半离散双线性系统，并给出其 Gram 行列式解。通过相邻辅助层之间的秩一更新，建立任意有限阶行列式满足的双线性恒等式。对共同的对数势作格点差分消元或引入势变量，得到两种非线性表示；它们由同一正 τ 函数对恢复相同的物理场，并具有相应的 Darboux–Lax 表示。进一步建立二阶一致性，以及固定正则谱参数下精确 Gram 解族在紧集上的一致二阶连续极限。数值实验以连续方程的直接差分为参照，比较非线性表示、时间算法及自适应动网格方法的影响。固定网格下，两组单孤子和两组二孤子的 PF 与 PE 的 u 误差比分别为 4.78、5.68、2.11、6.48。RK4 与 C–N 终止误差的最大相对差异为 0.0599%。动网格使二十四组物理场比较中的 24 组误差降低；以对应固定网格误差为基准，降幅范围为 0.469% 至 20.7%。
 
 **关键词：** 色散长波方程；半离散化；Gram 行列式；Darboux–Lax 表示；连续极限；自适应动网格
 
@@ -2058,6 +1901,10 @@ $$\begin{aligned}u_*&=\frac{2k(c-1)E}{(1+cE)(1+E)},\\v_*&=2k\ell\left[\frac{cE}{
 
 当 $p+q>0$、$c>0$ 时，u 脉冲的正负由 $c-1$ 决定，而 v 脉冲的正负由 $\ell$ 决定。我们选取 $(p,q)=(1,2)$ 和 $(4,-3)$，分别得到负的和正的 u 脉冲。第一组参数对应 $c=1/4$、$\ell=-3/4$；第二组对应 $c=2$、$\ell=-1/2$。两组参数的 v 场均为负脉冲。
 
+<figure><img src="../Workspaces/dlw_paper_20261009/figures/exact_single_1_2.png" alt="单孤子精确解：(p,q)=(1,2)，t=0。左图为 u，右图为 v；展示范围为 x ∈ [−5,5]、y ∈ [−5,5]。" loading="lazy"><figcaption>单孤子精确解：(p,q)=(1,2)，t=0。左图为 u，右图为 v；展示范围为 x ∈ [−5,5]、y ∈ [−5,5]。</figcaption></figure>
+
+<figure><img src="../Workspaces/dlw_paper_20261009/figures/exact_single_4_m3.png" alt="单孤子精确解：(p,q)=(4,−3)，t=0。左图为 u，右图为 v；展示范围为 x ∈ [−10,10], y ∈ [−10,10]。" loading="lazy"><figcaption>单孤子精确解：(p,q)=(4,−3)，t=0。左图为 u，右图为 v；展示范围为 x ∈ [−10,10], y ∈ [−10,10]。</figcaption></figure>
+
 **二孤子解。** 当 $N=2$ 时，展开 Gram 行列式可得
 
 <a id="zh-eq-108"></a>
@@ -2072,15 +1919,21 @@ $$\begin{gathered}E_i=\frac{e^{\theta_i}}{p_i+q_i},\qquad c_i=-\frac{p_i-a}{q_i+
 
 物理场由 $u_*=2\partial_x\log(f_*/g_*)$ 和 $v_*=2\partial_x\partial_y\log(f_*g_*)$ 得到。对于二孤子解，取 $p_1=6$、$q_1=-5$、$p_2=4$、$q_2=-3$，相应地有 $c_1=4/3$、$c_2=2$、$A_{12}=4/3$。此时两相位分别为 $\theta_1=x-11t-y/12$ 和 $\theta_2=x-7t-y/2$，对应两个空间取向及传播速率不同的波。该算例将数值比较扩展到双波相互作用的情形。
 
+<figure><img src="../Workspaces/dlw_paper_20261009/figures/exact_two_soliton.png" alt="二孤子精确解：(p₁,q₁)=(6,−5)、(p₂,q₂)=(4,−3)，t=0。左图为 u，右图为 v；展示范围为 x ∈ [−30,30], y ∈ [−30,30]。" loading="lazy"><figcaption>二孤子精确解：(p₁,q₁)=(6,−5)、(p₂,q₂)=(4,−3)，t=0。左图为 u，右图为 v；展示范围为 x ∈ [−30,30], y ∈ [−30,30]。</figcaption></figure>
+
+第二组二孤子取 $(p_1,q_1)=(1,2)$、$(p_2,q_2)=(4,-3)$，此时 $c_1=1/4$、$c_2=2$、$A_{12}=5/4$，相位为 $\theta_1=3x+3t-3y/4$ 和 $\theta_2=x-7t-y/2$，其 $u$ 场包含正、负两条波带。
+
+<figure><img src="../Workspaces/dlw_paper_20261009/figures/exact_two_soliton_mixed.png" alt="二孤子精确解: (1,2; 4,-3), t=0; u / v; [-30,30]²." loading="lazy"><figcaption>二孤子精确解: (1,2; 4,-3), t=0; u / v; [-30,30]².</figcaption></figure>
+
 **初值与边界数据。** PE 的初值取 $P^0=\delta_-u_*(0)$、$W^0=v_*(0)-\delta_0u_*(0)$；FD 采用相同的 $P^0$，并取 $v^0=v_*(0)$。对于 PF，由 $D_1Q_j^0=u_{*,j}(0)Q_j^0/2$ 及归一化 $Q_{j,0}^0=1$ 确定 Q，再取 $R_j^0=[1-(v_{*,j}(0)-\delta_0u_{*,j}(0))/4]/Q_j^0$。下边界的 $Q_0(t)$ 按同一关系由 $u_{*,0}(t)$ 确定。因此，三种格式采用共同的初始物理场。
 
-计算域边界选在孤子尾部接近背景的位置。PE、FD 的 x 向差分采用周期边界，PF 按 Q、R 的左右端背景值处理边界。沿 y 方向，下侧取解析边界，上侧对数值解与解析背景之差作二次外推。
+PE、FD 的 x 向差分采用周期边界，PF 按 Q、R 的左右端背景值处理边界。沿 y 方向，下侧取解析边界，上侧对数值解与解析背景之差作二次外推。
 
 **计算设置与误差度量。**
 
-表 1—3 的计算域为 $x\in[-20,20)$、$y\in[-1.5,1.5]$。取 $N_x=256$、固定网格间距 $\Delta x=0.15625$，沿 $y$ 方向取 24 个单元，格距 $h=0.125$。时间步长为 $\Delta t=1.25\times10^{-4}$，计算至 $T=0.01$。
+四组算例分别在 $[-10,10]^2$、$[-20,20]^2$、$[-40,40]^2$ 和 $[-40,40]^2$ 上计算；展示与误差评价分别限制于内部区域 $[-5,5]^2$、$[-10,10]^2$、$[-30,30]^2$ 和 $[-30,30]^2$。展示范围对应 Physica D 文献中的图 1(a)、图 1(b)、图 3 和图 4。各算例均取 $\Delta x=h=0.1$，每个方向的计算单元数分别为 200、400、800、800。动网格重新分配 $x$ 节点，保持节点数与 $y$ 层不变。初值取 $t=0$，以 $\Delta t=10^{-4}$ 推进 100 步至 $T=0.01$。
 
-在 $x\in[-10,10]$ 上取 4001 个等距点，并取全部 $y$ 层组成评价网格 $\mathcal G$。将各方法的数值物理场沿实际 $x$ 节点作三次样条插值，定义
+共同评价网格 $\mathcal G$ 在内部 $x$ 区间上取间距 $0.01$ 的等距点，并保留内部 $y$ 单元中点。数值物理场由实际 $x$ 节点作三次样条插值，全部评价点均位于这些节点覆盖的区间内。表格与场图使用相同的内部区域与数值解，定义
 
 <a id="zh-eq-110"></a>
 
@@ -2089,242 +1942,75 @@ $$E_f(T)=\max_{(x,y)\in\mathcal G}|f_{\rm num}(x,y,T)-f_*(x,y,T)|,
 
 ### 3.5 数值结果 {#zh-results}
 
-表 1 比较三种空间格式在共同初始物理场、相同固定网格和 RK4 时间推进下的最大绝对误差。PE 与 PF 的差别在 $u$ 场中较为突出：单孤子（p=1，q=2）、单孤子（p=4，q=−3） 和二孤子的 PF 误差分别为 PE 的约 7.61、1.91 和 2.02 倍。对于 $v$ 场，相应比值为 2.25、0.929 和 1.11。因而在这组三个算例中，PE 的 $u$ 误差均小于 PF，而两者的 $v$ 误差关系随孤子参数变化。
+**空间方法比较。** 表 1 在各算例相同的计算域、网格与 RK4 时间积分下比较三种方法的最大绝对误差。所有误差均在第 3.4 节给出的共同评价网格上计算。
 
-**表 1　固定网格、RK4 下的最大绝对误差。每行最小值加粗。**
+**表 1　固定网格、RK4 的最大绝对误差；每行最小值加粗。**
 
-<div class="table-wrap"><table class="comparison">
-<thead><tr><th scope="col">算例</th><th scope="col">场</th><th scope="col">PE</th><th scope="col">PF</th><th scope="col">FD</th></tr></thead>
-<tbody>
-<tr>
-<th rowspan="2" scope="rowgroup">单孤子（p=1，q=2）</th>
-<th scope="row">u</th>
-<td>1.560308e-03</td>
-<td>1.187746e-02</td>
-<td><strong>1.161402e-03</strong></td>
-</tr>
-<tr>
-<th scope="row">v</th>
-<td>3.229398e-03</td>
-<td>7.254773e-03</td>
-<td><strong>3.008503e-03</strong></td>
-</tr>
-<tr>
-<th rowspan="2" scope="rowgroup">单孤子（p=4，q=−3）</th>
-<th scope="row">u</th>
-<td><strong>6.639277e-05</strong></td>
-<td>1.266358e-04</td>
-<td>7.809306e-05</td>
-</tr>
-<tr>
-<th scope="row">v</th>
-<td>6.664598e-05</td>
-<td><strong>6.194167e-05</strong></td>
-<td>6.429802e-05</td>
-</tr>
-<tr>
-<th rowspan="2" scope="rowgroup">二孤子</th>
-<th scope="row">u</th>
-<td><strong>1.299876e-04</strong></td>
-<td>2.620490e-04</td>
-<td>1.442262e-04</td>
-</tr>
-<tr>
-<th scope="row">v</th>
-<td>1.267185e-04</td>
-<td>1.405303e-04</td>
-<td><strong>1.242170e-04</strong></td>
-</tr>
-</tbody>
-</table></div>
+<div class="table-wrap"><table class="comparison"><thead><tr><th>算例</th><th>场</th><th>PE</th><th>PF</th><th>FD</th></tr></thead><tbody><tr><th>单孤子 (p=1, q=2)</th><th>u</th><td>6.406395e-04</td><td>3.061201e-03</td><td><strong>4.715088e-04</strong></td></tr><tr><th>单孤子 (p=1, q=2)</th><th>v</th><td>1.339511e-03</td><td>3.067031e-03</td><td><strong>1.201923e-03</strong></td></tr><tr><th>单孤子 (p=4, q=−3)</th><th>u</th><td><strong>1.419616e-05</strong></td><td>8.067776e-05</td><td>1.718043e-05</td></tr><tr><th>单孤子 (p=4, q=−3)</th><th>v</th><td>2.745967e-05</td><td>4.377502e-04</td><td><strong>2.605300e-05</strong></td></tr><tr><th>二孤子 (6,−5; 4,−3)</th><th>u</th><td><strong>3.552455e-05</strong></td><td>7.501357e-05</td><td>3.989986e-05</td></tr><tr><th>二孤子 (6,−5; 4,−3)</th><th>v</th><td>5.359645e-05</td><td>5.394947e-05</td><td><strong>5.173628e-05</strong></td></tr><tr><th>二孤子 (1,2; 4,−3)</th><th>u</th><td>6.329588e-04</td><td>4.102555e-03</td><td><strong>4.782980e-04</strong></td></tr><tr><th>二孤子 (1,2; 4,−3)</th><th>v</th><td>1.511271e-03</td><td>3.252786e-03</td><td><strong>1.350627e-03</strong></td></tr></tbody></table></div>
 
-与 FD 相比，PE 在单孤子（p=4，q=−3） 和二孤子中的 $u$ 误差分别降低约 15.0% 和 9.87%，对应的 $v$ 误差则分别增加约 3.65% 和 2.01%；在单孤子（p=1，q=2） 中，PE 的 $u,v$ 误差分别高出约 34.3% 和 7.34%。PF 在单孤子（p=4，q=−3） 的 $v$ 场中取得表内最小误差，比 FD 低约 3.66%。相较于单孤子（p=1，q=2），PE 与 FD 在单孤子（p=4，q=−3） 及二孤子中的差异较小，且两个物理场的变化方向不同。以下对三种空间格式分别比较时间算法和网格选择。
+单孤子 (p=1, q=2)中，u 与 v 的最小误差分别由 FD 和 FD 给出。 单孤子 (p=4, q=−3)中，u 与 v 的最小误差分别由 PE 和 FD 给出。 二孤子 (6,−5; 4,−3)中，u 与 v 的最小误差分别由 PE 和 FD 给出。 二孤子 (1,2; 4,−3)中，u 与 v 的最小误差分别由 FD 和 FD 给出。
 
-**时间算法比较。**
+四组算例中 PF 与 PE 的 u 误差比分别为 4.78、5.68、2.11、6.48，v 误差比分别为 2.29、15.9、1.01、2.15。共同的半离散起点在采用不同非线性变量进行数值演化时，给出不同的物理场误差。
 
-在固定网格上保持空间分辨率与时间步长不变，表 2 比较 Euler、RK4 和 C–N 的终止时刻误差。以下相对降幅以 Euler 的误差为基准，RK4 与 C–N 的相对差异以 RK4 的误差为基准。
+**时间算法比较。** 保持空间网格与时间步长相同，比较 Euler、RK4 和 C–N。
 
-**表 2　固定网格上不同时间算法的最大绝对误差。每行最小值加粗。**
+**表 2　固定网格下各时间算法的最大绝对误差；每行最小值加粗。**
 
-<div class="table-wrap"><table class="comparison">
-<thead><tr><th scope="col">算例</th><th scope="col">方法</th><th scope="col">场</th><th scope="col">Euler</th><th scope="col">RK4</th><th scope="col">C–N</th></tr></thead>
-<tbody>
-<tr>
-<th rowspan="6" scope="rowgroup">单孤子（p=1，q=2）</th>
-<th rowspan="2" scope="rowgroup">PE</th>
-<th scope="row">u</th>
-<td><strong>1.559149e-03</strong></td>
-<td>1.560308e-03</td>
-<td>1.560309e-03</td>
-</tr>
-<tr>
-<th scope="row">v</th>
-<td><strong>3.228608e-03</strong></td>
-<td>3.229398e-03</td>
-<td>3.229404e-03</td>
-</tr>
-<tr>
-<th rowspan="2" scope="rowgroup">PF</th>
-<th scope="row">u</th>
-<td><strong>1.186363e-02</strong></td>
-<td>1.187746e-02</td>
-<td>1.187746e-02</td>
-</tr>
-<tr>
-<th scope="row">v</th>
-<td><strong>7.210650e-03</strong></td>
-<td>7.254773e-03</td>
-<td>7.254804e-03</td>
-</tr>
-<tr>
-<th rowspan="2" scope="rowgroup">FD</th>
-<th scope="row">u</th>
-<td><strong>1.160637e-03</strong></td>
-<td>1.161402e-03</td>
-<td>1.161404e-03</td>
-</tr>
-<tr>
-<th scope="row">v</th>
-<td><strong>3.008253e-03</strong></td>
-<td>3.008503e-03</td>
-<td>3.008508e-03</td>
-</tr>
-<tr>
-<th rowspan="6" scope="rowgroup">单孤子（p=4，q=−3）</th>
-<th rowspan="2" scope="rowgroup">PE</th>
-<th scope="row">u</th>
-<td>6.674179e-05</td>
-<td><strong>6.639277e-05</strong></td>
-<td>6.639418e-05</td>
-</tr>
-<tr>
-<th scope="row">v</th>
-<td>6.968001e-05</td>
-<td><strong>6.664598e-05</strong></td>
-<td>6.664697e-05</td>
-</tr>
-<tr>
-<th rowspan="2" scope="rowgroup">PF</th>
-<th scope="row">u</th>
-<td>1.302977e-04</td>
-<td>1.266358e-04</td>
-<td><strong>1.266346e-04</strong></td>
-</tr>
-<tr>
-<th scope="row">v</th>
-<td>8.322184e-05</td>
-<td><strong>6.194167e-05</strong></td>
-<td>6.194314e-05</td>
-</tr>
-<tr>
-<th rowspan="2" scope="rowgroup">FD</th>
-<th scope="row">u</th>
-<td>7.824931e-05</td>
-<td><strong>7.809306e-05</strong></td>
-<td>7.809446e-05</td>
-</tr>
-<tr>
-<th scope="row">v</th>
-<td>6.738482e-05</td>
-<td><strong>6.429802e-05</strong></td>
-<td>6.429896e-05</td>
-</tr>
-<tr>
-<th rowspan="6" scope="rowgroup">二孤子</th>
-<th rowspan="2" scope="rowgroup">PE</th>
-<th scope="row">u</th>
-<td>1.306127e-04</td>
-<td><strong>1.299876e-04</strong></td>
-<td>1.299912e-04</td>
-</tr>
-<tr>
-<th scope="row">v</th>
-<td>1.332472e-04</td>
-<td><strong>1.267185e-04</strong></td>
-<td>1.267211e-04</td>
-</tr>
-<tr>
-<th rowspan="2" scope="rowgroup">PF</th>
-<th scope="row">u</th>
-<td>2.745545e-04</td>
-<td><strong>2.620490e-04</strong></td>
-<td>2.620512e-04</td>
-</tr>
-<tr>
-<th scope="row">v</th>
-<td>1.986149e-04</td>
-<td><strong>1.405303e-04</strong></td>
-<td>1.405323e-04</td>
-</tr>
-<tr>
-<th rowspan="2" scope="rowgroup">FD</th>
-<th scope="row">u</th>
-<td>1.447371e-04</td>
-<td><strong>1.442262e-04</strong></td>
-<td>1.442298e-04</td>
-</tr>
-<tr>
-<th scope="row">v</th>
-<td>1.300531e-04</td>
-<td><strong>1.242170e-04</strong></td>
-<td>1.242195e-04</td>
-</tr>
-</tbody>
-</table></div>
+<div class="table-wrap"><table class="comparison"><thead><tr><th>算例</th><th>方法</th><th>场</th><th>Euler</th><th>RK4</th><th>C–N</th></tr></thead><tbody><tr><th>单孤子 (p=1, q=2)</th><th>PE</th><th>u</th><td><strong>6.396711e-04</strong></td><td>6.406395e-04</td><td>6.406384e-04</td></tr><tr><th>单孤子 (p=1, q=2)</th><th>PE</th><th>v</th><td>1.340634e-03</td><td><strong>1.339511e-03</strong></td><td>1.339513e-03</td></tr><tr><th>单孤子 (p=1, q=2)</th><th>PF</th><th>u</th><td>3.062643e-03</td><td><strong>3.061201e-03</strong></td><td>3.061204e-03</td></tr><tr><th>单孤子 (p=1, q=2)</th><th>PF</th><th>v</th><td><strong>3.061804e-03</strong></td><td>3.067031e-03</td><td>3.067044e-03</td></tr><tr><th>单孤子 (p=1, q=2)</th><th>FD</th><th>u</th><td><strong>4.707623e-04</strong></td><td>4.715088e-04</td><td>4.715079e-04</td></tr><tr><th>单孤子 (p=1, q=2)</th><th>FD</th><th>v</th><td>1.203189e-03</td><td><strong>1.201923e-03</strong></td><td>1.201924e-03</td></tr><tr><th>单孤子 (p=4, q=−3)</th><th>PE</th><th>u</th><td>1.422394e-05</td><td><strong>1.419616e-05</strong></td><td>1.419664e-05</td></tr><tr><th>单孤子 (p=4, q=−3)</th><th>PE</th><th>v</th><td>3.005484e-05</td><td><strong>2.745967e-05</strong></td><td>2.746028e-05</td></tr><tr><th>单孤子 (p=4, q=−3)</th><th>PF</th><th>u</th><td><strong>7.497904e-05</strong></td><td>8.067776e-05</td><td>8.071976e-05</td></tr><tr><th>单孤子 (p=4, q=−3)</th><th>PF</th><th>v</th><td><strong>4.012601e-04</strong></td><td>4.377502e-04</td><td>4.380126e-04</td></tr><tr><th>单孤子 (p=4, q=−3)</th><th>FD</th><th>u</th><td>1.883910e-05</td><td><strong>1.718043e-05</strong></td><td>1.718091e-05</td></tr><tr><th>单孤子 (p=4, q=−3)</th><th>FD</th><th>v</th><td>2.860127e-05</td><td><strong>2.605300e-05</strong></td><td>2.605361e-05</td></tr><tr><th>二孤子 (6,−5; 4,−3)</th><th>PE</th><th>u</th><td>3.840649e-05</td><td><strong>3.552455e-05</strong></td><td>3.552653e-05</td></tr><tr><th>二孤子 (6,−5; 4,−3)</th><th>PE</th><th>v</th><td>5.901085e-05</td><td><strong>5.359645e-05</strong></td><td>5.359819e-05</td></tr><tr><th>二孤子 (6,−5; 4,−3)</th><th>PF</th><th>u</th><td>8.221511e-05</td><td>7.501357e-05</td><td><strong>7.501289e-05</strong></td></tr><tr><th>二孤子 (6,−5; 4,−3)</th><th>PF</th><th>v</th><td>6.201458e-05</td><td>5.394947e-05</td><td><strong>5.394912e-05</strong></td></tr><tr><th>二孤子 (6,−5; 4,−3)</th><th>FD</th><th>u</th><td>4.502895e-05</td><td><strong>3.989986e-05</strong></td><td>3.990183e-05</td></tr><tr><th>二孤子 (6,−5; 4,−3)</th><th>FD</th><th>v</th><td>5.711359e-05</td><td><strong>5.173628e-05</strong></td><td>5.173802e-05</td></tr><tr><th>二孤子 (1,2; 4,−3)</th><th>PE</th><th>u</th><td><strong>6.188417e-04</strong></td><td>6.329588e-04</td><td>6.330018e-04</td></tr><tr><th>二孤子 (1,2; 4,−3)</th><th>PE</th><th>v</th><td>1.515498e-03</td><td><strong>1.511271e-03</strong></td><td>1.511273e-03</td></tr><tr><th>二孤子 (1,2; 4,−3)</th><th>PF</th><th>u</th><td><strong>4.018327e-03</strong></td><td>4.102555e-03</td><td>4.102862e-03</td></tr><tr><th>二孤子 (1,2; 4,−3)</th><th>PF</th><th>v</th><td>3.260613e-03</td><td><strong>3.252786e-03</strong></td><td>3.252802e-03</td></tr><tr><th>二孤子 (1,2; 4,−3)</th><th>FD</th><th>u</th><td><strong>4.666671e-04</strong></td><td>4.782980e-04</td><td>4.783295e-04</td></tr><tr><th>二孤子 (1,2; 4,−3)</th><th>FD</th><th>v</th><td>1.355028e-03</td><td><strong>1.350627e-03</strong></td><td>1.350630e-03</td></tr></tbody></table></div>
 
-在全部十八组比较中，RK4 与 C–N 的误差相对差异均小于 0.003%。在本组空间分辨率与时间步长下，两种时间算法给出近乎相同的终止时刻误差。
+RK4 与 C–N 终止误差的最大相对差异为 0.0599%。对 PE，从 Euler 改为 RK4 的误差降幅为 -2.28% 至 9.18%。对 PF，从 Euler 改为 RK4 的误差降幅为 -9.09% 至 13%。对 FD，从 Euler 改为 RK4 的误差降幅为 -2.49% 至 11.4%。负值表示误差增加。后续网格比较与场图均采用 RK4。
 
-从 Euler 改为 RK4 时，单孤子（p=4，q=−3） 与二孤子的 PE、FD 两种格式在 $u$ 场上的误差降幅为 0.20%—0.52%，在 $v$ 场上的降幅为 4.35%—4.90%。PF 对这一更换更为敏感：两组算例的 $u$ 误差分别降低 2.81% 和 4.55%，$v$ 误差分别降低 25.6% 和 29.2%。单孤子（p=1，q=2） 的变化方向相反，RK4 的误差比 Euler 高 0.0083%—0.612%。因此，在当前计算设置中，PF 的 $v$ 场是时间积分选择影响最明显的部分；RK4 与 C–N 之间的选择带来的误差变化远小于从 Euler 改为这两种方法的变化。后续网格比较及场图统一采用 RK4。
+**固定网格与动网格。** 表 3 保持节点数、时间步长和终止时间相同，每格依次列出 u、v 的误差。
 
-**固定网格与动网格。**
+**表 3　固定与动网格的最大绝对误差；各物理场的较小值加粗。**
 
-表 3 比较同一空间格式在固定网格与动网格上的误差，采用相同节点数、RK4 时间推进及相同时间步长与终止时刻。各单元格依次列出 $E_u$ 和 $E_v$；以下降幅均以对应的固定网格误差为基准。
+<div class="table-wrap"><table class="comparison"><thead><tr><th>算例</th><th>方法</th><th>固定网格：u / v</th><th>动网格：u / v</th></tr></thead><tbody><tr><th>单孤子 (p=1, q=2)</th><th>PE</th><td>6.406395e-04 / 1.339511e-03</td><td><strong>5.781845e-04</strong> / <strong>1.091714e-03</strong></td></tr><tr><th>单孤子 (p=1, q=2)</th><th>PF</th><td>3.061201e-03 / 3.067031e-03</td><td><strong>2.579691e-03</strong> / <strong>2.493117e-03</strong></td></tr><tr><th>单孤子 (p=1, q=2)</th><th>FD</th><td>4.715088e-04 / 1.201923e-03</td><td><strong>4.067585e-04</strong> / <strong>9.530188e-04</strong></td></tr><tr><th>单孤子 (p=4, q=−3)</th><th>PE</th><td>1.419616e-05 / 2.745967e-05</td><td><strong>1.334447e-05</strong> / <strong>2.621326e-05</strong></td></tr><tr><th>单孤子 (p=4, q=−3)</th><th>PF</th><td>8.067776e-05 / 4.377502e-04</td><td><strong>7.189305e-05</strong> / <strong>4.356979e-04</strong></td></tr><tr><th>单孤子 (p=4, q=−3)</th><th>FD</th><td>1.718043e-05 / 2.605300e-05</td><td><strong>1.639786e-05</strong> / <strong>2.480555e-05</strong></td></tr><tr><th>二孤子 (6,−5; 4,−3)</th><th>PE</th><td>3.552455e-05 / 5.359645e-05</td><td><strong>3.304157e-05</strong> / <strong>5.060189e-05</strong></td></tr><tr><th>二孤子 (6,−5; 4,−3)</th><th>PF</th><td>7.501357e-05 / 5.394947e-05</td><td><strong>7.084743e-05</strong> / <strong>5.107477e-05</strong></td></tr><tr><th>二孤子 (6,−5; 4,−3)</th><th>FD</th><td>3.989986e-05 / 5.173628e-05</td><td><strong>3.741541e-05</strong> / <strong>4.873899e-05</strong></td></tr><tr><th>二孤子 (1,2; 4,−3)</th><th>PE</th><td>6.329588e-04 / 1.511271e-03</td><td><strong>6.156957e-04</strong> / <strong>1.428010e-03</strong></td></tr><tr><th>二孤子 (1,2; 4,−3)</th><th>PF</th><td>4.102555e-03 / 3.252786e-03</td><td><strong>3.988918e-03</strong> / <strong>3.102108e-03</strong></td></tr><tr><th>二孤子 (1,2; 4,−3)</th><th>FD</th><td>4.782980e-04 / 1.350627e-03</td><td><strong>4.626593e-04</strong> / <strong>1.267296e-03</strong></td></tr></tbody></table></div>
 
-**表 3　固定网格与动网格的最大绝对误差（RK4）。各单元格依次为 $E_u/E_v$；每个物理场较小的误差加粗。**
+动网格使二十四组比较中的 24 组误差降低。相对于对应固定网格结果，误差降幅为 0.469% 至 20.7%。PE 的降幅范围为 2.73% 至 18.5%。PF 的降幅范围为 0.469% 至 18.7%。FD 的降幅范围为 3.27% 至 20.7%。
 
-<div class="table-wrap"><table class="comparison paired-errors"><thead><tr><th>算例</th><th>方法</th><th>固定网格：u / v</th><th>动网格：u / v</th></tr></thead><tbody><tr><th>单孤子（p=1，q=2）</th><th>PE</th><td>1.560308e-03 / 3.229398e-03</td><td><strong>1.198143e-03 / 2.172159e-03</strong></td></tr><tr><th>单孤子（p=1，q=2）</th><th>PF</th><td>1.187746e-02 / 7.254773e-03</td><td><strong>3.940103e-03 / 3.703664e-03</strong></td></tr><tr><th>单孤子（p=1，q=2）</th><th>FD</th><td>1.161402e-03 / 3.008503e-03</td><td><strong>8.878667e-04 / 1.960738e-03</strong></td></tr><tr><th>单孤子（p=4，q=−3）</th><th>PE</th><td>6.639277e-05 / 6.664598e-05</td><td><strong>4.533361e-05 / 5.568003e-05</strong></td></tr><tr><th>单孤子（p=4，q=−3）</th><th>PF</th><td>1.266358e-04 / 6.194167e-05</td><td><strong>8.467373e-05 / 4.606240e-05</strong></td></tr><tr><th>单孤子（p=4，q=−3）</th><th>FD</th><td>7.809306e-05 / 6.429802e-05</td><td><strong>5.709006e-05 / 5.387754e-05</strong></td></tr><tr><th>二孤子</th><th>PE</th><td>1.299876e-04 / 1.267185e-04</td><td><strong>8.193645e-05 / 8.860848e-05</strong></td></tr><tr><th>二孤子</th><th>PF</th><td>2.620490e-04 / 1.405303e-04</td><td><strong>1.626438e-04 / 8.423511e-05</strong></td></tr><tr><th>二孤子</th><th>FD</th><td>1.442262e-04 / 1.242170e-04</td><td><strong>9.643247e-05 / 8.548888e-05</strong></td></tr></tbody></table></div>
+**数值物理场与误差分布。** 图 1—8 与表 1—3 使用相同的内部评价区域，分别展示 $[-5,5]^2$、$[-10,10]^2$ 和 $[-30,30]^2$ 上的结果。每幅图的三列依次为 PE、PF、FD，四行依次为 u 曲面、u 等高线、v 曲面和 v 等高线；误差图按相同布局展示绝对误差。同一物理量在三种方法中采用共同色阶和高度范围。
 
-在全部十八组物理场比较中，动网格的误差均低于固定网格，降幅为 16.2%—66.8%。按空间格式分别计算，PE 的降幅为 16.5%—37.0%，PF 为 25.6%—66.8%，FD 为 16.2%—34.8%。单孤子（p=1，q=2） 的 PF 改善最明显，其 $u,v$ 误差分别降低 66.8% 和 48.9%；二孤子中三种格式的两个场均降低约 30%—40%。
+**单孤子 (p=1, q=2)**
 
-在相同节点数下，按守恒密度布点并推进节点，对三种格式和两个物理场均带来一致的误差改善。与表 2 中 RK4、C–N 小于 0.003% 的误差差异相比，这组算例对网格分配与运动的响应明显得多。
-
-**单孤子（p=1，q=2）：物理场与误差。**
-
-以下场图统一比较 PE、PF 和 FD，不再单独选择某一种方法。为展示波形的空间分布，三种方法均在 $x\in[-40,40)$、$y\in[-30,30)$ 上计算，采用固定网格、RK4、$\Delta x=0.15625$、$h=0.125$、$\Delta t=1.25\times10^{-4}$ 和 $T=0.01$。表 1—3 使用前述较小计算域和统一评价网格；图 1—6 展示扩域计算得到的物理场及其逐点误差。
-
-每幅图均按三列四行排列：列从左至右为 PE、PF、FD；行依次为 $u$ 曲面、$u$ 等高线、$v$ 曲面、$v$ 等高线。误差图采用相同排列，绘制 $|u_{\rm num}-u_*|$ 和 $|v_{\rm num}-v_*|$。同一物理量在三列中使用共同色阶和高度范围，以便比较幅值。
-
-单孤子（p=1，q=2） 的两个物理场均为沿斜直线分布的负脉冲。图 1 展示 $x\in[-3,4]$、$y\in[-3,3]$ 的局部波形，图 2 给出同一区域的误差。两幅图分别比较三种方法得到的波形和偏差位置。
+第一组单孤子的两个物理场均为沿斜向波带分布的负脉冲。图 1、2 分别展示数值波形及其绝对误差。
 
 <figure><a href="../Workspaces/dlw_paper_20261009/figures/A_fields.png"><img src="../Workspaces/dlw_paper_20261009/figures/A_fields.png" alt="单孤子（p=1，q=2），PE/PF/FD三列四行数值物理场对照" loading="lazy"></a><figcaption>图 1　单孤子（p=1，q=2）的数值物理场。左、中、右列依次为 PE、PF、FD；第一、二行为 u 的曲面和等高线，第三、四行为 v 的曲面和等高线。RK4，固定网格，T = 0.01。同一物理量在三种方法间采用共同色阶。</figcaption></figure>
 
 <figure><a href="../Workspaces/dlw_paper_20261009/figures/A_errors.png"><img src="../Workspaces/dlw_paper_20261009/figures/A_errors.png" alt="单孤子（p=1，q=2），PE/PF/FD三列四行绝对误差对照" loading="lazy"></a><figcaption>图 2　单孤子（p=1，q=2）的绝对误差。左、中、右列依次为 PE、PF、FD；第一、二行为 u 误差的曲面和等高线，第三、四行为 v 误差的曲面和等高线。RK4，固定网格，T = 0.01。同一物理量在三种方法间采用共同色阶。</figcaption></figure>
 
-**单孤子（p=4，q=−3）：物理场与误差。**
+**单孤子 (p=4, q=−3)**
 
-单孤子（p=4，q=−3） 的 $u$ 为正脉冲，$v$ 为负脉冲。图 3、4 展示 $x,y\in[-30,30]$ 内的物理场与绝对误差，方法顺序、行排列和计算参数与图 1、2 相同。通过两场的曲面及等高线，可以同时比较波带的位置和误差沿波带的分布。
+第二组单孤子的 u 为正脉冲，v 为负脉冲。图 3、4 展示三种方法对同一波带的再现及误差分布。
 
 <figure><a href="../Workspaces/dlw_paper_20261009/figures/B_fields.png"><img src="../Workspaces/dlw_paper_20261009/figures/B_fields.png" alt="单孤子（p=4，q=−3），PE/PF/FD三列四行数值物理场对照" loading="lazy"></a><figcaption>图 3　单孤子（p=4，q=−3）的数值物理场。左、中、右列依次为 PE、PF、FD；第一、二行为 u 的曲面和等高线，第三、四行为 v 的曲面和等高线。RK4，固定网格，T = 0.01。同一物理量在三种方法间采用共同色阶。</figcaption></figure>
 
 <figure><a href="../Workspaces/dlw_paper_20261009/figures/B_errors.png"><img src="../Workspaces/dlw_paper_20261009/figures/B_errors.png" alt="单孤子（p=4，q=−3），PE/PF/FD三列四行绝对误差对照" loading="lazy"></a><figcaption>图 4　单孤子（p=4，q=−3）的绝对误差。左、中、右列依次为 PE、PF、FD；第一、二行为 u 误差的曲面和等高线，第三、四行为 v 误差的曲面和等高线。RK4，固定网格，T = 0.01。同一物理量在三种方法间采用共同色阶。</figcaption></figure>
 
-**二孤子物理场与误差。**
+**二孤子 (6,−5; 4,−3)**
 
-二孤子包含两组谱参数。图 5 展示 $x,y\in[-30,30]$ 内的两条波带及其交汇结构；与单孤子相比，等高线在交汇区域发生弯曲，并形成局部极值。图 6 给出三种方法在该区域及远端波带上的误差分布，用于比较它们对同一二孤子结构的数值再现。
+二孤子包含两条不同取向的波带。图 5 展示相互作用区与远离相互作用区的分支，图 6 给出对应误差。
 
-<figure><a href="../Workspaces/dlw_paper_20261009/figures/C_fields.png"><img src="../Workspaces/dlw_paper_20261009/figures/C_fields.png" alt="二孤子，PE/PF/FD三列四行数值物理场对照" loading="lazy"></a><figcaption>图 5　二孤子的数值物理场。左、中、右列依次为 PE、PF、FD；第一、二行为 u 的曲面和等高线，第三、四行为 v 的曲面和等高线。RK4，固定网格，T = 0.01。同一物理量在三种方法间采用共同色阶。</figcaption></figure>
+<figure><a href="../Workspaces/dlw_paper_20261009/figures/C_fields.png"><img src="../Workspaces/dlw_paper_20261009/figures/C_fields.png" alt="二孤子，PE/PF/FD三列四行数值物理场对照" loading="lazy"></a><figcaption>图 5　二孤子（6,−5；4,−3）的数值物理场。左、中、右列依次为 PE、PF、FD；第一、二行为 u 的曲面和等高线，第三、四行为 v 的曲面和等高线。RK4，固定网格，T = 0.01。同一物理量在三种方法间采用共同色阶。</figcaption></figure>
 
-<figure><a href="../Workspaces/dlw_paper_20261009/figures/C_errors.png"><img src="../Workspaces/dlw_paper_20261009/figures/C_errors.png" alt="二孤子，PE/PF/FD三列四行绝对误差对照" loading="lazy"></a><figcaption>图 6　二孤子的绝对误差。左、中、右列依次为 PE、PF、FD；第一、二行为 u 误差的曲面和等高线，第三、四行为 v 误差的曲面和等高线。RK4，固定网格，T = 0.01。同一物理量在三种方法间采用共同色阶。</figcaption></figure>
+<figure><a href="../Workspaces/dlw_paper_20261009/figures/C_errors.png"><img src="../Workspaces/dlw_paper_20261009/figures/C_errors.png" alt="二孤子，PE/PF/FD三列四行绝对误差对照" loading="lazy"></a><figcaption>图 6　二孤子（6,−5；4,−3）的绝对误差。左、中、右列依次为 PE、PF、FD；第一、二行为 u 误差的曲面和等高线，第三、四行为 v 误差的曲面和等高线。RK4，固定网格，T = 0.01。同一物理量在三种方法间采用共同色阶。</figcaption></figure>
+
+**二孤子 (1,2; 4,−3)**
+
+第二组二孤子含一正一负的 u 波带，图 7、8 展示其数值解与绝对误差。
+
+<figure><img src="../Workspaces/dlw_paper_20261009/figures/D_fields.png" alt="图 7. 二孤子 (1,2; 4,−3)：数值解。 列为 PE、PF、FD；行依次为 u 曲面、u 等高线、v 曲面、v 等高线；误差图显示相应绝对误差。固定网格，RK4，T=0.01。" loading="lazy"><figcaption>图 7. 二孤子 (1,2; 4,−3)：数值解。 列为 PE、PF、FD；行依次为 u 曲面、u 等高线、v 曲面、v 等高线；误差图显示相应绝对误差。固定网格，RK4，T=0.01。</figcaption></figure>
+
+<figure><img src="../Workspaces/dlw_paper_20261009/figures/D_errors.png" alt="图 8. 二孤子 (1,2; 4,−3)：绝对误差。 列为 PE、PF、FD；行依次为 u 曲面、u 等高线、v 曲面、v 等高线；误差图显示相应绝对误差。固定网格，RK4，T=0.01。" loading="lazy"><figcaption>图 8. 二孤子 (1,2; 4,−3)：绝对误差。 列为 PE、PF、FD；行依次为 u 曲面、u 等高线、v 曲面、v 等高线；误差图显示相应绝对误差。固定网格，RK4，T=0.01。</figcaption></figure>
 
 ## 4. 结论 {#zh-conclusion}
 
 交错格点与算子参数的配合，使 DLW 的两条半离散双线性关系由同一 Gram 行列式链产生。其秩一更新给出任意有限阶精确解，对数变换则把这一构造传递到 PE 与 PF 两种非线性表示。两种表示在正 τ 函数解上恢复相同的物理场，并与 Darboux–Lax 相容关系及二阶连续极限相联系。
 
-进一步用于计算时，表示方式影响各物理场的误差。固定网格、RK4 下，PF 的 $u$ 误差为 PE 的约 1.91—7.61 倍；PE 在单孤子（p=4，q=−3） 与二孤子中的 $u$ 误差又分别比 FD 低约 15.0% 和 9.87%，而 $v$ 场的比较随谱参数变化。时间方向，RK4 与 C–N 的终止误差相对差异小于 0.003%；从 Euler 改为 RK4 的影响以 PF 的 $v$ 场最为明显，在单孤子（p=4，q=−3） 与二孤子中分别降低 25.6% 和 29.2%。网格方向，守恒密度驱动的初始布点与节点运动使全部十八组误差降低 16.2%—66.8%。这些结果将共同的半离散结构与具体计算表现联系起来：非线性表示改变误差在两场中的分布，时间积分的影响依赖演化变量，而动网格在本组三个算例中对两场均有改善。
+固定网格下，两组单孤子和两组二孤子的 PF 与 PE 的 u 误差比分别为 4.78、5.68、2.11、6.48。RK4 与 C–N 终止误差的最大相对差异为 0.0599%。动网格使二十四组物理场比较中的 24 组误差降低；以对应固定网格误差为基准，降幅范围为 0.469% 至 20.7%。
 
 ## 数据与代码说明 {#zh-data}
 
-本文的理论推导与数值计算材料分别收录于随稿文件 [DLW理论.ipynb](../notebook/DLW理论.ipynb) 和 [DLW数值分析report.ipynb](../notebook/DLW数值分析report.ipynb)。数值文件包含算例参数、可执行计算代码及保存的图表输出；正文中的误差表使用这些既有结果。三种方法的宽域场图另附[场数据准备程序](../Workspaces/dlw_paper_20261009/prepare_comparison_fields.py)与[绘图程序](../Workspaces/dlw_paper_20261009/plot_comparison_fields.py)。
+本文的理论推导与数值计算材料分别收录于随稿文件 [DLW理论.ipynb](../notebook/DLW理论.ipynb) 和 [DLW数值分析report.ipynb](../notebook/DLW数值分析report.ipynb)。数值文件包含算例参数、可执行计算代码及保存的图表输出；正文中的误差表使用这些既有结果。三种方法的数值场图另附[场数据准备程序](../Workspaces/dlw_paper_20261009/rerun_buffered.py)与[绘图程序](../Workspaces/dlw_paper_20261009/plot_buffered_fields.py)。
 
 ## 参考文献 {#zh-references}
 

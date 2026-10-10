@@ -1,3 +1,538 @@
+<!-- LITERATURE_CATALOG_BEGIN -->
+## 本地文献清单与归档核验
+
+- [Paper/LITERATURE.md](Paper/LITERATURE.md)：39 份本地 PDF 与 2 篇仅存链接的文献；包含已有来源链接及本地路径。
+- [Workspaces/literature_catalog_20261010/build_catalog.py](Workspaces/literature_catalog_20261010/build_catalog.py)：从现有下载记录和本地文件生成清单，不改文献原件。
+- [Workspaces/git_publish_20261010/validation.json](Workspaces/git_publish_20261010/validation.json)：本轮提交的文件、语法、Notebook、文献排除与报告资源核验。
+- [Workspaces/git_publish_20261010/verify.py](Workspaces/git_publish_20261010/verify.py)：轻量提交核验脚本；不重跑研究实验。
+<!-- LITERATURE_CATALOG_END -->
+
+<!-- LITERATURE_DOWNLOAD_20261010_BEGIN -->
+- [Paper/sources/2020_Cai_Shen_local_energy_preserving.url](Paper/sources/2020_Cai_Shen_local_energy_preserving.url)：文献全文、链接或下载记录。
+- [Paper/sources/2021_Sheng_Yu_Feng_integrable_mCH.pdf](Paper/sources/2021_Sheng_Yu_Feng_integrable_mCH.pdf)：文献全文、链接或下载记录。
+- [Paper/sources/2021_Sheng_Yu_Feng_integrable_mCH.url](Paper/sources/2021_Sheng_Yu_Feng_integrable_mCH.url)：文献全文、链接或下载记录。
+- [Paper/sources/2022_Dougalis_Duran_KdV_high_order.url](Paper/sources/2022_Dougalis_Duran_KdV_high_order.url)：文献全文、链接或下载记录。
+- [Paper/sources/2022_Ning_Wu_Zhao_mKdV_low_regularity.pdf](Paper/sources/2022_Ning_Wu_Zhao_mKdV_low_regularity.pdf)：文献全文、链接或下载记录。
+- [Paper/sources/2022_Ning_Wu_Zhao_mKdV_low_regularity.url](Paper/sources/2022_Ning_Wu_Zhao_mKdV_low_regularity.url)：文献全文、链接或下载记录。
+- [Paper/sources/2022_Yang_gKdV_high_order_conservative.pdf](Paper/sources/2022_Yang_gKdV_high_order_conservative.pdf)：文献全文、链接或下载记录。
+- [Paper/sources/2022_Yang_gKdV_high_order_conservative.url](Paper/sources/2022_Yang_gKdV_high_order_conservative.url)：文献全文、链接或下载记录。
+- [Paper/sources/2024_Feng_Schratz_sine_Gordon_long_time.pdf](Paper/sources/2024_Feng_Schratz_sine_Gordon_long_time.pdf)：文献全文、链接或下载记录。
+- [Paper/sources/2024_Feng_Schratz_sine_Gordon_long_time.url](Paper/sources/2024_Feng_Schratz_sine_Gordon_long_time.url)：文献全文、链接或下载记录。
+- [Paper/sources/literature_download_20261010.json](Paper/sources/literature_download_20261010.json)：文献全文、链接或下载记录。
+- [Paper/sources/literature_links_20261010.html](Paper/sources/literature_links_20261010.html)：文献全文、链接或下载记录。
+- [Workspaces/literature_download_20261010/download.py](Workspaces/literature_download_20261010/download.py)：下载脚本。
+- [Workspaces/literature_download_20261010/finalize.py](Workspaces/literature_download_20261010/finalize.py)：核验与登记脚本。
+<!-- LITERATURE_DOWNLOAD_20261010_END -->
+
+<!-- DLW_BENCHMARK_REFS_BEGIN -->
+## DLW 研究定位与文献对标（2026-10-10）
+
+- [report/dlw_research_benchmarks.html](report/dlw_research_benchmarks.html)
+- [Paper/refs/dlw_structure_benchmarks/02_Conservative_BBM_SISC.pdf](Paper/refs/dlw_structure_benchmarks/02_Conservative_BBM_SISC.pdf)
+- [Paper/refs/dlw_structure_benchmarks/03_Error_growth.pdf](Paper/refs/dlw_structure_benchmarks/03_Error_growth.pdf)
+- [Paper/refs/dlw_structure_benchmarks/04_SP_integrable.pdf](Paper/refs/dlw_structure_benchmarks/04_SP_integrable.pdf)
+- [Paper/refs/dlw_structure_benchmarks/05_CH_integrable.pdf](Paper/refs/dlw_structure_benchmarks/05_CH_integrable.pdf)
+- [Paper/refs/dlw_structure_benchmarks/06_Coupled_SP.pdf](Paper/refs/dlw_structure_benchmarks/06_Coupled_SP.pdf)
+- [Paper/refs/dlw_structure_benchmarks/07_Linearly_implicit_SISC.pdf](Paper/refs/dlw_structure_benchmarks/07_Linearly_implicit_SISC.pdf)
+- [Workspaces/dlw_structure_benchmarks/02_Conservative_BBM_SISC.txt](Workspaces/dlw_structure_benchmarks/02_Conservative_BBM_SISC.txt)
+- [Workspaces/dlw_structure_benchmarks/03_Error_growth.txt](Workspaces/dlw_structure_benchmarks/03_Error_growth.txt)
+- [Workspaces/dlw_structure_benchmarks/04_SP_integrable.txt](Workspaces/dlw_structure_benchmarks/04_SP_integrable.txt)
+- [Workspaces/dlw_structure_benchmarks/05_CH_integrable.txt](Workspaces/dlw_structure_benchmarks/05_CH_integrable.txt)
+- [Workspaces/dlw_structure_benchmarks/06_Coupled_SP.txt](Workspaces/dlw_structure_benchmarks/06_Coupled_SP.txt)
+- [Workspaces/dlw_structure_benchmarks/07_Linearly_implicit_SISC.txt](Workspaces/dlw_structure_benchmarks/07_Linearly_implicit_SISC.txt)
+- [Workspaces/dlw_structure_benchmarks/bbm_errors.png](Workspaces/dlw_structure_benchmarks/bbm_errors.png)
+- [Workspaces/dlw_structure_benchmarks/build_guide.py](Workspaces/dlw_structure_benchmarks/build_guide.py)
+- [Workspaces/dlw_structure_benchmarks/downloads.json](Workspaces/dlw_structure_benchmarks/downloads.json)
+- [Workspaces/dlw_structure_benchmarks/guide.html](Workspaces/dlw_structure_benchmarks/guide.html)
+- [Workspaces/dlw_structure_benchmarks/manifest.json](Workspaces/dlw_structure_benchmarks/manifest.json)
+- [Workspaces/dlw_structure_benchmarks/zk_comparison.png](Workspaces/dlw_structure_benchmarks/zk_comparison.png)
+<!-- DLW_BENCHMARK_REFS_END -->
+
+<!-- DLW_LAX_BRIEFING_BEGIN -->
+## 半离散 DLW 的 Lax 专题汇报（2026-10-10）
+
+- [Workspaces/dlw_lax_briefing_20261010/build.py](Workspaces/dlw_lax_briefing_20261010/build.py)
+- [Workspaces/dlw_lax_briefing_20261010/build_validation.json](Workspaces/dlw_lax_briefing_20261010/build_validation.json)
+- [Workspaces/dlw_lax_briefing_20261010/check_layout.cjs](Workspaces/dlw_lax_briefing_20261010/check_layout.cjs)
+- [Workspaces/dlw_lax_briefing_20261010/formulas.json](Workspaces/dlw_lax_briefing_20261010/formulas.json)
+- [Workspaces/dlw_lax_briefing_20261010/layout_validation.json](Workspaces/dlw_lax_briefing_20261010/layout_validation.json)
+- [Workspaces/dlw_lax_briefing_20261010/local_symbolic_validation.json](Workspaces/dlw_lax_briefing_20261010/local_symbolic_validation.json)
+- [Workspaces/dlw_lax_briefing_20261010/manuscript.md](Workspaces/dlw_lax_briefing_20261010/manuscript.md)
+- [Workspaces/dlw_lax_briefing_20261010/prepare.py](Workspaces/dlw_lax_briefing_20261010/prepare.py)
+- [Workspaces/dlw_lax_briefing_20261010/register.py](Workspaces/dlw_lax_briefing_20261010/register.py)
+- [Workspaces/dlw_lax_briefing_20261010/registration_before/FILE_INDEX.md](Workspaces/dlw_lax_briefing_20261010/registration_before/FILE_INDEX.md)
+- [Workspaces/dlw_lax_briefing_20261010/registration_before/PROGRESS_LOG.md](Workspaces/dlw_lax_briefing_20261010/registration_before/PROGRESS_LOG.md)
+- [Workspaces/dlw_lax_briefing_20261010/render.cjs](Workspaces/dlw_lax_briefing_20261010/render.cjs)
+- [Workspaces/dlw_lax_briefing_20261010/rendered.json](Workspaces/dlw_lax_briefing_20261010/rendered.json)
+- [Workspaces/dlw_lax_briefing_20261010/reverse_1440.png](Workspaces/dlw_lax_briefing_20261010/reverse_1440.png)
+- [Workspaces/dlw_lax_briefing_20261010/reverse_390.png](Workspaces/dlw_lax_briefing_20261010/reverse_390.png)
+- [Workspaces/dlw_lax_briefing_20261010/top_1440.png](Workspaces/dlw_lax_briefing_20261010/top_1440.png)
+- [Workspaces/dlw_lax_briefing_20261010/top_390.png](Workspaces/dlw_lax_briefing_20261010/top_390.png)
+- [Workspaces/dlw_lax_briefing_20261010/verify.py](Workspaces/dlw_lax_briefing_20261010/verify.py)
+- [report/dlw_lax_briefing.html](report/dlw_lax_briefing.html)
+<!-- DLW_LAX_BRIEFING_END -->
+
+<!-- DLW_DRAFT_AUDIT_FILES_BEGIN -->
+**DLW 草稿推导审查（2026-10-10）：**
+
+- [report/dlw_draft_audit_20261010.html](report/dlw_draft_audit_20261010.html)：完整重推与适用范围审查报告。
+- [Workspaces/dlw_draft_audit_20261010/audit.md](Workspaces/dlw_draft_audit_20261010/audit.md)：独立推导、符号/初始化核验、报告构建或排版证据。
+- [Workspaces/dlw_draft_audit_20261010/build.py](Workspaces/dlw_draft_audit_20261010/build.py)：独立推导、符号/初始化核验、报告构建或排版证据。
+- [Workspaces/dlw_draft_audit_20261010/build_validation.json](Workspaces/dlw_draft_audit_20261010/build_validation.json)：独立推导、符号/初始化核验、报告构建或排版证据。
+- [Workspaces/dlw_draft_audit_20261010/dispersion_1440.png](Workspaces/dlw_draft_audit_20261010/dispersion_1440.png)：独立推导、符号/初始化核验、报告构建或排版证据。
+- [Workspaces/dlw_draft_audit_20261010/dispersion_390.png](Workspaces/dlw_draft_audit_20261010/dispersion_390.png)：独立推导、符号/初始化核验、报告构建或排版证据。
+- [Workspaces/dlw_draft_audit_20261010/formulas.json](Workspaces/dlw_draft_audit_20261010/formulas.json)：独立推导、符号/初始化核验、报告构建或排版证据。
+- [Workspaces/dlw_draft_audit_20261010/layout.cjs](Workspaces/dlw_draft_audit_20261010/layout.cjs)：独立推导、符号/初始化核验、报告构建或排版证据。
+- [Workspaces/dlw_draft_audit_20261010/layout_validation.json](Workspaces/dlw_draft_audit_20261010/layout_validation.json)：独立推导、符号/初始化核验、报告构建或排版证据。
+- [Workspaces/dlw_draft_audit_20261010/numerical_probe.json](Workspaces/dlw_draft_audit_20261010/numerical_probe.json)：独立推导、符号/初始化核验、报告构建或排版证据。
+- [Workspaces/dlw_draft_audit_20261010/numerical_probe.py](Workspaces/dlw_draft_audit_20261010/numerical_probe.py)：独立推导、符号/初始化核验、报告构建或排版证据。
+- [Workspaces/dlw_draft_audit_20261010/page_1440.png](Workspaces/dlw_draft_audit_20261010/page_1440.png)：独立推导、符号/初始化核验、报告构建或排版证据。
+- [Workspaces/dlw_draft_audit_20261010/page_390.png](Workspaces/dlw_draft_audit_20261010/page_390.png)：独立推导、符号/初始化核验、报告构建或排版证据。
+- [Workspaces/dlw_draft_audit_20261010/register.py](Workspaces/dlw_draft_audit_20261010/register.py)：独立推导、符号/初始化核验、报告构建或排版证据。
+- [Workspaces/dlw_draft_audit_20261010/registration_before/FILE_INDEX.md](Workspaces/dlw_draft_audit_20261010/registration_before/FILE_INDEX.md)：登记前原件备份。
+- [Workspaces/dlw_draft_audit_20261010/registration_before/PROGRESS_LOG.md](Workspaces/dlw_draft_audit_20261010/registration_before/PROGRESS_LOG.md)：登记前原件备份。
+- [Workspaces/dlw_draft_audit_20261010/render.cjs](Workspaces/dlw_draft_audit_20261010/render.cjs)：独立推导、符号/初始化核验、报告构建或排版证据。
+- [Workspaces/dlw_draft_audit_20261010/rendered.json](Workspaces/dlw_draft_audit_20261010/rendered.json)：独立推导、符号/初始化核验、报告构建或排版证据。
+- [Workspaces/dlw_draft_audit_20261010/repair_inline.py](Workspaces/dlw_draft_audit_20261010/repair_inline.py)：独立推导、符号/初始化核验、报告构建或排版证据。
+- [Workspaces/dlw_draft_audit_20261010/reviewed_source.md](Workspaces/dlw_draft_audit_20261010/reviewed_source.md)：独立推导、符号/初始化核验、报告构建或排版证据。
+- [Workspaces/dlw_draft_audit_20261010/supplement.json](Workspaces/dlw_draft_audit_20261010/supplement.json)：独立推导、符号/初始化核验、报告构建或排版证据。
+- [Workspaces/dlw_draft_audit_20261010/supplement.py](Workspaces/dlw_draft_audit_20261010/supplement.py)：独立推导、符号/初始化核验、报告构建或排版证据。
+- [Workspaces/dlw_draft_audit_20261010/verification.json](Workspaces/dlw_draft_audit_20261010/verification.json)：独立推导、符号/初始化核验、报告构建或排版证据。
+- [Workspaces/dlw_draft_audit_20261010/verify.py](Workspaces/dlw_draft_audit_20261010/verify.py)：独立推导、符号/初始化核验、报告构建或排版证据。
+- [Workspaces/dlw_draft_audit_20261010/final_validation.json](Workspaces/dlw_draft_audit_20261010/final_validation.json)：交付时哈希与核验汇总。
+<!-- DLW_DRAFT_AUDIT_FILES_END -->
+
+<!-- DLW_PAPER_DRAFT_INDEX_BEGIN -->
+- [trial_h02.py](Workspaces/dlw_paper_20261009/trial_h02.py)：四算例的h=dx=.2试算。
+- [trial_h02/](Workspaces/dlw_paper_20261009/trial_h02/)：12组结果及核验，未修改正文。
+
+- [trial_equal100.py](Workspaces/dlw_paper_20261009/trial_equal100.py)：展示区间每向100份的固定RK4试算。
+- [trial_equal100/](Workspaces/dlw_paper_20261009/trial_equal100/)：新步长12组结果及正文未修改核验。
+
+- [trial_T005.py](Workspaces/dlw_paper_20261009/trial_T005.py)：保持原稿不变的T=.05固定RK4试算。
+- [trial_T005/](Workspaces/dlw_paper_20261009/trial_T005/)：12组延长时间试算、状态与重启核验。
+
+- [finish_buffered.py](Workspaces/dlw_paper_20261009/finish_buffered.py)：完成48组后发布正文、Notebook并核验图表。
+
+- [validate_buffered.py](Workspaces/dlw_paper_20261009/validate_buffered.py)：新增二孤子与扩域结果核验。
+- [figures/D_fields.png](Workspaces/dlw_paper_20261009/figures/D_fields.png)：新增二孤子与扩域结果核验。
+- [figures/D_fields.pdf](Workspaces/dlw_paper_20261009/figures/D_fields.pdf)：新增二孤子与扩域结果核验。
+- [figures/D_fields.py](Workspaces/dlw_paper_20261009/figures/D_fields.py)：新增二孤子与扩域结果核验。
+- [figures/D_errors.png](Workspaces/dlw_paper_20261009/figures/D_errors.png)：新增二孤子与扩域结果核验。
+- [figures/D_errors.pdf](Workspaces/dlw_paper_20261009/figures/D_errors.pdf)：新增二孤子与扩域结果核验。
+- [figures/D_errors.py](Workspaces/dlw_paper_20261009/figures/D_errors.py)：新增二孤子与扩域结果核验。
+- [figures/exact_two_soliton_mixed.png](Workspaces/dlw_paper_20261009/figures/exact_two_soliton_mixed.png)：新增二孤子与扩域结果核验。
+- [figures/exact_two_soliton_mixed.pdf](Workspaces/dlw_paper_20261009/figures/exact_two_soliton_mixed.pdf)：新增二孤子与扩域结果核验。
+- [figures/exact_two_soliton_mixed.py](Workspaces/dlw_paper_20261009/figures/exact_two_soliton_mixed.py)：新增二孤子与扩域结果核验。
+
+- [rerun_buffered.py](Workspaces/dlw_paper_20261009/rerun_buffered.py)：扩域计算、内部评价工作流。
+- [publish_buffered.py](Workspaces/dlw_paper_20261009/publish_buffered.py)：扩域计算、内部评价工作流。
+- [plot_buffered_fields.py](Workspaces/dlw_paper_20261009/plot_buffered_fields.py)：扩域计算、内部评价工作流。
+- [finalize_buffered_notebook.py](Workspaces/dlw_paper_20261009/finalize_buffered_notebook.py)：扩域计算、内部评价工作流。
+- [check_buffered_layout.cjs](Workspaces/dlw_paper_20261009/check_buffered_layout.cjs)：扩域计算、内部评价工作流。
+- [buffered_run/](Workspaces/dlw_paper_20261009/buffered_run/)：四算例48组扩域结果、原生状态、覆盖检查及修改前备份。
+
+- [physd_page5.png](Workspaces/dlw_paper_20261009/style_revision/physd_page5.png)：Physica D原文图1，单孤子展示范围核对。
+- [physd_page7.png](Workspaces/dlw_paper_20261009/style_revision/physd_page7.png)：Physica D原文图3，二孤子展示范围核对。
+
+- [rerun_unified.py](Workspaces/dlw_paper_20261009/rerun_unified.py)：统一计算域重算、发布或验证产物。
+- [publish_unified.py](Workspaces/dlw_paper_20261009/publish_unified.py)：统一计算域重算、发布或验证产物。
+- [plot_unified_fields.py](Workspaces/dlw_paper_20261009/plot_unified_fields.py)：统一计算域重算、发布或验证产物。
+- [finalize_unified_notebook.py](Workspaces/dlw_paper_20261009/finalize_unified_notebook.py)：统一计算域重算、发布或验证产物。
+- [check_unified_layout.cjs](Workspaces/dlw_paper_20261009/check_unified_layout.cjs)：统一计算域重算、发布或验证产物。
+- [analysis.json](Workspaces/dlw_paper_20261009/unified_run/analysis.json)：统一计算域重算、发布或验证产物。
+- [A_FD_CN_fixed.json](Workspaces/dlw_paper_20261009/unified_run/A_FD_CN_fixed.json)：统一计算域重算、发布或验证产物。
+- [A_FD_Euler_fixed.json](Workspaces/dlw_paper_20261009/unified_run/A_FD_Euler_fixed.json)：统一计算域重算、发布或验证产物。
+- [A_FD_RK4_fixed.json](Workspaces/dlw_paper_20261009/unified_run/A_FD_RK4_fixed.json)：统一计算域重算、发布或验证产物。
+- [A_FD_RK4_fixed.npz](Workspaces/dlw_paper_20261009/unified_run/A_FD_RK4_fixed.npz)：统一计算域重算、发布或验证产物。
+- [A_FD_RK4_moving.json](Workspaces/dlw_paper_20261009/unified_run/A_FD_RK4_moving.json)：统一计算域重算、发布或验证产物。
+- [A_SD2_CN_fixed.json](Workspaces/dlw_paper_20261009/unified_run/A_SD2_CN_fixed.json)：统一计算域重算、发布或验证产物。
+- [A_SD2_Euler_fixed.json](Workspaces/dlw_paper_20261009/unified_run/A_SD2_Euler_fixed.json)：统一计算域重算、发布或验证产物。
+- [A_SD2_RK4_fixed.json](Workspaces/dlw_paper_20261009/unified_run/A_SD2_RK4_fixed.json)：统一计算域重算、发布或验证产物。
+- [A_SD2_RK4_fixed.npz](Workspaces/dlw_paper_20261009/unified_run/A_SD2_RK4_fixed.npz)：统一计算域重算、发布或验证产物。
+- [A_SD2_RK4_moving.json](Workspaces/dlw_paper_20261009/unified_run/A_SD2_RK4_moving.json)：统一计算域重算、发布或验证产物。
+- [A_SD_CN_fixed.json](Workspaces/dlw_paper_20261009/unified_run/A_SD_CN_fixed.json)：统一计算域重算、发布或验证产物。
+- [A_SD_Euler_fixed.json](Workspaces/dlw_paper_20261009/unified_run/A_SD_Euler_fixed.json)：统一计算域重算、发布或验证产物。
+- [A_SD_RK4_fixed.json](Workspaces/dlw_paper_20261009/unified_run/A_SD_RK4_fixed.json)：统一计算域重算、发布或验证产物。
+- [A_SD_RK4_fixed.npz](Workspaces/dlw_paper_20261009/unified_run/A_SD_RK4_fixed.npz)：统一计算域重算、发布或验证产物。
+- [A_SD_RK4_moving.json](Workspaces/dlw_paper_20261009/unified_run/A_SD_RK4_moving.json)：统一计算域重算、发布或验证产物。
+- [batch_check.json](Workspaces/dlw_paper_20261009/unified_run/batch_check.json)：统一计算域重算、发布或验证产物。
+- [B_FD_CN_fixed.json](Workspaces/dlw_paper_20261009/unified_run/B_FD_CN_fixed.json)：统一计算域重算、发布或验证产物。
+- [B_FD_Euler_fixed.json](Workspaces/dlw_paper_20261009/unified_run/B_FD_Euler_fixed.json)：统一计算域重算、发布或验证产物。
+- [B_FD_RK4_fixed.json](Workspaces/dlw_paper_20261009/unified_run/B_FD_RK4_fixed.json)：统一计算域重算、发布或验证产物。
+- [B_FD_RK4_fixed.npz](Workspaces/dlw_paper_20261009/unified_run/B_FD_RK4_fixed.npz)：统一计算域重算、发布或验证产物。
+- [B_FD_RK4_moving.json](Workspaces/dlw_paper_20261009/unified_run/B_FD_RK4_moving.json)：统一计算域重算、发布或验证产物。
+- [B_SD2_CN_fixed.json](Workspaces/dlw_paper_20261009/unified_run/B_SD2_CN_fixed.json)：统一计算域重算、发布或验证产物。
+- [B_SD2_Euler_fixed.json](Workspaces/dlw_paper_20261009/unified_run/B_SD2_Euler_fixed.json)：统一计算域重算、发布或验证产物。
+- [B_SD2_RK4_fixed.json](Workspaces/dlw_paper_20261009/unified_run/B_SD2_RK4_fixed.json)：统一计算域重算、发布或验证产物。
+- [B_SD2_RK4_fixed.npz](Workspaces/dlw_paper_20261009/unified_run/B_SD2_RK4_fixed.npz)：统一计算域重算、发布或验证产物。
+- [B_SD2_RK4_moving.json](Workspaces/dlw_paper_20261009/unified_run/B_SD2_RK4_moving.json)：统一计算域重算、发布或验证产物。
+- [B_SD_CN_fixed.json](Workspaces/dlw_paper_20261009/unified_run/B_SD_CN_fixed.json)：统一计算域重算、发布或验证产物。
+- [B_SD_Euler_fixed.json](Workspaces/dlw_paper_20261009/unified_run/B_SD_Euler_fixed.json)：统一计算域重算、发布或验证产物。
+- [B_SD_RK4_fixed.json](Workspaces/dlw_paper_20261009/unified_run/B_SD_RK4_fixed.json)：统一计算域重算、发布或验证产物。
+- [B_SD_RK4_fixed.npz](Workspaces/dlw_paper_20261009/unified_run/B_SD_RK4_fixed.npz)：统一计算域重算、发布或验证产物。
+- [B_SD_RK4_moving.json](Workspaces/dlw_paper_20261009/unified_run/B_SD_RK4_moving.json)：统一计算域重算、发布或验证产物。
+- [C_FD_CN_fixed.json](Workspaces/dlw_paper_20261009/unified_run/C_FD_CN_fixed.json)：统一计算域重算、发布或验证产物。
+- [C_FD_Euler_fixed.json](Workspaces/dlw_paper_20261009/unified_run/C_FD_Euler_fixed.json)：统一计算域重算、发布或验证产物。
+- [C_FD_RK4_fixed.json](Workspaces/dlw_paper_20261009/unified_run/C_FD_RK4_fixed.json)：统一计算域重算、发布或验证产物。
+- [C_FD_RK4_fixed.npz](Workspaces/dlw_paper_20261009/unified_run/C_FD_RK4_fixed.npz)：统一计算域重算、发布或验证产物。
+- [C_FD_RK4_moving.json](Workspaces/dlw_paper_20261009/unified_run/C_FD_RK4_moving.json)：统一计算域重算、发布或验证产物。
+- [C_SD2_CN_fixed.json](Workspaces/dlw_paper_20261009/unified_run/C_SD2_CN_fixed.json)：统一计算域重算、发布或验证产物。
+- [C_SD2_Euler_fixed.json](Workspaces/dlw_paper_20261009/unified_run/C_SD2_Euler_fixed.json)：统一计算域重算、发布或验证产物。
+- [C_SD2_RK4_fixed.json](Workspaces/dlw_paper_20261009/unified_run/C_SD2_RK4_fixed.json)：统一计算域重算、发布或验证产物。
+- [C_SD2_RK4_fixed.npz](Workspaces/dlw_paper_20261009/unified_run/C_SD2_RK4_fixed.npz)：统一计算域重算、发布或验证产物。
+- [C_SD2_RK4_moving.json](Workspaces/dlw_paper_20261009/unified_run/C_SD2_RK4_moving.json)：统一计算域重算、发布或验证产物。
+- [C_SD_CN_fixed.json](Workspaces/dlw_paper_20261009/unified_run/C_SD_CN_fixed.json)：统一计算域重算、发布或验证产物。
+- [C_SD_Euler_fixed.json](Workspaces/dlw_paper_20261009/unified_run/C_SD_Euler_fixed.json)：统一计算域重算、发布或验证产物。
+- [C_SD_RK4_fixed.json](Workspaces/dlw_paper_20261009/unified_run/C_SD_RK4_fixed.json)：统一计算域重算、发布或验证产物。
+- [C_SD_RK4_fixed.npz](Workspaces/dlw_paper_20261009/unified_run/C_SD_RK4_fixed.npz)：统一计算域重算、发布或验证产物。
+- [C_SD_RK4_moving.json](Workspaces/dlw_paper_20261009/unified_run/C_SD_RK4_moving.json)：统一计算域重算、发布或验证产物。
+- [figure_review.png](Workspaces/dlw_paper_20261009/unified_run/figure_review.png)：统一计算域重算、发布或验证产物。
+- [layout.json](Workspaces/dlw_paper_20261009/unified_run/layout.json)：统一计算域重算、发布或验证产物。
+- [manifest.json](Workspaces/dlw_paper_20261009/unified_run/manifest.json)：统一计算域重算、发布或验证产物。
+- [results.json](Workspaces/dlw_paper_20261009/unified_run/results.json)：统一计算域重算、发布或验证产物。
+- [results_1440.png](Workspaces/dlw_paper_20261009/unified_run/results_1440.png)：统一计算域重算、发布或验证产物。
+- [results_390.png](Workspaces/dlw_paper_20261009/unified_run/results_390.png)：统一计算域重算、发布或验证产物。
+- [tables.json](Workspaces/dlw_paper_20261009/unified_run/tables.json)：统一计算域重算、发布或验证产物。
+- [validation.json](Workspaces/dlw_paper_20261009/unified_run/validation.json)：统一计算域重算、发布或验证产物。
+- [unified_run/before](Workspaces/dlw_paper_20261009/unified_run/before/)：重算前Notebook、文稿、HTML、表格及图文件备份。
+
+- [before_unified_domain](Workspaces/dlw_paper_20261009/figures/before_unified_domain/)：全部统一±20之前的精确解图备份。
+
+- [before_round_windows](Workspaces/dlw_paper_20261009/figures/before_round_windows/)：统一单孤子±5、二孤子±20之前的精确解图备份。
+
+- [next_numerical_settings.json](Workspaces/dlw_paper_20261009/next_numerical_settings.json)：用户选定的新步长及当前展示窗口，待确定计算域后重算。
+- [before_compact_windows](Workspaces/dlw_paper_20261009/figures/before_compact_windows/)：收窄前的精确解图、PDF、脚本入口与检查记录备份。
+
+- [plot_exact_solutions.py](Workspaces/dlw_paper_20261009/plot_exact_solutions.py)：3.4三个算例的解析u/v曲面及可调展示窗口。
+- [exact_single_1_2.png](Workspaces/dlw_paper_20261009/figures/exact_single_1_2.png)：精确解曲面。
+- [exact_single_1_2.pdf](Workspaces/dlw_paper_20261009/figures/exact_single_1_2.pdf)：精确解曲面。
+- [exact_single_1_2.py](Workspaces/dlw_paper_20261009/figures/exact_single_1_2.py)：精确解曲面。
+- [exact_single_4_m3.png](Workspaces/dlw_paper_20261009/figures/exact_single_4_m3.png)：精确解曲面。
+- [exact_single_4_m3.pdf](Workspaces/dlw_paper_20261009/figures/exact_single_4_m3.pdf)：精确解曲面。
+- [exact_single_4_m3.py](Workspaces/dlw_paper_20261009/figures/exact_single_4_m3.py)：精确解曲面。
+- [exact_two_soliton.png](Workspaces/dlw_paper_20261009/figures/exact_two_soliton.png)：精确解曲面。
+- [exact_two_soliton.pdf](Workspaces/dlw_paper_20261009/figures/exact_two_soliton.pdf)：精确解曲面。
+- [exact_two_soliton.py](Workspaces/dlw_paper_20261009/figures/exact_two_soliton.py)：精确解曲面。
+- [exact_solutions_validation.json](Workspaces/dlw_paper_20261009/figures/exact_solutions_validation.json)：解析公式检查、展示范围与场极值。
+
+**DLW 论文初稿（2026-10-09）：**
+
+- [report/dlw_paper_draft.html](report/dlw_paper_draft.html)：完整离线HTML论文阅读版。
+- [Workspaces/dlw_paper_20261009/assemble.py](Workspaces/dlw_paper_20261009/assemble.py)：论文结构整合与编号。
+- [Workspaces/dlw_paper_20261009/build.py](Workspaces/dlw_paper_20261009/build.py)：离线HTML构建。
+- [Workspaces/dlw_paper_20261009/build_validation.json](Workspaces/dlw_paper_20261009/build_validation.json)：论文构建、图片或排版记录。
+- [Workspaces/dlw_paper_20261009/figure_1.png](Workspaces/dlw_paper_20261009/figure_1.png)：论文构建、图片或排版记录。
+- [Workspaces/dlw_paper_20261009/figure_2.png](Workspaces/dlw_paper_20261009/figure_2.png)：论文构建、图片或排版记录。
+- [Workspaces/dlw_paper_20261009/figure_3.png](Workspaces/dlw_paper_20261009/figure_3.png)：论文构建、图片或排版记录。
+- [Workspaces/dlw_paper_20261009/figure_4.png](Workspaces/dlw_paper_20261009/figure_4.png)：论文构建、图片或排版记录。
+- [Workspaces/dlw_paper_20261009/figure_5.png](Workspaces/dlw_paper_20261009/figure_5.png)：论文构建、图片或排版记录。
+- [Workspaces/dlw_paper_20261009/figure_6.png](Workspaces/dlw_paper_20261009/figure_6.png)：论文构建、图片或排版记录。
+- [Workspaces/dlw_paper_20261009/formulas.json](Workspaces/dlw_paper_20261009/formulas.json)：论文构建、图片或排版记录。
+- [Workspaces/dlw_paper_20261009/lax_bridge.md](Workspaces/dlw_paper_20261009/lax_bridge.md)：Lax 对及势规范正文。
+- [Workspaces/dlw_paper_20261009/layout.cjs](Workspaces/dlw_paper_20261009/layout.cjs)：阅读版排版检查。
+- [Workspaces/dlw_paper_20261009/layout_validation.json](Workspaces/dlw_paper_20261009/layout_validation.json)：论文构建、图片或排版记录。
+- [Workspaces/dlw_paper_20261009/manuscript.md](Workspaces/dlw_paper_20261009/manuscript.md)：合并正文源。
+- [Workspaces/dlw_paper_20261009/numerical_code.txt](Workspaces/dlw_paper_20261009/numerical_code.txt)：论文构建、图片或排版记录。
+- [Workspaces/dlw_paper_20261009/numerical_text.txt](Workspaces/dlw_paper_20261009/numerical_text.txt)：论文构建、图片或排版记录。
+- [Workspaces/dlw_paper_20261009/numerical_validation.json](Workspaces/dlw_paper_20261009/numerical_validation.json)：既有数值复核与保存输出来源。
+- [Workspaces/dlw_paper_20261009/numerics.md](Workspaces/dlw_paper_20261009/numerics.md)：数值方法与实验正文。
+- [Workspaces/dlw_paper_20261009/page_1440.png](Workspaces/dlw_paper_20261009/page_1440.png)：论文构建、图片或排版记录。
+- [Workspaces/dlw_paper_20261009/page_390.png](Workspaces/dlw_paper_20261009/page_390.png)：论文构建、图片或排版记录。
+- [Workspaces/dlw_paper_20261009/register.py](Workspaces/dlw_paper_20261009/register.py)：论文构建、图片或排版记录。
+- [Workspaces/dlw_paper_20261009/render.cjs](Workspaces/dlw_paper_20261009/render.cjs)：论文构建、图片或排版记录。
+- [Workspaces/dlw_paper_20261009/rendered.json](Workspaces/dlw_paper_20261009/rendered.json)：论文构建、图片或排版记录。
+- [Workspaces/dlw_paper_20261009/reproduce.py](Workspaces/dlw_paper_20261009/reproduce.py)：用户要求停止重算前的复现入口。
+- [Workspaces/dlw_paper_20261009/tables.json](Workspaces/dlw_paper_20261009/tables.json)：论文构建、图片或排版记录。
+- `Workspaces/dlw_paper_20261009/registration_before/`：登记前进度与索引备份。
+- [Workspaces/dlw_paper_20261009/editorial.py](Workspaces/dlw_paper_20261009/editorial.py)：论文语言修订源码、阅读材料或核验。
+- [Workspaces/dlw_paper_20261009/style_revision/2hs_full.txt](Workspaces/dlw_paper_20261009/style_revision/2hs_full.txt)：论文语言修订源码、阅读材料或核验。
+- [Workspaces/dlw_paper_20261009/style_revision/2hs_prose.txt](Workspaces/dlw_paper_20261009/style_revision/2hs_prose.txt)：论文语言修订源码、阅读材料或核验。
+- [Workspaces/dlw_paper_20261009/style_revision/dlw_full.txt](Workspaces/dlw_paper_20261009/style_revision/dlw_full.txt)：论文语言修订源码、阅读材料或核验。
+- [Workspaces/dlw_paper_20261009/style_revision/dlw_prose.txt](Workspaces/dlw_paper_20261009/style_revision/dlw_prose.txt)：论文语言修订源码、阅读材料或核验。
+- [Workspaces/dlw_paper_20261009/style_revision/gsg_full.txt](Workspaces/dlw_paper_20261009/style_revision/gsg_full.txt)：论文语言修订源码、阅读材料或核验。
+- [Workspaces/dlw_paper_20261009/style_revision/gsg_prose.txt](Workspaces/dlw_paper_20261009/style_revision/gsg_prose.txt)：论文语言修订源码、阅读材料或核验。
+- [Workspaces/dlw_paper_20261009/style_revision/prose_changes.json](Workspaces/dlw_paper_20261009/style_revision/prose_changes.json)：论文语言修订源码、阅读材料或核验。
+- [Workspaces/dlw_paper_20261009/style_revision/reading_notes.md](Workspaces/dlw_paper_20261009/style_revision/reading_notes.md)：论文语言修订源码、阅读材料或核验。
+- [Workspaces/dlw_paper_20261009/style_revision/validation.json](Workspaces/dlw_paper_20261009/style_revision/validation.json)：论文语言修订源码、阅读材料或核验。
+- `Workspaces/dlw_paper_20261009/style_revision/before/`：本次语言修订前正文与HTML原件。
+- [Workspaces/dlw_paper_20261009/determinant_only.py](Workspaces/dlw_paper_20261009/determinant_only.py)：移除孤子展开并将正则性及极限证明改用行列式的正文转换。
+- [Workspaces/dlw_paper_20261009/numerical_methods_revised.md](Workspaces/dlw_paper_20261009/numerical_methods_revised.md)（数值方法新版正文）
+- [Workspaces/dlw_paper_20261009/methods_revision.py](Workspaces/dlw_paper_20261009/methods_revision.py)（方法章节与表格持久构建变换）
+- [Workspaces/dlw_paper_20261009/check_methods_layout.cjs](Workspaces/dlw_paper_20261009/check_methods_layout.cjs)（表格与宽窄屏排版核验）
+- [Workspaces/dlw_paper_20261009/methods_layout_validation.json](Workspaces/dlw_paper_20261009/methods_layout_validation.json)（排版核验结果）
+- [Workspaces/dlw_paper_20261009/methods_iteration_1440.png](Workspaces/dlw_paper_20261009/methods_iteration_1440.png)（迭代说明截图）
+- [Workspaces/dlw_paper_20261009/before_methods_revision/](Workspaces/dlw_paper_20261009/before_methods_revision/)（本次数值方法修订前备份）
+- [Workspaces/dlw_paper_20261009/methods_table1_1440.png](Workspaces/dlw_paper_20261009/methods_table1_1440.png)（表1在1440px的排版截图）
+- [Workspaces/dlw_paper_20261009/methods_table1_390.png](Workspaces/dlw_paper_20261009/methods_table1_390.png)（表1在390px的排版截图）
+- [Workspaces/dlw_paper_20261009/methods_table2_1440.png](Workspaces/dlw_paper_20261009/methods_table2_1440.png)（表2在1440px的排版截图）
+- [Workspaces/dlw_paper_20261009/methods_table2_390.png](Workspaces/dlw_paper_20261009/methods_table2_390.png)（表2在390px的排版截图）
+- [Workspaces/dlw_paper_20261009/methods_table3_1440.png](Workspaces/dlw_paper_20261009/methods_table3_1440.png)（表3在1440px的排版截图）
+- [Workspaces/dlw_paper_20261009/methods_table3_390.png](Workspaces/dlw_paper_20261009/methods_table3_390.png)（表3在390px的排版截图）
+- [Workspaces/dlw_paper_20261009/narrative_revision.py](Workspaces/dlw_paper_20261009/narrative_revision.py)
+- [Workspaces/dlw_paper_20261009/results_revised.md](Workspaces/dlw_paper_20261009/results_revised.md)
+- [Workspaces/dlw_paper_20261009/narrative_changes.json](Workspaces/dlw_paper_20261009/narrative_changes.json)
+- [Workspaces/dlw_paper_20261009/results_reorganization.json](Workspaces/dlw_paper_20261009/results_reorganization.json)
+- [Workspaces/dlw_paper_20261009/verify_narrative.py](Workspaces/dlw_paper_20261009/verify_narrative.py)
+- [Workspaces/dlw_paper_20261009/narrative_content_validation.json](Workspaces/dlw_paper_20261009/narrative_content_validation.json)
+- [Workspaces/dlw_paper_20261009/check_narrative_layout.cjs](Workspaces/dlw_paper_20261009/check_narrative_layout.cjs)
+- [Workspaces/dlw_paper_20261009/narrative_layout_validation.json](Workspaces/dlw_paper_20261009/narrative_layout_validation.json)
+- [Workspaces/dlw_paper_20261009/before_narrative_revision/](Workspaces/dlw_paper_20261009/before_narrative_revision/)
+- [Workspaces/dlw_paper_20261009/narrative_proof_1440.png](Workspaces/dlw_paper_20261009/narrative_proof_1440.png)
+- [Workspaces/dlw_paper_20261009/narrative_proof_390.png](Workspaces/dlw_paper_20261009/narrative_proof_390.png)
+- [Workspaces/dlw_paper_20261009/narrative_results_1440.png](Workspaces/dlw_paper_20261009/narrative_results_1440.png)
+- [Workspaces/dlw_paper_20261009/narrative_results_390.png](Workspaces/dlw_paper_20261009/narrative_results_390.png)
+- [Workspaces/dlw_paper_20261009/narrative_mesh_1440.png](Workspaces/dlw_paper_20261009/narrative_mesh_1440.png)
+- [Workspaces/dlw_paper_20261009/narrative_mesh_390.png](Workspaces/dlw_paper_20261009/narrative_mesh_390.png)
+- [Workspaces/dlw_paper_20261009/narrative_single_1440.png](Workspaces/dlw_paper_20261009/narrative_single_1440.png)
+- [Workspaces/dlw_paper_20261009/narrative_single_390.png](Workspaces/dlw_paper_20261009/narrative_single_390.png)
+- [Workspaces/dlw_paper_20261009/structure_revision.py](Workspaces/dlw_paper_20261009/structure_revision.py)
+- [Workspaces/dlw_paper_20261009/structure_revision_validation.json](Workspaces/dlw_paper_20261009/structure_revision_validation.json)
+- [Workspaces/dlw_paper_20261009/check_structure_layout.cjs](Workspaces/dlw_paper_20261009/check_structure_layout.cjs)
+- [Workspaces/dlw_paper_20261009/structure_layout_validation.json](Workspaces/dlw_paper_20261009/structure_layout_validation.json)
+- [Workspaces/dlw_paper_20261009/before_structure_revision/](Workspaces/dlw_paper_20261009/before_structure_revision/)
+- [Workspaces/dlw_paper_20261009/structure_proof_1440.png](Workspaces/dlw_paper_20261009/structure_proof_1440.png)
+- [Workspaces/dlw_paper_20261009/structure_proof_390.png](Workspaces/dlw_paper_20261009/structure_proof_390.png)
+- [Workspaces/dlw_paper_20261009/structure_results_1440.png](Workspaces/dlw_paper_20261009/structure_results_1440.png)
+- [Workspaces/dlw_paper_20261009/structure_results_390.png](Workspaces/dlw_paper_20261009/structure_results_390.png)
+- [Workspaces/dlw_paper_20261009/structure_time_1440.png](Workspaces/dlw_paper_20261009/structure_time_1440.png)
+- [Workspaces/dlw_paper_20261009/structure_time_390.png](Workspaces/dlw_paper_20261009/structure_time_390.png)
+- [Workspaces/dlw_paper_20261009/structure_mesh_1440.png](Workspaces/dlw_paper_20261009/structure_mesh_1440.png)
+- [Workspaces/dlw_paper_20261009/structure_mesh_390.png](Workspaces/dlw_paper_20261009/structure_mesh_390.png)
+- [Workspaces/dlw_paper_20261009/structure_single_1440.png](Workspaces/dlw_paper_20261009/structure_single_1440.png)
+- [Workspaces/dlw_paper_20261009/structure_single_390.png](Workspaces/dlw_paper_20261009/structure_single_390.png)
+- [Workspaces/dlw_paper_20261009/full_comparison_revision.py](Workspaces/dlw_paper_20261009/full_comparison_revision.py)
+- [Workspaces/dlw_paper_20261009/full_comparison_results.md](Workspaces/dlw_paper_20261009/full_comparison_results.md)
+- [Workspaces/dlw_paper_20261009/prepare_comparison_fields.py](Workspaces/dlw_paper_20261009/prepare_comparison_fields.py)
+- [Workspaces/dlw_paper_20261009/plot_comparison_fields.py](Workspaces/dlw_paper_20261009/plot_comparison_fields.py)
+- [Workspaces/dlw_paper_20261009/verify_full_comparison.py](Workspaces/dlw_paper_20261009/verify_full_comparison.py)
+- [Workspaces/dlw_paper_20261009/full_comparison_validation.json](Workspaces/dlw_paper_20261009/full_comparison_validation.json)
+- [Workspaces/dlw_paper_20261009/check_full_comparison_layout.cjs](Workspaces/dlw_paper_20261009/check_full_comparison_layout.cjs)
+- [Workspaces/dlw_paper_20261009/full_comparison_layout_validation.json](Workspaces/dlw_paper_20261009/full_comparison_layout_validation.json)
+- [Workspaces/dlw_paper_20261009/before_full_comparison_revision/](Workspaces/dlw_paper_20261009/before_full_comparison_revision/)
+- [Workspaces/dlw_paper_20261009/comparison_fields/manifest.json](Workspaces/dlw_paper_20261009/comparison_fields/manifest.json)
+- [Workspaces/dlw_paper_20261009/figures/plot_validation.json](Workspaces/dlw_paper_20261009/figures/plot_validation.json)
+- [Workspaces/dlw_paper_20261009/comparison_fields/A_PE.npz](Workspaces/dlw_paper_20261009/comparison_fields/A_PE.npz)
+- [Workspaces/dlw_paper_20261009/comparison_fields/A_PE.json](Workspaces/dlw_paper_20261009/comparison_fields/A_PE.json)
+- [Workspaces/dlw_paper_20261009/comparison_fields/A_FD.npz](Workspaces/dlw_paper_20261009/comparison_fields/A_FD.npz)
+- [Workspaces/dlw_paper_20261009/comparison_fields/A_FD.json](Workspaces/dlw_paper_20261009/comparison_fields/A_FD.json)
+- [Workspaces/dlw_paper_20261009/comparison_fields/B_PE.npz](Workspaces/dlw_paper_20261009/comparison_fields/B_PE.npz)
+- [Workspaces/dlw_paper_20261009/comparison_fields/B_PE.json](Workspaces/dlw_paper_20261009/comparison_fields/B_PE.json)
+- [Workspaces/dlw_paper_20261009/comparison_fields/B_FD.npz](Workspaces/dlw_paper_20261009/comparison_fields/B_FD.npz)
+- [Workspaces/dlw_paper_20261009/comparison_fields/B_FD.json](Workspaces/dlw_paper_20261009/comparison_fields/B_FD.json)
+- [Workspaces/dlw_paper_20261009/comparison_fields/C_PE.npz](Workspaces/dlw_paper_20261009/comparison_fields/C_PE.npz)
+- [Workspaces/dlw_paper_20261009/comparison_fields/C_PE.json](Workspaces/dlw_paper_20261009/comparison_fields/C_PE.json)
+- [Workspaces/dlw_paper_20261009/comparison_fields/C_FD.npz](Workspaces/dlw_paper_20261009/comparison_fields/C_FD.npz)
+- [Workspaces/dlw_paper_20261009/comparison_fields/C_FD.json](Workspaces/dlw_paper_20261009/comparison_fields/C_FD.json)
+- [Workspaces/dlw_paper_20261009/figures/A_fields.png](Workspaces/dlw_paper_20261009/figures/A_fields.png)
+- [Workspaces/dlw_paper_20261009/figures/A_fields.pdf](Workspaces/dlw_paper_20261009/figures/A_fields.pdf)
+- [Workspaces/dlw_paper_20261009/figures/A_fields.py](Workspaces/dlw_paper_20261009/figures/A_fields.py)
+- [Workspaces/dlw_paper_20261009/figures/A_errors.png](Workspaces/dlw_paper_20261009/figures/A_errors.png)
+- [Workspaces/dlw_paper_20261009/figures/A_errors.pdf](Workspaces/dlw_paper_20261009/figures/A_errors.pdf)
+- [Workspaces/dlw_paper_20261009/figures/A_errors.py](Workspaces/dlw_paper_20261009/figures/A_errors.py)
+- [Workspaces/dlw_paper_20261009/figures/B_fields.png](Workspaces/dlw_paper_20261009/figures/B_fields.png)
+- [Workspaces/dlw_paper_20261009/figures/B_fields.pdf](Workspaces/dlw_paper_20261009/figures/B_fields.pdf)
+- [Workspaces/dlw_paper_20261009/figures/B_fields.py](Workspaces/dlw_paper_20261009/figures/B_fields.py)
+- [Workspaces/dlw_paper_20261009/figures/B_errors.png](Workspaces/dlw_paper_20261009/figures/B_errors.png)
+- [Workspaces/dlw_paper_20261009/figures/B_errors.pdf](Workspaces/dlw_paper_20261009/figures/B_errors.pdf)
+- [Workspaces/dlw_paper_20261009/figures/B_errors.py](Workspaces/dlw_paper_20261009/figures/B_errors.py)
+- [Workspaces/dlw_paper_20261009/figures/C_fields.png](Workspaces/dlw_paper_20261009/figures/C_fields.png)
+- [Workspaces/dlw_paper_20261009/figures/C_fields.pdf](Workspaces/dlw_paper_20261009/figures/C_fields.pdf)
+- [Workspaces/dlw_paper_20261009/figures/C_fields.py](Workspaces/dlw_paper_20261009/figures/C_fields.py)
+- [Workspaces/dlw_paper_20261009/figures/C_errors.png](Workspaces/dlw_paper_20261009/figures/C_errors.png)
+- [Workspaces/dlw_paper_20261009/figures/C_errors.pdf](Workspaces/dlw_paper_20261009/figures/C_errors.pdf)
+- [Workspaces/dlw_paper_20261009/figures/C_errors.py](Workspaces/dlw_paper_20261009/figures/C_errors.py)
+- [Workspaces/dlw_paper_20261009/full_comparison_proof_1440.png](Workspaces/dlw_paper_20261009/full_comparison_proof_1440.png)
+- [Workspaces/dlw_paper_20261009/full_comparison_proof_390.png](Workspaces/dlw_paper_20261009/full_comparison_proof_390.png)
+- [Workspaces/dlw_paper_20261009/full_comparison_results_1440.png](Workspaces/dlw_paper_20261009/full_comparison_results_1440.png)
+- [Workspaces/dlw_paper_20261009/full_comparison_results_390.png](Workspaces/dlw_paper_20261009/full_comparison_results_390.png)
+- [Workspaces/dlw_paper_20261009/full_comparison_time_1440.png](Workspaces/dlw_paper_20261009/full_comparison_time_1440.png)
+- [Workspaces/dlw_paper_20261009/full_comparison_time_390.png](Workspaces/dlw_paper_20261009/full_comparison_time_390.png)
+- [Workspaces/dlw_paper_20261009/full_comparison_mesh_1440.png](Workspaces/dlw_paper_20261009/full_comparison_mesh_1440.png)
+- [Workspaces/dlw_paper_20261009/full_comparison_mesh_390.png](Workspaces/dlw_paper_20261009/full_comparison_mesh_390.png)
+- [Workspaces/dlw_paper_20261009/full_comparison_single_1440.png](Workspaces/dlw_paper_20261009/full_comparison_single_1440.png)
+- [Workspaces/dlw_paper_20261009/full_comparison_single_390.png](Workspaces/dlw_paper_20261009/full_comparison_single_390.png)
+- [Workspaces/dlw_paper_20261009/full_comparison_lax_1440.png](Workspaces/dlw_paper_20261009/full_comparison_lax_1440.png)
+- [Workspaces/dlw_paper_20261009/full_comparison_lax_390.png](Workspaces/dlw_paper_20261009/full_comparison_lax_390.png)
+- [Workspaces/dlw_paper_20261009/full_comparison_map_1440.png](Workspaces/dlw_paper_20261009/full_comparison_map_1440.png)
+- [Workspaces/dlw_paper_20261009/full_comparison_map_390.png](Workspaces/dlw_paper_20261009/full_comparison_map_390.png)
+<!-- DLW_PAPER_DRAFT_INDEX_END -->
+
+<!-- MCH_LDG_READING_INDEX_BEGIN -->
+**mCH LDG 论文导读（2026-10-09）：**
+
+- [report/mch_ldg_2608_28077_reading.html](report/mch_ldg_2608_28077_reading.html)：用户中文导读，离线字体与公式、阅读顺序、原文图4。
+- [Paper/refs/2608_28077/2608.28077v2.pdf](Paper/refs/2608_28077/2608.28077v2.pdf)：原文归档，与用户指定微信文件字节相同。
+- [Workspaces/paper_2608_28077_reading_20261009/build.cjs](Workspaces/paper_2608_28077_reading_20261009/build.cjs)：离线HTML及静态数学生成器。
+- [Workspaces/paper_2608_28077_reading_20261009/build_validation.json](Workspaces/paper_2608_28077_reading_20261009/build_validation.json)：最终HTML公式计数、大小与哈希。
+- [Workspaces/paper_2608_28077_reading_20261009/guide.src.html](Workspaces/paper_2608_28077_reading_20261009/guide.src.html)：中文导读正文与版式源。
+- [Workspaces/paper_2608_28077_reading_20261009/guide_desktop_top.png](Workspaces/paper_2608_28077_reading_20261009/guide_desktop_top.png)：导读页面布局核验截图。
+- [Workspaces/paper_2608_28077_reading_20261009/guide_error.png](Workspaces/paper_2608_28077_reading_20261009/guide_error.png)：导读页面布局核验截图。
+- [Workspaces/paper_2608_28077_reading_20261009/guide_figure.png](Workspaces/paper_2608_28077_reading_20261009/guide_figure.png)：导读页面布局核验截图。
+- [Workspaces/paper_2608_28077_reading_20261009/guide_flux.png](Workspaces/paper_2608_28077_reading_20261009/guide_flux.png)：导读页面布局核验截图。
+- [Workspaces/paper_2608_28077_reading_20261009/guide_mobile_flux.png](Workspaces/paper_2608_28077_reading_20261009/guide_mobile_flux.png)：导读页面布局核验截图。
+- [Workspaces/paper_2608_28077_reading_20261009/guide_mobile_top.png](Workspaces/paper_2608_28077_reading_20261009/guide_mobile_top.png)：导读页面布局核验截图。
+- [Workspaces/paper_2608_28077_reading_20261009/layout_validation.json](Workspaces/paper_2608_28077_reading_20261009/layout_validation.json)：最终布局及本地链接核验结果。
+- [Workspaces/paper_2608_28077_reading_20261009/math_validation.json](Workspaces/paper_2608_28077_reading_20261009/math_validation.json)：通量拆分/原函数差商精确核验与原文哈希。
+- [Workspaces/paper_2608_28077_reading_20261009/notes_error.md](Workspaces/paper_2608_28077_reading_20261009/notes_error.md)：第9–17页误差估计独立审读。
+- [Workspaces/paper_2608_28077_reading_20261009/notes_experiments.md](Workspaces/paper_2608_28077_reading_20261009/notes_experiments.md)：数值算例、证据和研究联系独立审读。
+- [Workspaces/paper_2608_28077_reading_20261009/notes_method.md](Workspaces/paper_2608_28077_reading_20261009/notes_method.md)：第1–8页方程、通量与能量独立审读。
+- [Workspaces/paper_2608_28077_reading_20261009/page-05.png](Workspaces/paper_2608_28077_reading_20261009/page-05.png)：原文第5页渲染。
+- [Workspaces/paper_2608_28077_reading_20261009/page-17.png](Workspaces/paper_2608_28077_reading_20261009/page-17.png)：原文第17页渲染。
+- [Workspaces/paper_2608_28077_reading_20261009/page-24.png](Workspaces/paper_2608_28077_reading_20261009/page-24.png)：原文第24页渲染。
+- [Workspaces/paper_2608_28077_reading_20261009/page-25.png](Workspaces/paper_2608_28077_reading_20261009/page-25.png)：原文第25页渲染。
+- [Workspaces/paper_2608_28077_reading_20261009/pages.json](Workspaces/paper_2608_28077_reading_20261009/pages.json)：原文逐页文本（28页）。
+- [Workspaces/paper_2608_28077_reading_20261009/paper_layout.txt](Workspaces/paper_2608_28077_reading_20261009/paper_layout.txt)：保留页面布局的文本抽取。
+- [Workspaces/paper_2608_28077_reading_20261009/register.py](Workspaces/paper_2608_28077_reading_20261009/register.py)：本专题进度与逐文件索引合并。
+- [Workspaces/paper_2608_28077_reading_20261009/verify_layout.cjs](Workspaces/paper_2608_28077_reading_20261009/verify_layout.cjs)：桌面/窄屏/无JavaScript布局、图片和链接核验。
+- `Workspaces/paper_2608_28077_reading_20261009/registration_before/PROGRESS_LOG.md`：首次登记前进度档备份。
+- `Workspaces/paper_2608_28077_reading_20261009/registration_before/FILE_INDEX.md`：首次登记前索引备份。
+- `Workspaces/paper_2608_28077_reading_20261009/registration.json`：登记后入口文件与交付文件哈希。
+<!-- MCH_LDG_READING_INDEX_END -->
+
+<!-- DLW_LAX_DERIVATION_INDEX_BEGIN -->
+**半离散 DLW 的 Lax 推导（2026-10-09）：**
+
+- [report/dlw_lax_derivation.html](report/dlw_lax_derivation.html)：四部分、12式；原方程、条件、Lax对及相容性证明。
+- [Workspaces/dlw_lax_derivation_20261009/build.py](Workspaces/dlw_lax_derivation_20261009/build.py)：离线HTML构建、公式编号与链接检查。
+- [Workspaces/dlw_lax_derivation_20261009/build_validation.json](Workspaces/dlw_lax_derivation_20261009/build_validation.json)：构建核验结果。
+- [Workspaces/dlw_lax_derivation_20261009/check_layout.cjs](Workspaces/dlw_lax_derivation_20261009/check_layout.cjs)：桌面、390px和打印布局检查。
+- [Workspaces/dlw_lax_derivation_20261009/compact_manuscript.md](Workspaces/dlw_lax_derivation_20261009/compact_manuscript.md)：当前四部分精简正文源。
+- [Workspaces/dlw_lax_derivation_20261009/formulas.json](Workspaces/dlw_lax_derivation_20261009/formulas.json)：数学表达式清单。
+- [Workspaces/dlw_lax_derivation_20261009/layout_validation.json](Workspaces/dlw_lax_derivation_20261009/layout_validation.json)：布局核验结果。
+- [Workspaces/dlw_lax_derivation_20261009/local_manuscript.md](Workspaces/dlw_lax_derivation_20261009/local_manuscript.md)：前版局部推导与周期条件正文。
+- [Workspaces/dlw_lax_derivation_20261009/local_symbolic_validation.json](Workspaces/dlw_lax_derivation_20261009/local_symbolic_validation.json)：当前局部推导核对证据。
+- [Workspaces/dlw_lax_derivation_20261009/local_verify.py](Workspaces/dlw_lax_derivation_20261009/local_verify.py)：当前局部推导的7项精确符号检查。
+- [Workspaces/dlw_lax_derivation_20261009/manuscript.md](Workspaces/dlw_lax_derivation_20261009/manuscript.md)：前版固定平均周期推导正文。
+- [Workspaces/dlw_lax_derivation_20261009/prose_revision_validation.json](Workspaces/dlw_lax_derivation_20261009/prose_revision_validation.json)：措辞修订范围与源码哈希核验。
+- [Workspaces/dlw_lax_derivation_20261009/register.py](Workspaces/dlw_lax_derivation_20261009/register.py)：合并登记进度和逐文件索引。
+- [Workspaces/dlw_lax_derivation_20261009/registration.json](Workspaces/dlw_lax_derivation_20261009/registration.json)：登记与交付哈希。
+- [Workspaces/dlw_lax_derivation_20261009/render.cjs](Workspaces/dlw_lax_derivation_20261009/render.cjs)：严格KaTeX公式渲染。
+- [Workspaces/dlw_lax_derivation_20261009/rendered.json](Workspaces/dlw_lax_derivation_20261009/rendered.json)：已渲染数学。
+- [Workspaces/dlw_lax_derivation_20261009/reverse_1440.png](Workspaces/dlw_lax_derivation_20261009/reverse_1440.png)：页面核验截图。
+- [Workspaces/dlw_lax_derivation_20261009/reverse_390.png](Workspaces/dlw_lax_derivation_20261009/reverse_390.png)：页面核验截图。
+- [Workspaces/dlw_lax_derivation_20261009/symbolic_validation.json](Workspaces/dlw_lax_derivation_20261009/symbolic_validation.json)：符号核对证据。
+- [Workspaces/dlw_lax_derivation_20261009/top_1440.png](Workspaces/dlw_lax_derivation_20261009/top_1440.png)：页面核验截图。
+- [Workspaces/dlw_lax_derivation_20261009/top_390.png](Workspaces/dlw_lax_derivation_20261009/top_390.png)：页面核验截图。
+- [Workspaces/dlw_lax_derivation_20261009/verify.py](Workspaces/dlw_lax_derivation_20261009/verify.py)：31项精确符号检查。
+- [Workspaces/dlw_lax_derivation_20261009/verify_prose_revision.py](Workspaces/dlw_lax_derivation_20261009/verify_prose_revision.py)：四节结构与12个编号公式逐字保持检查。
+- `Workspaces/dlw_lax_derivation_20261009/registration_before/`：登记前进度与索引原件。
+- `Workspaces/dlw_lax_derivation_20261009/before_local_revision/`：前版HTML、构建／登记脚本与核验记录。
+- `Workspaces/dlw_lax_derivation_20261009/before_compact_revision/`：四部分精简前的HTML、正文、构建及登记脚本。
+- `Workspaces/dlw_lax_derivation_20261009/before_prose_revision/`：措辞修订前的HTML、正文及登记脚本。
+<!-- DLW_LAX_DERIVATION_INDEX_END -->
+
+<!-- NOTEBOOK_AUDIT_INDEX_BEGIN -->
+**Notebook 专项审查（2026-10-08—09）：**
+
+- [report/notebook_review_20261009.html](report/notebook_review_20261009.html)：用户阅读报告，四项 P2、六项 P3、数值精度与理论／边界审查，包含并行新增 C–N 的补审。
+- [Workspaces/notebook_audit_20261008/summary.json](Workspaces/notebook_audit_20261008/summary.json)：范围、发现定位、计数与原 Notebook 哈希检查汇总。
+- [Workspaces/notebook_audit_20261008/inventory.json](Workspaces/notebook_audit_20261008/inventory.json)：三份 Notebook 原始哈希、逐单元与保存输出索引。
+- [Workspaces/notebook_audit_20261008/extract_notebooks.py](Workspaces/notebook_audit_20261008/extract_notebooks.py)：抽取本次范围内的正文、代码、表和 18 张保存图；`extracted/` 为单元快照。
+- [Workspaces/notebook_audit_20261008/2hs/findings.md](Workspaces/notebook_audit_20261008/2hs/findings.md)：2HS 逐项审查；同目录 `audit_checks.py`、`additional_checks.py`、`evidence.json` 为独立复现脚本及数值证据，`source.txt` 为源码快照。
+- [Workspaces/notebook_audit_20261008/dlw/findings.md](Workspaces/notebook_audit_20261008/dlw/findings.md)：DLW 数值逐项审查；`audit_dlw.py`、`numerical_checks.json` 为默认 27 组及边界／算法复核，`final_state_guard_check.py`、`final_state_guard.json` 为终步反例，`align_saved_ratio_table.py` 为保存表标签排序对齐，`notebook_source_numbered.txt` 为定位快照。
+- `Workspaces/notebook_audit_20261008/dlw/cn_revision/`：新增 C–N 的 Notebook 快照、`cn_evidence.json`（默认9组及新表54值）、`cn_tolerance_evidence.json`、`cn_tolerance_pure_evidence.json`（纯缩紧容差配对）、可复跑补审脚本和补审发现。`concurrent_revision/` 为主审查检测并行更新时冻结的同版本快照。
+- [Workspaces/notebook_audit_20261008/theory/findings.md](Workspaces/notebook_audit_20261008/theory/findings.md)：理论前提与形式化覆盖表；`verify_theory.py`、`evidence.json` 为 161 项精确检查及直接证明链对应。
+- [Workspaces/notebook_audit_20261008/audit_plot_and_cache.py](Workspaces/notebook_audit_20261008/audit_plot_and_cache.py)：两本数值本绘图／缓存复现，结果为 `plot_cache_evidence.json`；保存图总览为 `stored_figures_contact_sheet.png`。
+- [Workspaces/notebook_audit_20261008/audit_wide_fields.py](Workspaces/notebook_audit_20261008/audit_wide_fields.py)：A/B/C 默认宽域数值场独立回算，结果为 `wide_field_evidence.json`。
+- [Workspaces/notebook_audit_20261008/build_review.py](Workspaces/notebook_audit_20261008/build_review.py)：用户 HTML 与汇总证据生成器；`verify_report.cjs`、`report_validation.json`、`report_desktop*.png`、`report_mobile*.png` 为阅读布局核验。
+- [Workspaces/notebook_audit_20261008/register_review.py](Workspaces/notebook_audit_20261008/register_review.py)：合并本专题进度和索引；`registration_before_20261009_*/` 保存登记前原件，`registration.json` 保存最终哈希。
+<!-- NOTEBOOK_AUDIT_INDEX_END -->
+
+<!-- DLW_THEORY_NOTEBOOK_INDEX -->
+- `Workspaces/dlw_theory_notebook_20261008/focus_theory.py`（Notebook主线精简规则）
+- `Workspaces/dlw_theory_notebook_20261008/apply_focus.py`、`focus_validation.json`（两版同步精简、保留核验）
+- `Workspaces/dlw_theory_notebook_20261008/notebook_prose.py`
+- `Workspaces/dlw_theory_notebook_20261008/revise_notebook.py`
+- `Workspaces/dlw_theory_notebook_20261008/check_notebook_prose.py`
+- `Workspaces/dlw_theory_notebook_20261008/notebook_render.cjs`
+- `Workspaces/dlw_theory_notebook_20261008/check_notebook_layout.cjs`
+- `Workspaces/dlw_theory_notebook_20261008/notebook_prose_validation.json`
+- `Workspaces/dlw_theory_notebook_20261008/notebook_layout_validation.json`
+
+- `Workspaces/dlw_theory_notebook_20261008/paper.src.md`（纯理论HTML独立正文源）
+- `Workspaces/dlw_theory_notebook_20261008/paper_revision.py`、`paper_revision.json`（论文式文字编辑、公式与Notebook保持核验）
+- `Workspaces/dlw_theory_notebook_20261008/paper-serif.woff`（离线正文嵌入字体子集）
+- `Workspaces/dlw_theory_notebook_20261008/finalize_metadata.py`（Colab 标题与来源元数据同步；全部执行单元及输出保持）
+**DLW 理论 Notebook（2026-10-08）：**
+
+- [notebook/DLW理论.ipynb](notebook/DLW理论.ipynb)
+- [report/dlw_theory.html](report/dlw_theory.html)
+- `Workspaces/dlw_theory_notebook_20261008/build.py`
+- `Workspaces/dlw_theory_notebook_20261008/prepare.py`
+- `Workspaces/dlw_theory_notebook_20261008/theory_runtime.py`
+- `Workspaces/dlw_theory_notebook_20261008/execute.py`
+- `Workspaces/dlw_theory_notebook_20261008/export.py`
+- `Workspaces/dlw_theory_notebook_20261008/render_math.cjs`
+- `Workspaces/dlw_theory_notebook_20261008/check_layout.cjs`
+- `Workspaces/dlw_theory_notebook_20261008/deliver.py`
+- `Workspaces/dlw_theory_notebook_20261008/README.md`
+- `Workspaces/dlw_theory_notebook_20261008/proof_sources.json`
+- `Workspaces/dlw_theory_notebook_20261008/build_validation.json`
+- `Workspaces/dlw_theory_notebook_20261008/execution_validation.json`
+- `Workspaces/dlw_theory_notebook_20261008/layout_validation.json`
+- `Workspaces/dlw_theory_notebook_20261008/delivery_validation.json`
+- `Workspaces/dlw_theory_notebook_20261008/DLW理论.input.ipynb`
+- `Workspaces/dlw_theory_notebook_20261008/DLW理论.executed.ipynb`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/Contracts.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/ExampleQRM.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/ExampleUW.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/Main.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/PkgAnalyticJets.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/PkgC02.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/PkgC07Complete.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/PkgC09.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/PkgC09Complete.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/PkgC11.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/PkgC17.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/PkgC18Complete.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/PkgC22Complete.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/PkgC23Complete.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/PkgCenteredFamily.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/PkgCenteredUniform.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/PkgContinuous.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/PkgContinuousGram.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/PkgContinuousGramCurve.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramActual.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramBridges.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramCalculus.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramComplete.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramDeterminant.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramEntry.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramExtensionAnalytic.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramExtensionBridge.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramHirota.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramIdentity.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramInterpolation.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramInterpolationBridge.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramPlucker.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramRateExtension.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/PkgLattice.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/PkgNonlinear.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/PkgNumeric.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/PkgQuotientRate.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/PkgRK4.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/PkgRK4Complete.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/PkgTrivial.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/PkgUniformAnalytic.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/PkgUniformTaylor.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/ProbeC09.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/ReportEndpoints.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/ReportNonlinearQRM.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/ReportNonlinearUW.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/ReportQRatio.lean`
+- `Workspaces/dlw_theory_notebook_20261008/proofs/ReportQRMCalculus.lean`
+
+<!-- DLW_TAU_PROOF_INDEX -->
+**半离散 DLW τ 解与证明（2026-10-08）：**
+
+- [阅读报告](report/dlw_tau_solution_proof.html)
+- `Workspaces/dlw_tau_proof_20261008/report.src.html`：完整证明正文源。
+- `Workspaces/dlw_tau_proof_20261008/build.cjs`：离线 MathML 构建。
+- `Workspaces/dlw_tau_proof_20261008/verify.py`：符号及精确系数核验。
+- `Workspaces/dlw_tau_proof_20261008/validation.json`：本次核验结果。
+- `Workspaces/dlw_tau_proof_20261008/register.py`：合并进度与登记索引。
+
 <!-- DLW_CONSERVATION_INDEX_BEGIN -->
 **半离散 DLW 守恒生成式与对易层级（2026-10-04）：**
 
@@ -10,6 +545,128 @@
 <!-- DLW_CONSERVATION_INDEX_END -->
 
 <!-- DLW_HAMILTON_INDEX_BEGIN -->
+<!-- DLW_LEAN_INDEX_BEGIN -->
+**一般周期 DLW 的 Lean 形式化（带显式基础前提的最终定理已通过）：**
+
+- [LEAN_PROOF_REPORT.md](Workspaces/dlw_integrability_lean_20261006/LEAN_PROOF_REPORT.md)（真实 Lean/LaTeX 起点与终点、全部外部基础前提、最终统一验证）
+- `Workspaces/dlw_integrability_lean_20261006/ActualBalancedAmplitudeBridge.lean`
+- `Workspaces/dlw_integrability_lean_20261006/ActualCoefficientSource.lean`
+- `Workspaces/dlw_integrability_lean_20261006/ActualCommonGaugeSource.lean`
+- `Workspaces/dlw_integrability_lean_20261006/ActualConservationEndpoint.lean`
+- `Workspaces/dlw_integrability_lean_20261006/ActualFourierEntries.lean`
+- `Workspaces/dlw_integrability_lean_20261006/ActualFourierMatrix.lean`
+- `Workspaces/dlw_integrability_lean_20261006/ActualFrequencyLeading.lean`
+- `Workspaces/dlw_integrability_lean_20261006/ActualGenericIndependence.lean`
+- `Workspaces/dlw_integrability_lean_20261006/ActualHamiltonianConservation.lean`
+- `Workspaces/dlw_integrability_lean_20261006/ActualHamiltonianDerivative.lean`
+- `Workspaces/dlw_integrability_lean_20261006/ActualHamiltonianFlow.lean`
+- `Workspaces/dlw_integrability_lean_20261006/ActualOddFrequency.lean`
+- `Workspaces/dlw_integrability_lean_20261006/ActualPhysicalFamily.lean`
+- `Workspaces/dlw_integrability_lean_20261006/ActualPhysicalSource.lean`
+- `Workspaces/dlw_integrability_lean_20261006/ActualPolynomialCurveDerivative.lean`
+- `Workspaces/dlw_integrability_lean_20261006/ActualSpectralInvolution.lean`
+- `Workspaces/dlw_integrability_lean_20261006/ActualSpectralWard.lean`
+- `Workspaces/dlw_integrability_lean_20261006/ActualTraceDerivative.lean`
+- `Workspaces/dlw_integrability_lean_20261006/AdlerFactorCoordinates.lean`
+- `Workspaces/dlw_integrability_lean_20261006/AmbientAdlerInvolution.lean`
+- `Workspaces/dlw_integrability_lean_20261006/AmbientChartDerivative.lean`
+- `Workspaces/dlw_integrability_lean_20261006/AmbientEulerVariational.lean`
+- `Workspaces/dlw_integrability_lean_20261006/AmbientNormalizedRealization.lean`
+- `Workspaces/dlw_integrability_lean_20261006/AmbientSpectralRealization.lean`
+- `Workspaces/dlw_integrability_lean_20261006/AmbientSpectralRecurrence.lean`
+- `Workspaces/dlw_integrability_lean_20261006/AmbientSpectralVariation.lean`
+- `Workspaces/dlw_integrability_lean_20261006/BalancedActualCoefficientJet.lean`
+- `Workspaces/dlw_integrability_lean_20261006/BalancedAmplitudeEvaluationCore.lean`
+- `Workspaces/dlw_integrability_lean_20261006/BalancedAmplitudePolynomial.lean`
+- `Workspaces/dlw_integrability_lean_20261006/BalancedCoefficientJet.lean`
+- `Workspaces/dlw_integrability_lean_20261006/BalancedCoefficientRecurrence.lean`
+- `Workspaces/dlw_integrability_lean_20261006/BalancedNormalizedCoefficientJet.lean`
+- `Workspaces/dlw_integrability_lean_20261006/BalancedOddCoefficientIntegral.lean`
+- `Workspaces/dlw_integrability_lean_20261006/BalancedQuadraticFrequency.lean`
+- `Workspaces/dlw_integrability_lean_20261006/BalancedQuotientCoefficientJet.lean`
+- `Workspaces/dlw_integrability_lean_20261006/BalancedRealization.lean`
+- `Workspaces/dlw_integrability_lean_20261006/BalancedResolventCoefficientJet.lean`
+- `Workspaces/dlw_integrability_lean_20261006/BalancedSpectralRealization.lean`
+- `Workspaces/dlw_integrability_lean_20261006/ClosureJets.lean`
+- `Workspaces/dlw_integrability_lean_20261006/CoefficientJetPointwise.lean`
+- `Workspaces/dlw_integrability_lean_20261006/CoefficientJetPower.lean`
+- `Workspaces/dlw_integrability_lean_20261006/CoefficientJetRealization.lean`
+- `Workspaces/dlw_integrability_lean_20261006/CommonGauge.lean`
+- `Workspaces/dlw_integrability_lean_20261006/CommonGaugeDensityVariation.lean`
+- `Workspaces/dlw_integrability_lean_20261006/ConstructedChargeMomentum.lean`
+- `Workspaces/dlw_integrability_lean_20261006/CovectorWitness.lean`
+- `Workspaces/dlw_integrability_lean_20261006/CyclicTrace.lean`
+- `Workspaces/dlw_integrability_lean_20261006/DarbouxJets.lean`
+- `Workspaces/dlw_integrability_lean_20261006/DifferentialJetEvaluation.lean`
+- `Workspaces/dlw_integrability_lean_20261006/DifferentialMean.lean`
+- `Workspaces/dlw_integrability_lean_20261006/Endpoint.lean`
+- `Workspaces/dlw_integrability_lean_20261006/EtaLimit.lean`
+- `Workspaces/dlw_integrability_lean_20261006/EulerVariationalGradient.lean`
+- `Workspaces/dlw_integrability_lean_20261006/FactorAdlerFoundation.lean`
+- `Workspaces/dlw_integrability_lean_20261006/FactorProjectionAlgebra.lean`
+- `Workspaces/dlw_integrability_lean_20261006/FieldCoordinates.lean`
+- `Workspaces/dlw_integrability_lean_20261006/FieldGenericity.lean`
+- `Workspaces/dlw_integrability_lean_20261006/FinalEndpoint.lean`
+- `Workspaces/dlw_integrability_lean_20261006/FiniteLinearCalculus.lean`
+- `Workspaces/dlw_integrability_lean_20261006/FirstResidueEnergy.lean`
+- `Workspaces/dlw_integrability_lean_20261006/FourierAmplitudeWitness.lean`
+- `Workspaces/dlw_integrability_lean_20261006/FourierDirectionJets.lean`
+- `Workspaces/dlw_integrability_lean_20261006/FourierMomentum.lean`
+- `Workspaces/dlw_integrability_lean_20261006/FrequencyPolynomialIdentification.lean`
+- `Workspaces/dlw_integrability_lean_20261006/Genericity.lean`
+- `Workspaces/dlw_integrability_lean_20261006/GlobalBalancedSliceBridge.lean`
+- `Workspaces/dlw_integrability_lean_20261006/GlobalCoefficientRecurrence.lean`
+- `Workspaces/dlw_integrability_lean_20261006/GlobalFirstResidueBridge.lean`
+- `Workspaces/dlw_integrability_lean_20261006/GlobalRealization.lean`
+- `Workspaces/dlw_integrability_lean_20261006/GlobalSpectralRealization.lean`
+- `Workspaces/dlw_integrability_lean_20261006/GradientNondegeneracy.lean`
+- `Workspaces/dlw_integrability_lean_20261006/HamiltonianFamily.lean`
+- `Workspaces/dlw_integrability_lean_20261006/HeatIntertwiner.lean`
+- `Workspaces/dlw_integrability_lean_20261006/Independence.lean`
+- `Workspaces/dlw_integrability_lean_20261006/LatticeResolvent.lean`
+- `Workspaces/dlw_integrability_lean_20261006/MomentumWitness.lean`
+- `Workspaces/dlw_integrability_lean_20261006/Monodromy.lean`
+- `Workspaces/dlw_integrability_lean_20261006/NormalInverseRecurrence.lean`
+- `Workspaces/dlw_integrability_lean_20261006/NormalizationCoefficients.lean`
+- `Workspaces/dlw_integrability_lean_20261006/NormalModelResidue.lean`
+- `Workspaces/dlw_integrability_lean_20261006/NormalResidueBridge.lean`
+- `Workspaces/dlw_integrability_lean_20261006/NormalScalarResidue.lean`
+- `Workspaces/dlw_integrability_lean_20261006/PeriodicCoefficients.lean`
+- `Workspaces/dlw_integrability_lean_20261006/PeriodicMixedDerivatives.lean`
+- `Workspaces/dlw_integrability_lean_20261006/PeriodicSpacetimeCoefficients.lean`
+- `Workspaces/dlw_integrability_lean_20261006/PeriodicVariationalCalculus.lean`
+- `Workspaces/dlw_integrability_lean_20261006/PhysicalAmbientSpectrumIdentity.lean`
+- `Workspaces/dlw_integrability_lean_20261006/PhysicalBracket.lean`
+- `Workspaces/dlw_integrability_lean_20261006/PhysicalClosure.lean`
+- `Workspaces/dlw_integrability_lean_20261006/PhysicalEnergyEndpoint.lean`
+- `Workspaces/dlw_integrability_lean_20261006/PhysicalFamilyGenericity.lean`
+- `Workspaces/dlw_integrability_lean_20261006/PhysicalFirstResidue.lean`
+- `Workspaces/dlw_integrability_lean_20261006/PhysicalHamiltonianVariation.lean`
+- `Workspaces/dlw_integrability_lean_20261006/PolynomialIntegralVariation.lean`
+- `Workspaces/dlw_integrability_lean_20261006/PolynomialMatrixWitness.lean`
+- `Workspaces/dlw_integrability_lean_20261006/PolynomialReductionEndpoint.lean`
+- `Workspaces/dlw_integrability_lean_20261006/QuadraticFrequencyPolynomial.lean`
+- `Workspaces/dlw_integrability_lean_20261006/QuadraticMonomialDecomposition.lean`
+- `Workspaces/dlw_integrability_lean_20261006/QuadraticPairings.lean`
+- `Workspaces/dlw_integrability_lean_20261006/QuadraticResolvent.lean`
+- `Workspaces/dlw_integrability_lean_20261006/QuadraticSymbol.lean`
+- `Workspaces/dlw_integrability_lean_20261006/ReducedPairing.lean`
+- `Workspaces/dlw_integrability_lean_20261006/ResidueIntegral.lean`
+- `Workspaces/dlw_integrability_lean_20261006/SmoothPrimitive.lean`
+- `Workspaces/dlw_integrability_lean_20261006/SpectralVariation.lean`
+- `Workspaces/dlw_integrability_lean_20261006/StartPoint.lean`
+- `Workspaces/dlw_integrability_lean_20261006/StaticFactorTraceCotangent.lean`
+- `Workspaces/dlw_integrability_lean_20261006/StaticFactorVariation.lean`
+- `Workspaces/dlw_integrability_lean_20261006/VariationalReduction.lean`
+- `Workspaces/dlw_integrability_lean_20261006/VerifiedCore.lean`
+- `Workspaces/dlw_integrability_lean_20261006/register_progress.py`（合并专题进度及逐文件索引）
+- `Workspaces/dlw_integrability_lean_20261006/update_final_report.py`（根据最终 PASS 记录与源码哈希生成 Markdown 报告）
+- `Workspaces/dlw_integrability_lean_20261006/BALANCED_COEFFICIENT_DERIVATION.md`（二阶系数计算的中间推导记录）
+- `Workspaces/dlw_integrability_lean_20261006/.lean-runs/`（每次实际编译的源码哈希、日志与结果）
+- `Workspaces/dlw_integrability_lean_20261006/registration_before/`（共享记录修改前备份）
+<!-- DLW_LEAN_INDEX_END -->
+
+
 - [Workspaces/dlw_general_field_20261006/README.md](Workspaces/dlw_general_field_20261006/README.md)（一般周期场守恒族、任意 M 矩阵／泊松实现、两格点三 Hamilton 结构、解析设置与13项核验）
 - `Workspaces/dlw_general_field_20261006/CONSERVATION_FAMILY_VERDICT.md`
 - `Workspaces/dlw_general_field_20261006/GENERAL_PERIOD_FREE_FIELD_POISSON.md`
@@ -75,14 +732,15 @@
 
 ## HTML 阅读地图（2026-10-04整理）
 
-当前用户报告共12个：主目录保留4个入口，8个专题页面位于 `report/`。成果概况先看 `theory_results.html`，DLW 数值结果先看 `index.html`，可运行推导与实验看 `Report.html`。
+当前用户报告共14个：主目录保留5个入口，9个专题页面位于 `report/`。成果概况先看 `theory_results.html`，DLW 数值结果先看 `dlw_numerical.html`，综合报告正文见 `Report.html`，当前可运行笔记本分别为 [DLW理论](notebook/DLW理论.ipynb)、[2HS数值分析](notebook/2HS数值分析report.ipynb)、[DLW数值分析](notebook/DLW数值分析report.ipynb) 与 [DLW刘维尔可积性](notebook/DLW刘维尔可积性report.ipynb)，运行步骤见 [使用说明](report/notebook_usage.html)。
 
 | 主目录页面 | 内容与用途 |
 | --- | --- |
 | [theory_results.html](theory_results.html) | DLW／2HS 数学成果总览：起点、结论、已证范围与待证环节。 |
-| [Report.html](Report.html) | 可运行综合报告：DLW 两路非线性化与 Lean 核验、2HS 场误差比较、DLW 纵向截断残差计算。第 3 章的残差不等于时间演化后的总误差。 |
+| [Report.html](Report.html) | 综合报告正文与此前 HTML 运行版。当前拆为 [DLW理论](notebook/DLW理论.ipynb) 与 [2HS数值分析](notebook/2HS数值分析report.ipynb)；前者整合连续起点、半离散 τ 解、非线性化与连续极限的 Lean 证明，后者独立进行 2HS 数值比较。 |
 | [dlw_hamilton.html](dlw_hamilton.html) | 刘维尔可积性研究入口，链接当前 Markdown；折叠保留原周期 Hamilton 报告。 周期结构与原文A/B/C非周期线波：总能量发散、相对Hamilton定理、算子定义域及首批守恒候选。 |
-| [index.html](index.html) | DLW 数值比较主报告：三组孤子、实际误差与最优值、递推伪代码、12张彩色误差曲线。 |
+| [dlw_numerical.html](dlw_numerical.html) | 当前 DLW Notebook 的无代码静态报告：宋体论文正文、数学公式、第一种非线性 SD 递推及新保存表图；第1—7节、五张三线表、三张误差图，无目录与附录。双击离线打开或直接发送此文件。可运行原件为 [DLW数值分析report.ipynb](notebook/DLW数值分析report.ipynb)。 |
+| [dlw_integrability.html](dlw_integrability.html) | 一般周期 DLW 刘维尔可积性的静态理论报告；五阶段推导、原式（1）—（19），保留末尾4行主定理代码；形式 PDO 基础条件保留。 |
 
 | report 专题页面 | 内容与用途 |
 | --- | --- |
@@ -113,6 +771,7 @@
 **GSG／2HS／DLW原文方法概括（2026-10-02）：**
 
 - `Workspaces/paper_reading_20261002/READING_NOTES.md`（文献类型、核心思路、方法链与数值证明层级）；`hs_extract.txt`、`tmp/pdfs/`（2HS相关原文提取与页图核对，源PDF未改）
+- `Workspaces/paper_reading_20261002/hs_formula_audit/page3.png`、`page14.png`、`page16.png`（2HS原文连续方程、式100及连续极限的2026-10-07核读页图）
 
 **DLW守恒密度动网格：原文五算例小域实验及T=.01延长（2026-10-02）：**
 
@@ -209,7 +868,7 @@
 - `Workspaces/dlw_single_aligned_20260929/out/index_t001.csv`、`comparison.csv`、`error_time_all.csv`、`euler_vs_rk4.csv`（可配对主表与全部误差）
 - `Workspaces/dlw_single_aligned_20260929/out/control_comparisons.csv`、`fine_time_checks.csv`、`Euler_time_order.csv`、`initial_uv_matching.csv`、`evaluation_density.csv`、`qr_reconstruction.csv`（控制、时间阶、初边值和场恢复核对）
 - `Workspaces/dlw_single_aligned_20260929/out/results.json`、`validation.json`、`status.csv`、`RK4/*.npz`、`Euler/*.npz`（完整计划、验收、状态、原始场和哈希）
-- [index.html](index.html)（《DLW孤子数值解的误差比较》；三组孤子的实际双场误差、42组最小值加粗、递推伪代码与12张Euler误差曲线；A的SD2固定格分辨率敏感性用†标记）
+- [dlw_numerical.html](dlw_numerical.html)（当前 DLW Notebook 的无代码数学报告；第一种非线性 SD 的 P/W 递推、共享 Euler/RK4、五张三线表及三张新误差图；第1—7节，无目录、参考资料和代码附录，原 HTML 留档保持）
 - [DLW：Euler 局部误差分布](report/dlw_waveform_fields.html)（T=.01、x∈[-1,1]；18Euler组合的36张原二维热图；index第6节采用相同保存误差的max_y曲线）
 - `Workspaces/dlw_waveform_fields_20261001/revision_euler_crop/plot_euler_errors.py`、`build_euler_reports.py`、`euler_errors.src.html`（原36张二维热图绘图与双页生成入口；当前index曲线修订由index_readability_20261006/revise_index.py生成）
 - `Workspaces/dlw_waveform_fields_20261001/revision_euler_crop/euler_cropped_errors.csv`、`euler_cropped_errors.npz`、`euler_plot_validation.json`、`euler_delivery_manifest.json`、`euler_figure_manifest.json`（401×24裁窗误差、36峰位/色限与交付哈希）
@@ -288,11 +947,592 @@
 
 - [当前版审查](Workspaces/report_review_20260928/REVIEW.md)；`check.py`、`checks.json`、`page.json`（公式、原文式100、连续PDE点检、表格与显示核对）
 
-- [Report.html](Report.html)（论文排版；中文说明→代码→原始输出，▶逐段运行，UW四点/QRM三点指南与默认折叠的关键证明摘录）
+- [Report.html](Report.html)（迁移正文来源与此前 HTML 运行版；当前三份可运行报告见下方独立笔记本索引）
 
 <!-- REPORT_NOTEBOOK_INDEX_BEGIN -->
 
-**Report 单入口与逐段运行（2026-10-02）：**
+<!-- INTEGRABILITY_NOTEBOOK_INDEX_BEGIN -->
+**一般周期 DLW 刘维尔可积性的可执行 Notebook（2026-10-07）：**
+
+- [notebook/DLW刘维尔可积性report.ipynb](notebook/DLW刘维尔可积性report.ipynb)（条件与坐标、守恒量、守恒与对易、Jacobian 独立见证和带显式基础前提的最终定理）
+- [notebook/DLW理论.ipynb](notebook/DLW理论.ipynb)（式（7）的 reportN1/reportN2 完整定义已补充并局部实跑）
+- [report/notebook_usage.html](report/notebook_usage.html)（四份 notebook 的 VS Code／Colab 使用方法）
+- [Workspaces/integrability_notebook_20261007/before_conservation_revision/DLW刘维尔可积性report.ipynb](Workspaces/integrability_notebook_20261007/before_conservation_revision/DLW刘维尔可积性report.ipynb)（交付镜像、运行前输入或真实运行输出）
+- [Workspaces/integrability_notebook_20261007/before_conservation_revision/integrability_execution_validation.json](Workspaces/integrability_notebook_20261007/before_conservation_revision/integrability_execution_validation.json)（构建、数学、执行、视觉或登记核验结果）
+- [Workspaces/integrability_notebook_20261007/before_records/backup_manifest.json](Workspaces/integrability_notebook_20261007/before_records/backup_manifest.json)（使用说明、共享记录或检查脚本修改前原件）
+- [Workspaces/integrability_notebook_20261007/before_records/FILE_INDEX.md](Workspaces/integrability_notebook_20261007/before_records/FILE_INDEX.md)（使用说明、共享记录或检查脚本修改前原件）
+- [Workspaces/integrability_notebook_20261007/before_records/notebook_usage.html](Workspaces/integrability_notebook_20261007/before_records/notebook_usage.html)（使用说明、共享记录或检查脚本修改前原件）
+- [Workspaces/integrability_notebook_20261007/before_records/PROGRESS_LOG.md](Workspaces/integrability_notebook_20261007/before_records/PROGRESS_LOG.md)（使用说明、共享记录或检查脚本修改前原件）
+- [Workspaces/integrability_notebook_20261007/before_records/verify_notebook_reports.py](Workspaces/integrability_notebook_20261007/before_records/verify_notebook_reports.py)（使用说明、共享记录或检查脚本修改前原件）
+- [Workspaces/integrability_notebook_20261007/browser_validation.json](Workspaces/integrability_notebook_20261007/browser_validation.json)（构建、数学、执行、视觉或登记核验结果）
+- [Workspaces/integrability_notebook_20261007/build_integrability_notebook.py](Workspaces/integrability_notebook_20261007/build_integrability_notebook.py)（中文正文、LaTeX 与关键 Lean 单元的权威生成器）
+- [Workspaces/integrability_notebook_20261007/build_integrability_validation.json](Workspaces/integrability_notebook_20261007/build_integrability_validation.json)（构建、数学、执行、视觉或登记核验结果）
+- [Workspaces/integrability_notebook_20261007/build_preview.py](Workspaces/integrability_notebook_20261007/build_preview.py)（本专题构建、执行或核验脚本）
+- [Workspaces/integrability_notebook_20261007/check_preview.cjs](Workspaces/integrability_notebook_20261007/check_preview.cjs)（实际浏览器排版、公式与资源检查）
+- [Workspaces/integrability_notebook_20261007/conservation_revision.executed.ipynb](Workspaces/integrability_notebook_20261007/conservation_revision.executed.ipynb)（交付镜像、运行前输入或真实运行输出）
+- [Workspaces/integrability_notebook_20261007/conservation_revision.stdout.txt](Workspaces/integrability_notebook_20261007/conservation_revision.stdout.txt)（原始编译输出或源码摘要）
+- [Workspaces/integrability_notebook_20261007/conservation_revision_execution_validation.json](Workspaces/integrability_notebook_20261007/conservation_revision_execution_validation.json)（构建、数学、执行、视觉或登记核验结果）
+- [Workspaces/integrability_notebook_20261007/conservation_revision_validation.json](Workspaces/integrability_notebook_20261007/conservation_revision_validation.json)（构建、数学、执行、视觉或登记核验结果）
+- [Workspaces/integrability_notebook_20261007/DLW刘维尔可积性report.ipynb](Workspaces/integrability_notebook_20261007/DLW刘维尔可积性report.ipynb)（交付镜像、运行前输入或真实运行输出）
+- [Workspaces/integrability_notebook_20261007/execute_notebook.py](Workspaces/integrability_notebook_20261007/execute_notebook.py)（本专题构建、执行或核验脚本）
+- [Workspaces/integrability_notebook_20261007/execution_inputs/conservation_revision_07065e92e8da4355b26dd3d0c076ad54.ipynb](Workspaces/integrability_notebook_20261007/execution_inputs/conservation_revision_07065e92e8da4355b26dd3d0c076ad54.ipynb)（整本执行前的笔记本输入原件）
+- [Workspaces/integrability_notebook_20261007/execution_inputs/integrability_6ddfc2364f7d4949a7791172516dd81f.ipynb](Workspaces/integrability_notebook_20261007/execution_inputs/integrability_6ddfc2364f7d4949a7791172516dd81f.ipynb)（整本执行前的笔记本输入原件）
+- [Workspaces/integrability_notebook_20261007/finalize_conservation_revision.py](Workspaces/integrability_notebook_20261007/finalize_conservation_revision.py)（本专题构建、执行或核验脚本）
+- [Workspaces/integrability_notebook_20261007/integrability.html_1440.png](Workspaces/integrability_notebook_20261007/integrability.html_1440.png)（正文、关键代码或公式的真实浏览器预览）
+- [Workspaces/integrability_notebook_20261007/integrability.html_390.png](Workspaces/integrability_notebook_20261007/integrability.html_390.png)（正文、关键代码或公式的真实浏览器预览）
+- [Workspaces/integrability_notebook_20261007/integrability.html_code_1440.png](Workspaces/integrability_notebook_20261007/integrability.html_code_1440.png)（正文、关键代码或公式的真实浏览器预览）
+- [Workspaces/integrability_notebook_20261007/integrability_execution_validation.json](Workspaces/integrability_notebook_20261007/integrability_execution_validation.json)（构建、数学、执行、视觉或登记核验结果）
+- [Workspaces/integrability_notebook_20261007/integrability_runtime.py](Workspaces/integrability_notebook_20261007/integrability_runtime.py)（复用本机 Lean 与完整已检查库的逐单元编译接口）
+- [Workspaces/integrability_notebook_20261007/latest_source_draft.ipynb](Workspaces/integrability_notebook_20261007/latest_source_draft.ipynb)（交付镜像、运行前输入或真实运行输出）
+- [Workspaces/integrability_notebook_20261007/lean_runs/57b09c62e4e74d3e9b0b2d732771502f/cache_events.json](Workspaces/integrability_notebook_20261007/lean_runs/57b09c62e4e74d3e9b0b2d732771502f/cache_events.json)（构建、数学、执行、视觉或登记核验结果）
+- [Workspaces/integrability_notebook_20261007/lean_runs/57b09c62e4e74d3e9b0b2d732771502f/cells/Cell081d5c51e2354523a485c364cb5ea67a.lean](Workspaces/integrability_notebook_20261007/lean_runs/57b09c62e4e74d3e9b0b2d732771502f/cells/Cell081d5c51e2354523a485c364cb5ea67a.lean)（实际编译的 Lean 代码单元或独立审阅示例）
+- [Workspaces/integrability_notebook_20261007/lean_runs/57b09c62e4e74d3e9b0b2d732771502f/cells/Cell2b90c039184f4eb6a1df33d75ad199ba.lean](Workspaces/integrability_notebook_20261007/lean_runs/57b09c62e4e74d3e9b0b2d732771502f/cells/Cell2b90c039184f4eb6a1df33d75ad199ba.lean)（实际编译的 Lean 代码单元或独立审阅示例）
+- [Workspaces/integrability_notebook_20261007/lean_runs/57b09c62e4e74d3e9b0b2d732771502f/cells/Cell603a96a01cde491087c1f454b59bdb53.lean](Workspaces/integrability_notebook_20261007/lean_runs/57b09c62e4e74d3e9b0b2d732771502f/cells/Cell603a96a01cde491087c1f454b59bdb53.lean)（实际编译的 Lean 代码单元或独立审阅示例）
+- [Workspaces/integrability_notebook_20261007/lean_runs/57b09c62e4e74d3e9b0b2d732771502f/cells/Cell724608fabd9b4811a8a991a6b758f3e4.lean](Workspaces/integrability_notebook_20261007/lean_runs/57b09c62e4e74d3e9b0b2d732771502f/cells/Cell724608fabd9b4811a8a991a6b758f3e4.lean)（实际编译的 Lean 代码单元或独立审阅示例）
+- [Workspaces/integrability_notebook_20261007/lean_runs/57b09c62e4e74d3e9b0b2d732771502f/cells/Cell7301db608bfa45669a1e0360305b4940.lean](Workspaces/integrability_notebook_20261007/lean_runs/57b09c62e4e74d3e9b0b2d732771502f/cells/Cell7301db608bfa45669a1e0360305b4940.lean)（实际编译的 Lean 代码单元或独立审阅示例）
+- [Workspaces/integrability_notebook_20261007/lean_runs/57b09c62e4e74d3e9b0b2d732771502f/cells/Cell805b56b45c7f4ff78fb1e32d2ee1e7dd.lean](Workspaces/integrability_notebook_20261007/lean_runs/57b09c62e4e74d3e9b0b2d732771502f/cells/Cell805b56b45c7f4ff78fb1e32d2ee1e7dd.lean)（实际编译的 Lean 代码单元或独立审阅示例）
+- [Workspaces/integrability_notebook_20261007/lean_runs/57b09c62e4e74d3e9b0b2d732771502f/cells/Cell8c093645f47547318c3269068769db60.lean](Workspaces/integrability_notebook_20261007/lean_runs/57b09c62e4e74d3e9b0b2d732771502f/cells/Cell8c093645f47547318c3269068769db60.lean)（实际编译的 Lean 代码单元或独立审阅示例）
+- [Workspaces/integrability_notebook_20261007/lean_runs/57b09c62e4e74d3e9b0b2d732771502f/cells/Cell8c5ad9aa0ba64dc795a94be805a5107d.lean](Workspaces/integrability_notebook_20261007/lean_runs/57b09c62e4e74d3e9b0b2d732771502f/cells/Cell8c5ad9aa0ba64dc795a94be805a5107d.lean)（实际编译的 Lean 代码单元或独立审阅示例）
+- [Workspaces/integrability_notebook_20261007/lean_runs/57b09c62e4e74d3e9b0b2d732771502f/cells/Cell989934e4eef94693bd1796738ad7ef95.lean](Workspaces/integrability_notebook_20261007/lean_runs/57b09c62e4e74d3e9b0b2d732771502f/cells/Cell989934e4eef94693bd1796738ad7ef95.lean)（实际编译的 Lean 代码单元或独立审阅示例）
+- [Workspaces/integrability_notebook_20261007/lean_runs/57b09c62e4e74d3e9b0b2d732771502f/cells/Cella30c5a6cd9024bdf8d86bc9e9f24d33e.lean](Workspaces/integrability_notebook_20261007/lean_runs/57b09c62e4e74d3e9b0b2d732771502f/cells/Cella30c5a6cd9024bdf8d86bc9e9f24d33e.lean)（实际编译的 Lean 代码单元或独立审阅示例）
+- [Workspaces/integrability_notebook_20261007/lean_runs/57b09c62e4e74d3e9b0b2d732771502f/cells/Cellc08cdf71dc39497ab4bfad51b6d22077.lean](Workspaces/integrability_notebook_20261007/lean_runs/57b09c62e4e74d3e9b0b2d732771502f/cells/Cellc08cdf71dc39497ab4bfad51b6d22077.lean)（实际编译的 Lean 代码单元或独立审阅示例）
+- [Workspaces/integrability_notebook_20261007/lean_runs/57b09c62e4e74d3e9b0b2d732771502f/cells/Cellc0b81a5075d64ddd877dd0454f33c3ae.lean](Workspaces/integrability_notebook_20261007/lean_runs/57b09c62e4e74d3e9b0b2d732771502f/cells/Cellc0b81a5075d64ddd877dd0454f33c3ae.lean)（实际编译的 Lean 代码单元或独立审阅示例）
+- [Workspaces/integrability_notebook_20261007/lean_runs/57b09c62e4e74d3e9b0b2d732771502f/cells/Cellc7ef0f3ff1c34c11991b8bf1244e2d93.lean](Workspaces/integrability_notebook_20261007/lean_runs/57b09c62e4e74d3e9b0b2d732771502f/cells/Cellc7ef0f3ff1c34c11991b8bf1244e2d93.lean)（实际编译的 Lean 代码单元或独立审阅示例）
+- [Workspaces/integrability_notebook_20261007/lean_runs/57b09c62e4e74d3e9b0b2d732771502f/cells/Cellcaa5564b1dcb4fbcbc1efef5d79c2ea7.lean](Workspaces/integrability_notebook_20261007/lean_runs/57b09c62e4e74d3e9b0b2d732771502f/cells/Cellcaa5564b1dcb4fbcbc1efef5d79c2ea7.lean)（实际编译的 Lean 代码单元或独立审阅示例）
+- [Workspaces/integrability_notebook_20261007/lean_runs/57b09c62e4e74d3e9b0b2d732771502f/history.json](Workspaces/integrability_notebook_20261007/lean_runs/57b09c62e4e74d3e9b0b2d732771502f/history.json)（构建、数学、执行、视觉或登记核验结果）
+- [Workspaces/integrability_notebook_20261007/lean_runs/65df1552f3db4def843d1ee502b5f3a5/cache_events.json](Workspaces/integrability_notebook_20261007/lean_runs/65df1552f3db4def843d1ee502b5f3a5/cache_events.json)（构建、数学、执行、视觉或登记核验结果）
+- [Workspaces/integrability_notebook_20261007/lean_runs/65df1552f3db4def843d1ee502b5f3a5/cells/Cell4469318e45d741cda97e138b1db869b1.lean](Workspaces/integrability_notebook_20261007/lean_runs/65df1552f3db4def843d1ee502b5f3a5/cells/Cell4469318e45d741cda97e138b1db869b1.lean)（实际编译的 Lean 代码单元或独立审阅示例）
+- [Workspaces/integrability_notebook_20261007/lean_runs/65df1552f3db4def843d1ee502b5f3a5/cells/Cell7f4b906a36024be6a1b87cf39d7b4e5a.lean](Workspaces/integrability_notebook_20261007/lean_runs/65df1552f3db4def843d1ee502b5f3a5/cells/Cell7f4b906a36024be6a1b87cf39d7b4e5a.lean)（实际编译的 Lean 代码单元或独立审阅示例）
+- [Workspaces/integrability_notebook_20261007/lean_runs/65df1552f3db4def843d1ee502b5f3a5/history.json](Workspaces/integrability_notebook_20261007/lean_runs/65df1552f3db4def843d1ee502b5f3a5/history.json)（构建、数学、执行、视觉或登记核验结果）
+- [Workspaces/integrability_notebook_20261007/lean_runs/8db9c99f6c7c49ad8a6d6afce29705ed/cache_events.json](Workspaces/integrability_notebook_20261007/lean_runs/8db9c99f6c7c49ad8a6d6afce29705ed/cache_events.json)（构建、数学、执行、视觉或登记核验结果）
+- [Workspaces/integrability_notebook_20261007/lean_runs/8db9c99f6c7c49ad8a6d6afce29705ed/cells/Cell00f0fdd26d604532a9be1e7fdd511223.lean](Workspaces/integrability_notebook_20261007/lean_runs/8db9c99f6c7c49ad8a6d6afce29705ed/cells/Cell00f0fdd26d604532a9be1e7fdd511223.lean)（实际编译的 Lean 代码单元或独立审阅示例）
+- [Workspaces/integrability_notebook_20261007/lean_runs/8db9c99f6c7c49ad8a6d6afce29705ed/cells/Cell152d93c9ce434943af0582e41d50b0c9.lean](Workspaces/integrability_notebook_20261007/lean_runs/8db9c99f6c7c49ad8a6d6afce29705ed/cells/Cell152d93c9ce434943af0582e41d50b0c9.lean)（实际编译的 Lean 代码单元或独立审阅示例）
+- [Workspaces/integrability_notebook_20261007/lean_runs/8db9c99f6c7c49ad8a6d6afce29705ed/cells/Cell6b1f2e6601444533bce670236090ccf5.lean](Workspaces/integrability_notebook_20261007/lean_runs/8db9c99f6c7c49ad8a6d6afce29705ed/cells/Cell6b1f2e6601444533bce670236090ccf5.lean)（实际编译的 Lean 代码单元或独立审阅示例）
+- [Workspaces/integrability_notebook_20261007/lean_runs/8db9c99f6c7c49ad8a6d6afce29705ed/cells/Celld541ca15115447859a848fc5c43163c8.lean](Workspaces/integrability_notebook_20261007/lean_runs/8db9c99f6c7c49ad8a6d6afce29705ed/cells/Celld541ca15115447859a848fc5c43163c8.lean)（实际编译的 Lean 代码单元或独立审阅示例）
+- [Workspaces/integrability_notebook_20261007/lean_runs/8db9c99f6c7c49ad8a6d6afce29705ed/cells/Cellf15072f587a143d3a3d651379b8c037a.lean](Workspaces/integrability_notebook_20261007/lean_runs/8db9c99f6c7c49ad8a6d6afce29705ed/cells/Cellf15072f587a143d3a3d651379b8c037a.lean)（实际编译的 Lean 代码单元或独立审阅示例）
+- [Workspaces/integrability_notebook_20261007/lean_runs/8db9c99f6c7c49ad8a6d6afce29705ed/history.json](Workspaces/integrability_notebook_20261007/lean_runs/8db9c99f6c7c49ad8a6d6afce29705ed/history.json)（构建、数学、执行、视觉或登记核验结果）
+- [Workspaces/integrability_notebook_20261007/lean_runs/ab044b78fca347e790167bc0246b051c/cache_events.json](Workspaces/integrability_notebook_20261007/lean_runs/ab044b78fca347e790167bc0246b051c/cache_events.json)（构建、数学、执行、视觉或登记核验结果）
+- [Workspaces/integrability_notebook_20261007/lean_runs/ab044b78fca347e790167bc0246b051c/cells/Cell501398c01c6240d29428e07ef918f091.lean](Workspaces/integrability_notebook_20261007/lean_runs/ab044b78fca347e790167bc0246b051c/cells/Cell501398c01c6240d29428e07ef918f091.lean)（实际编译的 Lean 代码单元或独立审阅示例）
+- [Workspaces/integrability_notebook_20261007/lean_runs/ab044b78fca347e790167bc0246b051c/history.json](Workspaces/integrability_notebook_20261007/lean_runs/ab044b78fca347e790167bc0246b051c/history.json)（构建、数学、执行、视觉或登记核验结果）
+- [Workspaces/integrability_notebook_20261007/library_manifest.json](Workspaces/integrability_notebook_20261007/library_manifest.json)（105 模块源码、编译产物及 Lean/Mathlib 身份哈希清单）
+- [Workspaces/integrability_notebook_20261007/mathematical_content_validation.json](Workspaces/integrability_notebook_20261007/mathematical_content_validation.json)（构建、数学、执行、视觉或登记核验结果）
+- [Workspaces/integrability_notebook_20261007/MATHEMATICAL_REVIEW.md](Workspaces/integrability_notebook_20261007/MATHEMATICAL_REVIEW.md)（条件、守恒、对易、Jacobian 见证与最终基础范围的审阅）
+- [Workspaces/integrability_notebook_20261007/nonlinear-definitions.html_1440.png](Workspaces/integrability_notebook_20261007/nonlinear-definitions.html_1440.png)（正文、关键代码或公式的真实浏览器预览）
+- [Workspaces/integrability_notebook_20261007/nonlinear-definitions.html_390.png](Workspaces/integrability_notebook_20261007/nonlinear-definitions.html_390.png)（正文、关键代码或公式的真实浏览器预览）
+- [Workspaces/integrability_notebook_20261007/nonlinear-definitions.html_code_1440.png](Workspaces/integrability_notebook_20261007/nonlinear-definitions.html_code_1440.png)（正文、关键代码或公式的真实浏览器预览）
+- [Workspaces/integrability_notebook_20261007/nonlinear_revision/before_revision/build_nonlinear_notebook.py](Workspaces/integrability_notebook_20261007/nonlinear_revision/before_revision/build_nonlinear_notebook.py)（非线性化定义补充前的 notebook、生成器或执行证据）
+- [Workspaces/integrability_notebook_20261007/nonlinear_revision/before_revision/nonlinear_execution_validation.json](Workspaces/integrability_notebook_20261007/nonlinear_revision/before_revision/nonlinear_execution_validation.json)（非线性化定义补充前的 notebook、生成器或执行证据）
+- [Workspaces/integrability_notebook_20261007/nonlinear_revision/before_revision/非线性化report.ipynb](Workspaces/integrability_notebook_20261007/nonlinear_revision/before_revision/非线性化report.ipynb)（非线性化定义补充前的 notebook、生成器或执行证据）
+- [Workspaces/integrability_notebook_20261007/nonlinear_revision/nonlinear.revised.input.ipynb](Workspaces/integrability_notebook_20261007/nonlinear_revision/nonlinear.revised.input.ipynb)（式（7）关键残差定义补充的源码、真实局部执行或保留检查）
+- [Workspaces/integrability_notebook_20261007/nonlinear_revision/README.md](Workspaces/integrability_notebook_20261007/nonlinear_revision/README.md)（式（7）关键残差定义补充的源码、真实局部执行或保留检查）
+- [Workspaces/integrability_notebook_20261007/nonlinear_revision/revise_and_verify.py](Workspaces/integrability_notebook_20261007/nonlinear_revision/revise_and_verify.py)（式（7）关键残差定义补充的源码、真实局部执行或保留检查）
+- [Workspaces/integrability_notebook_20261007/nonlinear_revision/revision_validation.json](Workspaces/integrability_notebook_20261007/nonlinear_revision/revision_validation.json)（式（7）关键残差定义补充的源码、真实局部执行或保留检查）
+- [Workspaces/integrability_notebook_20261007/nonlinear_revision/targeted_lean.executed.ipynb](Workspaces/integrability_notebook_20261007/nonlinear_revision/targeted_lean.executed.ipynb)（式（7）关键残差定义补充的源码、真实局部执行或保留检查）
+- [Workspaces/integrability_notebook_20261007/nonlinear_revision/targeted_lean.input.ipynb](Workspaces/integrability_notebook_20261007/nonlinear_revision/targeted_lean.input.ipynb)（式（7）关键残差定义补充的源码、真实局部执行或保留检查）
+- [Workspaces/integrability_notebook_20261007/nonlinear_revision/targeted_lean.stdout.txt](Workspaces/integrability_notebook_20261007/nonlinear_revision/targeted_lean.stdout.txt)（式（7）关键残差定义补充的源码、真实局部执行或保留检查）
+- [Workspaces/integrability_notebook_20261007/nonlinear_revision/update_execution_evidence.py](Workspaces/integrability_notebook_20261007/nonlinear_revision/update_execution_evidence.py)（式（7）关键残差定义补充的源码、真实局部执行或保留检查）
+- [Workspaces/integrability_notebook_20261007/notebook_content_validation.json](Workspaces/integrability_notebook_20261007/notebook_content_validation.json)（构建、数学、执行、视觉或登记核验结果）
+- [Workspaces/integrability_notebook_20261007/preview/assets/auto-render.min.js](Workspaces/integrability_notebook_20261007/preview/assets/auto-render.min.js)（本专题研究或核验材料）
+- [Workspaces/integrability_notebook_20261007/preview/assets/KaTeX-LICENSE.txt](Workspaces/integrability_notebook_20261007/preview/assets/KaTeX-LICENSE.txt)（原始编译输出或源码摘要）
+- [Workspaces/integrability_notebook_20261007/preview/assets/katex.min.css](Workspaces/integrability_notebook_20261007/preview/assets/katex.min.css)（本专题研究或核验材料）
+- [Workspaces/integrability_notebook_20261007/preview/assets/katex.min.js](Workspaces/integrability_notebook_20261007/preview/assets/katex.min.js)（本专题研究或核验材料）
+- [Workspaces/integrability_notebook_20261007/preview/assets/lecture.css](Workspaces/integrability_notebook_20261007/preview/assets/lecture.css)（本专题研究或核验材料）
+- [Workspaces/integrability_notebook_20261007/preview/assets/lecture.js](Workspaces/integrability_notebook_20261007/preview/assets/lecture.js)（本专题研究或核验材料）
+- [Workspaces/integrability_notebook_20261007/preview/integrability.html](Workspaces/integrability_notebook_20261007/preview/integrability.html)（notebook 正文的浏览器核验预览）
+- [Workspaces/integrability_notebook_20261007/preview/nonlinear-definitions.html](Workspaces/integrability_notebook_20261007/preview/nonlinear-definitions.html)（notebook 正文的浏览器核验预览）
+- [Workspaces/integrability_notebook_20261007/preview_paths.json](Workspaces/integrability_notebook_20261007/preview_paths.json)（构建、数学、执行、视觉或登记核验结果）
+- [Workspaces/integrability_notebook_20261007/README.md](Workspaces/integrability_notebook_20261007/README.md)（本次生成、运行、审阅与登记入口）
+- [Workspaces/integrability_notebook_20261007/register_integrability_notebook.py](Workspaces/integrability_notebook_20261007/register_integrability_notebook.py)（同专题记录合并及交付哈希登记）
+- [Workspaces/integrability_notebook_20261007/registration.json](Workspaces/integrability_notebook_20261007/registration.json)（当前交付哈希与共享记录修改前后证据）
+- [Workspaces/integrability_notebook_20261007/review_compile.json](Workspaces/integrability_notebook_20261007/review_compile.json)（构建、数学、执行、视觉或登记核验结果）
+- [Workspaces/integrability_notebook_20261007/ReviewExamples.lean](Workspaces/integrability_notebook_20261007/ReviewExamples.lean)（实际编译的 Lean 代码单元或独立审阅示例）
+- [Workspaces/integrability_notebook_20261007/runtime_validation.json](Workspaces/integrability_notebook_20261007/runtime_validation.json)（构建、数学、执行、视觉或登记核验结果）
+- [Workspaces/integrability_notebook_20261007/validate_runtime.py](Workspaces/integrability_notebook_20261007/validate_runtime.py)（本专题构建、执行或核验脚本）
+- [Workspaces/integrability_notebook_20261007/verify_notebook.py](Workspaces/integrability_notebook_20261007/verify_notebook.py)（本专题构建、执行或核验脚本）
+- [Workspaces/integrability_notebook_20261007/刘维尔可积性report.ipynb](Workspaces/integrability_notebook_20261007/刘维尔可积性report.ipynb)（交付镜像、运行前输入或真实运行输出）
+- `Workspaces/integrability_notebook_20261007/lean_runs/`（各次显示单元的真实编译输入、产物与 history；具体身份见执行及 runtime 证据）
+- `Workspaces/integrability_notebook_20261007/proof_cache/`（运行器接口的空兼容目录；当前直接复用原研究工程 .lean-runs 的完整编译库）
+- `Workspaces/integrability_notebook_20261007/runtime_validation_library/`（源码／产物变更核验用隔离副本；105 模块不与原库混用，检查记录见 runtime_validation.json）
+- `Workspaces/integrability_notebook_20261007/preview/assets/`（离线预览的本地公式排版资源）
+- [Workspaces/notebook_reports_20261006/build_nonlinear_notebook.py](Workspaces/notebook_reports_20261006/build_nonlinear_notebook.py)（既有非线性化权威生成器，同步完整残差定义）
+- [Workspaces/notebook_reports_20261006/nonlinear_execution_validation.json](Workspaces/notebook_reports_20261006/nonlinear_execution_validation.json)（保留原整本执行，另登记本次相关单元局部重跑）
+- [Workspaces/notebook_reports_20261006/verify_notebook_reports.py](Workspaces/notebook_reports_20261006/verify_notebook_reports.py)（继续核验既有三份报告并允许新增 notebook）
+
+Notebook 直接引用的原研究报告与关键证明源：
+
+- [Workspaces/dlw_integrability_lean_20261006/ActualFrequencyLeading.lean](Workspaces/dlw_integrability_lean_20261006/ActualFrequencyLeading.lean)（原证明报告或关键定义／定理源，原件保持）
+- [Workspaces/dlw_integrability_lean_20261006/ActualGenericIndependence.lean](Workspaces/dlw_integrability_lean_20261006/ActualGenericIndependence.lean)（原证明报告或关键定义／定理源，原件保持）
+- [Workspaces/dlw_integrability_lean_20261006/ActualHamiltonianConservation.lean](Workspaces/dlw_integrability_lean_20261006/ActualHamiltonianConservation.lean)（原证明报告或关键定义／定理源，原件保持）
+- [Workspaces/dlw_integrability_lean_20261006/ActualPhysicalFamily.lean](Workspaces/dlw_integrability_lean_20261006/ActualPhysicalFamily.lean)（原证明报告或关键定义／定理源，原件保持）
+- [Workspaces/dlw_integrability_lean_20261006/FactorAdlerFoundation.lean](Workspaces/dlw_integrability_lean_20261006/FactorAdlerFoundation.lean)（原证明报告或关键定义／定理源，原件保持）
+- [Workspaces/dlw_integrability_lean_20261006/FieldCoordinates.lean](Workspaces/dlw_integrability_lean_20261006/FieldCoordinates.lean)（原证明报告或关键定义／定理源，原件保持）
+- [Workspaces/dlw_integrability_lean_20261006/FinalEndpoint.lean](Workspaces/dlw_integrability_lean_20261006/FinalEndpoint.lean)（原证明报告或关键定义／定理源，原件保持）
+- [Workspaces/dlw_integrability_lean_20261006/GlobalCoefficientRecurrence.lean](Workspaces/dlw_integrability_lean_20261006/GlobalCoefficientRecurrence.lean)（原证明报告或关键定义／定理源，原件保持）
+- [Workspaces/dlw_integrability_lean_20261006/LEAN_PROOF_REPORT.md](Workspaces/dlw_integrability_lean_20261006/LEAN_PROOF_REPORT.md)（原证明报告或关键定义／定理源，原件保持）
+- [Workspaces/dlw_integrability_lean_20261006/PhysicalBracket.lean](Workspaces/dlw_integrability_lean_20261006/PhysicalBracket.lean)（原证明报告或关键定义／定理源，原件保持）
+- [Workspaces/dlw_integrability_lean_20261006/PhysicalEnergyEndpoint.lean](Workspaces/dlw_integrability_lean_20261006/PhysicalEnergyEndpoint.lean)（原证明报告或关键定义／定理源，原件保持）
+- [Workspaces/dlw_integrability_lean_20261006/StartPoint.lean](Workspaces/dlw_integrability_lean_20261006/StartPoint.lean)（原证明报告或关键定义／定理源，原件保持）
+
+<!-- INTEGRABILITY_SESSION_FIX_INDEX_BEGIN -->
+**运行器会话修复与真实内核回归（2026-10-07）：**
+
+- [Workspaces/integrability_notebook_20261007/session_fix/execution_inputs/session_regression_a15ad474d76b4ca89fdd5955446f8b1c.ipynb](Workspaces/integrability_notebook_20261007/session_fix/execution_inputs/session_regression_a15ad474d76b4ca89fdd5955446f8b1c.ipynb)（真实回归执行前的原始 notebook 输入）
+- [Workspaces/integrability_notebook_20261007/session_fix/register_session_fix.py](Workspaces/integrability_notebook_20261007/session_fix/register_session_fix.py)（旧错重现、修复回归或保留历史登记的脚本）
+- [Workspaces/integrability_notebook_20261007/session_fix/reproduce_and_verify_session.py](Workspaces/integrability_notebook_20261007/session_fix/reproduce_and_verify_session.py)（旧错重现、修复回归或保留历史登记的脚本）
+- [Workspaces/integrability_notebook_20261007/session_fix/runtime_validation.json](Workspaces/integrability_notebook_20261007/session_fix/runtime_validation.json)（本轮真实执行、会话行为或八用例核验结果）
+- [Workspaces/integrability_notebook_20261007/session_fix/session_behavior_validation.json](Workspaces/integrability_notebook_20261007/session_fix/session_behavior_validation.json)（本轮真实执行、会话行为或八用例核验结果）
+- [Workspaces/integrability_notebook_20261007/session_fix/session_regression.ipynb](Workspaces/integrability_notebook_20261007/session_fix/session_regression.ipynb)（旧运行器重置、补丁重载和 magic 恢复的真实内核回归本）
+- [Workspaces/integrability_notebook_20261007/session_fix/session_regression_execution_validation.json](Workspaces/integrability_notebook_20261007/session_fix/session_regression_execution_validation.json)（本轮真实执行、会话行为或八用例核验结果）
+- [Workspaces/integrability_notebook_20261007/session_fix/registration.json](Workspaces/integrability_notebook_20261007/session_fix/registration.json)（本轮文件快照、记录改动前后与历史登记保留证据）
+- `Workspaces/integrability_notebook_20261007/session_fix/before/`（运行器、验证器、README、根记录、原核验与历史登记修改前原件，保留不覆盖）
+<!-- INTEGRABILITY_SESSION_FIX_INDEX_END -->
+
+- [Workspaces/integrability_notebook_20261007/revise_prose.py](Workspaces/integrability_notebook_20261007/revise_prose.py)（正文修订与公式、代码、输出保留性检查脚本）
+- [Workspaces/integrability_notebook_20261007/prose_revision/before/build_integrability_notebook.py](Workspaces/integrability_notebook_20261007/prose_revision/before/build_integrability_notebook.py)（正文精简前原件）
+- [Workspaces/integrability_notebook_20261007/prose_revision/before/delivery.ipynb](Workspaces/integrability_notebook_20261007/prose_revision/before/delivery.ipynb)（正文精简前原件）
+- [Workspaces/integrability_notebook_20261007/prose_revision/before/FILE_INDEX.md](Workspaces/integrability_notebook_20261007/prose_revision/before/FILE_INDEX.md)（正文精简前原件）
+- [Workspaces/integrability_notebook_20261007/prose_revision/before/PROGRESS_LOG.md](Workspaces/integrability_notebook_20261007/prose_revision/before/PROGRESS_LOG.md)（正文精简前原件）
+- [Workspaces/integrability_notebook_20261007/prose_revision/before/project_mirror.ipynb](Workspaces/integrability_notebook_20261007/prose_revision/before/project_mirror.ipynb)（正文精简前原件）
+- [Workspaces/integrability_notebook_20261007/prose_revision/before/README.md](Workspaces/integrability_notebook_20261007/prose_revision/before/README.md)（正文精简前原件）
+- [Workspaces/integrability_notebook_20261007/prose_revision/source_draft.ipynb](Workspaces/integrability_notebook_20261007/prose_revision/source_draft.ipynb)（修订后生成器源文稿）
+- [Workspaces/integrability_notebook_20261007/prose_revision/build_integrability_validation.json](Workspaces/integrability_notebook_20261007/prose_revision/build_integrability_validation.json)（修订后文稿来源哈希）
+- [Workspaces/integrability_notebook_20261007/prose_revision/validation.json](Workspaces/integrability_notebook_20261007/prose_revision/validation.json)（正文修订、代码与输出保持及最新交付哈希）
+- [Workspaces/integrability_notebook_20261007/prose_revision/registration.json](Workspaces/integrability_notebook_20261007/prose_revision/registration.json)（本轮共享记录与修订材料登记）
+<!-- INTEGRABILITY_NOTEBOOK_INDEX_END -->
+
+<!-- NOTEBOOK_LECTURES_INDEX_BEGIN -->
+
+**三份笔记本的配套讲稿（2026-10-06）：**
+
+- [Workspaces/notebook_lectures_20261006/README.md](Workspaces/notebook_lectures_20261006/README.md)（构建、核验与登记入口）
+- [notebook/讲稿/2HS数值分析讲稿.html](notebook/讲稿/2HS数值分析讲稿.html)（单／二孤子解析场、空间格式、RK4与物理点误差讲稿）
+- [notebook/讲稿/assets/auto-render.min.js](notebook/讲稿/assets/auto-render.min.js)（KaTeX本地排版资源）
+- [notebook/讲稿/assets/dlw-case-A.png](notebook/讲稿/assets/dlw-case-A.png)（笔记本已保存的原PNG输出）
+- [notebook/讲稿/assets/dlw-case-B.png](notebook/讲稿/assets/dlw-case-B.png)（笔记本已保存的原PNG输出）
+- [notebook/讲稿/assets/dlw-case-C.png](notebook/讲稿/assets/dlw-case-C.png)（笔记本已保存的原PNG输出）
+- [notebook/讲稿/assets/fonts/KaTeX_AMS-Regular.ttf](notebook/讲稿/assets/fonts/KaTeX_AMS-Regular.ttf)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_AMS-Regular.woff](notebook/讲稿/assets/fonts/KaTeX_AMS-Regular.woff)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_AMS-Regular.woff2](notebook/讲稿/assets/fonts/KaTeX_AMS-Regular.woff2)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Caligraphic-Bold.ttf](notebook/讲稿/assets/fonts/KaTeX_Caligraphic-Bold.ttf)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Caligraphic-Bold.woff](notebook/讲稿/assets/fonts/KaTeX_Caligraphic-Bold.woff)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Caligraphic-Bold.woff2](notebook/讲稿/assets/fonts/KaTeX_Caligraphic-Bold.woff2)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Caligraphic-Regular.ttf](notebook/讲稿/assets/fonts/KaTeX_Caligraphic-Regular.ttf)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Caligraphic-Regular.woff](notebook/讲稿/assets/fonts/KaTeX_Caligraphic-Regular.woff)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Caligraphic-Regular.woff2](notebook/讲稿/assets/fonts/KaTeX_Caligraphic-Regular.woff2)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Fraktur-Bold.ttf](notebook/讲稿/assets/fonts/KaTeX_Fraktur-Bold.ttf)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Fraktur-Bold.woff](notebook/讲稿/assets/fonts/KaTeX_Fraktur-Bold.woff)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Fraktur-Bold.woff2](notebook/讲稿/assets/fonts/KaTeX_Fraktur-Bold.woff2)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Fraktur-Regular.ttf](notebook/讲稿/assets/fonts/KaTeX_Fraktur-Regular.ttf)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Fraktur-Regular.woff](notebook/讲稿/assets/fonts/KaTeX_Fraktur-Regular.woff)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Fraktur-Regular.woff2](notebook/讲稿/assets/fonts/KaTeX_Fraktur-Regular.woff2)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Main-Bold.ttf](notebook/讲稿/assets/fonts/KaTeX_Main-Bold.ttf)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Main-Bold.woff](notebook/讲稿/assets/fonts/KaTeX_Main-Bold.woff)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Main-Bold.woff2](notebook/讲稿/assets/fonts/KaTeX_Main-Bold.woff2)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Main-BoldItalic.ttf](notebook/讲稿/assets/fonts/KaTeX_Main-BoldItalic.ttf)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Main-BoldItalic.woff](notebook/讲稿/assets/fonts/KaTeX_Main-BoldItalic.woff)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Main-BoldItalic.woff2](notebook/讲稿/assets/fonts/KaTeX_Main-BoldItalic.woff2)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Main-Italic.ttf](notebook/讲稿/assets/fonts/KaTeX_Main-Italic.ttf)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Main-Italic.woff](notebook/讲稿/assets/fonts/KaTeX_Main-Italic.woff)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Main-Italic.woff2](notebook/讲稿/assets/fonts/KaTeX_Main-Italic.woff2)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Main-Regular.ttf](notebook/讲稿/assets/fonts/KaTeX_Main-Regular.ttf)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Main-Regular.woff](notebook/讲稿/assets/fonts/KaTeX_Main-Regular.woff)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Main-Regular.woff2](notebook/讲稿/assets/fonts/KaTeX_Main-Regular.woff2)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Math-BoldItalic.ttf](notebook/讲稿/assets/fonts/KaTeX_Math-BoldItalic.ttf)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Math-BoldItalic.woff](notebook/讲稿/assets/fonts/KaTeX_Math-BoldItalic.woff)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Math-BoldItalic.woff2](notebook/讲稿/assets/fonts/KaTeX_Math-BoldItalic.woff2)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Math-Italic.ttf](notebook/讲稿/assets/fonts/KaTeX_Math-Italic.ttf)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Math-Italic.woff](notebook/讲稿/assets/fonts/KaTeX_Math-Italic.woff)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Math-Italic.woff2](notebook/讲稿/assets/fonts/KaTeX_Math-Italic.woff2)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_SansSerif-Bold.ttf](notebook/讲稿/assets/fonts/KaTeX_SansSerif-Bold.ttf)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_SansSerif-Bold.woff](notebook/讲稿/assets/fonts/KaTeX_SansSerif-Bold.woff)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_SansSerif-Bold.woff2](notebook/讲稿/assets/fonts/KaTeX_SansSerif-Bold.woff2)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_SansSerif-Italic.ttf](notebook/讲稿/assets/fonts/KaTeX_SansSerif-Italic.ttf)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_SansSerif-Italic.woff](notebook/讲稿/assets/fonts/KaTeX_SansSerif-Italic.woff)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_SansSerif-Italic.woff2](notebook/讲稿/assets/fonts/KaTeX_SansSerif-Italic.woff2)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_SansSerif-Regular.ttf](notebook/讲稿/assets/fonts/KaTeX_SansSerif-Regular.ttf)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_SansSerif-Regular.woff](notebook/讲稿/assets/fonts/KaTeX_SansSerif-Regular.woff)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_SansSerif-Regular.woff2](notebook/讲稿/assets/fonts/KaTeX_SansSerif-Regular.woff2)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Script-Regular.ttf](notebook/讲稿/assets/fonts/KaTeX_Script-Regular.ttf)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Script-Regular.woff](notebook/讲稿/assets/fonts/KaTeX_Script-Regular.woff)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Script-Regular.woff2](notebook/讲稿/assets/fonts/KaTeX_Script-Regular.woff2)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Size1-Regular.ttf](notebook/讲稿/assets/fonts/KaTeX_Size1-Regular.ttf)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Size1-Regular.woff](notebook/讲稿/assets/fonts/KaTeX_Size1-Regular.woff)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Size1-Regular.woff2](notebook/讲稿/assets/fonts/KaTeX_Size1-Regular.woff2)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Size2-Regular.ttf](notebook/讲稿/assets/fonts/KaTeX_Size2-Regular.ttf)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Size2-Regular.woff](notebook/讲稿/assets/fonts/KaTeX_Size2-Regular.woff)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Size2-Regular.woff2](notebook/讲稿/assets/fonts/KaTeX_Size2-Regular.woff2)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Size3-Regular.ttf](notebook/讲稿/assets/fonts/KaTeX_Size3-Regular.ttf)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Size3-Regular.woff](notebook/讲稿/assets/fonts/KaTeX_Size3-Regular.woff)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Size3-Regular.woff2](notebook/讲稿/assets/fonts/KaTeX_Size3-Regular.woff2)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Size4-Regular.ttf](notebook/讲稿/assets/fonts/KaTeX_Size4-Regular.ttf)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Size4-Regular.woff](notebook/讲稿/assets/fonts/KaTeX_Size4-Regular.woff)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Size4-Regular.woff2](notebook/讲稿/assets/fonts/KaTeX_Size4-Regular.woff2)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Typewriter-Regular.ttf](notebook/讲稿/assets/fonts/KaTeX_Typewriter-Regular.ttf)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Typewriter-Regular.woff](notebook/讲稿/assets/fonts/KaTeX_Typewriter-Regular.woff)（KaTeX本地字体）
+- [notebook/讲稿/assets/fonts/KaTeX_Typewriter-Regular.woff2](notebook/讲稿/assets/fonts/KaTeX_Typewriter-Regular.woff2)（KaTeX本地字体）
+- [notebook/讲稿/assets/hs-single-waveforms.png](notebook/讲稿/assets/hs-single-waveforms.png)（笔记本已保存的原PNG输出）
+- [notebook/讲稿/assets/hs-two-errors.png](notebook/讲稿/assets/hs-two-errors.png)（笔记本已保存的原PNG输出）
+- [notebook/讲稿/assets/hs-two-waveforms.png](notebook/讲稿/assets/hs-two-waveforms.png)（笔记本已保存的原PNG输出）
+- [notebook/讲稿/assets/KaTeX-LICENSE.txt](notebook/讲稿/assets/KaTeX-LICENSE.txt)（KaTeX许可证）
+- [notebook/讲稿/assets/katex.min.css](notebook/讲稿/assets/katex.min.css)（KaTeX本地排版资源）
+- [notebook/讲稿/assets/katex.min.js](notebook/讲稿/assets/katex.min.js)（KaTeX本地排版资源）
+- [notebook/讲稿/assets/lecture.css](notebook/讲稿/assets/lecture.css)（讲稿共用本地样式／公式初始化）
+- [notebook/讲稿/assets/lecture.js](notebook/讲稿/assets/lecture.js)（讲稿共用本地样式／公式初始化）
+- [notebook/讲稿/assets/nonlinear-residual-1.png](notebook/讲稿/assets/nonlinear-residual-1.png)（笔记本已保存的原PNG输出）
+- [notebook/讲稿/assets/nonlinear-residual-2.png](notebook/讲稿/assets/nonlinear-residual-2.png)（笔记本已保存的原PNG输出）
+- [notebook/讲稿/DLW数值分析讲稿.html](notebook/讲稿/DLW数值分析讲稿.html)（初值lift、SD／SD2／FD、时间推进及配对实验讲稿）
+- [notebook/讲稿/非线性化讲稿.html](notebook/讲稿/非线性化讲稿.html)（双线性起点、两路Lean终点与DLW纵向截断残差讲稿）
+- [Workspaces/notebook_lectures_20261006/nonlinear_body.html](Workspaces/notebook_lectures_20261006/nonlinear_body.html)（对应讲稿的权威正文源）
+- [Workspaces/notebook_lectures_20261006/hs_body.html](Workspaces/notebook_lectures_20261006/hs_body.html)（对应讲稿的权威正文源）
+- [Workspaces/notebook_lectures_20261006/dlw_body.html](Workspaces/notebook_lectures_20261006/dlw_body.html)（对应讲稿的权威正文源）
+- [Workspaces/notebook_lectures_20261006/build_lectures.py](Workspaces/notebook_lectures_20261006/build_lectures.py)（包装正文、复制本地资源并提取原图的生成器）
+- [Workspaces/notebook_lectures_20261006/verify_lecture_content.py](Workspaces/notebook_lectures_20261006/verify_lecture_content.py)（全部42代码单元覆盖与57个真实连续摘录、链接核验）
+- [Workspaces/notebook_lectures_20261006/check_lectures.cjs](Workspaces/notebook_lectures_20261006/check_lectures.cjs)（真实Edge桌面／窄屏／打印、公式与资源检查）
+- [Workspaces/notebook_lectures_20261006/fix_hs_reference.py](Workspaces/notebook_lectures_20261006/fix_hs_reference.py)（仅校正2HS正文引用式（4）或（28）为式（4）或（6））
+- [Workspaces/notebook_lectures_20261006/register_lectures.py](Workspaces/notebook_lectures_20261006/register_lectures.py)（备份根记录、合并既有专题并登记当前哈希）
+- [Workspaces/notebook_lectures_20261006/build_validation.json](Workspaces/notebook_lectures_20261006/build_validation.json)（三份构建结果、来源及交付哈希）
+- [Workspaces/notebook_lectures_20261006/content_validation.json](Workspaces/notebook_lectures_20261006/content_validation.json)（真实源码摘录、全部代码单元覆盖与链接证据）
+- [Workspaces/notebook_lectures_20261006/browser_validation.json](Workspaces/notebook_lectures_20261006/browser_validation.json)（桌面／390px／打印通过、公式与资源证据）
+- [Workspaces/notebook_lectures_20261006/hs_reference_correction.json](Workspaces/notebook_lectures_20261006/hs_reference_correction.json)（2HS仅正文引用校正及代码／实际输出不变摘要）
+- [Workspaces/notebook_lectures_20261006/lecture_1_1440.png](Workspaces/notebook_lectures_20261006/lecture_1_1440.png)（讲稿真实浏览器截图；1非线性化／2为2HS／3为DLW）
+- [Workspaces/notebook_lectures_20261006/lecture_1_390.png](Workspaces/notebook_lectures_20261006/lecture_1_390.png)（讲稿真实浏览器截图；1非线性化／2为2HS／3为DLW）
+- [Workspaces/notebook_lectures_20261006/lecture_1_code_1440.png](Workspaces/notebook_lectures_20261006/lecture_1_code_1440.png)（讲稿真实浏览器截图；1非线性化／2为2HS／3为DLW）
+- [Workspaces/notebook_lectures_20261006/lecture_2_1440.png](Workspaces/notebook_lectures_20261006/lecture_2_1440.png)（讲稿真实浏览器截图；1非线性化／2为2HS／3为DLW）
+- [Workspaces/notebook_lectures_20261006/lecture_2_390.png](Workspaces/notebook_lectures_20261006/lecture_2_390.png)（讲稿真实浏览器截图；1非线性化／2为2HS／3为DLW）
+- [Workspaces/notebook_lectures_20261006/lecture_2_code_1440.png](Workspaces/notebook_lectures_20261006/lecture_2_code_1440.png)（讲稿真实浏览器截图；1非线性化／2为2HS／3为DLW）
+- [Workspaces/notebook_lectures_20261006/lecture_3_1440.png](Workspaces/notebook_lectures_20261006/lecture_3_1440.png)（讲稿真实浏览器截图；1非线性化／2为2HS／3为DLW）
+- [Workspaces/notebook_lectures_20261006/lecture_3_390.png](Workspaces/notebook_lectures_20261006/lecture_3_390.png)（讲稿真实浏览器截图；1非线性化／2为2HS／3为DLW）
+- [Workspaces/notebook_lectures_20261006/lecture_3_code_1440.png](Workspaces/notebook_lectures_20261006/lecture_3_code_1440.png)（讲稿真实浏览器截图；1非线性化／2为2HS／3为DLW）
+- [Workspaces/notebook_lectures_20261006/before_reference_fix/2HS数值分析report.ipynb](Workspaces/notebook_lectures_20261006/before_reference_fix/2HS数值分析report.ipynb)（正文公式引用校正前的2HS笔记本）
+- [Workspaces/notebook_lectures_20261006/before_reference_fix/hs_execution_validation.json](Workspaces/notebook_lectures_20261006/before_reference_fix/hs_execution_validation.json)（校正前执行证据）
+- [Workspaces/notebook_reports_20261006/hs_execution_validation.json](Workspaces/notebook_reports_20261006/hs_execution_validation.json)（既有实跑证据；保留执行哈希并注明正文引用校正）
+- [Workspaces/notebook_lectures_20261006/before_records/PROGRESS_LOG.md](Workspaces/notebook_lectures_20261006/before_records/PROGRESS_LOG.md)（本轮讲稿登记前的根进度记录）
+- [Workspaces/notebook_lectures_20261006/before_records/FILE_INDEX.md](Workspaces/notebook_lectures_20261006/before_records/FILE_INDEX.md)（本轮讲稿登记前的逐文件索引）
+- [Workspaces/notebook_lectures_20261006/registration.json](Workspaces/notebook_lectures_20261006/registration.json)（交付／资源／当前来源及前后记录SHA-256登记）
+
+<!-- NOTEBOOK_LECTURES_INDEX_END -->
+
+<!-- DLW_STATIC_REPORTS_INDEX_BEGIN -->
+**DLW 两份主目录静态报告（2026-10-07）：**
+
+- [dlw_integrability.html](dlw_integrability.html)（五阶段理论报告；仅保留最终主定理短代码）
+- [dlw_numerical.html](dlw_numerical.html)（由index.html改名，内容字节未改）
+- [Workspaces/dlw_static_reports_20261007/README.md](Workspaces/dlw_static_reports_20261007/README.md)
+- [Workspaces/dlw_static_reports_20261007/build_integrability.py](Workspaces/dlw_static_reports_20261007/build_integrability.py)
+- [Workspaces/dlw_static_reports_20261007/verify_reports.py](Workspaces/dlw_static_reports_20261007/verify_reports.py)
+- [Workspaces/dlw_static_reports_20261007/check_reports.cjs](Workspaces/dlw_static_reports_20261007/check_reports.cjs)
+- [Workspaces/dlw_static_reports_20261007/register_reports.py](Workspaces/dlw_static_reports_20261007/register_reports.py)
+- [Workspaces/dlw_static_reports_20261007/build_validation.json](Workspaces/dlw_static_reports_20261007/build_validation.json)
+- [Workspaces/dlw_static_reports_20261007/content_validation.json](Workspaces/dlw_static_reports_20261007/content_validation.json)
+- [Workspaces/dlw_static_reports_20261007/browser_validation.json](Workspaces/dlw_static_reports_20261007/browser_validation.json)
+- [Workspaces/dlw_static_reports_20261007/registration.json](Workspaces/dlw_static_reports_20261007/registration.json)
+- [Workspaces/dlw_static_reports_20261007/dlw_integrability_1440.png](Workspaces/dlw_static_reports_20261007/dlw_integrability_1440.png)
+- [Workspaces/dlw_static_reports_20261007/dlw_integrability_390.png](Workspaces/dlw_static_reports_20261007/dlw_integrability_390.png)
+- [Workspaces/dlw_static_reports_20261007/integrability_conservation_1440.png](Workspaces/dlw_static_reports_20261007/integrability_conservation_1440.png)
+- [Workspaces/dlw_static_reports_20261007/integrability_endpoint_1440.png](Workspaces/dlw_static_reports_20261007/integrability_endpoint_1440.png)
+- [Workspaces/dlw_static_reports_20261007/dlw_numerical_1440.png](Workspaces/dlw_static_reports_20261007/dlw_numerical_1440.png)
+- [Workspaces/dlw_static_reports_20261007/dlw_numerical_390.png](Workspaces/dlw_static_reports_20261007/dlw_numerical_390.png)
+- [Workspaces/dlw_static_reports_20261007/before/index.html](Workspaces/dlw_static_reports_20261007/before/index.html)
+- [Workspaces/dlw_static_reports_20261007/before/AGENTS.md](Workspaces/dlw_static_reports_20261007/before/AGENTS.md)
+- [Workspaces/dlw_static_reports_20261007/before/PROGRESS_LOG.md](Workspaces/dlw_static_reports_20261007/before/PROGRESS_LOG.md)
+- [Workspaces/dlw_static_reports_20261007/before/FILE_INDEX.md](Workspaces/dlw_static_reports_20261007/before/FILE_INDEX.md)
+- [Workspaces/dlw_static_reports_20261007/before/build_static.py](Workspaces/dlw_static_reports_20261007/before/build_static.py)
+- [Workspaces/dlw_static_reports_20261007/before/check_static.cjs](Workspaces/dlw_static_reports_20261007/before/check_static.cjs)
+- [Workspaces/dlw_static_reports_20261007/before/README.md](Workspaces/dlw_static_reports_20261007/before/README.md)
+- [Workspaces/dlw_static_reports_20261007/register_theory_revision.py](Workspaces/dlw_static_reports_20261007/register_theory_revision.py)
+- [Workspaces/dlw_static_reports_20261007/theory_revision.json](Workspaces/dlw_static_reports_20261007/theory_revision.json)
+- [Workspaces/dlw_static_reports_20261007/before_theory/browser_validation.json](Workspaces/dlw_static_reports_20261007/before_theory/browser_validation.json)
+- [Workspaces/dlw_static_reports_20261007/before_theory/build_integrability.py](Workspaces/dlw_static_reports_20261007/before_theory/build_integrability.py)
+- [Workspaces/dlw_static_reports_20261007/before_theory/build_validation.json](Workspaces/dlw_static_reports_20261007/before_theory/build_validation.json)
+- [Workspaces/dlw_static_reports_20261007/before_theory/check_reports.cjs](Workspaces/dlw_static_reports_20261007/before_theory/check_reports.cjs)
+- [Workspaces/dlw_static_reports_20261007/before_theory/content_validation.json](Workspaces/dlw_static_reports_20261007/before_theory/content_validation.json)
+- [Workspaces/dlw_static_reports_20261007/before_theory/dlw_integrability.html](Workspaces/dlw_static_reports_20261007/before_theory/dlw_integrability.html)
+- [Workspaces/dlw_static_reports_20261007/before_theory/dlw_integrability_1440.png](Workspaces/dlw_static_reports_20261007/before_theory/dlw_integrability_1440.png)
+- [Workspaces/dlw_static_reports_20261007/before_theory/dlw_integrability_390.png](Workspaces/dlw_static_reports_20261007/before_theory/dlw_integrability_390.png)
+- [Workspaces/dlw_static_reports_20261007/before_theory/dlw_numerical_1440.png](Workspaces/dlw_static_reports_20261007/before_theory/dlw_numerical_1440.png)
+- [Workspaces/dlw_static_reports_20261007/before_theory/dlw_numerical_390.png](Workspaces/dlw_static_reports_20261007/before_theory/dlw_numerical_390.png)
+- [Workspaces/dlw_static_reports_20261007/before_theory/FILE_INDEX.md](Workspaces/dlw_static_reports_20261007/before_theory/FILE_INDEX.md)
+- [Workspaces/dlw_static_reports_20261007/before_theory/integrability_conservation_1440.png](Workspaces/dlw_static_reports_20261007/before_theory/integrability_conservation_1440.png)
+- [Workspaces/dlw_static_reports_20261007/before_theory/integrability_endpoint_1440.png](Workspaces/dlw_static_reports_20261007/before_theory/integrability_endpoint_1440.png)
+- [Workspaces/dlw_static_reports_20261007/before_theory/PROGRESS_LOG.md](Workspaces/dlw_static_reports_20261007/before_theory/PROGRESS_LOG.md)
+- [Workspaces/dlw_static_reports_20261007/before_theory/README.md](Workspaces/dlw_static_reports_20261007/before_theory/README.md)
+- [Workspaces/dlw_static_reports_20261007/before_theory/registration.json](Workspaces/dlw_static_reports_20261007/before_theory/registration.json)
+- [Workspaces/dlw_static_reports_20261007/before_theory/verify_reports.py](Workspaces/dlw_static_reports_20261007/before_theory/verify_reports.py)
+- [Workspaces/dlw_static_reports_20261007/restructure_integrability.py](Workspaces/dlw_static_reports_20261007/restructure_integrability.py)
+- [Workspaces/dlw_static_reports_20261007/flow_revision.json](Workspaces/dlw_static_reports_20261007/flow_revision.json)
+- [Workspaces/dlw_static_reports_20261007/before_flow/browser_validation.json](Workspaces/dlw_static_reports_20261007/before_flow/browser_validation.json)
+- [Workspaces/dlw_static_reports_20261007/before_flow/build_validation.json](Workspaces/dlw_static_reports_20261007/before_flow/build_validation.json)
+- [Workspaces/dlw_static_reports_20261007/before_flow/check_reports.cjs](Workspaces/dlw_static_reports_20261007/before_flow/check_reports.cjs)
+- [Workspaces/dlw_static_reports_20261007/before_flow/content_validation.json](Workspaces/dlw_static_reports_20261007/before_flow/content_validation.json)
+- [Workspaces/dlw_static_reports_20261007/before_flow/dlw_integrability.html](Workspaces/dlw_static_reports_20261007/before_flow/dlw_integrability.html)
+- [Workspaces/dlw_static_reports_20261007/before_flow/dlw_integrability_1440.png](Workspaces/dlw_static_reports_20261007/before_flow/dlw_integrability_1440.png)
+- [Workspaces/dlw_static_reports_20261007/before_flow/dlw_integrability_390.png](Workspaces/dlw_static_reports_20261007/before_flow/dlw_integrability_390.png)
+- [Workspaces/dlw_static_reports_20261007/before_flow/dlw_numerical_1440.png](Workspaces/dlw_static_reports_20261007/before_flow/dlw_numerical_1440.png)
+- [Workspaces/dlw_static_reports_20261007/before_flow/dlw_numerical_390.png](Workspaces/dlw_static_reports_20261007/before_flow/dlw_numerical_390.png)
+- [Workspaces/dlw_static_reports_20261007/before_flow/FILE_INDEX.md](Workspaces/dlw_static_reports_20261007/before_flow/FILE_INDEX.md)
+- [Workspaces/dlw_static_reports_20261007/before_flow/input_hashes.json](Workspaces/dlw_static_reports_20261007/before_flow/input_hashes.json)
+- [Workspaces/dlw_static_reports_20261007/before_flow/integrability_conservation_1440.png](Workspaces/dlw_static_reports_20261007/before_flow/integrability_conservation_1440.png)
+- [Workspaces/dlw_static_reports_20261007/before_flow/integrability_endpoint_1440.png](Workspaces/dlw_static_reports_20261007/before_flow/integrability_endpoint_1440.png)
+- [Workspaces/dlw_static_reports_20261007/before_flow/PROGRESS_LOG.md](Workspaces/dlw_static_reports_20261007/before_flow/PROGRESS_LOG.md)
+- [Workspaces/dlw_static_reports_20261007/before_flow/README.md](Workspaces/dlw_static_reports_20261007/before_flow/README.md)
+- [Workspaces/dlw_static_reports_20261007/before_flow/theory_revision.json](Workspaces/dlw_static_reports_20261007/before_flow/theory_revision.json)
+- [Workspaces/dlw_static_reports_20261007/before_flow/verify_reports.py](Workspaces/dlw_static_reports_20261007/before_flow/verify_reports.py)
+<!-- DLW_STATIC_REPORTS_INDEX_END -->
+
+<!-- DLW_NOTEBOOK_STATIC_INDEX_BEGIN -->
+**DLW notebook 单文件静态报告（2026-10-07）：**
+
+- [dlw_numerical.html](dlw_numerical.html)（当前 DLW Notebook 的无代码数学报告；第一种非线性 SD 的 P/W 递推、共享 Euler/RK4、五张三线表及三张新误差图；第1—7节，无目录、参考资料和代码附录，原 HTML 留档保持）
+- [report/DLW数值分析_原HTML_20261007.html](report/DLW数值分析_原HTML_20261007.html)（替换前 index 的可阅读留档；保留原相对链接）
+- [Workspaces/dlw_notebook_static_20261007/README.md](Workspaces/dlw_notebook_static_20261007/README.md)
+- [Workspaces/dlw_notebook_static_20261007/build_static.py](Workspaces/dlw_notebook_static_20261007/build_static.py)
+- [Workspaces/dlw_notebook_static_20261007/render_math.cjs](Workspaces/dlw_notebook_static_20261007/render_math.cjs)
+- [Workspaces/dlw_notebook_static_20261007/verify_static.py](Workspaces/dlw_notebook_static_20261007/verify_static.py)（无代码数学正文、公式与保存表图核验）
+- [Workspaces/dlw_notebook_static_20261007/check_static.cjs](Workspaces/dlw_notebook_static_20261007/check_static.cjs)
+- [Workspaces/dlw_notebook_static_20261007/build_validation.json](Workspaces/dlw_notebook_static_20261007/build_validation.json)
+- [Workspaces/dlw_notebook_static_20261007/content_validation.json](Workspaces/dlw_notebook_static_20261007/content_validation.json)
+- [Workspaces/dlw_notebook_static_20261007/browser_validation.json](Workspaces/dlw_notebook_static_20261007/browser_validation.json)
+- [Workspaces/dlw_notebook_static_20261007/report_1440.png](Workspaces/dlw_notebook_static_20261007/report_1440.png)
+- [Workspaces/dlw_notebook_static_20261007/report_sd_1440.png](Workspaces/dlw_notebook_static_20261007/report_sd_1440.png)
+- [Workspaces/dlw_notebook_static_20261007/report_table_1440.png](Workspaces/dlw_notebook_static_20261007/report_table_1440.png)
+- [Workspaces/dlw_notebook_static_20261007/report_figure_1440.png](Workspaces/dlw_notebook_static_20261007/report_figure_1440.png)
+- [Workspaces/dlw_notebook_static_20261007/report_390.png](Workspaces/dlw_notebook_static_20261007/report_390.png)
+- [Workspaces/dlw_notebook_static_20261007/register_static.py](Workspaces/dlw_notebook_static_20261007/register_static.py)
+- [Workspaces/dlw_notebook_static_20261007/registration.json](Workspaces/dlw_notebook_static_20261007/registration.json)
+- [Workspaces/dlw_notebook_static_20261007/before/index.html](Workspaces/dlw_notebook_static_20261007/before/index.html)
+- [Workspaces/dlw_notebook_static_20261007/before/PROGRESS_LOG.md](Workspaces/dlw_notebook_static_20261007/before/PROGRESS_LOG.md)
+- [Workspaces/dlw_notebook_static_20261007/before/FILE_INDEX.md](Workspaces/dlw_notebook_static_20261007/before/FILE_INDEX.md)
+- [Workspaces/dlw_notebook_static_20261007/register_compact.py](Workspaces/dlw_notebook_static_20261007/register_compact.py)（当前精简版登记与只读核对入口）
+- [Workspaces/dlw_notebook_static_20261007/registration_compact.json](Workspaces/dlw_notebook_static_20261007/registration_compact.json)（当前交付、原件及修改前后记录的哈希）
+- [Workspaces/dlw_notebook_static_20261007/before_compact/](Workspaces/dlw_notebook_static_20261007/before_compact/)（精简前完整展开版、生成器、核验、截图和根记录字节备份）
+<!-- DLW_NOTEBOOK_STATIC_INDEX_END -->
+
+<!-- DLW_DIRECT_TAU_INDEX_BEGIN -->
+
+**DLW 直接双线性 τ 数值推进（2026-10-07）：**
+
+- [Workspaces/dlw_direct_tau_20261007/before_registration/FILE_INDEX.md](Workspaces/dlw_direct_tau_20261007/before_registration/FILE_INDEX.md)
+- [Workspaces/dlw_direct_tau_20261007/before_registration/PROGRESS_LOG.md](Workspaces/dlw_direct_tau_20261007/before_registration/PROGRESS_LOG.md)
+- [Workspaces/dlw_direct_tau_20261007/browser_validation.json](Workspaces/dlw_direct_tau_20261007/browser_validation.json)
+- [Workspaces/dlw_direct_tau_20261007/build_report.py](Workspaces/dlw_direct_tau_20261007/build_report.py)
+- [Workspaces/dlw_direct_tau_20261007/check_report.cjs](Workspaces/dlw_direct_tau_20261007/check_report.cjs)
+- [Workspaces/dlw_direct_tau_20261007/direct_tau.py](Workspaces/dlw_direct_tau_20261007/direct_tau.py)
+- [Workspaces/dlw_direct_tau_20261007/manifest.json](Workspaces/dlw_direct_tau_20261007/manifest.json)
+- [Workspaces/dlw_direct_tau_20261007/out/A_n256_dt1.json](Workspaces/dlw_direct_tau_20261007/out/A_n256_dt1.json)
+- [Workspaces/dlw_direct_tau_20261007/out/A_n256_dt1.npz](Workspaces/dlw_direct_tau_20261007/out/A_n256_dt1.npz)
+- [Workspaces/dlw_direct_tau_20261007/out/A_n256_dt2.json](Workspaces/dlw_direct_tau_20261007/out/A_n256_dt2.json)
+- [Workspaces/dlw_direct_tau_20261007/out/A_n256_dt2.npz](Workspaces/dlw_direct_tau_20261007/out/A_n256_dt2.npz)
+- [Workspaces/dlw_direct_tau_20261007/out/A_n256_dt4.json](Workspaces/dlw_direct_tau_20261007/out/A_n256_dt4.json)
+- [Workspaces/dlw_direct_tau_20261007/out/A_n256_dt4.npz](Workspaces/dlw_direct_tau_20261007/out/A_n256_dt4.npz)
+- [Workspaces/dlw_direct_tau_20261007/out/A_n512_dt1.json](Workspaces/dlw_direct_tau_20261007/out/A_n512_dt1.json)
+- [Workspaces/dlw_direct_tau_20261007/out/A_n512_dt1.npz](Workspaces/dlw_direct_tau_20261007/out/A_n512_dt1.npz)
+- [Workspaces/dlw_direct_tau_20261007/out/B_n256_dt1.json](Workspaces/dlw_direct_tau_20261007/out/B_n256_dt1.json)
+- [Workspaces/dlw_direct_tau_20261007/out/B_n256_dt1.npz](Workspaces/dlw_direct_tau_20261007/out/B_n256_dt1.npz)
+- [Workspaces/dlw_direct_tau_20261007/out/B_n256_dt2.json](Workspaces/dlw_direct_tau_20261007/out/B_n256_dt2.json)
+- [Workspaces/dlw_direct_tau_20261007/out/B_n256_dt2.npz](Workspaces/dlw_direct_tau_20261007/out/B_n256_dt2.npz)
+- [Workspaces/dlw_direct_tau_20261007/out/B_n256_dt4.json](Workspaces/dlw_direct_tau_20261007/out/B_n256_dt4.json)
+- [Workspaces/dlw_direct_tau_20261007/out/B_n256_dt4.npz](Workspaces/dlw_direct_tau_20261007/out/B_n256_dt4.npz)
+- [Workspaces/dlw_direct_tau_20261007/out/B_n512_dt1.json](Workspaces/dlw_direct_tau_20261007/out/B_n512_dt1.json)
+- [Workspaces/dlw_direct_tau_20261007/out/B_n512_dt1.npz](Workspaces/dlw_direct_tau_20261007/out/B_n512_dt1.npz)
+- [Workspaces/dlw_direct_tau_20261007/out/C_n256_dt1.json](Workspaces/dlw_direct_tau_20261007/out/C_n256_dt1.json)
+- [Workspaces/dlw_direct_tau_20261007/out/C_n256_dt1.npz](Workspaces/dlw_direct_tau_20261007/out/C_n256_dt1.npz)
+- [Workspaces/dlw_direct_tau_20261007/out/C_n256_dt2.json](Workspaces/dlw_direct_tau_20261007/out/C_n256_dt2.json)
+- [Workspaces/dlw_direct_tau_20261007/out/C_n256_dt2.npz](Workspaces/dlw_direct_tau_20261007/out/C_n256_dt2.npz)
+- [Workspaces/dlw_direct_tau_20261007/out/C_n256_dt4.json](Workspaces/dlw_direct_tau_20261007/out/C_n256_dt4.json)
+- [Workspaces/dlw_direct_tau_20261007/out/C_n256_dt4.npz](Workspaces/dlw_direct_tau_20261007/out/C_n256_dt4.npz)
+- [Workspaces/dlw_direct_tau_20261007/out/C_n512_dt1.json](Workspaces/dlw_direct_tau_20261007/out/C_n512_dt1.json)
+- [Workspaces/dlw_direct_tau_20261007/out/C_n512_dt1.npz](Workspaces/dlw_direct_tau_20261007/out/C_n512_dt1.npz)
+- [Workspaces/dlw_direct_tau_20261007/out/field_errors.png](Workspaces/dlw_direct_tau_20261007/out/field_errors.png)
+- [Workspaces/dlw_direct_tau_20261007/out/results.json](Workspaces/dlw_direct_tau_20261007/out/results.json)
+- [Workspaces/dlw_direct_tau_20261007/register_result.py](Workspaces/dlw_direct_tau_20261007/register_result.py)
+- [Workspaces/dlw_direct_tau_20261007/render_report.cjs](Workspaces/dlw_direct_tau_20261007/render_report.cjs)
+- [Workspaces/dlw_direct_tau_20261007/render_validation.json](Workspaces/dlw_direct_tau_20261007/render_validation.json)
+- [Workspaces/dlw_direct_tau_20261007/report_1440.png](Workspaces/dlw_direct_tau_20261007/report_1440.png)
+- [Workspaces/dlw_direct_tau_20261007/report_390.png](Workspaces/dlw_direct_tau_20261007/report_390.png)
+- [Workspaces/dlw_direct_tau_20261007/report_source.html](Workspaces/dlw_direct_tau_20261007/report_source.html)
+- [Workspaces/dlw_direct_tau_20261007/report_summary.json](Workspaces/dlw_direct_tau_20261007/report_summary.json)
+- [Workspaces/dlw_direct_tau_20261007/validation.json](Workspaces/dlw_direct_tau_20261007/validation.json)
+- [Workspaces/dlw_direct_tau_20261007/verify_direct.py](Workspaces/dlw_direct_tau_20261007/verify_direct.py)
+- [report/dlw_direct_tau.html](report/dlw_direct_tau.html)
+
+<!-- DLW_DIRECT_TAU_INDEX_END -->
+
+<!-- NOTEBOOK_REPORTS_INDEX_BEGIN -->
+<!-- DLW_DOMAIN_RATIONALE_INDEX_BEGIN -->
+**DLW 计算域的解析几何依据（未重跑数值演化）：**
+
+- [Workspaces/notebook_reports_20261006/domain_rationale_20261007/before_records/FILE_INDEX.md](Workspaces/notebook_reports_20261006/domain_rationale_20261007/before_records/FILE_INDEX.md)
+- [Workspaces/notebook_reports_20261006/domain_rationale_20261007/before_records/PROGRESS_LOG.md](Workspaces/notebook_reports_20261006/domain_rationale_20261007/before_records/PROGRESS_LOG.md)
+- [Workspaces/notebook_reports_20261006/domain_rationale_20261007/check_exact_geometry.py](Workspaces/notebook_reports_20261006/domain_rationale_20261007/check_exact_geometry.py)
+- [Workspaces/notebook_reports_20261006/domain_rationale_20261007/exact_geometry.json](Workspaces/notebook_reports_20261006/domain_rationale_20261007/exact_geometry.json)
+- [Workspaces/notebook_reports_20261006/domain_rationale_20261007/register_geometry.py](Workspaces/notebook_reports_20261006/domain_rationale_20261007/register_geometry.py)
+<!-- DLW_DOMAIN_RATIONALE_INDEX_END -->
+
+<!-- HS_FIGURE_INDEX_BEGIN -->
+**2HS 图字体与端点显示修订（2026-10-07）：**
+
+- [notebook/2HS数值分析report.ipynb](notebook/2HS数值分析report.ipynb)
+- [Workspaces/notebook_reports_20261006/hs_presentation.py](Workspaces/notebook_reports_20261006/hs_presentation.py)
+- [Workspaces/notebook_reports_20261006/build_hs_notebook.py](Workspaces/notebook_reports_20261006/build_hs_notebook.py)
+- [Workspaces/notebook_reports_20261006/revise_hs_structure.py](Workspaces/notebook_reports_20261006/revise_hs_structure.py)
+- [Workspaces/notebook_reports_20261006/hs_plot_fonts_20261007/before/notebook/2HS数值分析report.ipynb](Workspaces/notebook_reports_20261006/hs_plot_fonts_20261007/before/notebook/2HS数值分析report.ipynb)
+- [Workspaces/notebook_reports_20261006/hs_plot_fonts_20261007/before/Workspaces/notebook_reports_20261006/build_hs_notebook.py](Workspaces/notebook_reports_20261006/hs_plot_fonts_20261007/before/Workspaces/notebook_reports_20261006/build_hs_notebook.py)
+- [Workspaces/notebook_reports_20261006/hs_plot_fonts_20261007/before/Workspaces/notebook_reports_20261006/hs_structure_delivery_validation.json](Workspaces/notebook_reports_20261006/hs_plot_fonts_20261007/before/Workspaces/notebook_reports_20261006/hs_structure_delivery_validation.json)
+- [Workspaces/notebook_reports_20261006/hs_plot_fonts_20261007/before/Workspaces/notebook_reports_20261006/hs_structure_execution_validation.json](Workspaces/notebook_reports_20261006/hs_plot_fonts_20261007/before/Workspaces/notebook_reports_20261006/hs_structure_execution_validation.json)
+- [Workspaces/notebook_reports_20261006/hs_plot_fonts_20261007/before/Workspaces/notebook_reports_20261006/hs_two_soliton_cells.py](Workspaces/notebook_reports_20261006/hs_plot_fonts_20261007/before/Workspaces/notebook_reports_20261006/hs_two_soliton_cells.py)
+- [Workspaces/notebook_reports_20261006/hs_plot_fonts_20261007/before/Workspaces/notebook_reports_20261006/revise_hs_structure.py](Workspaces/notebook_reports_20261006/hs_plot_fonts_20261007/before/Workspaces/notebook_reports_20261006/revise_hs_structure.py)
+- [Workspaces/notebook_reports_20261006/hs_plot_fonts_20261007/before_records/FILE_INDEX.md](Workspaces/notebook_reports_20261006/hs_plot_fonts_20261007/before_records/FILE_INDEX.md)
+- [Workspaces/notebook_reports_20261006/hs_plot_fonts_20261007/before_records/PROGRESS_LOG.md](Workspaces/notebook_reports_20261006/hs_plot_fonts_20261007/before_records/PROGRESS_LOG.md)
+- [Workspaces/notebook_reports_20261006/hs_plot_fonts_20261007/before_records/README.md](Workspaces/notebook_reports_20261006/hs_plot_fonts_20261007/before_records/README.md)
+- [Workspaces/notebook_reports_20261006/hs_plot_fonts_20261007/figure_1.png](Workspaces/notebook_reports_20261006/hs_plot_fonts_20261007/figure_1.png)
+- [Workspaces/notebook_reports_20261006/hs_plot_fonts_20261007/figure_2.png](Workspaces/notebook_reports_20261006/hs_plot_fonts_20261007/figure_2.png)
+- [Workspaces/notebook_reports_20261006/hs_plot_fonts_20261007/figure_3.png](Workspaces/notebook_reports_20261006/hs_plot_fonts_20261007/figure_3.png)
+- [Workspaces/notebook_reports_20261006/hs_plot_fonts_20261007/figure_4.png](Workspaces/notebook_reports_20261006/hs_plot_fonts_20261007/figure_4.png)
+- [Workspaces/notebook_reports_20261006/hs_plot_fonts_20261007/figure_5.png](Workspaces/notebook_reports_20261006/hs_plot_fonts_20261007/figure_5.png)
+- [Workspaces/notebook_reports_20261006/hs_plot_fonts_20261007/hs_execution_validation.json](Workspaces/notebook_reports_20261006/hs_plot_fonts_20261007/hs_execution_validation.json)
+- [Workspaces/notebook_reports_20261006/hs_plot_fonts_20261007/register_presentation.py](Workspaces/notebook_reports_20261006/hs_plot_fonts_20261007/register_presentation.py)
+- [Workspaces/notebook_reports_20261006/hs_plot_fonts_20261007/revise_presentation.py](Workspaces/notebook_reports_20261006/hs_plot_fonts_20261007/revise_presentation.py)
+- [Workspaces/notebook_reports_20261006/hs_plot_fonts_20261007/validation.json](Workspaces/notebook_reports_20261006/hs_plot_fonts_20261007/validation.json)
+- [Workspaces/notebook_reports_20261006/hs_plot_fonts_20261007/verify_presentation.py](Workspaces/notebook_reports_20261006/hs_plot_fonts_20261007/verify_presentation.py)
+- [Workspaces/notebook_reports_20261006/execution_inputs/hs_plot_fonts_20261007/hs_789240ac751645ce804a2669f228f583.ipynb](Workspaces/notebook_reports_20261006/execution_inputs/hs_plot_fonts_20261007/hs_789240ac751645ce804a2669f228f583.ipynb)
+<!-- HS_FIGURE_INDEX_END -->
+
+
+**非线性化、2HS 与 DLW 独立笔记本（2026-10-06）：**
+
+- [Workspaces/notebook_reports_20261006/README.md](Workspaces/notebook_reports_20261006/README.md)（新项目的结构、运行与证据入口）
+- [Workspaces/notebook_reports_20261006/archive_source_html.py](Workspaces/notebook_reports_20261006/archive_source_html.py)
+- [Workspaces/notebook_reports_20261006/before_dlw_execute.ipynb](Workspaces/notebook_reports_20261006/before_dlw_execute.ipynb)
+- [Workspaces/notebook_reports_20261006/before_registration/FILE_INDEX.md](Workspaces/notebook_reports_20261006/before_registration/FILE_INDEX.md)
+- [Workspaces/notebook_reports_20261006/before_registration/PROGRESS_LOG.md](Workspaces/notebook_reports_20261006/before_registration/PROGRESS_LOG.md)
+- [Workspaces/notebook_reports_20261006/before_split/Report.html](Workspaces/notebook_reports_20261006/before_split/Report.html)
+- [Workspaces/notebook_reports_20261006/before_split/Report.ipynb](Workspaces/notebook_reports_20261006/before_split/Report.ipynb)（拆分前混合版原本保留）
+- [Workspaces/notebook_reports_20261006/before_split/Report.original_delivery.ipynb](Workspaces/notebook_reports_20261006/before_split/Report.original_delivery.ipynb)（从根 notebook 目录移入的原交付文件，与固定混合版源字节一致）
+- [Workspaces/notebook_reports_20261006/before_split/index.html](Workspaces/notebook_reports_20261006/before_split/index.html)
+- [Workspaces/notebook_reports_20261006/before_split/report_colab_README.md](Workspaces/notebook_reports_20261006/before_split/report_colab_README.md)（共用运行时项目说明在更新当前入口前的原稿）
+- [Workspaces/notebook_reports_20261006/build_dlw_numerics_notebook.py](Workspaces/notebook_reports_20261006/build_dlw_numerics_notebook.py)
+- [Workspaces/notebook_reports_20261006/build_hs_notebook.py](Workspaces/notebook_reports_20261006/build_hs_notebook.py)
+- [Workspaces/notebook_reports_20261006/build_nonlinear_notebook.py](Workspaces/notebook_reports_20261006/build_nonlinear_notebook.py)
+- [Workspaces/notebook_reports_20261006/delivery_validation.json](Workspaces/notebook_reports_20261006/delivery_validation.json)
+- [Workspaces/notebook_reports_20261006/dlw_build_validation.json](Workspaces/notebook_reports_20261006/dlw_build_validation.json)
+- [Workspaces/notebook_reports_20261006/dlw_delivery_validation.json](Workspaces/notebook_reports_20261006/dlw_delivery_validation.json)
+- [Workspaces/notebook_reports_20261006/dlw_execution_validation.json](Workspaces/notebook_reports_20261006/dlw_execution_validation.json)
+- [Workspaces/notebook_reports_20261006/dlw_model_validation.json](Workspaces/notebook_reports_20261006/dlw_model_validation.json)
+- [Workspaces/notebook_reports_20261006/dlw_notebook_figure_1.png](Workspaces/notebook_reports_20261006/dlw_notebook_figure_1.png)
+- [Workspaces/notebook_reports_20261006/dlw_notebook_figure_2.png](Workspaces/notebook_reports_20261006/dlw_notebook_figure_2.png)
+- [Workspaces/notebook_reports_20261006/dlw_notebook_figure_3.png](Workspaces/notebook_reports_20261006/dlw_notebook_figure_3.png)
+- [Workspaces/notebook_reports_20261006/dlw_numeric_cells.py](Workspaces/notebook_reports_20261006/dlw_numeric_cells.py)
+- [Workspaces/notebook_reports_20261006/dlw_numeric_curves.npz](Workspaces/notebook_reports_20261006/dlw_numeric_curves.npz)
+- [Workspaces/notebook_reports_20261006/dlw_numeric_results.json](Workspaces/notebook_reports_20261006/dlw_numeric_results.json)
+- [Workspaces/notebook_reports_20261006/execute_dlw_notebook.py](Workspaces/notebook_reports_20261006/execute_dlw_notebook.py)
+- [Workspaces/notebook_reports_20261006/execute_report.py](Workspaces/notebook_reports_20261006/execute_report.py)
+- [Workspaces/notebook_reports_20261006/execution_inputs/hs_8fa1475e40674137951690442c885ed1.ipynb](Workspaces/notebook_reports_20261006/execution_inputs/hs_8fa1475e40674137951690442c885ed1.ipynb)
+- [Workspaces/notebook_reports_20261006/execution_inputs/hs_d9a2f0d65a1d47509120e2a42f93c40f.ipynb](Workspaces/notebook_reports_20261006/execution_inputs/hs_d9a2f0d65a1d47509120e2a42f93c40f.ipynb)
+- [Workspaces/notebook_reports_20261006/execution_inputs/nonlinear_a3615372389f4712bc239328efc47906.ipynb](Workspaces/notebook_reports_20261006/execution_inputs/nonlinear_a3615372389f4712bc239328efc47906.ipynb)
+- [Workspaces/notebook_reports_20261006/hs_build_validation.json](Workspaces/notebook_reports_20261006/hs_build_validation.json)
+- [Workspaces/notebook_reports_20261006/hs_execution_validation.json](Workspaces/notebook_reports_20261006/hs_execution_validation.json)
+- [Workspaces/notebook_reports_20261006/hs_numerical_validation.json](Workspaces/notebook_reports_20261006/hs_numerical_validation.json)
+- [Workspaces/notebook_reports_20261006/hs_two_reference_validation.json](Workspaces/notebook_reports_20261006/hs_two_reference_validation.json)
+- [Workspaces/notebook_reports_20261006/hs_two_soliton_cells.py](Workspaces/notebook_reports_20261006/hs_two_soliton_cells.py)
+- [Workspaces/notebook_reports_20261006/hs_validate_two_reference.py](Workspaces/notebook_reports_20261006/hs_validate_two_reference.py)
+- [Workspaces/notebook_reports_20261006/html_archive_validation.json](Workspaces/notebook_reports_20261006/html_archive_validation.json)
+- [Workspaces/notebook_reports_20261006/nonlinear_build_validation.json](Workspaces/notebook_reports_20261006/nonlinear_build_validation.json)
+- [Workspaces/notebook_reports_20261006/nonlinear_execution_validation.json](Workspaces/notebook_reports_20261006/nonlinear_execution_validation.json)
+- [Workspaces/notebook_reports_20261006/preview/dlw-dlw-curves-0.png](Workspaces/notebook_reports_20261006/preview/dlw-dlw-curves-0.png)
+- [Workspaces/notebook_reports_20261006/preview/dlw-dlw-curves-1.png](Workspaces/notebook_reports_20261006/preview/dlw-dlw-curves-1.png)
+- [Workspaces/notebook_reports_20261006/preview/dlw-dlw-curves-2.png](Workspaces/notebook_reports_20261006/preview/dlw-dlw-curves-2.png)
+- [Workspaces/notebook_reports_20261006/preview/hs-hs-error-1.png](Workspaces/notebook_reports_20261006/preview/hs-hs-error-1.png)
+- [Workspaces/notebook_reports_20261006/preview/hs-hs-error-2.png](Workspaces/notebook_reports_20261006/preview/hs-hs-error-2.png)
+- [Workspaces/notebook_reports_20261006/preview/hs-hs-two-plots-0.png](Workspaces/notebook_reports_20261006/preview/hs-hs-two-plots-0.png)
+- [Workspaces/notebook_reports_20261006/preview/hs-hs-two-plots-1.png](Workspaces/notebook_reports_20261006/preview/hs-hs-two-plots-1.png)
+- [Workspaces/notebook_reports_20261006/preview/hs-hs-waveforms-0.png](Workspaces/notebook_reports_20261006/preview/hs-hs-waveforms-0.png)
+- [Workspaces/notebook_reports_20261006/preview/nonlinear-equation1.png](Workspaces/notebook_reports_20261006/preview/nonlinear-equation1.png)
+- [Workspaces/notebook_reports_20261006/preview/nonlinear-equation2.png](Workspaces/notebook_reports_20261006/preview/nonlinear-equation2.png)
+- [Workspaces/notebook_reports_20261006/preview/nonlinear-error-convergence-1.png](Workspaces/notebook_reports_20261006/preview/nonlinear-error-convergence-1.png)
+- [Workspaces/notebook_reports_20261006/preview/nonlinear-error-convergence-2.png](Workspaces/notebook_reports_20261006/preview/nonlinear-error-convergence-2.png)
+- [Workspaces/notebook_reports_20261006/register_notebook_split.py](Workspaces/notebook_reports_20261006/register_notebook_split.py)（同专题合并登记与逐文件路径核对）
+- [Workspaces/notebook_reports_20261006/registration.json](Workspaces/notebook_reports_20261006/registration.json)（本次登记与共享记录哈希）
+- [Workspaces/notebook_reports_20261006/registration_summary.json](Workspaces/notebook_reports_20261006/registration_summary.json)（最终执行结果与交付哈希汇总）
+- [Workspaces/notebook_reports_20261006/verify_dlw_delivery.py](Workspaces/notebook_reports_20261006/verify_dlw_delivery.py)
+- [Workspaces/notebook_reports_20261006/verify_dlw_models.py](Workspaces/notebook_reports_20261006/verify_dlw_models.py)
+- [Workspaces/notebook_reports_20261006/verify_hs_outputs.py](Workspaces/notebook_reports_20261006/verify_hs_outputs.py)
+- [Workspaces/notebook_reports_20261006/verify_notebook_reports.py](Workspaces/notebook_reports_20261006/verify_notebook_reports.py)
+- [notebook/2HS数值分析report.ipynb](notebook/2HS数值分析report.ipynb)（当前主交付；2HS 数值推进、误差表和图）
+- [notebook/DLW数值分析report.ipynb](notebook/DLW数值分析report.ipynb)（当前主交付；SD原始τ中点递推、SD2/FD比较；24组主试验及12组时间细化已执行）
+- [notebook/启动Colab本地运行时.pyw](notebook/启动Colab本地运行时.pyw)（三份共用的本地运行时启动器）
+- [notebook/DLW理论.ipynb](notebook/DLW理论.ipynb)（当前理论交付；连续 DLW、半离散 τ 解、非线性化与连续极限，附 Lean 证明）
+- [report/DLW数值分析_原HTML_20261006.html](report/DLW数值分析_原HTML_20261006.html)（原 DLW 数值 HTML 留档；保持原相对链接）
+- [report/Report_原HTML_20261006.html](report/Report_原HTML_20261006.html)（原综合 HTML 留档；保持原相对链接）
+- [report/notebook_usage.html](report/notebook_usage.html)（VS Code、Colab 与逐段执行的用户使用说明）
+
+- [Workspaces/notebook_reports_20261006/before_scheme_registration/FILE_INDEX.md](Workspaces/notebook_reports_20261006/before_scheme_registration/FILE_INDEX.md)
+- [Workspaces/notebook_reports_20261006/before_scheme_registration/PROGRESS_LOG.md](Workspaces/notebook_reports_20261006/before_scheme_registration/PROGRESS_LOG.md)
+- [Workspaces/notebook_reports_20261006/before_scheme_revision/build_dlw_numerics_notebook.py](Workspaces/notebook_reports_20261006/before_scheme_revision/build_dlw_numerics_notebook.py)
+- [Workspaces/notebook_reports_20261006/before_scheme_revision/dlw_numeric_cells.py](Workspaces/notebook_reports_20261006/before_scheme_revision/dlw_numeric_cells.py)
+- [Workspaces/notebook_reports_20261006/before_scheme_revision/DLW数值分析report.ipynb](Workspaces/notebook_reports_20261006/before_scheme_revision/DLW数值分析report.ipynb)
+- [Workspaces/notebook_reports_20261006/before_scheme_revision/verify_dlw_models.py](Workspaces/notebook_reports_20261006/before_scheme_revision/verify_dlw_models.py)
+- [Workspaces/notebook_reports_20261006/finalize_scheme_revision.py](Workspaces/notebook_reports_20261006/finalize_scheme_revision.py)
+- [Workspaces/notebook_reports_20261006/scheme_revision_validation.json](Workspaces/notebook_reports_20261006/scheme_revision_validation.json)
+- [Workspaces/notebook_reports_20261006/before_hs_structure/45091c0636e840c981bd71836623006f.ipynb](Workspaces/notebook_reports_20261006/before_hs_structure/45091c0636e840c981bd71836623006f.ipynb)
+- [Workspaces/notebook_reports_20261006/before_hs_structure/build_hs_notebook_f580a73ef59b4063837dc3ff5c7805ff.py](Workspaces/notebook_reports_20261006/before_hs_structure/build_hs_notebook_f580a73ef59b4063837dc3ff5c7805ff.py)
+- [Workspaces/notebook_reports_20261006/before_hs_structure/c8837d3ec04245c1b8766d444095212e.ipynb](Workspaces/notebook_reports_20261006/before_hs_structure/c8837d3ec04245c1b8766d444095212e.ipynb)
+- [Workspaces/notebook_reports_20261006/hs_structure_execution_validation.json](Workspaces/notebook_reports_20261006/hs_structure_execution_validation.json)
+- [Workspaces/notebook_reports_20261006/hs_structure_validation.json](Workspaces/notebook_reports_20261006/hs_structure_validation.json)
+- [Workspaces/notebook_reports_20261006/revise_dlw_structure.py](Workspaces/notebook_reports_20261006/revise_dlw_structure.py)
+- [Workspaces/notebook_reports_20261006/revise_hs_structure.py](Workspaces/notebook_reports_20261006/revise_hs_structure.py)
+
+- [Workspaces/notebook_reports_20261006/hs_structure_delivery_validation.json](Workspaces/notebook_reports_20261006/hs_structure_delivery_validation.json)
+- [Workspaces/notebook_reports_20261006/verify_hs_structure.py](Workspaces/notebook_reports_20261006/verify_hs_structure.py)
+
+- [Workspaces/notebook_reports_20261006/append_sd_derivation.py](Workspaces/notebook_reports_20261006/append_sd_derivation.py)
+- [Workspaces/notebook_reports_20261006/sd_derivation_validation.json](Workspaces/notebook_reports_20261006/sd_derivation_validation.json)
+- [Workspaces/notebook_reports_20261006/before_sd_derivation/DLW数值分析report.ipynb](Workspaces/notebook_reports_20261006/before_sd_derivation/DLW数值分析report.ipynb)
+- [Workspaces/notebook_reports_20261006/before_sd_derivation/FILE_INDEX.md](Workspaces/notebook_reports_20261006/before_sd_derivation/FILE_INDEX.md)
+- [Workspaces/notebook_reports_20261006/before_sd_derivation/PROGRESS_LOG.md](Workspaces/notebook_reports_20261006/before_sd_derivation/PROGRESS_LOG.md)
+
+<!-- DLW_TAU_MAIN_INDEX_BEGIN -->
+
+**DLW 主报告直接双线性 τ 更新的历史记录（2026-10-07）：**
+
+- [Workspaces/notebook_reports_20261006/sd_tau_cell.py](Workspaces/notebook_reports_20261006/sd_tau_cell.py)
+- [Workspaces/notebook_reports_20261006/tau_report_cells.py](Workspaces/notebook_reports_20261006/tau_report_cells.py)
+- [Workspaces/notebook_reports_20261006/integrate_direct_tau.py](Workspaces/notebook_reports_20261006/integrate_direct_tau.py)
+- [Workspaces/notebook_reports_20261006/finalize_direct_tau_text.py](Workspaces/notebook_reports_20261006/finalize_direct_tau_text.py)
+- [Workspaces/notebook_reports_20261006/verify_dlw_tau.py](Workspaces/notebook_reports_20261006/verify_dlw_tau.py)
+- [Workspaces/notebook_reports_20261006/verify_dlw_tau.json](Workspaces/notebook_reports_20261006/verify_dlw_tau.json)
+- [Workspaces/notebook_reports_20261006/verify_direct_tau_delivery.py](Workspaces/notebook_reports_20261006/verify_direct_tau_delivery.py)
+- [Workspaces/notebook_reports_20261006/sd_tau_validation.json](Workspaces/notebook_reports_20261006/sd_tau_validation.json)
+- [Workspaces/notebook_reports_20261006/register_direct_tau_main.py](Workspaces/notebook_reports_20261006/register_direct_tau_main.py)
+- [Workspaces/notebook_reports_20261006/direct_tau_main_manifest.json](Workspaces/notebook_reports_20261006/direct_tau_main_manifest.json)
+- [Workspaces/notebook_reports_20261006/before_direct_tau/](Workspaces/notebook_reports_20261006/before_direct_tau/)
+
+<!-- DLW_TAU_MAIN_INDEX_END -->
+
+<!-- NOTEBOOK_REPORTS_INDEX_END -->
+
+<!-- REPORT_COLAB_INDEX_BEGIN -->
+
+**此前混合版迁移与共用本地运行时（2026-10-06）：**
+
+- [before_split/Report.ipynb](Workspaces/notebook_reports_20261006/before_split/Report.ipynb)（拆分前混合版保留；42标准单元、21代码单元实际执行约110.91秒、零错误）
+- [启动Colab本地运行时.pyw](notebook/启动Colab本地运行时.pyw)（同目录双击入口；连接本机项目 Python／Lean／Mathlib）
+- [README.md](Workspaces/report_colab_20261006/README.md)（Colab本地运行时／VS Code步骤、当前证据与历史迁移范围）
+- `Workspaces/report_colab_20261006/local_runtime.py`、`local_runtime_validation.json`、`refs/colab_local_runtimes_official.html`（本机认证Jupyter服务；实际API/WebSocket Python及Lean核验；浏览器连接未实测）
+- `Workspaces/report_colab_20261006/report_runtime.py`、`lean_notebook.py`、`validate_local_lean.py`、`local_lean_validation.json`、`proof_cache/`、`local_lean_runs/`（已有Lean 4.34.0／Mathlib、证明哈希与环境一致性、持久缓存复用、六阶段及失效核验）
+- `Workspaces/report_colab_20261006/validate_lean_seed_chronology.py`、`lean_seed_chronology_validation.json`、`seed_guard_cache/`（历史依赖次序三项检查；拒绝陈旧依赖产物并复核三个实际QRM旧产物）
+- `Workspaces/report_colab_20261006/smoke_local_import.py`、`local_import_smoke.ipynb`、`local_import_smoke_validation.json`（最终辅助器在新内核中真实运行准备及两次import，零证明源重编）
+- `Workspaces/report_colab_20261006/build_lean_bootstrap.py`、`bootstrap_source.txt`、`local_import_manifest.json`（六行本地import生成、九份证明源与辅助器哈希；不内嵌安装包）
+- `Workspaces/report_colab_20261006/build_notebook.py`、`build_validation.json`（37公式／34编号、2表／4原图、正文与标准格式核对）
+- `Workspaces/report_colab_20261006/execute_notebook.py`、`execution_validation.json`、`verify_local_delivery.py`、`local_delivery_validation.json`、`before_execute/`（21段原生内核真实执行、根目录交付／镜像与完整输出核对）
+- `Workspaces/report_colab_20261006/hs_cells.py`、`hs_cells.json`、`validate_hs.py`、`hs_validation.json`（2HS七段可编辑Python及误差／参数／前置回归）
+- `Workspaces/report_colab_20261006/dlw_cells.py`、`dlw_cells.json`、`build_dlw_cells.py`、`validate_dlw.py`、`dlw_validation.json`（DLW七段Python及系数／残差／曲线／收敛与编辑核验）
+- `Workspaces/report_colab_20261006/local_reuse_summary.json`、`register_local_reuse.py`、`local_reuse_registration.json`、`before_local_reuse/`、`before_localreuse_20261006_160533/`（当前本地复用汇总、同专题合并登记与修改前保留）
+- `Workspaces/report_colab_20261006/Report.ipynb`（此前混合版项目镜像；共用运行时仍在该项目，当前三份交付见上方新索引）
+- **此前迁移材料：** `Workspaces/report_colab_20261006/lean_validation.json`、`lean_bytes_validation.json`、`lean_validation_runs/`（旧六阶段编译／公理／字节核对）；`lean_bundle_manifest.json`、`bootstrap_final_run.ipynb`、`bootstrap_integration_validation.json`、`before_final_bootstrap/`、`report_lean/`（旧内嵌准备与补正记录）；`colab_server.py`、`colab_client.py`、`sync_colab.py`、`colab_cell_mapping.json`、`mcp_control/`、`cloud_copy_metadata.json`、`cloud_sync_validation.json`（旧云端上传／源码同步，未云端执行）；`final_summary.json`、`registration.json`、`register_results.py`、`before_records/`（首次登记）。
+
+<!-- REPORT_COLAB_INDEX_END -->
+
+**此前 Report HTML 单入口与逐段运行（2026-10-02）：**
 
 - [Report.exe](Report.exe)（单一用户入口；自动后台服务与打开报告，现有本机环境）
 - [README.md](Workspaces/report_notebook_20261002/README.md)（当前关键证明阅读指南、生成、持久单元和单入口说明）
@@ -8485,14 +9725,23 @@
 - `Workspaces/numerics_review_20260922/upgrade_regressions.py`
 - `Workspaces/numerics_review_20260922/validate_final.py`
 
+
+**DLW SD递推实现审查（2026-10-07）：**
+
+- [SD审查报告](report/dlw_sd_implementation_review.html)（当前递推、奇数节点提升奇异、方法标签与初始插值误差）。
+- `Workspaces/dlw_direct_tau_20261007/review_20261007/audit.py`、`audit.json`（当前notebook六组独立单步与15组初值网格检查）。
+- `Workspaces/dlw_direct_tau_20261007/review_20261007/runs.py`、`runs.json`（六组默认SD复跑及A组动网格时间细化）。
+- `Workspaces/dlw_direct_tau_20261007/review_20261007/method_check.json`（Euler请求实际执行中点的复现）。
+- `Workspaces/dlw_direct_tau_20261007/review_20261007/register.py`、`registration.json`、`before_registration/`（登记、交付核验及旧记录备份）。
+
 <!-- DLW_NUMERICAL_TRIM_INDEX_BEGIN -->
 **DLW 数值静态报告精简（2026-10-07）：**
 
 - [dlw_numerical.html](dlw_numerical.html)（第1—7节，移除目录、结果节、参考资料与完整代码附录）
-- [notebook/DLW数值分析report.ipynb](notebook/DLW数值分析report.ipynb)（报告生成所用的原始可执行Notebook，本轮字节保持）
+- [notebook/DLW数值分析report.ipynb](notebook/DLW数值分析report.ipynb)（报告来源；非线性 SD、SD2 与 FD 的逐段可运行代码及本轮真实输出）
 - [Workspaces/dlw_notebook_static_20261007/build_static.py](Workspaces/dlw_notebook_static_20261007/build_static.py)（静态报告的权威生成器）
 - [Workspaces/dlw_notebook_static_20261007/render_math.cjs](Workspaces/dlw_notebook_static_20261007/render_math.cjs)（KaTeX公式预渲染）
-- [Workspaces/dlw_notebook_static_20261007/verify_static.py](Workspaces/dlw_notebook_static_20261007/verify_static.py)（保留单元、公式、关键代码及表图核验）
+- [Workspaces/dlw_notebook_static_20261007/verify_static.py](Workspaces/dlw_notebook_static_20261007/verify_static.py)（无代码数学正文、公式与保存表图核验）
 - [Workspaces/dlw_notebook_static_20261007/check_static.cjs](Workspaces/dlw_notebook_static_20261007/check_static.cjs)（离线桌面、390px及打印检查）
 - [Workspaces/dlw_notebook_static_20261007/README.md](Workspaces/dlw_notebook_static_20261007/README.md)（当前构建、布局与历史记录说明）
 - [Workspaces/dlw_notebook_static_20261007/build_validation.json](Workspaces/dlw_notebook_static_20261007/build_validation.json)（当前构建证据）
@@ -8557,8 +9806,42 @@
 - [Workspaces/dlw_notebook_static_20261007/before_three_lines/trim_revision.json](Workspaces/dlw_notebook_static_20261007/before_three_lines/trim_revision.json)（三线表修正前原件）
 <!-- DLW_NUMERICAL_TRIM_INDEX_END -->
 
+
 <!-- DLW_GSG_SECOND_ORDER_INDEX_BEGIN -->
-**DLW 三点二阶空间差分（2026-10-07）：**
+**DLW 三点二阶空间差分与数值更新：**
+
+<!-- DLW_NONLINEAR_SD_INDEX_BEGIN -->
+**当前非线性 SD 重算（2026-10-07）：**
+
+- [notebook/DLW数值分析report.ipynb](notebook/DLW数值分析report.ipynb)（可逐段运行的自包含数值 Notebook，保存非线性 SD 新输出）
+- [dlw_numerical.html](dlw_numerical.html)（无代码数学报告：非线性递推、五张三线表、三张误差图）
+- [report/DLW数值分析_双线性SD留档_20261007.html](report/DLW数值分析_双线性SD留档_20261007.html)（改回非线性 SD 前的双线性 τ 数值报告留档）
+- [Workspaces/notebook_reports_20261006/sd_nonlinear_cell.py](Workspaces/notebook_reports_20261006/sd_nonlinear_cell.py)（当前 SD 核心：P/W 初值、物理场恢复与非线性右端）
+- [Workspaces/notebook_reports_20261006/dlw_numeric_cells.py](Workspaces/notebook_reports_20261006/dlw_numeric_cells.py)（当前全部可执行单元与共享 Euler/RK4 实验流程）
+- [Workspaces/notebook_reports_20261006/build_dlw_numerics_notebook.py](Workspaces/notebook_reports_20261006/build_dlw_numerics_notebook.py)（Notebook 权威生成器与实验配置登记）
+- [Workspaces/notebook_reports_20261006/revise_dlw_structure.py](Workspaces/notebook_reports_20261006/revise_dlw_structure.py)（空间方案的数学正文与单元编排）
+- [Workspaces/notebook_reports_20261006/execute_dlw_notebook.py](Workspaces/notebook_reports_20261006/execute_dlw_notebook.py)（新内核执行、真实输出与 JSON/NPZ 导出）
+- [Workspaces/notebook_reports_20261006/dlw_build_validation.json](Workspaces/notebook_reports_20261006/dlw_build_validation.json)（当前生成配置与 36+12 组实验计数）
+- [Workspaces/notebook_reports_20261006/dlw_execution_validation.json](Workspaces/notebook_reports_20261006/dlw_execution_validation.json)（本轮原生执行时长、源哈希与导出哈希）
+- [Workspaces/notebook_reports_20261006/dlw_numeric_results.json](Workspaces/notebook_reports_20261006/dlw_numeric_results.json)（36 主试验及 12 时间细化的实际误差）
+- [Workspaces/notebook_reports_20261006/dlw_numeric_curves.npz](Workspaces/notebook_reports_20261006/dlw_numeric_curves.npz)（全部主试验的公共点误差曲线）
+- [Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/verify_nonlinear_sd_kernel.py](Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/verify_nonlinear_sd_kernel.py)（独立 ω/P/W 方程、边界恢复与 ALE 核验）
+- [Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/kernel_validation.json](Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/kernel_validation.json)（非线性核心独立核验证据）
+- [Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/verify_nonlinear_delivery.py](Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/verify_nonlinear_delivery.py)（三点空间阶与完整 Notebook/JSON/NPZ 交付核验）
+- [Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/spatial_validation.json](Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/spatial_validation.json)（固定/动网格制造解及直接 D₂ 证据）
+- [Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/delivery_validation.json](Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/delivery_validation.json)（36+12 组结果、源哈希、原始表图及保留方法对照）
+- [Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/register_revision.py](Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/register_revision.py)（合并当前 DLW 专题进度与索引）
+- [Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/revision_manifest.json](Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/revision_manifest.json)（本轮最终交付、数学检查与全部文件哈希）
+- [Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/record_snippets.json](Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/record_snippets.json)（本轮登记的专题正文与索引片段）
+- [Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/before_registration](Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/before_registration)（共享进度与索引修改前的最新原件）
+- [Workspaces/notebook_reports_20261006/before_nonlinear_sd_20261007](Workspaces/notebook_reports_20261006/before_nonlinear_sd_20261007)（改回非线性格式前 τ 方案、Notebook/HTML、数据及用户精确解原件）
+- [Workspaces/dlw_notebook_static_20261007/build_static.py](Workspaces/dlw_notebook_static_20261007/build_static.py)（无代码 HTML 权威生成器）
+- [Workspaces/dlw_notebook_static_20261007/build_validation.json](Workspaces/dlw_notebook_static_20261007/build_validation.json)（当前 HTML/Notebook 对应与哈希）
+- [Workspaces/dlw_notebook_static_20261007/content_validation.json](Workspaces/dlw_notebook_static_20261007/content_validation.json)（当前数学正文及保存表图逐项比对）
+- [Workspaces/dlw_notebook_static_20261007/browser_validation.json](Workspaces/dlw_notebook_static_20261007/browser_validation.json)（当前离线桌面、390px、打印、三线表及字体证据）
+<!-- DLW_NONLINEAR_SD_INDEX_END -->
+
+**GSG 三点二阶对齐的历史记录（τ 方案，2026-10-07）：**
 
 - [Workspaces/notebook_reports_20261006/gsg_second_order/README.md](Workspaces/notebook_reports_20261006/gsg_second_order/README.md)
 - [Workspaces/notebook_reports_20261006/requirements_dlw.txt](Workspaces/notebook_reports_20261006/requirements_dlw.txt)
@@ -8593,424 +9876,36 @@
 - [Workspaces/dlw_notebook_static_20261007/revise_intro.py](Workspaces/dlw_notebook_static_20261007/revise_intro.py)
 - [Workspaces/dlw_notebook_static_20261007/register_intro_revision.py](Workspaces/dlw_notebook_static_20261007/register_intro_revision.py)
 - [Workspaces/dlw_notebook_static_20261007/intro_revision.json](Workspaces/dlw_notebook_static_20261007/intro_revision.json)
+- [Workspaces/dlw_notebook_static_20261007/no_code_revision.json](Workspaces/dlw_notebook_static_20261007/no_code_revision.json)（HTML无代码数学叙述版：递推公式、表值、原图、Notebook字节与版式核验）
+- [Workspaces/dlw_notebook_static_20261007/explicit_xyt_revision.json](Workspaces/dlw_notebook_static_20261007/explicit_xyt_revision.json)（第1.1节系数定义与显式x,y,t：HTML/Notebook同步及原数值输出保持核验）
+- [Workspaces/dlw_notebook_static_20261007/simple_exact_revision.json](Workspaces/dlw_notebook_static_20261007/simple_exact_revision.json)（第1.1节闭式精确解：取消权重求和，直接由f/g解析求导计算u/v）
+- [Workspaces/dlw_direct_tau_20261007/formulation_review_20261007/formulation_comparison.json](Workspaces/dlw_direct_tau_20261007/formulation_review_20261007/formulation_comparison.json)（GSG非线性实际推进与DLW直接τ中点的只读核对）
 <!-- DLW_INTRO_REVISION_INDEX_END -->
 
-## DLW 更新（2026-10-08）
+- `Workspaces/notebook_reports_20261006/plot_range_config.py`：2HS 配置区、计算域检查和独立绘图区间的生成器变换。
+- `Workspaces/notebook_reports_20261006/plot_range_20261008/validation.json`：绘图检查、完整执行与最终文件哈希；`before/` 保存两份原 Notebook 及原生成器源码。
 
-- [Workspaces/dlw_direct_tau_20261007/browser_validation.json](Workspaces/dlw_direct_tau_20261007/browser_validation.json)
-- [Workspaces/dlw_direct_tau_20261007/build_report.py](Workspaces/dlw_direct_tau_20261007/build_report.py)
-- [Workspaces/dlw_direct_tau_20261007/check_report.cjs](Workspaces/dlw_direct_tau_20261007/check_report.cjs)
-- [Workspaces/dlw_direct_tau_20261007/direct_tau.py](Workspaces/dlw_direct_tau_20261007/direct_tau.py)
-- [Workspaces/dlw_direct_tau_20261007/formulation_review_20261007/formulation_comparison.json](Workspaces/dlw_direct_tau_20261007/formulation_review_20261007/formulation_comparison.json)
-- [Workspaces/dlw_direct_tau_20261007/manifest.json](Workspaces/dlw_direct_tau_20261007/manifest.json)
-- [Workspaces/dlw_direct_tau_20261007/register_result.py](Workspaces/dlw_direct_tau_20261007/register_result.py)
-- [Workspaces/dlw_direct_tau_20261007/render_report.cjs](Workspaces/dlw_direct_tau_20261007/render_report.cjs)
-- [Workspaces/dlw_direct_tau_20261007/render_validation.json](Workspaces/dlw_direct_tau_20261007/render_validation.json)
-- [Workspaces/dlw_direct_tau_20261007/report_summary.json](Workspaces/dlw_direct_tau_20261007/report_summary.json)
-- [Workspaces/dlw_direct_tau_20261007/review_20261007/audit.json](Workspaces/dlw_direct_tau_20261007/review_20261007/audit.json)
-- [Workspaces/dlw_direct_tau_20261007/review_20261007/audit.py](Workspaces/dlw_direct_tau_20261007/review_20261007/audit.py)
-- [Workspaces/dlw_direct_tau_20261007/review_20261007/method_check.json](Workspaces/dlw_direct_tau_20261007/review_20261007/method_check.json)
-- [Workspaces/dlw_direct_tau_20261007/review_20261007/register.py](Workspaces/dlw_direct_tau_20261007/review_20261007/register.py)
-- [Workspaces/dlw_direct_tau_20261007/review_20261007/registration.json](Workspaces/dlw_direct_tau_20261007/review_20261007/registration.json)
-- [Workspaces/dlw_direct_tau_20261007/review_20261007/runs.json](Workspaces/dlw_direct_tau_20261007/review_20261007/runs.json)
-- [Workspaces/dlw_direct_tau_20261007/review_20261007/runs.py](Workspaces/dlw_direct_tau_20261007/review_20261007/runs.py)
-- [Workspaces/dlw_direct_tau_20261007/validation.json](Workspaces/dlw_direct_tau_20261007/validation.json)
-- [Workspaces/dlw_direct_tau_20261007/verify_direct.py](Workspaces/dlw_direct_tau_20261007/verify_direct.py)
-- [Workspaces/dlw_integrability_lean_20261006/ActualBalancedAmplitudeBridge.lean](Workspaces/dlw_integrability_lean_20261006/ActualBalancedAmplitudeBridge.lean)
-- [Workspaces/dlw_integrability_lean_20261006/ActualCoefficientSource.lean](Workspaces/dlw_integrability_lean_20261006/ActualCoefficientSource.lean)
-- [Workspaces/dlw_integrability_lean_20261006/ActualCommonGaugeSource.lean](Workspaces/dlw_integrability_lean_20261006/ActualCommonGaugeSource.lean)
-- [Workspaces/dlw_integrability_lean_20261006/ActualConservationEndpoint.lean](Workspaces/dlw_integrability_lean_20261006/ActualConservationEndpoint.lean)
-- [Workspaces/dlw_integrability_lean_20261006/ActualFourierEntries.lean](Workspaces/dlw_integrability_lean_20261006/ActualFourierEntries.lean)
-- [Workspaces/dlw_integrability_lean_20261006/ActualFourierMatrix.lean](Workspaces/dlw_integrability_lean_20261006/ActualFourierMatrix.lean)
-- [Workspaces/dlw_integrability_lean_20261006/ActualFrequencyLeading.lean](Workspaces/dlw_integrability_lean_20261006/ActualFrequencyLeading.lean)
-- [Workspaces/dlw_integrability_lean_20261006/ActualGenericIndependence.lean](Workspaces/dlw_integrability_lean_20261006/ActualGenericIndependence.lean)
-- [Workspaces/dlw_integrability_lean_20261006/ActualHamiltonianConservation.lean](Workspaces/dlw_integrability_lean_20261006/ActualHamiltonianConservation.lean)
-- [Workspaces/dlw_integrability_lean_20261006/ActualHamiltonianDerivative.lean](Workspaces/dlw_integrability_lean_20261006/ActualHamiltonianDerivative.lean)
-- [Workspaces/dlw_integrability_lean_20261006/ActualHamiltonianFlow.lean](Workspaces/dlw_integrability_lean_20261006/ActualHamiltonianFlow.lean)
-- [Workspaces/dlw_integrability_lean_20261006/ActualOddFrequency.lean](Workspaces/dlw_integrability_lean_20261006/ActualOddFrequency.lean)
-- [Workspaces/dlw_integrability_lean_20261006/ActualPhysicalFamily.lean](Workspaces/dlw_integrability_lean_20261006/ActualPhysicalFamily.lean)
-- [Workspaces/dlw_integrability_lean_20261006/ActualPhysicalSource.lean](Workspaces/dlw_integrability_lean_20261006/ActualPhysicalSource.lean)
-- [Workspaces/dlw_integrability_lean_20261006/ActualPolynomialCurveDerivative.lean](Workspaces/dlw_integrability_lean_20261006/ActualPolynomialCurveDerivative.lean)
-- [Workspaces/dlw_integrability_lean_20261006/ActualSpectralInvolution.lean](Workspaces/dlw_integrability_lean_20261006/ActualSpectralInvolution.lean)
-- [Workspaces/dlw_integrability_lean_20261006/ActualSpectralWard.lean](Workspaces/dlw_integrability_lean_20261006/ActualSpectralWard.lean)
-- [Workspaces/dlw_integrability_lean_20261006/ActualTraceDerivative.lean](Workspaces/dlw_integrability_lean_20261006/ActualTraceDerivative.lean)
-- [Workspaces/dlw_integrability_lean_20261006/AdlerFactorCoordinates.lean](Workspaces/dlw_integrability_lean_20261006/AdlerFactorCoordinates.lean)
-- [Workspaces/dlw_integrability_lean_20261006/AmbientAdlerInvolution.lean](Workspaces/dlw_integrability_lean_20261006/AmbientAdlerInvolution.lean)
-- [Workspaces/dlw_integrability_lean_20261006/AmbientChartDerivative.lean](Workspaces/dlw_integrability_lean_20261006/AmbientChartDerivative.lean)
-- [Workspaces/dlw_integrability_lean_20261006/AmbientEulerVariational.lean](Workspaces/dlw_integrability_lean_20261006/AmbientEulerVariational.lean)
-- [Workspaces/dlw_integrability_lean_20261006/AmbientNormalizedRealization.lean](Workspaces/dlw_integrability_lean_20261006/AmbientNormalizedRealization.lean)
-- [Workspaces/dlw_integrability_lean_20261006/AmbientSpectralRealization.lean](Workspaces/dlw_integrability_lean_20261006/AmbientSpectralRealization.lean)
-- [Workspaces/dlw_integrability_lean_20261006/AmbientSpectralRecurrence.lean](Workspaces/dlw_integrability_lean_20261006/AmbientSpectralRecurrence.lean)
-- [Workspaces/dlw_integrability_lean_20261006/AmbientSpectralVariation.lean](Workspaces/dlw_integrability_lean_20261006/AmbientSpectralVariation.lean)
-- [Workspaces/dlw_integrability_lean_20261006/BALANCED_COEFFICIENT_DERIVATION.md](Workspaces/dlw_integrability_lean_20261006/BALANCED_COEFFICIENT_DERIVATION.md)
-- [Workspaces/dlw_integrability_lean_20261006/BalancedActualCoefficientJet.lean](Workspaces/dlw_integrability_lean_20261006/BalancedActualCoefficientJet.lean)
-- [Workspaces/dlw_integrability_lean_20261006/BalancedAmplitudeEvaluationCore.lean](Workspaces/dlw_integrability_lean_20261006/BalancedAmplitudeEvaluationCore.lean)
-- [Workspaces/dlw_integrability_lean_20261006/BalancedAmplitudePolynomial.lean](Workspaces/dlw_integrability_lean_20261006/BalancedAmplitudePolynomial.lean)
-- [Workspaces/dlw_integrability_lean_20261006/BalancedCoefficientJet.lean](Workspaces/dlw_integrability_lean_20261006/BalancedCoefficientJet.lean)
-- [Workspaces/dlw_integrability_lean_20261006/BalancedCoefficientRecurrence.lean](Workspaces/dlw_integrability_lean_20261006/BalancedCoefficientRecurrence.lean)
-- [Workspaces/dlw_integrability_lean_20261006/BalancedNormalizedCoefficientJet.lean](Workspaces/dlw_integrability_lean_20261006/BalancedNormalizedCoefficientJet.lean)
-- [Workspaces/dlw_integrability_lean_20261006/BalancedOddCoefficientIntegral.lean](Workspaces/dlw_integrability_lean_20261006/BalancedOddCoefficientIntegral.lean)
-- [Workspaces/dlw_integrability_lean_20261006/BalancedQuadraticFrequency.lean](Workspaces/dlw_integrability_lean_20261006/BalancedQuadraticFrequency.lean)
-- [Workspaces/dlw_integrability_lean_20261006/BalancedQuotientCoefficientJet.lean](Workspaces/dlw_integrability_lean_20261006/BalancedQuotientCoefficientJet.lean)
-- [Workspaces/dlw_integrability_lean_20261006/BalancedRealization.lean](Workspaces/dlw_integrability_lean_20261006/BalancedRealization.lean)
-- [Workspaces/dlw_integrability_lean_20261006/BalancedResolventCoefficientJet.lean](Workspaces/dlw_integrability_lean_20261006/BalancedResolventCoefficientJet.lean)
-- [Workspaces/dlw_integrability_lean_20261006/BalancedSpectralRealization.lean](Workspaces/dlw_integrability_lean_20261006/BalancedSpectralRealization.lean)
-- [Workspaces/dlw_integrability_lean_20261006/ClosureJets.lean](Workspaces/dlw_integrability_lean_20261006/ClosureJets.lean)
-- [Workspaces/dlw_integrability_lean_20261006/CoefficientJetPointwise.lean](Workspaces/dlw_integrability_lean_20261006/CoefficientJetPointwise.lean)
-- [Workspaces/dlw_integrability_lean_20261006/CoefficientJetPower.lean](Workspaces/dlw_integrability_lean_20261006/CoefficientJetPower.lean)
-- [Workspaces/dlw_integrability_lean_20261006/CoefficientJetRealization.lean](Workspaces/dlw_integrability_lean_20261006/CoefficientJetRealization.lean)
-- [Workspaces/dlw_integrability_lean_20261006/CommonGauge.lean](Workspaces/dlw_integrability_lean_20261006/CommonGauge.lean)
-- [Workspaces/dlw_integrability_lean_20261006/CommonGaugeDensityVariation.lean](Workspaces/dlw_integrability_lean_20261006/CommonGaugeDensityVariation.lean)
-- [Workspaces/dlw_integrability_lean_20261006/ConstructedChargeMomentum.lean](Workspaces/dlw_integrability_lean_20261006/ConstructedChargeMomentum.lean)
-- [Workspaces/dlw_integrability_lean_20261006/CovectorWitness.lean](Workspaces/dlw_integrability_lean_20261006/CovectorWitness.lean)
-- [Workspaces/dlw_integrability_lean_20261006/CyclicTrace.lean](Workspaces/dlw_integrability_lean_20261006/CyclicTrace.lean)
-- [Workspaces/dlw_integrability_lean_20261006/DarbouxJets.lean](Workspaces/dlw_integrability_lean_20261006/DarbouxJets.lean)
-- [Workspaces/dlw_integrability_lean_20261006/DifferentialJetEvaluation.lean](Workspaces/dlw_integrability_lean_20261006/DifferentialJetEvaluation.lean)
-- [Workspaces/dlw_integrability_lean_20261006/DifferentialMean.lean](Workspaces/dlw_integrability_lean_20261006/DifferentialMean.lean)
-- [Workspaces/dlw_integrability_lean_20261006/Endpoint.lean](Workspaces/dlw_integrability_lean_20261006/Endpoint.lean)
-- [Workspaces/dlw_integrability_lean_20261006/EtaLimit.lean](Workspaces/dlw_integrability_lean_20261006/EtaLimit.lean)
-- [Workspaces/dlw_integrability_lean_20261006/EulerVariationalGradient.lean](Workspaces/dlw_integrability_lean_20261006/EulerVariationalGradient.lean)
-- [Workspaces/dlw_integrability_lean_20261006/FactorAdlerFoundation.lean](Workspaces/dlw_integrability_lean_20261006/FactorAdlerFoundation.lean)
-- [Workspaces/dlw_integrability_lean_20261006/FactorProjectionAlgebra.lean](Workspaces/dlw_integrability_lean_20261006/FactorProjectionAlgebra.lean)
-- [Workspaces/dlw_integrability_lean_20261006/FieldCoordinates.lean](Workspaces/dlw_integrability_lean_20261006/FieldCoordinates.lean)
-- [Workspaces/dlw_integrability_lean_20261006/FieldGenericity.lean](Workspaces/dlw_integrability_lean_20261006/FieldGenericity.lean)
-- [Workspaces/dlw_integrability_lean_20261006/FinalEndpoint.lean](Workspaces/dlw_integrability_lean_20261006/FinalEndpoint.lean)
-- [Workspaces/dlw_integrability_lean_20261006/FiniteLinearCalculus.lean](Workspaces/dlw_integrability_lean_20261006/FiniteLinearCalculus.lean)
-- [Workspaces/dlw_integrability_lean_20261006/FirstResidueEnergy.lean](Workspaces/dlw_integrability_lean_20261006/FirstResidueEnergy.lean)
-- [Workspaces/dlw_integrability_lean_20261006/FourierAmplitudeWitness.lean](Workspaces/dlw_integrability_lean_20261006/FourierAmplitudeWitness.lean)
-- [Workspaces/dlw_integrability_lean_20261006/FourierDirectionJets.lean](Workspaces/dlw_integrability_lean_20261006/FourierDirectionJets.lean)
-- [Workspaces/dlw_integrability_lean_20261006/FourierMomentum.lean](Workspaces/dlw_integrability_lean_20261006/FourierMomentum.lean)
-- [Workspaces/dlw_integrability_lean_20261006/FrequencyPolynomialIdentification.lean](Workspaces/dlw_integrability_lean_20261006/FrequencyPolynomialIdentification.lean)
-- [Workspaces/dlw_integrability_lean_20261006/Genericity.lean](Workspaces/dlw_integrability_lean_20261006/Genericity.lean)
-- [Workspaces/dlw_integrability_lean_20261006/GlobalBalancedSliceBridge.lean](Workspaces/dlw_integrability_lean_20261006/GlobalBalancedSliceBridge.lean)
-- [Workspaces/dlw_integrability_lean_20261006/GlobalCoefficientRecurrence.lean](Workspaces/dlw_integrability_lean_20261006/GlobalCoefficientRecurrence.lean)
-- [Workspaces/dlw_integrability_lean_20261006/GlobalFirstResidueBridge.lean](Workspaces/dlw_integrability_lean_20261006/GlobalFirstResidueBridge.lean)
-- [Workspaces/dlw_integrability_lean_20261006/GlobalRealization.lean](Workspaces/dlw_integrability_lean_20261006/GlobalRealization.lean)
-- [Workspaces/dlw_integrability_lean_20261006/GlobalSpectralRealization.lean](Workspaces/dlw_integrability_lean_20261006/GlobalSpectralRealization.lean)
-- [Workspaces/dlw_integrability_lean_20261006/GradientNondegeneracy.lean](Workspaces/dlw_integrability_lean_20261006/GradientNondegeneracy.lean)
-- [Workspaces/dlw_integrability_lean_20261006/HamiltonianFamily.lean](Workspaces/dlw_integrability_lean_20261006/HamiltonianFamily.lean)
-- [Workspaces/dlw_integrability_lean_20261006/HeatIntertwiner.lean](Workspaces/dlw_integrability_lean_20261006/HeatIntertwiner.lean)
-- [Workspaces/dlw_integrability_lean_20261006/Independence.lean](Workspaces/dlw_integrability_lean_20261006/Independence.lean)
-- [Workspaces/dlw_integrability_lean_20261006/LEAN_PROOF_REPORT.md](Workspaces/dlw_integrability_lean_20261006/LEAN_PROOF_REPORT.md)
-- [Workspaces/dlw_integrability_lean_20261006/LatticeResolvent.lean](Workspaces/dlw_integrability_lean_20261006/LatticeResolvent.lean)
-- [Workspaces/dlw_integrability_lean_20261006/MomentumWitness.lean](Workspaces/dlw_integrability_lean_20261006/MomentumWitness.lean)
-- [Workspaces/dlw_integrability_lean_20261006/Monodromy.lean](Workspaces/dlw_integrability_lean_20261006/Monodromy.lean)
-- [Workspaces/dlw_integrability_lean_20261006/NormalInverseRecurrence.lean](Workspaces/dlw_integrability_lean_20261006/NormalInverseRecurrence.lean)
-- [Workspaces/dlw_integrability_lean_20261006/NormalModelResidue.lean](Workspaces/dlw_integrability_lean_20261006/NormalModelResidue.lean)
-- [Workspaces/dlw_integrability_lean_20261006/NormalResidueBridge.lean](Workspaces/dlw_integrability_lean_20261006/NormalResidueBridge.lean)
-- [Workspaces/dlw_integrability_lean_20261006/NormalScalarResidue.lean](Workspaces/dlw_integrability_lean_20261006/NormalScalarResidue.lean)
-- [Workspaces/dlw_integrability_lean_20261006/NormalizationCoefficients.lean](Workspaces/dlw_integrability_lean_20261006/NormalizationCoefficients.lean)
-- [Workspaces/dlw_integrability_lean_20261006/PeriodicCoefficients.lean](Workspaces/dlw_integrability_lean_20261006/PeriodicCoefficients.lean)
-- [Workspaces/dlw_integrability_lean_20261006/PeriodicMixedDerivatives.lean](Workspaces/dlw_integrability_lean_20261006/PeriodicMixedDerivatives.lean)
-- [Workspaces/dlw_integrability_lean_20261006/PeriodicSpacetimeCoefficients.lean](Workspaces/dlw_integrability_lean_20261006/PeriodicSpacetimeCoefficients.lean)
-- [Workspaces/dlw_integrability_lean_20261006/PeriodicVariationalCalculus.lean](Workspaces/dlw_integrability_lean_20261006/PeriodicVariationalCalculus.lean)
-- [Workspaces/dlw_integrability_lean_20261006/PhysicalAmbientSpectrumIdentity.lean](Workspaces/dlw_integrability_lean_20261006/PhysicalAmbientSpectrumIdentity.lean)
-- [Workspaces/dlw_integrability_lean_20261006/PhysicalBracket.lean](Workspaces/dlw_integrability_lean_20261006/PhysicalBracket.lean)
-- [Workspaces/dlw_integrability_lean_20261006/PhysicalClosure.lean](Workspaces/dlw_integrability_lean_20261006/PhysicalClosure.lean)
-- [Workspaces/dlw_integrability_lean_20261006/PhysicalEnergyEndpoint.lean](Workspaces/dlw_integrability_lean_20261006/PhysicalEnergyEndpoint.lean)
-- [Workspaces/dlw_integrability_lean_20261006/PhysicalFamilyGenericity.lean](Workspaces/dlw_integrability_lean_20261006/PhysicalFamilyGenericity.lean)
-- [Workspaces/dlw_integrability_lean_20261006/PhysicalFirstResidue.lean](Workspaces/dlw_integrability_lean_20261006/PhysicalFirstResidue.lean)
-- [Workspaces/dlw_integrability_lean_20261006/PhysicalHamiltonianVariation.lean](Workspaces/dlw_integrability_lean_20261006/PhysicalHamiltonianVariation.lean)
-- [Workspaces/dlw_integrability_lean_20261006/PolynomialIntegralVariation.lean](Workspaces/dlw_integrability_lean_20261006/PolynomialIntegralVariation.lean)
-- [Workspaces/dlw_integrability_lean_20261006/PolynomialMatrixWitness.lean](Workspaces/dlw_integrability_lean_20261006/PolynomialMatrixWitness.lean)
-- [Workspaces/dlw_integrability_lean_20261006/PolynomialReductionEndpoint.lean](Workspaces/dlw_integrability_lean_20261006/PolynomialReductionEndpoint.lean)
-- [Workspaces/dlw_integrability_lean_20261006/QuadraticFrequencyPolynomial.lean](Workspaces/dlw_integrability_lean_20261006/QuadraticFrequencyPolynomial.lean)
-- [Workspaces/dlw_integrability_lean_20261006/QuadraticMonomialDecomposition.lean](Workspaces/dlw_integrability_lean_20261006/QuadraticMonomialDecomposition.lean)
-- [Workspaces/dlw_integrability_lean_20261006/QuadraticPairings.lean](Workspaces/dlw_integrability_lean_20261006/QuadraticPairings.lean)
-- [Workspaces/dlw_integrability_lean_20261006/QuadraticResolvent.lean](Workspaces/dlw_integrability_lean_20261006/QuadraticResolvent.lean)
-- [Workspaces/dlw_integrability_lean_20261006/QuadraticSymbol.lean](Workspaces/dlw_integrability_lean_20261006/QuadraticSymbol.lean)
-- [Workspaces/dlw_integrability_lean_20261006/ReducedPairing.lean](Workspaces/dlw_integrability_lean_20261006/ReducedPairing.lean)
-- [Workspaces/dlw_integrability_lean_20261006/ResidueIntegral.lean](Workspaces/dlw_integrability_lean_20261006/ResidueIntegral.lean)
-- [Workspaces/dlw_integrability_lean_20261006/SmoothPrimitive.lean](Workspaces/dlw_integrability_lean_20261006/SmoothPrimitive.lean)
-- [Workspaces/dlw_integrability_lean_20261006/SpectralVariation.lean](Workspaces/dlw_integrability_lean_20261006/SpectralVariation.lean)
-- [Workspaces/dlw_integrability_lean_20261006/StartPoint.lean](Workspaces/dlw_integrability_lean_20261006/StartPoint.lean)
-- [Workspaces/dlw_integrability_lean_20261006/StaticFactorTraceCotangent.lean](Workspaces/dlw_integrability_lean_20261006/StaticFactorTraceCotangent.lean)
-- [Workspaces/dlw_integrability_lean_20261006/StaticFactorVariation.lean](Workspaces/dlw_integrability_lean_20261006/StaticFactorVariation.lean)
-- [Workspaces/dlw_integrability_lean_20261006/VariationalReduction.lean](Workspaces/dlw_integrability_lean_20261006/VariationalReduction.lean)
-- [Workspaces/dlw_integrability_lean_20261006/VerifiedCore.lean](Workspaces/dlw_integrability_lean_20261006/VerifiedCore.lean)
-- [Workspaces/dlw_integrability_lean_20261006/register_progress.py](Workspaces/dlw_integrability_lean_20261006/register_progress.py)
-- [Workspaces/dlw_integrability_lean_20261006/update_final_report.py](Workspaces/dlw_integrability_lean_20261006/update_final_report.py)
-- [Workspaces/dlw_mean_modes_20261008/verification.json](Workspaces/dlw_mean_modes_20261008/verification.json)
-- [Workspaces/dlw_mean_modes_20261008/verify_dlw.py](Workspaces/dlw_mean_modes_20261008/verify_dlw.py)
-- [Workspaces/dlw_notebook_static_20261007/direct_tau_visual_validation.json](Workspaces/dlw_notebook_static_20261007/direct_tau_visual_validation.json)
-- [Workspaces/dlw_notebook_static_20261007/explicit_xyt_revision.json](Workspaces/dlw_notebook_static_20261007/explicit_xyt_revision.json)
-- [Workspaces/dlw_notebook_static_20261007/no_code_revision.json](Workspaces/dlw_notebook_static_20261007/no_code_revision.json)
-- [Workspaces/dlw_notebook_static_20261007/register_compact.py](Workspaces/dlw_notebook_static_20261007/register_compact.py)
-- [Workspaces/dlw_notebook_static_20261007/register_static.py](Workspaces/dlw_notebook_static_20261007/register_static.py)
-- [Workspaces/dlw_notebook_static_20261007/registration.json](Workspaces/dlw_notebook_static_20261007/registration.json)
-- [Workspaces/dlw_notebook_static_20261007/registration_compact.json](Workspaces/dlw_notebook_static_20261007/registration_compact.json)
-- [Workspaces/dlw_notebook_static_20261007/simple_exact_revision.json](Workspaces/dlw_notebook_static_20261007/simple_exact_revision.json)
-- [Workspaces/dlw_notebook_static_20261007/trim_record_snippets.json](Workspaces/dlw_notebook_static_20261007/trim_record_snippets.json)
-- [Workspaces/dlw_plot_preview_20261008/preview.py](Workspaces/dlw_plot_preview_20261008/preview.py)
-- [Workspaces/dlw_plot_preview_20261008/validation.json](Workspaces/dlw_plot_preview_20261008/validation.json)
-- [Workspaces/dlw_precision_surface_20261008/case_A.json](Workspaces/dlw_precision_surface_20261008/case_A.json)
-- [Workspaces/dlw_precision_surface_20261008/case_B.json](Workspaces/dlw_precision_surface_20261008/case_B.json)
-- [Workspaces/dlw_precision_surface_20261008/case_C.json](Workspaces/dlw_precision_surface_20261008/case_C.json)
-- [Workspaces/dlw_precision_surface_20261008/finish_report.py](Workspaces/dlw_precision_surface_20261008/finish_report.py)
-- [Workspaces/dlw_precision_surface_20261008/kp_contours_validation.json](Workspaces/dlw_precision_surface_20261008/kp_contours_validation.json)
-- [Workspaces/dlw_precision_surface_20261008/kp_layout.py](Workspaces/dlw_precision_surface_20261008/kp_layout.py)
-- [Workspaces/dlw_precision_surface_20261008/kp_validation.json](Workspaces/dlw_precision_surface_20261008/kp_validation.json)
-- [Workspaces/dlw_precision_surface_20261008/muted_colors_validation.json](Workspaces/dlw_precision_surface_20261008/muted_colors_validation.json)
-- [Workspaces/dlw_precision_surface_20261008/notebook_integration_validation.json](Workspaces/dlw_precision_surface_20261008/notebook_integration_validation.json)
-- [Workspaces/dlw_precision_surface_20261008/refresh_style.py](Workspaces/dlw_precision_surface_20261008/refresh_style.py)
-- [Workspaces/dlw_precision_surface_20261008/run_preview.py](Workspaces/dlw_precision_surface_20261008/run_preview.py)
-- [Workspaces/dlw_precision_surface_20261008/style_execution.json](Workspaces/dlw_precision_surface_20261008/style_execution.json)
-- [Workspaces/dlw_precision_surface_20261008/update_notebooks.py](Workspaces/dlw_precision_surface_20261008/update_notebooks.py)
-- [Workspaces/dlw_precision_surface_20261008/validation.json](Workspaces/dlw_precision_surface_20261008/validation.json)
-- [Workspaces/dlw_precision_surface_20261008/verify_integration.py](Workspaces/dlw_precision_surface_20261008/verify_integration.py)
-- [Workspaces/dlw_precision_surface_20261008/verify_kp_contours.py](Workspaces/dlw_precision_surface_20261008/verify_kp_contours.py)
-- [Workspaces/dlw_precision_surface_20261008/verify_muted_colors.py](Workspaces/dlw_precision_surface_20261008/verify_muted_colors.py)
-- [Workspaces/dlw_static_reports_20261007/README.md](Workspaces/dlw_static_reports_20261007/README.md)
-- [Workspaces/dlw_static_reports_20261007/browser_validation.json](Workspaces/dlw_static_reports_20261007/browser_validation.json)
-- [Workspaces/dlw_static_reports_20261007/build_integrability.py](Workspaces/dlw_static_reports_20261007/build_integrability.py)
-- [Workspaces/dlw_static_reports_20261007/build_validation.json](Workspaces/dlw_static_reports_20261007/build_validation.json)
-- [Workspaces/dlw_static_reports_20261007/check_reports.cjs](Workspaces/dlw_static_reports_20261007/check_reports.cjs)
-- [Workspaces/dlw_static_reports_20261007/content_validation.json](Workspaces/dlw_static_reports_20261007/content_validation.json)
-- [Workspaces/dlw_static_reports_20261007/flow_revision.json](Workspaces/dlw_static_reports_20261007/flow_revision.json)
-- [Workspaces/dlw_static_reports_20261007/register_reports.py](Workspaces/dlw_static_reports_20261007/register_reports.py)
-- [Workspaces/dlw_static_reports_20261007/register_theory_revision.py](Workspaces/dlw_static_reports_20261007/register_theory_revision.py)
-- [Workspaces/dlw_static_reports_20261007/registration.json](Workspaces/dlw_static_reports_20261007/registration.json)
-- [Workspaces/dlw_static_reports_20261007/restructure_integrability.py](Workspaces/dlw_static_reports_20261007/restructure_integrability.py)
-- [Workspaces/dlw_static_reports_20261007/theory_revision.json](Workspaces/dlw_static_reports_20261007/theory_revision.json)
-- [Workspaces/dlw_static_reports_20261007/verify_reports.py](Workspaces/dlw_static_reports_20261007/verify_reports.py)
-- [Workspaces/dlw_tau_proof_20261008/build.cjs](Workspaces/dlw_tau_proof_20261008/build.cjs)
-- [Workspaces/dlw_tau_proof_20261008/register.py](Workspaces/dlw_tau_proof_20261008/register.py)
-- [Workspaces/dlw_tau_proof_20261008/validation.json](Workspaces/dlw_tau_proof_20261008/validation.json)
-- [Workspaces/dlw_tau_proof_20261008/verify.py](Workspaces/dlw_tau_proof_20261008/verify.py)
-- [Workspaces/dlw_theory_notebook_20261008/README.md](Workspaces/dlw_theory_notebook_20261008/README.md)
-- [Workspaces/dlw_theory_notebook_20261008/apply_focus.py](Workspaces/dlw_theory_notebook_20261008/apply_focus.py)
-- [Workspaces/dlw_theory_notebook_20261008/build.py](Workspaces/dlw_theory_notebook_20261008/build.py)
-- [Workspaces/dlw_theory_notebook_20261008/build_validation.json](Workspaces/dlw_theory_notebook_20261008/build_validation.json)
-- [Workspaces/dlw_theory_notebook_20261008/check_layout.cjs](Workspaces/dlw_theory_notebook_20261008/check_layout.cjs)
-- [Workspaces/dlw_theory_notebook_20261008/check_notebook_layout.cjs](Workspaces/dlw_theory_notebook_20261008/check_notebook_layout.cjs)
-- [Workspaces/dlw_theory_notebook_20261008/check_notebook_prose.py](Workspaces/dlw_theory_notebook_20261008/check_notebook_prose.py)
-- [Workspaces/dlw_theory_notebook_20261008/deliver.py](Workspaces/dlw_theory_notebook_20261008/deliver.py)
-- [Workspaces/dlw_theory_notebook_20261008/delivery_validation.json](Workspaces/dlw_theory_notebook_20261008/delivery_validation.json)
-- [Workspaces/dlw_theory_notebook_20261008/execute.py](Workspaces/dlw_theory_notebook_20261008/execute.py)
-- [Workspaces/dlw_theory_notebook_20261008/execution_validation.json](Workspaces/dlw_theory_notebook_20261008/execution_validation.json)
-- [Workspaces/dlw_theory_notebook_20261008/export.py](Workspaces/dlw_theory_notebook_20261008/export.py)
-- [Workspaces/dlw_theory_notebook_20261008/finalize_metadata.py](Workspaces/dlw_theory_notebook_20261008/finalize_metadata.py)
-- [Workspaces/dlw_theory_notebook_20261008/focus_theory.py](Workspaces/dlw_theory_notebook_20261008/focus_theory.py)
-- [Workspaces/dlw_theory_notebook_20261008/focus_validation.json](Workspaces/dlw_theory_notebook_20261008/focus_validation.json)
-- [Workspaces/dlw_theory_notebook_20261008/layout_validation.json](Workspaces/dlw_theory_notebook_20261008/layout_validation.json)
-- [Workspaces/dlw_theory_notebook_20261008/notebook_layout_validation.json](Workspaces/dlw_theory_notebook_20261008/notebook_layout_validation.json)
-- [Workspaces/dlw_theory_notebook_20261008/notebook_prose.py](Workspaces/dlw_theory_notebook_20261008/notebook_prose.py)
-- [Workspaces/dlw_theory_notebook_20261008/notebook_prose_validation.json](Workspaces/dlw_theory_notebook_20261008/notebook_prose_validation.json)
-- [Workspaces/dlw_theory_notebook_20261008/notebook_render.cjs](Workspaces/dlw_theory_notebook_20261008/notebook_render.cjs)
-- [Workspaces/dlw_theory_notebook_20261008/paper-serif.woff](Workspaces/dlw_theory_notebook_20261008/paper-serif.woff)
-- [Workspaces/dlw_theory_notebook_20261008/paper.src.md](Workspaces/dlw_theory_notebook_20261008/paper.src.md)
-- [Workspaces/dlw_theory_notebook_20261008/paper_revision.json](Workspaces/dlw_theory_notebook_20261008/paper_revision.json)
-- [Workspaces/dlw_theory_notebook_20261008/paper_revision.py](Workspaces/dlw_theory_notebook_20261008/paper_revision.py)
-- [Workspaces/dlw_theory_notebook_20261008/prepare.py](Workspaces/dlw_theory_notebook_20261008/prepare.py)
-- [Workspaces/dlw_theory_notebook_20261008/proof_sources.json](Workspaces/dlw_theory_notebook_20261008/proof_sources.json)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/Contracts.lean](Workspaces/dlw_theory_notebook_20261008/proofs/Contracts.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/ExampleQRM.lean](Workspaces/dlw_theory_notebook_20261008/proofs/ExampleQRM.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/ExampleUW.lean](Workspaces/dlw_theory_notebook_20261008/proofs/ExampleUW.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/Main.lean](Workspaces/dlw_theory_notebook_20261008/proofs/Main.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/PkgAnalyticJets.lean](Workspaces/dlw_theory_notebook_20261008/proofs/PkgAnalyticJets.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/PkgC02.lean](Workspaces/dlw_theory_notebook_20261008/proofs/PkgC02.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/PkgC07Complete.lean](Workspaces/dlw_theory_notebook_20261008/proofs/PkgC07Complete.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/PkgC09.lean](Workspaces/dlw_theory_notebook_20261008/proofs/PkgC09.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/PkgC09Complete.lean](Workspaces/dlw_theory_notebook_20261008/proofs/PkgC09Complete.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/PkgC11.lean](Workspaces/dlw_theory_notebook_20261008/proofs/PkgC11.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/PkgC17.lean](Workspaces/dlw_theory_notebook_20261008/proofs/PkgC17.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/PkgC18Complete.lean](Workspaces/dlw_theory_notebook_20261008/proofs/PkgC18Complete.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/PkgC22Complete.lean](Workspaces/dlw_theory_notebook_20261008/proofs/PkgC22Complete.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/PkgC23Complete.lean](Workspaces/dlw_theory_notebook_20261008/proofs/PkgC23Complete.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/PkgCenteredFamily.lean](Workspaces/dlw_theory_notebook_20261008/proofs/PkgCenteredFamily.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/PkgCenteredUniform.lean](Workspaces/dlw_theory_notebook_20261008/proofs/PkgCenteredUniform.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/PkgContinuous.lean](Workspaces/dlw_theory_notebook_20261008/proofs/PkgContinuous.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/PkgContinuousGram.lean](Workspaces/dlw_theory_notebook_20261008/proofs/PkgContinuousGram.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/PkgContinuousGramCurve.lean](Workspaces/dlw_theory_notebook_20261008/proofs/PkgContinuousGramCurve.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramActual.lean](Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramActual.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramBridges.lean](Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramBridges.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramCalculus.lean](Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramCalculus.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramComplete.lean](Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramComplete.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramDeterminant.lean](Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramDeterminant.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramEntry.lean](Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramEntry.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramExtensionAnalytic.lean](Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramExtensionAnalytic.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramExtensionBridge.lean](Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramExtensionBridge.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramHirota.lean](Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramHirota.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramIdentity.lean](Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramIdentity.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramInterpolation.lean](Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramInterpolation.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramInterpolationBridge.lean](Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramInterpolationBridge.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramPlucker.lean](Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramPlucker.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramRateExtension.lean](Workspaces/dlw_theory_notebook_20261008/proofs/PkgGramRateExtension.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/PkgLattice.lean](Workspaces/dlw_theory_notebook_20261008/proofs/PkgLattice.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/PkgNonlinear.lean](Workspaces/dlw_theory_notebook_20261008/proofs/PkgNonlinear.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/PkgNumeric.lean](Workspaces/dlw_theory_notebook_20261008/proofs/PkgNumeric.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/PkgQuotientRate.lean](Workspaces/dlw_theory_notebook_20261008/proofs/PkgQuotientRate.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/PkgRK4.lean](Workspaces/dlw_theory_notebook_20261008/proofs/PkgRK4.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/PkgRK4Complete.lean](Workspaces/dlw_theory_notebook_20261008/proofs/PkgRK4Complete.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/PkgTrivial.lean](Workspaces/dlw_theory_notebook_20261008/proofs/PkgTrivial.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/PkgUniformAnalytic.lean](Workspaces/dlw_theory_notebook_20261008/proofs/PkgUniformAnalytic.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/PkgUniformTaylor.lean](Workspaces/dlw_theory_notebook_20261008/proofs/PkgUniformTaylor.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/ProbeC09.lean](Workspaces/dlw_theory_notebook_20261008/proofs/ProbeC09.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/ReportEndpoints.lean](Workspaces/dlw_theory_notebook_20261008/proofs/ReportEndpoints.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/ReportNonlinearQRM.lean](Workspaces/dlw_theory_notebook_20261008/proofs/ReportNonlinearQRM.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/ReportNonlinearUW.lean](Workspaces/dlw_theory_notebook_20261008/proofs/ReportNonlinearUW.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/ReportQRMCalculus.lean](Workspaces/dlw_theory_notebook_20261008/proofs/ReportQRMCalculus.lean)
-- [Workspaces/dlw_theory_notebook_20261008/proofs/ReportQRatio.lean](Workspaces/dlw_theory_notebook_20261008/proofs/ReportQRatio.lean)
-- [Workspaces/dlw_theory_notebook_20261008/render_math.cjs](Workspaces/dlw_theory_notebook_20261008/render_math.cjs)
-- [Workspaces/dlw_theory_notebook_20261008/revise_notebook.py](Workspaces/dlw_theory_notebook_20261008/revise_notebook.py)
-- [Workspaces/dlw_theory_notebook_20261008/theory_runtime.py](Workspaces/dlw_theory_notebook_20261008/theory_runtime.py)
-- [Workspaces/integrability_notebook_20261007/MATHEMATICAL_REVIEW.md](Workspaces/integrability_notebook_20261007/MATHEMATICAL_REVIEW.md)
-- [Workspaces/integrability_notebook_20261007/README.md](Workspaces/integrability_notebook_20261007/README.md)
-- [Workspaces/integrability_notebook_20261007/ReviewExamples.lean](Workspaces/integrability_notebook_20261007/ReviewExamples.lean)
-- [Workspaces/integrability_notebook_20261007/browser_validation.json](Workspaces/integrability_notebook_20261007/browser_validation.json)
-- [Workspaces/integrability_notebook_20261007/build_integrability_notebook.py](Workspaces/integrability_notebook_20261007/build_integrability_notebook.py)
-- [Workspaces/integrability_notebook_20261007/build_integrability_validation.json](Workspaces/integrability_notebook_20261007/build_integrability_validation.json)
-- [Workspaces/integrability_notebook_20261007/build_preview.py](Workspaces/integrability_notebook_20261007/build_preview.py)
-- [Workspaces/integrability_notebook_20261007/check_preview.cjs](Workspaces/integrability_notebook_20261007/check_preview.cjs)
-- [Workspaces/integrability_notebook_20261007/conservation_revision_execution_validation.json](Workspaces/integrability_notebook_20261007/conservation_revision_execution_validation.json)
-- [Workspaces/integrability_notebook_20261007/conservation_revision_validation.json](Workspaces/integrability_notebook_20261007/conservation_revision_validation.json)
-- [Workspaces/integrability_notebook_20261007/execute_notebook.py](Workspaces/integrability_notebook_20261007/execute_notebook.py)
-- [Workspaces/integrability_notebook_20261007/finalize_conservation_revision.py](Workspaces/integrability_notebook_20261007/finalize_conservation_revision.py)
-- [Workspaces/integrability_notebook_20261007/integrability_execution_validation.json](Workspaces/integrability_notebook_20261007/integrability_execution_validation.json)
-- [Workspaces/integrability_notebook_20261007/integrability_runtime.py](Workspaces/integrability_notebook_20261007/integrability_runtime.py)
-- [Workspaces/integrability_notebook_20261007/library_manifest.json](Workspaces/integrability_notebook_20261007/library_manifest.json)
-- [Workspaces/integrability_notebook_20261007/mathematical_content_validation.json](Workspaces/integrability_notebook_20261007/mathematical_content_validation.json)
-- [Workspaces/integrability_notebook_20261007/notebook_content_validation.json](Workspaces/integrability_notebook_20261007/notebook_content_validation.json)
-- [Workspaces/integrability_notebook_20261007/prose_revision/build_integrability_validation.json](Workspaces/integrability_notebook_20261007/prose_revision/build_integrability_validation.json)
-- [Workspaces/integrability_notebook_20261007/prose_revision/registration.json](Workspaces/integrability_notebook_20261007/prose_revision/registration.json)
-- [Workspaces/integrability_notebook_20261007/prose_revision/validation.json](Workspaces/integrability_notebook_20261007/prose_revision/validation.json)
-- [Workspaces/integrability_notebook_20261007/register_integrability_notebook.py](Workspaces/integrability_notebook_20261007/register_integrability_notebook.py)
-- [Workspaces/integrability_notebook_20261007/registration.json](Workspaces/integrability_notebook_20261007/registration.json)
-- [Workspaces/integrability_notebook_20261007/review_compile.json](Workspaces/integrability_notebook_20261007/review_compile.json)
-- [Workspaces/integrability_notebook_20261007/revise_prose.py](Workspaces/integrability_notebook_20261007/revise_prose.py)
-- [Workspaces/integrability_notebook_20261007/runtime_validation.json](Workspaces/integrability_notebook_20261007/runtime_validation.json)
-- [Workspaces/integrability_notebook_20261007/session_fix/register_session_fix.py](Workspaces/integrability_notebook_20261007/session_fix/register_session_fix.py)
-- [Workspaces/integrability_notebook_20261007/session_fix/registration.json](Workspaces/integrability_notebook_20261007/session_fix/registration.json)
-- [Workspaces/integrability_notebook_20261007/session_fix/reproduce_and_verify_session.py](Workspaces/integrability_notebook_20261007/session_fix/reproduce_and_verify_session.py)
-- [Workspaces/integrability_notebook_20261007/session_fix/runtime_validation.json](Workspaces/integrability_notebook_20261007/session_fix/runtime_validation.json)
-- [Workspaces/integrability_notebook_20261007/session_fix/session_behavior_validation.json](Workspaces/integrability_notebook_20261007/session_fix/session_behavior_validation.json)
-- [Workspaces/integrability_notebook_20261007/session_fix/session_regression_execution_validation.json](Workspaces/integrability_notebook_20261007/session_fix/session_regression_execution_validation.json)
-- [Workspaces/integrability_notebook_20261007/validate_runtime.py](Workspaces/integrability_notebook_20261007/validate_runtime.py)
-- [Workspaces/integrability_notebook_20261007/verify_notebook.py](Workspaces/integrability_notebook_20261007/verify_notebook.py)
-- [Workspaces/notebook_reports_20261006/dlw_build_validation.json](Workspaces/notebook_reports_20261006/dlw_build_validation.json)
-- [Workspaces/notebook_reports_20261006/dlw_delivery_validation.json](Workspaces/notebook_reports_20261006/dlw_delivery_validation.json)
-- [Workspaces/notebook_reports_20261006/dlw_model_validation.json](Workspaces/notebook_reports_20261006/dlw_model_validation.json)
-- [Workspaces/notebook_reports_20261006/domain_rationale_20261007/check_exact_geometry.py](Workspaces/notebook_reports_20261006/domain_rationale_20261007/check_exact_geometry.py)
-- [Workspaces/notebook_reports_20261006/domain_rationale_20261007/exact_geometry.json](Workspaces/notebook_reports_20261006/domain_rationale_20261007/exact_geometry.json)
-- [Workspaces/notebook_reports_20261006/domain_rationale_20261007/register_geometry.py](Workspaces/notebook_reports_20261006/domain_rationale_20261007/register_geometry.py)
-- [Workspaces/notebook_reports_20261006/finalize_direct_tau_text.py](Workspaces/notebook_reports_20261006/finalize_direct_tau_text.py)
-- [Workspaces/notebook_reports_20261006/finalize_scheme_revision.py](Workspaces/notebook_reports_20261006/finalize_scheme_revision.py)
-- [Workspaces/notebook_reports_20261006/integrate_direct_tau.py](Workspaces/notebook_reports_20261006/integrate_direct_tau.py)
-- [Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/delivery_validation.json](Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/delivery_validation.json)
-- [Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/kernel_validation.json](Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/kernel_validation.json)
-- [Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/record_snippets.json](Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/record_snippets.json)
-- [Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/register_revision.py](Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/register_revision.py)
-- [Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/revision_manifest.json](Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/revision_manifest.json)
-- [Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/spatial_validation.json](Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/spatial_validation.json)
-- [Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/verify_nonlinear_delivery.py](Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/verify_nonlinear_delivery.py)
-- [Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/verify_nonlinear_sd_kernel.py](Workspaces/notebook_reports_20261006/nonlinear_sd_20261007/verify_nonlinear_sd_kernel.py)
-- [Workspaces/notebook_reports_20261006/plot_range_config.py](Workspaces/notebook_reports_20261006/plot_range_config.py)
-- [Workspaces/notebook_reports_20261006/sd_nonlinear_cell.py](Workspaces/notebook_reports_20261006/sd_nonlinear_cell.py)
-- [Workspaces/notebook_reports_20261006/static_field_plots.py](Workspaces/notebook_reports_20261006/static_field_plots.py)
-- [Workspaces/notebook_reports_20261006/verify_dlw_delivery.py](Workspaces/notebook_reports_20261006/verify_dlw_delivery.py)
-- [Workspaces/notebook_reports_20261006/verify_dlw_models.py](Workspaces/notebook_reports_20261006/verify_dlw_models.py)
-- [Workspaces/notebook_reports_20261006/verify_dlw_tau.json](Workspaces/notebook_reports_20261006/verify_dlw_tau.json)
-- [dlw_integrability.html](dlw_integrability.html)
-- [notebook/DLW刘维尔可积性report.ipynb](notebook/DLW刘维尔可积性report.ipynb)
-- [notebook/DLW理论.ipynb](notebook/DLW理论.ipynb)
-- [report/DLW数值分析_原HTML_20261006.html](report/DLW数值分析_原HTML_20261006.html)
-- [report/DLW数值分析_原HTML_20261007.html](report/DLW数值分析_原HTML_20261007.html)
-- [report/DLW数值分析_双线性SD留档_20261007.html](report/DLW数值分析_双线性SD留档_20261007.html)
-- [report/dlw_direct_tau.html](report/dlw_direct_tau.html)
-- [report/dlw_precision_surface_preview.html](report/dlw_precision_surface_preview.html)
-- [report/dlw_sd_implementation_review.html](report/dlw_sd_implementation_review.html)
-- [report/dlw_tau_solution_proof.html](report/dlw_tau_solution_proof.html)
-- [report/dlw_theory.html](report/dlw_theory.html)
-- [report/kp_dlw_comparison.html](report/kp_dlw_comparison.html)
-- [Workspaces/report_colab_20261006/lean_notebook.py](Workspaces/report_colab_20261006/lean_notebook.py)
-- [Workspaces/report_colab_20261006/report_runtime.py](Workspaces/report_colab_20261006/report_runtime.py)
+- `Workspaces/dlw_plot_preview_20261008/`：`preview.py`（读取当前解析场的可复跑画图脚本）、`abc_uv_slices.png`、`style_comparison.png`、`exact_fields.npz`、`validation.json`（Notebook 未改的哈希核验）。
 
-## DLW C–N 与审查（2026-10-09）
+- `Workspaces/paired_field_preview_20261008/`：`preview.py`、`data.npz`、`validation.json`、`two_soliton_check.png`、`candidates.png`；DLW/HS 的 `box`、`floor`、`map` 三类配套物理场/绝对误差 PNG 与 PDF。
 
-- [Workspaces/notebook_reports_20261006/cn_temporal_20261009/results.json](Workspaces/notebook_reports_20261006/cn_temporal_20261009/results.json)
-- [Workspaces/notebook_reports_20261006/cn_temporal_20261009/run_experiment.py](Workspaces/notebook_reports_20261006/cn_temporal_20261009/run_experiment.py)
-- [Workspaces/notebook_reports_20261006/cn_temporal_20261009/validation.json](Workspaces/notebook_reports_20261006/cn_temporal_20261009/validation.json)
-- [Workspaces/notebook_audit_20261008/dlw/align_saved_ratio_table.py](Workspaces/notebook_audit_20261008/dlw/align_saved_ratio_table.py)
-- [Workspaces/notebook_audit_20261008/dlw/audit_dlw.py](Workspaces/notebook_audit_20261008/dlw/audit_dlw.py)
-- [Workspaces/notebook_audit_20261008/dlw/cn_revision/DLW数值分析report.ipynb](Workspaces/notebook_audit_20261008/dlw/cn_revision/DLW数值分析report.ipynb)
-- [Workspaces/notebook_audit_20261008/dlw/cn_revision/audit_cn.py](Workspaces/notebook_audit_20261008/dlw/cn_revision/audit_cn.py)
-- [Workspaces/notebook_audit_20261008/dlw/cn_revision/check_cn_tolerance.py](Workspaces/notebook_audit_20261008/dlw/cn_revision/check_cn_tolerance.py)
-- [Workspaces/notebook_audit_20261008/dlw/cn_revision/check_cn_tolerance_pure.py](Workspaces/notebook_audit_20261008/dlw/cn_revision/check_cn_tolerance_pure.py)
-- [Workspaces/notebook_audit_20261008/dlw/cn_revision/cn_evidence.json](Workspaces/notebook_audit_20261008/dlw/cn_revision/cn_evidence.json)
-- [Workspaces/notebook_audit_20261008/dlw/cn_revision/cn_tolerance_evidence.json](Workspaces/notebook_audit_20261008/dlw/cn_revision/cn_tolerance_evidence.json)
-- [Workspaces/notebook_audit_20261008/dlw/cn_revision/cn_tolerance_pure_evidence.json](Workspaces/notebook_audit_20261008/dlw/cn_revision/cn_tolerance_pure_evidence.json)
-- [Workspaces/notebook_audit_20261008/dlw/cn_revision/findings.md](Workspaces/notebook_audit_20261008/dlw/cn_revision/findings.md)
-- [Workspaces/notebook_audit_20261008/dlw/cn_revision/notebook_source_numbered.txt](Workspaces/notebook_audit_20261008/dlw/cn_revision/notebook_source_numbered.txt)
-- [Workspaces/notebook_audit_20261008/dlw/final_state_guard.json](Workspaces/notebook_audit_20261008/dlw/final_state_guard.json)
-- [Workspaces/notebook_audit_20261008/dlw/final_state_guard_check.py](Workspaces/notebook_audit_20261008/dlw/final_state_guard_check.py)
-- [Workspaces/notebook_audit_20261008/dlw/findings.md](Workspaces/notebook_audit_20261008/dlw/findings.md)
-- [Workspaces/notebook_audit_20261008/dlw/notebook_source_numbered.txt](Workspaces/notebook_audit_20261008/dlw/notebook_source_numbered.txt)
-- [Workspaces/notebook_audit_20261008/dlw/numerical_checks.json](Workspaces/notebook_audit_20261008/dlw/numerical_checks.json)
-- [Workspaces/notebook_audit_20261008/theory/evidence.json](Workspaces/notebook_audit_20261008/theory/evidence.json)
-- [Workspaces/notebook_audit_20261008/theory/findings.md](Workspaces/notebook_audit_20261008/theory/findings.md)
-- [Workspaces/notebook_audit_20261008/theory/verify_theory.py](Workspaces/notebook_audit_20261008/theory/verify_theory.py)
+- `Workspaces/paper_plot_reference_20261008/`：三篇来源论文的文本提取与图页 PNG；`try_paper_layouts.py`、`dlw_paper_layout.png`、`hs_paper_layout.png`、`numerical_paper_layout.png`、`paper_vs_preview.png`、`validation.json`（阅读位置、数据范围及 Notebook 未改核验）。
 
-## DLW 理论—数值论文初稿（2026-10-09）
+- `report/dlw_precision_surface_preview.html`：A/B/C 实际数值／解析场与绝对误差、GSG 变量核对及二维数值绘图论文参考。
+- `Workspaces/dlw_precision_surface_20261008/`：`run_preview.py`、`finish_report.py`；A/B/C 各自的 `.npz` 数值/解析缓存、`.json` 计算参数与误差、`_comparison.png` 曲面图和 `_contours.png` 等高线图；`gsg_original_figures.png`、`validation.json`。
+- `Paper/refs/plotting_reference_search_20261008.json`：KP、breaking soliton、DSII 三篇一手文献的 DOI、图号与展示范围。
 
-- [report/dlw_paper_draft.html](report/dlw_paper_draft.html)
-- [Workspaces/dlw_paper_20261009/assemble.py](Workspaces/dlw_paper_20261009/assemble.py)
-- [Workspaces/dlw_paper_20261009/build.py](Workspaces/dlw_paper_20261009/build.py)
-- [Workspaces/dlw_paper_20261009/build_validation.json](Workspaces/dlw_paper_20261009/build_validation.json)
-- [Workspaces/dlw_paper_20261009/check_methods_layout.cjs](Workspaces/dlw_paper_20261009/check_methods_layout.cjs)
-- [Workspaces/dlw_paper_20261009/determinant_only.py](Workspaces/dlw_paper_20261009/determinant_only.py)
-- [Workspaces/dlw_paper_20261009/editorial.py](Workspaces/dlw_paper_20261009/editorial.py)
-- [Workspaces/dlw_paper_20261009/lax_bridge.md](Workspaces/dlw_paper_20261009/lax_bridge.md)
-- [Workspaces/dlw_paper_20261009/layout.cjs](Workspaces/dlw_paper_20261009/layout.cjs)
-- [Workspaces/dlw_paper_20261009/layout_validation.json](Workspaces/dlw_paper_20261009/layout_validation.json)
-- [Workspaces/dlw_paper_20261009/manuscript.md](Workspaces/dlw_paper_20261009/manuscript.md)
-- [Workspaces/dlw_paper_20261009/methods_layout_validation.json](Workspaces/dlw_paper_20261009/methods_layout_validation.json)
-- [Workspaces/dlw_paper_20261009/methods_revision.py](Workspaces/dlw_paper_20261009/methods_revision.py)
-- [Workspaces/dlw_paper_20261009/numerical_code.txt](Workspaces/dlw_paper_20261009/numerical_code.txt)
-- [Workspaces/dlw_paper_20261009/numerical_methods_revised.md](Workspaces/dlw_paper_20261009/numerical_methods_revised.md)
-- [Workspaces/dlw_paper_20261009/numerical_text.txt](Workspaces/dlw_paper_20261009/numerical_text.txt)
-- [Workspaces/dlw_paper_20261009/numerical_validation.json](Workspaces/dlw_paper_20261009/numerical_validation.json)
-- [Workspaces/dlw_paper_20261009/numerics.md](Workspaces/dlw_paper_20261009/numerics.md)
-- [Workspaces/dlw_paper_20261009/register.py](Workspaces/dlw_paper_20261009/register.py)
-- [Workspaces/dlw_paper_20261009/render.cjs](Workspaces/dlw_paper_20261009/render.cjs)
-- [Workspaces/dlw_paper_20261009/reproduce.py](Workspaces/dlw_paper_20261009/reproduce.py)
-- [Workspaces/dlw_paper_20261009/style_revision/prose_changes.json](Workspaces/dlw_paper_20261009/style_revision/prose_changes.json)
-- [Workspaces/dlw_paper_20261009/style_revision/reading_notes.md](Workspaces/dlw_paper_20261009/style_revision/reading_notes.md)
-- [Workspaces/dlw_paper_20261009/style_revision/validation.json](Workspaces/dlw_paper_20261009/style_revision/validation.json)
-- [Workspaces/dlw_paper_20261009/tables.json](Workspaces/dlw_paper_20261009/tables.json)
+- `report/kp_dlw_comparison.html`：KP Fig3 原图与 DLW A/B/C 三列布局试画、独立可旋转场预览（在线 Plotly.js）。
+- `Workspaces/dlw_precision_surface_20261008/kp_layout.py`、`kp_validation.json`、`case_A_kp.png`、`case_B_kp.png`、`case_C_kp.png`：KP 布局试画生成器、核验与三个算例图。
 
-## DLW 初稿结构与完整场图比较（2026-10-09）
+- `Workspaces/notebook_reports_20261006/static_field_plots.py`：自包含静态场图单元、DLW 各算例独立窗口配置、2HS 原推进快照与末尾独立绘图转换。
+- `Workspaces/dlw_precision_surface_20261008/update_notebooks.py`、`refresh_style.py`、`verify_integration.py`、`notebook_integration_validation.json`、`style_execution.json`：Notebook 集成、样式重画、原数值表及独立重画核验；`before_notebook_integration/`、`before_white_background/` 为修订前材料，`dlw_integrated_*.png`、`hs_integrated_*.png` 为当前实际输出的检查图。
 
-- [Workspaces/dlw_paper_20261009/check_full_comparison_layout.cjs](Workspaces/dlw_paper_20261009/check_full_comparison_layout.cjs)
-- [Workspaces/dlw_paper_20261009/check_narrative_layout.cjs](Workspaces/dlw_paper_20261009/check_narrative_layout.cjs)
-- [Workspaces/dlw_paper_20261009/check_structure_layout.cjs](Workspaces/dlw_paper_20261009/check_structure_layout.cjs)
-- [Workspaces/dlw_paper_20261009/comparison_fields/A_FD.json](Workspaces/dlw_paper_20261009/comparison_fields/A_FD.json)
-- [Workspaces/dlw_paper_20261009/comparison_fields/A_PE.json](Workspaces/dlw_paper_20261009/comparison_fields/A_PE.json)
-- [Workspaces/dlw_paper_20261009/comparison_fields/B_FD.json](Workspaces/dlw_paper_20261009/comparison_fields/B_FD.json)
-- [Workspaces/dlw_paper_20261009/comparison_fields/B_PE.json](Workspaces/dlw_paper_20261009/comparison_fields/B_PE.json)
-- [Workspaces/dlw_paper_20261009/comparison_fields/C_FD.json](Workspaces/dlw_paper_20261009/comparison_fields/C_FD.json)
-- [Workspaces/dlw_paper_20261009/comparison_fields/C_PE.json](Workspaces/dlw_paper_20261009/comparison_fields/C_PE.json)
-- [Workspaces/dlw_paper_20261009/comparison_fields/manifest.json](Workspaces/dlw_paper_20261009/comparison_fields/manifest.json)
-- [Workspaces/dlw_paper_20261009/figures/A_errors.py](Workspaces/dlw_paper_20261009/figures/A_errors.py)
-- [Workspaces/dlw_paper_20261009/figures/A_fields.py](Workspaces/dlw_paper_20261009/figures/A_fields.py)
-- [Workspaces/dlw_paper_20261009/figures/B_errors.py](Workspaces/dlw_paper_20261009/figures/B_errors.py)
-- [Workspaces/dlw_paper_20261009/figures/B_fields.py](Workspaces/dlw_paper_20261009/figures/B_fields.py)
-- [Workspaces/dlw_paper_20261009/figures/C_errors.py](Workspaces/dlw_paper_20261009/figures/C_errors.py)
-- [Workspaces/dlw_paper_20261009/figures/C_fields.py](Workspaces/dlw_paper_20261009/figures/C_fields.py)
-- [Workspaces/dlw_paper_20261009/figures/plot_validation.json](Workspaces/dlw_paper_20261009/figures/plot_validation.json)
-- [Workspaces/dlw_paper_20261009/full_comparison_layout_validation.json](Workspaces/dlw_paper_20261009/full_comparison_layout_validation.json)
-- [Workspaces/dlw_paper_20261009/full_comparison_results.md](Workspaces/dlw_paper_20261009/full_comparison_results.md)
-- [Workspaces/dlw_paper_20261009/full_comparison_revision.py](Workspaces/dlw_paper_20261009/full_comparison_revision.py)
-- [Workspaces/dlw_paper_20261009/full_comparison_validation.json](Workspaces/dlw_paper_20261009/full_comparison_validation.json)
-- [Workspaces/dlw_paper_20261009/narrative_changes.json](Workspaces/dlw_paper_20261009/narrative_changes.json)
-- [Workspaces/dlw_paper_20261009/narrative_content_validation.json](Workspaces/dlw_paper_20261009/narrative_content_validation.json)
-- [Workspaces/dlw_paper_20261009/narrative_layout_validation.json](Workspaces/dlw_paper_20261009/narrative_layout_validation.json)
-- [Workspaces/dlw_paper_20261009/narrative_revision.py](Workspaces/dlw_paper_20261009/narrative_revision.py)
-- [Workspaces/dlw_paper_20261009/plot_comparison_fields.py](Workspaces/dlw_paper_20261009/plot_comparison_fields.py)
-- [Workspaces/dlw_paper_20261009/prepare_comparison_fields.py](Workspaces/dlw_paper_20261009/prepare_comparison_fields.py)
-- [Workspaces/dlw_paper_20261009/results_reorganization.json](Workspaces/dlw_paper_20261009/results_reorganization.json)
-- [Workspaces/dlw_paper_20261009/results_revised.md](Workspaces/dlw_paper_20261009/results_revised.md)
-- [Workspaces/dlw_paper_20261009/structure_layout_validation.json](Workspaces/dlw_paper_20261009/structure_layout_validation.json)
-- [Workspaces/dlw_paper_20261009/structure_revision.py](Workspaces/dlw_paper_20261009/structure_revision.py)
-- [Workspaces/dlw_paper_20261009/structure_revision_validation.json](Workspaces/dlw_paper_20261009/structure_revision_validation.json)
-- [Workspaces/dlw_paper_20261009/verify_full_comparison.py](Workspaces/dlw_paper_20261009/verify_full_comparison.py)
-- [Workspaces/dlw_paper_20261009/verify_narrative.py](Workspaces/dlw_paper_20261009/verify_narrative.py)
+- `Workspaces/dlw_precision_surface_20261008/verify_muted_colors.py` / `muted_colors_validation.json`：柔和分层配色及原表保持核验；`dlw_muted_0..5.png`、`hs_muted_0.png` 为实数值图；`before_muted_colors/` 为本轮修改前备份。
+
+- `Workspaces/dlw_precision_surface_20261008/verify_kp_contours.py`、`kp_contours_validation.json`、`dlw_kp_final_0..5.png`、`2hs_kp_final_0..11.png`：用户附图对应KP彩色等高线集成、原表核对；`before_kp_contours/` 修改前备份。
+
+- `Workspaces/notebook_reports_20261006/cn_temporal_20261009/run_experiment.py`、`results.json`、`validation.json`、`before/`：DLW时间表补Crank–Nicolson的九组固定网格实验、隐式残差与二阶检查、仅四个单元更新及此前Notebook/HTML备份。
+
+- `Workspaces/paired_field_preview_20261009/wide_y_preview.py`、`wide_moving_data.npz`、`numerical_run.json`、`validation.json`：DLW C宽y域实际动网格计算与原候选绘图函数复用；`dlw_{box,floor,map}.png/.pdf`、`hs_{box,floor,map}.png/.pdf`、`dlw_candidates_wide_y.png`、`candidates_wide_y.png` 为三种画法及六图总览。
+- `report/dlw_wide_y_candidates_20261009.html`：扩大y后DLW C物理场／误差绘图候选入口。

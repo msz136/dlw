@@ -12,6 +12,7 @@ import json
 import re
 from pathlib import Path
 
+import nbformat
 from bs4 import BeautifulSoup, NavigableString, Tag
 
 
@@ -46,7 +47,7 @@ def inline(node) -> str:
     if node.name == "a":
         href = node.get("href", "")
         if href.startswith("report/"):
-            href = "../../" + href
+            return f"工作区报告《{inner}》"
         return f"[{inner}]({href})" if href else inner
     if node.name in {"script", "style", "button"}:
         return ""
@@ -122,14 +123,14 @@ def new_markdown(cell_id: str, source: str, provenance: list[dict], attachments:
 def new_code(cell_id: str, source: str, provenance: dict, bootstrap: bool = False) -> dict:
     metadata = {"id": cell_id, "report_source": provenance}
     if bootstrap:
-        metadata.update({"cellView": "form", "source_hidden": True})
+        metadata["tags"] = ["local-lean-import"]
     return {
         "cell_type": "code", "id": cell_id, "metadata": metadata,
         "source": lines(source), "execution_count": None, "outputs": [],
     }
 
 
-def build(source_path: Path, destination: Path, image_mode: str = "attachments") -> dict:
+def build(source_path: Path, destination: Path, image_mode: str = "data-uri") -> dict:
     html = source_path.read_text(encoding="utf-8")
     soup = BeautifulSoup(html, "html.parser")
     main = soup.select_one("main")
@@ -176,8 +177,8 @@ def build(source_path: Path, destination: Path, image_mode: str = "attachments")
 
     def insert_bootstrap():
         add_markdown(
-            "先运行下面的准备单元，载入本笔记本的 Lean 证明库与逐段编译接口。"
-            "首次在 Colab 中运行时会准备固定版本的 Lean 与 Mathlib 环境。"
+            "下面的代码载入本机已有的 Lean、Mathlib 和证明库。"
+            "在 Colab 中选择“连接到本地运行时”，或在 VS Code 中选择本地 Python 内核。"
             "随后依次执行各路线的 import、起点和终点；数值部分在同一 Python 内核中逐段计算。"
             "输出保留在运行的单元下方，修改上游代码后重新运行受影响的后段。",
             {"kind": "notebook-runtime-lead"},
@@ -213,6 +214,8 @@ def build(source_path: Path, destination: Path, image_mode: str = "attachments")
             if element.get("data-kind") == "lean":
                 stage = element["data-stage"]
                 lead = inline(element.select_one(".cell-lead")).strip()
+                if stage == "import":
+                    lead = lead.replace("及依赖，并编译证明库", "及已编译的证明库")
                 add_markdown(lead, source)
                 reading = element.select_one(".proof-reading")
                 if reading:
@@ -285,23 +288,28 @@ def build(source_path: Path, destination: Path, image_mode: str = "attachments")
     assert len(image_checks) == 4 and len(table_checks) == 2
     assert not re.search(r"<(?:script|style|button|textarea|nav|section|details)\b", all_markdown)
     assert "JavaScript" not in all_markdown and "Report.exe" not in all_markdown
+    assert not re.search(r"\]\((?:\.\./)*report/", all_markdown)
     assert len({cell["id"] for cell in cells}) == len(cells)
+    nbformat.validate(nbformat.from_dict(notebook))
     destination.write_text(json.dumps(notebook, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     validation = {
         "source": str(source_path), "source_sha256": sha256(html),
         "notebook": str(destination), "notebook_sha256": sha256(destination.read_bytes()),
-        "format": {"nbformat": 4, "nbformat_minor": 5},
+        "format": {"nbformat": 4, "nbformat_minor": 5, "nbformat_schema_valid": True},
         "cell_counts": {"all": len(cells), "markdown": sum(c["cell_type"] == "markdown" for c in cells), "code": sum(c["cell_type"] == "code" for c in cells), "lean": 6, "numerical": 14, "bootstrap": 1},
         "headers": header_checks,
         "source_body_elements_preserved": included,
         "removed_html_transport": omitted,
         "prose_adaptations": adapted,
+        "local_report_links": [{"original_href": a["href"], "label": a.get_text(), "notebook_reference": f"工作区报告《{a.get_text()}》"} for a in main.select("a[href^='report/']")],
         "display_formulas": {"source_count": len(source_math), "notebook_count": len(notebook_math), "identical_in_order": True, "body_sha256": [sha256(body) for body in source_math]},
         "equation_tags": {"source": source_tags, "notebook": notebook_tags, "identical_in_order": True},
         "tables": table_checks, "figures": image_checks, "image_mode": image_mode,
         "code": code_checks,
         "proof_guides": {"uw_points": 4, "qrm_points": 3, "full_dependency_listings_embedded": False},
         "outputs": "Unexecuted code cells; outputs are populated by the actual kernel.",
+        "bootstrap_cell_source_sha256": sha256(bootstrap),
+        "bootstrap_source_file_sha256": sha256(bootstrap_path.read_bytes()),
         "no_custom_html_ui": True,
     }
     (HERE / "build_validation.json").write_text(json.dumps(validation, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -313,6 +321,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--source", type=Path, default=REPORT)
     parser.add_argument("--output", type=Path, default=HERE / "Report.ipynb")
-    parser.add_argument("--image-mode", choices=["attachments", "data-uri"], default="attachments")
+    parser.add_argument("--image-mode", choices=["attachments", "data-uri"], default="data-uri")
     args = parser.parse_args()
     build(args.source, args.output, args.image_mode)

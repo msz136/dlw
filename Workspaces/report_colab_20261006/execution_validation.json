@@ -1,0 +1,483 @@
+{
+  "notebook": "C:\\Users\\msz\\aca\\notebook\\Report.ipynb",
+  "notebook_sha256": "4a7c613a65b5a19424816c5eb165fe5045ad71ca88b4592dac5f21d1f56d2e53",
+  "pre_execution_notebook_sha256": "1dca8417905adc6b6b1a2be5d7ef9911e7b25dd2a6f0dffd85731dc7c8553d68",
+  "backup": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\before_execute\\Report.pre-execution.002.ipynb",
+  "python": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\.venv\\Scripts\\python.exe",
+  "kernel": "project interpreter via ipykernel",
+  "seconds": 110.91,
+  "nbformat_schema_valid": true,
+  "cell_sources_unchanged": true,
+  "success": true,
+  "failure": null,
+  "error_outputs": [],
+  "code_cells": [
+    {
+      "id": "runtime-prepare",
+      "execution_count": 1,
+      "source_sha256": "aa2e66ac8703aab41697869c2720d5049b39b2d2675294d1cd7552abcbc23253",
+      "outputs": []
+    },
+    {
+      "id": "lean-uw-import",
+      "execution_count": 2,
+      "source_sha256": "1c23fc15ebab4025ca0238bab24e9157d858322d95e2236a576e863b5226f571",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "characters": 42,
+          "text_sha256": "c928d856810d665995da6cc1ec5b4f42bf55450c2d3564a7b049e852b2cb8af3",
+          "raw_text": "Lean proof import: Contracts (warm_cache)\n"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "characters": 45,
+          "text_sha256": "a1844d922e087e1e0bd998f252e3ddbf9f3406d9410af696acbc59f6e6131374",
+          "raw_text": "Lean proof import: PkgNonlinear (warm_cache)\n"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "characters": 43,
+          "text_sha256": "13ee6e589a51031e4a2c068d84a1324139febd4a4f7a49b60b81739c63225090",
+          "raw_text": "Lean proof import: PkgLattice (warm_cache)\n"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "characters": 50,
+          "text_sha256": "4b2e4e2e568ee070469cc9061118c32ae56fceb260f24c2cfdefe1b569fbb3bf",
+          "raw_text": "Lean proof import: ReportNonlinearUW (warm_cache)\n"
+        }
+      ]
+    },
+    {
+      "id": "lean-uw-start",
+      "execution_count": 3,
+      "source_sha256": "08a3d5f69bdfe3c1211d5a5f88254e128afa430627952ced7fa54848cb1c8cae",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "characters": 172,
+          "text_sha256": "f375fd7aa9473c4c28d7c3a0eb664c296e04370f1a9a89bcc6a43d795d0a0706",
+          "raw_text": "def DLWContract.ReportUW.StartPoint : ℝ → ℝ → Lattice → Lattice → Prop :=\nfun a h F G => ∀ (j : ℤ), bil (a - h / 2) (F j) (G j) = 0 ∧ bil (a + h / 2) (F j) (G (j + 1)) = 0\n"
+        }
+      ]
+    },
+    {
+      "id": "lean-uw",
+      "execution_count": 4,
+      "source_sha256": "df6a398b5c271b669d932ee220f993f9412fd007a8198e82330b13bc06c0859a",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "characters": 214,
+          "text_sha256": "0ff781f6a2e731981195a9f6232b306137f3cad57de2c91bee94fa5ae1ccdec9",
+          "raw_text": "'DLWContract.ReportUW.semiPair_implies_report7' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DLWContract.ReportUW.semiPair_implies_report8' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+        }
+      ]
+    },
+    {
+      "id": "lean-qrm-import",
+      "execution_count": 5,
+      "source_sha256": "a5d32ad55575c3d56c211b79b8bf9c575d6b5dcd2c6c3411f8d6e071cf63d3ca",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "characters": 42,
+          "text_sha256": "c928d856810d665995da6cc1ec5b4f42bf55450c2d3564a7b049e852b2cb8af3",
+          "raw_text": "Lean proof import: Contracts (warm_cache)\n"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "characters": 43,
+          "text_sha256": "13ee6e589a51031e4a2c068d84a1324139febd4a4f7a49b60b81739c63225090",
+          "raw_text": "Lean proof import: PkgLattice (warm_cache)\n"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "characters": 48,
+          "text_sha256": "c1c9f591a0e7e4dbf16ee78fa0933c8737f487bf8cd616abd12c7b295f86e94c",
+          "raw_text": "Lean proof import: PkgQuotientRate (warm_cache)\n"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "characters": 50,
+          "text_sha256": "ed198e70ef343e29be2a32c54d339f9260fd0b7508486aeb8a2fed79fd636a3e",
+          "raw_text": "Lean proof import: ReportQRMCalculus (warm_cache)\n"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "characters": 45,
+          "text_sha256": "a1844d922e087e1e0bd998f252e3ddbf9f3406d9410af696acbc59f6e6131374",
+          "raw_text": "Lean proof import: PkgNonlinear (warm_cache)\n"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "characters": 50,
+          "text_sha256": "4b2e4e2e568ee070469cc9061118c32ae56fceb260f24c2cfdefe1b569fbb3bf",
+          "raw_text": "Lean proof import: ReportNonlinearUW (warm_cache)\n"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "characters": 51,
+          "text_sha256": "9ee3b110aaa65105d0ddbd51132fbdbadab61ff41584dca712d2bbb92eb1e096",
+          "raw_text": "Lean proof import: ReportNonlinearQRM (warm_cache)\n"
+        }
+      ]
+    },
+    {
+      "id": "lean-qrm-start",
+      "execution_count": 6,
+      "source_sha256": "2a038b36923820050d4ca0706d0390582ece132576df4ee8e794698e89ef083d",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "characters": 173,
+          "text_sha256": "d253fae31d0eef939a186c23c6ecd08b87d00e3909f84930268694222d513d5b",
+          "raw_text": "def DLWContract.ReportQRM.StartPoint : ℝ → ℝ → Lattice → Lattice → Prop :=\nfun a h F G => ∀ (j : ℤ), bil (a - h / 2) (F j) (G j) = 0 ∧ bil (a + h / 2) (F j) (G (j + 1)) = 0\n"
+        }
+      ]
+    },
+    {
+      "id": "lean-qrm",
+      "execution_count": 7,
+      "source_sha256": "630a5c0367c539e2897908b80a13c8c69a334b9be18e06fa908be53a4c10f8e5",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "characters": 201,
+          "text_sha256": "77df454f59ddd1340267c9ab44e47476c3b0946cc25d95991dcde4826ace5e4f",
+          "raw_text": "'DLWContract.ReportQRM.semiPair_implies_report21' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DLWContract.ReportQRM.report22' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+        }
+      ]
+    },
+    {
+      "id": "hs-prepare",
+      "execution_count": 8,
+      "source_sha256": "233acc52f4fb0df060119c9b7612f31c1bf1d0f26a04009568e5b80c73155c2e",
+      "outputs": []
+    },
+    {
+      "id": "hs-config",
+      "execution_count": 9,
+      "source_sha256": "b19439bb24dac7909f36d0b6e2a8933b68f13147b3f306e94b02a911a417d7ae",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "characters": 96,
+          "text_sha256": "a81e6e2656a520d1a33bee36c32dfd49284915c613881d5941ebd09e20077617"
+        }
+      ]
+    },
+    {
+      "id": "hs-reference",
+      "execution_count": 10,
+      "source_sha256": "28e6076dff13db6627afddfcfce3f4be0c8fae7c4fa97181b53e8f641a2143b0",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "characters": 120,
+          "text_sha256": "ffe2f569a1d6018a2925dfab41be6380f8f5e991cb78ff65ff63171971d8c2f4"
+        }
+      ]
+    },
+    {
+      "id": "hs-spatial",
+      "execution_count": 11,
+      "source_sha256": "9effc0d2aaa334006d3f89735b4b20a51b22d15d3978501601c5388d63a8bd4c",
+      "outputs": []
+    },
+    {
+      "id": "hs-rk4",
+      "execution_count": 12,
+      "source_sha256": "71941783e677bc76b790903874ddf37c14feb7fc0a6578258fcd9712854ef38d",
+      "outputs": []
+    },
+    {
+      "id": "hs-evolve",
+      "execution_count": 13,
+      "source_sha256": "2f595fc808ca5b434fad113a28d6680d0fbca6aaaadff76406da69dd424d7196",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "characters": 93,
+          "text_sha256": "53c6e92f22592a4cc9ebfa4ea5e4fa67bb461233f8c950b988749155c6f0678d"
+        }
+      ]
+    },
+    {
+      "id": "hs-error",
+      "execution_count": 14,
+      "source_sha256": "c7749dbc593c9444726eb03e96542ea549a8c904b28ca501ebcfbd9251de5e27",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "characters": 213,
+          "text_sha256": "1c57cfe82016fe7c8045e56ce3a964b43ac74f67a91905727a66490595449b0c"
+        },
+        {
+          "type": "display_data",
+          "mime_types": [
+            "text/plain",
+            "image/png"
+          ],
+          "payload_sha256": {
+            "text/plain": "f476fe1a43b93b8c25436806582f95217224ab09cf43debf188457163acda0c6",
+            "image/png": "c153d6801f3770a38b0a964642af3474c3419135757f29547aa56f36f6c02a8b"
+          }
+        },
+        {
+          "type": "display_data",
+          "mime_types": [
+            "text/plain",
+            "image/png"
+          ],
+          "payload_sha256": {
+            "text/plain": "f476fe1a43b93b8c25436806582f95217224ab09cf43debf188457163acda0c6",
+            "image/png": "5a040ebd6f11126cc811941316be5d3c1aa97477739f18fc4d2978d9d526b035"
+          }
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "characters": 237,
+          "text_sha256": "93abf8de5912bd174a3fef25a90121601e6cdd4cfd83e7ab347b5e5579246a96"
+        }
+      ]
+    },
+    {
+      "id": "error-prepare",
+      "execution_count": 15,
+      "source_sha256": "143e211cc2a6a124ca5ffb32c3a1cfafc15a24512b6f4d866cd8789cdf9b1741",
+      "outputs": []
+    },
+    {
+      "id": "error-config",
+      "execution_count": 16,
+      "source_sha256": "0eb516b692ed28dd8633c0405da266e58be6f69f331fc3042f54b9c20b7d3b17",
+      "outputs": [
+        {
+          "type": "display_data",
+          "mime_types": [
+            "text/plain",
+            "text/html"
+          ],
+          "payload_sha256": {
+            "text/plain": "7383d0bd72b4d64ac2617cc8a3e61f9a6d8c15c6bb1558275a3c5e7d25f85581",
+            "text/html": "369b481fbda76b902bc11bc0d8ef24f8f00367c21c3a04f5d05db826577df035"
+          }
+        }
+      ]
+    },
+    {
+      "id": "error-profile",
+      "execution_count": 17,
+      "source_sha256": "6e60e66564f8d47f57bf9c77bf7073800391f61d42d471c41c7579ce04989964",
+      "outputs": []
+    },
+    {
+      "id": "error-coefficient",
+      "execution_count": 18,
+      "source_sha256": "c1d14a9f91bac6118a06bae77ba1420d8176cadf024979caa05dd2c2ac28efd9",
+      "outputs": []
+    },
+    {
+      "id": "error-residual",
+      "execution_count": 19,
+      "source_sha256": "25b716e47b5fe14dcc2702dff21ffd40855e952f433c42425290fce36c895be4",
+      "outputs": []
+    },
+    {
+      "id": "error-main",
+      "execution_count": 20,
+      "source_sha256": "f5d77e12c9c3807edab55789c251bf5d3a8645e285fff46a3878f8a942ad60c9",
+      "outputs": [
+        {
+          "type": "display_data",
+          "mime_types": [
+            "text/plain",
+            "text/html"
+          ],
+          "payload_sha256": {
+            "text/plain": "46d0f3022cde680cd0a94a773224a8d5308c9e9cb08870125f5086e7dd6732f1",
+            "text/html": "1cf0bffaa7656c8ac3eb90573a63c60a6d74161aef0ad9bea445ac072c240db3"
+          }
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "characters": 40,
+          "text_sha256": "4941d07685f52398108c73ce3b56e5b5a5201a4cfbed6ba2dc48f0226ccc85e4"
+        }
+      ]
+    },
+    {
+      "id": "error-convergence",
+      "execution_count": 21,
+      "source_sha256": "61b12d6b6bd4a3cbbb5e76dfde61fcd5003b6002bec888916abba3eb58635377",
+      "outputs": [
+        {
+          "type": "display_data",
+          "mime_types": [
+            "text/plain",
+            "text/html"
+          ],
+          "payload_sha256": {
+            "text/plain": "dcc91b04699ed90c5e651a4529deee69bba72e747aa1e5873900adcdd8177c36",
+            "text/html": "860f342dcd23599dedfd5f38dd641a8be7d5dd2ead566f60d0d5f4fb2c424e53"
+          }
+        },
+        {
+          "type": "display_data",
+          "mime_types": [
+            "text/plain",
+            "image/png"
+          ],
+          "payload_sha256": {
+            "text/plain": "1dcabbdc300c605c07db6e7d7f38fcb71e599c1f4ac6f90c567546f4e1860086",
+            "image/png": "d6c6fe2c0532e97a14cfd178e2b86f1e8a1f06c0cc2c43fe423c3ef3d2c4d254"
+          }
+        },
+        {
+          "type": "display_data",
+          "mime_types": [
+            "text/plain",
+            "image/png"
+          ],
+          "payload_sha256": {
+            "text/plain": "1dcabbdc300c605c07db6e7d7f38fcb71e599c1f4ac6f90c567546f4e1860086",
+            "image/png": "f057cd2b5ff56dc25fa7d432884d164d14c6a685fa909848ff512e5381bbb3e5"
+          }
+        }
+      ]
+    }
+  ],
+  "cell_timings": [
+    {
+      "id": "runtime-prepare",
+      "index": 1,
+      "seconds": 0.214
+    },
+    {
+      "id": "lean-uw-import",
+      "index": 3,
+      "seconds": 18.968
+    },
+    {
+      "id": "lean-uw-start",
+      "index": 5,
+      "seconds": 18.464
+    },
+    {
+      "id": "lean-uw",
+      "index": 7,
+      "seconds": 17.166
+    },
+    {
+      "id": "lean-qrm-import",
+      "index": 9,
+      "seconds": 18.952
+    },
+    {
+      "id": "lean-qrm-start",
+      "index": 11,
+      "seconds": 16.16
+    },
+    {
+      "id": "lean-qrm",
+      "index": 13,
+      "seconds": 15.234
+    },
+    {
+      "id": "hs-prepare",
+      "index": 15,
+      "seconds": 1.045
+    },
+    {
+      "id": "hs-config",
+      "index": 17,
+      "seconds": 0.026
+    },
+    {
+      "id": "hs-reference",
+      "index": 19,
+      "seconds": 0.015
+    },
+    {
+      "id": "hs-spatial",
+      "index": 21,
+      "seconds": 0.012
+    },
+    {
+      "id": "hs-rk4",
+      "index": 23,
+      "seconds": 0.008
+    },
+    {
+      "id": "hs-evolve",
+      "index": 25,
+      "seconds": 2.418
+    },
+    {
+      "id": "hs-error",
+      "index": 27,
+      "seconds": 0.514
+    },
+    {
+      "id": "error-prepare",
+      "index": 29,
+      "seconds": 0.007
+    },
+    {
+      "id": "error-config",
+      "index": 31,
+      "seconds": 0.014
+    },
+    {
+      "id": "error-profile",
+      "index": 33,
+      "seconds": 0.006
+    },
+    {
+      "id": "error-coefficient",
+      "index": 35,
+      "seconds": 0.006
+    },
+    {
+      "id": "error-residual",
+      "index": 37,
+      "seconds": 0.009
+    },
+    {
+      "id": "error-main",
+      "index": 39,
+      "seconds": 0.026
+    },
+    {
+      "id": "error-convergence",
+      "index": 41,
+      "seconds": 0.261
+    }
+  ],
+  "outputs_saved_in_deliverable": true,
+  "full_execution_notebook_sha256": "9203da67c668d3a17a65afbb9d0d63925debf4784ab6067a35cab73d88a56fd3",
+  "post_execution_refinement": "Two import descriptions now refer to the already compiled local proofs; all code and raw outputs are unchanged."
+}

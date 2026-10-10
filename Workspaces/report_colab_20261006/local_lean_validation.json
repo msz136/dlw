@@ -1,0 +1,2307 @@
+{
+  "test_root": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0",
+  "six_stages": [
+    {
+      "passed": true,
+      "compilation": {
+        "source": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells\\StepUWImport.lean",
+        "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\lib\\lean\\StepUWImport.olean",
+        "command": [
+          "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+          "-R",
+          "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells",
+          "-o",
+          "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\lib\\lean\\StepUWImport.olean",
+          "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells\\StepUWImport.lean"
+        ],
+        "sha256": "fde5382cea8b31e8656ad856e12b1966e12eea55b2f93d0a43223a9e1891072d",
+        "stdout": "",
+        "stderr": "",
+        "exit_code": 0,
+        "seconds": 14.589831600000252,
+        "artifact_sha256": "e950805fee15ffdc47e7f6e4bcbb60f7e9752dd8b95606b8464a00fc73da2b23",
+        "artifact_companions": {
+          "StepUWImport.olean": "e950805fee15ffdc47e7f6e4bcbb60f7e9752dd8b95606b8464a00fc73da2b23"
+        },
+        "runtime_identity": {
+          "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+          "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+          "toolchain": "leanprover/lean4:v4.34.0",
+          "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+          "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+          "lean_paths": [
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+          ]
+        },
+        "passed": true
+      },
+      "stdout": "Lean proof import: Contracts (warm_cache)\nLean proof import: PkgNonlinear (warm_cache)\nLean proof import: PkgLattice (warm_cache)\nLean proof import: ReportNonlinearUW (warm_cache)\n",
+      "stderr": "",
+      "seconds": 14.956227900000158,
+      "route": "uw",
+      "stage": "import",
+      "displayed_code_sha256": "fde5382cea8b31e8656ad856e12b1966e12eea55b2f93d0a43223a9e1891072d"
+    },
+    {
+      "passed": true,
+      "compilation": {
+        "source": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells\\StepUWStart.lean",
+        "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\lib\\lean\\StepUWStart.olean",
+        "command": [
+          "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+          "-R",
+          "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells",
+          "-o",
+          "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\lib\\lean\\StepUWStart.olean",
+          "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells\\StepUWStart.lean"
+        ],
+        "sha256": "f982c49797586241fa2d16cc3d7be17a261dcd93f840b1ee385a43ca4768aee6",
+        "stdout": "def DLWContract.ReportUW.StartPoint : ℝ → ℝ → Lattice → Lattice → Prop :=\nfun a h F G => ∀ (j : ℤ), bil (a - h / 2) (F j) (G j) = 0 ∧ bil (a + h / 2) (F j) (G (j + 1)) = 0\n",
+        "stderr": "",
+        "exit_code": 0,
+        "seconds": 14.18857300000127,
+        "artifact_sha256": "3b9838a6a273233a98a54040423f72f0fe16b581f9bb596da08cd783d2b2d1fa",
+        "artifact_companions": {
+          "StepUWStart.olean": "3b9838a6a273233a98a54040423f72f0fe16b581f9bb596da08cd783d2b2d1fa"
+        },
+        "runtime_identity": {
+          "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+          "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+          "toolchain": "leanprover/lean4:v4.34.0",
+          "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+          "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+          "lean_paths": [
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+          ]
+        },
+        "passed": true
+      },
+      "stdout": "def DLWContract.ReportUW.StartPoint : ℝ → ℝ → Lattice → Lattice → Prop :=\nfun a h F G => ∀ (j : ℤ), bil (a - h / 2) (F j) (G j) = 0 ∧ bil (a + h / 2) (F j) (G (j + 1)) = 0\n",
+      "stderr": "",
+      "seconds": 14.195780500000183,
+      "route": "uw",
+      "stage": "start",
+      "displayed_code_sha256": "f982c49797586241fa2d16cc3d7be17a261dcd93f840b1ee385a43ca4768aee6"
+    },
+    {
+      "passed": true,
+      "compilation": {
+        "source": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells\\StepUWEndpoint.lean",
+        "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\lib\\lean\\StepUWEndpoint.olean",
+        "command": [
+          "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+          "-R",
+          "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells",
+          "-o",
+          "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\lib\\lean\\StepUWEndpoint.olean",
+          "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells\\StepUWEndpoint.lean"
+        ],
+        "sha256": "dd541a216828aab0d30d1cd19f5c206e81c99bbb75e31c0efcaae401b28757a2",
+        "stdout": "'DLWContract.ReportUW.semiPair_implies_report7' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DLWContract.ReportUW.semiPair_implies_report8' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+        "stderr": "",
+        "exit_code": 0,
+        "seconds": 15.24793630000022,
+        "artifact_sha256": "922e0403bb03bfe61d3df963d16a327d8e7bad8a0ca836d2d2b871cc28fda023",
+        "artifact_companions": {
+          "StepUWEndpoint.olean": "922e0403bb03bfe61d3df963d16a327d8e7bad8a0ca836d2d2b871cc28fda023"
+        },
+        "runtime_identity": {
+          "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+          "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+          "toolchain": "leanprover/lean4:v4.34.0",
+          "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+          "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+          "lean_paths": [
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+          ]
+        },
+        "passed": true
+      },
+      "stdout": "'DLWContract.ReportUW.semiPair_implies_report7' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DLWContract.ReportUW.semiPair_implies_report8' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "stderr": "",
+      "seconds": 15.256760599999325,
+      "route": "uw",
+      "stage": "endpoint",
+      "displayed_code_sha256": "dd541a216828aab0d30d1cd19f5c206e81c99bbb75e31c0efcaae401b28757a2"
+    },
+    {
+      "passed": true,
+      "compilation": {
+        "source": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells\\StepQRMImport.lean",
+        "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\lib\\lean\\StepQRMImport.olean",
+        "command": [
+          "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+          "-R",
+          "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells",
+          "-o",
+          "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\lib\\lean\\StepQRMImport.olean",
+          "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells\\StepQRMImport.lean"
+        ],
+        "sha256": "a40068712eadd8a76899a5c64a0af043e9828884cd82c4f2cbb9f422681fe78f",
+        "stdout": "",
+        "stderr": "",
+        "exit_code": 0,
+        "seconds": 15.367935099999158,
+        "artifact_sha256": "848d72bc1ec35dd5fa17ece970943a4a103ba2699c1da33b0042ef2f4e82cc16",
+        "artifact_companions": {
+          "StepQRMImport.olean": "848d72bc1ec35dd5fa17ece970943a4a103ba2699c1da33b0042ef2f4e82cc16"
+        },
+        "runtime_identity": {
+          "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+          "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+          "toolchain": "leanprover/lean4:v4.34.0",
+          "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+          "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+          "lean_paths": [
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+          ]
+        },
+        "passed": true
+      },
+      "stdout": "Lean proof import: Contracts (warm_cache)\nLean proof import: PkgLattice (warm_cache)\nLean proof import: PkgQuotientRate (validated_previous_run)\nLean proof import: ReportQRMCalculus (validated_previous_run)\nLean proof import: PkgNonlinear (warm_cache)\nLean proof import: ReportNonlinearUW (warm_cache)\nLean proof import: ReportNonlinearQRM (validated_previous_run)\n",
+      "stderr": "",
+      "seconds": 63.07616179999968,
+      "route": "qrm",
+      "stage": "import",
+      "displayed_code_sha256": "a40068712eadd8a76899a5c64a0af043e9828884cd82c4f2cbb9f422681fe78f"
+    },
+    {
+      "passed": true,
+      "compilation": {
+        "source": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells\\StepQRMStart.lean",
+        "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\lib\\lean\\StepQRMStart.olean",
+        "command": [
+          "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+          "-R",
+          "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells",
+          "-o",
+          "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\lib\\lean\\StepQRMStart.olean",
+          "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells\\StepQRMStart.lean"
+        ],
+        "sha256": "2c64133bcbcc92c6e3f0cdcf7d5a6f05bd4bb58a3c7dce54bcf71b49f7d026a0",
+        "stdout": "def DLWContract.ReportQRM.StartPoint : ℝ → ℝ → Lattice → Lattice → Prop :=\nfun a h F G => ∀ (j : ℤ), bil (a - h / 2) (F j) (G j) = 0 ∧ bil (a + h / 2) (F j) (G (j + 1)) = 0\n",
+        "stderr": "",
+        "exit_code": 0,
+        "seconds": 14.767979700000069,
+        "artifact_sha256": "5c7f0c50d50e34a3630865d0cb4ab2453f9e5acdcc17a3eb24407a0db21e2a8e",
+        "artifact_companions": {
+          "StepQRMStart.olean": "5c7f0c50d50e34a3630865d0cb4ab2453f9e5acdcc17a3eb24407a0db21e2a8e"
+        },
+        "runtime_identity": {
+          "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+          "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+          "toolchain": "leanprover/lean4:v4.34.0",
+          "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+          "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+          "lean_paths": [
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+          ]
+        },
+        "passed": true
+      },
+      "stdout": "def DLWContract.ReportQRM.StartPoint : ℝ → ℝ → Lattice → Lattice → Prop :=\nfun a h F G => ∀ (j : ℤ), bil (a - h / 2) (F j) (G j) = 0 ∧ bil (a + h / 2) (F j) (G (j + 1)) = 0\n",
+      "stderr": "",
+      "seconds": 14.780498300000545,
+      "route": "qrm",
+      "stage": "start",
+      "displayed_code_sha256": "2c64133bcbcc92c6e3f0cdcf7d5a6f05bd4bb58a3c7dce54bcf71b49f7d026a0"
+    },
+    {
+      "passed": true,
+      "compilation": {
+        "source": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells\\StepQRMEndpoint.lean",
+        "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\lib\\lean\\StepQRMEndpoint.olean",
+        "command": [
+          "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+          "-R",
+          "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells",
+          "-o",
+          "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\lib\\lean\\StepQRMEndpoint.olean",
+          "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells\\StepQRMEndpoint.lean"
+        ],
+        "sha256": "17c27e03dd8f7daaea3439fb6f9681ce2236d5cbc85696bd5085cef706566075",
+        "stdout": "'DLWContract.ReportQRM.semiPair_implies_report21' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DLWContract.ReportQRM.report22' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+        "stderr": "",
+        "exit_code": 0,
+        "seconds": 17.36278619999939,
+        "artifact_sha256": "25a31d2243463ca8dba15cd9c6346087aa91e44a0a415bb19f6cb5fa740f4b35",
+        "artifact_companions": {
+          "StepQRMEndpoint.olean": "25a31d2243463ca8dba15cd9c6346087aa91e44a0a415bb19f6cb5fa740f4b35"
+        },
+        "runtime_identity": {
+          "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+          "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+          "toolchain": "leanprover/lean4:v4.34.0",
+          "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+          "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+          "lean_paths": [
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+            "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+          ]
+        },
+        "passed": true
+      },
+      "stdout": "'DLWContract.ReportQRM.semiPair_implies_report21' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DLWContract.ReportQRM.report22' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "stderr": "",
+      "seconds": 17.37758229999963,
+      "route": "qrm",
+      "stage": "endpoint",
+      "displayed_code_sha256": "17c27e03dd8f7daaea3439fb6f9681ce2236d5cbc85696bd5085cef706566075"
+    }
+  ],
+  "guards": [
+    {
+      "name": "new session imports exact persistent compiled proofs with zero proof recompilations",
+      "passed": true,
+      "events": [
+        {
+          "module": "Contracts",
+          "key": "618d0c44480ae6e82d7c2980ab033d39f38170579f8af7d65994e324fe784ec7",
+          "origin": "warm_cache",
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\618d0c44480ae6e82d7c2980ab033d39f38170579f8af7d65994e324fe784ec7\\build_a5f024408469453da695fd35ed5ae894",
+          "source_sha256": "e70876c538d52939b030e7813a6b1c60917a79e56e28b29146d22df8da98d656",
+          "artifact_sha256": {
+            "Contracts.olean": "fe00ee37ef1fdcd4c76d1b1db1c1bcb6558cd3bc8c3750cd5e282bd643765787"
+          }
+        },
+        {
+          "module": "PkgNonlinear",
+          "key": "87162114fa5cff4a340cee62acc5a0c73241d696125293a3cdc00ebc7d28bc79",
+          "origin": "warm_cache",
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\87162114fa5cff4a340cee62acc5a0c73241d696125293a3cdc00ebc7d28bc79\\build_ff890ddecc774749940f59a8227cd86b",
+          "source_sha256": "58ee97d70c67417c428a4b4c67e94525f7408ea0fde65b532913a3682e68d284",
+          "artifact_sha256": {
+            "PkgNonlinear.olean": "fccdf74bbe0ebbe8dad0ed837576b30e62a45d078159b8d1c3e568f1bf9d28de"
+          }
+        },
+        {
+          "module": "PkgLattice",
+          "key": "11a9253ee55909de480ba8c3ea6280451289d5f2c4f87a9efe99cec6485ba3e7",
+          "origin": "warm_cache",
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\11a9253ee55909de480ba8c3ea6280451289d5f2c4f87a9efe99cec6485ba3e7\\build_24cde95606df421a81998f2b548e03fa",
+          "source_sha256": "c28f849bac9607fef3bf0a9e104ff761daf60be4742d6d0884f83b86cf193f3f",
+          "artifact_sha256": {
+            "PkgLattice.olean": "ade879ff670f37106ee4ed78341837b4c733a971dfee0e9a729bb0c985b234e0"
+          }
+        },
+        {
+          "module": "ReportNonlinearUW",
+          "key": "73492590c23f7b9c3b3c76ed953badd070f733e8ab80c951d72552280f8b3844",
+          "origin": "warm_cache",
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\73492590c23f7b9c3b3c76ed953badd070f733e8ab80c951d72552280f8b3844\\build_a452544a33534b06b89225060451b865",
+          "source_sha256": "413d45c48b64d5dc1214c7931e1581b3e1a8c49d3c81132289aba387b5c67975",
+          "artifact_sha256": {
+            "ReportNonlinearUW.olean": "e1eda7b7a4cb5990867d30f1ecc1395cb4e288bd272256cf0994004c7db7f433"
+          }
+        },
+        {
+          "module": "Contracts",
+          "key": "618d0c44480ae6e82d7c2980ab033d39f38170579f8af7d65994e324fe784ec7",
+          "origin": "warm_cache",
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\618d0c44480ae6e82d7c2980ab033d39f38170579f8af7d65994e324fe784ec7\\build_a5f024408469453da695fd35ed5ae894",
+          "source_sha256": "e70876c538d52939b030e7813a6b1c60917a79e56e28b29146d22df8da98d656",
+          "artifact_sha256": {
+            "Contracts.olean": "fe00ee37ef1fdcd4c76d1b1db1c1bcb6558cd3bc8c3750cd5e282bd643765787"
+          }
+        },
+        {
+          "module": "PkgLattice",
+          "key": "11a9253ee55909de480ba8c3ea6280451289d5f2c4f87a9efe99cec6485ba3e7",
+          "origin": "warm_cache",
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\11a9253ee55909de480ba8c3ea6280451289d5f2c4f87a9efe99cec6485ba3e7\\build_24cde95606df421a81998f2b548e03fa",
+          "source_sha256": "c28f849bac9607fef3bf0a9e104ff761daf60be4742d6d0884f83b86cf193f3f",
+          "artifact_sha256": {
+            "PkgLattice.olean": "ade879ff670f37106ee4ed78341837b4c733a971dfee0e9a729bb0c985b234e0"
+          }
+        },
+        {
+          "module": "PkgQuotientRate",
+          "key": "bcbc1f8687616cd047a2caa504da5477660ba79c72ef5d5e64d61692550355c6",
+          "origin": "warm_cache",
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\bcbc1f8687616cd047a2caa504da5477660ba79c72ef5d5e64d61692550355c6\\build_dbe7149bd3994945b0444eb421b9fcb7",
+          "source_sha256": "0e46edfe575e80fac40682c21fb07de62673570b0a2b4ca9e4fb4c7e425f011a",
+          "artifact_sha256": {
+            "PkgQuotientRate.olean": "8fd259d5bb82432b5731e6482446e1c47e455565168d771a8268dd974791a2b1"
+          }
+        },
+        {
+          "module": "ReportQRMCalculus",
+          "key": "a56876de9c80569e1f10d47c97af0c13bf39433197258350b085ea6c80038cd9",
+          "origin": "warm_cache",
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\a56876de9c80569e1f10d47c97af0c13bf39433197258350b085ea6c80038cd9\\build_8cf28e04e5f94adca5ff783bbc7ea649",
+          "source_sha256": "874992d19778987c5810d010381f235b0494820bce878580489209ff9373aacd",
+          "artifact_sha256": {
+            "ReportQRMCalculus.olean": "aaa7e566c9d473cac9fa082663d3381766ee91f01e635cf1c961e693facb9cae"
+          }
+        },
+        {
+          "module": "PkgNonlinear",
+          "key": "87162114fa5cff4a340cee62acc5a0c73241d696125293a3cdc00ebc7d28bc79",
+          "origin": "warm_cache",
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\87162114fa5cff4a340cee62acc5a0c73241d696125293a3cdc00ebc7d28bc79\\build_ff890ddecc774749940f59a8227cd86b",
+          "source_sha256": "58ee97d70c67417c428a4b4c67e94525f7408ea0fde65b532913a3682e68d284",
+          "artifact_sha256": {
+            "PkgNonlinear.olean": "fccdf74bbe0ebbe8dad0ed837576b30e62a45d078159b8d1c3e568f1bf9d28de"
+          }
+        },
+        {
+          "module": "ReportNonlinearUW",
+          "key": "73492590c23f7b9c3b3c76ed953badd070f733e8ab80c951d72552280f8b3844",
+          "origin": "warm_cache",
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\73492590c23f7b9c3b3c76ed953badd070f733e8ab80c951d72552280f8b3844\\build_a452544a33534b06b89225060451b865",
+          "source_sha256": "413d45c48b64d5dc1214c7931e1581b3e1a8c49d3c81132289aba387b5c67975",
+          "artifact_sha256": {
+            "ReportNonlinearUW.olean": "e1eda7b7a4cb5990867d30f1ecc1395cb4e288bd272256cf0994004c7db7f433"
+          }
+        },
+        {
+          "module": "ReportNonlinearQRM",
+          "key": "ce24a9d94bf2f58b2653e04c6651aa8189a60d1004a1e185fca39f09b282707e",
+          "origin": "warm_cache",
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\ce24a9d94bf2f58b2653e04c6651aa8189a60d1004a1e185fca39f09b282707e\\build_de1845d2cccd45dcaa1345e8f1559a2e",
+          "source_sha256": "ed1d1b6473c3567ec27f5a15969d02579c114475cd1d8c3239d5b956d03d4804",
+          "artifact_sha256": {
+            "ReportNonlinearQRM.olean": "ef39b4adc70a715e8180ea1bcd7234065fb750ee3261ca06ec2e6c77059e847d"
+          }
+        }
+      ],
+      "history": [
+        {
+          "source": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\warm_session\\cells\\StepUWImport.lean",
+          "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\warm_session\\lib\\lean\\StepUWImport.olean",
+          "command": [
+            "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+            "-R",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\warm_session\\cells",
+            "-o",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\warm_session\\lib\\lean\\StepUWImport.olean",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\warm_session\\cells\\StepUWImport.lean"
+          ],
+          "sha256": "fde5382cea8b31e8656ad856e12b1966e12eea55b2f93d0a43223a9e1891072d",
+          "stdout": "",
+          "stderr": "",
+          "exit_code": 0,
+          "seconds": 16.0981785999993,
+          "artifact_sha256": "e950805fee15ffdc47e7f6e4bcbb60f7e9752dd8b95606b8464a00fc73da2b23",
+          "artifact_companions": {
+            "StepUWImport.olean": "e950805fee15ffdc47e7f6e4bcbb60f7e9752dd8b95606b8464a00fc73da2b23"
+          },
+          "runtime_identity": {
+            "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+            "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+            "toolchain": "leanprover/lean4:v4.34.0",
+            "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+            "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+            "lean_paths": [
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+            ]
+          },
+          "passed": true
+        },
+        {
+          "source": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\warm_session\\cells\\StepQRMImport.lean",
+          "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\warm_session\\lib\\lean\\StepQRMImport.olean",
+          "command": [
+            "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+            "-R",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\warm_session\\cells",
+            "-o",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\warm_session\\lib\\lean\\StepQRMImport.olean",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\warm_session\\cells\\StepQRMImport.lean"
+          ],
+          "sha256": "a40068712eadd8a76899a5c64a0af043e9828884cd82c4f2cbb9f422681fe78f",
+          "stdout": "",
+          "stderr": "",
+          "exit_code": 0,
+          "seconds": 15.761420299999372,
+          "artifact_sha256": "848d72bc1ec35dd5fa17ece970943a4a103ba2699c1da33b0042ef2f4e82cc16",
+          "artifact_companions": {
+            "StepQRMImport.olean": "848d72bc1ec35dd5fa17ece970943a4a103ba2699c1da33b0042ef2f4e82cc16"
+          },
+          "runtime_identity": {
+            "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+            "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+            "toolchain": "leanprover/lean4:v4.34.0",
+            "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+            "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+            "lean_paths": [
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+            ]
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "displayed cells compile current edits and failed compile archives prior artifact",
+      "passed": true,
+      "edited_raw": {
+        "passed": true,
+        "compilation": {
+          "source": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells\\StepUWStart.lean",
+          "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\lib\\lean\\StepUWStart.olean",
+          "command": [
+            "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+            "-R",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells",
+            "-o",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\lib\\lean\\StepUWStart.olean",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells\\StepUWStart.lean"
+          ],
+          "sha256": "37105a17e28b75e75b8eaccfc5bf961ed57bfff0b012146fd3c4565311a893ad",
+          "stdout": "def DLWContract.ReportUW.StartPoint : ℝ → ℝ → Lattice → Lattice → Prop :=\nfun a h F G => ∀ (j : ℤ), bil (a - h / 2) (F j) (G j) = 0 ∧ bil (a + h / 2) (F j) (G (j + 1)) = 0\n3\n",
+          "stderr": "",
+          "exit_code": 0,
+          "seconds": 17.940424200000052,
+          "artifact_sha256": "3b9838a6a273233a98a54040423f72f0fe16b581f9bb596da08cd783d2b2d1fa",
+          "artifact_companions": {
+            "StepUWStart.olean": "3b9838a6a273233a98a54040423f72f0fe16b581f9bb596da08cd783d2b2d1fa"
+          },
+          "runtime_identity": {
+            "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+            "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+            "toolchain": "leanprover/lean4:v4.34.0",
+            "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+            "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+            "lean_paths": [
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+            ]
+          },
+          "passed": true
+        },
+        "stdout": "def DLWContract.ReportUW.StartPoint : ℝ → ℝ → Lattice → Lattice → Prop :=\nfun a h F G => ∀ (j : ℤ), bil (a - h / 2) (F j) (G j) = 0 ∧ bil (a + h / 2) (F j) (G (j + 1)) = 0\n3\n",
+        "stderr": "",
+        "seconds": 17.95716320000065
+      },
+      "failed_raw": {
+        "passed": false,
+        "error": "Lean failed for StepUWStart.lean (exit code 1).",
+        "error_type": "LeanCellError",
+        "stdout": "def DLWContract.ReportUW.StartPoint : ℝ → ℝ → Lattice → Lattice → Prop :=\nfun a h F G => ∀ (j : ℤ), bil (a - h / 2) (F j) (G j) = 0 ∧ bil (a + h / 2) (F j) (G (j + 1)) = 0\nC:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells\\StepUWStart.lean:13:7: error(lean.unknownIdentifier): Unknown identifier `local_cache_missing_declaration`\n",
+        "stderr": "",
+        "seconds": 18.09624729999996
+      }
+    },
+    {
+      "name": "cold cache genuinely compiles both local proofs",
+      "passed": true,
+      "raw": {
+        "passed": true,
+        "compilation": {
+          "source": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\cold\\cells\\StepUWImport.lean",
+          "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\cold\\lib\\lean\\StepUWImport.olean",
+          "command": [
+            "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+            "-R",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\cold\\cells",
+            "-o",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\cold\\lib\\lean\\StepUWImport.olean",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\cold\\cells\\StepUWImport.lean"
+          ],
+          "sha256": "a8699d285656ff70f0099f0771f281dcb83a77fbb26242b8b86397e0b45a3f7e",
+          "stdout": "",
+          "stderr": "",
+          "exit_code": 0,
+          "seconds": 1.525347500000862,
+          "artifact_sha256": "9cb8e500183d62cea805851ff396e118b2e70379b1b44c5991b91923f65e65b6",
+          "artifact_companions": {
+            "StepUWImport.olean": "9cb8e500183d62cea805851ff396e118b2e70379b1b44c5991b91923f65e65b6"
+          },
+          "runtime_identity": {
+            "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+            "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+            "toolchain": "leanprover/lean4:v4.34.0",
+            "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+            "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+            "lean_paths": [
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+            ]
+          },
+          "passed": true
+        },
+        "stdout": "Lean proof import: CacheBase (compiled_exact_sources)\nLean proof import: CacheChild (compiled_exact_sources)\n",
+        "stderr": "",
+        "seconds": 4.7976276999997935
+      },
+      "events": [
+        {
+          "module": "CacheBase",
+          "key": "9e98cfd4bc451647305bd268b00240603061925117ffe923c4187241073ddcb2",
+          "origin": "compiled_exact_sources",
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\9e98cfd4bc451647305bd268b00240603061925117ffe923c4187241073ddcb2\\build_11985fb19b7d40aabf91f948210bb7e6",
+          "source_sha256": "5a2351dac403ea2db6d36cc12a370f1ae616ee1c812bcb27233497919ed2100f",
+          "artifact_sha256": {
+            "CacheBase.olean": "dbf31b7c948e5a0c143cbe89a3e2a44566c4b5604c7e6183d1a2a386bb6f0ee0"
+          }
+        },
+        {
+          "module": "CacheChild",
+          "key": "3200cf6aa08934371dadc9b9d4f169f77c1180baec90db16f17cf00feff98eff",
+          "origin": "compiled_exact_sources",
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\3200cf6aa08934371dadc9b9d4f169f77c1180baec90db16f17cf00feff98eff\\build_b8f0ef1bdd53487a9d6c2334e04ffca0",
+          "source_sha256": "c8cc66de9992c2a2d0173aacec4f24ad02078831d54cee5506c91221b4593218",
+          "artifact_sha256": {
+            "CacheChild.olean": "be035f3846b489cefa4aed25ce165a9c8a1078a1a2760612f4f5e1cee08cb479"
+          }
+        },
+        {
+          "module": "CacheBase",
+          "key": "bcc5cb34015d86725bf49d269f2ed8e162bf0d758cd100e37e3b5bd3c9f43bfd",
+          "origin": "compiled_exact_sources",
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\bcc5cb34015d86725bf49d269f2ed8e162bf0d758cd100e37e3b5bd3c9f43bfd\\build_792fc059e799474187887f32e326d6f0",
+          "source_sha256": "3c9b901fd896452b7730c117873bde7fee1069a34f0ba12e29c357e405929681",
+          "artifact_sha256": {
+            "CacheBase.olean": "dbf31b7c948e5a0c143cbe89a3e2a44566c4b5604c7e6183d1a2a386bb6f0ee0"
+          }
+        },
+        {
+          "module": "CacheChild",
+          "key": "e4c983e06673075e26b51ff74b17efdd2a9dbac5d51b2564981e711bd4af6e0e",
+          "origin": "compiled_exact_sources",
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\e4c983e06673075e26b51ff74b17efdd2a9dbac5d51b2564981e711bd4af6e0e\\build_f027e82ea1b64362a76b53fb34a152f5",
+          "source_sha256": "c8cc66de9992c2a2d0173aacec4f24ad02078831d54cee5506c91221b4593218",
+          "artifact_sha256": {
+            "CacheChild.olean": "be035f3846b489cefa4aed25ce165a9c8a1078a1a2760612f4f5e1cee08cb479"
+          }
+        }
+      ]
+    },
+    {
+      "name": "dependency edit invalidates its dependent cache and existing stage prerequisites",
+      "passed": true,
+      "blocked": {
+        "passed": false,
+        "error": "Proof sources changed; rerun the import cell before this stage.",
+        "error_type": "LeanCellError",
+        "stdout": "",
+        "stderr": "",
+        "seconds": 0.015259399999195011
+      },
+      "changed_raw": {
+        "passed": true,
+        "compilation": {
+          "source": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\cold\\cells\\StepUWImport.lean",
+          "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\cold\\lib\\lean\\StepUWImport.olean",
+          "command": [
+            "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+            "-R",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\cold\\cells",
+            "-o",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\cold\\lib\\lean\\StepUWImport.olean",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\cold\\cells\\StepUWImport.lean"
+          ],
+          "sha256": "a8699d285656ff70f0099f0771f281dcb83a77fbb26242b8b86397e0b45a3f7e",
+          "stdout": "",
+          "stderr": "",
+          "exit_code": 0,
+          "seconds": 1.598999099998764,
+          "artifact_sha256": "9cb8e500183d62cea805851ff396e118b2e70379b1b44c5991b91923f65e65b6",
+          "artifact_companions": {
+            "StepUWImport.olean": "9cb8e500183d62cea805851ff396e118b2e70379b1b44c5991b91923f65e65b6"
+          },
+          "runtime_identity": {
+            "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+            "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+            "toolchain": "leanprover/lean4:v4.34.0",
+            "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+            "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+            "lean_paths": [
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+            ]
+          },
+          "passed": true
+        },
+        "stdout": "37\nLean proof import: CacheBase (compiled_exact_sources)\nLean proof import: CacheChild (compiled_exact_sources)\n",
+        "stderr": "",
+        "seconds": 4.954399700000067
+      },
+      "events": [
+        {
+          "module": "CacheBase",
+          "key": "bcc5cb34015d86725bf49d269f2ed8e162bf0d758cd100e37e3b5bd3c9f43bfd",
+          "origin": "compiled_exact_sources",
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\bcc5cb34015d86725bf49d269f2ed8e162bf0d758cd100e37e3b5bd3c9f43bfd\\build_792fc059e799474187887f32e326d6f0",
+          "source_sha256": "3c9b901fd896452b7730c117873bde7fee1069a34f0ba12e29c357e405929681",
+          "artifact_sha256": {
+            "CacheBase.olean": "dbf31b7c948e5a0c143cbe89a3e2a44566c4b5604c7e6183d1a2a386bb6f0ee0"
+          }
+        },
+        {
+          "module": "CacheChild",
+          "key": "e4c983e06673075e26b51ff74b17efdd2a9dbac5d51b2564981e711bd4af6e0e",
+          "origin": "compiled_exact_sources",
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\e4c983e06673075e26b51ff74b17efdd2a9dbac5d51b2564981e711bd4af6e0e\\build_f027e82ea1b64362a76b53fb34a152f5",
+          "source_sha256": "c8cc66de9992c2a2d0173aacec4f24ad02078831d54cee5506c91221b4593218",
+          "artifact_sha256": {
+            "CacheChild.olean": "be035f3846b489cefa4aed25ce165a9c8a1078a1a2760612f4f5e1cee08cb479"
+          }
+        }
+      ]
+    },
+    {
+      "name": "failed edited proof cannot publish or reuse stale proof artifacts",
+      "passed": true,
+      "failed_key": "c00e45b895c446e124f43d1c3b7d62d8bd29ae157d663ed1fb528eb5cbfe8c2c",
+      "raw": {
+        "passed": false,
+        "error": "Lean failed for CacheBase.lean (exit code 1).",
+        "error_type": "LeanCellError",
+        "stdout": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\tiny\\proofs\\CacheBase.lean:2:32: error: Tactic `assumption` failed\n\n⊢ False\n",
+        "stderr": "",
+        "seconds": 1.6235852999998315
+      }
+    },
+    {
+      "name": "artifact hash mismatch rejects corrupted cache and builds a new immutable entry",
+      "passed": true,
+      "raw": {
+        "passed": true,
+        "compilation": {
+          "source": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\integrity\\cells\\StepUWImport.lean",
+          "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\integrity\\lib\\lean\\StepUWImport.olean",
+          "command": [
+            "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+            "-R",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\integrity\\cells",
+            "-o",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\integrity\\lib\\lean\\StepUWImport.olean",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\integrity\\cells\\StepUWImport.lean"
+          ],
+          "sha256": "a8699d285656ff70f0099f0771f281dcb83a77fbb26242b8b86397e0b45a3f7e",
+          "stdout": "",
+          "stderr": "",
+          "exit_code": 0,
+          "seconds": 1.5524307999985467,
+          "artifact_sha256": "9cb8e500183d62cea805851ff396e118b2e70379b1b44c5991b91923f65e65b6",
+          "artifact_companions": {
+            "StepUWImport.olean": "9cb8e500183d62cea805851ff396e118b2e70379b1b44c5991b91923f65e65b6"
+          },
+          "runtime_identity": {
+            "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+            "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+            "toolchain": "leanprover/lean4:v4.34.0",
+            "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+            "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+            "lean_paths": [
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+            ]
+          },
+          "passed": true
+        },
+        "stdout": "Lean proof import: CacheBase (compiled_exact_sources)\nLean proof import: CacheChild (warm_cache)\n",
+        "stderr": "",
+        "seconds": 3.2341921999995975
+      },
+      "events": [
+        {
+          "module": "CacheBase",
+          "key": "9e98cfd4bc451647305bd268b00240603061925117ffe923c4187241073ddcb2",
+          "origin": "compiled_exact_sources",
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\9e98cfd4bc451647305bd268b00240603061925117ffe923c4187241073ddcb2\\build_5bf47c8542cd40b497ee78ec66521f15",
+          "source_sha256": "5a2351dac403ea2db6d36cc12a370f1ae616ee1c812bcb27233497919ed2100f",
+          "artifact_sha256": {
+            "CacheBase.olean": "dbf31b7c948e5a0c143cbe89a3e2a44566c4b5604c7e6183d1a2a386bb6f0ee0"
+          }
+        },
+        {
+          "module": "CacheChild",
+          "key": "3200cf6aa08934371dadc9b9d4f169f77c1180baec90db16f17cf00feff98eff",
+          "origin": "warm_cache",
+          "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\3200cf6aa08934371dadc9b9d4f169f77c1180baec90db16f17cf00feff98eff\\build_b8f0ef1bdd53487a9d6c2334e04ffca0",
+          "source_sha256": "c8cc66de9992c2a2d0173aacec4f24ad02078831d54cee5506c91221b4593218",
+          "artifact_sha256": {
+            "CacheChild.olean": "be035f3846b489cefa4aed25ce165a9c8a1078a1a2760612f4f5e1cee08cb479"
+          }
+        }
+      ]
+    },
+    {
+      "name": "concurrent sessions commit unique complete cache builds",
+      "passed": true,
+      "sessions": [
+        {
+          "cell": {
+            "source": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\concurrent_session_0\\cells\\StepUWImport.lean",
+            "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\concurrent_session_0\\lib\\lean\\StepUWImport.olean",
+            "command": [
+              "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+              "-R",
+              "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\concurrent_session_0\\cells",
+              "-o",
+              "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\concurrent_session_0\\lib\\lean\\StepUWImport.olean",
+              "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\concurrent_session_0\\cells\\StepUWImport.lean"
+            ],
+            "sha256": "489e9acb17a673d9512ca4c4dbd3e18c8c81c9a1d2a4bc5e7ec78ad129811622",
+            "stdout": "",
+            "stderr": "",
+            "exit_code": 0,
+            "seconds": 1.768912999999884,
+            "artifact_sha256": "1d3cb0fcdd7fa2c58239970985293d106d07434062fd067491f2b1ebf4c8517f",
+            "artifact_companions": {
+              "StepUWImport.olean": "1d3cb0fcdd7fa2c58239970985293d106d07434062fd067491f2b1ebf4c8517f"
+            },
+            "runtime_identity": {
+              "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+              "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+              "toolchain": "leanprover/lean4:v4.34.0",
+              "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+              "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+              "lean_paths": [
+                "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+                "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+                "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+                "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+                "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+                "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+                "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+                "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+                "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+                "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+              ]
+            },
+            "passed": true
+          },
+          "events": [
+            {
+              "module": "ConcurrentProof",
+              "key": "432b91fef0996faba3b102b677ed64aaea4235edd2965c44a1213afac267afa8",
+              "origin": "compiled_exact_sources",
+              "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\432b91fef0996faba3b102b677ed64aaea4235edd2965c44a1213afac267afa8\\build_6dcc6b4d03e0410bb1e11706600c1430",
+              "source_sha256": "f3c6d9df11d57a466839e91eb948179fbe5fa185e65e72d26061fc4991d24429",
+              "artifact_sha256": {
+                "ConcurrentProof.olean": "8c0f8d5b3608a99abd9c1af8ff24d5a0130b85ec0e7d626823bcfd663b26c003"
+              }
+            }
+          ]
+        },
+        {
+          "cell": {
+            "source": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\concurrent_session_1\\cells\\StepUWImport.lean",
+            "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\concurrent_session_1\\lib\\lean\\StepUWImport.olean",
+            "command": [
+              "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+              "-R",
+              "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\concurrent_session_1\\cells",
+              "-o",
+              "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\concurrent_session_1\\lib\\lean\\StepUWImport.olean",
+              "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\concurrent_session_1\\cells\\StepUWImport.lean"
+            ],
+            "sha256": "489e9acb17a673d9512ca4c4dbd3e18c8c81c9a1d2a4bc5e7ec78ad129811622",
+            "stdout": "",
+            "stderr": "",
+            "exit_code": 0,
+            "seconds": 1.8154992000017955,
+            "artifact_sha256": "1d3cb0fcdd7fa2c58239970985293d106d07434062fd067491f2b1ebf4c8517f",
+            "artifact_companions": {
+              "StepUWImport.olean": "1d3cb0fcdd7fa2c58239970985293d106d07434062fd067491f2b1ebf4c8517f"
+            },
+            "runtime_identity": {
+              "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+              "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+              "toolchain": "leanprover/lean4:v4.34.0",
+              "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+              "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+              "lean_paths": [
+                "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+                "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+                "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+                "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+                "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+                "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+                "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+                "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+                "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+                "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+              ]
+            },
+            "passed": true
+          },
+          "events": [
+            {
+              "module": "ConcurrentProof",
+              "key": "432b91fef0996faba3b102b677ed64aaea4235edd2965c44a1213afac267afa8",
+              "origin": "compiled_exact_sources",
+              "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\432b91fef0996faba3b102b677ed64aaea4235edd2965c44a1213afac267afa8\\build_dc1fe05393a1409cb701826cc340d5a5",
+              "source_sha256": "f3c6d9df11d57a466839e91eb948179fbe5fa185e65e72d26061fc4991d24429",
+              "artifact_sha256": {
+                "ConcurrentProof.olean": "8c0f8d5b3608a99abd9c1af8ff24d5a0130b85ec0e7d626823bcfd663b26c003"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "local-only setup rejects automatic download requests",
+      "passed": true,
+      "error": "This notebook uses an existing local Lean/Mathlib runtime; automatic downloads are disabled."
+    }
+  ],
+  "runtime": {
+    "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+    "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+    "toolchain": "leanprover/lean4:v4.34.0",
+    "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+    "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+    "lean_paths": [
+      "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+      "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+      "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+      "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+      "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+      "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+      "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+      "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+      "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+      "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+    ]
+  },
+  "cache_dir": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache",
+  "seed_runs": [
+    "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\report_lean\\runs",
+    "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\report_lean\\runs",
+    "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs"
+  ],
+  "actual_cache_events": [
+    {
+      "module": "Contracts",
+      "key": "618d0c44480ae6e82d7c2980ab033d39f38170579f8af7d65994e324fe784ec7",
+      "origin": "warm_cache",
+      "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\618d0c44480ae6e82d7c2980ab033d39f38170579f8af7d65994e324fe784ec7\\build_a5f024408469453da695fd35ed5ae894",
+      "source_sha256": "e70876c538d52939b030e7813a6b1c60917a79e56e28b29146d22df8da98d656",
+      "artifact_sha256": {
+        "Contracts.olean": "fe00ee37ef1fdcd4c76d1b1db1c1bcb6558cd3bc8c3750cd5e282bd643765787"
+      }
+    },
+    {
+      "module": "PkgNonlinear",
+      "key": "87162114fa5cff4a340cee62acc5a0c73241d696125293a3cdc00ebc7d28bc79",
+      "origin": "warm_cache",
+      "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\87162114fa5cff4a340cee62acc5a0c73241d696125293a3cdc00ebc7d28bc79\\build_ff890ddecc774749940f59a8227cd86b",
+      "source_sha256": "58ee97d70c67417c428a4b4c67e94525f7408ea0fde65b532913a3682e68d284",
+      "artifact_sha256": {
+        "PkgNonlinear.olean": "fccdf74bbe0ebbe8dad0ed837576b30e62a45d078159b8d1c3e568f1bf9d28de"
+      }
+    },
+    {
+      "module": "PkgLattice",
+      "key": "11a9253ee55909de480ba8c3ea6280451289d5f2c4f87a9efe99cec6485ba3e7",
+      "origin": "warm_cache",
+      "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\11a9253ee55909de480ba8c3ea6280451289d5f2c4f87a9efe99cec6485ba3e7\\build_24cde95606df421a81998f2b548e03fa",
+      "source_sha256": "c28f849bac9607fef3bf0a9e104ff761daf60be4742d6d0884f83b86cf193f3f",
+      "artifact_sha256": {
+        "PkgLattice.olean": "ade879ff670f37106ee4ed78341837b4c733a971dfee0e9a729bb0c985b234e0"
+      }
+    },
+    {
+      "module": "ReportNonlinearUW",
+      "key": "73492590c23f7b9c3b3c76ed953badd070f733e8ab80c951d72552280f8b3844",
+      "origin": "warm_cache",
+      "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\73492590c23f7b9c3b3c76ed953badd070f733e8ab80c951d72552280f8b3844\\build_a452544a33534b06b89225060451b865",
+      "source_sha256": "413d45c48b64d5dc1214c7931e1581b3e1a8c49d3c81132289aba387b5c67975",
+      "artifact_sha256": {
+        "ReportNonlinearUW.olean": "e1eda7b7a4cb5990867d30f1ecc1395cb4e288bd272256cf0994004c7db7f433"
+      }
+    },
+    {
+      "module": "Contracts",
+      "key": "618d0c44480ae6e82d7c2980ab033d39f38170579f8af7d65994e324fe784ec7",
+      "origin": "warm_cache",
+      "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\618d0c44480ae6e82d7c2980ab033d39f38170579f8af7d65994e324fe784ec7\\build_a5f024408469453da695fd35ed5ae894",
+      "source_sha256": "e70876c538d52939b030e7813a6b1c60917a79e56e28b29146d22df8da98d656",
+      "artifact_sha256": {
+        "Contracts.olean": "fe00ee37ef1fdcd4c76d1b1db1c1bcb6558cd3bc8c3750cd5e282bd643765787"
+      }
+    },
+    {
+      "module": "PkgLattice",
+      "key": "11a9253ee55909de480ba8c3ea6280451289d5f2c4f87a9efe99cec6485ba3e7",
+      "origin": "warm_cache",
+      "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\11a9253ee55909de480ba8c3ea6280451289d5f2c4f87a9efe99cec6485ba3e7\\build_24cde95606df421a81998f2b548e03fa",
+      "source_sha256": "c28f849bac9607fef3bf0a9e104ff761daf60be4742d6d0884f83b86cf193f3f",
+      "artifact_sha256": {
+        "PkgLattice.olean": "ade879ff670f37106ee4ed78341837b4c733a971dfee0e9a729bb0c985b234e0"
+      }
+    },
+    {
+      "module": "PkgQuotientRate",
+      "key": "bcbc1f8687616cd047a2caa504da5477660ba79c72ef5d5e64d61692550355c6",
+      "origin": "validated_previous_run",
+      "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\bcbc1f8687616cd047a2caa504da5477660ba79c72ef5d5e64d61692550355c6\\build_dbe7149bd3994945b0444eb421b9fcb7",
+      "source_sha256": "0e46edfe575e80fac40682c21fb07de62673570b0a2b4ca9e4fb4c7e425f011a",
+      "artifact_sha256": {
+        "PkgQuotientRate.olean": "8fd259d5bb82432b5731e6482446e1c47e455565168d771a8268dd974791a2b1"
+      }
+    },
+    {
+      "module": "ReportQRMCalculus",
+      "key": "a56876de9c80569e1f10d47c97af0c13bf39433197258350b085ea6c80038cd9",
+      "origin": "validated_previous_run",
+      "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\a56876de9c80569e1f10d47c97af0c13bf39433197258350b085ea6c80038cd9\\build_8cf28e04e5f94adca5ff783bbc7ea649",
+      "source_sha256": "874992d19778987c5810d010381f235b0494820bce878580489209ff9373aacd",
+      "artifact_sha256": {
+        "ReportQRMCalculus.olean": "aaa7e566c9d473cac9fa082663d3381766ee91f01e635cf1c961e693facb9cae"
+      }
+    },
+    {
+      "module": "PkgNonlinear",
+      "key": "87162114fa5cff4a340cee62acc5a0c73241d696125293a3cdc00ebc7d28bc79",
+      "origin": "warm_cache",
+      "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\87162114fa5cff4a340cee62acc5a0c73241d696125293a3cdc00ebc7d28bc79\\build_ff890ddecc774749940f59a8227cd86b",
+      "source_sha256": "58ee97d70c67417c428a4b4c67e94525f7408ea0fde65b532913a3682e68d284",
+      "artifact_sha256": {
+        "PkgNonlinear.olean": "fccdf74bbe0ebbe8dad0ed837576b30e62a45d078159b8d1c3e568f1bf9d28de"
+      }
+    },
+    {
+      "module": "ReportNonlinearUW",
+      "key": "73492590c23f7b9c3b3c76ed953badd070f733e8ab80c951d72552280f8b3844",
+      "origin": "warm_cache",
+      "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\73492590c23f7b9c3b3c76ed953badd070f733e8ab80c951d72552280f8b3844\\build_a452544a33534b06b89225060451b865",
+      "source_sha256": "413d45c48b64d5dc1214c7931e1581b3e1a8c49d3c81132289aba387b5c67975",
+      "artifact_sha256": {
+        "ReportNonlinearUW.olean": "e1eda7b7a4cb5990867d30f1ecc1395cb4e288bd272256cf0994004c7db7f433"
+      }
+    },
+    {
+      "module": "ReportNonlinearQRM",
+      "key": "ce24a9d94bf2f58b2653e04c6651aa8189a60d1004a1e185fca39f09b282707e",
+      "origin": "validated_previous_run",
+      "entry": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\ce24a9d94bf2f58b2653e04c6651aa8189a60d1004a1e185fca39f09b282707e\\build_de1845d2cccd45dcaa1345e8f1559a2e",
+      "source_sha256": "ed1d1b6473c3567ec27f5a15969d02579c114475cd1d8c3239d5b956d03d4804",
+      "artifact_sha256": {
+        "ReportNonlinearQRM.olean": "ef39b4adc70a715e8180ea1bcd7234065fb750ee3261ca06ec2e6c77059e847d"
+      }
+    }
+  ],
+  "actual_history": [
+    {
+      "source": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells\\StepUWImport.lean",
+      "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\lib\\lean\\StepUWImport.olean",
+      "command": [
+        "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+        "-R",
+        "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells",
+        "-o",
+        "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\lib\\lean\\StepUWImport.olean",
+        "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells\\StepUWImport.lean"
+      ],
+      "sha256": "fde5382cea8b31e8656ad856e12b1966e12eea55b2f93d0a43223a9e1891072d",
+      "stdout": "",
+      "stderr": "",
+      "exit_code": 0,
+      "seconds": 14.589831600000252,
+      "artifact_sha256": "e950805fee15ffdc47e7f6e4bcbb60f7e9752dd8b95606b8464a00fc73da2b23",
+      "artifact_companions": {
+        "StepUWImport.olean": "e950805fee15ffdc47e7f6e4bcbb60f7e9752dd8b95606b8464a00fc73da2b23"
+      },
+      "runtime_identity": {
+        "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+        "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+        "toolchain": "leanprover/lean4:v4.34.0",
+        "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+        "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+        "lean_paths": [
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "source": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells\\StepUWStart.lean",
+      "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\lib\\lean\\StepUWStart.olean",
+      "command": [
+        "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+        "-R",
+        "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells",
+        "-o",
+        "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\lib\\lean\\StepUWStart.olean",
+        "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells\\StepUWStart.lean"
+      ],
+      "sha256": "f982c49797586241fa2d16cc3d7be17a261dcd93f840b1ee385a43ca4768aee6",
+      "stdout": "def DLWContract.ReportUW.StartPoint : ℝ → ℝ → Lattice → Lattice → Prop :=\nfun a h F G => ∀ (j : ℤ), bil (a - h / 2) (F j) (G j) = 0 ∧ bil (a + h / 2) (F j) (G (j + 1)) = 0\n",
+      "stderr": "",
+      "exit_code": 0,
+      "seconds": 14.18857300000127,
+      "artifact_sha256": "3b9838a6a273233a98a54040423f72f0fe16b581f9bb596da08cd783d2b2d1fa",
+      "artifact_companions": {
+        "StepUWStart.olean": "3b9838a6a273233a98a54040423f72f0fe16b581f9bb596da08cd783d2b2d1fa"
+      },
+      "runtime_identity": {
+        "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+        "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+        "toolchain": "leanprover/lean4:v4.34.0",
+        "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+        "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+        "lean_paths": [
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "source": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells\\StepUWEndpoint.lean",
+      "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\lib\\lean\\StepUWEndpoint.olean",
+      "command": [
+        "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+        "-R",
+        "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells",
+        "-o",
+        "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\lib\\lean\\StepUWEndpoint.olean",
+        "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells\\StepUWEndpoint.lean"
+      ],
+      "sha256": "dd541a216828aab0d30d1cd19f5c206e81c99bbb75e31c0efcaae401b28757a2",
+      "stdout": "'DLWContract.ReportUW.semiPair_implies_report7' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DLWContract.ReportUW.semiPair_implies_report8' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "stderr": "",
+      "exit_code": 0,
+      "seconds": 15.24793630000022,
+      "artifact_sha256": "922e0403bb03bfe61d3df963d16a327d8e7bad8a0ca836d2d2b871cc28fda023",
+      "artifact_companions": {
+        "StepUWEndpoint.olean": "922e0403bb03bfe61d3df963d16a327d8e7bad8a0ca836d2d2b871cc28fda023"
+      },
+      "runtime_identity": {
+        "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+        "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+        "toolchain": "leanprover/lean4:v4.34.0",
+        "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+        "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+        "lean_paths": [
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "source": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\bcbc1f8687616cd047a2caa504da5477660ba79c72ef5d5e64d61692550355c6\\build_dbe7149bd3994945b0444eb421b9fcb7\\SeedCompatibility.lean",
+      "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\bcbc1f8687616cd047a2caa504da5477660ba79c72ef5d5e64d61692550355c6\\build_dbe7149bd3994945b0444eb421b9fcb7\\check\\SeedCompatibility.olean",
+      "command": [
+        "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+        "-R",
+        "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\bcbc1f8687616cd047a2caa504da5477660ba79c72ef5d5e64d61692550355c6\\build_dbe7149bd3994945b0444eb421b9fcb7",
+        "-o",
+        "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\bcbc1f8687616cd047a2caa504da5477660ba79c72ef5d5e64d61692550355c6\\build_dbe7149bd3994945b0444eb421b9fcb7\\check\\SeedCompatibility.olean",
+        "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\bcbc1f8687616cd047a2caa504da5477660ba79c72ef5d5e64d61692550355c6\\build_dbe7149bd3994945b0444eb421b9fcb7\\SeedCompatibility.lean"
+      ],
+      "sha256": "ddea3e016aa672385d9254da6670ccc904d30dca5af83db4946c7f7350f54a94",
+      "stdout": "",
+      "stderr": "",
+      "exit_code": 0,
+      "seconds": 15.915377999999691,
+      "artifact_sha256": "f26953bc3ebba8ea967f81824e563ce8ab9f2e8623fa3ae95a1afcca6fc71499",
+      "artifact_companions": {
+        "SeedCompatibility.olean": "f26953bc3ebba8ea967f81824e563ce8ab9f2e8623fa3ae95a1afcca6fc71499"
+      },
+      "runtime_identity": {
+        "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+        "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+        "toolchain": "leanprover/lean4:v4.34.0",
+        "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+        "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+        "lean_paths": [
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+        ]
+      },
+      "passed": true,
+      "purpose": "seed artifact import compatibility check"
+    },
+    {
+      "source": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\a56876de9c80569e1f10d47c97af0c13bf39433197258350b085ea6c80038cd9\\build_8cf28e04e5f94adca5ff783bbc7ea649\\SeedCompatibility.lean",
+      "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\a56876de9c80569e1f10d47c97af0c13bf39433197258350b085ea6c80038cd9\\build_8cf28e04e5f94adca5ff783bbc7ea649\\check\\SeedCompatibility.olean",
+      "command": [
+        "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+        "-R",
+        "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\a56876de9c80569e1f10d47c97af0c13bf39433197258350b085ea6c80038cd9\\build_8cf28e04e5f94adca5ff783bbc7ea649",
+        "-o",
+        "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\a56876de9c80569e1f10d47c97af0c13bf39433197258350b085ea6c80038cd9\\build_8cf28e04e5f94adca5ff783bbc7ea649\\check\\SeedCompatibility.olean",
+        "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\a56876de9c80569e1f10d47c97af0c13bf39433197258350b085ea6c80038cd9\\build_8cf28e04e5f94adca5ff783bbc7ea649\\SeedCompatibility.lean"
+      ],
+      "sha256": "14eb5e599d4284e7f551b9cf63eadc184ba0090fc48135d9dbdb94e57720b2b0",
+      "stdout": "",
+      "stderr": "",
+      "exit_code": 0,
+      "seconds": 15.788861400000314,
+      "artifact_sha256": "72614ac510557d32c34e5a00fa74737fecfa4837e2d424527d337952b57b50c7",
+      "artifact_companions": {
+        "SeedCompatibility.olean": "72614ac510557d32c34e5a00fa74737fecfa4837e2d424527d337952b57b50c7"
+      },
+      "runtime_identity": {
+        "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+        "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+        "toolchain": "leanprover/lean4:v4.34.0",
+        "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+        "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+        "lean_paths": [
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+        ]
+      },
+      "passed": true,
+      "purpose": "seed artifact import compatibility check"
+    },
+    {
+      "source": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\ce24a9d94bf2f58b2653e04c6651aa8189a60d1004a1e185fca39f09b282707e\\build_de1845d2cccd45dcaa1345e8f1559a2e\\SeedCompatibility.lean",
+      "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\ce24a9d94bf2f58b2653e04c6651aa8189a60d1004a1e185fca39f09b282707e\\build_de1845d2cccd45dcaa1345e8f1559a2e\\check\\SeedCompatibility.olean",
+      "command": [
+        "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+        "-R",
+        "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\ce24a9d94bf2f58b2653e04c6651aa8189a60d1004a1e185fca39f09b282707e\\build_de1845d2cccd45dcaa1345e8f1559a2e",
+        "-o",
+        "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\ce24a9d94bf2f58b2653e04c6651aa8189a60d1004a1e185fca39f09b282707e\\build_de1845d2cccd45dcaa1345e8f1559a2e\\check\\SeedCompatibility.olean",
+        "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\ce24a9d94bf2f58b2653e04c6651aa8189a60d1004a1e185fca39f09b282707e\\build_de1845d2cccd45dcaa1345e8f1559a2e\\SeedCompatibility.lean"
+      ],
+      "sha256": "e9fdd3fa382217aed06381a9bd395c2e76c65c1a62cea3d1fddc51cf4ebed372",
+      "stdout": "",
+      "stderr": "",
+      "exit_code": 0,
+      "seconds": 15.221498499999143,
+      "artifact_sha256": "055429456f3115f8b9e5f7c7866217b6f613d09c04b115f5ec628d7d735ad778",
+      "artifact_companions": {
+        "SeedCompatibility.olean": "055429456f3115f8b9e5f7c7866217b6f613d09c04b115f5ec628d7d735ad778"
+      },
+      "runtime_identity": {
+        "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+        "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+        "toolchain": "leanprover/lean4:v4.34.0",
+        "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+        "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+        "lean_paths": [
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+        ]
+      },
+      "passed": true,
+      "purpose": "seed artifact import compatibility check"
+    },
+    {
+      "source": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells\\StepQRMImport.lean",
+      "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\lib\\lean\\StepQRMImport.olean",
+      "command": [
+        "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+        "-R",
+        "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells",
+        "-o",
+        "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\lib\\lean\\StepQRMImport.olean",
+        "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells\\StepQRMImport.lean"
+      ],
+      "sha256": "a40068712eadd8a76899a5c64a0af043e9828884cd82c4f2cbb9f422681fe78f",
+      "stdout": "",
+      "stderr": "",
+      "exit_code": 0,
+      "seconds": 15.367935099999158,
+      "artifact_sha256": "848d72bc1ec35dd5fa17ece970943a4a103ba2699c1da33b0042ef2f4e82cc16",
+      "artifact_companions": {
+        "StepQRMImport.olean": "848d72bc1ec35dd5fa17ece970943a4a103ba2699c1da33b0042ef2f4e82cc16"
+      },
+      "runtime_identity": {
+        "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+        "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+        "toolchain": "leanprover/lean4:v4.34.0",
+        "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+        "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+        "lean_paths": [
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "source": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells\\StepQRMStart.lean",
+      "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\lib\\lean\\StepQRMStart.olean",
+      "command": [
+        "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+        "-R",
+        "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells",
+        "-o",
+        "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\lib\\lean\\StepQRMStart.olean",
+        "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells\\StepQRMStart.lean"
+      ],
+      "sha256": "2c64133bcbcc92c6e3f0cdcf7d5a6f05bd4bb58a3c7dce54bcf71b49f7d026a0",
+      "stdout": "def DLWContract.ReportQRM.StartPoint : ℝ → ℝ → Lattice → Lattice → Prop :=\nfun a h F G => ∀ (j : ℤ), bil (a - h / 2) (F j) (G j) = 0 ∧ bil (a + h / 2) (F j) (G (j + 1)) = 0\n",
+      "stderr": "",
+      "exit_code": 0,
+      "seconds": 14.767979700000069,
+      "artifact_sha256": "5c7f0c50d50e34a3630865d0cb4ab2453f9e5acdcc17a3eb24407a0db21e2a8e",
+      "artifact_companions": {
+        "StepQRMStart.olean": "5c7f0c50d50e34a3630865d0cb4ab2453f9e5acdcc17a3eb24407a0db21e2a8e"
+      },
+      "runtime_identity": {
+        "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+        "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+        "toolchain": "leanprover/lean4:v4.34.0",
+        "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+        "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+        "lean_paths": [
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "source": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells\\StepQRMEndpoint.lean",
+      "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\lib\\lean\\StepQRMEndpoint.olean",
+      "command": [
+        "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+        "-R",
+        "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells",
+        "-o",
+        "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\lib\\lean\\StepQRMEndpoint.olean",
+        "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells\\StepQRMEndpoint.lean"
+      ],
+      "sha256": "17c27e03dd8f7daaea3439fb6f9681ce2236d5cbc85696bd5085cef706566075",
+      "stdout": "'DLWContract.ReportQRM.semiPair_implies_report21' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DLWContract.ReportQRM.report22' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "stderr": "",
+      "exit_code": 0,
+      "seconds": 17.36278619999939,
+      "artifact_sha256": "25a31d2243463ca8dba15cd9c6346087aa91e44a0a415bb19f6cb5fa740f4b35",
+      "artifact_companions": {
+        "StepQRMEndpoint.olean": "25a31d2243463ca8dba15cd9c6346087aa91e44a0a415bb19f6cb5fa740f4b35"
+      },
+      "runtime_identity": {
+        "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+        "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+        "toolchain": "leanprover/lean4:v4.34.0",
+        "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+        "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+        "lean_paths": [
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "source": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells\\StepUWStart.lean",
+      "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\lib\\lean\\StepUWStart.olean",
+      "command": [
+        "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+        "-R",
+        "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells",
+        "-o",
+        "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\lib\\lean\\StepUWStart.olean",
+        "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells\\StepUWStart.lean"
+      ],
+      "sha256": "37105a17e28b75e75b8eaccfc5bf961ed57bfff0b012146fd3c4565311a893ad",
+      "stdout": "def DLWContract.ReportUW.StartPoint : ℝ → ℝ → Lattice → Lattice → Prop :=\nfun a h F G => ∀ (j : ℤ), bil (a - h / 2) (F j) (G j) = 0 ∧ bil (a + h / 2) (F j) (G (j + 1)) = 0\n3\n",
+      "stderr": "",
+      "exit_code": 0,
+      "seconds": 17.940424200000052,
+      "artifact_sha256": "3b9838a6a273233a98a54040423f72f0fe16b581f9bb596da08cd783d2b2d1fa",
+      "artifact_companions": {
+        "StepUWStart.olean": "3b9838a6a273233a98a54040423f72f0fe16b581f9bb596da08cd783d2b2d1fa"
+      },
+      "runtime_identity": {
+        "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+        "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+        "toolchain": "leanprover/lean4:v4.34.0",
+        "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+        "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+        "lean_paths": [
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "source": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells\\StepUWStart.lean",
+      "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\lib\\lean\\StepUWStart.olean",
+      "command": [
+        "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+        "-R",
+        "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells",
+        "-o",
+        "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\lib\\lean\\StepUWStart.olean",
+        "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells\\StepUWStart.lean"
+      ],
+      "sha256": "661cda3ef07088396819f3f3bf9cc4b6c6cc8d3c77f6bbf9a904da65f5efe225",
+      "stdout": "def DLWContract.ReportUW.StartPoint : ℝ → ℝ → Lattice → Lattice → Prop :=\nfun a h F G => ∀ (j : ℤ), bil (a - h / 2) (F j) (G j) = 0 ∧ bil (a + h / 2) (F j) (G (j + 1)) = 0\nC:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\local_cache_d9fdef45975445dd98c7bd91791cdae0\\six_stages\\cells\\StepUWStart.lean:13:7: error(lean.unknownIdentifier): Unknown identifier `local_cache_missing_declaration`\n",
+      "stderr": "",
+      "exit_code": 1,
+      "seconds": 18.08408650000092,
+      "passed": false,
+      "error": "Lean failed for StepUWStart.lean (exit code 1)."
+    }
+  ],
+  "passed": true,
+  "helper_source_sha256": "812029ffa71f2ce67c24387e061f8975012de31f14e750620970c565fe7acdb7",
+  "helper_backup": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\before_localreuse_20261006_160533\\lean_notebook.py",
+  "main_cache_provenance": [
+    {
+      "module": "PkgLattice",
+      "key": "11a9253ee55909de480ba8c3ea6280451289d5f2c4f87a9efe99cec6485ba3e7",
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\11a9253ee55909de480ba8c3ea6280451289d5f2c4f87a9efe99cec6485ba3e7\\build_24cde95606df421a81998f2b548e03fa\\ready.json",
+      "method": "compiled_exact_sources",
+      "sources": {
+        "PkgLattice": {
+          "module": "PkgLattice",
+          "path": "PkgLattice.lean",
+          "sha256": "c28f849bac9607fef3bf0a9e104ff761daf60be4742d6d0884f83b86cf193f3f",
+          "imports": [
+            "Contracts",
+            "Mathlib.Analysis.Calculus.Deriv.Add",
+            "Mathlib.Analysis.Calculus.Deriv.Mul",
+            "Mathlib.Analysis.Calculus.Deriv.Pow",
+            "Mathlib.Analysis.Calculus.ContDiff.Deriv",
+            "Mathlib.Analysis.Calculus.ContDiff.Comp",
+            "Mathlib.Analysis.Calculus.ContDiff.Operations",
+            "Mathlib.Analysis.Calculus.FDeriv.Prod",
+            "Mathlib.Tactic"
+          ]
+        },
+        "Contracts": {
+          "module": "Contracts",
+          "path": "Contracts.lean",
+          "sha256": "e70876c538d52939b030e7813a6b1c60917a79e56e28b29146d22df8da98d656",
+          "imports": [
+            "Mathlib.Analysis.Calculus.ContDiff.Basic",
+            "Mathlib.Analysis.Calculus.Deriv.Basic",
+            "Mathlib.Analysis.SpecialFunctions.ExpDeriv",
+            "Mathlib.Analysis.SpecialFunctions.Log.Deriv",
+            "Mathlib.LinearAlgebra.Matrix.Determinant.Basic",
+            "Mathlib.Topology.Algebra.Order.Field"
+          ]
+        }
+      },
+      "artifacts": {
+        "PkgLattice.olean": "ade879ff670f37106ee4ed78341837b4c733a971dfee0e9a729bb0c985b234e0"
+      },
+      "evidence": {
+        "method": "compiled_exact_sources",
+        "compilation": {
+          "source": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\report_lean\\proofs\\PkgLattice.lean",
+          "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\report_lean\\proof-cache\\11a9253ee55909de480ba8c3ea6280451289d5f2c4f87a9efe99cec6485ba3e7\\build_24cde95606df421a81998f2b548e03fa\\lib\\lean\\PkgLattice.olean",
+          "command": [
+            "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+            "-R",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\report_lean\\proofs",
+            "-o",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\report_lean\\proof-cache\\11a9253ee55909de480ba8c3ea6280451289d5f2c4f87a9efe99cec6485ba3e7\\build_24cde95606df421a81998f2b548e03fa\\lib\\lean\\PkgLattice.olean",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\report_lean\\proofs\\PkgLattice.lean"
+          ],
+          "sha256": "c28f849bac9607fef3bf0a9e104ff761daf60be4742d6d0884f83b86cf193f3f",
+          "stdout": "",
+          "stderr": "",
+          "exit_code": 0,
+          "seconds": 18.788395100000344,
+          "artifact_sha256": "ade879ff670f37106ee4ed78341837b4c733a971dfee0e9a729bb0c985b234e0",
+          "artifact_companions": {
+            "PkgLattice.olean": "ade879ff670f37106ee4ed78341837b4c733a971dfee0e9a729bb0c985b234e0"
+          },
+          "runtime_identity": {
+            "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+            "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+            "toolchain": "leanprover/lean4:v4.34.0",
+            "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+            "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+            "lean_paths": [
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+            ]
+          },
+          "passed": true
+        }
+      }
+    },
+    {
+      "module": "Contracts",
+      "key": "618d0c44480ae6e82d7c2980ab033d39f38170579f8af7d65994e324fe784ec7",
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\618d0c44480ae6e82d7c2980ab033d39f38170579f8af7d65994e324fe784ec7\\build_a5f024408469453da695fd35ed5ae894\\ready.json",
+      "method": "compiled_exact_sources",
+      "sources": {
+        "Contracts": {
+          "module": "Contracts",
+          "path": "Contracts.lean",
+          "sha256": "e70876c538d52939b030e7813a6b1c60917a79e56e28b29146d22df8da98d656",
+          "imports": [
+            "Mathlib.Analysis.Calculus.ContDiff.Basic",
+            "Mathlib.Analysis.Calculus.Deriv.Basic",
+            "Mathlib.Analysis.SpecialFunctions.ExpDeriv",
+            "Mathlib.Analysis.SpecialFunctions.Log.Deriv",
+            "Mathlib.LinearAlgebra.Matrix.Determinant.Basic",
+            "Mathlib.Topology.Algebra.Order.Field"
+          ]
+        }
+      },
+      "artifacts": {
+        "Contracts.olean": "fe00ee37ef1fdcd4c76d1b1db1c1bcb6558cd3bc8c3750cd5e282bd643765787"
+      },
+      "evidence": {
+        "method": "compiled_exact_sources",
+        "compilation": {
+          "source": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\report_lean\\proofs\\Contracts.lean",
+          "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\report_lean\\proof-cache\\618d0c44480ae6e82d7c2980ab033d39f38170579f8af7d65994e324fe784ec7\\build_a5f024408469453da695fd35ed5ae894\\lib\\lean\\Contracts.olean",
+          "command": [
+            "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+            "-R",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\report_lean\\proofs",
+            "-o",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\report_lean\\proof-cache\\618d0c44480ae6e82d7c2980ab033d39f38170579f8af7d65994e324fe784ec7\\build_a5f024408469453da695fd35ed5ae894\\lib\\lean\\Contracts.olean",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\report_lean\\proofs\\Contracts.lean"
+          ],
+          "sha256": "e70876c538d52939b030e7813a6b1c60917a79e56e28b29146d22df8da98d656",
+          "stdout": "",
+          "stderr": "",
+          "exit_code": 0,
+          "seconds": 43.2346366999991,
+          "artifact_sha256": "fe00ee37ef1fdcd4c76d1b1db1c1bcb6558cd3bc8c3750cd5e282bd643765787",
+          "artifact_companions": {
+            "Contracts.olean": "fe00ee37ef1fdcd4c76d1b1db1c1bcb6558cd3bc8c3750cd5e282bd643765787"
+          },
+          "runtime_identity": {
+            "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+            "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+            "toolchain": "leanprover/lean4:v4.34.0",
+            "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+            "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+            "lean_paths": [
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+            ]
+          },
+          "passed": true
+        }
+      }
+    },
+    {
+      "module": "ReportNonlinearUW",
+      "key": "73492590c23f7b9c3b3c76ed953badd070f733e8ab80c951d72552280f8b3844",
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\73492590c23f7b9c3b3c76ed953badd070f733e8ab80c951d72552280f8b3844\\build_a452544a33534b06b89225060451b865\\ready.json",
+      "method": "compiled_exact_sources",
+      "sources": {
+        "ReportNonlinearUW": {
+          "module": "ReportNonlinearUW",
+          "path": "ReportNonlinearUW.lean",
+          "sha256": "413d45c48b64d5dc1214c7931e1581b3e1a8c49d3c81132289aba387b5c67975",
+          "imports": [
+            "PkgNonlinear",
+            "PkgLattice"
+          ]
+        },
+        "PkgNonlinear": {
+          "module": "PkgNonlinear",
+          "path": "PkgNonlinear.lean",
+          "sha256": "58ee97d70c67417c428a4b4c67e94525f7408ea0fde65b532913a3682e68d284",
+          "imports": [
+            "Contracts",
+            "Mathlib.Analysis.Calculus.ContDiff.Operations",
+            "Mathlib.Analysis.Calculus.ContDiff.Deriv",
+            "Mathlib.Analysis.Calculus.ContDiff.Comp",
+            "Mathlib.Analysis.Calculus.Deriv.Mul",
+            "Mathlib.Analysis.Calculus.Deriv.Add",
+            "Mathlib.Analysis.Calculus.Deriv.Pow",
+            "Mathlib.Analysis.Calculus.Deriv.Inv",
+            "Mathlib.Analysis.Calculus.FDeriv.Symmetric",
+            "Mathlib.Analysis.Calculus.FDeriv.Linear",
+            "Mathlib.Analysis.Calculus.ContDiff.FTaylorSeries",
+            "Mathlib.Analysis.Normed.Operator.Bilinear",
+            "Mathlib.Analysis.SpecialFunctions.Log.Deriv",
+            "Mathlib.Tactic"
+          ]
+        },
+        "Contracts": {
+          "module": "Contracts",
+          "path": "Contracts.lean",
+          "sha256": "e70876c538d52939b030e7813a6b1c60917a79e56e28b29146d22df8da98d656",
+          "imports": [
+            "Mathlib.Analysis.Calculus.ContDiff.Basic",
+            "Mathlib.Analysis.Calculus.Deriv.Basic",
+            "Mathlib.Analysis.SpecialFunctions.ExpDeriv",
+            "Mathlib.Analysis.SpecialFunctions.Log.Deriv",
+            "Mathlib.LinearAlgebra.Matrix.Determinant.Basic",
+            "Mathlib.Topology.Algebra.Order.Field"
+          ]
+        },
+        "PkgLattice": {
+          "module": "PkgLattice",
+          "path": "PkgLattice.lean",
+          "sha256": "c28f849bac9607fef3bf0a9e104ff761daf60be4742d6d0884f83b86cf193f3f",
+          "imports": [
+            "Contracts",
+            "Mathlib.Analysis.Calculus.Deriv.Add",
+            "Mathlib.Analysis.Calculus.Deriv.Mul",
+            "Mathlib.Analysis.Calculus.Deriv.Pow",
+            "Mathlib.Analysis.Calculus.ContDiff.Deriv",
+            "Mathlib.Analysis.Calculus.ContDiff.Comp",
+            "Mathlib.Analysis.Calculus.ContDiff.Operations",
+            "Mathlib.Analysis.Calculus.FDeriv.Prod",
+            "Mathlib.Tactic"
+          ]
+        }
+      },
+      "artifacts": {
+        "ReportNonlinearUW.olean": "e1eda7b7a4cb5990867d30f1ecc1395cb4e288bd272256cf0994004c7db7f433"
+      },
+      "evidence": {
+        "method": "compiled_exact_sources",
+        "compilation": {
+          "source": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\report_lean\\proofs\\ReportNonlinearUW.lean",
+          "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\report_lean\\proof-cache\\73492590c23f7b9c3b3c76ed953badd070f733e8ab80c951d72552280f8b3844\\build_a452544a33534b06b89225060451b865\\lib\\lean\\ReportNonlinearUW.olean",
+          "command": [
+            "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+            "-R",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\report_lean\\proofs",
+            "-o",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\report_lean\\proof-cache\\73492590c23f7b9c3b3c76ed953badd070f733e8ab80c951d72552280f8b3844\\build_a452544a33534b06b89225060451b865\\lib\\lean\\ReportNonlinearUW.olean",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\report_lean\\proofs\\ReportNonlinearUW.lean"
+          ],
+          "sha256": "413d45c48b64d5dc1214c7931e1581b3e1a8c49d3c81132289aba387b5c67975",
+          "stdout": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\report_lean\\proofs\\ReportNonlinearUW.lean:79:49: warning: This simp argument is unused:\n  Pi.mul_apply\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [fluxUW, Pi.add_apply, Pi.sub_apply, Pi.pow_apply, Pi.div_apply, Pi.ofNat_apply, Pi.smul_apply,\n    smul_eq_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n'DLWContract.ReportUW.physical_v' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DLWContract.ReportUW.first_spatial_bridge' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DLWContract.ReportUW.reportN1_eq_n1' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DLWContract.ReportUW.omega_conservation_bridge' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DLWContract.ReportUW.semiPair_implies_report7' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DLWContract.ReportUW.semiPair_implies_report8' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+          "stderr": "",
+          "exit_code": 0,
+          "seconds": 17.082268000000113,
+          "artifact_sha256": "e1eda7b7a4cb5990867d30f1ecc1395cb4e288bd272256cf0994004c7db7f433",
+          "artifact_companions": {
+            "ReportNonlinearUW.olean": "e1eda7b7a4cb5990867d30f1ecc1395cb4e288bd272256cf0994004c7db7f433"
+          },
+          "runtime_identity": {
+            "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+            "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+            "toolchain": "leanprover/lean4:v4.34.0",
+            "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+            "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+            "lean_paths": [
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+            ]
+          },
+          "passed": true
+        }
+      }
+    },
+    {
+      "module": "PkgNonlinear",
+      "key": "87162114fa5cff4a340cee62acc5a0c73241d696125293a3cdc00ebc7d28bc79",
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\87162114fa5cff4a340cee62acc5a0c73241d696125293a3cdc00ebc7d28bc79\\build_ff890ddecc774749940f59a8227cd86b\\ready.json",
+      "method": "compiled_exact_sources",
+      "sources": {
+        "PkgNonlinear": {
+          "module": "PkgNonlinear",
+          "path": "PkgNonlinear.lean",
+          "sha256": "58ee97d70c67417c428a4b4c67e94525f7408ea0fde65b532913a3682e68d284",
+          "imports": [
+            "Contracts",
+            "Mathlib.Analysis.Calculus.ContDiff.Operations",
+            "Mathlib.Analysis.Calculus.ContDiff.Deriv",
+            "Mathlib.Analysis.Calculus.ContDiff.Comp",
+            "Mathlib.Analysis.Calculus.Deriv.Mul",
+            "Mathlib.Analysis.Calculus.Deriv.Add",
+            "Mathlib.Analysis.Calculus.Deriv.Pow",
+            "Mathlib.Analysis.Calculus.Deriv.Inv",
+            "Mathlib.Analysis.Calculus.FDeriv.Symmetric",
+            "Mathlib.Analysis.Calculus.FDeriv.Linear",
+            "Mathlib.Analysis.Calculus.ContDiff.FTaylorSeries",
+            "Mathlib.Analysis.Normed.Operator.Bilinear",
+            "Mathlib.Analysis.SpecialFunctions.Log.Deriv",
+            "Mathlib.Tactic"
+          ]
+        },
+        "Contracts": {
+          "module": "Contracts",
+          "path": "Contracts.lean",
+          "sha256": "e70876c538d52939b030e7813a6b1c60917a79e56e28b29146d22df8da98d656",
+          "imports": [
+            "Mathlib.Analysis.Calculus.ContDiff.Basic",
+            "Mathlib.Analysis.Calculus.Deriv.Basic",
+            "Mathlib.Analysis.SpecialFunctions.ExpDeriv",
+            "Mathlib.Analysis.SpecialFunctions.Log.Deriv",
+            "Mathlib.LinearAlgebra.Matrix.Determinant.Basic",
+            "Mathlib.Topology.Algebra.Order.Field"
+          ]
+        }
+      },
+      "artifacts": {
+        "PkgNonlinear.olean": "fccdf74bbe0ebbe8dad0ed837576b30e62a45d078159b8d1c3e568f1bf9d28de"
+      },
+      "evidence": {
+        "method": "compiled_exact_sources",
+        "compilation": {
+          "source": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\report_lean\\proofs\\PkgNonlinear.lean",
+          "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\report_lean\\proof-cache\\87162114fa5cff4a340cee62acc5a0c73241d696125293a3cdc00ebc7d28bc79\\build_ff890ddecc774749940f59a8227cd86b\\lib\\lean\\PkgNonlinear.olean",
+          "command": [
+            "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+            "-R",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\report_lean\\proofs",
+            "-o",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\report_lean\\proof-cache\\87162114fa5cff4a340cee62acc5a0c73241d696125293a3cdc00ebc7d28bc79\\build_ff890ddecc774749940f59a8227cd86b\\lib\\lean\\PkgNonlinear.olean",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\report_lean\\proofs\\PkgNonlinear.lean"
+          ],
+          "sha256": "58ee97d70c67417c428a4b4c67e94525f7408ea0fde65b532913a3682e68d284",
+          "stdout": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\report_lean\\proofs\\PkgNonlinear.lean:803:19: warning: Variable name `α` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _α\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\nC:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\report_lean\\proofs\\PkgNonlinear.lean:819:34: warning: Variable name `hα` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _hα\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\nC:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\report_lean\\proofs\\PkgNonlinear.lean:824:34: warning: Variable name `hα` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _hα\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\nC:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\report_lean\\proofs\\PkgNonlinear.lean:829:34: warning: Variable name `hα` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _hα\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\nC:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\report_lean\\proofs\\PkgNonlinear.lean:854:41: warning: This simp argument is unused:\n  Pi.mul_apply\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [Pi.add_apply, Pi.sub_apply, Pi.pow_apply, Pi.smul_apply, Pi.ofNat_apply, smul_eq_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nC:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\report_lean\\proofs\\PkgNonlinear.lean:855:4: warning: This simp argument is unused:\n  Pi.ofNat_apply\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [Pi.add_apply, Pi.sub_apply, Pi.mul_apply, Pi.pow_apply, Pi.smul_apply, smul_eq_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nC:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\report_lean\\proofs\\PkgNonlinear.lean:978:41: warning: This simp argument is unused:\n  Pi.mul_apply\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [Pi.add_apply, Pi.sub_apply, Pi.pow_apply, Pi.smul_apply, Pi.ofNat_apply, Pi.div_apply, smul_eq_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nC:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\report_lean\\proofs\\PkgNonlinear.lean:1040:37: warning: Variable name `hF` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _hF\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\nC:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\report_lean\\proofs\\PkgNonlinear.lean:1040:61: warning: Variable name `hFp` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _hFp\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\nC:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\report_lean\\proofs\\PkgNonlinear.lean:1079:38: warning: Variable name `hF` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _hF\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\nC:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\report_lean\\proofs\\PkgNonlinear.lean:1079:62: warning: Variable name `hFp` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _hFp\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\nC:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\report_lean\\proofs\\PkgNonlinear.lean:1258:55: warning: This simp argument is unused:\n  Pi.smul_apply\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [Pi.add_apply, Pi.sub_apply, Pi.mul_apply, Pi.zero_apply]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n'DLWContract.c14_proved' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DLWContract.c15_proved' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+          "stderr": "",
+          "exit_code": 0,
+          "seconds": 36.36536680000063,
+          "artifact_sha256": "fccdf74bbe0ebbe8dad0ed837576b30e62a45d078159b8d1c3e568f1bf9d28de",
+          "artifact_companions": {
+            "PkgNonlinear.olean": "fccdf74bbe0ebbe8dad0ed837576b30e62a45d078159b8d1c3e568f1bf9d28de"
+          },
+          "runtime_identity": {
+            "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+            "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+            "toolchain": "leanprover/lean4:v4.34.0",
+            "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+            "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+            "lean_paths": [
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+            ]
+          },
+          "passed": true
+        }
+      }
+    },
+    {
+      "module": "ReportQRMCalculus",
+      "key": "a56876de9c80569e1f10d47c97af0c13bf39433197258350b085ea6c80038cd9",
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\a56876de9c80569e1f10d47c97af0c13bf39433197258350b085ea6c80038cd9\\build_8cf28e04e5f94adca5ff783bbc7ea649\\ready.json",
+      "method": "validated_previous_run",
+      "sources": {
+        "ReportQRMCalculus": {
+          "module": "ReportQRMCalculus",
+          "path": "ReportQRMCalculus.lean",
+          "sha256": "874992d19778987c5810d010381f235b0494820bce878580489209ff9373aacd",
+          "imports": [
+            "PkgLattice",
+            "PkgQuotientRate",
+            "Mathlib.Analysis.SpecialFunctions.ExpDeriv",
+            "Mathlib.Analysis.Calculus.Deriv.Inv",
+            "Mathlib.Tactic"
+          ]
+        },
+        "PkgLattice": {
+          "module": "PkgLattice",
+          "path": "PkgLattice.lean",
+          "sha256": "c28f849bac9607fef3bf0a9e104ff761daf60be4742d6d0884f83b86cf193f3f",
+          "imports": [
+            "Contracts",
+            "Mathlib.Analysis.Calculus.Deriv.Add",
+            "Mathlib.Analysis.Calculus.Deriv.Mul",
+            "Mathlib.Analysis.Calculus.Deriv.Pow",
+            "Mathlib.Analysis.Calculus.ContDiff.Deriv",
+            "Mathlib.Analysis.Calculus.ContDiff.Comp",
+            "Mathlib.Analysis.Calculus.ContDiff.Operations",
+            "Mathlib.Analysis.Calculus.FDeriv.Prod",
+            "Mathlib.Tactic"
+          ]
+        },
+        "Contracts": {
+          "module": "Contracts",
+          "path": "Contracts.lean",
+          "sha256": "e70876c538d52939b030e7813a6b1c60917a79e56e28b29146d22df8da98d656",
+          "imports": [
+            "Mathlib.Analysis.Calculus.ContDiff.Basic",
+            "Mathlib.Analysis.Calculus.Deriv.Basic",
+            "Mathlib.Analysis.SpecialFunctions.ExpDeriv",
+            "Mathlib.Analysis.SpecialFunctions.Log.Deriv",
+            "Mathlib.LinearAlgebra.Matrix.Determinant.Basic",
+            "Mathlib.Topology.Algebra.Order.Field"
+          ]
+        },
+        "PkgQuotientRate": {
+          "module": "PkgQuotientRate",
+          "path": "PkgQuotientRate.lean",
+          "sha256": "0e46edfe575e80fac40682c21fb07de62673570b0a2b4ca9e4fb4c7e425f011a",
+          "imports": [
+            "Contracts",
+            "Mathlib.Analysis.Calculus.ContDiff.Operations",
+            "Mathlib.Analysis.Calculus.ContDiff.Deriv",
+            "Mathlib.Analysis.Calculus.Deriv.MeanValue",
+            "Mathlib.Analysis.Calculus.Deriv.Inv",
+            "Mathlib.Analysis.Calculus.Deriv.Mul",
+            "Mathlib.Analysis.Calculus.Deriv.Add",
+            "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+            "Mathlib.Tactic"
+          ]
+        }
+      },
+      "artifacts": {
+        "ReportQRMCalculus.olean": "aaa7e566c9d473cac9fa082663d3381766ee91f01e635cf1c961e693facb9cae"
+      },
+      "evidence": {
+        "method": "validated_previous_run",
+        "history": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\20261006_152913_1cc743bc\\history.json",
+        "history_sha256": "61e096e082240d3e334e7a33f79d2bf2657e7339a20bdcc30342f72e7e50d6c8",
+        "source_record": {
+          "source": "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\proofs\\ReportQRMCalculus.lean",
+          "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\runs\\20261006_152913_1cc743bc\\proof-lib\\lean\\ReportQRMCalculus.olean",
+          "command": [
+            "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+            "-R",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\proofs",
+            "-o",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\runs\\20261006_152913_1cc743bc\\proof-lib\\lean\\ReportQRMCalculus.olean",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\proofs\\ReportQRMCalculus.lean"
+          ],
+          "sha256": "874992d19778987c5810d010381f235b0494820bce878580489209ff9373aacd",
+          "stdout": "",
+          "stderr": "",
+          "exit_code": 0,
+          "seconds": 22.42455399999926,
+          "passed": true
+        },
+        "copied_artifact_sha256": {
+          "ReportQRMCalculus.olean": "aaa7e566c9d473cac9fa082663d3381766ee91f01e635cf1c961e693facb9cae"
+        },
+        "compatibility_check": {
+          "source": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\a56876de9c80569e1f10d47c97af0c13bf39433197258350b085ea6c80038cd9\\build_8cf28e04e5f94adca5ff783bbc7ea649\\SeedCompatibility.lean",
+          "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\a56876de9c80569e1f10d47c97af0c13bf39433197258350b085ea6c80038cd9\\build_8cf28e04e5f94adca5ff783bbc7ea649\\check\\SeedCompatibility.olean",
+          "command": [
+            "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+            "-R",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\a56876de9c80569e1f10d47c97af0c13bf39433197258350b085ea6c80038cd9\\build_8cf28e04e5f94adca5ff783bbc7ea649",
+            "-o",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\a56876de9c80569e1f10d47c97af0c13bf39433197258350b085ea6c80038cd9\\build_8cf28e04e5f94adca5ff783bbc7ea649\\check\\SeedCompatibility.olean",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\a56876de9c80569e1f10d47c97af0c13bf39433197258350b085ea6c80038cd9\\build_8cf28e04e5f94adca5ff783bbc7ea649\\SeedCompatibility.lean"
+          ],
+          "sha256": "14eb5e599d4284e7f551b9cf63eadc184ba0090fc48135d9dbdb94e57720b2b0",
+          "stdout": "",
+          "stderr": "",
+          "exit_code": 0,
+          "seconds": 15.788861400000314,
+          "artifact_sha256": "72614ac510557d32c34e5a00fa74737fecfa4837e2d424527d337952b57b50c7",
+          "artifact_companions": {
+            "SeedCompatibility.olean": "72614ac510557d32c34e5a00fa74737fecfa4837e2d424527d337952b57b50c7"
+          },
+          "runtime_identity": {
+            "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+            "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+            "toolchain": "leanprover/lean4:v4.34.0",
+            "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+            "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+            "lean_paths": [
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+            ]
+          },
+          "passed": true,
+          "purpose": "seed artifact import compatibility check"
+        }
+      }
+    },
+    {
+      "module": "PkgQuotientRate",
+      "key": "bcbc1f8687616cd047a2caa504da5477660ba79c72ef5d5e64d61692550355c6",
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\bcbc1f8687616cd047a2caa504da5477660ba79c72ef5d5e64d61692550355c6\\build_dbe7149bd3994945b0444eb421b9fcb7\\ready.json",
+      "method": "validated_previous_run",
+      "sources": {
+        "PkgQuotientRate": {
+          "module": "PkgQuotientRate",
+          "path": "PkgQuotientRate.lean",
+          "sha256": "0e46edfe575e80fac40682c21fb07de62673570b0a2b4ca9e4fb4c7e425f011a",
+          "imports": [
+            "Contracts",
+            "Mathlib.Analysis.Calculus.ContDiff.Operations",
+            "Mathlib.Analysis.Calculus.ContDiff.Deriv",
+            "Mathlib.Analysis.Calculus.Deriv.MeanValue",
+            "Mathlib.Analysis.Calculus.Deriv.Inv",
+            "Mathlib.Analysis.Calculus.Deriv.Mul",
+            "Mathlib.Analysis.Calculus.Deriv.Add",
+            "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+            "Mathlib.Tactic"
+          ]
+        },
+        "Contracts": {
+          "module": "Contracts",
+          "path": "Contracts.lean",
+          "sha256": "e70876c538d52939b030e7813a6b1c60917a79e56e28b29146d22df8da98d656",
+          "imports": [
+            "Mathlib.Analysis.Calculus.ContDiff.Basic",
+            "Mathlib.Analysis.Calculus.Deriv.Basic",
+            "Mathlib.Analysis.SpecialFunctions.ExpDeriv",
+            "Mathlib.Analysis.SpecialFunctions.Log.Deriv",
+            "Mathlib.LinearAlgebra.Matrix.Determinant.Basic",
+            "Mathlib.Topology.Algebra.Order.Field"
+          ]
+        }
+      },
+      "artifacts": {
+        "PkgQuotientRate.olean": "8fd259d5bb82432b5731e6482446e1c47e455565168d771a8268dd974791a2b1"
+      },
+      "evidence": {
+        "method": "validated_previous_run",
+        "history": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\20261006_152913_1cc743bc\\history.json",
+        "history_sha256": "61e096e082240d3e334e7a33f79d2bf2657e7339a20bdcc30342f72e7e50d6c8",
+        "source_record": {
+          "source": "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\proofs\\PkgQuotientRate.lean",
+          "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\runs\\20261006_152913_1cc743bc\\proof-lib\\lean\\PkgQuotientRate.olean",
+          "command": [
+            "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+            "-R",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\proofs",
+            "-o",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\runs\\20261006_152913_1cc743bc\\proof-lib\\lean\\PkgQuotientRate.olean",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\proofs\\PkgQuotientRate.lean"
+          ],
+          "sha256": "0e46edfe575e80fac40682c21fb07de62673570b0a2b4ca9e4fb4c7e425f011a",
+          "stdout": "",
+          "stderr": "",
+          "exit_code": 0,
+          "seconds": 31.599254499999006,
+          "passed": true
+        },
+        "copied_artifact_sha256": {
+          "PkgQuotientRate.olean": "8fd259d5bb82432b5731e6482446e1c47e455565168d771a8268dd974791a2b1"
+        },
+        "compatibility_check": {
+          "source": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\bcbc1f8687616cd047a2caa504da5477660ba79c72ef5d5e64d61692550355c6\\build_dbe7149bd3994945b0444eb421b9fcb7\\SeedCompatibility.lean",
+          "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\bcbc1f8687616cd047a2caa504da5477660ba79c72ef5d5e64d61692550355c6\\build_dbe7149bd3994945b0444eb421b9fcb7\\check\\SeedCompatibility.olean",
+          "command": [
+            "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+            "-R",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\bcbc1f8687616cd047a2caa504da5477660ba79c72ef5d5e64d61692550355c6\\build_dbe7149bd3994945b0444eb421b9fcb7",
+            "-o",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\bcbc1f8687616cd047a2caa504da5477660ba79c72ef5d5e64d61692550355c6\\build_dbe7149bd3994945b0444eb421b9fcb7\\check\\SeedCompatibility.olean",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\bcbc1f8687616cd047a2caa504da5477660ba79c72ef5d5e64d61692550355c6\\build_dbe7149bd3994945b0444eb421b9fcb7\\SeedCompatibility.lean"
+          ],
+          "sha256": "ddea3e016aa672385d9254da6670ccc904d30dca5af83db4946c7f7350f54a94",
+          "stdout": "",
+          "stderr": "",
+          "exit_code": 0,
+          "seconds": 15.915377999999691,
+          "artifact_sha256": "f26953bc3ebba8ea967f81824e563ce8ab9f2e8623fa3ae95a1afcca6fc71499",
+          "artifact_companions": {
+            "SeedCompatibility.olean": "f26953bc3ebba8ea967f81824e563ce8ab9f2e8623fa3ae95a1afcca6fc71499"
+          },
+          "runtime_identity": {
+            "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+            "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+            "toolchain": "leanprover/lean4:v4.34.0",
+            "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+            "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+            "lean_paths": [
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+            ]
+          },
+          "passed": true,
+          "purpose": "seed artifact import compatibility check"
+        }
+      }
+    },
+    {
+      "module": "ReportNonlinearQRM",
+      "key": "ce24a9d94bf2f58b2653e04c6651aa8189a60d1004a1e185fca39f09b282707e",
+      "manifest": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\ce24a9d94bf2f58b2653e04c6651aa8189a60d1004a1e185fca39f09b282707e\\build_de1845d2cccd45dcaa1345e8f1559a2e\\ready.json",
+      "method": "validated_previous_run",
+      "sources": {
+        "ReportNonlinearQRM": {
+          "module": "ReportNonlinearQRM",
+          "path": "ReportNonlinearQRM.lean",
+          "sha256": "ed1d1b6473c3567ec27f5a15969d02579c114475cd1d8c3239d5b956d03d4804",
+          "imports": [
+            "ReportQRMCalculus",
+            "ReportNonlinearUW"
+          ]
+        },
+        "ReportQRMCalculus": {
+          "module": "ReportQRMCalculus",
+          "path": "ReportQRMCalculus.lean",
+          "sha256": "874992d19778987c5810d010381f235b0494820bce878580489209ff9373aacd",
+          "imports": [
+            "PkgLattice",
+            "PkgQuotientRate",
+            "Mathlib.Analysis.SpecialFunctions.ExpDeriv",
+            "Mathlib.Analysis.Calculus.Deriv.Inv",
+            "Mathlib.Tactic"
+          ]
+        },
+        "PkgLattice": {
+          "module": "PkgLattice",
+          "path": "PkgLattice.lean",
+          "sha256": "c28f849bac9607fef3bf0a9e104ff761daf60be4742d6d0884f83b86cf193f3f",
+          "imports": [
+            "Contracts",
+            "Mathlib.Analysis.Calculus.Deriv.Add",
+            "Mathlib.Analysis.Calculus.Deriv.Mul",
+            "Mathlib.Analysis.Calculus.Deriv.Pow",
+            "Mathlib.Analysis.Calculus.ContDiff.Deriv",
+            "Mathlib.Analysis.Calculus.ContDiff.Comp",
+            "Mathlib.Analysis.Calculus.ContDiff.Operations",
+            "Mathlib.Analysis.Calculus.FDeriv.Prod",
+            "Mathlib.Tactic"
+          ]
+        },
+        "Contracts": {
+          "module": "Contracts",
+          "path": "Contracts.lean",
+          "sha256": "e70876c538d52939b030e7813a6b1c60917a79e56e28b29146d22df8da98d656",
+          "imports": [
+            "Mathlib.Analysis.Calculus.ContDiff.Basic",
+            "Mathlib.Analysis.Calculus.Deriv.Basic",
+            "Mathlib.Analysis.SpecialFunctions.ExpDeriv",
+            "Mathlib.Analysis.SpecialFunctions.Log.Deriv",
+            "Mathlib.LinearAlgebra.Matrix.Determinant.Basic",
+            "Mathlib.Topology.Algebra.Order.Field"
+          ]
+        },
+        "PkgQuotientRate": {
+          "module": "PkgQuotientRate",
+          "path": "PkgQuotientRate.lean",
+          "sha256": "0e46edfe575e80fac40682c21fb07de62673570b0a2b4ca9e4fb4c7e425f011a",
+          "imports": [
+            "Contracts",
+            "Mathlib.Analysis.Calculus.ContDiff.Operations",
+            "Mathlib.Analysis.Calculus.ContDiff.Deriv",
+            "Mathlib.Analysis.Calculus.Deriv.MeanValue",
+            "Mathlib.Analysis.Calculus.Deriv.Inv",
+            "Mathlib.Analysis.Calculus.Deriv.Mul",
+            "Mathlib.Analysis.Calculus.Deriv.Add",
+            "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+            "Mathlib.Tactic"
+          ]
+        },
+        "ReportNonlinearUW": {
+          "module": "ReportNonlinearUW",
+          "path": "ReportNonlinearUW.lean",
+          "sha256": "413d45c48b64d5dc1214c7931e1581b3e1a8c49d3c81132289aba387b5c67975",
+          "imports": [
+            "PkgNonlinear",
+            "PkgLattice"
+          ]
+        },
+        "PkgNonlinear": {
+          "module": "PkgNonlinear",
+          "path": "PkgNonlinear.lean",
+          "sha256": "58ee97d70c67417c428a4b4c67e94525f7408ea0fde65b532913a3682e68d284",
+          "imports": [
+            "Contracts",
+            "Mathlib.Analysis.Calculus.ContDiff.Operations",
+            "Mathlib.Analysis.Calculus.ContDiff.Deriv",
+            "Mathlib.Analysis.Calculus.ContDiff.Comp",
+            "Mathlib.Analysis.Calculus.Deriv.Mul",
+            "Mathlib.Analysis.Calculus.Deriv.Add",
+            "Mathlib.Analysis.Calculus.Deriv.Pow",
+            "Mathlib.Analysis.Calculus.Deriv.Inv",
+            "Mathlib.Analysis.Calculus.FDeriv.Symmetric",
+            "Mathlib.Analysis.Calculus.FDeriv.Linear",
+            "Mathlib.Analysis.Calculus.ContDiff.FTaylorSeries",
+            "Mathlib.Analysis.Normed.Operator.Bilinear",
+            "Mathlib.Analysis.SpecialFunctions.Log.Deriv",
+            "Mathlib.Tactic"
+          ]
+        }
+      },
+      "artifacts": {
+        "ReportNonlinearQRM.olean": "ef39b4adc70a715e8180ea1bcd7234065fb750ee3261ca06ec2e6c77059e847d"
+      },
+      "evidence": {
+        "method": "validated_previous_run",
+        "history": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_validation_runs\\20261006_152913_1cc743bc\\history.json",
+        "history_sha256": "61e096e082240d3e334e7a33f79d2bf2657e7339a20bdcc30342f72e7e50d6c8",
+        "source_record": {
+          "source": "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\proofs\\ReportNonlinearQRM.lean",
+          "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\runs\\20261006_152913_1cc743bc\\proof-lib\\lean\\ReportNonlinearQRM.olean",
+          "command": [
+            "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+            "-R",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\proofs",
+            "-o",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\runs\\20261006_152913_1cc743bc\\proof-lib\\lean\\ReportNonlinearQRM.olean",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\proofs\\ReportNonlinearQRM.lean"
+          ],
+          "sha256": "ed1d1b6473c3567ec27f5a15969d02579c114475cd1d8c3239d5b956d03d4804",
+          "stdout": "C:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\proofs\\ReportNonlinearQRM.lean:18:17: warning: Variable name `a` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _a\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\nC:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\proofs\\ReportNonlinearQRM.lean:34:60: warning: Variable name `j` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _j\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\nC:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\proofs\\ReportNonlinearQRM.lean:34:62: warning: Variable name `x` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _x\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\nC:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\proofs\\ReportNonlinearQRM.lean:34:64: warning: Variable name `t` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _t\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\nC:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\proofs\\ReportNonlinearQRM.lean:85:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\nC:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\proofs\\ReportNonlinearQRM.lean:126:41: warning: This simp argument is unused:\n  Pi.mul_apply\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [Pi.add_apply, Pi.sub_apply, Pi.pow_apply, Pi.smul_apply, smul_eq_mul, Sh, lx, lt, lxx, xx, Q]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nC:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\proofs\\ReportNonlinearQRM.lean:155:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\nC:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\proofs\\ReportNonlinearQRM.lean:164:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\nC:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\proofs\\ReportNonlinearQRM.lean:173:6: warning: Unused tactic linter: `ring` does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\nC:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\proofs\\ReportNonlinearQRM.lean:173:6: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\nC:\\Users\\msz\\aca\\Workspaces\\report_notebook_20261002\\lean_material\\proofs\\ReportNonlinearQRM.lean:238:64: warning: This simp argument is unused:\n  Pi.mul_apply\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [ReportUW.omega, omega, Pi.add_apply, Pi.sub_apply, Pi.zero_apply, Pi.smul_apply, smul_eq_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n'DLWContract.ReportQRM.Q_residual_identity' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DLWContract.ReportQRM.product_residual_split' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DLWContract.ReportQRM.semiPair_implies_report21' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DLWContract.ReportQRM.report22' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+          "stderr": "",
+          "exit_code": 0,
+          "seconds": 23.31760740000027,
+          "passed": true
+        },
+        "copied_artifact_sha256": {
+          "ReportNonlinearQRM.olean": "ef39b4adc70a715e8180ea1bcd7234065fb750ee3261ca06ec2e6c77059e847d"
+        },
+        "compatibility_check": {
+          "source": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\ce24a9d94bf2f58b2653e04c6651aa8189a60d1004a1e185fca39f09b282707e\\build_de1845d2cccd45dcaa1345e8f1559a2e\\SeedCompatibility.lean",
+          "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\ce24a9d94bf2f58b2653e04c6651aa8189a60d1004a1e185fca39f09b282707e\\build_de1845d2cccd45dcaa1345e8f1559a2e\\check\\SeedCompatibility.olean",
+          "command": [
+            "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+            "-R",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\ce24a9d94bf2f58b2653e04c6651aa8189a60d1004a1e185fca39f09b282707e\\build_de1845d2cccd45dcaa1345e8f1559a2e",
+            "-o",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\ce24a9d94bf2f58b2653e04c6651aa8189a60d1004a1e185fca39f09b282707e\\build_de1845d2cccd45dcaa1345e8f1559a2e\\check\\SeedCompatibility.olean",
+            "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\ce24a9d94bf2f58b2653e04c6651aa8189a60d1004a1e185fca39f09b282707e\\build_de1845d2cccd45dcaa1345e8f1559a2e\\SeedCompatibility.lean"
+          ],
+          "sha256": "e9fdd3fa382217aed06381a9bd395c2e76c65c1a62cea3d1fddc51cf4ebed372",
+          "stdout": "",
+          "stderr": "",
+          "exit_code": 0,
+          "seconds": 15.221498499999143,
+          "artifact_sha256": "055429456f3115f8b9e5f7c7866217b6f613d09c04b115f5ec628d7d735ad778",
+          "artifact_companions": {
+            "SeedCompatibility.olean": "055429456f3115f8b9e5f7c7866217b6f613d09c04b115f5ec628d7d735ad778"
+          },
+          "runtime_identity": {
+            "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+            "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+            "toolchain": "leanprover/lean4:v4.34.0",
+            "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+            "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+            "lean_paths": [
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+              "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+            ]
+          },
+          "passed": true,
+          "purpose": "seed artifact import compatibility check"
+        }
+      }
+    }
+  ],
+  "seed_chronology_hardening": {
+    "passed": true,
+    "helper_source_sha256": "3fa3a905372823a10b3f36bd2816c4f1fc89fcd2db8dd074340dc80eba273313",
+    "report": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\lean_seed_chronology_validation.json",
+    "guards": [
+      "matching old sources and preceding dependencies seed actual artifacts",
+      "later dependency build cannot seed an earlier dependent compiled from different source",
+      "all three actual notebook seed histories pass recursive compile-time dependency audit"
+    ]
+  }
+}

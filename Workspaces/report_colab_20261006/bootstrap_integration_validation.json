@@ -1,0 +1,96 @@
+{
+  "success": true,
+  "notebook_sha256": "8e88b80f751e202fbc30964d70b3da195863a134f53d9042c9006d46a801594d",
+  "full_run_notebook_backup": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\before_final_bootstrap\\Report.full-run.ipynb",
+  "full_run_notebook_sha256": "38528807e1f62a9820374eecba1fc125210e7c1f4016ae4a1114957bc2ee85fe",
+  "original_bootstrap_sha256": "52f9341c11551cd62371849decc4d3d72da8add429c26ffac89c937473e41a35",
+  "final_bootstrap_sha256": "04389a5cc27606a0492d1f4adfdda1d4ef067adb345f9f401077ce2c579dd92d",
+  "final_preparation_executed_with_project_kernel": true,
+  "scientific_cell_sources_unchanged": true,
+  "scientific_cell_outputs_unchanged": true,
+  "proof_text_unchanged_after_newline_normalization": true,
+  "helper_change": "Only writes displayed stage source with write_bytes instead of write_text.",
+  "helper_diff": "--- \n+++ \n@@ -307,7 +307,7 @@\n             raise LeanCellError(f\"Run '%%lean {route} {STAGES[index - 1]}' successfully first.\")\n         module = MODULES[route][stage]\n         source = self.cell_sources / (module + \".lean\")\n-        source.write_text(code, encoding=\"utf-8\")\n+        source.write_bytes(code.encode(\"utf-8\"))\n         if stage == \"import\":\n             self._compile_closure(code)\n         item = self._compile(source, self.cell_sources, self.cell_lib / (module + \".olean\"))\n",
+  "bundled_files": [
+    {
+      "name": "lean_notebook.py",
+      "sha256": "9249c7f7358e192b95996eef9c52a96de39098038d40bfe9c69a1ed2e1118e87",
+      "bytes": 15404,
+      "embedded_matches_original": true,
+      "extracted_matches_original": true
+    },
+    {
+      "name": "proofs/Contracts.lean",
+      "sha256": "e70876c538d52939b030e7813a6b1c60917a79e56e28b29146d22df8da98d656",
+      "bytes": 16685,
+      "embedded_matches_original": true,
+      "extracted_matches_original": true
+    },
+    {
+      "name": "proofs/ExampleQRM.lean",
+      "sha256": "ee11206f18f515d7d8ba1416b60eabb85cb1fd502150b0e649dfea7829e3e4aa",
+      "bytes": 1049,
+      "embedded_matches_original": true,
+      "extracted_matches_original": true
+    },
+    {
+      "name": "proofs/ExampleUW.lean",
+      "sha256": "10ac23f0171fb106eea6ce32ba65f179e9b2dbc454c06ef409d217507ebced37",
+      "bytes": 832,
+      "embedded_matches_original": true,
+      "extracted_matches_original": true
+    },
+    {
+      "name": "proofs/PkgLattice.lean",
+      "sha256": "c28f849bac9607fef3bf0a9e104ff761daf60be4742d6d0884f83b86cf193f3f",
+      "bytes": 44838,
+      "embedded_matches_original": true,
+      "extracted_matches_original": true
+    },
+    {
+      "name": "proofs/PkgNonlinear.lean",
+      "sha256": "58ee97d70c67417c428a4b4c67e94525f7408ea0fde65b532913a3682e68d284",
+      "bytes": 63301,
+      "embedded_matches_original": true,
+      "extracted_matches_original": true
+    },
+    {
+      "name": "proofs/PkgQuotientRate.lean",
+      "sha256": "0e46edfe575e80fac40682c21fb07de62673570b0a2b4ca9e4fb4c7e425f011a",
+      "bytes": 20471,
+      "embedded_matches_original": true,
+      "extracted_matches_original": true
+    },
+    {
+      "name": "proofs/ReportNonlinearQRM.lean",
+      "sha256": "ed1d1b6473c3567ec27f5a15969d02579c114475cd1d8c3239d5b956d03d4804",
+      "bytes": 13478,
+      "embedded_matches_original": true,
+      "extracted_matches_original": true
+    },
+    {
+      "name": "proofs/ReportNonlinearUW.lean",
+      "sha256": "413d45c48b64d5dc1214c7931e1581b3e1a8c49d3c81132289aba387b5c67975",
+      "bytes": 6743,
+      "embedded_matches_original": true,
+      "extracted_matches_original": true
+    },
+    {
+      "name": "proofs/ReportQRMCalculus.lean",
+      "sha256": "874992d19778987c5810d010381f235b0494820bce878580489209ff9373aacd",
+      "bytes": 3736,
+      "embedded_matches_original": true,
+      "extracted_matches_original": true
+    }
+  ],
+  "raw_setup_output": [
+    {
+      "type": "stream",
+      "text": "Lean cell magic installed; runtime: leanprover/lean4:v4.34.0\n"
+    }
+  ],
+  "nbformat_schema_valid": true,
+  "execution_scope": "21 cells executed in the complete run; final setup was executed separately after the newline-preserving update. No mathematical statements, numerical methods, or scientific cell code changed.",
+  "bootstrap_cell_source_sha256": "04389a5cc27606a0492d1f4adfdda1d4ef067adb345f9f401077ce2c579dd92d",
+  "bootstrap_source_file_sha256": "1dfcf72fc41d45f329ed591721daddc47935a557190a1e0846a192738d41f81c"
+}

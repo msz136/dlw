@@ -1,0 +1,1294 @@
+{
+  "source": "C:\\Users\\msz\\aca\\Report.html",
+  "source_sha256": "e972f33df1bc2466e5824c826febd48035b3e33d2e39c1da1675840c66128782",
+  "notebook": "C:\\Users\\msz\\aca\\notebook\\Report.ipynb",
+  "notebook_sha256": "4a7c613a65b5a19424816c5eb165fe5045ad71ca88b4592dac5f21d1f56d2e53",
+  "format": {
+    "nbformat": 4,
+    "nbformat_minor": 5,
+    "nbformat_schema_valid": true
+  },
+  "cell_counts": {
+    "all": 42,
+    "markdown": 21,
+    "code": 21,
+    "lean": 6,
+    "numerical": 14,
+    "bootstrap": 1
+  },
+  "headers": [
+    {
+      "tag": "h1",
+      "anchor": null,
+      "text": "DLW 半离散系统的非线性化与 2HS 数值比较"
+    },
+    {
+      "tag": "h2",
+      "anchor": null,
+      "text": "1　DLW 半离散系统的非线性化"
+    },
+    {
+      "tag": "h3",
+      "anchor": "nonlinear-uw",
+      "text": "1.1　消去辅助势的两场形式"
+    },
+    {
+      "tag": "h3",
+      "anchor": "nonlinear-qrm",
+      "text": "1.2　保留势的比值形式"
+    },
+    {
+      "tag": "h3",
+      "anchor": null,
+      "text": "1.3　势差的乘积分解"
+    },
+    {
+      "tag": "h2",
+      "anchor": "hs-numerics",
+      "text": "2　2HS 单孤子与二孤子的数值比较"
+    },
+    {
+      "tag": "h3",
+      "anchor": null,
+      "text": "2.1　单孤子"
+    },
+    {
+      "tag": "h3",
+      "anchor": "hs-error-lab",
+      "text": "2.1.1　单孤子误差的现场计算"
+    },
+    {
+      "tag": "h3",
+      "anchor": null,
+      "text": "2.2　二孤子"
+    },
+    {
+      "tag": "h2",
+      "anchor": "dlw-error-lab",
+      "text": "3　DLW 空间误差估计的现场计算"
+    }
+  ],
+  "source_body_elements_preserved": [
+    {
+      "main_child_index": 0,
+      "anchor": null,
+      "tag": "h1",
+      "sha256": "f49969d350fc9cea4cb10fd6e2fda87964d089fe8fa3e4a9df74d5500628526e"
+    },
+    {
+      "main_child_index": 10,
+      "anchor": null,
+      "tag": "h2",
+      "sha256": "5e3b92a50dcf71877d976ea8f1c9bef4bffd15b7378e122f1e94c7a5a199c790"
+    },
+    {
+      "main_child_index": 12,
+      "anchor": "nonlinear-uw",
+      "tag": "h3",
+      "sha256": "8c45b9999343dbe1689db31e94d17029649186e6f2a0cc90c6e3b97d7ca5c970"
+    },
+    {
+      "main_child_index": 13,
+      "anchor": "lean-uw-import",
+      "tag": "section",
+      "sha256": "c0d8870e88baabeaa0b7351b6dec58119473da0074bf07095334632e3a67c5d1"
+    },
+    {
+      "main_child_index": 15,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "84c79f71c0c13a11f56c9b623c6810ca35a961540e786f9000316de765ec0b51"
+    },
+    {
+      "main_child_index": 17,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "64078e687bd8630874a797016beee6a51797c3c2bc557b92de65f615f77ad0dd"
+    },
+    {
+      "main_child_index": 19,
+      "anchor": "lean-uw-start",
+      "tag": "section",
+      "sha256": "3caf8cf150142161def2fcc743968031652fd1796aa7966a66a545c4f5f4a6c7"
+    },
+    {
+      "main_child_index": 21,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "8ad80c3303c3edbbb29e1a9cb1a943ace0d9a654fcf6d42cb8e356d4dacf0589"
+    },
+    {
+      "main_child_index": 23,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "fb790787f26f97945ee5a19f6479f82a11d98558ef68a31ed6b4e3d6d8dd7e5b"
+    },
+    {
+      "main_child_index": 25,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "f80510794b16c6d52239de35e12b520a4b0d2e329f510dac5ee1ab8c3fd193de"
+    },
+    {
+      "main_child_index": 27,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "ed0854477a088ca5a472ef4a4bba7bfc73506d23aaf5c3f9d2771734f60f577a"
+    },
+    {
+      "main_child_index": 29,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "01c74a06f4f2354dbc8b3b721818df9b081a31d19e64358ea0494bbc9db3e094"
+    },
+    {
+      "main_child_index": 31,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "d2bd24c3d711c4c7e48a9319dfcd8ab5c5742b97916ee58e0952ee213e1520d1"
+    },
+    {
+      "main_child_index": 33,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "9f3e887e7326d25cd38d7043aefaa3418ce490442963d281df548cc5f2d718ef"
+    },
+    {
+      "main_child_index": 35,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "9ef85669486fd4257c98a313b780d9745d5c6696831af7cbba40306235c9db80"
+    },
+    {
+      "main_child_index": 37,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "7d86374b0b092f8ccde13f2d395e1905bda836e9381c14af000dd9e212688bd8"
+    },
+    {
+      "main_child_index": 39,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "7d8ad5c85e7ff1bd33ef8b11d0df2a157d242cadfd598cea593a7f0ab5172193"
+    },
+    {
+      "main_child_index": 41,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "5a5ec5899788e1c9767e22284e292e38dea6a547df2cbe547c2e312b0f55a3d3"
+    },
+    {
+      "main_child_index": 43,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "1ef14d3e9a6386bfcadef306d7dea5080cb5c06752e3e6185535aa9eb0da0a31"
+    },
+    {
+      "main_child_index": 45,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "d0eb8c5992a5984d4ae43d39419c14fa8d3cd98ebeef11933040a0671b802f3d"
+    },
+    {
+      "main_child_index": 47,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "a4a9dc9dfe6ca2bb35ebe995ba3a860e6718a08db31df305682a3bdb3f1e9ef1"
+    },
+    {
+      "main_child_index": 49,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "316362f8b63dd06525b96c6f50eed906f2f077beca4b497d6723116efb59ea85"
+    },
+    {
+      "main_child_index": 51,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "c3c1bdeb1da0f9aa452ff07d39245a72a9714b8c561e55b425fab71631a00ef1"
+    },
+    {
+      "main_child_index": 53,
+      "anchor": "lean-uw",
+      "tag": "section",
+      "sha256": "705f580efec538132b892cd29e594daa4c13a45461bdbf3e19617b2b7e317531"
+    },
+    {
+      "main_child_index": 55,
+      "anchor": "nonlinear-qrm",
+      "tag": "h3",
+      "sha256": "1559006d838a92dae2333f67de5dbb41668553ff309d5c5a874720b6e359cf62"
+    },
+    {
+      "main_child_index": 57,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "c049d10f491ba681d1bf0747feaa33bf92e83faeb844d72079a51b50a110ba62"
+    },
+    {
+      "main_child_index": 58,
+      "anchor": "lean-qrm-import",
+      "tag": "section",
+      "sha256": "a28f01a283899863233439b7361e2af7021c8a8c95b05e2771c3fda6d019d8df"
+    },
+    {
+      "main_child_index": 59,
+      "anchor": "lean-qrm-start",
+      "tag": "section",
+      "sha256": "1d3e5dc2a4cffe8435b36af432682ad2eb359d998763d79e3b8c73631b429d6d"
+    },
+    {
+      "main_child_index": 61,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "86ad43a21d1c640e3e592cfcb3a8321ed0c694a414050e28d9bd84561ecf9658"
+    },
+    {
+      "main_child_index": 63,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "9ef330bdd0206421cc6e2b584f1fb4b5866581ebe3cf9b1b8cbdb5ce5af98345"
+    },
+    {
+      "main_child_index": 65,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "e48426162b15532e7c157e02bab1ef5c04acf21488e65eca8e6dbead4f85003d"
+    },
+    {
+      "main_child_index": 67,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "7dd6e3aea3e64fae401c98942157d9852bf2810d3989edbcd100c8efb2eef9b9"
+    },
+    {
+      "main_child_index": 69,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "ce8238046e0b7d9998dbc7bd93f71269d329e8972bf909e1f7dcd016fa31a709"
+    },
+    {
+      "main_child_index": 71,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "840382d758a11dcee25b2aeefa8de34a7a52a1c612b4e2d827f60f9d477c34cd"
+    },
+    {
+      "main_child_index": 73,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "18ad7ea9d534fa996311cb42186b2b5a827b2e9b9e6222275e8b5367eeebbe97"
+    },
+    {
+      "main_child_index": 75,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "81c2955b157804ed20bac961ad816c713099c7419b370731e3e72c722b80f2a3"
+    },
+    {
+      "main_child_index": 77,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "ba6d6b8ff455d61a39ebe014f3d1e223baf1d620b729fecb2615b227ce8c4848"
+    },
+    {
+      "main_child_index": 79,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "cbeff602a3e4c97d9d133cabfb29c1b77673eec7eca138b37a8130f7b9c3e4cb"
+    },
+    {
+      "main_child_index": 81,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "951e4e61afa5a7d47b48592067c47244500d6136bebefdb129be9065739a90ee"
+    },
+    {
+      "main_child_index": 83,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "95932983cdc7fd52cfdadfd3a2edb77d6988de16f02aa72a3ab81a258d15fcb7"
+    },
+    {
+      "main_child_index": 85,
+      "anchor": null,
+      "tag": "h3",
+      "sha256": "1e0ebcab50df444ada061022133dec4aaa4b96f3c672183acd8b8ea713ebe90b"
+    },
+    {
+      "main_child_index": 87,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "8c1afce681006288044eeeb67ad634ca6a1474a48bdc1efacb21c5b7d027d820"
+    },
+    {
+      "main_child_index": 89,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "d9d4c2a9867d3aa12b37e9b057151260d97c901cab78a92b30c508770a8f4fdc"
+    },
+    {
+      "main_child_index": 91,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "6872a3e862cf524b047ce4abe8066c38471915a3da380c4e57dd690d8e0adac2"
+    },
+    {
+      "main_child_index": 93,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "4f0e80dd01cc3b740f78d4b8345123a3f473c73e2fa6fdac65e8543b9042d8e7"
+    },
+    {
+      "main_child_index": 95,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "b5a6fe21b86404e703818df1c183129a3e43c5e90cf34cd877cf7cff3a6b7565"
+    },
+    {
+      "main_child_index": 97,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "8c23d8bb2b469446416a89b98122f88de29fc3ac5457cc6f488cd30d9d1efc46"
+    },
+    {
+      "main_child_index": 99,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "8635c301898cf2173eb63b0dbcab085bf005a297c8d825631c9bafda349ec8e6"
+    },
+    {
+      "main_child_index": 101,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "78f2dbebb72f59bb6ce67618d69c0f0bb82b688b00d8066102b4f2c8bd77c65a"
+    },
+    {
+      "main_child_index": 103,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "cd1f138330c46048b2548403e61ab8accc3b01fd43e910db008e859480af557e"
+    },
+    {
+      "main_child_index": 105,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "d655acd89d3cca0ce2793fd57bb274db6992d9892e2d9f4535c043f75b57d5d9"
+    },
+    {
+      "main_child_index": 107,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "87973ffa5d2472322c5b721aac3932ca4f8993708205be4bb2ce44b04d039d60"
+    },
+    {
+      "main_child_index": 109,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "4e6693a6386cee3cdd01d63effa59278dba305e1e60a93c7ff71ee8652ea511b"
+    },
+    {
+      "main_child_index": 111,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "d2037803cb7c6b541fe14da8c7a4542d347ddb44e623521a116b8a6c4214deaa"
+    },
+    {
+      "main_child_index": 113,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "ab27e22a30d75c50610f5fa8f02f2ff60ea1c1edee98b0942b7cf17fb728e9fa"
+    },
+    {
+      "main_child_index": 115,
+      "anchor": "lean-qrm",
+      "tag": "section",
+      "sha256": "8764089fd2c8580a5e174f4233fa158a166ae30e0a8d9944cbada32b77b43b72"
+    },
+    {
+      "main_child_index": 117,
+      "anchor": "hs-numerics",
+      "tag": "h2",
+      "sha256": "01c790823feae00e020fae4497bd2887786dac1b2b62a409b26b25eeb4a132b7"
+    },
+    {
+      "main_child_index": 119,
+      "anchor": null,
+      "tag": "h3",
+      "sha256": "6b82caa2b8eeed4f25e2c9dc503acdfce5c99e876f35f23e32e14f02ae692bda"
+    },
+    {
+      "main_child_index": 121,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "9f50c66ad513e3fa5e5fa1be2de468f671f2e40a833d2f5b72d1f7a5549a5deb"
+    },
+    {
+      "main_child_index": 123,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "43ae6f6b3a566b3a19340ffb5b19a07a2a00106a090e36a6349547e9ad38d327"
+    },
+    {
+      "main_child_index": 125,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "76eede5a988c0189088819467b15b888a536d787818bf2e88d114165ba6ba492"
+    },
+    {
+      "main_child_index": 127,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "35866790077902888d1fcf2a47317b52b62649180b1d6512e0b47e96cc2237c4"
+    },
+    {
+      "main_child_index": 129,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "cce8f700de7c5022b2dd0be787507887c4c5b64fbda800b3f4b5a9c42e1ddcda"
+    },
+    {
+      "main_child_index": 131,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "4a942a3535da8c679d933811c61e8b3bd719af1a48a6c0cc62540808c3f40b98"
+    },
+    {
+      "main_child_index": 133,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "0c79c903273d015e7b2b6d69c2b1e80e2fd99a13e6df99370aac971ca542394d"
+    },
+    {
+      "main_child_index": 135,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "fe62f59e29ed05e365bd6883bc9788563f843c31e659d200846fa53237ba5ffc"
+    },
+    {
+      "main_child_index": 137,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "61b1075a165b48209b129b33d8ec68e9e1908f524f059fed240af5551db1b5a6"
+    },
+    {
+      "main_child_index": 139,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "3a880ca12749609de9028c025fb10bae831c9db6fb1d58ab665da8b209ff802d"
+    },
+    {
+      "main_child_index": 141,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "4f170a8dea22fc2a1f1193af91e8f9b68e250708c6b56deab352df5066ccb100"
+    },
+    {
+      "main_child_index": 143,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "875331857ba26a0d2a977635dcd3a1b3f7f4757011d20c12a85c2ca26aefbca9"
+    },
+    {
+      "main_child_index": 145,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "cb9db12dc0d5ec572b34317b94f7ae44888aa463412a0e8d7e8bcc6b8886fec5"
+    },
+    {
+      "main_child_index": 147,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "f592b80fee2cfe5fe34b2132fa24a20b0e33ece0c627f7304e8e75148cb82839"
+    },
+    {
+      "main_child_index": 149,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "e1faa84e8340d04910c9399ffd9e6ad76f7c20e0d411b0802a7e7a3c89ab9a90"
+    },
+    {
+      "main_child_index": 151,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "5c3cdcade49b88e0ba63a54c692039452e5f107274349f3e14d053dffbcfc0d9"
+    },
+    {
+      "main_child_index": 153,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "d539d537c3173d6dfc1686dd9577459f255cb20a7fc24d77b916b19b5136fdba"
+    },
+    {
+      "main_child_index": 155,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "eaaef3434803d1c0b387aa28584828a11193ad0d852327fca422f428c720ef9f"
+    },
+    {
+      "main_child_index": 157,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "f62fc08e0926053e0e54a90af319eb18f63dc4632dfa3d243174dc78ae537f2d"
+    },
+    {
+      "main_child_index": 159,
+      "anchor": null,
+      "tag": "div",
+      "sha256": "62fa13f85ba522b8547128331dc252d5052515285e3d5c5308095e21e43b440d"
+    },
+    {
+      "main_child_index": 161,
+      "anchor": null,
+      "tag": "table",
+      "sha256": "c21d94dda6d458fc9ffd6fa45c748c4fa5cdd54376551525313c779128ad23a0"
+    },
+    {
+      "main_child_index": 163,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "1e087b5b71f7ce90754586b062fefaa2657c8cab901b7ddc51527665d0d39862"
+    },
+    {
+      "main_child_index": 165,
+      "anchor": null,
+      "tag": "figure",
+      "sha256": "0369e555b2b2157d92dd4e9e4215109bfb23fc46e9f2b46fde7075acd0cd1f3d"
+    },
+    {
+      "main_child_index": 167,
+      "anchor": null,
+      "tag": "figure",
+      "sha256": "3153db849a26485292bb0b91795e36a39f4ea1cafcc00bc4a44338bb60fddb3e"
+    },
+    {
+      "main_child_index": 169,
+      "anchor": "hs-error-lab",
+      "tag": "h3",
+      "sha256": "e4a27fafd7ca81f1f950ab66879368fe839cfd3c6746d81e93dc22fcbe71a286"
+    },
+    {
+      "main_child_index": 171,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "c26d96ba82415461383f7efcdfd42f8d5723a0bb06f940f36ba4b0786750509a"
+    },
+    {
+      "main_child_index": 173,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "639ae0d4e44fffa128417661748ad966b5004485860d19351cbf7f6af4247e39"
+    },
+    {
+      "main_child_index": 175,
+      "anchor": "hs-prepare",
+      "tag": "section",
+      "sha256": "9b057f90675e9b43ea2e45579853265a00933f918580c469a7fb791e8c86089f"
+    },
+    {
+      "main_child_index": 177,
+      "anchor": "hs-config",
+      "tag": "section",
+      "sha256": "1d7c34f95b3307e5a537b972a56f08026eb3ccd402f4a30f26105b30a2ee9e26"
+    },
+    {
+      "main_child_index": 179,
+      "anchor": "hs-reference",
+      "tag": "section",
+      "sha256": "31613dd3b4db25d2f9516ce82df0f448a594a15ecce2eb1ce9600162f95bc851"
+    },
+    {
+      "main_child_index": 181,
+      "anchor": "hs-spatial",
+      "tag": "section",
+      "sha256": "e4d03bcaa74b23e10c6f2c26a5f07a6f4aa3ec1cbd350c2607062432a900e9ad"
+    },
+    {
+      "main_child_index": 183,
+      "anchor": "hs-rk4",
+      "tag": "section",
+      "sha256": "7efc287ba96b68d1ea9fc8f6103d60a710f94f3392e16d14fdd40cb7a4bbba02"
+    },
+    {
+      "main_child_index": 185,
+      "anchor": "hs-evolve",
+      "tag": "section",
+      "sha256": "bf18aa938e2e4c13d79a2b725774103c44c9bd485988b8ce8459578f919e34f8"
+    },
+    {
+      "main_child_index": 187,
+      "anchor": "hs-error",
+      "tag": "section",
+      "sha256": "97a394f41449ec86f42e4df3c5e5324c7cd6589a92d7150593215bec299c063e"
+    },
+    {
+      "main_child_index": 189,
+      "anchor": null,
+      "tag": "h3",
+      "sha256": "004288ca83431ad087305f48883fb9b405e3a8e49b0d0cb2d104e5ee96b4abbc"
+    },
+    {
+      "main_child_index": 191,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "b4d07115f67ce87cc213457d4b735df593734a3080fdcad463ade2ec220d592c"
+    },
+    {
+      "main_child_index": 193,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "d2e16d96c52d478bd02a2d49f35442c792127dbe1974275c99010cad709d22c8"
+    },
+    {
+      "main_child_index": 195,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "5bad6caf84ead296a4cf7af8d1cd6d5ff02b69f910cb70933bba7d54e3e03aaf"
+    },
+    {
+      "main_child_index": 197,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "2086c9e427834e95b7b0f4cb26359817458d79ee5872edba5b9997e6c3ce0944"
+    },
+    {
+      "main_child_index": 199,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "b85e4a4f0115e8c5655ed1eb907878d1051d835c8a184cf34559e1ae8feb6715"
+    },
+    {
+      "main_child_index": 201,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "dd17192537f0fe345b5fd8ea9662b2a22ba47836341d7f91e3984bfb316d7701"
+    },
+    {
+      "main_child_index": 203,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "e6c00fc6beeb8ae7523222a8e8bc092c6f5da225723f4026963615a987df1854"
+    },
+    {
+      "main_child_index": 205,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "4176ee2a4fa5c119c7e7994a9f297347453fe21531fdfbd0eb8c6c6915381bdd"
+    },
+    {
+      "main_child_index": 207,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "21c110fe130a32d126a8a9c921d4eef0516b0f59b585b6e0c3fa26514c413ea5"
+    },
+    {
+      "main_child_index": 209,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "5ce13d7350f62bf78155ee11287afeba956150defd229ee7e2dae832282bac7a"
+    },
+    {
+      "main_child_index": 211,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "8965f3fe6c29f55231772989d1c165410913e93f6e1b8ac3bca0257384efa09c"
+    },
+    {
+      "main_child_index": 213,
+      "anchor": null,
+      "tag": "div",
+      "sha256": "b165d7041dcf8b3c675fbf4a0e763348134fac9cf737e2c847289ba34f3ddb52"
+    },
+    {
+      "main_child_index": 215,
+      "anchor": null,
+      "tag": "table",
+      "sha256": "8eb73e3c49fa7030b1cfac506c4f9e823548337abf7b3bdbd24e60526739da42"
+    },
+    {
+      "main_child_index": 217,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "8d1c7e3c1f0e577a1211ddc9caa73c1f65ec76dbd9fe3660d794e02973a08791"
+    },
+    {
+      "main_child_index": 219,
+      "anchor": null,
+      "tag": "figure",
+      "sha256": "aab35fa6228e4575330ea81415a57bffbc637e2acbdececc85e203a874227cc7"
+    },
+    {
+      "main_child_index": 221,
+      "anchor": null,
+      "tag": "figure",
+      "sha256": "86185b7ccd47efb3ffa18ab991a7b7e1e33c6a5d5eba9d59ce43f4dda09e7840"
+    },
+    {
+      "main_child_index": 222,
+      "anchor": "dlw-error-lab",
+      "tag": "h2",
+      "sha256": "5bdd75515b897e6de8926f64b3fbbe940b40ecd030a8de7d309b8b50a889e0ca"
+    },
+    {
+      "main_child_index": 224,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "820cda9d0183fea8658c375906fa58ed0c12a16b5f8418114d5a0a3e1bf62678"
+    },
+    {
+      "main_child_index": 226,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "4d97ef60684d170733e24c7bd37a622669376eda0f4fc59fa2492090cbb1a535"
+    },
+    {
+      "main_child_index": 227,
+      "anchor": null,
+      "tag": "text",
+      "sha256": "e830ad91df4b17a3233e649ada73e6da5834f7d19967d4f5b3931c6984cfb508"
+    },
+    {
+      "main_child_index": 228,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "dcc32a3f2e69aa39c7251d4c9b25aacbfb422f06b559e139a1509df3b276ea2d"
+    },
+    {
+      "main_child_index": 229,
+      "anchor": null,
+      "tag": "text",
+      "sha256": "4f2cd8f509cfc5ddbb7da97342667a57bf17fa638db858fe7cfb3e5ef3541ee4"
+    },
+    {
+      "main_child_index": 230,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "ae36387bc845aa89926eb3420b6f99130986027eaa99fbbf9226620813378722"
+    },
+    {
+      "main_child_index": 231,
+      "anchor": null,
+      "tag": "text",
+      "sha256": "090f385c838e5e1b01233cb3be04b23770544269bf1429021fbd8f7064386e33"
+    },
+    {
+      "main_child_index": 232,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "3ba07397350efead66ef0f547a3be24ce780081df865f25fe1b93eb7728b746b"
+    },
+    {
+      "main_child_index": 234,
+      "anchor": "error-prepare",
+      "tag": "section",
+      "sha256": "240c1db21d06bc9f8c8f4223ee36e840658df268f274fbd25fd8e803b546fe6b"
+    },
+    {
+      "main_child_index": 236,
+      "anchor": "error-config",
+      "tag": "section",
+      "sha256": "30a2071bc74784b115291a128421c0644d9d73afe7ada973178fdbbca8c9c27d"
+    },
+    {
+      "main_child_index": 238,
+      "anchor": "error-profile",
+      "tag": "section",
+      "sha256": "ed9bb99481960633159741a369311f8aac0d2a2c1b561e1180b637ad38663278"
+    },
+    {
+      "main_child_index": 240,
+      "anchor": "error-coefficient",
+      "tag": "section",
+      "sha256": "515f457a587f18df6e03818c6310f75c8a28c472899755728110d040d954f429"
+    },
+    {
+      "main_child_index": 242,
+      "anchor": "error-residual",
+      "tag": "section",
+      "sha256": "9376c55a50130500e9fd19afd0045fd81778148754b92f61fce6e35197d3dc81"
+    },
+    {
+      "main_child_index": 244,
+      "anchor": "error-main",
+      "tag": "section",
+      "sha256": "9af3fd75a836995b87a3a34780cdebccad46fd9a663e41f3c676d20df4831905"
+    },
+    {
+      "main_child_index": 246,
+      "anchor": "error-convergence",
+      "tag": "section",
+      "sha256": "1b80dd6276825b72e5fa915e99874602ec14973294dc042b04789cc3bd12239f"
+    }
+  ],
+  "removed_html_transport": [
+    {
+      "main_child_index": 2,
+      "anchor": null,
+      "tag": "nav",
+      "sha256": "2e2005170c3e101841cd40dca0080ba9f6221034634bededb6fb01141bcf7b81",
+      "reason": "HTML transport/navigation replaced by native notebook controls"
+    },
+    {
+      "main_child_index": 4,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "045f24148b3d6e0ca16eb59ef7112eb0181ea60db37b784773eb07f7994cafd8",
+      "reason": "HTML transport/navigation replaced by native notebook controls"
+    },
+    {
+      "main_child_index": 6,
+      "anchor": null,
+      "tag": "p",
+      "sha256": "f3fe34cd69f6375a9671f6f32f50184e8118d127f22d621ac2a3d77616016cb4",
+      "reason": "HTML transport/navigation replaced by native notebook controls"
+    },
+    {
+      "main_child_index": 8,
+      "anchor": null,
+      "tag": "div",
+      "sha256": "1c9573b0d1e37e1663ebfdb9dbf05c7f7244ea1d5a8126ffef123e2fdd2ed8c0",
+      "reason": "HTML transport/navigation replaced by native notebook controls"
+    }
+  ],
+  "prose_adaptations": [
+    {
+      "source": {
+        "main_child_index": 171,
+        "anchor": null,
+        "tag": "p",
+        "sha256": "c26d96ba82415461383f7efcdfd42f8d5723a0bb06f940f36ba4b0786750509a"
+      },
+      "original": "从准备环境、设置参数、定义连续参考解开始，逐段建立空间格式与 RK4，再实际推进单孤子，最后计算终点误差。每次点击 ▶ 只执行眼前这一段；已运行的定义保存在同一数值会话中。修改前面的代码后，依次重新运行受影响的后段。",
+      "replacement": "从准备环境、设置参数、定义连续参考解开始，逐段建立空间格式与 RK4，再实际推进单孤子，最后计算终点误差。每次点击 ▶ 只执行眼前这一段；已运行的定义保存在同一笔记本内核中。修改前面的代码后，依次重新运行受影响的后段。"
+    },
+    {
+      "source": {
+        "main_child_index": 173,
+        "anchor": null,
+        "tag": "p",
+        "sha256": "639ae0d4e44fffa128417661748ad966b5004485860d19351cbf7f6af4247e39"
+      },
+      "original": "默认采用原表的 $N=1600$、$a=0.005$、$\\Delta t=0.003125$、$T=0.5$ 与 32001 个评价点。密度在 Integrable 的胞元中点与 FD 的节点上分别重构。以下可编辑代码均以 JavaScript 在本地计算；原表仅用于默认配置的回归核对。误差图每点取一个物理小区间的最大值，低于 $10^{-16}$ 的读数在图中共用显示下限。",
+      "replacement": "默认采用原表的 $N=1600$、$a=0.005$、$\\Delta t=0.003125$、$T=0.5$ 与 32001 个评价点。密度在 Integrable 的胞元中点与 FD 的节点上分别重构。以下代码使用 Python、NumPy 与 Matplotlib 计算；原表仅用于默认配置的回归核对。误差图每点取一个物理小区间的最大值，低于 $10^{-16}$ 的读数在图中共用显示下限。"
+    },
+    {
+      "source": {
+        "main_child_index": 232,
+        "anchor": null,
+        "tag": "p",
+        "sha256": "3ba07397350efead66ef0f547a3be24ce780081df865f25fe1b93eb7728b746b"
+      },
+      "original": "先准备数值环境，再设置谱参数，定义解析剖面、主系数与有限格距残差，最后分别计算主系数表与格距收敛图。每次点击 ▶ 只执行当前可见代码，前段定义在同一会话中供后段使用。采样最大值覆盖配置中的相位点，解析上界覆盖整个波形。减半格距时，$\\|\\mathcal R_h/h^2-\\tau_y\\|$ 应约缩小至四分之一。完整推导见 工作区报告《DLW 误差理论》。",
+      "replacement": "先准备数值环境，再设置谱参数，定义解析剖面、主系数与有限格距残差，最后分别计算主系数表与格距收敛图。每次点击 ▶ 只执行当前可见代码，前段定义在同一笔记本内核中供后段使用。采样最大值覆盖配置中的相位点，解析上界覆盖整个波形。减半格距时，$\\|\\mathcal R_h/h^2-\\tau_y\\|$ 应约缩小至四分之一。完整推导见 工作区报告《DLW 误差理论》。"
+    }
+  ],
+  "local_report_links": [
+    {
+      "original_href": "report/dlw_error_theory.html",
+      "label": "DLW 误差理论",
+      "notebook_reference": "工作区报告《DLW 误差理论》"
+    }
+  ],
+  "display_formulas": {
+    "source_count": 37,
+    "notebook_count": 37,
+    "identical_in_order": true,
+    "body_sha256": [
+      "cce5103ebf1f2c6deba9adb47288fb2b20ae4046f3231800af89508dee106b08",
+      "cbd3eb17b26e6aaa179e12266179636f4f7539e2cd7ccfc6950ab9cb4cd05acc",
+      "6783d040ba2a069d7423048cfe3bed0ee554b55068a2902f6617d5d189e760b2",
+      "17409bf6f607d49b5e6e98babc22a9fc552ead2d8a0816e23968f6cb3dbc7d7f",
+      "4d3231b6a57b36ddf6efb7ba65f6f22510933235611db8e87796ca1a87e6f6c4",
+      "e3d85f657639aaa94edf224335ca8694f5f8efa4f1fdcd11a41adf79f99b0d00",
+      "7b0ff7b9d2da811a696bd5b469e262c7cae37ad05905081c2859a8c58a74cdd0",
+      "49c9297d713c57724d5a5fb854772a3f4fa7654a7d3b044b6075b62685f75d16",
+      "c1a148185d0e069dcaa7c76ecde226066633065fc1630a3aef54e0264b062a2d",
+      "c0aeefe5ca3a8702ecba20bb6bac41cbf06688122c6da1767931bbadbda372e6",
+      "b413a2399da0e970947f33ee222ac0fb4dbf2c75ebbaf4212a51f8e9f2da9d6e",
+      "4943c29ec97c3fd43948f92e8c08a34c3c42d16b63fca4adeebb80b4a6bddda9",
+      "cbecdd7b23acb1b2d345c3cb064e7bcc9f55336c3cc1481930c08308fca09c94",
+      "c33dbdd8604c1256e184ada689193091baa39c911ad9e415c4b9a3ce0dff300f",
+      "e93174d26c5e7c809f2771ce227322d1b83543a3f50d0fafc701d156a275ed72",
+      "3cabbb3210c0472b2f966fed4fa69ae2d6e9e2c6e4b91251769bfef909f58093",
+      "7f648cb4b4d461675e17fa64f74e099acf63c74e103da8d576a9d237c83bff86",
+      "cefab98b904f37f9ba96268feef38d68b8dd927edc19935439a18a6f4c89cdf3",
+      "653f1d7cfec00deeeb64ca6a81c602cacd36d122972ffed4547efb66d81c2363",
+      "4ebc039c250411c5732dbd787fc3b477741f1e0476f4db1eebab2ea8920fc547",
+      "dcb87fa57670151fa249946a439a8118cd21407de0f714878c094e3f28abbf30",
+      "69c63e0005d4c08e79c546ee50b371bd19f85b8c0e3011391817fa2155a02381",
+      "95f0f214b8b419526060e0fc0029539a6f4464a9a2892e449f9e9aedbe338429",
+      "6c7b88d273a2700b102a4e14bcc4c83164b7b746a880f5320be38620082b6a83",
+      "f40bef257768256ce428c5a5be5f4fe9e6f0ee32d6ef7911d1a9268b3b20d363",
+      "48783d389c6770e9ee5769c8af21e059488aec11181f4de7bbe7708f93147d36",
+      "aed15243db4efb076c3ed1e991df1719fd849c8673473022301a30ae891e7dcd",
+      "c11fbd64012e2c7b6d86cda0744aeb831abf9af75751c17dd2c630382c640828",
+      "d893661c418d171843ba239d842339ed264b56e8069974f2bca696bbad90d227",
+      "1e4a3451aaef3e742802c39d7771c864e4f094c327003a0095fd3841097fb24c",
+      "913e04a7b08fe70f2961da36d1ed00057b5484d7b91b690c5ce365d8e32ac99a",
+      "8bce8cf9f979d2b8f8788536e55ece44168e5f87253e0096af0b43a66b182d15",
+      "16141f8497d0c388c84c45485172c4f6b9ba44a07ddb9c3bd823fa26432a14a7",
+      "c427e249e94027145a10d5b05f83076ff47de3e061d1f665c2f49c1b5f7a3ba1",
+      "4697b9d18da521a5f63449aaab492133e83cee045668c74ade5d2f4c7c070fe4",
+      "83715012f7124abe945c6dcea2e15de9c4769ba094d48ef0f9a3ed0a14bffc97",
+      "8405694aae2caba70e864b713dc83eedad7ae69c05920cbdbf07473004025571"
+    ]
+  },
+  "equation_tags": {
+    "source": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21",
+      "22",
+      "23",
+      "24",
+      "25",
+      "26",
+      "27",
+      "28",
+      "29",
+      "30",
+      "31",
+      "32",
+      "33",
+      "34"
+    ],
+    "notebook": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21",
+      "22",
+      "23",
+      "24",
+      "25",
+      "26",
+      "27",
+      "28",
+      "29",
+      "30",
+      "31",
+      "32",
+      "33",
+      "34"
+    ],
+    "identical_in_order": true
+  },
+  "tables": [
+    {
+      "source": {
+        "main_child_index": 161,
+        "anchor": null,
+        "tag": "table",
+        "sha256": "c21d94dda6d458fc9ffd6fa45c748c4fa5cdd54376551525313c779128ad23a0"
+      },
+      "rows": [
+        [
+          "空间方案",
+          "$E_u$",
+          "$E_\\rho$"
+        ],
+        [
+          "可积半离散（Integrable）",
+          "1.0013e-02",
+          "1.1497e-03"
+        ],
+        [
+          "中心差分（FD）",
+          "9.3993e-07",
+          "3.0464e-06"
+        ]
+      ],
+      "markdown_sha256": "f2110118f293852d9468ac244b1a6a352975e1644dc08b7c9635e6a5fa6546dd"
+    },
+    {
+      "source": {
+        "main_child_index": 215,
+        "anchor": null,
+        "tag": "table",
+        "sha256": "8eb73e3c49fa7030b1cfac506c4f9e823548337abf7b3bdbd24e60526739da42"
+      },
+      "rows": [
+        [
+          "空间方案",
+          "$E_u$",
+          "$E_\\rho$"
+        ],
+        [
+          "可积半离散（Integrable）",
+          "3.4509e-02",
+          "3.9932e-03"
+        ],
+        [
+          "中心差分（FD）",
+          "9.6345e-07",
+          "3.1700e-06"
+        ]
+      ],
+      "markdown_sha256": "f03227092a31381993e98dde2f4410f1be3ab18114f317b4b1118116852d5b3b"
+    }
+  ],
+  "figures": [
+    {
+      "filename": "report-figure-1.png",
+      "caption": "图 1　单孤子在 t=0.5 时的密度误差分布，每段宽 0.02，取段内最大绝对误差。",
+      "alt": "单孤子在t=0.5时的密度误差分布",
+      "mime": "image/png",
+      "bytes": 64888,
+      "sha256": "03b3ba6b139c4c284fa212a336503488560c6f1ebb8fd0acbbb15bd9a34d9e98",
+      "source": {
+        "main_child_index": 165,
+        "anchor": null,
+        "tag": "figure",
+        "sha256": "0369e555b2b2157d92dd4e9e4215109bfb23fc46e9f2b46fde7075acd0cd1f3d"
+      }
+    },
+    {
+      "filename": "report-figure-2.png",
+      "caption": "图 2　t=0.5 时的单孤子波形。左列为 Integrable，右列为 FD；上排为 u，下排为 ρ。红色实线为连续解析解，蓝色离散点为对应方案的数值解。",
+      "alt": "单孤子在t=0.5时的波形，左列Integrable，右列FD，上排u，下排rho；红色实线为解析解，蓝点为数值解",
+      "mime": "image/png",
+      "bytes": 164519,
+      "sha256": "b70f4640666233a88adb0c0aad4737731ca59f2f92148d1511dd96f83dde4a8a",
+      "source": {
+        "main_child_index": 167,
+        "anchor": null,
+        "tag": "figure",
+        "sha256": "3153db849a26485292bb0b91795e36a39f4ea1cafcc00bc4a44338bb60fddb3e"
+      }
+    },
+    {
+      "filename": "report-figure-3.png",
+      "caption": "图 3　二孤子在 t=0.5 时的密度误差分布，每段宽 0.02，取段内最大绝对误差。",
+      "alt": "二孤子在t=0.5时的密度误差分布",
+      "mime": "image/png",
+      "bytes": 64392,
+      "sha256": "13673cb178c5ccc45318bd3b12075614e0791c88eac8197b6c9a030416d7460c",
+      "source": {
+        "main_child_index": 219,
+        "anchor": null,
+        "tag": "figure",
+        "sha256": "aab35fa6228e4575330ea81415a57bffbc637e2acbdececc85e203a874227cc7"
+      }
+    },
+    {
+      "filename": "report-figure-4.png",
+      "caption": "图 4　t=0.5 时的二孤子波形。左列为 Integrable，右列为 FD；上排为 u，下排为 ρ。红色实线为连续解析解，蓝色离散点为对应方案的数值解。",
+      "alt": "二孤子在t=0.5时的波形，左列Integrable，右列FD，上排u，下排rho；红色实线为解析解，蓝点为数值解",
+      "mime": "image/png",
+      "bytes": 143637,
+      "sha256": "1f3f4c2e13eca765a7be97732f0cba633487048227eb762e4dfb9d9ae2d2cf82",
+      "source": {
+        "main_child_index": 221,
+        "anchor": null,
+        "tag": "figure",
+        "sha256": "86185b7ccd47efb3ffa18ab991a7b7e1e33c6a5d5eba9d59ce43f4dda09e7840"
+      }
+    }
+  ],
+  "image_mode": "data-uri",
+  "code": [
+    {
+      "id": "lean-uw-import",
+      "kind": "lean",
+      "route": "uw",
+      "stage": "import",
+      "body_sha256": "fde5382cea8b31e8656ad856e12b1966e12eea55b2f93d0a43223a9e1891072d",
+      "magic": "%%lean uw import"
+    },
+    {
+      "id": "lean-uw-start",
+      "kind": "lean",
+      "route": "uw",
+      "stage": "start",
+      "body_sha256": "f982c49797586241fa2d16cc3d7be17a261dcd93f840b1ee385a43ca4768aee6",
+      "magic": "%%lean uw start"
+    },
+    {
+      "id": "lean-uw",
+      "kind": "lean",
+      "route": "uw",
+      "stage": "endpoint",
+      "body_sha256": "dd541a216828aab0d30d1cd19f5c206e81c99bbb75e31c0efcaae401b28757a2",
+      "magic": "%%lean uw endpoint"
+    },
+    {
+      "id": "lean-qrm-import",
+      "kind": "lean",
+      "route": "qrm",
+      "stage": "import",
+      "body_sha256": "a40068712eadd8a76899a5c64a0af043e9828884cd82c4f2cbb9f422681fe78f",
+      "magic": "%%lean qrm import"
+    },
+    {
+      "id": "lean-qrm-start",
+      "kind": "lean",
+      "route": "qrm",
+      "stage": "start",
+      "body_sha256": "2c64133bcbcc92c6e3f0cdcf7d5a6f05bd4bb58a3c7dce54bcf71b49f7d026a0",
+      "magic": "%%lean qrm start"
+    },
+    {
+      "id": "lean-qrm",
+      "kind": "lean",
+      "route": "qrm",
+      "stage": "endpoint",
+      "body_sha256": "17c27e03dd8f7daaea3439fb6f9681ce2236d5cbc85696bd5085cef706566075",
+      "magic": "%%lean qrm endpoint"
+    },
+    {
+      "id": "hs-prepare",
+      "kind": "python",
+      "body_sha256": "233acc52f4fb0df060119c9b7612f31c1bf1d0f26a04009568e5b80c73155c2e",
+      "requires": []
+    },
+    {
+      "id": "hs-config",
+      "kind": "python",
+      "body_sha256": "b19439bb24dac7909f36d0b6e2a8933b68f13147b3f306e94b02a911a417d7ae",
+      "requires": [
+        "hs-prepare"
+      ]
+    },
+    {
+      "id": "hs-reference",
+      "kind": "python",
+      "body_sha256": "28e6076dff13db6627afddfcfce3f4be0c8fae7c4fa97181b53e8f641a2143b0",
+      "requires": [
+        "hs-config"
+      ]
+    },
+    {
+      "id": "hs-spatial",
+      "kind": "python",
+      "body_sha256": "9effc0d2aaa334006d3f89735b4b20a51b22d15d3978501601c5388d63a8bd4c",
+      "requires": [
+        "hs-reference"
+      ]
+    },
+    {
+      "id": "hs-rk4",
+      "kind": "python",
+      "body_sha256": "71941783e677bc76b790903874ddf37c14feb7fc0a6578258fcd9712854ef38d",
+      "requires": [
+        "hs-spatial"
+      ]
+    },
+    {
+      "id": "hs-evolve",
+      "kind": "python",
+      "body_sha256": "2f595fc808ca5b434fad113a28d6680d0fbca6aaaadff76406da69dd424d7196",
+      "requires": [
+        "hs-rk4"
+      ]
+    },
+    {
+      "id": "hs-error",
+      "kind": "python",
+      "body_sha256": "c7749dbc593c9444726eb03e96542ea549a8c904b28ca501ebcfbd9251de5e27",
+      "requires": [
+        "hs-evolve"
+      ]
+    },
+    {
+      "id": "error-prepare",
+      "kind": "python",
+      "body_sha256": "143e211cc2a6a124ca5ffb32c3a1cfafc15a24512b6f4d866cd8789cdf9b1741",
+      "requires": []
+    },
+    {
+      "id": "error-config",
+      "kind": "python",
+      "body_sha256": "0eb516b692ed28dd8633c0405da266e58be6f69f331fc3042f54b9c20b7d3b17",
+      "requires": [
+        "error-prepare"
+      ]
+    },
+    {
+      "id": "error-profile",
+      "kind": "python",
+      "body_sha256": "6e60e66564f8d47f57bf9c77bf7073800391f61d42d471c41c7579ce04989964",
+      "requires": [
+        "error-config"
+      ]
+    },
+    {
+      "id": "error-coefficient",
+      "kind": "python",
+      "body_sha256": "c1d14a9f91bac6118a06bae77ba1420d8176cadf024979caa05dd2c2ac28efd9",
+      "requires": [
+        "error-profile"
+      ]
+    },
+    {
+      "id": "error-residual",
+      "kind": "python",
+      "body_sha256": "25b716e47b5fe14dcc2702dff21ffd40855e952f433c42425290fce36c895be4",
+      "requires": [
+        "error-coefficient"
+      ]
+    },
+    {
+      "id": "error-main",
+      "kind": "python",
+      "body_sha256": "f5d77e12c9c3807edab55789c251bf5d3a8645e285fff46a3878f8a942ad60c9",
+      "requires": [
+        "error-residual"
+      ]
+    },
+    {
+      "id": "error-convergence",
+      "kind": "python",
+      "body_sha256": "61b12d6b6bd4a3cbbb5e76dfde61fcd5003b6002bec888916abba3eb58635377",
+      "requires": [
+        "error-main"
+      ]
+    }
+  ],
+  "proof_guides": {
+    "uw_points": 4,
+    "qrm_points": 3,
+    "full_dependency_listings_embedded": false
+  },
+  "outputs": "Actual project-kernel outputs retained in the delivered notebook.",
+  "bootstrap_cell_source_sha256": "aa2e66ac8703aab41697869c2720d5049b39b2d2675294d1cd7552abcbc23253",
+  "bootstrap_source_file_sha256": "aa2e66ac8703aab41697869c2720d5049b39b2d2675294d1cd7552abcbc23253",
+  "no_custom_html_ui": true,
+  "built_notebook_sha256": "1dca8417905adc6b6b1a2be5d7ef9911e7b25dd2a6f0dffd85731dc7c8553d68",
+  "execution_validation": "execution_validation.json",
+  "runtime_mode": "local installed Lean and Mathlib; no downloads"
+}

@@ -11,6 +11,9 @@ dest=ROOT/'report/dlw_paper_draft.html'
 source=(HERE/'manuscript.md').read_text(encoding='utf-8')
 oldpage=dest.read_text(encoding='utf-8')
 css='\n'.join(re.findall(r'<style[^>]*>([\s\S]*?)</style>',oldpage))
+# Reserve space for equation tags inside horizontally scrollable narrow layouts.
+if 'mobile-equation-tag-spacing' not in css:
+ css += '\n/* mobile-equation-tag-spacing */\n@media(max-width:600px){.eq .katex-display>.katex>.katex-html{width:max-content;min-width:100%;padding-right:4em}}'
 formulas=[]
 def slot(m):
  display=m[0].startswith('$$')

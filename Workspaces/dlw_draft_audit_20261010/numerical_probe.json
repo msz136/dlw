@@ -1,0 +1,108 @@
+{
+  "notebook_sha256": "1061f774c69dc1e3dfc1dd0f1bd6f9510f66760fda635a02fd342746db508635",
+  "definition_cells": [
+    1,
+    3,
+    5,
+    7,
+    8,
+    10,
+    12,
+    13,
+    15,
+    17,
+    19
+  ],
+  "records": [
+    {
+      "case": "A",
+      "model": "SD",
+      "initial_u_error": 3.3306690738754696e-16,
+      "initial_v_error": 1.4432899320127035e-15,
+      "nodal_continuity_defect": 0.23827577989382176,
+      "defect_formula_error": 1.8721135752741702e-14,
+      "periodic_mass_derivative": 3.552713678800501e-15
+    },
+    {
+      "case": "A",
+      "model": "SD2",
+      "initial_u_error": 1.48805663971463e-14,
+      "initial_v_error": 1.7674750552032492e-13,
+      "Q_min": 0.2507717901762965,
+      "jump_min": -0.7492281533971251,
+      "jump_max": -0.7492279848120906,
+      "periodic_lift_residual": 2.3975299273276183,
+      "augmented_lift_residual": 1.5744783948834495e-15
+    },
+    {
+      "case": "A",
+      "model": "FD",
+      "initial_u_error": 3.3306690738754696e-16,
+      "initial_v_error": 0.0
+    },
+    {
+      "case": "B",
+      "model": "SD",
+      "initial_u_error": 4.163336342344337e-17,
+      "initial_v_error": 2.220446049250313e-16,
+      "nodal_continuity_defect": 0.0007487661719752514,
+      "defect_formula_error": 1.8144607435874273e-14,
+      "periodic_mass_derivative": 1.7763568394002505e-15
+    },
+    {
+      "case": "B",
+      "model": "SD2",
+      "initial_u_error": 2.588207426157396e-15,
+      "initial_v_error": 3.9551925645232855e-14,
+      "Q_min": 0.9999999990339662,
+      "jump_min": 0.9999109742571988,
+      "jump_max": 0.9999109768820005,
+      "periodic_lift_residual": 3.1997151176230365,
+      "augmented_lift_residual": 1.2742357082679012e-15
+    },
+    {
+      "case": "B",
+      "model": "FD",
+      "initial_u_error": 4.163336342344337e-17,
+      "initial_v_error": 0.0
+    },
+    {
+      "case": "C",
+      "model": "SD",
+      "initial_u_error": 3.469446951953614e-18,
+      "initial_v_error": 5.551115123125783e-17,
+      "nodal_continuity_defect": 0.0014670937555922546,
+      "defect_formula_error": 2.355764708299342e-14,
+      "periodic_mass_derivative": 1.7763568394002505e-15
+    },
+    {
+      "case": "C",
+      "model": "SD2",
+      "initial_u_error": 2.8909267758993507e-15,
+      "initial_v_error": 3.8882091990544154e-14,
+      "Q_min": 0.9999999991912486,
+      "jump_min": 1.6662858858664409,
+      "jump_max": 1.6663064312742861,
+      "periodic_lift_residual": 5.332180580077716,
+      "augmented_lift_residual": 1.68335982157178e-15
+    },
+    {
+      "case": "C",
+      "model": "FD",
+      "initial_u_error": 3.469446951953614e-18,
+      "initial_v_error": 0.0
+    }
+  ],
+  "CN_tolerance_demo": {
+    "dt": 1e-06,
+    "returned": 1.000001,
+    "Euler": 1.000001,
+    "exact_CN": 1.0000010000005,
+    "solver": {
+      "iterations": 1,
+      "residual": 5.000822667123754e-13,
+      "tolerance": 1.0999999999999999e-11
+    }
+  },
+  "new_PDE_trajectories": 0
+}

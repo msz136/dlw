@@ -18,6 +18,10 @@ The paper is organized as follows. Starting from the continuous DLW system and i
 
 ## 2. Semi-discrete DLW system and exact solutions {#en-continuous}
 
+We begin with the continuous DLW system and its bilinear representation, which provide the starting point for the semi-discrete construction. We then derive the Gram determinant solutions and two nonlinear formulations, followed by their continuum limits and Darboux–Lax representation.
+
+### 2.1 Continuous DLW system and bilinear formulation {#en-preliminaries}
+
 Consider the (2+1)-dimensional DLW system in the normalization of [5] with $\lambda=-2$,
 
 <a id="en-eq-1"></a>
@@ -63,7 +67,7 @@ $$\xi_i=p_ix-p_i^2t+\frac{y}{p_i-a},\qquad \eta_k=q_kx+q_k^2t+\frac{y}{q_k+a}.\t
 
 Here N is the determinant order, n is an auxiliary integer index, and the real parameters are chosen so that all displayed denominators are nonzero. The physical fields are defined on regions where f and g are positive.
 
-### 2.1 Semi-discrete bilinear equations {#en-bilinear}
+### 2.2 Semi-discrete bilinear equations {#en-bilinear}
 
 Based on the bilinear formulation presented above, we construct a semi-discretization of the DLW system in the y-direction, keeping x and t continuous. We start from the continuous bilinear equations. Differentiating the first equation in [(3)](#en-eq-3) with respect to y and combining it with the second gives
 
@@ -83,7 +87,7 @@ Then $\Phi(0)=B_af\cdot g$ and $\Phi\prime(0)=B_af\cdot g_y+2D_xf\cdot g$. Takin
 
 $$\boxed{B_{a-h/2}F_j\cdot G_j=0,\qquad B_{a+h/2}F_j\cdot G_{j+1}=0.}\tag{9}$$
 
-The τ functions $F_j$ and $G_j$ are associated with $f(x,(j+\tfrac12)h,t)$ and $g(x,jh,t)$, respectively. The convergence of the Gram determinant solutions under this identification is established in Section 2.4.
+The τ functions $F_j$ and $G_j$ are associated with $f(x,(j+\tfrac12)h,t)$ and $g(x,jh,t)$, respectively. The convergence of the Gram determinant solutions under this identification is established in Section 2.5.
 
 Symmetric Taylor expansion gives
 
@@ -93,7 +97,7 @@ $$\frac{\Phi(h/2)+\Phi(-h/2)}2=B_af\cdot g+O(h^2),\qquad \frac{\Phi(h/2)-\Phi(-h
 
 Thus the average and the difference quotient recover the continuous bilinear equations with second-order accuracy.
 
-### 2.2 Gram determinant solutions {#en-gram}
+### 2.3 Gram determinant solutions {#en-gram}
 
 Let $d=h/2$ and $\lambda_h(z)=(z+d)/(z-d)$. Define the determinant sequence
 
@@ -234,7 +238,7 @@ $$\det C_{I,I}=\frac{\prod_{i<k,\ i,k\in I}(p_k-p_i)(q_k-q_i)}{\prod_{i,k\in I}(
 
 Positive diagonal scaling preserves this property. Expanding $\det(I+D_1CD_2)$ as the sum of its principal minors, including the empty minor 1, proves the assertion. □
 
-### 2.3 Nonlinear formulations {#en-nonlinear}
+### 2.4 Nonlinear formulations {#en-nonlinear}
 
 We now derive two nonlinear formulations of the semi-discrete bilinear system. Both formulations use the following physical-field reconstruction from positive τ functions:
 
@@ -242,7 +246,7 @@ We now derive two nonlinear formulations of the semi-discrete bilinear system. B
 
 $$u_j=\partial_x\log\frac{F_j^2}{G_jG_{j+1}},\qquad \omega_j=\partial_x\log\frac{G_{j+1}}{G_j},\qquad v_j=\frac4h\omega_j+\delta_0u_j,\qquad \delta_0z_j=\frac{z_{j+1}-z_{j-1}}{2h}.\tag{27}$$
 
-The physical fields are associated with $y=(j+\tfrac12)h$. These definitions provide a discrete counterpart of [(2)](#en-eq-2); their second-order consistency is established in Section 2.4.
+The physical fields are associated with $y=(j+\tfrac12)h$. These definitions provide a discrete counterpart of [(2)](#en-eq-2); their second-order consistency is established in Section 2.5.
 
 Let $\alpha_j=\log F_j$ and $\beta_j=\log G_j$. Dividing the two bilinear equations by $F_jG_j$ and $F_jG_{j+1}$, respectively, gives
 
@@ -387,7 +391,7 @@ $$2\frac{Q_{j,x}}{Q_j}=\partial_x\log\frac{F_j^2}{G_jG_{j+1}}=u_j,\qquad 4(1-Q_j
 
 Adding the same central difference of u to the second equality proves that the reconstructed v fields also coincide. □
 
-### 2.4 Continuum limits {#en-limits}
+### 2.5 Continuum limits {#en-limits}
 
 Having obtained the two nonlinear formulations, we now examine their continuum limits as $h\to0$. We first establish the second-order consistency of the physical-field reconstruction and the semi-discrete equations with their continuous counterparts. We then show that, for fixed regular spectral parameters, the Gram determinant solutions converge to the continuous DLW solutions with an error of order $h^2$, uniformly on compact sets.
 
@@ -539,7 +543,7 @@ $$u^{(h)}=2\left(\log\frac{f^{(h)}}{g^{(h)}}\right)_x+O_K(h^2),\qquad v^{(h)}=2\
 
 Combining these relations with [(65)](#en-eq-65) proves the estimate. Proposition 2.5 transfers the result to both nonlinear formulations. □
 
-### 2.5 Darboux–Lax representation {#en-lax}
+### 2.6 Darboux–Lax representation {#en-lax}
 
 We next construct a Darboux–Lax representation of the semi-discrete DLW system. We first express the linear problem in terms of the physical fields and then give its potential form in the variables Q,R,M.
 
@@ -693,17 +697,13 @@ The above construction provides a common Darboux–Lax representation for the tw
 
 ## 3. Numerical methods and experiments {#en-numerics}
 
-For a common positive τ-function pair, PE and PF reconstruct identical physical fields at finite lattice spacing. After discretizing the x derivatives, their nonlinear operations and reconstruction maps have different discrete implementations. We construct both schemes from common initial physical fields and compare their errors with a direct finite-difference discretization of the continuous DLW equations (FD). PE evolves P,W and PF evolves Q,R; both recover u,v through their respective maps. Initial and boundary data are obtained from the continuous exact solutions.
+We construct numerical schemes from the two nonlinear formulations and compare them with a direct finite-difference discretization of the continuous DLW system. Using the continuous exact solutions as a reference, we examine the effects of the nonlinear formulation and its discrete implementation, time integration, and self-adaptive moving mesh (SAMM) methods on the physical-field errors.
 
-Three-point centred differences approximate the x derivatives on fixed and conservation-density-driven moving meshes. Euler, RK4 and Crank–Nicolson (C–N) methods are used for time integration. We first describe the spatial schemes, then the SAMM method and time integrators, and finally compare their effects on the physical-field errors.
+### 3.1 Spatial discretization {#en-schemes}
 
-### 3.1 Numerical schemes {#en-schemes}
+**Grid and difference operators.** On the fixed grid, let $x_i=-L/2+i\Delta x$, where $\Delta x=L/N_x$. In the y direction, $M_j$ is located at $y=jh$, while $u_j,v_j,Q_j,R_j$ are located at $y=(j+\tfrac12)h$. The indices j and i label the y layers and x nodes, respectively. Time remains continuous in the spatially discretized systems below.
 
-On the fixed grid, partition $x\in[-L/2,L/2)$ into $N_x$ intervals with $x_i=-L/2+i\Delta x$ and $\Delta x=L/N_x$. The y grid is staggered: $M_j$ is located at $y=jh$, while the physical fields and $Q_j,R_j$ are located at $y=(j+\tfrac12)h$. Let $t_n=n\Delta t$; n denotes the time level, and j,i index the y and x directions.
-
-In the adaptive computations, only the x nodes $x_i(t)$ move. The y spacing h, layer indices j and time step remain fixed. The initial moving mesh is obtained by equidistributing the conserved density defined below.
-
-On the fixed uniform grid, use the centred differences
+We approximate the x derivatives by three-point centred differences
 
 <a id="en-eq-87"></a>
 
@@ -712,224 +712,211 @@ $$\begin{aligned}
 (D_2z)_{j,i}&=\frac{z_{j,i+1}-2z_{j,i}+z_{j,i-1}}{\Delta x^2}\simeq\partial_{xx}z_j(x_i,t).
 \end{aligned}\tag{87}$$
 
-In the y direction, use the backward difference, central difference and adjacent-layer average:
+In the y direction, we use
 
 <a id="en-eq-88"></a>
 
 $$\delta_-z_{j,i}=\frac{z_{j,i}-z_{j-1,i}}h,\quad \delta_0z_{j,i}=\frac{z_{j+1,i}-z_{j-1,i}}{2h},\quad \mathcal M_-z_{j,i}=\frac{z_{j,i}+z_{j-1,i}}2.\tag{88}$$
 
-These operators act on the layer index j, whereas $D_1,D_2$ act on the x-node index i. We first give the fixed-grid Euler updates. RK4 and C–N use the same spatial differences.
+The operators $D_1,D_2$ act on the x-node index, whereas $\delta_-,\delta_0,\mathcal M_-$ act on the layer index. All products and quotients below are evaluated pointwise. We first construct the PE and PF schemes, followed by the direct finite-difference scheme, denoted by FD.
 
-**PE scheme.** Evolve $P=\delta_-u$ and $W=v-\delta_0u$. Given $P^n,W^n$, reconstruct the physical fields from the lower boundary:
+**PE scheme.** We evolve $P=\delta_-u$ and $W=v-\delta_0u$. At each time, the physical fields are reconstructed by
 
 <a id="en-eq-89"></a>
 
-$$u_{j,i}^n=u_{j_L,i}^n+h\sum_{k=j_L+1}^{j}P_{k,i}^n,\qquad
-v_{j,i}^n=W_{j,i}^n+(\delta_0u^n)_{j,i}.\tag{89}$$
+$$u_{j,i}=u_{j_L,i}+h\sum_{k=j_L+1}^{j}P_{k,i},\qquad
+v_{j,i}=W_{j,i}+(\delta_0u)_{j,i}.\tag{89}$$
 
-Here $j_L$ is the lowest layer and $u_{j_L,i}^n$ is the exact boundary value. The PE equations give the rates
+where $j_L$ denotes the lowest layer and $u_{j_L,i}(t)$ is prescribed by the lower boundary data. Substituting these fields into the PE equations gives $\dot P=F_P$ and $\dot W=F_W$, with
 
 <a id="en-eq-90"></a>
 
 $$\begin{aligned}
-F_P^n={}&-\delta_-D_1\left[\frac{(u^n)^2}{2}+2au^n
-+h^2\left(\frac{(W^n)^2}{32}-\frac{W^n}{4}\right)\right]
--D_2(P^n+\mathcal M_-W^n),\\
-F_W^n={}&-D_1[(u^n+2a)W^n-4u^n]+D_2W^n.
+F_P={}&-\delta_-D_1\left[\frac{u^2}{2}+2au
++h^2\left(\frac{W^2}{32}-\frac{W}{4}\right)\right]
+-D_2(P+\mathcal M_-W),\\
+F_W={}&-D_1[(u+2a)W-4u]+D_2W.
 \end{aligned}\tag{90}$$
 
-The rates $F_P^n,F_W^n$ approximate $P_t,W_t$, and all products are pointwise. The next time level is
+Thus the right-hand side is evaluated by first recovering u from P, and then applying the spatial difference operators to u and W. The field v follows from the same reconstruction formula.
+
+**PF scheme.** We evolve Q and R and reconstruct the physical fields through
 
 <a id="en-eq-91"></a>
 
-$$P^{n+1}=P^n+\Delta t\,F_P^n,\qquad
-W^{n+1}=W^n+\Delta t\,F_W^n.\tag{91}$$
+$$u_j=2\frac{D_1Q_j}{Q_j},\qquad
+v_j=4(1-Q_jR_j)+\delta_0u_j\tag{91}$$
 
-Reconstruct $u^{n+1},v^{n+1}$ using [(89)](#en-eq-89). Initially, set $P^0=\delta_-u_*(0)$ and $W^0=v_*(0)-\delta_0u_*(0)$.
-
-**PF scheme.** Evolve Q,R and reconstruct the physical fields by
+The evolution equations also contain $(M_j+M_{j+1})_x$. To evaluate this term, introduce $m_j\simeq M_{j,x}$ and $S_j=Q_jR_j$. Applying $D_1$ to the lattice constraint $M_{j+1}-M_j=h(1-S_j)$ yields
 
 <a id="en-eq-92"></a>
 
-$$u_j^n=2\frac{D_1Q_j^n}{Q_j^n},\qquad
-v_j^n=4(1-Q_j^nR_j^n)+\delta_0u_j^n\tag{92}$$
+$$m_{j+1}=m_j-hD_1S_j.\tag{92}$$
 
-To compute $(M_j+M_{j+1})_x$, write $m_j^n\simeq M_{j,x}(t_n)$ and $S_j^n=Q_j^nR_j^n$. Applying an x difference to the lattice constraint gives
+This relation determines the m layers successively once their lower boundary value is known. Temporarily labelling the lowest layer as 0, we obtain that value from the Q equation:
 
 <a id="en-eq-93"></a>
 
-$$m_{j+1}^n=m_j^n-hD_1S_j^n.\tag{93}$$
+$$m_0=-\frac{Q_{0,t}+D_2Q_0+2aD_1Q_0}{2Q_0}
+-\frac{h^2}{8}\bigl[S_0^2-1\bigr]+\frac h2D_1S_0.\tag{93}$$
 
-This relation determines successive m layers from the lower boundary. Temporarily labelling the lowest layer as 0, its Q equation gives
+Here $Q_0(t)$ is prescribed by the lower boundary data, and $Q_{0,t}$ is its time derivative. With m determined, the evolution equations are $\dot Q_j=F_{Q,j}$ and $\dot R_j=F_{R,j}$, where
 
 <a id="en-eq-94"></a>
 
-$$m_0^n=-\frac{Q_{0,t}^n+D_2Q_0^n+2aD_1Q_0^n}{2Q_0^n}
--\frac{h^2}{8}\bigl[(S_0^n)^2-1\bigr]+\frac h2D_1S_0^n.\tag{94}$$
+$$\begin{aligned}
+F_{Q,j}={}&-D_2Q_j-2aD_1Q_j
+-\left[m_j+m_{j+1}+\frac{h^2}{4}\bigl((Q_jR_j)^2-1\bigr)\right]Q_j,\\
+F_{R,j}={}&D_2R_j-2aD_1R_j
++\left[m_j+m_{j+1}+\frac{h^2}{4}\bigl((Q_jR_j)^2-1\bigr)\right]R_j.
+\end{aligned}\tag{94}$$
 
-Here $Q_0(t)$ is determined by the exact lower boundary, and $Q_{0,t}^n$ is its time derivative. After recovering all m layers from [(93)](#en-eq-93), compute
+The lowest Q layer is prescribed, while the interior Q layers and all R layers are evolved. The physical fields are recovered from Q and R using (91).
+
+**FD scheme.** For comparison, we discretize the continuous DLW equations directly, taking $P=\delta_-u$ and v as the evolution variables. The field u is recovered from P by the first relation in (89). The resulting system is $\dot P=F_P$ and $\dot v=F_v$, with
 
 <a id="en-eq-95"></a>
 
 $$\begin{aligned}
-F_{Q,j}^n={}&-D_2Q_j^n-2aD_1Q_j^n
--\left[m_j^n+m_{j+1}^n+\frac{h^2}{4}\bigl((Q_j^nR_j^n)^2-1\bigr)\right]Q_j^n,\\
-F_{R,j}^n={}&D_2R_j^n-2aD_1R_j^n
-+\left[m_j^n+m_{j+1}^n+\frac{h^2}{4}\bigl((Q_j^nR_j^n)^2-1\bigr)\right]R_j^n,\\
-Q_j^{n+1}={}&Q_j^n+\Delta t\,F_{Q,j}^n,\qquad
-R_j^{n+1}=R_j^n+\Delta t\,F_{R,j}^n.
+F_P&=-\delta_-D_1\left[\frac{u^2}{2}+2au\right]-D_2\mathcal M_-v,\\
+F_v&=-D_1[(u+2a)v-4u]-D_2\delta_0u.
 \end{aligned}\tag{95}$$
 
-The rates $F_Q,F_R$ approximate the time derivatives of Q,R. The lowest Q layer is prescribed by the boundary data; interior Q layers and all R layers are advanced with [(95)](#en-eq-95). The physical fields are then obtained from [(92)](#en-eq-92).
+These three spatial discretizations are combined with the time integrators in Section 3.3. Their initial and boundary data are specified in Section 3.4.
 
-The initial Q is determined by $D_1Q_j^0=u_{*,j}(0)Q_j^0/2$ with normalization $Q_{j,0}^0=1$, and $R_j^0=[1-(v_{*,j}(0)-\delta_0u_{*,j}(0))/4]/Q_j^0$. This gives the same initial physical fields as the other schemes. The lower boundary $Q_0(t)$ is determined from $u_{*,0}(t)$ by the same relation.
+### 3.2 Self-adaptive moving mesh method {#en-samm}
 
-**FD scheme.** Directly discretize the continuous DLW system, evolving $P=\delta_-u$ and v. Recover u from the lower boundary:
+Based on the two semi-discrete DLW formulations, we construct the following self-adaptive moving mesh method using their common conservation law. Only the x nodes move, while the y spacing h remains fixed; all y layers share the same x nodes. Introduce the density and flux
 
 <a id="en-eq-96"></a>
 
-$$u_{j,i}^n=u_{j_L,i}^n+h\sum_{k=j_L+1}^jP_{k,i}^n.\tag{96}$$
-
-Here $u_{j_L,i}^n$ is the exact boundary value. Then compute
-
-<a id="en-eq-97"></a>
-
-$$\begin{aligned}
-F_P^n&=-\delta_-D_1\left[\frac{(u^n)^2}{2}+2au^n\right]-D_2\mathcal M_-v^n,\\
-F_v^n&=-D_1[(u^n+2a)v^n-4u^n]-D_2\delta_0u^n,\\
-P^{n+1}&=P^n+\Delta t\,F_P^n,\qquad
-v^{n+1}=v^n+\Delta t\,F_v^n.
-\end{aligned}\tag{97}$$
-
-The rates $F_P^n,F_v^n$ approximate $P_t,v_t$; for example, $D_2\delta_0u$ approximates $u_{xxy}$. The initial values are $P^0=\delta_-u_*(0)$ and $v^0=v_*(0)$.
-
-The computational boundaries are placed where the soliton tails approach their backgrounds. PE and FD use periodic x differences; PF uses the left and right background values of Q,R. In y, the lower boundary is exact and the difference between the numerical solution and the exact background is quadratically extrapolated at the upper boundary.
-
-**Self-adaptive moving mesh method.**
-
-A discrete hodograph transformation connects semi-discrete equations with mesh evolution in [9]. For the present DLW system, choose $\rho_j=1-W_j/4$ as the conserved density driving the mesh. In PF, this density equals $Q_jR_j$. The density and flux are
-
-<a id="en-eq-98"></a>
-
 $$\rho_j=1-\frac{W_j}{4},\qquad
-q_j=(u_j+2a)\rho_j-\partial_x\rho_j-2a.\tag{98}$$
+q_j=(u_j+2a)\rho_j-\partial_x\rho_j-2a.\tag{96}$$
 
 Substituting $W_j=4(1-\rho_j)$ into its evolution equation gives
 
-<a id="en-eq-99"></a>
+<a id="en-eq-97"></a>
 
-$$\partial_t\rho_j+\partial_xq_j=0.\tag{99}$$
+$$\partial_t\rho_j+\partial_xq_j=0.\tag{97}$$
 
 In PF, $\rho_j=Q_jR_j$. Since all y layers share the same x nodes, average over the layers:
 
-<a id="en-eq-100"></a>
+<a id="en-eq-98"></a>
 
 $$\bar\rho=\frac1{N_y}\sum_j\rho_j,\qquad
-\bar q=\frac1{N_y}\sum_jq_j.\tag{100}$$
+\bar q=\frac1{N_y}\sum_jq_j.\tag{98}$$
 
-The initial mesh equidistributes the cumulative integral of $\bar\rho(x,0)$, assigning more nodes to regions of larger density. Fixing the left endpoint $x_L$ and keeping the cumulative integral at each moving node constant, [(99)](#en-eq-99) gives
+The initial mesh equidistributes the cumulative integral of $\bar\rho(x,0)$, assigning more nodes to regions of larger density. Fixing the left endpoint $x_L$ and keeping the cumulative integral at each moving node constant, [(97)](#en-eq-97) gives
 
-<a id="en-eq-101"></a>
+<a id="en-eq-99"></a>
 
 $$\frac{d}{dt}\int_{x_L}^{x_i(t)}\bar\rho(x,t)\,dx
-=-\bar q(x_i,t)+\bar q(x_L,t)+\bar\rho(x_i,t)\dot x_i=0.\tag{101}$$
+=-\bar q(x_i,t)+\bar q(x_L,t)+\bar\rho(x_i,t)\dot x_i=0.\tag{99}$$
 
 The resulting node velocity is
 
-<a id="en-eq-102"></a>
+<a id="en-eq-100"></a>
 
 $$\dot x_i=\mathcal V_i
-=\frac{\bar q_i-\bar q_0}{\bar\rho_i}.\tag{102}$$
+=\frac{\bar q_i-\bar q_0}{\bar\rho_i}.\tag{100}$$
 
-In the computation, replace $\partial_x\rho$ by $D_1\rho$ and require $\bar\rho>0$. The FD moving-mesh comparison uses the same density, averaging and velocity formulas [(98)](#en-eq-98), [(100)](#en-eq-100) and [(102)](#en-eq-102).
+In the computation, replace $\partial_x\rho$ by $D_1\rho$ and require $\bar\rho>0$. The FD moving-mesh comparison uses the same density, averaging and velocity formulas [(96)](#en-eq-96), [(98)](#en-eq-98) and [(100)](#en-eq-100).
 
 The physical x spacings become nonuniform as the nodes move. Introduce fixed uniform computational coordinates $\xi_i=-L/2+i\Delta\xi$, with $\Delta\xi=L/N_x$, and write $x_i(t)=\xi_i+s_i(t)$. The node displacement is $s_i$, and $J_i=1+D_\xi s_i$ approximates the mapping Jacobian $J=x_\xi$.
 
 The chain rule gives $\partial_x=J^{-1}\partial_\xi$ and hence
 
-<a id="en-eq-103"></a>
+<a id="en-eq-101"></a>
 
-$$\partial_{xx}z=\frac{z_{\xi\xi}}{J^2}-\frac{J_\xi z_\xi}{J^3}.\tag{103}$$
+$$\partial_{xx}z=\frac{z_{\xi\xi}}{J^2}-\frac{J_\xi z_\xi}{J^3}.\tag{101}$$
 
 Approximating the computational-coordinate derivatives by centred differences gives
 
-<a id="en-eq-104"></a>
+<a id="en-eq-102"></a>
 
 $$D_1z_i=\frac{D_\xi z_i}{J_i},\qquad
 D_2z_i=\frac{D_{\xi\xi}z_i}{J_i^2}
--\frac{(D_\xi J)_i(D_\xi z)_i}{J_i^3}.\tag{104}$$
+-\frac{(D_\xi J)_i(D_\xi z)_i}{J_i^3}.\tag{102}$$
 
-Here $D_\xi,D_{\xi\xi}$ are the three-point formulas in [(87)](#en-eq-87) on the uniform computational grid. For each evolving variable z, the chain rule gives $\dot z=F_z+\mathcal V D_1z$. Add this transport term to the rates above and advance the node equation [(102)](#en-eq-102) together with the fields. The fixed grid corresponds to $s=0$ and $\mathcal V=0$.
+Here $D_\xi,D_{\xi\xi}$ are the three-point formulas in [(87)](#en-eq-87) on the uniform computational grid. For each evolving variable z, the chain rule gives $\dot z=F_z+\mathcal V D_1z$. Add this transport term to the rates above and advance the node equation [(100)](#en-eq-100) together with the fields. The fixed grid corresponds to $s=0$ and $\mathcal V=0$.
 
-**Time integration.**
+### 3.3 Time integration {#en-time}
 
-The Euler updates above use rates at the current time level. For comparison, we also use classical RK4 and C–N. Let z collect all evolving variables and let $\mathcal F(t,z)$ denote their discrete rates. On the moving mesh, z also includes node coordinates and the rates include mesh transport and node velocities.
+We use the forward Euler, classical fourth-order Runge–Kutta (RK4), and Crank–Nicolson (C–N) methods to integrate the spatially discretized systems on both fixed and moving meshes. Let $z$ collect the evolving variables and write the resulting system as $\dot z=\mathcal F(t,z)$. For SAMM, $z$ also includes the node coordinates, and $\mathcal F$ includes the mesh transport terms and node velocities.
 
-RK4 evaluates four stages per time step:
+With $t_n=n\Delta t$, the forward Euler method is
+
+<a id="en-eq-103"></a>
+
+$$z^{n+1}=z^n+\Delta t\,\mathcal F(t_n,z^n).\tag{103}$$
+
+We also use the classical four-stage, fourth-order Runge–Kutta method (RK4). At each stage, the reconstruction, auxiliary variables, spatial differences and boundary values are evaluated from the stage fields and mesh.
+
+The Crank–Nicolson (C–N) method averages the rates at adjacent time levels:
+
+<a id="en-eq-104"></a>
+
+$$\frac{z^{n+1}-z^n}{\Delta t}
+=\frac{\mathcal F(t_n,z^n)+\mathcal F(t_{n+1},z^{n+1})}{2}.\tag{104}$$
+
+For FD, the v update is $v^{n+1}=v^n+\Delta t(F_v^n+F_v^{n+1})/2$. Since the final rate depends on the unknown next-level fields, it is solved jointly with the P update. The coupled implicit equations are solved iteratively, using the forward Euler approximation as the initial guess.
+
+### 3.4 Test problems and error measures {#en-tests}
+
+We consider one- and two-soliton solutions of the continuous DLW system. The exact solutions provide the initial and boundary data and serve as the reference for evaluating the numerical errors. Throughout the tests, we set $a=2$, take the determinant coefficients $\rho_i=1$, and set the initial phases to zero.
+
+**One-soliton solutions.** For $N=1$, the continuous Gram determinant reduces to
 
 <a id="en-eq-105"></a>
 
-$$\begin{aligned}
-k_1&=\mathcal F(t_n,z^n),\\
-k_2&=\mathcal F(t_n+\Delta t/2,z^n+\Delta t\,k_1/2),\\
-k_3&=\mathcal F(t_n+\Delta t/2,z^n+\Delta t\,k_2/2),\\
-k_4&=\mathcal F(t_n+\Delta t,z^n+\Delta t\,k_3),\\
-z^{n+1}&=z^n+\frac{\Delta t}{6}(k_1+2k_2+2k_3+k_4).
-\end{aligned}\tag{105}$$
+$$f_*=1+cE,\qquad g_*=1+E,\tag{105}$$
 
-Differences and boundary values are recomputed from the fields and mesh at each stage.
-
-C–N averages the rates at adjacent time levels, following the time-averaging approach in [9]:
+where
 
 <a id="en-eq-106"></a>
 
-$$\frac{z^{n+1}-z^n}{\Delta t}
-=\frac{\mathcal F(t_n,z^n)+\mathcal F(t_{n+1},z^{n+1})}{2}.\tag{106}$$
+$$\begin{gathered}E=\frac{e^\theta}{p+q},\qquad c=-\frac{p-a}{q+a},\\\theta=kx+(q^2-p^2)t+\ell y,\qquad k=p+q,\qquad \ell=\frac1{p-a}+\frac1{q+a}.\end{gathered}\tag{106}$$
 
-For FD, the v update is $v^{n+1}=v^n+\Delta t(F_v^n+F_v^{n+1})/2$. Since the final rate depends on the unknown next-level fields, it is solved jointly with the P update. Euler gives the initial iterate; the implicit residual tolerance is $10^{-12}+10^{-11}\max(1,\|z^n\|_\infty)$.
-
-Continuous exact soliton solutions provide the reference for measuring the effects of the nonlinear formulation and its implementation, time integration and mesh motion. The cases are one-soliton A, one-soliton B and a two-soliton solution. The spatial-scheme comparison uses common initial physical fields and RK4; the time-integrator comparison fixes the spatial grid and time step; the mesh comparison fixes node counts, time step and final time. All errors use the common evaluation grid defined below.
-
-### 3.2 Test problems and error measures {#en-tests}
-
-Use the continuous Gram τ functions
+The corresponding physical fields are
 
 <a id="en-eq-107"></a>
 
-$$\tau_n^*(x,y,t)=\det_{1\le i,k\le N}\left[\delta_{ik}+\frac{\rho_i}{p_i+q_k}
-\left(-\frac{p_i-a}{q_k+a}\right)^n
-\exp\left((p_i+q_k)x+(q_k^2-p_i^2)t
-+y\left(\frac1{p_i-a}+\frac1{q_k+a}\right)\right)\right],\qquad n=0,1.\tag{107}$$
+$$\begin{aligned}u_*&=\frac{2k(c-1)E}{(1+cE)(1+E)},\\v_*&=2k\ell\left[\frac{cE}{(1+cE)^2}+\frac{E}{(1+E)^2}\right].\end{aligned}\tag{107}$$
 
-Let $f_*=\tau_1^*$ and $g_*=\tau_0^*$. The exact reference fields are
+For $p+q>0$ and $c>0$, the sign of the u pulse is determined by $c-1$, while that of v is determined by $\ell$. We choose $(p,q)=(1,2)$ and $(4,-3)$ to obtain a negative and a positive u pulse, respectively. In the first case, $c=1/4$ and $\ell=-3/4$; in the second, $c=2$ and $\ell=-1/2$. Both choices give a negative v pulse.
+
+**Two-soliton solution.** For $N=2$, expanding the Gram determinant gives
 
 <a id="en-eq-108"></a>
 
-$$u_*=2\partial_x\log\frac{f_*}{g_*},\qquad
-v_*=2\partial_x\partial_y\log(f_*g_*).\tag{108}$$
+$$\begin{aligned}f_*&=1+c_1E_1+c_2E_2+A_{12}c_1c_2E_1E_2,\\g_*&=1+E_1+E_2+A_{12}E_1E_2,\end{aligned}\tag{108}$$
 
-Analytic differentiation gives the initial data, boundary data and reference fields at the final time. Set $a=2$, $\rho_i=1$ and zero initial phases, with the following spectral parameters.
-
-| Case | $N$ | $p_i$ | $q_i$ |
-|---|---|---|---|
-| One-soliton A | 1 | $1$ | $2$ |
-| One-soliton B | 1 | $4$ | $-3$ |
-| Two-soliton | 2 | $6,4$ | $-5,-3$ |
-
-**Computational settings and error measures.**
-
-For Tables 1–3, the computational domain is $x\in[-20,20)$ and $y\in[-1.5,1.5]$. Use $N_x=256$, fixed-grid spacing $\Delta x=0.15625$, and 24 cells in y with $h=0.125$. The time step is $\Delta t=1.25\times10^{-4}$ and the final time is $T=0.01$. Moving-mesh runs keep $N_x,h,\Delta t,T$ unchanged and use the conserved density to determine the initial x nodes and their velocities.
-
-The evaluation grid $\mathcal G$ consists of 4001 equally spaced x points on $[-10,10]$ and all y layers. Cubic splines interpolate each numerical physical field from its actual x nodes. Define
+where
 
 <a id="en-eq-109"></a>
 
+$$\begin{gathered}E_i=\frac{e^{\theta_i}}{p_i+q_i},\qquad c_i=-\frac{p_i-a}{q_i+a},\\\theta_i=(p_i+q_i)x+(q_i^2-p_i^2)t+\left(\frac1{p_i-a}+\frac1{q_i+a}\right)y,\qquad i=1,2,\\A_{12}=\frac{(p_1-p_2)(q_1-q_2)}{(p_1+q_2)(p_2+q_1)}.\end{gathered}\tag{109}$$
+
+The physical fields are obtained from $u_*=2\partial_x\log(f_*/g_*)$ and $v_*=2\partial_x\partial_y\log(f_*g_*)$. For the two-soliton solution, we take $p_1=6$, $q_1=-5$, $p_2=4$, and $q_2=-3$, giving $c_1=4/3$, $c_2=2$ and $A_{12}=4/3$. The phases are $\theta_1=x-11t-y/12$ and $\theta_2=x-7t-y/2$, so the two constituent waves have different spatial orientations and propagation rates. This case extends the comparison to a two-wave interaction.
+
+**Initial and boundary data.** PE is initialized with $P^0=\delta_-u_*(0)$ and $W^0=v_*(0)-\delta_0u_*(0)$; FD uses the same $P^0$ and $v^0=v_*(0)$. For PF, Q is determined by $D_1Q_j^0=u_{*,j}(0)Q_j^0/2$ with normalization $Q_{j,0}^0=1$, and $R_j^0=[1-(v_{*,j}(0)-\delta_0u_{*,j}(0))/4]/Q_j^0$. The lower boundary $Q_0(t)$ is obtained from $u_{*,0}(t)$ by the same relation. The three schemes therefore use common initial physical fields.
+
+The computational boundaries are placed where the soliton tails approach their backgrounds. PE and FD use periodic x differences; PF uses the left and right background values of Q,R. In y, the lower boundary is exact and the difference between the numerical solution and the exact background is quadratically extrapolated at the upper boundary.
+
+**Computational settings and error measures.**
+
+For Tables 1–3, the computational domain is $x\in[-20,20)$ and $y\in[-1.5,1.5]$. Use $N_x=256$, fixed-grid spacing $\Delta x=0.15625$, and 24 cells in y with $h=0.125$. The time step is $\Delta t=1.25\times10^{-4}$ and the final time is $T=0.01$.
+
+The evaluation grid $\mathcal G$ consists of 4001 equally spaced x points on $[-10,10]$ and all y layers. Cubic splines interpolate each numerical physical field from its actual x nodes. Define
+
+<a id="en-eq-110"></a>
+
 $$E_f(T)=\max_{(x,y)\in\mathcal G}|f_{\rm num}(x,y,T)-f_*(x,y,T)|,
-\qquad f=u,v.\tag{109}$$
+\qquad f=u,v.\tag{110}$$
 
-### 3.3 Numerical results {#en-results}
+### 3.5 Numerical results {#en-results}
 
-Table 1 compares the maximum absolute errors of the three spatial schemes on the same physical grid with RK4. The difference between PE and PF is most pronounced in u: the PF errors are approximately 7.61, 1.91 and 2.02 times the PE errors for one-soliton A, one-soliton B and the two-soliton case, respectively. The corresponding ratios for v are 2.25, 0.929 and 1.11. Thus PE gives smaller u errors in all three tests, while the relative v errors depend on the soliton parameters.
+Table 1 compares the maximum absolute errors of the three spatial schemes, using common initial physical fields, the same fixed grid and RK4 time integration. The difference between PE and PF is most pronounced in u: the PF errors are approximately 7.61, 1.91 and 2.02 times the PE errors for the one-soliton solution with p=1 and q=2, the one-soliton solution with p=4 and q=−3 and the two-soliton case, respectively. The corresponding ratios for v are 2.25, 0.929 and 1.11. Thus PE gives smaller u errors in all three tests, while the relative v errors depend on the soliton parameters.
 
 **Table 1. Maximum absolute errors on the fixed grid with RK4. The smallest entry in each row is bold.**
 
@@ -937,7 +924,7 @@ Table 1 compares the maximum absolute errors of the three spatial schemes on the
 <thead><tr><th scope="col">Case</th><th scope="col">Field</th><th scope="col">PE</th><th scope="col">PF</th><th scope="col">FD</th></tr></thead>
 <tbody>
 <tr>
-<th rowspan="2" scope="rowgroup">One-soliton A</th>
+<th rowspan="2" scope="rowgroup">One-soliton (p=1, q=2)</th>
 <th scope="row">u</th>
 <td>1.560308e-03</td>
 <td>1.187746e-02</td>
@@ -950,7 +937,7 @@ Table 1 compares the maximum absolute errors of the three spatial schemes on the
 <td><strong>3.008503e-03</strong></td>
 </tr>
 <tr>
-<th rowspan="2" scope="rowgroup">One-soliton B</th>
+<th rowspan="2" scope="rowgroup">One-soliton (p=4, q=−3)</th>
 <th scope="row">u</th>
 <td><strong>6.639277e-05</strong></td>
 <td>1.266358e-04</td>
@@ -978,7 +965,7 @@ Table 1 compares the maximum absolute errors of the three spatial schemes on the
 </tbody>
 </table></div>
 
-Relative to FD, PE reduces the u error by about 15.0% and 9.87% for one-soliton B and the two-soliton case, while increasing the v error by about 3.65% and 2.01%. For one-soliton A, its u and v errors exceed FD by about 34.3% and 7.34%. PF gives the smallest v error for one-soliton B, approximately 3.66% below FD. The differences between PE and FD are smaller in the latter two cases than in one-soliton A, with different trends in the two physical fields. We next compare time integration and mesh selection for each scheme.
+Relative to FD, PE reduces the u error by about 15.0% and 9.87% for the one-soliton solution with p=4 and q=−3 and the two-soliton case, while increasing the v error by about 3.65% and 2.01%. For the one-soliton solution with p=1 and q=2, its u and v errors exceed FD by about 34.3% and 7.34%. PF gives the smallest v error for the one-soliton solution with p=4 and q=−3, approximately 3.66% below FD. The differences between PE and FD are smaller in the latter two cases than in the one-soliton solution with p=1 and q=2, with different trends in the two physical fields. We next compare time integration and mesh selection for each scheme.
 
 **Time-integrator comparison.**
 
@@ -990,7 +977,7 @@ Table 2 compares the terminal errors of Euler, RK4 and C–N on the fixed spatia
 <thead><tr><th scope="col">Case</th><th scope="col">Method</th><th scope="col">Field</th><th scope="col">Euler</th><th scope="col">RK4</th><th scope="col">C–N</th></tr></thead>
 <tbody>
 <tr>
-<th rowspan="6" scope="rowgroup">One-soliton A</th>
+<th rowspan="6" scope="rowgroup">One-soliton (p=1, q=2)</th>
 <th rowspan="2" scope="rowgroup">PE</th>
 <th scope="row">u</th>
 <td><strong>1.559149e-03</strong></td>
@@ -1030,7 +1017,7 @@ Table 2 compares the terminal errors of Euler, RK4 and C–N on the fixed spatia
 <td>3.008508e-03</td>
 </tr>
 <tr>
-<th rowspan="6" scope="rowgroup">One-soliton B</th>
+<th rowspan="6" scope="rowgroup">One-soliton (p=4, q=−3)</th>
 <th rowspan="2" scope="rowgroup">PE</th>
 <th scope="row">u</th>
 <td>6.674179e-05</td>
@@ -1114,7 +1101,7 @@ Table 2 compares the terminal errors of Euler, RK4 and C–N on the fixed spatia
 
 Across all eighteen comparisons, the relative difference between RK4 and C–N is below 0.003%. At the tested spatial resolution and time step, the two methods give nearly identical terminal errors.
 
-Replacing Euler by RK4 reduces the PE and FD errors for one-soliton B and the two-soliton case by 0.20%–0.52% in u and 4.35%–4.90% in v. PF is more sensitive: its u errors decrease by 2.81% and 4.55%, and its v errors by 25.6% and 29.2%, respectively. The trend reverses for one-soliton A, where RK4 errors exceed Euler errors by 0.0083%–0.612%. Under these settings, the largest effect of time integration occurs in the PF v field; the RK4–C–N difference is much smaller than the change from Euler. RK4 is used for the remaining mesh comparisons and field plots.
+Replacing Euler by RK4 reduces the PE and FD errors for the one-soliton solution with p=4 and q=−3 and the two-soliton case by 0.20%–0.52% in u and 4.35%–4.90% in v. PF is more sensitive: its u errors decrease by 2.81% and 4.55%, and its v errors by 25.6% and 29.2%, respectively. The trend reverses for the one-soliton solution with p=1 and q=2, where RK4 errors exceed Euler errors by 0.0083%–0.612%. Under these settings, the largest effect of time integration occurs in the PF v field; the RK4–C–N difference is much smaller than the change from Euler. RK4 is used for the remaining mesh comparisons and field plots.
 
 **Fixed and moving meshes.**
 
@@ -1122,31 +1109,31 @@ Table 3 compares fixed and moving meshes for each spatial scheme, with identical
 
 **Table 3. Maximum absolute errors on fixed and moving meshes with RK4. Each cell gives $E_u/E_v$; the smaller error for each field is bold.**
 
-<div class="table-wrap"><table class="comparison paired-errors"><thead><tr><th>Case</th><th>Method</th><th>Fixed mesh: u / v</th><th>Moving mesh: u / v</th></tr></thead><tbody><tr><th>One-soliton A</th><th>PE</th><td>1.560308e-03 / 3.229398e-03</td><td><strong>1.198143e-03 / 2.172159e-03</strong></td></tr><tr><th>One-soliton A</th><th>PF</th><td>1.187746e-02 / 7.254773e-03</td><td><strong>3.940103e-03 / 3.703664e-03</strong></td></tr><tr><th>One-soliton A</th><th>FD</th><td>1.161402e-03 / 3.008503e-03</td><td><strong>8.878667e-04 / 1.960738e-03</strong></td></tr><tr><th>One-soliton B</th><th>PE</th><td>6.639277e-05 / 6.664598e-05</td><td><strong>4.533361e-05 / 5.568003e-05</strong></td></tr><tr><th>One-soliton B</th><th>PF</th><td>1.266358e-04 / 6.194167e-05</td><td><strong>8.467373e-05 / 4.606240e-05</strong></td></tr><tr><th>One-soliton B</th><th>FD</th><td>7.809306e-05 / 6.429802e-05</td><td><strong>5.709006e-05 / 5.387754e-05</strong></td></tr><tr><th>Two-soliton</th><th>PE</th><td>1.299876e-04 / 1.267185e-04</td><td><strong>8.193645e-05 / 8.860848e-05</strong></td></tr><tr><th>Two-soliton</th><th>PF</th><td>2.620490e-04 / 1.405303e-04</td><td><strong>1.626438e-04 / 8.423511e-05</strong></td></tr><tr><th>Two-soliton</th><th>FD</th><td>1.442262e-04 / 1.242170e-04</td><td><strong>9.643247e-05 / 8.548888e-05</strong></td></tr></tbody></table></div>
+<div class="table-wrap"><table class="comparison paired-errors"><thead><tr><th>Case</th><th>Method</th><th>Fixed mesh: u / v</th><th>Moving mesh: u / v</th></tr></thead><tbody><tr><th>One-soliton (p=1, q=2)</th><th>PE</th><td>1.560308e-03 / 3.229398e-03</td><td><strong>1.198143e-03 / 2.172159e-03</strong></td></tr><tr><th>One-soliton (p=1, q=2)</th><th>PF</th><td>1.187746e-02 / 7.254773e-03</td><td><strong>3.940103e-03 / 3.703664e-03</strong></td></tr><tr><th>One-soliton (p=1, q=2)</th><th>FD</th><td>1.161402e-03 / 3.008503e-03</td><td><strong>8.878667e-04 / 1.960738e-03</strong></td></tr><tr><th>One-soliton (p=4, q=−3)</th><th>PE</th><td>6.639277e-05 / 6.664598e-05</td><td><strong>4.533361e-05 / 5.568003e-05</strong></td></tr><tr><th>One-soliton (p=4, q=−3)</th><th>PF</th><td>1.266358e-04 / 6.194167e-05</td><td><strong>8.467373e-05 / 4.606240e-05</strong></td></tr><tr><th>One-soliton (p=4, q=−3)</th><th>FD</th><td>7.809306e-05 / 6.429802e-05</td><td><strong>5.709006e-05 / 5.387754e-05</strong></td></tr><tr><th>Two-soliton</th><th>PE</th><td>1.299876e-04 / 1.267185e-04</td><td><strong>8.193645e-05 / 8.860848e-05</strong></td></tr><tr><th>Two-soliton</th><th>PF</th><td>2.620490e-04 / 1.405303e-04</td><td><strong>1.626438e-04 / 8.423511e-05</strong></td></tr><tr><th>Two-soliton</th><th>FD</th><td>1.442262e-04 / 1.242170e-04</td><td><strong>9.643247e-05 / 8.548888e-05</strong></td></tr></tbody></table></div>
 
-Moving-mesh errors are lower in all eighteen field comparisons, with reductions of 16.2%–66.8%. The ranges are 16.5%–37.0% for PE, 25.6%–66.8% for PF and 16.2%–34.8% for FD. PF improves most for one-soliton A, with reductions of 66.8% in u and 48.9% in v. In the two-soliton case, both fields improve by approximately 30%–40% across the three schemes.
+Moving-mesh errors are lower in all eighteen field comparisons, with reductions of 16.2%–66.8%. The ranges are 16.5%–37.0% for PE, 25.6%–66.8% for PF and 16.2%–34.8% for FD. PF improves most for the one-soliton solution with p=1 and q=2, with reductions of 66.8% in u and 48.9% in v. In the two-soliton case, both fields improve by approximately 30%–40% across the three schemes.
 
 At the same node count, conserved-density-based placement and motion consistently improve both physical fields for all three schemes. The response to mesh allocation and motion is substantially larger than the below-0.003% difference between RK4 and C–N in Table 2.
 
-**One-soliton A: fields and errors.**
+**One-soliton (p=1, q=2): fields and errors.**
 
 The field plots compare PE, PF and FD throughout. To display the spatial wave profiles, all three schemes are computed on $x\in[-40,40)$ and $y\in[-30,30)$ using a fixed grid, RK4, $\Delta x=0.15625$, $h=0.125$, $\Delta t=1.25\times10^{-4}$ and $T=0.01$. Tables 1–3 use the smaller domain and common evaluation grid specified above; Figures 1–6 show the expanded-domain fields and pointwise errors.
 
 Each figure has three columns, ordered PE, PF and FD, and four rows showing the u surface, u contours, v surface and v contours. Error figures use the same arrangement for $|u_{\rm num}-u_*|$ and $|v_{\rm num}-v_*|$. Colour scales and height ranges are shared across methods for the same quantity.
 
-Both physical fields of one-soliton A are negative pulses along an oblique line. Figure 1 shows the local profiles on $x\in[-3,4]$, $y\in[-3,3]$, and Figure 2 shows the errors on the same region, comparing the profiles and locations of deviations across methods.
+Both physical fields of the one-soliton solution with p=1 and q=2 are negative pulses along an oblique line. Figure 1 shows the local profiles on $x\in[-3,4]$, $y\in[-3,3]$, and Figure 2 shows the errors on the same region, comparing the profiles and locations of deviations across methods.
 
-<figure><a href="../Workspaces/dlw_paper_20261009/figures/A_fields.png"><img src="../Workspaces/dlw_paper_20261009/figures/A_fields.png" alt="One-soliton A: numerical physical fields comparison" loading="lazy"></a><figcaption>Figure 1. One-soliton A: numerical physical fields. Columns: PE, PF, FD. Rows: u surface, u contours, v surface and v contours. RK4, fixed mesh, T = 0.01. Each quantity uses a common colour scale across methods.</figcaption></figure>
+<figure><a href="../Workspaces/dlw_paper_20261009/figures/A_fields.png"><img src="../Workspaces/dlw_paper_20261009/figures/A_fields.png" alt="One-soliton (p=1, q=2): numerical physical fields comparison" loading="lazy"></a><figcaption>Figure 1. One-soliton (p=1, q=2): numerical physical fields. Columns: PE, PF, FD. Rows: u surface, u contours, v surface and v contours. RK4, fixed mesh, T = 0.01. Each quantity uses a common colour scale across methods.</figcaption></figure>
 
-<figure><a href="../Workspaces/dlw_paper_20261009/figures/A_errors.png"><img src="../Workspaces/dlw_paper_20261009/figures/A_errors.png" alt="One-soliton A: absolute errors comparison" loading="lazy"></a><figcaption>Figure 2. One-soliton A: absolute errors. Columns: PE, PF, FD. Rows: u error surface, u error contours, v error surface and v error contours. RK4, fixed mesh, T = 0.01. Each quantity uses a common colour scale across methods.</figcaption></figure>
+<figure><a href="../Workspaces/dlw_paper_20261009/figures/A_errors.png"><img src="../Workspaces/dlw_paper_20261009/figures/A_errors.png" alt="One-soliton (p=1, q=2): absolute errors comparison" loading="lazy"></a><figcaption>Figure 2. One-soliton (p=1, q=2): absolute errors. Columns: PE, PF, FD. Rows: u error surface, u error contours, v error surface and v error contours. RK4, fixed mesh, T = 0.01. Each quantity uses a common colour scale across methods.</figcaption></figure>
 
-**One-soliton B: fields and errors.**
+**One-soliton (p=4, q=−3): fields and errors.**
 
-For one-soliton B, u is a positive pulse and v a negative pulse. Figures 3 and 4 show the fields and absolute errors on $x,y\in[-30,30]$, with the method order, panel arrangement and numerical parameters of Figures 1 and 2. The surfaces and contours compare the wave locations and errors along the wave bands.
+For the one-soliton solution with p=4 and q=−3, u is a positive pulse and v a negative pulse. Figures 3 and 4 show the fields and absolute errors on $x,y\in[-30,30]$, with the method order, panel arrangement and numerical parameters of Figures 1 and 2. The surfaces and contours compare the wave locations and errors along the wave bands.
 
-<figure><a href="../Workspaces/dlw_paper_20261009/figures/B_fields.png"><img src="../Workspaces/dlw_paper_20261009/figures/B_fields.png" alt="One-soliton B: numerical physical fields comparison" loading="lazy"></a><figcaption>Figure 3. One-soliton B: numerical physical fields. Columns: PE, PF, FD. Rows: u surface, u contours, v surface and v contours. RK4, fixed mesh, T = 0.01. Each quantity uses a common colour scale across methods.</figcaption></figure>
+<figure><a href="../Workspaces/dlw_paper_20261009/figures/B_fields.png"><img src="../Workspaces/dlw_paper_20261009/figures/B_fields.png" alt="One-soliton (p=4, q=−3): numerical physical fields comparison" loading="lazy"></a><figcaption>Figure 3. One-soliton (p=4, q=−3): numerical physical fields. Columns: PE, PF, FD. Rows: u surface, u contours, v surface and v contours. RK4, fixed mesh, T = 0.01. Each quantity uses a common colour scale across methods.</figcaption></figure>
 
-<figure><a href="../Workspaces/dlw_paper_20261009/figures/B_errors.png"><img src="../Workspaces/dlw_paper_20261009/figures/B_errors.png" alt="One-soliton B: absolute errors comparison" loading="lazy"></a><figcaption>Figure 4. One-soliton B: absolute errors. Columns: PE, PF, FD. Rows: u error surface, u error contours, v error surface and v error contours. RK4, fixed mesh, T = 0.01. Each quantity uses a common colour scale across methods.</figcaption></figure>
+<figure><a href="../Workspaces/dlw_paper_20261009/figures/B_errors.png"><img src="../Workspaces/dlw_paper_20261009/figures/B_errors.png" alt="One-soliton (p=4, q=−3): absolute errors comparison" loading="lazy"></a><figcaption>Figure 4. One-soliton (p=4, q=−3): absolute errors. Columns: PE, PF, FD. Rows: u error surface, u error contours, v error surface and v error contours. RK4, fixed mesh, T = 0.01. Each quantity uses a common colour scale across methods.</figcaption></figure>
 
 **Two-soliton fields and errors.**
 
@@ -1160,7 +1147,7 @@ The two-soliton solution contains two sets of spectral parameters. Figure 5 show
 
 The combination of a staggered lattice and a shifted operator parameter generates both semi-discrete DLW bilinear relations from a common Gram determinant sequence. Rank-one updates yield exact solutions of arbitrary finite order, and logarithmic transformations lead to the PE and PF formulations. Both recover the same physical fields on positive τ-function solutions and are linked to the Darboux–Lax compatibility relations and second-order continuum limits.
 
-In numerical computation, the choice of formulation affects the errors in the physical fields. On the fixed grid with RK4, PF u errors are approximately 1.91–7.61 times the PE errors. PE reduces u errors relative to FD by about 15.0% and 9.87% for one-soliton B and the two-soliton case, while v comparisons depend on the spectral parameters. RK4 and C–N terminal errors differ by less than 0.003%; replacing Euler by RK4 has its largest effect on PF v, reducing errors by 25.6% and 29.2% in these two cases. Conserved-density-based node placement and motion reduce all eighteen field errors by 16.2%–66.8%. The common semi-discrete structure therefore leads to distinct numerical behaviour: the nonlinear representation changes the distribution of error between fields, the influence of time integration depends on the evolved variables, and SAMM improves both fields in all three tests.
+In numerical computation, the choice of formulation affects the errors in the physical fields. On the fixed grid with RK4, PF u errors are approximately 1.91–7.61 times the PE errors. PE reduces u errors relative to FD by about 15.0% and 9.87% for the one-soliton solution with p=4 and q=−3 and the two-soliton case, while v comparisons depend on the spectral parameters. RK4 and C–N terminal errors differ by less than 0.003%; replacing Euler by RK4 has its largest effect on PF v, reducing errors by 25.6% and 29.2% in these two cases. Conserved-density-based node placement and motion reduce all eighteen field errors by 16.2%–66.8%. The common semi-discrete structure therefore leads to distinct numerical behaviour: the nonlinear representation changes the distribution of error between fields, the influence of time integration depends on the evolved variables, and SAMM improves both fields in all three tests.
 
 ## Data and code availability {#en-data}
 
@@ -1203,6 +1190,10 @@ The theoretical derivations and numerical materials are provided in [DLW theory]
 本文安排如下。第 2 节从连续 DLW 系统及其双线性表示出发，构造半离散双线性方程与 Gram 行列式解，导出两种非线性表示，并建立连续极限与 Darboux–Lax 表示。第 3 节介绍数值格式及单孤子、二孤子实验，考察非线性表示、时间积分和 SAMM 方法的影响。第 4 节给出结论。
 
 ## 2. 半离散 DLW 系统与精确解 {#zh-continuous}
+
+本节先介绍连续 DLW 系统及其双线性表示，作为半离散构造的起点。随后给出 Gram 行列式解与两种非线性表示，并建立相应的连续极限和 Darboux–Lax 表示。
+
+### 2.1 连续 DLW 系统与双线性形式 {#zh-preliminaries}
 
 考虑文献 [5] 中取 $\lambda=-2$ 后的（2+1）维 DLW 系统，
 
@@ -1249,7 +1240,7 @@ $$\xi_i=p_ix-p_i^2t+\frac{y}{p_i-a},\qquad \eta_k=q_kx+q_k^2t+\frac{y}{q_k+a}.\t
 
 其中 N 为行列式阶数，n 为辅助整数指标，实参数应使所有分母非零。物理场定义在 f、g 为正的区域内。
 
-### 2.1 半离散双线性方程 {#zh-bilinear}
+### 2.2 半离散双线性方程 {#zh-bilinear}
 
 基于上述双线性表示，我们沿 y 方向构造 DLW 系统的半离散化，并保留 x、t 为连续变量。从连续双线性方程出发，对 [(3)](#zh-eq-3) 的第一式关于 y 求导，再结合第二式，得到
 
@@ -1269,7 +1260,7 @@ $$\Phi(s)=B_{a+s}f(x,y,t)\cdot g(x,y+s,t).\tag{8}$$
 
 $$\boxed{B_{a-h/2}F_j\cdot G_j=0,\qquad B_{a+h/2}F_j\cdot G_{j+1}=0.}\tag{9}$$
 
-τ 函数 $F_j$、$G_j$ 分别对应半格点 $y=(j+\tfrac12)h$ 上的 f 与整数格点 $y=jh$ 上的 g。这一对应下 Gram 行列式解的收敛性将在第 2.4 节建立。
+τ 函数 $F_j$、$G_j$ 分别对应半格点 $y=(j+\tfrac12)h$ 上的 f 与整数格点 $y=jh$ 上的 g。这一对应下 Gram 行列式解的收敛性将在第 2.5 节建立。
 
 对称 Taylor 展开给出
 
@@ -1279,7 +1270,7 @@ $$\frac{\Phi(h/2)+\Phi(-h/2)}2=B_af\cdot g+O(h^2),\qquad \frac{\Phi(h/2)-\Phi(-h
 
 因此，两条格点关系的平均与差商以二阶精度恢复连续双线性方程。
 
-### 2.2 Gram 行列式解 {#zh-gram}
+### 2.3 Gram 行列式解 {#zh-gram}
 
 记 $d=h/2$、$\lambda_h(z)=(z+d)/(z-d)$，定义行列式序列
 
@@ -1420,7 +1411,7 @@ $$\det C_{I,I}=\frac{\prod_{i<k,\ i,k\in I}(p_k-p_i)(q_k-q_i)}{\prod_{i,k\in I}(
 
 正对角缩放保持这一性质。将 $\det(I+D_1CD_2)$ 展开为包括空主子式 1 在内的所有主子式之和，即得结论。□
 
-### 2.3 非线性表示 {#zh-nonlinear}
+### 2.4 非线性表示 {#zh-nonlinear}
 
 下面导出半离散双线性系统的两种非线性表示。两种表示均采用如下由正 τ 函数恢复物理场的变换：
 
@@ -1428,7 +1419,7 @@ $$\det C_{I,I}=\frac{\prod_{i<k,\ i,k\in I}(p_k-p_i)(q_k-q_i)}{\prod_{i,k\in I}(
 
 $$u_j=\partial_x\log\frac{F_j^2}{G_jG_{j+1}},\qquad \omega_j=\partial_x\log\frac{G_{j+1}}{G_j},\qquad v_j=\frac4h\omega_j+\delta_0u_j,\qquad \delta_0z_j=\frac{z_{j+1}-z_{j-1}}{2h}.\tag{27}$$
 
-物理场位于 $y=(j+\tfrac12)h$。上述定义给出连续变换 [(2)](#zh-eq-2) 的离散对应，其二阶一致性将在第 2.4 节建立。
+物理场位于 $y=(j+\tfrac12)h$。上述定义给出连续变换 [(2)](#zh-eq-2) 的离散对应，其二阶一致性将在第 2.5 节建立。
 
 令 $\alpha_j=\log F_j$、$\beta_j=\log G_j$。将两条双线性方程分别除以 $F_jG_j$ 和 $F_jG_{j+1}$，得到
 
@@ -1573,7 +1564,7 @@ $$2\frac{Q_{j,x}}{Q_j}=\partial_x\log\frac{F_j^2}{G_jG_{j+1}}=u_j,\qquad 4(1-Q_j
 
 在第二个等式两侧加上相同的 u 中心差分，即得两种重构的 v 也一致。□
 
-### 2.4 连续极限 {#zh-limits}
+### 2.5 连续极限 {#zh-limits}
 
 在得到两种非线性表示后，下面考察它们在 $h\to0$ 时的连续极限。首先建立物理场重构及半离散方程与相应连续表达之间的二阶一致性。随后证明，在固定正则谱参数下，Gram 行列式解以 $h^2$ 阶误差在紧集上一致收敛到连续 DLW 解。
 
@@ -1717,7 +1708,7 @@ $$B_{a-h/2}f^{(h)}(y)\cdot g^{(h)}(y-h/2)=0,\qquad B_{a+h/2}f^{(h)}(y)\cdot g^{(
 
 $$B_af^{(0)}\cdot g^{(0)}=0,\qquad B_af^{(0)}\cdot g_y^{(0)}+2D_xf^{(0)}\cdot g^{(0)}=0.\tag{67}$$
 
-这正是第 2.1 节中的连续双线性方程等价形式，故由命题 2.1 得到连续 DLW 解。最后，将命题 2.6 一致地应用于依赖 h 的解族，得到
+这正是第 2.2 节中的连续双线性方程等价形式，故由命题 2.1 得到连续 DLW 解。最后，将命题 2.6 一致地应用于依赖 h 的解族，得到
 
 <a id="zh-eq-68"></a>
 
@@ -1725,7 +1716,7 @@ $$u^{(h)}=2\left(\log\frac{f^{(h)}}{g^{(h)}}\right)_x+O_K(h^2),\qquad v^{(h)}=2\
 
 结合 [(65)](#zh-eq-65) 即得所需估计。由命题 2.5，该结论同时适用于两种非线性表示。□
 
-### 2.5 Darboux–Lax 表示 {#zh-lax}
+### 2.6 Darboux–Lax 表示 {#zh-lax}
 
 下面构造半离散 DLW 系统的 Darboux–Lax 表示。首先以物理场写出线性问题，再给出它在势变量 Q、R、M 下的形式。
 
@@ -1879,17 +1870,13 @@ Q、R 的演化方程使两项标量残差为零，从而保证线性系统相�
 
 ## 3. 数值方法与实验 {#zh-numerics}
 
-对于同一正 τ 函数对，PE 与 PF 恢复的物理场在有限格距下逐点相同。进一步离散 $x$ 导数后，两种表示中的非线性运算与物理场重构采用不同的离散实现。下文在共同的初始物理场上构造两种数值格式，并以连续 DLW 方程的直接差分方法（FD）为参照，计算各格式的物理场误差。PE 推进 $P,W$，PF 推进 $Q,R$，两者分别按相应映射恢复 $u,v$；初值与边界数据均由连续解析解确定。
+本节基于两种非线性表示构造数值格式，并与连续 DLW 系统的直接差分方法进行比较。以连续精确解为参照，考察非线性表示及其离散实现、时间积分和自适应动网格（SAMM）方法对物理场误差的影响。
 
-计算采用三点中心差分处理 $x$ 导数，并分别在固定网格与守恒密度驱动的动网格上推进。时间方向采用 Euler、RK4 和 Crank–Nicolson（C–N）算法。下文先给出各空间离散方法的演化变量及更新关系，再说明网格运动和时间积分；数值结果分别比较空间离散方法、时间算法与网格选择对误差的影响。
+### 3.1 空间离散 {#zh-schemes}
 
-### 3.1 数值格式 {#zh-schemes}
+**网格与差分算子。** 在固定网格上，取 $x_i=-L/2+i\Delta x$，其中 $\Delta x=L/N_x$。沿 y 方向，$M_j$ 位于 $y=jh$，而 $u_j,v_j,Q_j,R_j$ 位于 $y=(j+\tfrac12)h$。下标 j、i 分别表示 y 层与 x 节点。以下空间离散系统保留时间为连续变量。
 
-固定网格计算中，将 $x\in[-L/2,L/2)$ 等分为 $N_x$ 个区间，取 $x_i=-L/2+i\Delta x$、$\Delta x=L/N_x$。沿 $y$ 方向采用前述交错网格：$M_j$ 位于 $y=jh$，物理场及 $Q_j,R_j$ 位于 $y=(j+\tfrac12)h$。令 $t_n=n\Delta t$，上标 $n$ 表示时间层，下标 $j,i$ 分别表示 $y$、$x$ 方向的网格编号。
-
-自适应计算仅调整 $x$ 节点的位置 $x_i(t)$，从而改变相邻节点间距 $x_{i+1}(t)-x_i(t)$；$y$ 方向格距 $h$、层编号 $j$ 和时间步长 $\Delta t$ 均保持不变。动网格的初始布点由下文的守恒密度等分确定。
-
-在固定均匀网格上，对 $x$ 的一、二阶导数分别采用中心差分
+对 x 导数采用三点中心差分
 
 <a id="zh-eq-87"></a>
 
@@ -1898,224 +1885,211 @@ $$\begin{aligned}
 (D_2z)_{j,i}&=\frac{z_{j,i+1}-2z_{j,i}+z_{j,i-1}}{\Delta x^2}\simeq\partial_{xx}z_j(x_i,t).
 \end{aligned}\tag{87}$$
 
-沿 $y$ 方向采用后向差分、中心差分及相邻层平均：
+沿 y 方向采用
 
 <a id="zh-eq-88"></a>
 
 $$\delta_-z_{j,i}=\frac{z_{j,i}-z_{j-1,i}}h,\quad \delta_0z_{j,i}=\frac{z_{j+1,i}-z_{j-1,i}}{2h},\quad \mathcal M_-z_{j,i}=\frac{z_{j,i}+z_{j-1,i}}2.\tag{88}$$
 
-这些算子仅作用于层编号 $j$；$D_1,D_2$ 作用于 $x$ 节点编号 $i$。以下先给出固定网格上的 Euler 更新；RK4 和 C–N 使用相同的空间差分，见本节的时间推进部分。
+其中，$D_1,D_2$ 作用于 x 节点编号，$\delta_-,\delta_0,\mathcal M_-$ 作用于层编号。下文的乘积与商均按节点计算。我们先构造 PE 和 PF 格式，再给出作为比较对象的直接差分格式，记为 FD。
 
-**PE 方法。** 取 $P=\delta_-u$、$W=v-\delta_0u$ 为演化变量。已知第 $n$ 层的 $P^n,W^n$，先由下侧边界恢复
+**PE 格式。** 取 $P=\delta_-u$ 和 $W=v-\delta_0u$ 为演化变量。在每个时刻，通过
 
 <a id="zh-eq-89"></a>
 
-$$u_{j,i}^n=u_{j_L,i}^n+h\sum_{k=j_L+1}^{j}P_{k,i}^n,\qquad
-v_{j,i}^n=W_{j,i}^n+(\delta_0u^n)_{j,i}.\tag{89}$$
+$$u_{j,i}=u_{j_L,i}+h\sum_{k=j_L+1}^{j}P_{k,i},\qquad
+v_{j,i}=W_{j,i}+(\delta_0u)_{j,i}.\tag{89}$$
 
-其中 $j_L$ 为最下层编号，$u_{j_L,i}^n$ 取解析边界值。由 PE 方程计算 $P,W$ 的时间变化率
+恢复物理场。其中，$j_L$ 为最下层编号，$u_{j_L,i}(t)$ 由下边界数据给定。将重构的物理场代入 PE 方程，得到 $\dot P=F_P$、$\dot W=F_W$，其中
 
 <a id="zh-eq-90"></a>
 
 $$\begin{aligned}
-F_P^n={}&-\delta_-D_1\left[\frac{(u^n)^2}{2}+2au^n
-+h^2\left(\frac{(W^n)^2}{32}-\frac{W^n}{4}\right)\right]
--D_2(P^n+\mathcal M_-W^n),\\
-F_W^n={}&-D_1[(u^n+2a)W^n-4u^n]+D_2W^n.
+F_P={}&-\delta_-D_1\left[\frac{u^2}{2}+2au
++h^2\left(\frac{W^2}{32}-\frac{W}{4}\right)\right]
+-D_2(P+\mathcal M_-W),\\
+F_W={}&-D_1[(u+2a)W-4u]+D_2W.
 \end{aligned}\tag{90}$$
 
-这里 $F_P^n,F_W^n$ 分别近似 $P_t,W_t$，所有乘积按节点计算。下一时间层为
+因此，计算演化右端时，先由 P 恢复 u，再对 u、W 施加相应的空间差分算子；物理场 v 由同一重构公式得到。
+
+**PF 格式。** 取 Q、R 为演化变量，物理场由
 
 <a id="zh-eq-91"></a>
 
-$$P^{n+1}=P^n+\Delta t\,F_P^n,\qquad
-W^{n+1}=W^n+\Delta t\,F_W^n.\tag{91}$$
+$$u_j=2\frac{D_1Q_j}{Q_j},\qquad
+v_j=4(1-Q_jR_j)+\delta_0u_j\tag{91}$$
 
-更新后再由[(89)](#zh-eq-89)恢复 $u^{n+1},v^{n+1}$。初值取 $P^0=\delta_-u_*(0)$、$W^0=v_*(0)-\delta_0u_*(0)$。
-
-**PF 方法。** 演化变量为 $Q,R$，物理场由
+恢复。演化方程还包含 $(M_j+M_{j+1})_x$。为计算这一项，引入 $m_j\simeq M_{j,x}$ 和 $S_j=Q_jR_j$。对格点约束 $M_{j+1}-M_j=h(1-S_j)$ 施加 $D_1$，得到
 
 <a id="zh-eq-92"></a>
 
-$$u_j^n=2\frac{D_1Q_j^n}{Q_j^n},\qquad
-v_j^n=4(1-Q_j^nR_j^n)+\delta_0u_j^n\tag{92}$$
+$$m_{j+1}=m_j-hD_1S_j.\tag{92}$$
 
-恢复。为计算 PF 方程中的 $(M_j+M_{j+1})_x$，记 $m_j^n\simeq M_{j,x}(t_n)$、$S_j^n=Q_j^nR_j^n$。对约束 $M_{j+1}-M_j=h(1-QR)$ 作 $x$ 差分，得到
+给定下边界的 m 后，即可利用这一关系逐层求出其余各层。将最下层临时编号为 0，由该层的 Q 方程确定起始值：
 
 <a id="zh-eq-93"></a>
 
-$$m_{j+1}^n=m_j^n-hD_1S_j^n.\tag{93}$$
+$$m_0=-\frac{Q_{0,t}+D_2Q_0+2aD_1Q_0}{2Q_0}
+-\frac{h^2}{8}\bigl[S_0^2-1\bigr]+\frac h2D_1S_0.\tag{93}$$
 
-这一关系使 $m_j^n$ 可由下边界逐层求出。将最下层临时编号为 $0$，由该层的 $Q$ 方程确定起始值
+其中，$Q_0(t)$ 由下边界数据给定，$Q_{0,t}$ 为其时间导数。确定 m 后，演化方程为 $\dot Q_j=F_{Q,j}$、$\dot R_j=F_{R,j}$，其中
 
 <a id="zh-eq-94"></a>
 
-$$m_0^n=-\frac{Q_{0,t}^n+D_2Q_0^n+2aD_1Q_0^n}{2Q_0^n}
--\frac{h^2}{8}\bigl[(S_0^n)^2-1\bigr]+\frac h2D_1S_0^n.\tag{94}$$
+$$\begin{aligned}
+F_{Q,j}={}&-D_2Q_j-2aD_1Q_j
+-\left[m_j+m_{j+1}+\frac{h^2}{4}\bigl((Q_jR_j)^2-1\bigr)\right]Q_j,\\
+F_{R,j}={}&D_2R_j-2aD_1R_j
++\left[m_j+m_{j+1}+\frac{h^2}{4}\bigl((Q_jR_j)^2-1\bigr)\right]R_j.
+\end{aligned}\tag{94}$$
 
-其中 $Q_0(t)$ 由解析下边界确定，$Q_{0,t}^n$ 为其时间导数。由[(93)](#zh-eq-93)得到各层的 $m_j^n$ 后，计算
+Q 的最下层取给定边界值，内部各层 Q 和所有层 R 按上述方程演化。随后通过式 (91) 恢复物理场。
+
+**FD 格式。** 作为比较，直接离散连续 DLW 方程，取 $P=\delta_-u$ 和 v 为演化变量。物理场 u 由式 (89) 的第一个关系从 P 恢复。所得系统为 $\dot P=F_P$、$\dot v=F_v$，其中
 
 <a id="zh-eq-95"></a>
 
 $$\begin{aligned}
-F_{Q,j}^n={}&-D_2Q_j^n-2aD_1Q_j^n
--\left[m_j^n+m_{j+1}^n+\frac{h^2}{4}\bigl((Q_j^nR_j^n)^2-1\bigr)\right]Q_j^n,\\
-F_{R,j}^n={}&D_2R_j^n-2aD_1R_j^n
-+\left[m_j^n+m_{j+1}^n+\frac{h^2}{4}\bigl((Q_j^nR_j^n)^2-1\bigr)\right]R_j^n,\\
-Q_j^{n+1}={}&Q_j^n+\Delta t\,F_{Q,j}^n,\qquad
-R_j^{n+1}=R_j^n+\Delta t\,F_{R,j}^n.
+F_P&=-\delta_-D_1\left[\frac{u^2}{2}+2au\right]-D_2\mathcal M_-v,\\
+F_v&=-D_1[(u+2a)v-4u]-D_2\delta_0u.
 \end{aligned}\tag{95}$$
 
-$F_Q,F_R$ 分别为 $Q,R$ 的时间变化率。$Q$ 的最下层取边界值，内部各层 $Q$ 和所有层 $R$ 按[(95)](#zh-eq-95)更新，再由[(92)](#zh-eq-92)计算物理场。
+上述三种空间离散分别与第 3.3 节的时间积分方法结合，初值及边界数据在第 3.4 节给出。
 
-初始 $Q$ 由离散关系 $D_1Q_j^0=u_{*,j}(0)Q_j^0/2$ 及归一化 $Q_{j,0}^0=1$ 确定，再取 $R_j^0=[1-(v_{*,j}(0)-\delta_0u_{*,j}(0))/4]/Q_j^0$。这样，PF 与其余方法具有相同的初始物理场。下边界的 $Q_0(t)$ 按同一关系由 $u_{*,0}(t)$ 确定。
+### 3.2 自适应动网格方法 {#zh-samm}
 
-**FD 方法。** 直接离散连续 DLW 系统，以 $P=\delta_-u$、$v$ 为演化变量。由下侧边界恢复 $u^n$：
+基于上述两种半离散 DLW 表示，我们利用其共同的守恒律构造以下自适应动网格方法。仅调整 x 节点的位置，y 方向格距 h 保持不变，所有 y 层共用一组 x 节点。引入密度与通量
 
 <a id="zh-eq-96"></a>
 
-$$u_{j,i}^n=u_{j_L,i}^n+h\sum_{k=j_L+1}^jP_{k,i}^n.\tag{96}$$
-
-其中 $u_{j_L,i}^n$ 为解析边界值。随后计算
-
-<a id="zh-eq-97"></a>
-
-$$\begin{aligned}
-F_P^n&=-\delta_-D_1\left[\frac{(u^n)^2}{2}+2au^n\right]-D_2\mathcal M_-v^n,\\
-F_v^n&=-D_1[(u^n+2a)v^n-4u^n]-D_2\delta_0u^n,\\
-P^{n+1}&=P^n+\Delta t\,F_P^n,\qquad
-v^{n+1}=v^n+\Delta t\,F_v^n.
-\end{aligned}\tag{97}$$
-
-此处 $F_P^n,F_v^n$ 分别近似 $P_t,v_t$；例如 $D_2\delta_0u$ 近似连续方程中的 $u_{xxy}$。初值为 $P^0=\delta_-u_*(0)$、$v^0=v_*(0)$。
-
-计算域选在孤子尾部接近背景的位置。PE、FD 的 $x$ 向差分采用周期边界，PF 按 $Q,R$ 的左右端背景值处理边界。沿 $y$ 方向，下侧取解析边界，上侧对数值解与解析背景之差作二次外推。
-
-**自适应动网格方法。**
-
-文献 [9] 通过离散 hodograph 变换将半离散方程与网格演化联系起来。对于本文的 DLW 系统，选取 $\rho_j=1-W_j/4$ 为驱动网格运动的守恒密度。这一选择将场变量的演化与节点分配联系起来；在 PF 中，同一密度为 $Q_jR_j$。相应的密度与通量为
-
-<a id="zh-eq-98"></a>
-
 $$\rho_j=1-\frac{W_j}{4},\qquad
-q_j=(u_j+2a)\rho_j-\partial_x\rho_j-2a.\tag{98}$$
+q_j=(u_j+2a)\rho_j-\partial_x\rho_j-2a.\tag{96}$$
 
 将 $W_j=4(1-\rho_j)$ 代入其演化方程，得到
 
-<a id="zh-eq-99"></a>
+<a id="zh-eq-97"></a>
 
-$$\partial_t\rho_j+\partial_xq_j=0.\tag{99}$$
+$$\partial_t\rho_j+\partial_xq_j=0.\tag{97}$$
 
 在 PF 形式中，$\rho_j=Q_jR_j$。由于所有 $y$ 层共用一组 $x$ 节点，对各层取平均作为网格密度和通量：
 
-<a id="zh-eq-100"></a>
+<a id="zh-eq-98"></a>
 
 $$\bar\rho=\frac1{N_y}\sum_j\rho_j,\qquad
-\bar q=\frac1{N_y}\sum_jq_j.\tag{100}$$
+\bar q=\frac1{N_y}\sum_jq_j.\tag{98}$$
 
-初始网格按 $\bar\rho(x,0)$ 的累积积分等分，即令相邻节点之间的密度积分相同。密度较大的区域因此分配更多节点。令左端节点 $x_L$ 固定，并保持每个移动节点对应的累积积分不变，利用[(99)](#zh-eq-99)得
+初始网格按 $\bar\rho(x,0)$ 的累积积分等分，即令相邻节点之间的密度积分相同。密度较大的区域因此分配更多节点。令左端节点 $x_L$ 固定，并保持每个移动节点对应的累积积分不变，利用[(97)](#zh-eq-97)得
 
-<a id="zh-eq-101"></a>
+<a id="zh-eq-99"></a>
 
 $$\frac{d}{dt}\int_{x_L}^{x_i(t)}\bar\rho(x,t)\,dx
-=-\bar q(x_i,t)+\bar q(x_L,t)+\bar\rho(x_i,t)\dot x_i=0.\tag{101}$$
+=-\bar q(x_i,t)+\bar q(x_L,t)+\bar\rho(x_i,t)\dot x_i=0.\tag{99}$$
 
 因此节点速度为
 
-<a id="zh-eq-102"></a>
+<a id="zh-eq-100"></a>
 
 $$\dot x_i=\mathcal V_i
-=\frac{\bar q_i-\bar q_0}{\bar\rho_i}.\tag{102}$$
+=\frac{\bar q_i-\bar q_0}{\bar\rho_i}.\tag{100}$$
 
-计算时以 $D_1\rho$ 代替通量中的 $\partial_x\rho$，并要求 $\bar\rho>0$。FD 的动网格比较也采用[(98)](#zh-eq-98)、[(100)](#zh-eq-100)和[(102)](#zh-eq-102)确定节点速度。
+计算时以 $D_1\rho$ 代替通量中的 $\partial_x\rho$，并要求 $\bar\rho>0$。FD 的动网格比较也采用[(96)](#zh-eq-96)、[(98)](#zh-eq-98)和[(100)](#zh-eq-100)确定节点速度。
 
 物理节点移动后，相邻 $x$ 间距不再相等。为在同一节点编号上计算导数，引入固定均匀的计算坐标 $\xi_i=-L/2+i\Delta\xi$，其中 $\Delta\xi=L/N_x$。写 $x_i(t)=\xi_i+s_i(t)$，$s_i$ 是节点位移，$J_i=1+D_\xi s_i$ 近似坐标映射的伸缩率 $J=x_\xi$。
 
 对于定义在移动节点上的场，链式法则给出 $\partial_x=J^{-1}\partial_\xi$。再作用一次该算子，就会对 $J^{-1}$ 求导，因而
 
-<a id="zh-eq-103"></a>
+<a id="zh-eq-101"></a>
 
-$$\partial_{xx}z=\frac{z_{\xi\xi}}{J^2}-\frac{J_\xi z_\xi}{J^3}.\tag{103}$$
+$$\partial_{xx}z=\frac{z_{\xi\xi}}{J^2}-\frac{J_\xi z_\xi}{J^3}.\tag{101}$$
 
 分别以均匀 $\xi$ 网格上的中心差分近似这些导数，得到
 
-<a id="zh-eq-104"></a>
+<a id="zh-eq-102"></a>
 
 $$D_1z_i=\frac{D_\xi z_i}{J_i},\qquad
 D_2z_i=\frac{D_{\xi\xi}z_i}{J_i^2}
--\frac{(D_\xi J)_i(D_\xi z)_i}{J_i^3}.\tag{104}$$
+-\frac{(D_\xi J)_i(D_\xi z)_i}{J_i^3}.\tag{102}$$
 
-$D_\xi,D_{\xi\xi}$ 为[(87)](#zh-eq-87)在均匀计算坐标上的三点差分。对随节点移动的任一演化变量 $z$，链式法则给出 $\dot z=F_z+\mathcal V D_1z$。因此，在第 3.1 节各时间变化率上加入 $\mathcal V D_1z$，并将节点方程[(102)](#zh-eq-102)与场变量同步推进。固定网格对应 $s=0,\mathcal V=0$。
+$D_\xi,D_{\xi\xi}$ 为[(87)](#zh-eq-87)在均匀计算坐标上的三点差分。对随节点移动的任一演化变量 $z$，链式法则给出 $\dot z=F_z+\mathcal V D_1z$。因此，在第 3.1 节各时间变化率上加入 $\mathcal V D_1z$，并将节点方程[(100)](#zh-eq-100)与场变量同步推进。固定网格对应 $s=0,\mathcal V=0$。
 
-**时间推进。**
+### 3.3 时间积分 {#zh-time}
 
-第 3.1 节的 Euler 方法以当前时间层的变化率更新场变量。为比较不同时间离散，进一步采用经典 RK4 和 Crank–Nicolson（C–N）方法。记全部演化变量为 $z$，其离散变化率为 $\mathcal F(t,z)$；在动网格计算中，$z$ 同时包含节点坐标，$\mathcal F$ 包含上述网格输运项及节点速度。
+我们采用向前 Euler、经典四阶 Runge–Kutta（RK4）和 Crank–Nicolson（C–N）方法，对固定网格与动网格上的空间离散系统进行时间积分。将全部演化变量记为 $z$，所得系统统一写为 $\dot z=\mathcal F(t,z)$。对于 SAMM，$z$ 还包含节点坐标，$\mathcal F$ 包含网格输运项及节点速度。
 
-RK4 在一个时间步内计算四次变化率：
+取 $t_n=n\Delta t$，向前 Euler 方法为
+
+<a id="zh-eq-103"></a>
+
+$$z^{n+1}=z^n+\Delta t\,\mathcal F(t_n,z^n).\tag{103}$$
+
+我们同时采用经典四级四阶 Runge–Kutta 方法（RK4）。每一级均根据该级的场变量与网格，重新计算物理场重构、辅助变量、空间差分及边界值。
+
+Crank–Nicolson（C–N）方法取相邻两个时间层变化率的平均：
+
+<a id="zh-eq-104"></a>
+
+$$\frac{z^{n+1}-z^n}{\Delta t}
+=\frac{\mathcal F(t_n,z^n)+\mathcal F(t_{n+1},z^{n+1})}{2}.\tag{104}$$
+
+FD 方法中的 $v$ 方程写为 $v^{n+1}=v^n+\Delta t(F_v^n+F_v^{n+1})/2$。由于 $F_v^{n+1}$ 依赖未知的下一层解，需与 $P$ 的更新联立求解。以向前 Euler 格式给出的近似作为初值，迭代求解耦合的隐式方程。
+
+### 3.4 算例与误差度量 {#zh-tests}
+
+我们考虑连续 DLW 系统的单孤子与二孤子解。精确解用于给定初值和边界数据，并作为数值误差的评价基准。各算例统一取 $a=2$、行列式系数 $\rho_i=1$，初相位为零。
+
+**单孤子解。** 当 $N=1$ 时，连续 Gram 行列式化为
 
 <a id="zh-eq-105"></a>
 
-$$\begin{aligned}
-k_1&=\mathcal F(t_n,z^n),\\
-k_2&=\mathcal F(t_n+\Delta t/2,z^n+\Delta t\,k_1/2),\\
-k_3&=\mathcal F(t_n+\Delta t/2,z^n+\Delta t\,k_2/2),\\
-k_4&=\mathcal F(t_n+\Delta t,z^n+\Delta t\,k_3),\\
-z^{n+1}&=z^n+\frac{\Delta t}{6}(k_1+2k_2+2k_3+k_4).
-\end{aligned}\tag{105}$$
+$$f_*=1+cE,\qquad g_*=1+E,\tag{105}$$
 
-每一级均根据该级的场变量和网格重新计算差分及边界值。
-
-与文献 [9] 的时间平均处理相同，C–N 取相邻两个时间层变化率的平均：
+其中
 
 <a id="zh-eq-106"></a>
 
-$$\frac{z^{n+1}-z^n}{\Delta t}
-=\frac{\mathcal F(t_n,z^n)+\mathcal F(t_{n+1},z^{n+1})}{2}.\tag{106}$$
+$$\begin{gathered}E=\frac{e^\theta}{p+q},\qquad c=-\frac{p-a}{q+a},\\\theta=kx+(q^2-p^2)t+\ell y,\qquad k=p+q,\qquad \ell=\frac1{p-a}+\frac1{q+a}.\end{gathered}\tag{106}$$
 
-FD 方法中的 $v$ 方程写为 $v^{n+1}=v^n+\Delta t(F_v^n+F_v^{n+1})/2$。由于 $F_v^{n+1}$ 依赖未知的下一层解，需与 $P$ 的更新联立求解。计算中以 Euler 结果作为初始近似，再迭代求解隐式方程，残差容差为 $10^{-12}+10^{-11}\max(1,\|z^n\|_\infty)$。
-
-以连续 DLW 的精确孤子解为基准，本节分别量化非线性表示及其离散实现、时间积分器和网格运动对物理场误差的影响。三组算例为单孤子 A、单孤子 B 和二孤子。空间格式比较采用共同的初始物理场和 RK4 时间推进；时间算法比较固定空间网格与步长；动网格比较保持节点数、时间步长和终止时刻相同。各项误差均按第 3.2 节的统一评价网格计算。
-
-### 3.2 算例与误差度量 {#zh-tests}
-
-取连续 Gram τ 函数
+相应的物理场为
 
 <a id="zh-eq-107"></a>
 
-$$\tau_n^*(x,y,t)=\det_{1\le i,k\le N}\left[\delta_{ik}+\frac{\rho_i}{p_i+q_k}
-\left(-\frac{p_i-a}{q_k+a}\right)^n
-\exp\left((p_i+q_k)x+(q_k^2-p_i^2)t
-+y\left(\frac1{p_i-a}+\frac1{q_k+a}\right)\right)\right],\qquad n=0,1.\tag{107}$$
+$$\begin{aligned}u_*&=\frac{2k(c-1)E}{(1+cE)(1+E)},\\v_*&=2k\ell\left[\frac{cE}{(1+cE)^2}+\frac{E}{(1+E)^2}\right].\end{aligned}\tag{107}$$
 
-令 $f_* =\tau_1^*$、$g_* =\tau_0^*$。作为数值比较基准的精确物理场为
+当 $p+q>0$、$c>0$ 时，u 脉冲的正负由 $c-1$ 决定，而 v 脉冲的正负由 $\ell$ 决定。我们选取 $(p,q)=(1,2)$ 和 $(4,-3)$，分别得到负的和正的 u 脉冲。第一组参数对应 $c=1/4$、$\ell=-3/4$；第二组对应 $c=2$、$\ell=-1/2$。两组参数的 v 场均为负脉冲。
+
+**二孤子解。** 当 $N=2$ 时，展开 Gram 行列式可得
 
 <a id="zh-eq-108"></a>
 
-$$u_*=2\partial_x\log\frac{f_*}{g_*},\qquad
-v_*=2\partial_x\partial_y\log(f_*g_*).\tag{108}$$
+$$\begin{aligned}f_*&=1+c_1E_1+c_2E_2+A_{12}c_1c_2E_1E_2,\\g_*&=1+E_1+E_2+A_{12}E_1E_2,\end{aligned}\tag{108}$$
 
-两场由上述解析表达求导计算，用于初值、解析边界和终止时刻的误差评价。取 $a=2$、$\rho_i=1$，初相位为零，参数如下。
-
-| 算例 | $N$ | $p_i$ | $q_i$ |
-|---|---|---|---|
-| 单孤子 A | 1 | $1$ | $2$ |
-| 单孤子 B | 1 | $4$ | $-3$ |
-| 二孤子 | 2 | $6,4$ | $-5,-3$ |
-
-**计算设置与误差度量。**
-
-表 1—3 的计算域为 $x\in[-20,20)$、$y\in[-1.5,1.5]$。取 $N_x=256$、固定网格间距 $\Delta x=0.15625$，沿 $y$ 方向取 24 个单元，格距 $h=0.125$。时间步长为 $\Delta t=1.25\times10^{-4}$，计算至 $T=0.01$。动网格计算保持 $N_x,h,\Delta t,T$ 相同，并按守恒密度设置初始 $x$ 节点及其速度。
-
-在 $x\in[-10,10]$ 上取 4001 个等距点，并取全部 $y$ 层组成评价网格 $\mathcal G$。将各方法的数值物理场沿实际 $x$ 节点作三次样条插值，定义
+其中
 
 <a id="zh-eq-109"></a>
 
+$$\begin{gathered}E_i=\frac{e^{\theta_i}}{p_i+q_i},\qquad c_i=-\frac{p_i-a}{q_i+a},\\\theta_i=(p_i+q_i)x+(q_i^2-p_i^2)t+\left(\frac1{p_i-a}+\frac1{q_i+a}\right)y,\qquad i=1,2,\\A_{12}=\frac{(p_1-p_2)(q_1-q_2)}{(p_1+q_2)(p_2+q_1)}.\end{gathered}\tag{109}$$
+
+物理场由 $u_*=2\partial_x\log(f_*/g_*)$ 和 $v_*=2\partial_x\partial_y\log(f_*g_*)$ 得到。对于二孤子解，取 $p_1=6$、$q_1=-5$、$p_2=4$、$q_2=-3$，相应地有 $c_1=4/3$、$c_2=2$、$A_{12}=4/3$。此时两相位分别为 $\theta_1=x-11t-y/12$ 和 $\theta_2=x-7t-y/2$，对应两个空间取向及传播速率不同的波。该算例将数值比较扩展到双波相互作用的情形。
+
+**初值与边界数据。** PE 的初值取 $P^0=\delta_-u_*(0)$、$W^0=v_*(0)-\delta_0u_*(0)$；FD 采用相同的 $P^0$，并取 $v^0=v_*(0)$。对于 PF，由 $D_1Q_j^0=u_{*,j}(0)Q_j^0/2$ 及归一化 $Q_{j,0}^0=1$ 确定 Q，再取 $R_j^0=[1-(v_{*,j}(0)-\delta_0u_{*,j}(0))/4]/Q_j^0$。下边界的 $Q_0(t)$ 按同一关系由 $u_{*,0}(t)$ 确定。因此，三种格式采用共同的初始物理场。
+
+计算域边界选在孤子尾部接近背景的位置。PE、FD 的 x 向差分采用周期边界，PF 按 Q、R 的左右端背景值处理边界。沿 y 方向，下侧取解析边界，上侧对数值解与解析背景之差作二次外推。
+
+**计算设置与误差度量。**
+
+表 1—3 的计算域为 $x\in[-20,20)$、$y\in[-1.5,1.5]$。取 $N_x=256$、固定网格间距 $\Delta x=0.15625$，沿 $y$ 方向取 24 个单元，格距 $h=0.125$。时间步长为 $\Delta t=1.25\times10^{-4}$，计算至 $T=0.01$。
+
+在 $x\in[-10,10]$ 上取 4001 个等距点，并取全部 $y$ 层组成评价网格 $\mathcal G$。将各方法的数值物理场沿实际 $x$ 节点作三次样条插值，定义
+
+<a id="zh-eq-110"></a>
+
 $$E_f(T)=\max_{(x,y)\in\mathcal G}|f_{\rm num}(x,y,T)-f_*(x,y,T)|,
-\qquad f=u,v.\tag{109}$$
+\qquad f=u,v.\tag{110}$$
 
-### 3.3 数值结果 {#zh-results}
+### 3.5 数值结果 {#zh-results}
 
-统一采用 RK4 时间推进，表 1 比较第 3.1 节三种空间格式在相同物理网格上的最大绝对误差。PE 与 PF 的差别在 $u$ 场中较为突出：单孤子 A、单孤子 B 和二孤子的 PF 误差分别为 PE 的约 7.61、1.91 和 2.02 倍。对于 $v$ 场，相应比值为 2.25、0.929 和 1.11。因而在这组三个算例中，PE 的 $u$ 误差均小于 PF，而两者的 $v$ 误差关系随孤子参数变化。
+表 1 比较三种空间格式在共同初始物理场、相同固定网格和 RK4 时间推进下的最大绝对误差。PE 与 PF 的差别在 $u$ 场中较为突出：单孤子（p=1，q=2）、单孤子（p=4，q=−3） 和二孤子的 PF 误差分别为 PE 的约 7.61、1.91 和 2.02 倍。对于 $v$ 场，相应比值为 2.25、0.929 和 1.11。因而在这组三个算例中，PE 的 $u$ 误差均小于 PF，而两者的 $v$ 误差关系随孤子参数变化。
 
 **表 1　固定网格、RK4 下的最大绝对误差。每行最小值加粗。**
 
@@ -2123,7 +2097,7 @@ $$E_f(T)=\max_{(x,y)\in\mathcal G}|f_{\rm num}(x,y,T)-f_*(x,y,T)|,
 <thead><tr><th scope="col">算例</th><th scope="col">场</th><th scope="col">PE</th><th scope="col">PF</th><th scope="col">FD</th></tr></thead>
 <tbody>
 <tr>
-<th rowspan="2" scope="rowgroup">单孤子 A</th>
+<th rowspan="2" scope="rowgroup">单孤子（p=1，q=2）</th>
 <th scope="row">u</th>
 <td>1.560308e-03</td>
 <td>1.187746e-02</td>
@@ -2136,7 +2110,7 @@ $$E_f(T)=\max_{(x,y)\in\mathcal G}|f_{\rm num}(x,y,T)-f_*(x,y,T)|,
 <td><strong>3.008503e-03</strong></td>
 </tr>
 <tr>
-<th rowspan="2" scope="rowgroup">单孤子 B</th>
+<th rowspan="2" scope="rowgroup">单孤子（p=4，q=−3）</th>
 <th scope="row">u</th>
 <td><strong>6.639277e-05</strong></td>
 <td>1.266358e-04</td>
@@ -2164,7 +2138,7 @@ $$E_f(T)=\max_{(x,y)\in\mathcal G}|f_{\rm num}(x,y,T)-f_*(x,y,T)|,
 </tbody>
 </table></div>
 
-与 FD 相比，PE 在单孤子 B 和二孤子中的 $u$ 误差分别降低约 15.0% 和 9.87%，对应的 $v$ 误差则分别增加约 3.65% 和 2.01%；在单孤子 A 中，PE 的 $u,v$ 误差分别高出约 34.3% 和 7.34%。PF 在单孤子 B 的 $v$ 场中取得表内最小误差，比 FD 低约 3.66%。相较于单孤子 A，PE 与 FD 在单孤子 B 及二孤子中的差异较小，且两个物理场的变化方向不同。以下对三种空间格式分别比较时间算法和网格选择。
+与 FD 相比，PE 在单孤子（p=4，q=−3） 和二孤子中的 $u$ 误差分别降低约 15.0% 和 9.87%，对应的 $v$ 误差则分别增加约 3.65% 和 2.01%；在单孤子（p=1，q=2） 中，PE 的 $u,v$ 误差分别高出约 34.3% 和 7.34%。PF 在单孤子（p=4，q=−3） 的 $v$ 场中取得表内最小误差，比 FD 低约 3.66%。相较于单孤子（p=1，q=2），PE 与 FD 在单孤子（p=4，q=−3） 及二孤子中的差异较小，且两个物理场的变化方向不同。以下对三种空间格式分别比较时间算法和网格选择。
 
 **时间算法比较。**
 
@@ -2176,7 +2150,7 @@ $$E_f(T)=\max_{(x,y)\in\mathcal G}|f_{\rm num}(x,y,T)-f_*(x,y,T)|,
 <thead><tr><th scope="col">算例</th><th scope="col">方法</th><th scope="col">场</th><th scope="col">Euler</th><th scope="col">RK4</th><th scope="col">C–N</th></tr></thead>
 <tbody>
 <tr>
-<th rowspan="6" scope="rowgroup">单孤子 A</th>
+<th rowspan="6" scope="rowgroup">单孤子（p=1，q=2）</th>
 <th rowspan="2" scope="rowgroup">PE</th>
 <th scope="row">u</th>
 <td><strong>1.559149e-03</strong></td>
@@ -2216,7 +2190,7 @@ $$E_f(T)=\max_{(x,y)\in\mathcal G}|f_{\rm num}(x,y,T)-f_*(x,y,T)|,
 <td>3.008508e-03</td>
 </tr>
 <tr>
-<th rowspan="6" scope="rowgroup">单孤子 B</th>
+<th rowspan="6" scope="rowgroup">单孤子（p=4，q=−3）</th>
 <th rowspan="2" scope="rowgroup">PE</th>
 <th scope="row">u</th>
 <td>6.674179e-05</td>
@@ -2300,7 +2274,7 @@ $$E_f(T)=\max_{(x,y)\in\mathcal G}|f_{\rm num}(x,y,T)-f_*(x,y,T)|,
 
 在全部十八组比较中，RK4 与 C–N 的误差相对差异均小于 0.003%。在本组空间分辨率与时间步长下，两种时间算法给出近乎相同的终止时刻误差。
 
-从 Euler 改为 RK4 时，单孤子 B 与二孤子的 PE、FD 两种格式在 $u$ 场上的误差降幅为 0.20%—0.52%，在 $v$ 场上的降幅为 4.35%—4.90%。PF 对这一更换更为敏感：两组算例的 $u$ 误差分别降低 2.81% 和 4.55%，$v$ 误差分别降低 25.6% 和 29.2%。单孤子 A 的变化方向相反，RK4 的误差比 Euler 高 0.0083%—0.612%。因此，在当前计算设置中，PF 的 $v$ 场是时间积分选择影响最明显的部分；RK4 与 C–N 之间的选择带来的误差变化远小于从 Euler 改为这两种方法的变化。后续网格比较及场图统一采用 RK4。
+从 Euler 改为 RK4 时，单孤子（p=4，q=−3） 与二孤子的 PE、FD 两种格式在 $u$ 场上的误差降幅为 0.20%—0.52%，在 $v$ 场上的降幅为 4.35%—4.90%。PF 对这一更换更为敏感：两组算例的 $u$ 误差分别降低 2.81% 和 4.55%，$v$ 误差分别降低 25.6% 和 29.2%。单孤子（p=1，q=2） 的变化方向相反，RK4 的误差比 Euler 高 0.0083%—0.612%。因此，在当前计算设置中，PF 的 $v$ 场是时间积分选择影响最明显的部分；RK4 与 C–N 之间的选择带来的误差变化远小于从 Euler 改为这两种方法的变化。后续网格比较及场图统一采用 RK4。
 
 **固定网格与动网格。**
 
@@ -2308,31 +2282,31 @@ $$E_f(T)=\max_{(x,y)\in\mathcal G}|f_{\rm num}(x,y,T)-f_*(x,y,T)|,
 
 **表 3　固定网格与动网格的最大绝对误差（RK4）。各单元格依次为 $E_u/E_v$；每个物理场较小的误差加粗。**
 
-<div class="table-wrap"><table class="comparison paired-errors"><thead><tr><th>算例</th><th>方法</th><th>固定网格：u / v</th><th>动网格：u / v</th></tr></thead><tbody><tr><th>单孤子 A</th><th>PE</th><td>1.560308e-03 / 3.229398e-03</td><td><strong>1.198143e-03 / 2.172159e-03</strong></td></tr><tr><th>单孤子 A</th><th>PF</th><td>1.187746e-02 / 7.254773e-03</td><td><strong>3.940103e-03 / 3.703664e-03</strong></td></tr><tr><th>单孤子 A</th><th>FD</th><td>1.161402e-03 / 3.008503e-03</td><td><strong>8.878667e-04 / 1.960738e-03</strong></td></tr><tr><th>单孤子 B</th><th>PE</th><td>6.639277e-05 / 6.664598e-05</td><td><strong>4.533361e-05 / 5.568003e-05</strong></td></tr><tr><th>单孤子 B</th><th>PF</th><td>1.266358e-04 / 6.194167e-05</td><td><strong>8.467373e-05 / 4.606240e-05</strong></td></tr><tr><th>单孤子 B</th><th>FD</th><td>7.809306e-05 / 6.429802e-05</td><td><strong>5.709006e-05 / 5.387754e-05</strong></td></tr><tr><th>二孤子</th><th>PE</th><td>1.299876e-04 / 1.267185e-04</td><td><strong>8.193645e-05 / 8.860848e-05</strong></td></tr><tr><th>二孤子</th><th>PF</th><td>2.620490e-04 / 1.405303e-04</td><td><strong>1.626438e-04 / 8.423511e-05</strong></td></tr><tr><th>二孤子</th><th>FD</th><td>1.442262e-04 / 1.242170e-04</td><td><strong>9.643247e-05 / 8.548888e-05</strong></td></tr></tbody></table></div>
+<div class="table-wrap"><table class="comparison paired-errors"><thead><tr><th>算例</th><th>方法</th><th>固定网格：u / v</th><th>动网格：u / v</th></tr></thead><tbody><tr><th>单孤子（p=1，q=2）</th><th>PE</th><td>1.560308e-03 / 3.229398e-03</td><td><strong>1.198143e-03 / 2.172159e-03</strong></td></tr><tr><th>单孤子（p=1，q=2）</th><th>PF</th><td>1.187746e-02 / 7.254773e-03</td><td><strong>3.940103e-03 / 3.703664e-03</strong></td></tr><tr><th>单孤子（p=1，q=2）</th><th>FD</th><td>1.161402e-03 / 3.008503e-03</td><td><strong>8.878667e-04 / 1.960738e-03</strong></td></tr><tr><th>单孤子（p=4，q=−3）</th><th>PE</th><td>6.639277e-05 / 6.664598e-05</td><td><strong>4.533361e-05 / 5.568003e-05</strong></td></tr><tr><th>单孤子（p=4，q=−3）</th><th>PF</th><td>1.266358e-04 / 6.194167e-05</td><td><strong>8.467373e-05 / 4.606240e-05</strong></td></tr><tr><th>单孤子（p=4，q=−3）</th><th>FD</th><td>7.809306e-05 / 6.429802e-05</td><td><strong>5.709006e-05 / 5.387754e-05</strong></td></tr><tr><th>二孤子</th><th>PE</th><td>1.299876e-04 / 1.267185e-04</td><td><strong>8.193645e-05 / 8.860848e-05</strong></td></tr><tr><th>二孤子</th><th>PF</th><td>2.620490e-04 / 1.405303e-04</td><td><strong>1.626438e-04 / 8.423511e-05</strong></td></tr><tr><th>二孤子</th><th>FD</th><td>1.442262e-04 / 1.242170e-04</td><td><strong>9.643247e-05 / 8.548888e-05</strong></td></tr></tbody></table></div>
 
-在全部十八组物理场比较中，动网格的误差均低于固定网格，降幅为 16.2%—66.8%。按空间格式分别计算，PE 的降幅为 16.5%—37.0%，PF 为 25.6%—66.8%，FD 为 16.2%—34.8%。单孤子 A 的 PF 改善最明显，其 $u,v$ 误差分别降低 66.8% 和 48.9%；二孤子中三种格式的两个场均降低约 30%—40%。
+在全部十八组物理场比较中，动网格的误差均低于固定网格，降幅为 16.2%—66.8%。按空间格式分别计算，PE 的降幅为 16.5%—37.0%，PF 为 25.6%—66.8%，FD 为 16.2%—34.8%。单孤子（p=1，q=2） 的 PF 改善最明显，其 $u,v$ 误差分别降低 66.8% 和 48.9%；二孤子中三种格式的两个场均降低约 30%—40%。
 
 在相同节点数下，按守恒密度布点并推进节点，对三种格式和两个物理场均带来一致的误差改善。与表 2 中 RK4、C–N 小于 0.003% 的误差差异相比，这组算例对网格分配与运动的响应明显得多。
 
-**单孤子 A：物理场与误差。**
+**单孤子（p=1，q=2）：物理场与误差。**
 
 以下场图统一比较 PE、PF 和 FD，不再单独选择某一种方法。为展示波形的空间分布，三种方法均在 $x\in[-40,40)$、$y\in[-30,30)$ 上计算，采用固定网格、RK4、$\Delta x=0.15625$、$h=0.125$、$\Delta t=1.25\times10^{-4}$ 和 $T=0.01$。表 1—3 使用前述较小计算域和统一评价网格；图 1—6 展示扩域计算得到的物理场及其逐点误差。
 
 每幅图均按三列四行排列：列从左至右为 PE、PF、FD；行依次为 $u$ 曲面、$u$ 等高线、$v$ 曲面、$v$ 等高线。误差图采用相同排列，绘制 $|u_{\rm num}-u_*|$ 和 $|v_{\rm num}-v_*|$。同一物理量在三列中使用共同色阶和高度范围，以便比较幅值。
 
-单孤子 A 的两个物理场均为沿斜直线分布的负脉冲。图 1 展示 $x\in[-3,4]$、$y\in[-3,3]$ 的局部波形，图 2 给出同一区域的误差。两幅图分别比较三种方法得到的波形和偏差位置。
+单孤子（p=1，q=2） 的两个物理场均为沿斜直线分布的负脉冲。图 1 展示 $x\in[-3,4]$、$y\in[-3,3]$ 的局部波形，图 2 给出同一区域的误差。两幅图分别比较三种方法得到的波形和偏差位置。
 
-<figure><a href="../Workspaces/dlw_paper_20261009/figures/A_fields.png"><img src="../Workspaces/dlw_paper_20261009/figures/A_fields.png" alt="单孤子 A，PE/PF/FD三列四行数值物理场对照" loading="lazy"></a><figcaption>图 1　单孤子 A的数值物理场。左、中、右列依次为 PE、PF、FD；第一、二行为 u 的曲面和等高线，第三、四行为 v 的曲面和等高线。RK4，固定网格，T = 0.01。同一物理量在三种方法间采用共同色阶。</figcaption></figure>
+<figure><a href="../Workspaces/dlw_paper_20261009/figures/A_fields.png"><img src="../Workspaces/dlw_paper_20261009/figures/A_fields.png" alt="单孤子（p=1，q=2），PE/PF/FD三列四行数值物理场对照" loading="lazy"></a><figcaption>图 1　单孤子（p=1，q=2）的数值物理场。左、中、右列依次为 PE、PF、FD；第一、二行为 u 的曲面和等高线，第三、四行为 v 的曲面和等高线。RK4，固定网格，T = 0.01。同一物理量在三种方法间采用共同色阶。</figcaption></figure>
 
-<figure><a href="../Workspaces/dlw_paper_20261009/figures/A_errors.png"><img src="../Workspaces/dlw_paper_20261009/figures/A_errors.png" alt="单孤子 A，PE/PF/FD三列四行绝对误差对照" loading="lazy"></a><figcaption>图 2　单孤子 A的绝对误差。左、中、右列依次为 PE、PF、FD；第一、二行为 u 误差的曲面和等高线，第三、四行为 v 误差的曲面和等高线。RK4，固定网格，T = 0.01。同一物理量在三种方法间采用共同色阶。</figcaption></figure>
+<figure><a href="../Workspaces/dlw_paper_20261009/figures/A_errors.png"><img src="../Workspaces/dlw_paper_20261009/figures/A_errors.png" alt="单孤子（p=1，q=2），PE/PF/FD三列四行绝对误差对照" loading="lazy"></a><figcaption>图 2　单孤子（p=1，q=2）的绝对误差。左、中、右列依次为 PE、PF、FD；第一、二行为 u 误差的曲面和等高线，第三、四行为 v 误差的曲面和等高线。RK4，固定网格，T = 0.01。同一物理量在三种方法间采用共同色阶。</figcaption></figure>
 
-**单孤子 B：物理场与误差。**
+**单孤子（p=4，q=−3）：物理场与误差。**
 
-单孤子 B 的 $u$ 为正脉冲，$v$ 为负脉冲。图 3、4 展示 $x,y\in[-30,30]$ 内的物理场与绝对误差，方法顺序、行排列和计算参数与图 1、2 相同。通过两场的曲面及等高线，可以同时比较波带的位置和误差沿波带的分布。
+单孤子（p=4，q=−3） 的 $u$ 为正脉冲，$v$ 为负脉冲。图 3、4 展示 $x,y\in[-30,30]$ 内的物理场与绝对误差，方法顺序、行排列和计算参数与图 1、2 相同。通过两场的曲面及等高线，可以同时比较波带的位置和误差沿波带的分布。
 
-<figure><a href="../Workspaces/dlw_paper_20261009/figures/B_fields.png"><img src="../Workspaces/dlw_paper_20261009/figures/B_fields.png" alt="单孤子 B，PE/PF/FD三列四行数值物理场对照" loading="lazy"></a><figcaption>图 3　单孤子 B的数值物理场。左、中、右列依次为 PE、PF、FD；第一、二行为 u 的曲面和等高线，第三、四行为 v 的曲面和等高线。RK4，固定网格，T = 0.01。同一物理量在三种方法间采用共同色阶。</figcaption></figure>
+<figure><a href="../Workspaces/dlw_paper_20261009/figures/B_fields.png"><img src="../Workspaces/dlw_paper_20261009/figures/B_fields.png" alt="单孤子（p=4，q=−3），PE/PF/FD三列四行数值物理场对照" loading="lazy"></a><figcaption>图 3　单孤子（p=4，q=−3）的数值物理场。左、中、右列依次为 PE、PF、FD；第一、二行为 u 的曲面和等高线，第三、四行为 v 的曲面和等高线。RK4，固定网格，T = 0.01。同一物理量在三种方法间采用共同色阶。</figcaption></figure>
 
-<figure><a href="../Workspaces/dlw_paper_20261009/figures/B_errors.png"><img src="../Workspaces/dlw_paper_20261009/figures/B_errors.png" alt="单孤子 B，PE/PF/FD三列四行绝对误差对照" loading="lazy"></a><figcaption>图 4　单孤子 B的绝对误差。左、中、右列依次为 PE、PF、FD；第一、二行为 u 误差的曲面和等高线，第三、四行为 v 误差的曲面和等高线。RK4，固定网格，T = 0.01。同一物理量在三种方法间采用共同色阶。</figcaption></figure>
+<figure><a href="../Workspaces/dlw_paper_20261009/figures/B_errors.png"><img src="../Workspaces/dlw_paper_20261009/figures/B_errors.png" alt="单孤子（p=4，q=−3），PE/PF/FD三列四行绝对误差对照" loading="lazy"></a><figcaption>图 4　单孤子（p=4，q=−3）的绝对误差。左、中、右列依次为 PE、PF、FD；第一、二行为 u 误差的曲面和等高线，第三、四行为 v 误差的曲面和等高线。RK4，固定网格，T = 0.01。同一物理量在三种方法间采用共同色阶。</figcaption></figure>
 
 **二孤子物理场与误差。**
 
@@ -2346,7 +2320,7 @@ $$E_f(T)=\max_{(x,y)\in\mathcal G}|f_{\rm num}(x,y,T)-f_*(x,y,T)|,
 
 交错格点与算子参数的配合，使 DLW 的两条半离散双线性关系由同一 Gram 行列式链产生。其秩一更新给出任意有限阶精确解，对数变换则把这一构造传递到 PE 与 PF 两种非线性表示。两种表示在正 τ 函数解上恢复相同的物理场，并与 Darboux–Lax 相容关系及二阶连续极限相联系。
 
-进一步用于计算时，表示方式影响各物理场的误差。固定网格、RK4 下，PF 的 $u$ 误差为 PE 的约 1.91—7.61 倍；PE 在单孤子 B 与二孤子中的 $u$ 误差又分别比 FD 低约 15.0% 和 9.87%，而 $v$ 场的比较随谱参数变化。时间方向，RK4 与 C–N 的终止误差相对差异小于 0.003%；从 Euler 改为 RK4 的影响以 PF 的 $v$ 场最为明显，在单孤子 B 与二孤子中分别降低 25.6% 和 29.2%。网格方向，守恒密度驱动的初始布点与节点运动使全部十八组误差降低 16.2%—66.8%。这些结果将共同的半离散结构与具体计算表现联系起来：非线性表示改变误差在两场中的分布，时间积分的影响依赖演化变量，而动网格在本组三个算例中对两场均有改善。
+进一步用于计算时，表示方式影响各物理场的误差。固定网格、RK4 下，PF 的 $u$ 误差为 PE 的约 1.91—7.61 倍；PE 在单孤子（p=4，q=−3） 与二孤子中的 $u$ 误差又分别比 FD 低约 15.0% 和 9.87%，而 $v$ 场的比较随谱参数变化。时间方向，RK4 与 C–N 的终止误差相对差异小于 0.003%；从 Euler 改为 RK4 的影响以 PF 的 $v$ 场最为明显，在单孤子（p=4，q=−3） 与二孤子中分别降低 25.6% 和 29.2%。网格方向，守恒密度驱动的初始布点与节点运动使全部十八组误差降低 16.2%—66.8%。这些结果将共同的半离散结构与具体计算表现联系起来：非线性表示改变误差在两场中的分布，时间积分的影响依赖演化变量，而动网格在本组三个算例中对两场均有改善。
 
 ## 数据与代码说明 {#zh-data}
 

@@ -1,15 +1,29 @@
 {
-  "equations_per_language": 109,
-  "math_items": 732,
-  "bilingual_display_equations_identical": true,
-  "original_108_error_values_preserved_in_each_language": true,
-  "language_order": [
+  "languages": [
     "en",
     "zh-CN"
   ],
-  "broken_internal_links": 0,
-  "duplicate_ids": 0,
-  "katex_errors": 0,
+  "equations_per_language": 110,
+  "math_items": 704,
+  "katex_strict": true,
+  "unique_ids": true,
+  "internal_links_valid": true,
+  "missing_local_assets": [
+    "../Workspaces/dlw_paper_20261009/figures/A_errors.png",
+    "../Workspaces/dlw_paper_20261009/figures/A_fields.png",
+    "../Workspaces/dlw_paper_20261009/figures/B_errors.png",
+    "../Workspaces/dlw_paper_20261009/figures/B_fields.png",
+    "../Workspaces/dlw_paper_20261009/figures/C_errors.png",
+    "../Workspaces/dlw_paper_20261009/figures/C_fields.png",
+    "../Workspaces/dlw_paper_20261009/plot_comparison_fields.py",
+    "../Workspaces/dlw_paper_20261009/prepare_comparison_fields.py",
+    "../notebook/DLW数值分析report.ipynb",
+    "../notebook/DLW理论.ipynb"
+  ],
+  "visual_review": "not performed by this build script",
+  "numerical_error_cells_unchanged": true,
+  "numerical_status": "Original small-domain tables retained; expanded-domain fixed RK4 results located, Euler/CN/SAMM expanded-domain comparison pending. See PROGRESS_LOG.md.",
+  "single_soliton_fields_and_two_soliton_coefficient": "verified with symbolic algebra",
   "missing_remote_figures": [
     "A_fields.png",
     "A_errors.png",
@@ -17,13 +31,5 @@
     "B_errors.png",
     "C_fields.png",
     "C_errors.png"
-  ],
-  "visual_review": "blocked: local Chromium socket restriction; cloud browser file URL policy",
-  "numerical_solver_rerun": false,
-  "rebuild_test": "passed with repository build.py and render.cjs, using Pandoc fallback",
-  "head_base": "1fd1fc8b1ea23fcad07b2c264101cc7b3ac23fb5",
-  "numerical_tables_per_language": 3,
-  "main_sections_per_language": 4,
-  "references_per_language": 9,
-  "structure_revision": "Continuous formulation merged into opening of Section 2; theory subsections 2.1–2.5; numerical section 3; conclusion 4; bilingual roadmap and theorem references updated."
+  ]
 }

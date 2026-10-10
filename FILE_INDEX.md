@@ -5,6 +5,8 @@
 - [Workspaces/literature_catalog_20261010/build_catalog.py](Workspaces/literature_catalog_20261010/build_catalog.py)：从现有下载记录和本地文件生成清单，不改文献原件。
 - [Workspaces/git_publish_20261010/validation.json](Workspaces/git_publish_20261010/validation.json)：本轮提交的文件、语法、Notebook、文献排除与报告资源核验。
 - [Workspaces/git_publish_20261010/verify.py](Workspaces/git_publish_20261010/verify.py)：轻量提交核验脚本；不重跑研究实验。
+- [Workspaces/git_maintenance_20261010/archive_snapshot.py](Workspaces/git_maintenance_20261010/archive_snapshot.py)：原 Git 元数据移入 Trash，保留其他引用与 stash 后重建紧凑仓库。
+- [Workspaces/git_maintenance_20261010/archive_result.json](Workspaces/git_maintenance_20261010/archive_result.json)：旧 snapshot 位置、前后体积及引用保留核验。
 <!-- LITERATURE_CATALOG_END -->
 
 <!-- LITERATURE_DOWNLOAD_20261010_BEGIN -->

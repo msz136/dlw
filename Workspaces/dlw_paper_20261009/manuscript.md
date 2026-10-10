@@ -14,9 +14,9 @@ Previous studies have shown that the bilinear representation of the DLW system i
 
 In this paper, we construct a semi-discrete bilinear system for the (2+1)-dimensional DLW equation by discretizing the y variable and derive its Gram determinant solutions. Through two dependent-variable transformations, we obtain two nonlinear formulations that recover the same physical fields from a common pair of τ functions, and establish the associated Darboux–Lax representation and second-order continuum limits. We then develop numerical schemes based on these formulations and investigate the effects of the nonlinear formulation, time integration and self-adaptive moving mesh (SAMM) methods through one- and two-soliton computations. The numerical comparison follows the use of semi-discrete soliton systems in self-adaptive computation [9].
 
-The paper is organized as follows. Section 2 reviews the continuous DLW system and its bilinear formulation. Section 3 constructs the semi-discrete bilinear system and its Gram determinant solutions, derives two nonlinear formulations, and establishes the continuum limits and the Darboux–Lax representation. Section 4 presents the numerical schemes and one- and two-soliton experiments, comparing the effects of the nonlinear formulation, time integration and SAMM methods. Section 5 concludes the paper.
+The paper is organized as follows. Starting from the continuous DLW system and its bilinear representation, Section 2 constructs the semi-discrete bilinear equations and their Gram determinant solutions, derives two nonlinear formulations, and establishes the continuum limits and the Darboux–Lax representation. Section 3 presents the numerical schemes and one- and two-soliton experiments, examining the effects of the nonlinear formulation, time integration and SAMM methods. Section 4 concludes the paper.
 
-## 2. Continuous DLW system and bilinear formulation {#en-continuous}
+## 2. Semi-discrete DLW system and exact solutions {#en-continuous}
 
 Consider the (2+1)-dimensional DLW system in the normalization of [5] with $\lambda=-2$,
 
@@ -63,9 +63,7 @@ $$\xi_i=p_ix-p_i^2t+\frac{y}{p_i-a},\qquad \eta_k=q_kx+q_k^2t+\frac{y}{q_k+a}.\t
 
 Here N is the determinant order, n is an auxiliary integer index, and the real parameters are chosen so that all displayed denominators are nonzero. The physical fields are defined on regions where f and g are positive.
 
-## 3. Semi-discrete DLW system and exact solutions {#en-semi}
-
-### 3.1 Semi-discrete bilinear equations {#en-bilinear}
+### 2.1 Semi-discrete bilinear equations {#en-bilinear}
 
 Based on the bilinear formulation presented above, we construct a semi-discretization of the DLW system in the y-direction, keeping x and t continuous. We start from the continuous bilinear equations. Differentiating the first equation in [(3)](#en-eq-3) with respect to y and combining it with the second gives
 
@@ -85,7 +83,7 @@ Then $\Phi(0)=B_af\cdot g$ and $\Phi\prime(0)=B_af\cdot g_y+2D_xf\cdot g$. Takin
 
 $$\boxed{B_{a-h/2}F_j\cdot G_j=0,\qquad B_{a+h/2}F_j\cdot G_{j+1}=0.}\tag{9}$$
 
-The τ functions $F_j$ and $G_j$ are associated with $f(x,(j+\tfrac12)h,t)$ and $g(x,jh,t)$, respectively. The convergence of the Gram determinant solutions under this identification is established in Section 3.4.
+The τ functions $F_j$ and $G_j$ are associated with $f(x,(j+\tfrac12)h,t)$ and $g(x,jh,t)$, respectively. The convergence of the Gram determinant solutions under this identification is established in Section 2.4.
 
 Symmetric Taylor expansion gives
 
@@ -95,7 +93,7 @@ $$\frac{\Phi(h/2)+\Phi(-h/2)}2=B_af\cdot g+O(h^2),\qquad \frac{\Phi(h/2)-\Phi(-h
 
 Thus the average and the difference quotient recover the continuous bilinear equations with second-order accuracy.
 
-### 3.2 Gram determinant solutions {#en-gram}
+### 2.2 Gram determinant solutions {#en-gram}
 
 Let $d=h/2$ and $\lambda_h(z)=(z+d)/(z-d)$. Define the determinant sequence
 
@@ -110,7 +108,7 @@ $$\tau_n(j;s)=\det_{1\le i,k\le N}\!\left[
 
 Here $\delta_{ik}$ is the Kronecker symbol. The member $\tau_0(j;s)$ is independent of s and is denoted by $\tau_0(j)$.
 
-**Theorem 3.1 (Gram determinant solutions).** Let $h>0$, $N\ge1$, and let $p_i,q_i,\rho_i$ be real parameters satisfying $p_i+q_k\ne0$, $p_i-a\pm d\ne0$ and $q_k+a\pm d\ne0$ for all i,k. Then
+**Theorem 2.2 (Gram determinant solutions).** Let $h>0$, $N\ge1$, and let $p_i,q_i,\rho_i$ be real parameters satisfying $p_i+q_k\ne0$, $p_i-a\pm d\ne0$ and $q_k+a\pm d\ne0$ for all i,k. Then
 
 <a id="en-eq-12"></a>
 
@@ -120,7 +118,7 @@ satisfy the semi-discrete bilinear system [(9)](#en-eq-9) for all lattice sites 
 
 Next, we verify that these Gram determinants satisfy the semi-discrete bilinear equations. For this purpose, we first establish an identity between adjacent members of the determinant sequence.
 
-**Lemma 3.2 (Adjacent-layer identity).** Under the spectral conditions of Theorem 3.1, fix j and s such that $p_i-s\ne0$ and $q_k+s\ne0$. For every $n\in\mathbb Z$,
+**Lemma 2.3 (Adjacent-layer identity).** Under the spectral conditions of Theorem 2.2, fix j and s such that $p_i-s\ne0$ and $q_k+s\ne0$. For every $n\in\mathbb Z$,
 
 <a id="en-eq-13"></a>
 
@@ -202,7 +200,7 @@ $$\frac{B_sf\cdot g}{g^2}
 
 Taking $g=\tau_n$ and $f=\tau_{n+1}$ proves [(13)](#en-eq-13) wherever M is invertible. To extend the result to singular matrices, replace all $\rho_i$ by $\varepsilon\rho_i$. At any fixed x,t, M is the identity at $\varepsilon=0$, and the bilinear residual vanishes for ε near zero. Since the residual is a polynomial in ε, it vanishes identically. Setting $\varepsilon=1$ completes the proof. □
 
-**Proof of Theorem 3.1.** The first equation follows from Lemma 3.2 with $n=0$ and $s=a-d$. For the second, the entrywise identity
+**Proof of Theorem 2.2.** The first equation follows from Lemma 2.3 with $n=0$ and $s=a-d$. For the second, the entrywise identity
 
 <a id="en-eq-23"></a>
 
@@ -226,7 +224,7 @@ This proves the second bilinear equation. □
 
 Before introducing the nonlinear variables, we give a sufficient condition for the positivity of the τ functions.
 
-**Proposition 3.3 (Positive τ functions).** If $0<p_1<\cdots<p_N<a-h/2$, $0<q_1<\cdots<q_N$ and $\rho_i>0$, then $F_j\ge1$ and $G_j\ge1$ for all x,t,j.
+**Proposition 2.4 (Positive τ functions).** If $0<p_1<\cdots<p_N<a-h/2$, $0<q_1<\cdots<q_N$ and $\rho_i>0$, then $F_j\ge1$ and $G_j\ge1$ for all x,t,j.
 
 **Proof.** Both matrices have the form $I+D_1CD_2$, where $D_1,D_2$ are positive diagonal matrices and $C_{ik}=1/(p_i+q_k)$. Every nonempty principal minor is positive, since
 
@@ -236,7 +234,7 @@ $$\det C_{I,I}=\frac{\prod_{i<k,\ i,k\in I}(p_k-p_i)(q_k-q_i)}{\prod_{i,k\in I}(
 
 Positive diagonal scaling preserves this property. Expanding $\det(I+D_1CD_2)$ as the sum of its principal minors, including the empty minor 1, proves the assertion. □
 
-### 3.3 Nonlinear formulations {#en-nonlinear}
+### 2.3 Nonlinear formulations {#en-nonlinear}
 
 We now derive two nonlinear formulations of the semi-discrete bilinear system. Both formulations use the following physical-field reconstruction from positive τ functions:
 
@@ -244,7 +242,7 @@ We now derive two nonlinear formulations of the semi-discrete bilinear system. B
 
 $$u_j=\partial_x\log\frac{F_j^2}{G_jG_{j+1}},\qquad \omega_j=\partial_x\log\frac{G_{j+1}}{G_j},\qquad v_j=\frac4h\omega_j+\delta_0u_j,\qquad \delta_0z_j=\frac{z_{j+1}-z_{j-1}}{2h}.\tag{27}$$
 
-The physical fields are associated with $y=(j+\tfrac12)h$. These definitions provide a discrete counterpart of [(2)](#en-eq-2); their second-order consistency is established in Section 3.4.
+The physical fields are associated with $y=(j+\tfrac12)h$. These definitions provide a discrete counterpart of [(2)](#en-eq-2); their second-order consistency is established in Section 2.4.
 
 Let $\alpha_j=\log F_j$ and $\beta_j=\log G_j$. Dividing the two bilinear equations by $F_jG_j$ and $F_jG_{j+1}$, respectively, gives
 
@@ -379,7 +377,7 @@ $$u_j=2\frac{Q_{j,x}}{Q_j},\qquad v_j=4(1-Q_jR_j)+\delta_0u_j.\tag{45}$$
 
 The following proposition shows that the two nonlinear formulations recover identical physical fields from the same pair of positive τ functions.
 
-**Proposition 3.4 (Common physical fields).** Let positive F,G satisfy [(9)](#en-eq-9). The two nonlinear formulations constructed above yield identical physical fields u,v at every finite positive lattice spacing h.
+**Proposition 2.5 (Common physical fields).** Let positive F,G satisfy [(9)](#en-eq-9). The two nonlinear formulations constructed above yield identical physical fields u,v at every finite positive lattice spacing h.
 
 **Proof.** The definitions give
 
@@ -389,13 +387,13 @@ $$2\frac{Q_{j,x}}{Q_j}=\partial_x\log\frac{F_j^2}{G_jG_{j+1}}=u_j,\qquad 4(1-Q_j
 
 Adding the same central difference of u to the second equality proves that the reconstructed v fields also coincide. □
 
-### 3.4 Continuum limits {#en-limits}
+### 2.4 Continuum limits {#en-limits}
 
 Having obtained the two nonlinear formulations, we now examine their continuum limits as $h\to0$. We first establish the second-order consistency of the physical-field reconstruction and the semi-discrete equations with their continuous counterparts. We then show that, for fixed regular spectral parameters, the Gram determinant solutions converge to the continuous DLW solutions with an error of order $h^2$, uniformly on compact sets.
 
 Throughout this subsection, $O_K(h^m)$ denotes a remainder uniformly bounded by $C_Kh^m$ on a compact set K. Functions are assumed smooth on an open neighbourhood of K. The following proposition relates the staggered reconstruction to the continuous dependent-variable transformation.
 
-**Proposition 3.5 (Consistency of reconstruction).** Let f,g be positive smooth functions, and let u,v be given by [(2)](#en-eq-2). At a physical location y, define
+**Proposition 2.6 (Consistency of reconstruction).** Let f,g be positive smooth functions, and let u,v be given by [(2)](#en-eq-2). At a physical location y, define
 
 <a id="en-eq-47"></a>
 
@@ -435,7 +433,7 @@ $$\begin{aligned}E_{1,h,j}&:=\delta_-u_{j,t}+\partial_x\delta_-\mathcal F_j+\par
 
 With $\mathcal M_+z_j=(z_{j+1}+z_j)/2$, the identity $\mathcal M_+\delta_-=\delta_0$ shows that $\mathcal M_+E_{1,h,j}+E_{2,h,j}=0$ is the evolution equation for v.
 
-**Proposition 3.6 (Consistency of the equations).** Sample smooth u,v at $y_j=(j+\tfrac12)h$, and denote the continuous DLW residuals by
+**Proposition 2.7 (Consistency of the equations).** Sample smooth u,v at $y_j=(j+\tfrac12)h$, and denote the continuous DLW residuals by
 
 <a id="en-eq-53"></a>
 
@@ -475,7 +473,7 @@ All continuous fields in this display are evaluated at y_j. This proves the seco
 
 Finally, we establish the continuum limit of the exact Gram solutions. Here the τ functions depend on h through both the lattice factors and the shifted auxiliary parameter.
 
-**Theorem 3.7 (Continuum limit of the Gram solutions).** Fix N and spectral parameters such that, for some $h_0>0$,
+**Theorem 2.8 (Continuum limit of the Gram solutions).** Fix N and spectral parameters such that, for some $h_0>0$,
 
 <a id="en-eq-59"></a>
 
@@ -519,7 +517,7 @@ The phase and amplitude therefore differ from their continuous counterparts by $
 
 $$\partial^\nu(f^{(h)}-f^{(0)})=O_K(h^2),\qquad \partial^\nu(g^{(h)}-g^{(0)})=O_K(h^2).\tag{65}$$
 
-The positivity argument in Proposition 3.3 also applies to the real-exponent extension and its limit. All four τ functions are bounded below by 1, so their logarithmic derivatives satisfy the same second-order estimates.
+The positivity argument in Proposition 2.4 also applies to the real-exponent extension and its limit. All four τ functions are bounded below by 1, so their logarithmic derivatives satisfy the same second-order estimates.
 
 The adjacent-layer identity and the lattice-shift relation remain valid for the extension, giving
 
@@ -533,15 +531,15 @@ Taking their symmetric average and difference quotient, with the uniform derivat
 
 $$B_af^{(0)}\cdot g^{(0)}=0,\qquad B_af^{(0)}\cdot g_y^{(0)}+2D_xf^{(0)}\cdot g^{(0)}=0.\tag{67}$$
 
-These are the continuous bilinear equations in the equivalent form of Section 3.1, so Proposition 2.1 gives a continuous DLW solution. Finally, applying Proposition 3.5 uniformly to the h-dependent family gives
+These are the continuous bilinear equations in the equivalent form of Section 2.1, so Proposition 2.1 gives a continuous DLW solution. Finally, applying Proposition 2.6 uniformly to the h-dependent family gives
 
 <a id="en-eq-68"></a>
 
 $$u^{(h)}=2\left(\log\frac{f^{(h)}}{g^{(h)}}\right)_x+O_K(h^2),\qquad v^{(h)}=2\bigl(\log(f^{(h)}g^{(h)})\bigr)_{xy}+O_K(h^2).\tag{68}$$
 
-Combining these relations with [(65)](#en-eq-65) proves the estimate. Proposition 3.4 transfers the result to both nonlinear formulations. □
+Combining these relations with [(65)](#en-eq-65) proves the estimate. Proposition 2.5 transfers the result to both nonlinear formulations. □
 
-### 3.5 Darboux–Lax representation {#en-lax}
+### 2.5 Darboux–Lax representation {#en-lax}
 
 We next construct a Darboux–Lax representation of the semi-discrete DLW system. We first express the linear problem in terms of the physical fields and then give its potential form in the variables Q,R,M.
 
@@ -584,7 +582,7 @@ $$\boxed{\begin{aligned}
 
 The first equation relates wave functions at adjacent lattice sites, while the second determines their time evolution. The following theorem establishes their compatibility with the nonlinear system.
 
-**Theorem 3.8 (Darboux–Lax compatibility).** Every smooth solution of [(70)](#en-eq-70), together with the auxiliary potential [(71)](#en-eq-71), makes [(72)](#en-eq-72) compatible in the formal operator sense. Conversely, on a region where $w_j\ne0$, compatibility together with the potential-difference relation implies [(70)](#en-eq-70).
+**Theorem 2.9 (Darboux–Lax compatibility).** Every smooth solution of [(70)](#en-eq-70), together with the auxiliary potential [(71)](#en-eq-71), makes [(72)](#en-eq-72) compatible in the formal operator sense. Conversely, on a region where $w_j\ne0$, compatibility together with the potential-difference relation implies [(70)](#en-eq-70).
 
 **Proof.** Set
 
@@ -693,13 +691,13 @@ The Q and R equations make both scalar residuals vanish, establishing compatibil
 
 The above construction provides a common Darboux–Lax representation for the two nonlinear formulations. The lattice shift is realized through two first-order Darboux operators sharing an intermediate potential, and its compatibility with the time evolution follows from the semi-discrete field equations.
 
-## 4. Numerical methods and experiments {#en-numerics}
+## 3. Numerical methods and experiments {#en-numerics}
 
 For a common positive τ-function pair, PE and PF reconstruct identical physical fields at finite lattice spacing. After discretizing the x derivatives, their nonlinear operations and reconstruction maps have different discrete implementations. We construct both schemes from common initial physical fields and compare their errors with a direct finite-difference discretization of the continuous DLW equations (FD). PE evolves P,W and PF evolves Q,R; both recover u,v through their respective maps. Initial and boundary data are obtained from the continuous exact solutions.
 
 Three-point centred differences approximate the x derivatives on fixed and conservation-density-driven moving meshes. Euler, RK4 and Crank–Nicolson (C–N) methods are used for time integration. We first describe the spatial schemes, then the SAMM method and time integrators, and finally compare their effects on the physical-field errors.
 
-### 4.1 Numerical schemes {#en-schemes}
+### 3.1 Numerical schemes {#en-schemes}
 
 On the fixed grid, partition $x\in[-L/2,L/2)$ into $N_x$ intervals with $x_i=-L/2+i\Delta x$ and $\Delta x=L/N_x$. The y grid is staggered: $M_j$ is located at $y=jh$, while the physical fields and $Q_j,R_j$ are located at $y=(j+\tfrac12)h$. Let $t_n=n\Delta t$; n denotes the time level, and j,i index the y and x directions.
 
@@ -892,7 +890,7 @@ For FD, the v update is $v^{n+1}=v^n+\Delta t(F_v^n+F_v^{n+1})/2$. Since the fin
 
 Continuous exact soliton solutions provide the reference for measuring the effects of the nonlinear formulation and its implementation, time integration and mesh motion. The cases are one-soliton A, one-soliton B and a two-soliton solution. The spatial-scheme comparison uses common initial physical fields and RK4; the time-integrator comparison fixes the spatial grid and time step; the mesh comparison fixes node counts, time step and final time. All errors use the common evaluation grid defined below.
 
-### 4.2 Test problems and error measures {#en-tests}
+### 3.2 Test problems and error measures {#en-tests}
 
 Use the continuous Gram τ functions
 
@@ -929,7 +927,7 @@ The evaluation grid $\mathcal G$ consists of 4001 equally spaced x points on $[-
 $$E_f(T)=\max_{(x,y)\in\mathcal G}|f_{\rm num}(x,y,T)-f_*(x,y,T)|,
 \qquad f=u,v.\tag{109}$$
 
-### 4.3 Numerical results {#en-results}
+### 3.3 Numerical results {#en-results}
 
 Table 1 compares the maximum absolute errors of the three spatial schemes on the same physical grid with RK4. The difference between PE and PF is most pronounced in u: the PF errors are approximately 7.61, 1.91 and 2.02 times the PE errors for one-soliton A, one-soliton B and the two-soliton case, respectively. The corresponding ratios for v are 2.25, 0.929 and 1.11. Thus PE gives smaller u errors in all three tests, while the relative v errors depend on the soliton parameters.
 
@@ -1158,7 +1156,7 @@ The two-soliton solution contains two sets of spectral parameters. Figure 5 show
 
 <figure><a href="../Workspaces/dlw_paper_20261009/figures/C_errors.png"><img src="../Workspaces/dlw_paper_20261009/figures/C_errors.png" alt="Two-soliton: absolute errors comparison" loading="lazy"></a><figcaption>Figure 6. Two-soliton: absolute errors. Columns: PE, PF, FD. Rows: u error surface, u error contours, v error surface and v error contours. RK4, fixed mesh, T = 0.01. Each quantity uses a common colour scale across methods.</figcaption></figure>
 
-## 5. Conclusion {#en-conclusion}
+## 4. Conclusion {#en-conclusion}
 
 The combination of a staggered lattice and a shifted operator parameter generates both semi-discrete DLW bilinear relations from a common Gram determinant sequence. Rank-one updates yield exact solutions of arbitrary finite order, and logarithmic transformations lead to the PE and PF formulations. Both recover the same physical fields on positive τ-function solutions and are linked to the Darboux–Lax compatibility relations and second-order continuum limits.
 
@@ -1202,9 +1200,9 @@ The theoretical derivations and numerical materials are provided in [DLW theory]
 
 本文沿 y 方向构造（2+1）维 DLW 方程的半离散双线性系统，并给出其 Gram 行列式解。通过两种因变量变换，得到由同一对 τ 函数恢复相同物理场的两种非线性表示，并建立相应的 Darboux–Lax 表示和二阶连续极限。随后构造数值格式，通过单孤子和二孤子计算研究非线性表示、时间积分与自适应动网格（SAMM）方法对误差的影响。数值比较沿用半离散孤子系统用于自适应计算的研究思路 [9]。
 
-本文安排如下。第 2 节回顾连续 DLW 系统及其双线性表示。第 3 节构造半离散双线性系统及 Gram 行列式解，导出两种非线性表示，并建立连续极限与 Darboux–Lax 表示。第 4 节介绍数值格式及单孤子、二孤子实验，比较非线性表示、时间积分和 SAMM 方法的影响。第 5 节给出结论。
+本文安排如下。第 2 节从连续 DLW 系统及其双线性表示出发，构造半离散双线性方程与 Gram 行列式解，导出两种非线性表示，并建立连续极限与 Darboux–Lax 表示。第 3 节介绍数值格式及单孤子、二孤子实验，考察非线性表示、时间积分和 SAMM 方法的影响。第 4 节给出结论。
 
-## 2. 连续 DLW 系统与双线性形式 {#zh-continuous}
+## 2. 半离散 DLW 系统与精确解 {#zh-continuous}
 
 考虑文献 [5] 中取 $\lambda=-2$ 后的（2+1）维 DLW 系统，
 
@@ -1251,9 +1249,7 @@ $$\xi_i=p_ix-p_i^2t+\frac{y}{p_i-a},\qquad \eta_k=q_kx+q_k^2t+\frac{y}{q_k+a}.\t
 
 其中 N 为行列式阶数，n 为辅助整数指标，实参数应使所有分母非零。物理场定义在 f、g 为正的区域内。
 
-## 3. 半离散 DLW 系统与精确解 {#zh-semi}
-
-### 3.1 半离散双线性方程 {#zh-bilinear}
+### 2.1 半离散双线性方程 {#zh-bilinear}
 
 基于上述双线性表示，我们沿 y 方向构造 DLW 系统的半离散化，并保留 x、t 为连续变量。从连续双线性方程出发，对 [(3)](#zh-eq-3) 的第一式关于 y 求导，再结合第二式，得到
 
@@ -1273,7 +1269,7 @@ $$\Phi(s)=B_{a+s}f(x,y,t)\cdot g(x,y+s,t).\tag{8}$$
 
 $$\boxed{B_{a-h/2}F_j\cdot G_j=0,\qquad B_{a+h/2}F_j\cdot G_{j+1}=0.}\tag{9}$$
 
-τ 函数 $F_j$、$G_j$ 分别对应半格点 $y=(j+\tfrac12)h$ 上的 f 与整数格点 $y=jh$ 上的 g。这一对应下 Gram 行列式解的收敛性将在第 3.4 节建立。
+τ 函数 $F_j$、$G_j$ 分别对应半格点 $y=(j+\tfrac12)h$ 上的 f 与整数格点 $y=jh$ 上的 g。这一对应下 Gram 行列式解的收敛性将在第 2.4 节建立。
 
 对称 Taylor 展开给出
 
@@ -1283,7 +1279,7 @@ $$\frac{\Phi(h/2)+\Phi(-h/2)}2=B_af\cdot g+O(h^2),\qquad \frac{\Phi(h/2)-\Phi(-h
 
 因此，两条格点关系的平均与差商以二阶精度恢复连续双线性方程。
 
-### 3.2 Gram 行列式解 {#zh-gram}
+### 2.2 Gram 行列式解 {#zh-gram}
 
 记 $d=h/2$、$\lambda_h(z)=(z+d)/(z-d)$，定义行列式序列
 
@@ -1298,7 +1294,7 @@ $$\tau_n(j;s)=\det_{1\le i,k\le N}\!\left[
 
 其中 $\delta_{ik}$ 为 Kronecker 符号。零层行列式与 s 无关，记为 $\tau_0(j)$。
 
-**定理 3.1（Gram 行列式解）。** 设 $h>0$、$N\ge1$，实参数 $p_i,q_i,\rho_i$ 对所有 i、k 满足 $p_i+q_k\ne0$、$p_i-a\pm d\ne0$、$q_k+a\pm d\ne0$。则
+**定理 2.2（Gram 行列式解）。** 设 $h>0$、$N\ge1$，实参数 $p_i,q_i,\rho_i$ 对所有 i、k 满足 $p_i+q_k\ne0$、$p_i-a\pm d\ne0$、$q_k+a\pm d\ne0$。则
 
 <a id="zh-eq-12"></a>
 
@@ -1308,7 +1304,7 @@ $$\boxed{F_j=\tau_1(j;a-d),\qquad G_j=\tau_0(j).}\tag{12}$$
 
 下面验证这些 Gram 行列式确实满足半离散双线性方程。为此，先建立行列式序列相邻辅助层之间的恒等式。
 
-**引理 3.2（相邻层恒等式）。** 在定理 3.1 的谱参数条件下，固定 j 和 s，并设 $p_i-s\ne0$、$q_k+s\ne0$。则对任意 $n\in\mathbb Z$，有
+**引理 2.3（相邻层恒等式）。** 在定理 2.2 的谱参数条件下，固定 j 和 s，并设 $p_i-s\ne0$、$q_k+s\ne0$。则对任意 $n\in\mathbb Z$，有
 
 <a id="zh-eq-13"></a>
 
@@ -1390,7 +1386,7 @@ $$\frac{B_sf\cdot g}{g^2}
 
 取 $g=\tau_n$、$f=\tau_{n+1}$，即在 M 可逆处得到 [(13)](#zh-eq-13)。为将结论延伸至奇异矩阵，将所有 $\rho_i$ 替换为 $\varepsilon\rho_i$。在固定 x、t 处，$\varepsilon=0$ 时 M 为单位矩阵，双线性残差在 ε 的零点邻域内为零。该残差是 ε 的多项式，故恒等于零。令 $\varepsilon=1$ 即完成证明。□
 
-**定理 3.1 的证明。** 在引理 3.2 中取 $n=0$、$s=a-d$，即得第一条方程。对于第二条，逐矩阵元的恒等式
+**定理 2.2 的证明。** 在引理 2.3 中取 $n=0$、$s=a-d$，即得第一条方程。对于第二条，逐矩阵元的恒等式
 
 <a id="zh-eq-23"></a>
 
@@ -1414,7 +1410,7 @@ $$B_{a+d}F_j\cdot G_{j+1}
 
 在引入非线性变量之前，先给出保证 τ 函数为正的充分条件。
 
-**命题 3.3（正 τ 函数）。** 若 $0<p_1<\cdots<p_N<a-h/2$、$0<q_1<\cdots<q_N$、$\rho_i>0$，则对所有 x、t、j 有 $F_j\ge1$、$G_j\ge1$。
+**命题 2.4（正 τ 函数）。** 若 $0<p_1<\cdots<p_N<a-h/2$、$0<q_1<\cdots<q_N$、$\rho_i>0$，则对所有 x、t、j 有 $F_j\ge1$、$G_j\ge1$。
 
 **证明。** 两个矩阵均可写成 $I+D_1CD_2$，其中 $D_1,D_2$ 为正对角矩阵，$C_{ik}=1/(p_i+q_k)$。每个非空主子式均为正，因为
 
@@ -1424,7 +1420,7 @@ $$\det C_{I,I}=\frac{\prod_{i<k,\ i,k\in I}(p_k-p_i)(q_k-q_i)}{\prod_{i,k\in I}(
 
 正对角缩放保持这一性质。将 $\det(I+D_1CD_2)$ 展开为包括空主子式 1 在内的所有主子式之和，即得结论。□
 
-### 3.3 非线性表示 {#zh-nonlinear}
+### 2.3 非线性表示 {#zh-nonlinear}
 
 下面导出半离散双线性系统的两种非线性表示。两种表示均采用如下由正 τ 函数恢复物理场的变换：
 
@@ -1432,7 +1428,7 @@ $$\det C_{I,I}=\frac{\prod_{i<k,\ i,k\in I}(p_k-p_i)(q_k-q_i)}{\prod_{i,k\in I}(
 
 $$u_j=\partial_x\log\frac{F_j^2}{G_jG_{j+1}},\qquad \omega_j=\partial_x\log\frac{G_{j+1}}{G_j},\qquad v_j=\frac4h\omega_j+\delta_0u_j,\qquad \delta_0z_j=\frac{z_{j+1}-z_{j-1}}{2h}.\tag{27}$$
 
-物理场位于 $y=(j+\tfrac12)h$。上述定义给出连续变换 [(2)](#zh-eq-2) 的离散对应，其二阶一致性将在第 3.4 节建立。
+物理场位于 $y=(j+\tfrac12)h$。上述定义给出连续变换 [(2)](#zh-eq-2) 的离散对应，其二阶一致性将在第 2.4 节建立。
 
 令 $\alpha_j=\log F_j$、$\beta_j=\log G_j$。将两条双线性方程分别除以 $F_jG_j$ 和 $F_jG_{j+1}$，得到
 
@@ -1567,7 +1563,7 @@ $$u_j=2\frac{Q_{j,x}}{Q_j},\qquad v_j=4(1-Q_jR_j)+\delta_0u_j.\tag{45}$$
 
 下面的命题说明，两种非线性表示由同一对正 τ 函数恢复完全相同的物理场。
 
-**命题 3.4（共同物理场）。** 设正函数 F、G 满足 [(9)](#zh-eq-9)。由它们构造的两种非线性表示在每个有限正格距 h 下给出完全相同的物理场 u、v。
+**命题 2.5（共同物理场）。** 设正函数 F、G 满足 [(9)](#zh-eq-9)。由它们构造的两种非线性表示在每个有限正格距 h 下给出完全相同的物理场 u、v。
 
 **证明。** 由定义有
 
@@ -1577,13 +1573,13 @@ $$2\frac{Q_{j,x}}{Q_j}=\partial_x\log\frac{F_j^2}{G_jG_{j+1}}=u_j,\qquad 4(1-Q_j
 
 在第二个等式两侧加上相同的 u 中心差分，即得两种重构的 v 也一致。□
 
-### 3.4 连续极限 {#zh-limits}
+### 2.4 连续极限 {#zh-limits}
 
 在得到两种非线性表示后，下面考察它们在 $h\to0$ 时的连续极限。首先建立物理场重构及半离散方程与相应连续表达之间的二阶一致性。随后证明，在固定正则谱参数下，Gram 行列式解以 $h^2$ 阶误差在紧集上一致收敛到连续 DLW 解。
 
 本小节中，$O_K(h^m)$ 表示在紧集 K 上由 $C_Kh^m$ 一致控制的余项，所涉及函数在 K 的开邻域内光滑。下面的命题联系交错重构与连续因变量变换。
 
-**命题 3.5（重构的一致性）。** 设 f、g 为正光滑函数，u、v 由 [(2)](#zh-eq-2) 给出。在物理位置 y 处定义
+**命题 2.6（重构的一致性）。** 设 f、g 为正光滑函数，u、v 由 [(2)](#zh-eq-2) 给出。在物理位置 y 处定义
 
 <a id="zh-eq-47"></a>
 
@@ -1623,7 +1619,7 @@ $$\begin{aligned}E_{1,h,j}&:=\delta_-u_{j,t}+\partial_x\delta_-\mathcal F_j+\par
 
 记 $\mathcal M_+z_j=(z_{j+1}+z_j)/2$。由 $\mathcal M_+\delta_-=\delta_0$ 可知，$\mathcal M_+E_{1,h,j}+E_{2,h,j}=0$ 给出 v 的演化方程。
 
-**命题 3.6（方程的一致性）。** 将光滑场 u、v 采样于 $y_j=(j+\tfrac12)h$，并记连续 DLW 方程的残差为
+**命题 2.7（方程的一致性）。** 将光滑场 u、v 采样于 $y_j=(j+\tfrac12)h$，并记连续 DLW 方程的残差为
 
 <a id="zh-eq-53"></a>
 
@@ -1663,7 +1659,7 @@ $$\begin{aligned}\mathcal M_+E_{1,h,j}+E_{2,h,j}&=u_{yt}+v_{xx}+[(u+2a)u_y]_x\\&
 
 最后建立精确 Gram 解的连续极限。此时 τ 函数通过格点乘子和辅助参数的平移依赖于 h。
 
-**定理 3.7（Gram 解的连续极限）。** 固定 N 和谱参数，并设存在 $h_0>0$ 使
+**定理 2.8（Gram 解的连续极限）。** 固定 N 和谱参数，并设存在 $h_0>0$ 使
 
 <a id="zh-eq-59"></a>
 
@@ -1707,7 +1703,7 @@ $$\begin{aligned}-\frac{z_i+h/2}{w_k-h/2}[\lambda_h(z_i)\lambda_h(w_k)]^{-1/2}&=
 
 $$\partial^\nu(f^{(h)}-f^{(0)})=O_K(h^2),\qquad \partial^\nu(g^{(h)}-g^{(0)})=O_K(h^2).\tag{65}$$
 
-命题 3.3 的正性论证同样适用于实数指数延拓及其极限。四个 τ 函数均不小于 1，因此相应对数导数也满足一致二阶估计。
+命题 2.4 的正性论证同样适用于实数指数延拓及其极限。四个 τ 函数均不小于 1，因此相应对数导数也满足一致二阶估计。
 
 相邻层恒等式和格点移位关系在延拓后仍成立，因此
 
@@ -1721,15 +1717,15 @@ $$B_{a-h/2}f^{(h)}(y)\cdot g^{(h)}(y-h/2)=0,\qquad B_{a+h/2}f^{(h)}(y)\cdot g^{(
 
 $$B_af^{(0)}\cdot g^{(0)}=0,\qquad B_af^{(0)}\cdot g_y^{(0)}+2D_xf^{(0)}\cdot g^{(0)}=0.\tag{67}$$
 
-这正是第 3.1 节中的连续双线性方程等价形式，故由命题 2.1 得到连续 DLW 解。最后，将命题 3.5 一致地应用于依赖 h 的解族，得到
+这正是第 2.1 节中的连续双线性方程等价形式，故由命题 2.1 得到连续 DLW 解。最后，将命题 2.6 一致地应用于依赖 h 的解族，得到
 
 <a id="zh-eq-68"></a>
 
 $$u^{(h)}=2\left(\log\frac{f^{(h)}}{g^{(h)}}\right)_x+O_K(h^2),\qquad v^{(h)}=2\bigl(\log(f^{(h)}g^{(h)})\bigr)_{xy}+O_K(h^2).\tag{68}$$
 
-结合 [(65)](#zh-eq-65) 即得所需估计。由命题 3.4，该结论同时适用于两种非线性表示。□
+结合 [(65)](#zh-eq-65) 即得所需估计。由命题 2.5，该结论同时适用于两种非线性表示。□
 
-### 3.5 Darboux–Lax 表示 {#zh-lax}
+### 2.5 Darboux–Lax 表示 {#zh-lax}
 
 下面构造半离散 DLW 系统的 Darboux–Lax 表示。首先以物理场写出线性问题，再给出它在势变量 Q、R、M 下的形式。
 
@@ -1772,7 +1768,7 @@ $$\boxed{\begin{aligned}
 
 第一条方程联系相邻格点上的波函数，第二条给出它们的时间演化。下面的定理建立该线性系统与非线性方程之间的相容关系。
 
-**定理 3.8（Darboux–Lax 相容性）。** 系统 [(70)](#zh-eq-70) 的每个光滑解，连同 [(71)](#zh-eq-71) 确定的辅助势，都使 [(72)](#zh-eq-72) 在形式算子意义下相容。反之，在 $w_j\ne0$ 的区域内，相容条件与辅助势的格点差关系共同推出 [(70)](#zh-eq-70)。
+**定理 2.9（Darboux–Lax 相容性）。** 系统 [(70)](#zh-eq-70) 的每个光滑解，连同 [(71)](#zh-eq-71) 确定的辅助势，都使 [(72)](#zh-eq-72) 在形式算子意义下相容。反之，在 $w_j\ne0$ 的区域内，相容条件与辅助势的格点差关系共同推出 [(70)](#zh-eq-70)。
 
 **证明。** 令
 
@@ -1881,13 +1877,13 @@ Q、R 的演化方程使两项标量残差为零，从而保证线性系统相�
 
 上述构造给出了两种非线性表示共同的 Darboux–Lax 表示。格点平移通过共享中间势的两个一阶 Darboux 算子实现，其与时间演化的相容性由半离散场方程保证。
 
-## 4. 数值方法与实验 {#zh-numerics}
+## 3. 数值方法与实验 {#zh-numerics}
 
 对于同一正 τ 函数对，PE 与 PF 恢复的物理场在有限格距下逐点相同。进一步离散 $x$ 导数后，两种表示中的非线性运算与物理场重构采用不同的离散实现。下文在共同的初始物理场上构造两种数值格式，并以连续 DLW 方程的直接差分方法（FD）为参照，计算各格式的物理场误差。PE 推进 $P,W$，PF 推进 $Q,R$，两者分别按相应映射恢复 $u,v$；初值与边界数据均由连续解析解确定。
 
 计算采用三点中心差分处理 $x$ 导数，并分别在固定网格与守恒密度驱动的动网格上推进。时间方向采用 Euler、RK4 和 Crank–Nicolson（C–N）算法。下文先给出各空间离散方法的演化变量及更新关系，再说明网格运动和时间积分；数值结果分别比较空间离散方法、时间算法与网格选择对误差的影响。
 
-### 4.1 数值格式 {#zh-schemes}
+### 3.1 数值格式 {#zh-schemes}
 
 固定网格计算中，将 $x\in[-L/2,L/2)$ 等分为 $N_x$ 个区间，取 $x_i=-L/2+i\Delta x$、$\Delta x=L/N_x$。沿 $y$ 方向采用前述交错网格：$M_j$ 位于 $y=jh$，物理场及 $Q_j,R_j$ 位于 $y=(j+\tfrac12)h$。令 $t_n=n\Delta t$，上标 $n$ 表示时间层，下标 $j,i$ 分别表示 $y$、$x$ 方向的网格编号。
 
@@ -2049,11 +2045,11 @@ $$D_1z_i=\frac{D_\xi z_i}{J_i},\qquad
 D_2z_i=\frac{D_{\xi\xi}z_i}{J_i^2}
 -\frac{(D_\xi J)_i(D_\xi z)_i}{J_i^3}.\tag{104}$$
 
-$D_\xi,D_{\xi\xi}$ 为[(87)](#zh-eq-87)在均匀计算坐标上的三点差分。对随节点移动的任一演化变量 $z$，链式法则给出 $\dot z=F_z+\mathcal V D_1z$。因此，在第 4.1 节各时间变化率上加入 $\mathcal V D_1z$，并将节点方程[(102)](#zh-eq-102)与场变量同步推进。固定网格对应 $s=0,\mathcal V=0$。
+$D_\xi,D_{\xi\xi}$ 为[(87)](#zh-eq-87)在均匀计算坐标上的三点差分。对随节点移动的任一演化变量 $z$，链式法则给出 $\dot z=F_z+\mathcal V D_1z$。因此，在第 3.1 节各时间变化率上加入 $\mathcal V D_1z$，并将节点方程[(102)](#zh-eq-102)与场变量同步推进。固定网格对应 $s=0,\mathcal V=0$。
 
 **时间推进。**
 
-第 4.1 节的 Euler 方法以当前时间层的变化率更新场变量。为比较不同时间离散，进一步采用经典 RK4 和 Crank–Nicolson（C–N）方法。记全部演化变量为 $z$，其离散变化率为 $\mathcal F(t,z)$；在动网格计算中，$z$ 同时包含节点坐标，$\mathcal F$ 包含上述网格输运项及节点速度。
+第 3.1 节的 Euler 方法以当前时间层的变化率更新场变量。为比较不同时间离散，进一步采用经典 RK4 和 Crank–Nicolson（C–N）方法。记全部演化变量为 $z$，其离散变化率为 $\mathcal F(t,z)$；在动网格计算中，$z$ 同时包含节点坐标，$\mathcal F$ 包含上述网格输运项及节点速度。
 
 RK4 在一个时间步内计算四次变化率：
 
@@ -2078,9 +2074,9 @@ $$\frac{z^{n+1}-z^n}{\Delta t}
 
 FD 方法中的 $v$ 方程写为 $v^{n+1}=v^n+\Delta t(F_v^n+F_v^{n+1})/2$。由于 $F_v^{n+1}$ 依赖未知的下一层解，需与 $P$ 的更新联立求解。计算中以 Euler 结果作为初始近似，再迭代求解隐式方程，残差容差为 $10^{-12}+10^{-11}\max(1,\|z^n\|_\infty)$。
 
-以连续 DLW 的精确孤子解为基准，本节分别量化非线性表示及其离散实现、时间积分器和网格运动对物理场误差的影响。三组算例为单孤子 A、单孤子 B 和二孤子。空间格式比较采用共同的初始物理场和 RK4 时间推进；时间算法比较固定空间网格与步长；动网格比较保持节点数、时间步长和终止时刻相同。各项误差均按第 4.2 节的统一评价网格计算。
+以连续 DLW 的精确孤子解为基准，本节分别量化非线性表示及其离散实现、时间积分器和网格运动对物理场误差的影响。三组算例为单孤子 A、单孤子 B 和二孤子。空间格式比较采用共同的初始物理场和 RK4 时间推进；时间算法比较固定空间网格与步长；动网格比较保持节点数、时间步长和终止时刻相同。各项误差均按第 3.2 节的统一评价网格计算。
 
-### 4.2 算例与误差度量 {#zh-tests}
+### 3.2 算例与误差度量 {#zh-tests}
 
 取连续 Gram τ 函数
 
@@ -2117,9 +2113,9 @@ v_*=2\partial_x\partial_y\log(f_*g_*).\tag{108}$$
 $$E_f(T)=\max_{(x,y)\in\mathcal G}|f_{\rm num}(x,y,T)-f_*(x,y,T)|,
 \qquad f=u,v.\tag{109}$$
 
-### 4.3 数值结果 {#zh-results}
+### 3.3 数值结果 {#zh-results}
 
-统一采用 RK4 时间推进，表 1 比较第 4.1 节三种空间格式在相同物理网格上的最大绝对误差。PE 与 PF 的差别在 $u$ 场中较为突出：单孤子 A、单孤子 B 和二孤子的 PF 误差分别为 PE 的约 7.61、1.91 和 2.02 倍。对于 $v$ 场，相应比值为 2.25、0.929 和 1.11。因而在这组三个算例中，PE 的 $u$ 误差均小于 PF，而两者的 $v$ 误差关系随孤子参数变化。
+统一采用 RK4 时间推进，表 1 比较第 3.1 节三种空间格式在相同物理网格上的最大绝对误差。PE 与 PF 的差别在 $u$ 场中较为突出：单孤子 A、单孤子 B 和二孤子的 PF 误差分别为 PE 的约 7.61、1.91 和 2.02 倍。对于 $v$ 场，相应比值为 2.25、0.929 和 1.11。因而在这组三个算例中，PE 的 $u$ 误差均小于 PF，而两者的 $v$ 误差关系随孤子参数变化。
 
 **表 1　固定网格、RK4 下的最大绝对误差。每行最小值加粗。**
 
@@ -2346,7 +2342,7 @@ $$E_f(T)=\max_{(x,y)\in\mathcal G}|f_{\rm num}(x,y,T)-f_*(x,y,T)|,
 
 <figure><a href="../Workspaces/dlw_paper_20261009/figures/C_errors.png"><img src="../Workspaces/dlw_paper_20261009/figures/C_errors.png" alt="二孤子，PE/PF/FD三列四行绝对误差对照" loading="lazy"></a><figcaption>图 6　二孤子的绝对误差。左、中、右列依次为 PE、PF、FD；第一、二行为 u 误差的曲面和等高线，第三、四行为 v 误差的曲面和等高线。RK4，固定网格，T = 0.01。同一物理量在三种方法间采用共同色阶。</figcaption></figure>
 
-## 5. 结论 {#zh-conclusion}
+## 4. 结论 {#zh-conclusion}
 
 交错格点与算子参数的配合，使 DLW 的两条半离散双线性关系由同一 Gram 行列式链产生。其秩一更新给出任意有限阶精确解，对数变换则把这一构造传递到 PE 与 PF 两种非线性表示。两种表示在正 τ 函数解上恢复相同的物理场，并与 Darboux–Lax 相容关系及二阶连续极限相联系。
 

@@ -1,0 +1,20 @@
+{
+  "status": "PASSED",
+  "exit_code": 0,
+  "run_result": "C:\\Users\\msz\\aca\\Workspaces\\square37_lean_20261014\\lean\\.lean-runs\\20261014_161433_77dc6557\\result.json",
+  "source_sha256": "054add915b6c690ef79b5e305d375c9637811ec4132c78028f84dd751f71793e",
+  "main_theorem": "Cantrell37.Minimax.crossing_minimax",
+  "statement": "For a in [19/50,2/5] with first(a)=second(a), and q in [0,sqrt(2)-1], max(first(a),second(a)) <= max(first(q),second(q)).",
+  "proof_method": "For q>=a: exact factored F1 difference and positive denominators. For q<=a: exact integer Bernstein certificate for F2 difference on [0,2/5]^2 and sqrt(2) in [7/5,3/2].",
+  "difference_identity": "2250000*(N(r,q)*D(a)-N(r,a)*D(q))=(a-q)*(27000000+bernsteinWitness(r,q,a))",
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "limitations": [
+    "This is an exact conditional minimax theorem for the two stated algebraic support functions.",
+    "Existence and identification of the crossing angle are proved in a separate module.",
+    "Applying the result to packings requires independently proved support inequalities; no global support-branch coverage theorem is provided here."
+  ]
+}

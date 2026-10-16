@@ -1,0 +1,407 @@
+{
+  "schema": 1,
+  "key": "de3d9e4849b2b2b4888dc1495a00feead18475730df0275fb9f237d40aa6d7ef",
+  "descriptor": {
+    "schema": 1,
+    "module": "PkgGramComplete",
+    "runtime": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "sources": {
+      "PkgGramComplete": {
+        "module": "PkgGramComplete",
+        "path": "PkgGramComplete.lean",
+        "sha256": "caee87670e23907dc339569a9c05920a2b94a6f5a00a86a17969f6c75485dd7a",
+        "imports": [
+          "PkgC07Complete",
+          "PkgGramBridges",
+          "PkgC09Complete"
+        ]
+      },
+      "PkgC07Complete": {
+        "module": "PkgC07Complete",
+        "path": "PkgC07Complete.lean",
+        "sha256": "6accaa50142717464c7c0215ba0d0b675cca50af97323b6c310cb46b2797bdfb",
+        "imports": [
+          "PkgGramActual",
+          "PkgGramHirota"
+        ]
+      },
+      "PkgGramActual": {
+        "module": "PkgGramActual",
+        "path": "PkgGramActual.lean",
+        "sha256": "5116f5ad6c2c87ef40125093526b8bee041fc046de99a108da9e34d195dbba7f",
+        "imports": [
+          "Contracts",
+          "Mathlib.Analysis.Calculus.Deriv.Prod",
+          "Mathlib.Topology.Instances.Matrix",
+          "Mathlib.Tactic"
+        ]
+      },
+      "Contracts": {
+        "module": "Contracts",
+        "path": "Contracts.lean",
+        "sha256": "e70876c538d52939b030e7813a6b1c60917a79e56e28b29146d22df8da98d656",
+        "imports": [
+          "Mathlib.Analysis.Calculus.ContDiff.Basic",
+          "Mathlib.Analysis.Calculus.Deriv.Basic",
+          "Mathlib.Analysis.SpecialFunctions.ExpDeriv",
+          "Mathlib.Analysis.SpecialFunctions.Log.Deriv",
+          "Mathlib.LinearAlgebra.Matrix.Determinant.Basic",
+          "Mathlib.Topology.Algebra.Order.Field"
+        ]
+      },
+      "PkgGramHirota": {
+        "module": "PkgGramHirota",
+        "path": "PkgGramHirota.lean",
+        "sha256": "f94cda236d821bebf3074d932d9cc533676fe71fccd7878db4f846e3dc606eb4",
+        "imports": [
+          "PkgGramIdentity",
+          "PkgGramCalculus"
+        ]
+      },
+      "PkgGramIdentity": {
+        "module": "PkgGramIdentity",
+        "path": "PkgGramIdentity.lean",
+        "sha256": "10888d695d8cd8ddd23241e20eed96a7f0a1811f72c132e0c838ec837fcb6221",
+        "imports": [
+          "PkgGramPlucker",
+          "Mathlib.Analysis.Calculus.Deriv.Prod"
+        ]
+      },
+      "PkgGramPlucker": {
+        "module": "PkgGramPlucker",
+        "path": "PkgGramPlucker.lean",
+        "sha256": "42fedc534be7cf18fd265a42a4c4d6cc463933ba5ba749214f7940f848b2d983",
+        "imports": [
+          "PkgGramDeterminant"
+        ]
+      },
+      "PkgGramDeterminant": {
+        "module": "PkgGramDeterminant",
+        "path": "PkgGramDeterminant.lean",
+        "sha256": "caa6452ce636da231818745fbd546baddd9ade13528fcd24c3dbadadce188fe2",
+        "imports": [
+          "Contracts",
+          "Mathlib.Analysis.Calculus.FDeriv.Analytic",
+          "Mathlib.Topology.Instances.Matrix",
+          "Mathlib.LinearAlgebra.Matrix.SchurComplement",
+          "Mathlib.LinearAlgebra.Matrix.Charpoly.Coeff",
+          "Mathlib.Analysis.Polynomial.Basic",
+          "Mathlib.Tactic"
+        ]
+      },
+      "PkgGramCalculus": {
+        "module": "PkgGramCalculus",
+        "path": "PkgGramCalculus.lean",
+        "sha256": "8c0b95945f4298164391bab92561659570f8c9ea38a52af01f2d4243508708f8",
+        "imports": [
+          "PkgGramDeterminant",
+          "Mathlib.Analysis.Calculus.Deriv.Prod"
+        ]
+      },
+      "PkgGramBridges": {
+        "module": "PkgGramBridges",
+        "path": "PkgGramBridges.lean",
+        "sha256": "462236c97aab6a226eb339ec0a0ca72b32967adcc83e82b5273dffa5607f95b9",
+        "imports": [
+          "Contracts",
+          "PkgGramEntry",
+          "PkgNonlinear",
+          "Mathlib.Tactic"
+        ]
+      },
+      "PkgGramEntry": {
+        "module": "PkgGramEntry",
+        "path": "PkgGramEntry.lean",
+        "sha256": "4d20e096b17a2512e370d924f029af0a9153b10259e06a2c7e0afdc06b1776ae",
+        "imports": [
+          "Contracts",
+          "Mathlib.Analysis.SpecialFunctions.Exponential",
+          "Mathlib.Tactic"
+        ]
+      },
+      "PkgNonlinear": {
+        "module": "PkgNonlinear",
+        "path": "PkgNonlinear.lean",
+        "sha256": "58ee97d70c67417c428a4b4c67e94525f7408ea0fde65b532913a3682e68d284",
+        "imports": [
+          "Contracts",
+          "Mathlib.Analysis.Calculus.ContDiff.Operations",
+          "Mathlib.Analysis.Calculus.ContDiff.Deriv",
+          "Mathlib.Analysis.Calculus.ContDiff.Comp",
+          "Mathlib.Analysis.Calculus.Deriv.Mul",
+          "Mathlib.Analysis.Calculus.Deriv.Add",
+          "Mathlib.Analysis.Calculus.Deriv.Pow",
+          "Mathlib.Analysis.Calculus.Deriv.Inv",
+          "Mathlib.Analysis.Calculus.FDeriv.Symmetric",
+          "Mathlib.Analysis.Calculus.FDeriv.Linear",
+          "Mathlib.Analysis.Calculus.ContDiff.FTaylorSeries",
+          "Mathlib.Analysis.Normed.Operator.Bilinear",
+          "Mathlib.Analysis.SpecialFunctions.Log.Deriv",
+          "Mathlib.Tactic"
+        ]
+      },
+      "PkgC09Complete": {
+        "module": "PkgC09Complete",
+        "path": "PkgC09Complete.lean",
+        "sha256": "40afa70ab22c6c8850221b5a3ac58e517839a6693587be7a815ce782bf903e22",
+        "imports": [
+          "Contracts",
+          "Mathlib.LinearAlgebra.Matrix.SchurComplement",
+          "Mathlib.LinearAlgebra.Matrix.Charpoly.Coeff",
+          "Mathlib.Algebra.BigOperators.Group.Finset.Powerset",
+          "Mathlib.Tactic"
+        ]
+      }
+    },
+    "external_imports": {
+      "Mathlib.Analysis.Calculus.ContDiff.Basic": {
+        "Basic.olean": "ee1c33f4113d11fdc2c4bb4b9ef8ebaa21c426b0cbdc81df6acb3fd37469380f",
+        "Basic.olean.private": "a4bce26353b855724b13eadebdb0074557e145c5210813b60948c6741c67c008",
+        "Basic.olean.server": "aff81814de38e52bc25c5eb8e95ff932ecd22df99c4817676eaa656e415c23d8",
+        "Basic.ilean": "eaf0abfd2161ddc216ddc00435ca699fc0e20f347edf5f027ddb0a933746c10b",
+        "Basic.ir": "d458aae455f4d01e3f2fcecbaa1816d071377d561ad805ab8ce4f2ff7b258019"
+      },
+      "Mathlib.Analysis.Calculus.Deriv.Basic": {
+        "Basic.olean": "d3c14b5776566763e814be18ffc0a036807e7f6dee4370ef25479bbf05472a1e",
+        "Basic.olean.private": "18a891ce1ee598984c3dc8e061e768ac8cc7e3ac8bc57a5a8b8684be0fa50882",
+        "Basic.olean.server": "3de9c7f9bcbda9d9c7d90962f26cc6dee9b06f3fa85d3a11b10283b05627ce65",
+        "Basic.ilean": "f077158907d9865e6f4a238b0ad1be953b8decaa6c67f7d5837dba6a10bbd2bb",
+        "Basic.ir": "eab82f73f4bccd088676ceac56d4cd640c644ecd194dc9119b0d1c3be11c9f1f"
+      },
+      "Mathlib.Analysis.SpecialFunctions.ExpDeriv": {
+        "ExpDeriv.olean": "c01553b0ca09fc45bbf274c5f5de53ebb9b0057e4bd2d1dfe5710c9f34a5eff6",
+        "ExpDeriv.olean.private": "2af743de063b9190ac4d104800045a21f9ee296cae8423ef6e1247e69abe2f90",
+        "ExpDeriv.olean.server": "5fad626b269305d02a6e349cc34d88408e816fe609e3d3ed1977b7bfdf027325",
+        "ExpDeriv.ilean": "304b424831e0fe03952901cafd527999dd8f336b74515f0bd640360546003d12",
+        "ExpDeriv.ir": "1a106d85e8443824b3feccf199ae149c433c2ab4446efd600303808a5b4c3a6d"
+      },
+      "Mathlib.Analysis.SpecialFunctions.Log.Deriv": {
+        "Deriv.olean": "929eff1cbe66867eecda066dadad140b37be66832a57cf04d899924d613cd9a9",
+        "Deriv.olean.private": "204d28da2cbb9bafe6357beaee581f4765b1df52c7bb7cf6ba8a72f20a3e398c",
+        "Deriv.olean.server": "a35284a918fb55039ab16c9a32e724358f4cc3ee08ca645810b2af6c10d4fd7e",
+        "Deriv.ilean": "449cccdfdc427bf7db56d1e0a012ae5d76dcaf892c688f29b59304435e95fb8b",
+        "Deriv.ir": "fb7fa0e6ce7149a058c67d992fcb6bcb38c8267e80468b039cd4ce8bbf2a7dc7"
+      },
+      "Mathlib.LinearAlgebra.Matrix.Determinant.Basic": {
+        "Basic.olean": "76a237fa3e124c40668ab2cbd46b49e8f183bf0b6073b23b6cfc6eed5d23e6cc",
+        "Basic.olean.private": "740ee0a791d1ad1541bfda97daeada0fc4a888ba72ec61a11b168dcab552e269",
+        "Basic.olean.server": "f102dcbe59f16f87236bb8843cf300d18e3d8f17af8eb8fb9ade38d5b709467b",
+        "Basic.ilean": "f1ec193d59ffe0f3560da9f36b2131fc1e6b43965bb1b8a2ebb9502631d64e20",
+        "Basic.ir": "464132fded4072f2b449558d01985822ee1072946dae010f42c84e8ce48564c3"
+      },
+      "Mathlib.Topology.Algebra.Order.Field": {
+        "Field.olean": "f1d6f0c8b60170b8b54a88580ce7ce99a3125112a0ba9ba33ee835ee13d950e8",
+        "Field.olean.private": "f5c4d93e202aad33f6a7702404e778c59946236cb0936814decb535f15594ec8",
+        "Field.olean.server": "ab1b6f84b16f564cae8dfe3f783f36fcbca1bc07a6d57a236bfba2a3766ccf30",
+        "Field.ilean": "4fa61d0451bc4f4f55c1893d4873b193ecc56329f07c1dedd438865ba0d46b05",
+        "Field.ir": "0cefb03c3c83646d5f136caf893c58d84f88fe3419012d813ff579f49a58f7a3"
+      },
+      "Mathlib.Analysis.Calculus.Deriv.Prod": {
+        "Prod.olean": "9f800850dff438cbf5686b1f879119535dd4d00fa2093a87c2d028ed0ab4cf55",
+        "Prod.olean.private": "0abb635c4d39b9a9dc822e0dafc147690aed741caf309db074fb7f3b534059c0",
+        "Prod.olean.server": "47cf40516e1236d63bc2bdff8619b9d1dc2d992dfe6d12c3eaf2bdc8d613a838",
+        "Prod.ilean": "168f01632a3db92abd61bda3c0eecd0ccc3db2ddbd1793aa02aaac919e953242",
+        "Prod.ir": "f8fb25aa25756457db7bc7b31f2a6f392b415096c0b217cc89938556b7758f32"
+      },
+      "Mathlib.Topology.Instances.Matrix": {
+        "Matrix.olean": "e5554296e67b962152c0099a4dc54f13116ce89b4f67b04b4decaa308eecd57f",
+        "Matrix.olean.private": "cc827788a9faec1a9f1102826851abc81ebbe129c3415f14f9ffa63f0a2f0cf4",
+        "Matrix.olean.server": "3315e8c53c7a8b614b2b55db4b5e2132eeac6f6b87521a5796e5c0a23d30f6c4",
+        "Matrix.ilean": "5731f71d326e56f5c0801eff2079bf91cbf5098a4704c50a3b09851ee530f012",
+        "Matrix.ir": "e2d08891e7c86726c950d550ebaf8bbee799f8c5ea8c8fead07a1f6269270743"
+      },
+      "Mathlib.Tactic": {
+        "Tactic.olean": "aed6427c84d013d3e3fbd8ca493aa5a387e08d1b7122ebe787075cca813281e0",
+        "Tactic.olean.private": "cdf96c97e17772610cccd61eb25630acdf1ee8992349104752fb6f5ec11aefe6",
+        "Tactic.olean.server": "43623fa2edf3289f7e82ba528f99b9ec66daf7aba2ead6fa28e586a439ec5c33",
+        "Tactic.ilean": "78ab8ec06a39e2380cc0d0eb4038478d467a9a4b866aae3185d454093b83817a",
+        "Tactic.ir": "f00c7edc23775bbe301e90acface09eb79604a9f0c21cdeb5b8ca1405ee121e1"
+      },
+      "Mathlib.Analysis.Calculus.FDeriv.Analytic": {
+        "Analytic.olean": "2a6015232987804f0a35a27e47d442ae3e4411596bc00c5a7a027810f9c2be02",
+        "Analytic.olean.private": "5d17eac5041f38723bc6e5c40da257383f13b0da6ad818fa57a3b62ef649e4db",
+        "Analytic.olean.server": "1a76aa7715270b96cdc6e54979ea0fe5745018877f3a925a0f22abbd2971751b",
+        "Analytic.ilean": "69e091f7a32824d2e9a43dd6215b5155e773ef0502669fe1f9b01e88686728ad",
+        "Analytic.ir": "5c86b99fd97fbf7d2997dd6dc0b5cbcecdfdbb7d82a9777ec804e82ee83e22a0"
+      },
+      "Mathlib.LinearAlgebra.Matrix.SchurComplement": {
+        "SchurComplement.olean": "43261abac5ca2cf11291dd54d5c22ed4b9a66f696530d245f16e1a94ea427754",
+        "SchurComplement.olean.private": "ebede1b538a1b77aeb5eda1fa39b390c3450eb2a972e63ea45c8ef09d96f8f01",
+        "SchurComplement.olean.server": "cb7368e3e88d1dcf872406c4ed0f72c1e2d914abe36dcb1e9ab023f7c7f6dfbf",
+        "SchurComplement.ilean": "d9de6225d1b3f4b02a0263c1c932411750c6d77aec19f61c29f5a32fc80802b1",
+        "SchurComplement.ir": "fcce4916ec386456c1429ca54e94c83e7324bb32a063b22e778c220d208c404b"
+      },
+      "Mathlib.LinearAlgebra.Matrix.Charpoly.Coeff": {
+        "Coeff.olean": "5547b4e4c8d0191147f4cfae4dba4853075b5dc8341f1e110f1721e0deb73855",
+        "Coeff.olean.private": "32d3df347af2b0b411b339fbe4140f5a28511908dc540b3ace58d29990d307f0",
+        "Coeff.olean.server": "549d9e7425563f0899e36837f86195035da635afa7a10491beb9241494cd3c96",
+        "Coeff.ilean": "af7495d0244afd38f131a45f4eeba6044ddecaa2231f98077583836c07bfd960",
+        "Coeff.ir": "6309d800e8d65fe32f7984c780baf32c581d06e8e96251e601f63b8bc5e3fa44"
+      },
+      "Mathlib.Analysis.Polynomial.Basic": {
+        "Basic.olean": "9bd3ee313b6b2104fb0b17192782bd0e8f75fbf6b933929b338661459446df59",
+        "Basic.olean.private": "3d4aeee80658bea41222fae186cc5279afb81f7a3fd2fb6aa70191461aa01af3",
+        "Basic.olean.server": "014e4674781d17383d54311b590efe83d1d25f8a36b42d227295a040b612867f",
+        "Basic.ilean": "bbe7667f68c9f04f0364a5f37548f9ad80804c835b8bf0c06235e603577caef7",
+        "Basic.ir": "dea095324af9d7ea990de8818f9ce323ef0cad5d4e2e221a606b75c89cc80c3b"
+      },
+      "Mathlib.Analysis.SpecialFunctions.Exponential": {
+        "Exponential.olean": "98362d4d2cc75f6e0448cd5f19a6b6d898abe8cde2c87f50970b953fe9dd4875",
+        "Exponential.olean.private": "2dfed584b9771aa3ce85bc55fc13ee5feb7f0e368624cc983b24b9c33ceb8dac",
+        "Exponential.olean.server": "323966276409c14a7ac7e6accd49dfe97f998d71427ec466d96a77609dc25cc4",
+        "Exponential.ilean": "5807a18e88cb92dd1f8a7a959702eae9787bf9fcc37cd7b3a1bdf6f9c262ebb3",
+        "Exponential.ir": "9e1684f76cc7463e1c1562683735f82c971c2464f46ead38be8be9bd8077f043"
+      },
+      "Mathlib.Analysis.Calculus.ContDiff.Operations": {
+        "Operations.olean": "739b1813cb949a44c33e4991de17945d10cd70ef2c71d610abc938217e21fd05",
+        "Operations.olean.private": "4639d9efba18c2f56004e5975a7441c07051c5487c50335e26759ad0706c22fd",
+        "Operations.olean.server": "1aa5fae7ec38d871d1e208f9bd821913ceddf8a0e3bf32ec758c426d1132dabf",
+        "Operations.ilean": "6620f87dc794c79936d059e168034d1a2b76153fb2d8376dca565f907f951393",
+        "Operations.ir": "01ec3ca32debcd404ef4e6396f889f3ea96f7219435f422218074cd0e46d4527"
+      },
+      "Mathlib.Analysis.Calculus.ContDiff.Deriv": {
+        "Deriv.olean": "657a365e09198c5330238d56b6a8ff389c7c292cb2bd41cc16e2d981a74e535e",
+        "Deriv.olean.private": "f49424836eff86069ddb4b13f05cd57234b7fd44323b2d8cc753ce99c3851d66",
+        "Deriv.olean.server": "051d728a02ba0f06f209e973605679ef82a13a682538e107e4a367e2dad742a8",
+        "Deriv.ilean": "ff99760d7627597b4936581afd4da9cd5240932a95189d86674d8755a5e20df5",
+        "Deriv.ir": "2117d8046de5a97425e96c9ec869ccadafbf7cdc324211d880b3ace1b51def8c"
+      },
+      "Mathlib.Analysis.Calculus.ContDiff.Comp": {
+        "Comp.olean": "8a871e493d3e9284836f2e662004d333365965536343e7bfa419214dee4fc36c",
+        "Comp.olean.private": "ecffbd859bde9d8468e57e6156d9c4ab0288019db453aabd502967433ce6bbbe",
+        "Comp.olean.server": "cd03868ed89ce08575f92bd8486b4903cbc2a7b337b259243de451e27aa516a7",
+        "Comp.ilean": "d40ca3883c939f8fdac20321a957a78e1d92beec9caf3d25f6de510491556bc0",
+        "Comp.ir": "44a61932fa66f54252308bee10d3fddef78d1d6da6a151d69b8d2d36dd9c6300"
+      },
+      "Mathlib.Analysis.Calculus.Deriv.Mul": {
+        "Mul.olean": "ffdd0308010317447a758009d1b550a5c888910f380a2db1d57313136f24d609",
+        "Mul.olean.private": "24feaf22766eac64850d35107edd24f6a9b4adb918b7c35c58708e0edf2e2dde",
+        "Mul.olean.server": "77c495ed35d57d0b3a8382e5424be3b6deb00356a1603eabd6e6d5ad29cd37e9",
+        "Mul.ilean": "f1beb77a861e489ae88ed429785d75562ddfb9fe1f82d4cad32b5adf850aa45a",
+        "Mul.ir": "f8802912136756ed505f8bf014c023f4eb2be404c702460756bed14f7cb5bf2f"
+      },
+      "Mathlib.Analysis.Calculus.Deriv.Add": {
+        "Add.olean": "a4ee2cacae0eb61e944ca2ca61b26c876b8574d825f356eea7d38f014fd8cd4b",
+        "Add.olean.private": "cf65bf2ca496bf36cbbce3ec6b455341a65cf64b700b7e8f7555ce5760b38c31",
+        "Add.olean.server": "372f418511298a6f4ab014352d67f5fbed73eea9f9f7c02faf27d8d535f6e443",
+        "Add.ilean": "07da7d133f39f66a872273f920e8aa59f17400b6155914069f9293083f74abf7",
+        "Add.ir": "5ba19d1406eb708407f6073b39a4dfa0d7d2bbd2345ac6495723411f77701813"
+      },
+      "Mathlib.Analysis.Calculus.Deriv.Pow": {
+        "Pow.olean": "11c9226a36a55646a3ce7255f3d99eab8ca072ee30d8ddf14e68735a5d0c81cc",
+        "Pow.olean.private": "7791d1a5399290e5827610a82ba239e662364c2f0e60c62d7cf6b142d9cbd617",
+        "Pow.olean.server": "ab952ff73650b40fd46e3c4ff19185fb7339cc14ceba15f8c72297489f16cbca",
+        "Pow.ilean": "9895065b6de85658686c6d8762e95f05d95d5b88d399e6e251dac18fb73afcf9",
+        "Pow.ir": "f31787ccf423fa83d16bfeaf18f5dafa763ee32d4f66ec85f3ac34ba84c9b9b6"
+      },
+      "Mathlib.Analysis.Calculus.Deriv.Inv": {
+        "Inv.olean": "262dce351e5b7b788607c1e6b270cd6c1284974fd94d496d0457276922659057",
+        "Inv.olean.private": "b408958147958f9ff2d3c8f8cceebe9545e1b4e677e7e527f40f543c505bda8b",
+        "Inv.olean.server": "641c1895bfeecd4f435a2b42b0d66a493d0a0d8b1d5942bd9d65e1808092007d",
+        "Inv.ilean": "e88be5544c7772280ae7f378d4a1889afb913f50c6edc7bf91046ebf439090ad",
+        "Inv.ir": "c31d7e956049948d2cfe582ab13673ad0b55442f0bde0245466efb6361586da6"
+      },
+      "Mathlib.Analysis.Calculus.FDeriv.Symmetric": {
+        "Symmetric.olean": "de113d7b04d2350bda5a6c6012b7165919745f916b46f9fa2b28be596e407dbc",
+        "Symmetric.olean.private": "22cb8ddde1fd2e54e96ec84f969c3a88fdb002a5becbd145ae06f0c30cbaae76",
+        "Symmetric.olean.server": "02f9a337e075914e3b74f7b45ac219d9d449df3c671dd58b9c7493020077f164",
+        "Symmetric.ilean": "86712f6ba75e5cea41c997f536645f8278a460f72ded8f7eea5a48781645f7e0",
+        "Symmetric.ir": "84fdf683fa2c6a0f610f2b95f621f36f461119b6c06169039536781644b5a3de"
+      },
+      "Mathlib.Analysis.Calculus.FDeriv.Linear": {
+        "Linear.olean": "58ad970dd3fa23ed9e8fb1f9d6e9673bf34472d2ed85f43a003a6d00edef3d8e",
+        "Linear.olean.private": "36bf59044f6dd6ec6fd7c3c75e70e708ffbb4403630f2751a327477fefcb610d",
+        "Linear.olean.server": "173eca91c9a31be59f429e8c88b30e0adf0757b02c728ac51ef5549ea3212ff1",
+        "Linear.ilean": "0586517234beeda5bdcf7b8926158f0404e5610c2bd9f719d0b5c3a3df1177f2",
+        "Linear.ir": "eefdca75320791773dda5d9de0f2b4381ef5e94229160becbc0a648829370d9c"
+      },
+      "Mathlib.Analysis.Calculus.ContDiff.FTaylorSeries": {
+        "FTaylorSeries.olean": "dda9d0a16fe9ab9b35cd35b13b1104af61a3be1350dfe3e8fb7204bcd4ebc645",
+        "FTaylorSeries.olean.private": "ed7e7d319f032c31d63428c01ddfcff44ef416377fce85af0db5cb2913a07f37",
+        "FTaylorSeries.olean.server": "2b158a76f1935f1f121f2682013a3781f15f1b1ef648984155df75fe4ac0db8f",
+        "FTaylorSeries.ilean": "751dc1326d3af34e8d38fc71ca0686e7b522c6e9635d32defd516413d7fef7a7",
+        "FTaylorSeries.ir": "527fa37fc9dd460a6d0fbe454dab87f7150242b50940c2930459fb760cc4e70e"
+      },
+      "Mathlib.Analysis.Normed.Operator.Bilinear": {
+        "Bilinear.olean": "860bf46d1409c4b6f4df0a60a47d87bc490440c0bbb45c0dc4567f256dbc5602",
+        "Bilinear.olean.private": "fedc281867dd2f9fe4032f8cd87dfabfdbda2c162c58a438ca4e35a21a77a6c5",
+        "Bilinear.olean.server": "3acbf65d3ea4755604b654f134ff61e04e4f396ba631c8864571eef4cae2d76b",
+        "Bilinear.ilean": "70886bec5678a9037bd22d7a37ab9046d9ef47b836b450ea280efc81199a7377",
+        "Bilinear.ir": "b3ef65eeec03393abc454b453adfcecb559c7ba03dd61a197e029144c5edd542"
+      },
+      "Mathlib.Algebra.BigOperators.Group.Finset.Powerset": {
+        "Powerset.olean": "cf3850e4d54284023bdbe77542a3e72d6af97adc011521bbfada0218ef89fb11",
+        "Powerset.olean.private": "9ed828ab63b68eef4efa725026edb79c69c13e520ae78482c606635d34d6871f",
+        "Powerset.olean.server": "8ee1ac148cee5fa87417f22af8a61650842d3c85a231c143a3aea72e3bab57e3",
+        "Powerset.ilean": "d6ae629bd6b9141c392c67703f7da85127f112981e73ef5eb54db8a23a391db1",
+        "Powerset.ir": "ff4c76f43b459732a435acf784233cbbf2f0a431fc36346965ab35d6be3722c4"
+      }
+    }
+  },
+  "artifacts": {
+    "PkgGramComplete.olean": "950ab1ecf793e382ab83388ab4f68707ee36f2d0767bc8d45cdb2200f3c1d3ca"
+  },
+  "provenance": {
+    "method": "compiled_exact_sources",
+    "compilation": {
+      "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramComplete.lean",
+      "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\de3d9e4849b2b2b4888dc1495a00feead18475730df0275fb9f237d40aa6d7ef\\build_acc31b7292944bb7a41bcfcde133e9d0\\lib\\lean\\PkgGramComplete.olean",
+      "command": [
+        "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+        "-R",
+        "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs",
+        "-o",
+        "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\de3d9e4849b2b2b4888dc1495a00feead18475730df0275fb9f237d40aa6d7ef\\build_acc31b7292944bb7a41bcfcde133e9d0\\lib\\lean\\PkgGramComplete.olean",
+        "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramComplete.lean"
+      ],
+      "sha256": "caee87670e23907dc339569a9c05920a2b94a6f5a00a86a17969f6c75485dd7a",
+      "stdout": "'DLWContract.c08_proved' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DLWContract.c16_proved' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "stderr": "",
+      "exit_code": 0,
+      "seconds": 15.490648999984842,
+      "artifact_sha256": "950ab1ecf793e382ab83388ab4f68707ee36f2d0767bc8d45cdb2200f3c1d3ca",
+      "artifact_companions": {
+        "PkgGramComplete.olean": "950ab1ecf793e382ab83388ab4f68707ee36f2d0767bc8d45cdb2200f3c1d3ca"
+      },
+      "runtime_identity": {
+        "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+        "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+        "toolchain": "leanprover/lean4:v4.34.0",
+        "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+        "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+        "lean_paths": [
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+          "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+        ]
+      },
+      "passed": true
+    }
+  },
+  "completed_at": "2026-10-08T18:03:58.714115"
+}

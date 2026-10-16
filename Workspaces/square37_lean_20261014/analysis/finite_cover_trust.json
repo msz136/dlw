@@ -1,0 +1,71 @@
+{
+  "source": "C:\\Users\\msz\\aca\\Workspaces\\square37_lean_20261014\\lean\\FiniteCover.lean",
+  "sha256": "7927efcf3ae96e7723932467d4d43606b99208e03ba795480c8bbacbab120cc6",
+  "build_receipt": "C:\\Users\\msz\\aca\\Workspaces\\square37_lean_20261014\\lean\\.lean-runs\\20261014_155639_bf16da4f\\result.json",
+  "status": "PASSED_AND_AXIOM_REPORT_REVIEWED",
+  "toolchain": "leanprover/lean4:v4.34.0",
+  "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+  "theorems": [
+    {
+      "theorem": "SquarePacking37.FiniteCover.exhaustive_of_nodup_card",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "scope": "For arbitrary n,m, a list of distinct n-element subsets of Fin m whose length is choose(m,n) contains every n-element subset. Validity, distinctness, and exact length are explicit hypotheses.",
+      "line": 20
+    },
+    {
+      "theorem": "SquarePacking37.FiniteCover.property_of_complete_census",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "scope": "Any property verified on every row of such a census holds for every n-element subset. This transfers a provided property; it does not generate row proofs.",
+      "line": 43
+    },
+    {
+      "theorem": "SquarePacking37.FiniteCover.injective_assignment_of_capacity",
+      "axioms": [
+        "Classical.choice"
+      ],
+      "scope": "If every indexed owner belongs to at least one cell and no two different owners may belong to the same cell, there is an injective cell assignment. The geometric meaning and capacity proof are explicit external hypotheses.",
+      "line": 55
+    },
+    {
+      "theorem": "SquarePacking37.FiniteCover.image_eq_of_exact_occupancy",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "scope": "An injective assignment of n owners with image contained in an n-element occupied set has image equal to that set.",
+      "line": 70
+    },
+    {
+      "theorem": "SquarePacking37.FiniteCover.equiv_reindex_of_image_eq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "scope": "Injective rosters Fin n -> Fin m with equal images can be matched by an actual equivalence Fin n ≃ Fin n. The assigned-injective hypothesis is redundant but retained in the symmetric interface.",
+      "line": 86
+    },
+    {
+      "theorem": "SquarePacking37.FiniteCover.equiv_reindex_of_exact_occupancy",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "scope": "An injective assignment filling an n-element occupied set can be permuted to any injective roster with that same image.",
+      "line": 111
+    }
+  ],
+  "no_native_decide": true,
+  "scope_limit": "No 37-cell cover, capacity certificate, exhaustive roster list, orbit action, or exclusion tree is supplied or asserted by this module. It is an abstract verified bridge only.",
+  "T154_review": "C:\\Users\\msz\\aca\\Workspaces\\square37_lean_20261014\\analysis\\proof17_review.json"
+}

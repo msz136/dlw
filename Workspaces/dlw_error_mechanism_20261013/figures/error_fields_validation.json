@@ -1,0 +1,118 @@
+{
+  "input_type": "actual solver and independently generated linear-prediction fields",
+  "field_index": 1,
+  "field": "v",
+  "data_shape": [
+    100,
+    101
+  ],
+  "rows": [
+    {
+      "model": "SD",
+      "field": "v",
+      "t": 0.01,
+      "actual_rms": 0.0003219631992784012,
+      "predicted_rms": 0.00032196358256950455,
+      "residual_rms": 1.46496168733467e-09,
+      "relative_field_residual": 4.550090478098147e-06,
+      "common_color_limit": 0.0013368968600716413,
+      "residual_color_limit": 9.203078347791091e-09,
+      "source_file": "C:\\Users\\msz\\aca\\Workspaces\\dlw_error_mechanism_20261013\\transport\\A_T0.040_dt0.000100\\frame_00100.npz",
+      "source_sha256": "b74e175b3124bc88bed26f75d648a3356a9b56ac97e3dbf5736125a7779e3858"
+    },
+    {
+      "model": "FD",
+      "field": "v",
+      "t": 0.01,
+      "actual_rms": 0.0002856951247202581,
+      "predicted_rms": 0.000285695423519329,
+      "residual_rms": 8.517647238907414e-10,
+      "relative_field_residual": 2.9813764750965116e-06,
+      "common_color_limit": 0.0012002594906322754,
+      "residual_color_limit": 5.387723452489682e-09,
+      "source_file": "C:\\Users\\msz\\aca\\Workspaces\\dlw_error_mechanism_20261013\\transport\\A_T0.040_dt0.000100\\frame_00100.npz",
+      "source_sha256": "b74e175b3124bc88bed26f75d648a3356a9b56ac97e3dbf5736125a7779e3858"
+    },
+    {
+      "model": "SD",
+      "field": "v",
+      "t": 0.04,
+      "actual_rms": 0.0019921913726245544,
+      "predicted_rms": 0.001991905978659688,
+      "residual_rms": 3.911143365634296e-06,
+      "relative_field_residual": 0.0019632367750301387,
+      "common_color_limit": 0.011549506716583478,
+      "residual_color_limit": 3.212186828249427e-05,
+      "source_file": "C:\\Users\\msz\\aca\\Workspaces\\dlw_error_mechanism_20261013\\transport\\A_T0.040_dt0.000100\\frame_00400.npz",
+      "source_sha256": "365488e90460deed6440eef3da84b8506806acdf8cdb96de3b205c6146931590"
+    },
+    {
+      "model": "FD",
+      "field": "v",
+      "t": 0.04,
+      "actual_rms": 0.001737157859545003,
+      "predicted_rms": 0.0017370202567376857,
+      "residual_rms": 2.813380956364838e-06,
+      "relative_field_residual": 0.001619530971757351,
+      "common_color_limit": 0.009844224383913323,
+      "residual_color_limit": 2.5757224202108218e-05,
+      "source_file": "C:\\Users\\msz\\aca\\Workspaces\\dlw_error_mechanism_20261013\\transport\\A_T0.040_dt0.000100\\frame_00400.npz",
+      "source_sha256": "365488e90460deed6440eef3da84b8506806acdf8cdb96de3b205c6146931590"
+    }
+  ],
+  "same_row_actual_prediction_color_limits": true,
+  "residual_separate_color_scale": true,
+  "smoothing": false,
+  "interpolation": false,
+  "checks": [
+    {
+      "model": "SD",
+      "t": 0.01,
+      "label": "actual_SD",
+      "rms_record_difference": 0.0
+    },
+    {
+      "model": "SD",
+      "t": 0.01,
+      "label": "SD_from_SD",
+      "rms_record_difference": 0.0
+    },
+    {
+      "model": "FD",
+      "t": 0.01,
+      "label": "actual_FD",
+      "rms_record_difference": 0.0
+    },
+    {
+      "model": "FD",
+      "t": 0.01,
+      "label": "FD_from_FD",
+      "rms_record_difference": 0.0
+    },
+    {
+      "model": "SD",
+      "t": 0.04,
+      "label": "actual_SD",
+      "rms_record_difference": 0.0
+    },
+    {
+      "model": "SD",
+      "t": 0.04,
+      "label": "SD_from_SD",
+      "rms_record_difference": 0.0
+    },
+    {
+      "model": "FD",
+      "t": 0.04,
+      "label": "actual_FD",
+      "rms_record_difference": 0.0
+    },
+    {
+      "model": "FD",
+      "t": 0.04,
+      "label": "FD_from_FD",
+      "rms_record_difference": 0.0
+    }
+  ],
+  "passed": true
+}

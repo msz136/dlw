@@ -1,0 +1,88 @@
+[
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\integrability_notebook_20261007\\lean_runs\\1cdc6938de544b21b3119bca92b64cc2\\cells\\Cell0a923258ac2842ce82d93d1917ad9ddd.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\integrability_notebook_20261007\\lean_runs\\1cdc6938de544b21b3119bca92b64cc2\\lib\\lean\\Cell0a923258ac2842ce82d93d1917ad9ddd.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\integrability_notebook_20261007\\lean_runs\\1cdc6938de544b21b3119bca92b64cc2\\cells",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\integrability_notebook_20261007\\lean_runs\\1cdc6938de544b21b3119bca92b64cc2\\lib\\lean\\Cell0a923258ac2842ce82d93d1917ad9ddd.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\integrability_notebook_20261007\\lean_runs\\1cdc6938de544b21b3119bca92b64cc2\\cells\\Cell0a923258ac2842ce82d93d1917ad9ddd.lean"
+    ],
+    "sha256": "57fe677e080290856eb6940b44a900003a4a810ec657f54fb85e9493aa47d3c9",
+    "stdout": "structure DLWLean.FieldParameters : Type\nnumber of parameters: 0\nfields:\n  DLWLean.FieldParameters.M : ℕ\n  DLWLean.FieldParameters.M_ge_two : 2 ≤ self.M\n  DLWLean.FieldParameters.Lx : ℝ\n  DLWLean.FieldParameters.Lx_pos : 0 < self.Lx\n  DLWLean.FieldParameters.h : ℝ\n  DLWLean.FieldParameters.h_pos : 0 < self.h\n  DLWLean.FieldParameters.c : ℝ\n  DLWLean.FieldParameters.c_ne_zero : self.c ≠ 0\n  DLWLean.FieldParameters.gamma : ℝ\nconstructor:\n  DLWLean.FieldParameters.mk (M : ℕ) (M_ge_two : 2 ≤ M) (Lx : ℝ) (Lx_pos : 0 < Lx) (h : ℝ) (h_pos : 0 < h) (c : ℝ)\n    (c_ne_zero : c ≠ 0) (gamma : ℝ) : FieldParameters\nstructure DLWLean.SmoothPeriodicField (M : ℕ) (Lx : ℝ) : Type\nnumber of parameters: 2\nfields:\n  DLWLean.SmoothPeriodicField.value : Fin M → ℝ → ℝ\n  DLWLean.SmoothPeriodicField.smooth : ∀ (j : Fin M), ContDiff ℝ ∞ (self.value j)\n  DLWLean.SmoothPeriodicField.periodic : ∀ (j : Fin M), Function.Periodic (self.value j) Lx\nconstructor:\n  DLWLean.SmoothPeriodicField.mk {M : ℕ} {Lx : ℝ} (value : Fin M → ℝ → ℝ)\n    (smooth : ∀ (j : Fin M), ContDiff ℝ ∞ (value j)) (periodic : ∀ (j : Fin M), Function.Periodic (value j) Lx) :\n    SmoothPeriodicField M Lx\nstructure DLWLean.PeriodicPhysicalState (par : FieldParameters) : Type\nnumber of parameters: 1\nfields:\n  DLWLean.PeriodicPhysicalState.U : SmoothPeriodicField par.M par.Lx\n  DLWLean.PeriodicPhysicalState.w : SmoothPeriodicField par.M par.Lx\n  DLWLean.PeriodicPhysicalState.mean_w : ∀ (x : ℝ), (latticeMean fun j => self.w.value j x) = par.c\n  DLWLean.PeriodicPhysicalState.mean_Uw : ∀ (x : ℝ),\n      (latticeMean fun j => self.U.value j x * self.w.value j x) = par.gamma\nconstructor:\n  DLWLean.PeriodicPhysicalState.mk {par : FieldParameters} (U w : SmoothPeriodicField par.M par.Lx)\n    (mean_w : ∀ (x : ℝ), (latticeMean fun j => w.value j x) = par.c)\n    (mean_Uw : ∀ (x : ℝ), (latticeMean fun j => U.value j x * w.value j x) = par.gamma) : PeriodicPhysicalState par\nNotebookDLWConditions.fixedMeans (par : FieldParameters) (f : PeriodicPhysicalState par) (x : ℝ) :\n  (latticeMean fun j => f.w.value j x) = par.c ∧ (latticeMean fun j => f.U.value j x * f.w.value j x) = par.gamma\n",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 20.592937099994742,
+    "artifact_sha256": "5db0b461fe97b9c1e484138c760e1d8625971de086573155fa72ed66cc7486ff",
+    "artifact_companions": {
+      "Cell0a923258ac2842ce82d93d1917ad9ddd.olean": "5db0b461fe97b9c1e484138c760e1d8625971de086573155fa72ed66cc7486ff"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true,
+    "cell": "conditions",
+    "library_manifest_sha256": "23380ccd0dbccbaedd30c0bdf07237cf23157ed775f7bfd3fe521dd5017eff3e"
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\integrability_notebook_20261007\\lean_runs\\1cdc6938de544b21b3119bca92b64cc2\\cells\\Cell68dde2b3eaa74d42905269ddc9509ee5.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\integrability_notebook_20261007\\lean_runs\\1cdc6938de544b21b3119bca92b64cc2\\lib\\lean\\Cell68dde2b3eaa74d42905269ddc9509ee5.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\integrability_notebook_20261007\\lean_runs\\1cdc6938de544b21b3119bca92b64cc2\\cells",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\integrability_notebook_20261007\\lean_runs\\1cdc6938de544b21b3119bca92b64cc2\\lib\\lean\\Cell68dde2b3eaa74d42905269ddc9509ee5.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\integrability_notebook_20261007\\lean_runs\\1cdc6938de544b21b3119bca92b64cc2\\cells\\Cell68dde2b3eaa74d42905269ddc9509ee5.lean"
+    ],
+    "sha256": "57fe677e080290856eb6940b44a900003a4a810ec657f54fb85e9493aa47d3c9",
+    "stdout": "structure DLWLean.FieldParameters : Type\nnumber of parameters: 0\nfields:\n  DLWLean.FieldParameters.M : ℕ\n  DLWLean.FieldParameters.M_ge_two : 2 ≤ self.M\n  DLWLean.FieldParameters.Lx : ℝ\n  DLWLean.FieldParameters.Lx_pos : 0 < self.Lx\n  DLWLean.FieldParameters.h : ℝ\n  DLWLean.FieldParameters.h_pos : 0 < self.h\n  DLWLean.FieldParameters.c : ℝ\n  DLWLean.FieldParameters.c_ne_zero : self.c ≠ 0\n  DLWLean.FieldParameters.gamma : ℝ\nconstructor:\n  DLWLean.FieldParameters.mk (M : ℕ) (M_ge_two : 2 ≤ M) (Lx : ℝ) (Lx_pos : 0 < Lx) (h : ℝ) (h_pos : 0 < h) (c : ℝ)\n    (c_ne_zero : c ≠ 0) (gamma : ℝ) : FieldParameters\nstructure DLWLean.SmoothPeriodicField (M : ℕ) (Lx : ℝ) : Type\nnumber of parameters: 2\nfields:\n  DLWLean.SmoothPeriodicField.value : Fin M → ℝ → ℝ\n  DLWLean.SmoothPeriodicField.smooth : ∀ (j : Fin M), ContDiff ℝ ∞ (self.value j)\n  DLWLean.SmoothPeriodicField.periodic : ∀ (j : Fin M), Function.Periodic (self.value j) Lx\nconstructor:\n  DLWLean.SmoothPeriodicField.mk {M : ℕ} {Lx : ℝ} (value : Fin M → ℝ → ℝ)\n    (smooth : ∀ (j : Fin M), ContDiff ℝ ∞ (value j)) (periodic : ∀ (j : Fin M), Function.Periodic (value j) Lx) :\n    SmoothPeriodicField M Lx\nstructure DLWLean.PeriodicPhysicalState (par : FieldParameters) : Type\nnumber of parameters: 1\nfields:\n  DLWLean.PeriodicPhysicalState.U : SmoothPeriodicField par.M par.Lx\n  DLWLean.PeriodicPhysicalState.w : SmoothPeriodicField par.M par.Lx\n  DLWLean.PeriodicPhysicalState.mean_w : ∀ (x : ℝ), (latticeMean fun j => self.w.value j x) = par.c\n  DLWLean.PeriodicPhysicalState.mean_Uw : ∀ (x : ℝ),\n      (latticeMean fun j => self.U.value j x * self.w.value j x) = par.gamma\nconstructor:\n  DLWLean.PeriodicPhysicalState.mk {par : FieldParameters} (U w : SmoothPeriodicField par.M par.Lx)\n    (mean_w : ∀ (x : ℝ), (latticeMean fun j => w.value j x) = par.c)\n    (mean_Uw : ∀ (x : ℝ), (latticeMean fun j => U.value j x * w.value j x) = par.gamma) : PeriodicPhysicalState par\nNotebookDLWConditions.fixedMeans (par : FieldParameters) (f : PeriodicPhysicalState par) (x : ℝ) :\n  (latticeMean fun j => f.w.value j x) = par.c ∧ (latticeMean fun j => f.U.value j x * f.w.value j x) = par.gamma\n",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 20.499890899998718,
+    "artifact_sha256": "5234ce7ff180cd588fce88bdd8b4eb806852534637d44ca32d94efccc6424a73",
+    "artifact_companions": {
+      "Cell68dde2b3eaa74d42905269ddc9509ee5.olean": "5234ce7ff180cd588fce88bdd8b4eb806852534637d44ca32d94efccc6424a73"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true,
+    "cell": "conditions",
+    "library_manifest_sha256": "23380ccd0dbccbaedd30c0bdf07237cf23157ed775f7bfd3fe521dd5017eff3e"
+  }
+]

@@ -1,0 +1,717 @@
+{
+  "review_dates": [
+    "2026-10-08",
+    "2026-10-09"
+  ],
+  "scope": [
+    "C:\\Users\\msz\\aca\\notebook\\2HS数值分析report.ipynb",
+    "C:\\Users\\msz\\aca\\notebook\\DLW数值分析report.ipynb",
+    "C:\\Users\\msz\\aca\\notebook\\DLW理论.ipynb"
+  ],
+  "excluded": "DLW刘维尔可积性report.ipynb",
+  "cells_reviewed": 102,
+  "code_cells_reviewed": 53,
+  "notebooks_unchanged_since_start": {
+    "2hs": true,
+    "dlw": false,
+    "theory": true
+  },
+  "current_matches_final_reviewed_version": {
+    "2hs": true,
+    "dlw": true,
+    "theory": true
+  },
+  "reviewed_versions": {
+    "2hs": {
+      "initial_sha256": "d98b8efe2a73ec7572aa7c8721266c2d6d66ff0d2d36984cf1b396a965d86f31",
+      "final_reviewed_sha256": "d98b8efe2a73ec7572aa7c8721266c2d6d66ff0d2d36984cf1b396a965d86f31",
+      "current_sha256": "d98b8efe2a73ec7572aa7c8721266c2d6d66ff0d2d36984cf1b396a965d86f31"
+    },
+    "dlw": {
+      "initial_sha256": "ee692341450d6c3b284070986bd87f84f41c48d432ab88d9bb8747a995852c94",
+      "final_reviewed_sha256": "1061f774c69dc1e3dfc1dd0f1bd6f9510f66760fda635a02fd342746db508635",
+      "current_sha256": "1061f774c69dc1e3dfc1dd0f1bd6f9510f66760fda635a02fd342746db508635"
+    },
+    "theory": {
+      "initial_sha256": "96e7e880b4f3107798f2ab1c73297080c93f23bdaa14bcf0ba89749287ffdf26",
+      "final_reviewed_sha256": "96e7e880b4f3107798f2ab1c73297080c93f23bdaa14bcf0ba89749287ffdf26",
+      "current_sha256": "96e7e880b4f3107798f2ab1c73297080c93f23bdaa14bcf0ba89749287ffdf26"
+    }
+  },
+  "external_dlw_revision": {
+    "changed_cells": [
+      19,
+      20,
+      23,
+      24
+    ],
+    "new_algorithm": "Crank–Nicolson",
+    "reviewed": true
+  },
+  "findings": [
+    {
+      "id": "D1",
+      "priority": "P2",
+      "category": "implementation",
+      "notebook": "dlw",
+      "locations": [
+        {
+          "cell": 20,
+          "lines": [
+            25,
+            69,
+            71
+          ]
+        },
+        {
+          "cell": 33,
+          "lines": [
+            11,
+            13
+          ]
+        }
+      ],
+      "title": "修改参数后仍可能使用旧结果",
+      "cause": "主结果缓存不含 CONFIG/CASES；solve 的默认 CONFIG 对象在定义时绑定；宽域缓存不含 CASES。"
+    },
+    {
+      "id": "H1",
+      "priority": "P2",
+      "category": "implementation",
+      "notebook": "2hs",
+      "locations": [
+        {
+          "cell": 24,
+          "lines": [
+            3,
+            7
+          ]
+        },
+        {
+          "cell": 17,
+          "lines": [
+            1,
+            2
+          ]
+        },
+        {
+          "cell": 20,
+          "lines": [
+            19,
+            20
+          ]
+        }
+      ],
+      "title": "局部重运行会把二孤子标成单孤子",
+      "cause": "二孤子覆盖共享解析函数及网格，单孤子求解单元没有重建案例上下文。"
+    },
+    {
+      "id": "D2",
+      "priority": "P2",
+      "category": "implementation",
+      "notebook": "dlw",
+      "locations": [
+        {
+          "cell": 14,
+          "lines": [
+            11,
+            12
+          ]
+        },
+        {
+          "cell": 20,
+          "lines": [
+            43,
+            52
+          ]
+        }
+      ],
+      "title": "SD2 最后一步缺少 Q 正性验收",
+      "cause": "stage 检查输入 Q，candidate 只验有限性、幅值和网格；最后一步无需再调用 stage。"
+    },
+    {
+      "id": "C1",
+      "priority": "P2",
+      "category": "solver_accuracy",
+      "notebook": "dlw",
+      "locations": [
+        {
+          "cell": 20,
+          "lines": [
+            6,
+            15
+          ]
+        }
+      ],
+      "title": "CN 固定残差容差干扰时间阶验证",
+      "cause": "默认细化在3次与2次Picard残差评价之间切换；仅将容差缩紧1000倍，六场观测阶恢复约2。当前dt/4不是直接接受Euler。"
+    },
+    {
+      "id": "T1",
+      "priority": "P3",
+      "category": "wording",
+      "notebook": "theory",
+      "locations": [
+        {
+          "cell": 18,
+          "lines": [
+            1
+          ]
+        }
+      ],
+      "title": "实对数局部定义应写严格为正"
+    },
+    {
+      "id": "T2",
+      "priority": "P3",
+      "category": "proof_coverage",
+      "notebook": "theory",
+      "locations": [
+        {
+          "cell": 7,
+          "lines": [
+            22
+          ]
+        },
+        {
+          "cell": 8,
+          "lines": [
+            5,
+            7
+          ]
+        }
+      ],
+      "title": "辅助层正文范围稍宽于 Lean LayerOK"
+    },
+    {
+      "id": "G1",
+      "priority": "P3",
+      "category": "figure_wording",
+      "notebook": "dlw",
+      "locations": [
+        {
+          "cell": 32,
+          "lines": [
+            3
+          ]
+        },
+        {
+          "cell": 35,
+          "lines": [
+            11
+          ]
+        }
+      ],
+      "title": "颜色叙述仍是旧版，实际为 jet 等高线"
+    },
+    {
+      "id": "G2",
+      "priority": "P3",
+      "category": "figure_wording",
+      "notebook": "2hs",
+      "locations": [
+        {
+          "cell": 18,
+          "lines": [
+            8
+          ]
+        },
+        {
+          "cell": 34,
+          "lines": [
+            9,
+            28
+          ]
+        }
+      ],
+      "title": "100 段最大误差的叙述未对应当前绘图"
+    },
+    {
+      "id": "H2",
+      "priority": "P3",
+      "category": "edge_case",
+      "notebook": "2hs",
+      "locations": [
+        {
+          "cell": 4,
+          "lines": [
+            17,
+            18
+          ]
+        },
+        {
+          "cell": 34,
+          "lines": [
+            3
+          ]
+        }
+      ],
+      "title": "配置接受 T=0，但时间曲面绘图失败"
+    },
+    {
+      "id": "S1",
+      "priority": "P3",
+      "category": "saved_output",
+      "notebook": "dlw",
+      "locations": [
+        {
+          "cell": 30,
+          "lines": [
+            8,
+            9
+          ]
+        }
+      ],
+      "title": "新增 CN 后，保存的总试验数仍为27，应为36"
+    }
+  ],
+  "default_dlw_runs_completed": 36,
+  "baseline_dlw_runs_completed": 27,
+  "additional_cn_runs_completed": 9,
+  "saved_dlw_table_entries_matched": 126,
+  "wide_field_runs_completed": 3,
+  "theory_exact_checks_passed": 161,
+  "lean_recompiled": false,
+  "plot_cache_checks": {
+    "main_result_cache": {
+      "solve_calls": [
+        {
+          "case": "A",
+          "T": 0.01,
+          "parameters": [
+            [
+              1.0
+            ],
+            [
+              2.0
+            ]
+          ]
+        }
+      ],
+      "calls_after_parameter_edit": 1,
+      "requested_T": 0.02,
+      "cached_T": 0.01,
+      "reassigned_CONFIG_T": 0.03,
+      "original_solve_default_T_after_reassignment": 0.02,
+      "solve_default_is_current_CONFIG": false
+    },
+    "wide_field_cache": {
+      "solve_calls": [
+        {
+          "case": "A",
+          "T": 0.01,
+          "parameters": [
+            [
+              1.0
+            ],
+            [
+              2.0
+            ]
+          ]
+        }
+      ],
+      "calls_after_soliton_parameter_edit": 1,
+      "cache_entries": 1,
+      "signature_contains_CASES": false
+    },
+    "plot_helpers_identical": true,
+    "shared_surface_numerical_exact_norms": [
+      {
+        "field": "u",
+        "numerical": [
+          -2.0,
+          0.01
+        ],
+        "exact": [
+          -2.0,
+          0.01
+        ],
+        "surface": [
+          -2.0,
+          0.01
+        ]
+      },
+      {
+        "field": "v",
+        "numerical": [
+          -1.02,
+          1.0
+        ],
+        "exact": [
+          -1.02,
+          1.0
+        ],
+        "surface": [
+          -1.02,
+          1.0
+        ]
+      }
+    ],
+    "jet_zero_rgba_at_upper_endpoint": [
+      0.5,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "jet_error_zero_rgba": [
+      0.0,
+      0.0,
+      0.5,
+      1.0
+    ],
+    "wide_y_plot_range": {
+      "checked_window": [
+        -30.0,
+        30.0
+      ],
+      "actual_y_endpoints": [
+        -29.9375,
+        29.9375
+      ],
+      "unsampled_width_each_edge": 0.0625,
+      "periodic_grid_convention": "cell-centred y samples; no boundary-node extrapolation"
+    },
+    "stored_outputs": {
+      "2hs_png": 12,
+      "dlw_png": 6,
+      "errors": 0,
+      "main_dlw_saved_trials": 27,
+      "time_refinement_additional_runs": 12
+    }
+  },
+  "cn_tolerance_check": {
+    "only_tolerance_literals_changed": true,
+    "actual_tolerance": "1e-12 + 1e-11 * max(1, max(abs(state)))",
+    "tightened_tolerance": "1e-15 + 1e-14 * max(1, max(abs(state)))",
+    "actual_refinement": [
+      {
+        "mode": "actual",
+        "model": "SD",
+        "refinement_diagnostics": [
+          {
+            "divisor": 1,
+            "dt": 0.000125,
+            "steps": 80,
+            "iteration_histogram": {
+              "3": 80
+            },
+            "max_residual": 1.2961880578739836e-13,
+            "max_tolerance": 1.0999999999999999e-11
+          },
+          {
+            "divisor": 2,
+            "dt": 6.25e-05,
+            "steps": 160,
+            "iteration_histogram": {
+              "3": 160
+            },
+            "max_residual": 8.148823611973412e-15,
+            "max_tolerance": 1.0999999999999999e-11
+          },
+          {
+            "divisor": 4,
+            "dt": 3.125e-05,
+            "steps": 320,
+            "iteration_histogram": {
+              "2": 320
+            },
+            "max_residual": 2.05656190455138e-12,
+            "max_tolerance": 1.0999999999999999e-11
+          }
+        ],
+        "field_orders": [
+          {
+            "field": "u",
+            "d1": 2.709177493454007e-09,
+            "d2": 1.315180186978182e-09,
+            "order": 1.0425944454230347
+          },
+          {
+            "field": "v",
+            "d1": 1.9423799235696038e-09,
+            "d2": 9.634695263827098e-10,
+            "order": 1.0115144737992152
+          }
+        ],
+        "quarter_dt_difference_from_euler": {
+          "u": 2.6629150254864342e-06,
+          "v": 3.3123513912824976e-06
+        },
+        "first_quarter_step_difference_from_euler": 1.1711453695717466e-08,
+        "first_quarter_step_cn_diagnostic": {
+          "iterations": 2,
+          "residual": 2.0563839666460845e-12,
+          "tolerance": 1.0999999999999999e-11
+        }
+      },
+      {
+        "mode": "actual",
+        "model": "SD2",
+        "refinement_diagnostics": [
+          {
+            "divisor": 1,
+            "dt": 0.000125,
+            "steps": 80,
+            "iteration_histogram": {
+              "3": 80
+            },
+            "max_residual": 2.2932773301870268e-14,
+            "max_tolerance": 2.766305922994577e-11
+          },
+          {
+            "divisor": 2,
+            "dt": 6.25e-05,
+            "steps": 160,
+            "iteration_histogram": {
+              "2": 160
+            },
+            "max_residual": 5.391439166857817e-12,
+            "max_tolerance": 2.766305935692314e-11
+          },
+          {
+            "divisor": 4,
+            "dt": 3.125e-05,
+            "steps": 320,
+            "iteration_histogram": {
+              "2": 320
+            },
+            "max_residual": 6.740678978531256e-13,
+            "max_tolerance": 2.7663059420432146e-11
+          }
+        ],
+        "field_orders": [
+          {
+            "field": "u",
+            "d1": 4.029808209349284e-09,
+            "d2": 4.315048873770877e-10,
+            "order": 3.223262373122018
+          },
+          {
+            "field": "v",
+            "d1": 1.8126443346311305e-08,
+            "d2": 1.4438411577444299e-09,
+            "order": 3.6501119366427903
+          }
+        ],
+        "quarter_dt_difference_from_euler": {
+          "u": 3.7012313519602102e-06,
+          "v": 1.647529077752896e-05
+        },
+        "first_quarter_step_difference_from_euler": 6.772792326970034e-09,
+        "first_quarter_step_cn_diagnostic": {
+          "iterations": 2,
+          "residual": 6.714218482410661e-13,
+          "tolerance": 2.7663039542801302e-11
+        }
+      },
+      {
+        "mode": "actual",
+        "model": "FD",
+        "refinement_diagnostics": [
+          {
+            "divisor": 1,
+            "dt": 0.000125,
+            "steps": 80,
+            "iteration_histogram": {
+              "3": 80
+            },
+            "max_residual": 1.0171190604167657e-13,
+            "max_tolerance": 1.0999999999999999e-11
+          },
+          {
+            "divisor": 2,
+            "dt": 6.25e-05,
+            "steps": 160,
+            "iteration_histogram": {
+              "3": 160
+            },
+            "max_residual": 6.396155848888141e-15,
+            "max_tolerance": 1.0999999999999999e-11
+          },
+          {
+            "divisor": 4,
+            "dt": 3.125e-05,
+            "steps": 320,
+            "iteration_histogram": {
+              "2": 320
+            },
+            "max_residual": 1.6516691917693553e-12,
+            "max_tolerance": 1.0999999999999999e-11
+          }
+        ],
+        "field_orders": [
+          {
+            "field": "u",
+            "d1": 2.706527002516168e-09,
+            "d2": 1.313954778314752e-09,
+            "order": 1.0425271575802482
+          },
+          {
+            "field": "v",
+            "d1": 1.9417404351074197e-09,
+            "d2": 9.62029345075166e-10,
+            "order": 1.013197552603715
+          }
+        ],
+        "quarter_dt_difference_from_euler": {
+          "u": 2.6608786367621207e-06,
+          "v": 3.3127239368324624e-06
+        },
+        "first_quarter_step_difference_from_euler": 1.0549232043466361e-08,
+        "first_quarter_step_cn_diagnostic": {
+          "iterations": 2,
+          "residual": 1.6419467104315452e-12,
+          "tolerance": 1.0999999999999999e-11
+        }
+      }
+    ],
+    "tightened_refinement": [
+      {
+        "model": "SD",
+        "refinement_diagnostics": [
+          {
+            "divisor": 1,
+            "steps": 80,
+            "iteration_histogram": {
+              "4": 80
+            },
+            "max_residual": 2.1133810847173695e-16
+          },
+          {
+            "divisor": 2,
+            "steps": 160,
+            "iteration_histogram": {
+              "3": 160
+            },
+            "max_residual": 8.148823611973412e-15
+          },
+          {
+            "divisor": 4,
+            "steps": 320,
+            "iteration_histogram": {
+              "3": 320
+            },
+            "max_residual": 5.610356607456748e-16
+          }
+        ],
+        "field_orders": [
+          {
+            "field": "u",
+            "d1": 2.7067940111535904e-09,
+            "d2": 6.770337623862588e-10,
+            "order": 1.9992854165013627
+          },
+          {
+            "field": "v",
+            "d1": 1.939016280871897e-09,
+            "d2": 4.852254154030788e-10,
+            "order": 1.9985978932035136
+          }
+        ]
+      },
+      {
+        "model": "SD2",
+        "refinement_diagnostics": [
+          {
+            "divisor": 1,
+            "steps": 80,
+            "iteration_histogram": {
+              "3": 80
+            },
+            "max_residual": 2.2932773301870268e-14
+          },
+          {
+            "divisor": 2,
+            "steps": 160,
+            "iteration_histogram": {
+              "3": 160
+            },
+            "max_residual": 1.6290679742680947e-15
+          },
+          {
+            "divisor": 4,
+            "steps": 320,
+            "iteration_histogram": {
+              "3": 320
+            },
+            "max_residual": 3.0921445959286586e-16
+          }
+        ],
+        "field_orders": [
+          {
+            "field": "u",
+            "d1": 2.714961977456909e-09,
+            "d2": 6.7872946152292e-10,
+            "order": 2.0000234510169044
+          },
+          {
+            "field": "v",
+            "d1": 1.264370119713476e-08,
+            "d2": 3.1616820272972745e-09,
+            "order": 1.9996546590033757
+          }
+        ]
+      },
+      {
+        "model": "FD",
+        "refinement_diagnostics": [
+          {
+            "divisor": 1,
+            "steps": 80,
+            "iteration_histogram": {
+              "4": 80
+            },
+            "max_residual": 1.689186984732416e-16
+          },
+          {
+            "divisor": 2,
+            "steps": 160,
+            "iteration_histogram": {
+              "3": 160
+            },
+            "max_residual": 6.396155848888141e-15
+          },
+          {
+            "divisor": 4,
+            "steps": 320,
+            "iteration_histogram": {
+              "3": 320
+            },
+            "max_residual": 4.536539058904582e-16
+          }
+        ],
+        "field_orders": [
+          {
+            "field": "u",
+            "d1": 2.7041504035985042e-09,
+            "d2": 6.763721804858847e-10,
+            "order": 1.9992861685468866
+          },
+          {
+            "field": "v",
+            "d1": 1.9383872285061443e-09,
+            "d2": 4.850677637335821e-10,
+            "order": 1.9985985941215063
+          }
+        ]
+      }
+    ],
+    "scalar_euler_predictor_acceptance": {
+      "dt": 1e-06,
+      "value": 1.000001,
+      "euler_value": 1.000001,
+      "exact_cn_value": 1.0000010000005,
+      "difference_from_euler": 0.0,
+      "diagnostic": {
+        "iterations": 1,
+        "residual": 5.000822667123754e-13,
+        "tolerance": 1.0999999999999999e-11
+      }
+    }
+  },
+  "limitations": [
+    "No long-time or all-parameter scan.",
+    "Finite-N independent checks supplement the existing general-N Lean proof audit.",
+    "No full Lean recompilation in this review."
+  ]
+}

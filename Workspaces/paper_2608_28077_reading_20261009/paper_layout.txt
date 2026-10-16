@@ -1,0 +1,1676 @@
+                                              A Local Discontinuous Galerkin method for the modiﬁed
+                                                             Camassa–Holm equation∗
+                                                                 Xiang-Ke Chang†               Yong Liu‡             Qi Tao§
+arXiv:2608.28077v2 [math.NA] 8 Sep 2026
+
+
+
+
+                                               Abstract. In this paper, we propose a local discontinuous Galerkin (LDG) method for the
+                                               modiﬁed Camassa–Holm (mCH) equation that contains cubic nonlinearity and high-order
+                                               derivative terms. Energy conservation and stability are obtained using the conservative
+                                               and dissipative ﬂuxes, respectively. The error estimate of the semi-discrete scheme is also
+                                               established. Numerical examples verify that our theoretical ﬁndings are sharp and the
+                                               proposed LDG method is capable of capturing the peakon solution of the mCH equation.
+
+                                               Key words. local discontinuous Galerkin, modiﬁed Camassa-Holm equation, stability,
+                                               error estimates.
+                                               AMS classiﬁcation. 65M12, 65M15, 65M60
+
+                                          1     Introduction
+                                          The present study develops a rigorous high-order numerical framework for the modiﬁed
+                                          Camassa-Holm (mCH) equation, with particular emphasis on the construction, stability
+                                          properties, and error estimates of a local discontinuous Galerkin discretization. The model
+                                          equation is written as
+
+                                                                          Mt + 2κ2 Ux + ((U 2 − Ux2 )M )x = 0,                                (1.1a)
+                                                                          M − U + Uxx = 0,                                                   (1.1b)
+
+                                          which serves as a cubic-nonlinear integrable variant of the classical Camassa–Holm (CH)
+                                          equation. Originally proposed as a formal integrable system by Fokas and Fuchssteiner [13,
+                                             ∗
+                                               X.-K. Chang’s research is partially supported by Beijing Natural Science Foundation under the grant
+                                          No. JQ26004, NSFC grant 12571270, 12288201, and the Youth Innovation Promotion Association (CAS).
+                                          Y. Liu’s research is partially supported by NSFC grant 12571395, 12288201, the Strategic Priority Research
+                                          Program of the Chinese Academy of Sciences under the Grant No. XDB0640000, and the Youth Innovation
+                                          Promotion Association (CAS). Q. Tao’s research is partially supported by Beijing Natural Science Foundation
+                                          under the grant No. JQ26004, NSFC grant 12301464, and Young Elite Scientists Sponsorship Program of
+                                          the Beijing High Innovation Plan.
+                                             †
+                                               ICMSEC, State Key Laboratory of Mathematical Sciences (SKLMS), Academy of Mathematics and
+                                          Systems Science, and School of Mathematical Science, University of Chinese Academy of Sciences, Chinese
+                                          Academy of Sciences, Beijing 100190, P. R. China. E-mail: changxk@lsec.cc.ac.cn
+                                             ‡
+                                               ICMSEC, State Key Laboratory of Mathematical Sciences (SKLMS), Academy of Mathematics and
+                                          Systems Science, and School of Mathematical Science, University of Chinese Academy of Sciences, Chinese
+                                          Academy of Sciences, Beijing 100190, P. R. China. E-mail: yongliu@lsec.cc.ac.cn
+                                             §
+                                               Corresponding author. School of Mathematics, Statistics and Mechanics, Beijing University of Technol-
+                                          ogy, Beijing 100124, P. R. China. E-mail: taoqi@bjut.edu.cn
+
+
+                                                                                              1
+14, 15] and independently by Olver and Rosenau in 1996, the equation was later rediscovered
+by Qiao [26] in 2006. Therefore, it is sometimes also called the FORQ equation. It describes
+the unidirectional propagation of shallow-water waves of moderate amplitude over a ﬂat
+bottom, wherein U denotes the horizontal velocity at a speciﬁc depth and M represents the
+momentum density (see Chen et al. [7]). The constant κ is a linear dispersion parameter
+related to the critical shallow-water speed.
+     From the viewpoint of nonlinear wave theory, the mCH equation belongs to the category
+of peakon-bearing equations [22], which have attracted considerable attention over the past
+three decades due to several remarkable properties. Like its CH counterpart, the mCH
+equation admits peakon solutions [4, 17, 27] and enjoys inﬁnitely many conservation laws,
+including the H 1 -norm
+                                             Z
+                                 E(U, Ux ) =    U 2 + Ux2 dx.
+                                               Ω
+
+Meanwhile, it has been observed that the mCH equation displays distinctive features from
+the CH equation. Its single peakon and periodic peakon solutions are found in [17, 27].
+Multipeakon solutions, constructed via the inverse spectral method for the corresponding
+peakon ODE system, are examined in [4], and the Hamiltonian structure and Liouville in-
+tegrability of such multipeakon systems are addressed in [2, 3]; see also [1, 5, 6]. Single
+soliton and multisoliton solutions are investigated in [23, 24, 25, 31] etc., as well as the
+Bäcklund and Darboux transformations and the associated nonlinear superposition formu-
+lae. In [28, 29], integrable discretizations of the mCH equation are studied on the basis
+of multisoliton solutions and bilinear equations. Furthermore, analytic aspects from the
+point of view of PDE theory are established in [8, 16, 17, 19, 27, 39] etc., including orbital
+stability of peakons or solitons, well-posedness of both classical and global weak solutions,
+and wave-breaking phenomena, etc. It is worth noting that all of these problems are re-
+spectively dealt with according to whether the linear dispersion term κ is zero or nonzero.
+On the other hand, it seems to us that general numerical aspects of the mCH equation with
+rigorous numerical analysis have never been reported.
+      The numerical approach adopted here is based on the discontinuous Galerkin (DG) ﬁ-
+nite element framework, whose essential feature is the use of locally independent polynomial
+representations on neighboring cells. Originally devised for ﬁrst-order partial diﬀerential
+equations—notably nonlinear conservation laws—it has since demonstrated considerable
+success in that setting [10, 12]. Among its notable advantages are a highly localized data
+structure, excellent scalability for parallel computing, and the ﬂexibility to accommodate
+arbitrary triangulations, including those with hanging nodes.
+      For equations involving higher-order spatial derivatives, the local discontinuous Galerkin
+(LDG) methodology provides a natural extension of the DG philosophy by introducing aux-
+iliary variables and transforming the original problem into a coupled ﬁrst-order system. Its
+underlying strategy consists of recasting the original high-order problem as an equivalent
+ﬁrst-order system, to which the standard DG procedure is then applied. The LDG approach
+was ﬁrst introduced by Cockburn and Shu for convection–diﬀusion problems [11], and subse-
+quently extended to a variety of models, including the KdV equation [38], Burgers–Poisson
+equations [20], the Zakharov system [33, 34], the CH equation [35], the Degasperis–Procesi
+(DP) equation [37], the µ-CH equation [21], and the Novikov equation [30], among others.
+
+
+                                               2
+For a comprehensive overview of the LDG method, we refer the reader to the review article
+[36].
+      In this paper, we propose a uniﬁed LDG method for solving the mCH equation with
+a free real constant parameter κ (i.e. without specifying whether it is zero or nonzero).
+Energy conservation and stability of the semi-discrete LDG method are established by
+choosing central ﬂuxes and alternating ﬂuxes, respectively. It is noted that the rigorous
+energy boundedness of a fully discrete scheme for such nonlinear equations is beyond the
+scope of this paper, and this aspect will be left for future work. Although we do not discuss
+the energy boundedness of fully discrete schemes in this paper, one can adopt the relaxation
+Runge–Kutta (RRK) method [18] to achieve the conservation or dissipation numerically for
+the fully discrete energy. Here we refer to [35, 37, 41] for the LDG method for the CH and
+DP equations using explicit RK methods to ensure computational eﬃciency.
+      Obtaining error estimates for the LDG method applied to nonlinear wave equations
+involving higher-order derivatives poses substantial diﬃculties. In their work [35], Xu and
+Shu established L2 -norm error estimates of order k (where k denotes the maximum poly-
+nomial degree in the ﬁnite element space) for the LDG approximation to the CH equation,
+under the a priori assumption
+
+                          kU − uk ≤ h,    for suﬃciently small h,
+
+where u is the numerical solution. Such an assumption has become a standard tool in
+handling error analyses for DG methods applied to nonlinear problems, as seen in [37, 41].
+     Our analysis proceeds by ﬁrst introducing suitable projections and deriving the associ-
+ated projection errors. The primary task then reduces to bounding the discrepancy between
+the projection and the numerical solution. To accomplish this, we exploit the polynomial
+structure of the nonlinearity inherent in the mCH equation, which allows us to split the
+nonlinear error into two contributions: one involving the projection error relative to the
+exact solution, and the other involving the diﬀerence between the projection and the nu-
+merical solution. As both the projection and the numerical solution reside in the same ﬁnite
+element space, we are able to control these terms using the nonlinear stability property and
+the error energy equation.
+     Because the discrete H 1 -norm of u can be controlled by the auxiliary variable r (which
+approximates Ux in the LDG scheme), we are able to derive error estimates for the nonlinear
+term of u without imposing any a priori assumption on u itself. Nevertheless, to handle
+the nonlinear terms involving the auxiliary variable r, we still need an a priori bound on r,
+speciﬁcally
+                                       1
+                          kR − rk ≤ h 2 , for suﬃciently small h.
+Because we lack an L∞ -bound for r, the a priori hypothesis is necessary to manage the
+nonlinearity in r. This assumption is justiﬁable via a standard continuation argument
+provided that k > 21 . Finally, numerical experiments corroborate the sharpness of the
+predicted k-th order convergence.
+     The remainder of this paper is structured as follows. In Section 2, we present the
+LDG discretization for the mCH equation. Section 3 is devoted to establishing both the
+conservation properties and the energy boundedness of the proposed scheme. The optimal
+error analysis for the semi-discrete formulation is carried out in Section 4. Numerical
+
+
+                                             3
+experiments are provided in Section 5, which conﬁrm our theoretical results and illustrate
+the scheme’s ability to eﬀectively capture the one-peakon and periodic peakon solutions.
+Finally, we oﬀer some concluding remarks in Section 6.
+
+
+2      The LDG scheme for the mCH equation
+In this section, we introduce the semi-discrete LDG scheme for solving the mCH equation
+(1.1). First of all, we give some notations to deﬁne the LDG scheme.
+
+2.1     Notations
+Let Ω = (xl , xr ) be our computational domain, Ωh = {Ij = (xj− 1 , xj+ 1 )}N   j=1 be the par-
+                                                                       2     2
+tition of Ω, where x 1 = xl and xN + 1 = xr . Denote the cell length by hj = xj+ 1 − xj− 1
+                          2               2                                            2        2
+for j = 1, . . . , N , and h = max hj . In this paper, we assume Ωh is quasi-uniform, i.e., there
+                                   j
+exists a positive constant ρ, such that for all j there holds hj /h ≥ ρ as h tends to zero.
+     Associated with the partition Ωh , we deﬁne the discontinuous ﬁnite element space
+                           
+                     Vhk = v ∈ L2 (Ω) : v|Ij ∈ Pk (Ij ), ∀j = 1, . . . , N ,             (2.1)
+
+where Pk (Ij ) denotes the space of polynomials in Ij of degree at most k ≥ 0. We deﬁne the
+broken Sobolev space, for m ≥ 1,
+                             
+                  H m (Ωh ) = w ∈ L2 (Ω) : w|Ij ∈ H m (Ij ), ∀j = 1, . . . , N .
+
+It is not hard to see Vhk ⊂ H m (Ωh ). It is allowed to have discontinuities across element
+                         ±                                                           +      −
+interfaces, so we deﬁne vj+ 1 = lim v(xj+ 1 ±ǫ) and denote its jump as [[v]]j+ 1 = v
+                                                                                     j+ 1
+                                                                                          −vj+ 1
+                               ǫ→0+
+                               2           2                                                     2         2       2
+                             1 +         −
+and its average as {v}j+ 1 = 2 (vj+ 1 + vj+ 1 ). Furthermore, we denote
+                         2                    2        2
+
+                  Z                                                                               N
+                                                                                                  X
+                                                                                             2
+      (w, v)j =        w(x)v(x)dx,         kvkj = kvkL2 (Ij ) ,      kvk = kvkL2 (Ω) ,    |[v]| =   [[v]]2j− 1 ,
+                  Ij                                                                                           2
+                                                                                                     j=1
+                                                               N
+                                                               X
+      kvk2∂Ij = v(x−
+                   j+ 1
+                        )2 + v(x+
+                                j− 1
+                                     )2 ,         kvk2∂Ωh =          kvk2∂Ij ,   kvk∞ = kvkL∞ (Ω) .
+                        2              2
+                                                               j=1
+
+
+2.2     The LDG scheme
+Following the framework of LDG methods, we introduce three auxiliary variables R = Ux ,
+P = (U 2 R)x , S = ( 13 R3 )x , and we rewrite (1.1) into the following equivalent form
+
+                                Mt + f (U )x − Px + (R2 U )x + Sx = 0,                                         (2.2a)
+                                                               P − (U 2 R)x = 0,                               (2.2b)
+                                                                       R − Ux = 0,                             (2.2c)
+                                                               M − U + Rx = 0,                                 (2.2d)
+                                                                  S − g(R)x = 0,                               (2.2e)
+
+
+                                                           4
+with the initial condition
+
+                                             U (x, 0) = U0 (x),                                                                        (2.3)
+
+and periodic boundary conditions. Here f (U ) = 2κ2 U + U 3 and g(R) = 13 R3 . The LDG
+scheme is deﬁned as follows (we omit the subscript h in the numerical solution to simplify
+notation): Let u(·, 0) ∈ Vhk be an approximation of the initial data U0 (x), and for any
+t ∈ (0, T ] we ﬁnd u(·, t), p(·, t), r(·, t), m(·, t), and s(·, t) ∈ Vhk , such that for each cell Ij
+and any test functions v, q, ψ, ϕ, w ∈ Vhk satisfying
+
+ (mt , v)j − (f (u), vx )j + fˆj+ 1 vj+
+                                     −      ˆ
+                                        1 − fj− 1 v
+                                                    +
+                                                    j− 1
+                                                                               −
+                                                         + (p, vx )j − p̂j+ 1 vj+ 1 + p̂j− 1 v
+                                                                                               +
+                                                                                              j− 1
+                                  2      2        2     2                                    2            2           2           2
+
+                     [
+    −(r 2 u, vx )j + (r               [
+                        2 u) 1 v − − (r 2 u) 1 v +                        −            +
+                            j+ 2 j+ 1                              sj+ 1 vj+
+                                            j− 2 j− 1 − (s, vx )j +b   2
+                                                                                sj− 1 vj−
+                                                                             1 −b
+                                                                                    2
+                                                                                          1 = 0,                                      (2.4a)
+                                    2               2                        2            2
+
+                                                          [
+                                 (p, q)j + (u2 r, qx )j − (u 2 r) 1 q −    [ 2        +
+                                                                 j+ j+ 1 + (u r)j− 1 qj− 1 = 0, (2.4b)
+                                                                             2                                    2
+                                                                                         2                                    2
+                                                                           −               +
+                                             (r, ψ)j + (u, ψx )j − ûj+ 1 ψj+ 1 + ûj− 1 ψ   1 = 0,                                   (2.4c)
+                                                                        2     2        2 j− 2
+
+                                (m, ϕ)j − (u, ϕ)j − (r, ϕx )j + r̂j+ 1 ϕ−
+                                                                        j+ 1
+                                                                             − r̂j− 1 ϕ+
+                                                                                       j− 1
+                                                                                            = 0, (2.4d)
+                                                                                     2           2                2           2
+                                                                          −               +
+                                         (s, w)j + (g(r), wx )j − ĝj+ 1 wj+ 1 + ĝj− 1 w
+                                                                                         j− 21
+                                                                                               = 0,                                   (2.4e)
+                                                                       2     2        2
+
+
+where
+                 [
+   • fˆ, ĝ, p̂, (r       [
+                    2 u), (u 2 r), û, r̂, and ŝ are numerical ﬂuxes. We choose
+
+
+        p̂ = p+ ,   [
+                    (r 2 u) = {ur}r + ,      [
+                                             (u 2 r) = {ur}u− ,          û = u− ,                   r̂ = r + ,       ŝ = s+ . (2.5a)
+
+      For fˆ and ĝ, we can choose the following diﬀerent ﬂuxes such that the numerical
+      scheme is conservative or dissipative:
+
+        (i) For a dissipative scheme, we choose the monotone ﬂux. Since f ′ (u) = 2κ2 +3u2 ≥
+            0 and g ′ (r) = r 2 ≥ 0, we take the upwind ﬂuxes for f and g
+
+                                      fˆ(u+ , u− ) = f (u− ),       ĝ(r + , r − ) = g(r + ).                                         (2.5b)
+
+        (ii) For a conservative scheme, we take the central ﬂux for both f and g
+                                                        1                          
+                          fˆ(u+ , u− ) = κ2 (u+ + u− ) + (u+ + u− ) (u+ )2 + (u− )2 ,                                                 (2.5c)
+                                                        4
+                              + −        1 +                      
+                          ĝ(r , r ) =             −    + 2
+                                           (r + r ) (r ) + (r − )2 .                                                                  (2.5d)
+                                        12
+    The deﬁnition of the algorithm is now complete. Based on the above choice of numerical
+ﬂuxes, we introduce
+                                          ±
+                Hj± (w, v) = (w, vx )j − wj+ 1v
+                                                −
+                                                j+ 1
+                                                        ±
+                                                     + wj− 1v
+                                                              +
+                                                              j− 1
+                                                                   ,                                                                   (2.6)
+                                                  2       2          2           2
+
+               Gj+ (r 2 u, v) = (r 2 u, vx )j − {ur}j+ 1 rj+
+                                                          +
+                                                             1v
+                                                                −
+                                                               j+ 1
+                                                                                +
+                                                                    + {ur}j− 1 rj− 1v
+                                                                                      +
+                                                                                      j− 1
+                                                                                                                                       (2.7)
+                                                          2     2        2                           2        2       2
+
+               Gj− (u2 r, v) = (u2 r, vx )j − {ur}j+ 1 u−   v − + {ur}j− 1 u−
+                                                        j+ 1 j+ 1
+                                                                                v+
+                                                                            j− 1 j− 1
+                                                                                                                                       (2.8)
+                                                          2     2        2                            2       2           2
+
+
+
+                                                      5
+                                                 −               +
+                 Gj (f, v) = (f, vx )j − f̂j+ 1 vj+ 1 + f̂j− 1 v
+                                                                 j− 1
+                                                                      ,                           (2.9)
+                                              2      2        2      2
+
+where f can be replaced by f (u) or g(r). Furthermore, we omit the subscript j to denote
+the sum over j. After summing the variational formulations (2.4) over all cells, we get the
+LDG scheme in the global form:
+               (mt , v) − G(f (u), v) + H+ (p, v) − G + (r 2 u, v) − H+ (s, v) = 0, (2.10a)
+                                                                  (p, q) + G − (u2 r, q) = 0,   (2.10b)
+                                                                              −
+                                                                   (r, ψ) + H (u, ψ) = 0,       (2.10c)
+                                                                               +
+                                                     (m, ϕ) − (u, ϕ) − H (r, ϕ) = 0.            (2.10d)
+                                                                  (s, w) + G(g(r), w) = 0,      (2.10e)
+     To conclude this section, we collect several analytical tools required in the subsequent
+stability and error arguments. In particular, we summarize the inverse estimates for the
+polynomial space and the structural properties of the LDG diﬀerential operators. These
+auxiliary results will provide the technical foundation for the conservation analysis and the
+later a priori error estimates.
+Lemma 2.1. (Inverse inequalities) There exists an inverse constant ν = ν(k), such that
+for any v ∈ Vhk
+                                                     p
+                kvx kj ≤ ν(ρh)−1 kvkj , kvkL∞ (Ij ) ≤ ν(ρh)−1 kvkj .            (2.11)
+    We refer to [9] for these standard inverse inequalities. The following discrete Sobolev
+inequality will be repeatedly used to control the nonlinear terms arising in the error analysis:
+Lemma 2.2. [33, Lemma 4.1] There exists a constant C independent of h, such that for
+any v ∈ Vhk
+                                                                          1
+                              kvk2∞ ≤ Ckvk(kvk + kvx k + h− 2 |[v]|).                            (2.12)
+    In the next lemmas, we recall some properties of bilinear forms H± .
+Lemma 2.3. For any w, v ∈ H 1 (Ωh ), there holds
+             H− (w, v) + H+ (v, w) = 0,                                                          (2.13)
+                                 p                   p             
+             |H± (v, w)| ≤ kvk + ν −1 (ρh)kvk∂Ωh kwx k + ν(ρh)−1 |[w]| .                         (2.14)
+
+Proof. The proof is the standard argument in the DG framework; thus, we omit it and refer
+to [40] for more details.
+
+     The following lemma establishes the coupling between the auxiliary variables and the
+original unknown. This estimate is a crucial ingredient in the treatment of the projection
+errors and nonlinear residual terms appearing in the convergence proof.
+Lemma 2.4. For w ∈ Vhk and f ∈ L2 (Ω), if Hj± (w, v) = (f, v)j ∀v ∈ Vhk , j = 1, · · · , N ,
+then there exists a positive constant Cν,ρ dependent on ν and ρ, such that
+                                      p
+                               kwx k + ν(ρh)−1 |[w]| ≤ Cν,ρ kf k.                   (2.15)
+Proof. We refer to [32] for the details of the proof.
+
+                                                     6
+3    The conservation and stability of the LDG scheme
+In this section, we study the conservation and stability of the LDG scheme (2.4) for solving
+the mCH equation (1.1).
+
+Theorem 3.1. Let u and r be the solutions of the scheme (2.4a)-(2.4e), and let m be the
+numerical momentum density, then the numerical scheme is conservative with respect to m,
+that is
+                                      Z
+                                   d
+                                        m dx = 0,                                   (3.1)
+                                   dt Ω
+
+and the discrete energy E(u, r) = kuk2 + krk2 satisﬁes:
+
+    • For the dissipative scheme with the numerical ﬂuxes (2.5a) and (2.5b):
+
+                                              d
+                                                 E(u, r) ≤ 0.                              (3.2)
+                                              dt
+
+    • For the conservative scheme with the numerical ﬂuxes (2.5a) and (2.5c):
+
+                                              d
+                                                 E(u, r) = 0.                              (3.3)
+                                              dt
+
+Proof. For the conservation, we take v = 1 in (2.10a) to immediately obtain (3.1).
+The ﬁrst energy equation. We choose v = u, q = −r and ψ = p in (2.10a)-(2.10c),
+respectively, to obtain
+
+                (mt , u) − G(f (u), u) + H+ (p, u) − G + (r 2 u, u) − H+ (s, u) = 0,      (3.4a)
+                                                                        −       2
+                                                          −(p, r) − G (u r, r) = 0,       (3.4b)
+                                                                            −
+                                                               (r, p) + H (u, p) = 0.     (3.4c)
+
+By summing up the above three equations in (3.4), it follows from Lemma 2.3 that
+
+               (mt , u) − G(f (u), u) − G + (r 2 u, u) − G − (u2 r, r) − H+ (s, u) = 0.
+
+By the deﬁnition of G ± , it is not hard to get
+
+                                  G + (r 2 u, u) + G − (u2 r, r) = 0,                      (3.5)
+
+Therefore, we have
+
+                              (mt , u) − G(f (u), u) − H+ (s, u) = 0.                      (3.6)
+
+We choose ψ = −s and w = r in (2.10c) and (2.10e) respectively, to obtain
+
+                                     −(r, s) − H− (u, s) = 0,                             (3.7a)
+                                      (s, r) + G(g(r), r) = 0.                            (3.7b)
+
+
+
+                                                  7
+By summing up (3.6) and (3.7), it follows from Lemma 2.3 that
+
+                                 (mt , u) − G(f (u), u) + G(g(r), r) = 0.                                        (3.8)
+
+By the deﬁnition of G, it is not hard to get
+                                            N
+                                            X                                                  N
+                                                                                               X
+                         G(f (u), u) = −          Θj+ 1 ,          G(g(r), r) = −                    Φj+ 1 ,
+                                                           2                                             2
+                                            j=1                                                j=1
+
+where
+                                           Z u+
+                                                j+ 1
+                               Θj+ 1 =             2
+                                                       f (s) − fˆ(u−
+                                                                   j+ 1
+                                                                        , u+
+                                                                           j+ 1
+                                                                                ) ds,
+                                    2
+                                             u− 1                                2         2
+                                              j+ 2
+                                           Z r+
+                                                   1
+                                                j+ 2              −      +
+                               Φj+ 1 =                 g(s) − ĝ(rj+ 1,r
+                                                                        j+ 1
+                                                                             ) ds
+                                    2
+                                             r− 1                            2         2
+                                              j+ 2
+
+
+Therefore, we have
+                                                       N
+                                                       X                     N
+                                                                             X
+                                   (mt , u) = −                Θj+ 1 +               Φj+ 1 .                     (3.9)
+                                                                     2                     2
+                                                       j=1                   j=1
+
+                                          N
+                                          X                                  N
+                                                                             X
+In addition, it is easy to check                Θj+ 1 ≥ 0 and                        Φj+ 1 ≤ 0 for the ﬂux (2.5b) and
+                                                       2                                   2
+                                          j=1                                j=1
+N
+X               N
+                X
+      Θj+ 1 =         Φj+ 1 = 0 for the ﬂux (2.5c).
+         2                2
+j=1             j=1
+The second energy equation. We ﬁrst choose ψ = rt in (2.10c), then we take the time
+derivative in (2.10d) and choose ϕ = −u in (2.10d), to get
+
+                                                       (r, rt ) + H− (u, rt ) = 0,                             (3.10a)
+                                                                         +
+                                  −(mt , u) + (ut , u) + H (rt , u) = 0.                                       (3.10b)
+
+By summing up the above two equations in (3.10), we obtain from Lemma 2.3
+
+                                        (r, rt ) − (mt , u) + (ut , u) = 0.                                     (3.11)
+
+Therefore, by (3.9) and (3.11), we have
+                                                               N
+                                                               X                     N
+                                                                                     X
+                               (r, rt ) + (u, ut ) = −               Θj+ 1 +               Φj+ 1 ,              (3.12)
+                                                                             2                   2
+                                                               j=1                   j=1
+
+which yields (3.2) and (3.3).
+
+
+
+
+                                                               8
+4     Error estimates of the LDG method
+This section develops the a priori error analysis of the LDG approximation (2.4) to the
+mCH model (1.1). The argument is presented ﬁrst for the dissipative formulation, since the
+essential stability mechanism and projection estimates are already contained in this case.
+The corresponding estimates for the conservative formulation follow by the same framework
+with only minor modiﬁcations. For the dissipative scheme, we have
+
+      G(f (w), v) = H− (2κ2 w, v) + H− (w3 , v),         G(g(w), v) = H+ (g(w), v)          ∀v ∈ Vhk .
+
+We assume that the exact solution U (x, t) satisﬁes the following regularity assumption
+
+                                    U, Ut ∈ L∞ (0, T ; H k+3 (Ω)).                                       (4.1)
+
+4.1   Projections
+To establish the convergence result, we introduce several local projection operators. These
+projections separate the approximation error caused by the polynomial space from the
+discrete error generated by the numerical scheme.
+     • The L2 projection Ph . For ∀w ∈ L2 (Ω), Ph w ∈ Vhk is deﬁned as follows: In each
+interval Ij , there holds
+
+                                (Ph w − w, v)j = 0 ∀v ∈ Pk (Ij ).
+
+     • The Gauss-Radau projections Ph± . For ∀w ∈ H m (Ωh ) (m ≥ 1), Ph± w ∈ Vhk is deﬁned
+as follows: In each interval Ij , there holds
+
+                 (Ph± w − w, v)j = 0 ∀v ∈ Pk−1 (Ij ),            (Ph± w)±
+                                                                        j∓ 1
+                                                                                ±
+                                                                             = wj∓ 1.
+                                                                             2         2
+
+
+    By a standard scaling argument [9], it is easy to obtain the following approximation
+property for the projection errors
+                                      1
+          hl kw − πh wkH l (Ij ) + h 2 kw − πh wkL∞ (Ij ) ≤ Chmin(k+1,m) kwkH m (Ij ) ,                  (4.2)
+
+where 0 ≤ l ≤ m, j = 1, · · · , N , πh = Ph , Ph± and C > 0 is a bounded constant independent
+of h and j. Furthermore, from the deﬁnition of the projections, we can easily get
+
+                    (w − Ph w, v) = 0,       H± (w − Ph± w, v) = 0 ∀v ∈ Vhk .                            (4.3)
+
+4.2   Error equations
+Let the total discretization errors be represented by
+
+                 (eu , ep , er , em , es ) = (U − u, P − p, R − r, M − m, S − s).
+
+Using the projection operators deﬁned above, each error variable is decomposed into an
+interpolation component and a numerical component.
+
+              (eu , ep , er , em , es ) = (ηu − ξu , ηp − ξp , ηr − ξr , ηm − ξm , ηs − ξs ),
+
+
+                                                    9
+where
+
+                              ηu = U − Ph− U,               ξu = u − Ph− U ;
+                               ηp = P − Ph+ P,              ξp = p − Ph+ P ;
+                               ηr = R − Ph R,               ξr = r − Ph R;
+                              ηm = M − Ph M,              ξm = m − Ph M ;
+                               ηs = S − Ph+ S,              ξs = s − Ph+ S.
+
+Note that the exact solutions (U, P, R, M, S) also satisfy the LDG scheme (2.10a)-(2.10e),
+hence we have the following error equations: For any test functions v, q, ψ, ϕ, w ∈ Vhk ,
+
+          ((ξm )t , v) = ((ηm )t , v) − H− (2κ2 (ηu − ξu ), v) − H− (U 3 − u3 , v) + H+ (ηp − ξp , v)
+                        −G + (R2 U −r 2 u, v)− H+ (ηs − ξs , v),                                  (4.4a)
+             (ξp , q) = (ηp , q) + G − (U 2 R − u2 r, q),                                         (4.4b)
+                                       −
+             (ξr , ψ) = (ηr , ψ) + H (ηu − ξu , ψ),                                               (4.4c)
+                                                 +
+  (ξm , ϕ) − (ξu , ϕ) = (ηm , ϕ) − (ηu , ϕ) − H (ηr − ξr , ϕ),                                    (4.4d)
+                                       +
+             (ξs , w) = (ηs , w) + H (g(R) − g(r), w).                                            (4.4e)
+
+By using (4.3), we can simplify error equations (4.4a)-(4.4e) to obtain
+
+                ((ξm )t , v) = ((ηm )t , v) + H− (2κ2 ξu , v) − H− (U 3 − u3 , v) + H− (ξp , v)
+                               −G + (R2 U −r 2 u, v)+ H+ (ξs , v),                                (4.5a)
+                                           −     2          2
+                    (ξp , q) = (ηp , q) + G (U R − u r, q),                                       (4.5b)
+                                   −
+                    (ξr , ψ) = −H (ξu , ψ),                                                       (4.5c)
+                                                            +
+         (ξm , ϕ) − (ξu , ϕ) = (ηm , ϕ) − (ηu , ϕ) − H (ηr − ξr , ϕ),                             (4.5d)
+                                             +
+                   (ξs , w) = (ηs , w) + H (g(R) − g(r), w).                                      (4.5e)
+
+     By Lemma 2.2, Lemma 2.4 and (4.3), we can get the following corollary, which states
+the important relationships between ξu and ξr .
+Corollary 4.1. Suppose ξu and ξr satisfy (4.4c), then we have
+                                    p
+                         k(ξu )x k + ν(ρh)−1 |[ξu ]| ≤ Cν,ρ kξr k,                                 (4.6)
+                               k(ξu )k∞ ≤ C(kξu k + kξr k),                                        (4.7)
+
+where C is a constant independent of h.
+     Before presenting the energy estimates, let us ﬁrst discuss the setting of the numerical
+initial condition.
+
+4.3     The numerical initial condition
+The initial condition plays an important role in the proof of the error estimates. First, we
+take
+
+                                            u(0) = Ph− U0 .                                        (4.8)
+
+                                                     10
+It is noted that r(0) can be obtained by the scheme (2.4c). By taking u = Ph− U0 in (2.4c),
+thanks to the deﬁnition of the projection Ph− , we obtain
+
+                                             r(0) = Ph (R(x, 0)),                                         (4.9)
+
+where R(x, 0) = U0′ (x). Thus, we can easily get the following initial error estimates.
+
+Lemma 4.1. Assume that the initial condition U0 (x) ∈ H 1 (Ω), and the numerical initial
+conditions u(0), r(0) satisfy (4.8) and (4.9), respectively, then
+
+                                        kξu k(0) = 0,        kξr k(0) = 0.                               (4.10)
+
+4.4      Error analysis
+We ﬁrst give the following lemma, which presents the energy equation for ξu and ξr .
+
+Lemma 4.2. The following equation holds:
+      1 d
+           E(ξu , ξr ) − H− (2κ2 ξu , ξu ) =−(ηp , ξr )+((ηu )t , ξu )+ (ηs , ξr ) +H+ ((ηr )t , ξu )
+      2 dt
+                                              −H− (U 3 −u3 , ξu ) + H+ (g(R) − g(r), ξr )                (4.11)
+
+                                                 − G − (U 2 R − u2 r, ξr ) −G + (R2 U −r 2 u, ξu ).
+
+Proof. Taking v = ξu , q = −ξr , and ψ = ξp in (4.4a)-(4.4c), respectively, and owing to
+(4.3), we have
+
+  ((ξm )t , ξu ) = H− (2κ2 ξu , ξu ) − H− (U 3 −u3 , ξu ) − H+ (ξp , ξu ) −G + (R2 U −r 2 u, ξu )       (4.12a)
+                          +
+                    + H (ξs , ξu ),
+      −(ξp , ξr ) = −(ηp , ξr ) − G − (U 2 R − u2 r, ξr ),                                              (4.12b)
+                        −
+        (ξr , ξp ) = −H (ξu , ξp ).                                                                     (4.12c)
+
+By summing up the above three equations in (4.12), and using Lemma 2.3, we get
+
+                ((ξm )t , ξu ) = H− (2κ2 ξu , ξu ) − H− (U 3 −u3 , ξu )+ H+ (ξs , ξu )
+                                                                                                         (4.13)
+                                 − (ηp , ξr ) − G − (U 2 R − u2 r, ξr ) −G + (R2 U −r 2 u, ξu ).
+
+Next, we choose ψ = −ξs and w = ξr in (4.4c) and (4.4e) respectively, to obtain
+
+                               −(ξr , ξs ) = H− (ξu , ξs ),                                             (4.14a)
+                                                              +
+                                 (ξs , ξr ) = (ηs , ξr ) + H (g(R) − g(r), ξr ).                        (4.14b)
+
+By summing up the above two equations in (4.14) and (4.13), and employing Lemma 2.3,
+we have
+      ((ξm )t , ξu ) = H− (2κ2 ξu , ξu ) − H− (U 3 −u3 , ξu )+ (ηs , ξr ) + H+ (g(R) − g(r), ξr )
+                                                                                                         (4.15)
+                      − (ηp , ξr ) − G − (U 2 R − u2 r, ξr ) −G + (R2 U −r 2 u, ξu ).
+
+
+
+                                                        11
+Next, we choose ψ = (ξr )t in (4.4c) and take the time derivative in (4.4d) and choose
+ϕ = −ξu . Owing to (4.3) we have
+
+                          (ξr , (ξr )t ) = −H− (ξu , (ξr )t ),
+                                                                                                       (4.16)
+       −((ξm )t , ξu ) + ((ξu )t , ξu ) = ((ηu )t , ξu ) + H+ ((ηr )t , ξu ) − H+ ((ξr )t , ξu ).
+
+By summing up the above two equations in (4.16), and employing Lemma 2.3, we get
+
+              (ξr , (ξr )t ) − ((ξm )t , ξu ) + ((ξu )t , ξu ) = ((ηu )t , ξu ) + H+ ((ηr )t , ξu ).   (4.17)
+
+Combining (4.13) and (4.17), we obtain (4.11).
+
+     It remains to control each contribution appearing on the right-hand side of the energy
+identity. We introduce the notation below to treat the linear projection terms and nonlinear
+consistency terms separately. Next, we need to estimate the terms on the right-hand side
+of (4.11) to obtain the estimate for ξu and ξr . Thus, we denote
+
+                    Θ1 := −(ηp , ξr ) + ((ηu )t , ξu ) + (ηs , ξr ) + H+ ((ηr )t , ξu );
+                    Θ2 := −H− (U 3 − u3 , ξu );
+                    Θ3 := H+ (g(R) − g(r), ξr );
+                    Θ4 := −G + (R2 U −r 2 u, ξu ) − G − (U 2 R − u2 r, ξr ).
+
+In the estimates of the Θ1 - Θ4 we assume k ≥ 1 and h < 1. In addition, under the
+smoothness assumption (4.1), the constant “C” in Lemma 4.3 - Lemma 4.7 depends on the
+smoothness of the exact solution and is independent of h.
+Lemma 4.3. (The estimate for Θ1 ) For k ≥ 1, we have the following estimates for the
+term Θ1
+
+                                  Θ1 ≤ Ckξu k2 + Ckξr k2 + Ch2k+2 ,                                    (4.18)
+
+where C is a constant independent of h.
+Proof. According to the projection properties (4.2), Lemma 2.3 and Corollary 4.1, we get
+the estimates for Θ1 .
+
+Lemma 4.4. (The estimate for Θ2 ) For k ≥ 1, we have the following estimates for the
+term Θ2
+
+                                  Θ2 ≤ Ckξu k2 + Ckξr k2 + Ch2k+2 ,                                    (4.19)
+
+where C is a constant independent of h.
+Proof. To estimate Θ2 , we ﬁrst rewrite the error U 3 − u3 in the following form:
+
+                                   U 3 − u3 = eu (3U 2 − 3U eu + e2u ),
+
+from which we get
+
+                     Θ2 = −H− (3U 2 eu , ξu ) + H− (3U e2u , ξu ) − H− (e3u , ξu ).                    (4.20)
+
+
+                                                       12
+For the ﬁrst term in (4.20), by Lemma 2.3, Corollary 4.1 and inverse inequality for ξu , we
+have
+
+                  −H− (3U 2 eu , ξu ) ≤ C(kηu k + h1/2 kηu k∂Ωh + kξu k)kξr k
+                                      ≤ Ckξu k2 + Ckξr k2 + Ch2k+2 .
+
+The last inequality is derived by the error estimate of projections (4.2). For the second
+term in (4.20), by Lemma 2.2, Lemma 2.4 and (2.10c), we have
+
+                kuk2∞ ≤ Ckuk(kuk + kux k + h−1/2 |[u]|) ≤ Ckuk(kuk + krk).
+
+From the energy stability result in Theorem 3.1 and the boundedness of projections (4.8)-
+(4.9), we obtain
+
+                    kuk2∞ ≤ C(ku(0)k + kr(0)k)2 ≤ C(kU0 k∞ + kU0′ k)2 .
+
+Thus we have an estimate for keu k∞ :
+
+                keu k∞ ≤ kU k∞ + kuk∞ ≤ kU k∞ + C(kU0 k∞ + kU0′ k) ≤ C.                 (4.21)
+
+Furthermore, by Lemma 2.3 and Corollary 4.1, we have
+
+                 H− (3U e2u , ξu ) ≤ C(ke2u k + h1/2 ke2u k∂Ωh )kξr k
+                                 ≤ C(keu k + h1/2 keu k∂Ωh )kξr k (by (4.21))
+                                 ≤ Ckξu k2 + Ckξr k2 + Ch2k+2 .
+
+For the third term in (4.20), we can do a similar analysis as that for the second term. This
+completes the proof.
+
+     To estimate Θ3 , we need to use an a priori assumption, which is usually used in error
+estimates for nonlinear equations. We assume that
+                                                         1
+                                          kR − rk ≤ h 2 .                               (4.22)
+
+Lemma 4.5. (The estimate for Θ3 ) For k ≥ 1, we have the following estimates for the
+term Θ3
+
+                                      Θ3 ≤ Ckξr k2 + Ch2k ,                             (4.23)
+
+where C is a constant independent of h.
+Proof. By Taylor expansion, we have
+                                     1
+       g(R) − g(r) = g ′ (R)(R − r) − g′′ (r + θ(R − r))(R − r)2 for some θ ∈ (0, 1).
+                                     2
+By (2.14), (4.2), and (4.22) we have
+
+                                      Θ3 ≤ C(kξr k2 + h2k ).
+
+
+
+                                                 13
+Remark 4.1. We note that, unlike in [35], estimating Θ2 does not require any a priori
+error assumptions. This is attributable to the polynomial nature of the nonlinearity and,
+more importantly, the intrinsic relation between u and r. Energy stability furnishes the
+requisite L∞ -boundedness of u, enabling us to control the higher-order terms present in Θ2 .
+Moreover, by invoking the relation between ξu and ξr once more, we readily handle both the
+derivative of ξu and the associated boundary terms, which renders the estimates signiﬁcantly
+more tractable.
+     In contrast, for Θ3 , we only possess boundedness of krkL2 rather than krkL∞ . Conse-
+quently, an a priori assumption on r is still required to manage the nonlinear terms g(r)—a
+strategy that is standard in error estimates for nonlinear equations. This assumption can
+be rigorously justiﬁed for k > 21 via a continuity argument, following the approach in [35].
+
+     The estimate for the Θ4 are very technical since they include nonlinear diﬀerential
+terms and nonlinear boundary terms. The main idea in our analysis is to make use of the
+nonlinear stability as given in (3.5). However, since the stability results are only valid for
+functions in Vhk , we need to decompose the error with the help of projections and use the
+following property
+
+                                  G − (ξr2 ξu , ξu ) + G + (ξu2 ξr , ξr ) = 0.               (4.24)
+
+We use the following lemma to estimate Θ4 .
+
+Lemma 4.6. (The estimate for Θ4 ) There exists a constant C independent of h, such
+that for k ≥ 1
+
+        Θ4 ≤ Ch−1 (kξr k4 + kξu k4 ) + C(kξr k2 + kξu k2 ) + Chk kξu k + Chk kξr k,          (4.25)
+
+where C is a constant independent of h.
+
+Proof. We recall the deﬁnition of Θ4 ,
+
+                       Θ4 = −G + (R2 U − r 2 u, ξu ) − G − (U 2 R − u2 r, ξr ).
+
+We perform an error decomposition to extract G + (ξr2 ξu , ξu ) and G − (ξu2 ξr , ξr ), and the sum-
+mation of these two terms will vanish due to (4.24).
+Step 1: Error decomposition.
+Firstly, we have
+
+                 R2 − r 2 = er (2R − er ) = ηr (2R − ηr ) + 2ηr ξr − 2Rξr − ξr2 .
+
+The projection errors ηu and ηr are high-order terms, since we have the projection error
+estimates (4.2). Therefore, we put together the terms containing projection errors and
+denote
+                               A1 = ηr (2R − ηr ) + 2ηr ξr .
+Therefore,
+
+               − (R2 U − r 2 u)
+             = − U (R2 − r 2 ) − R2 (U − u) + (U − u)(R2 − r 2 )
+
+                                                      14
+               = − U (A1 − 2Rξr − ξr2 ) − R2 ηu + R2 ξu + (ηu − ξu )(A1 − 2Rξr − ξr2 )
+              := Π1 + Π2 + ξu ξr2 ,
+
+where
+
+                         Π1 = −U A1 − R2 ηu + ηu (A1 − 2Rξr − ξr2 ) − ξu A1 ,
+                         Π2 = 2U Rξr + U ξr2 + R2 ξu + 2Rξr ξu .
+
+Similarly, we denote A2 = ηu (2U − ηu ) + 2ηu ξu , then
+
+                                    −(U 2 R − u2 r) := Π3 + Π4 + ξr ξu2 ,
+
+where
+
+                          Π3 = −RA2 − U 2 ηr + ηr (A2 − 2U ξu − ξu2 ) − ξr A2 ,
+                          Π4 = 2U Rξu + Rξu2 + U 2 ξr + 2U ξu ξr .
+
+Hence, we have
+
+             Θ4 = G + (Π1 + Π2 , ξu ) + G − (Π3 + Π4 , ξr ) + G + (ξr2 ξu , ξu ) + G − (ξu2 ξr , ξr )
+                 = G + (Π1 + Π2 , ξu ) + G − (Π3 + Π4 , ξr )
+
+After the error decomposition, we extract G + (ξr2 ξu , ξu ) and G − (ξu2 ξr , ξr ), and ensure that
+each term in Π1 and Π3 includes a projection error. Thus, it is easy to obtain the estimates
+for Π1 and Π3 by the projection properties and inverse inequalities. However, the terms in
+Π2 and Π4 should be treated carefully.
+Step 2: Estimates.
+The estimates for G + (Π1 , ξu ) + G − (Π3 , ξr ):
+     By the projection property (4.2) and inverse inequalities (2.11), we have
+                              1                1
+            kΠ1 k ≤ Chk+ 2 kξr k + Chk+ 2 kξu k + Chk kξr kkξu k + Chk kξr k2 + Chk+1 ,
+                              1                1
+            kΠ3 k ≤ Chk+ 2 kξr k + Chk+ 2 kξu k + Chk kξr kkξu k + Chk kξu k2 + Chk+1 .
+
+Therefore,
+
+                    G + (Π1 , ξu ) + G − (Π3 , ξr )
+                  ≤ Ch−1 kΠ1 kkξu k + Ch−1 kΠ3 kkξr k
+                  ≤ Ckξr k2 + Ckξu k2 + Chk kξu k + Chk kξr k + Ckξr k4 + Ckξu k4 .
+
+The estimates for G + (Π2 , ξu ) + G − (Π4 , ξr ):
+     By integration by parts, we have
+
+        G + (2U Rξr , ξu ) + G − (2U Rξu , ξr ) = −2((U R)x ξu , ξr ),
+        G + (U ξr2 + 2Rξr ξu , ξu ) + G − (Rξu2 + 2U ξr ξu , ξr ) = −(Ux ξr2 , ξu ) − (Rx ξu2 , ξr ) + Γ1 ,
+
+
+                                                        15
+where
+                 N 
+                 X                                                                          
+                                                                                   
+         Γ1 =              U {ξr }ξr+ + 2R{ξu }ξr+ [[ξu ]] + R{ξu }ξu− + 2U {ξr }ξu− [[ξr ]]
+                                                                                                  j+ 21
+                 j=1
+                     N 
+                     X                                                                    
+                 +          U (ξr− )2 ξu− − U (ξr+ )2 ξu+ + R(ξu− )2 ξr− − R(ξu+ )2 ξr+
+                                                                                          j+ 21
+                     j=1
+                 N 
+                 X                                      
+                     1
+             =             (U ξr+ + Rξu− )[[ξu ]][[ξr ]]            .
+                       2                                    j+ 21
+                 j=1
+
+By the Cauchy-Schwarz inequality, we have
+
+               G + (2U Rξr + U ξr2 + 2Rξr ξu , ξu ) + G − (2U Rξu + Rξu2 + 2U ξr ξu , ξr )
+             = − 2((U R)x ξu , ξr ) − (Ux ξr2 , ξu ) − (Rx ξu2 , ξr ) + Γ1
+             ≤ Ckξu kkξr k + kξr ξu k(kξu k + kξr k) + Γ1
+             ≤ Ch−1/2 (kξr k2 kξu k + kξu k2 kξr k) + C(kξr k2 + kξu k2 ) + Γ1
+             ≤ Ch−1 (kξr k4 + kξu k4 ) + C(kξr k2 + kξu k2 ) + Γ1 .
+
+Here we used the inverse inequality for kξu ξr k as follows:
+
+                                 kξu ξr k ≤ kξu k∞ kξr k ≤ Ch−1/2 kξu kkξr k.                             (4.26)
+
+ For Γ1 , by Corollary 4.1, the Cauchy-Schwarz inequality, and the inverse inequality, we
+have
+
+                                  Γ1 ≤ C(kξr k∞ + kξu k∞ )kξr kh−1/2 |[ξu ]|
+                                      ≤ Ch−1/2 (kξr k + kξu k)kξr k2
+                                      ≤ Ch−1 kξr k4 + C(kξr k2 + kξu k2 ).
+
+Finally, the integration by parts gives
+
+                                  G + (R2 ξu , ξu ) = −(RRx , ξu2 ) ≤ Ckξu k2 ,
+                                  G − (U 2 ξr , ξr ) = −(U Ux , ξr2 ) ≤ Ckξr k2 .
+
+Therefore,
+
+                                 G + (Π2 , ξu ) + G − (Π4 , ξr )
+                              ≤ Ch−1 (kξr k4 + kξu k4 ) + C(kξr k2 + kξu k2 ).
+
+This completes the proof.
+
+Lemma 4.7. For k ≥ 1, ξu and ξr satisfy
+                 d
+                    E(ξu , ξr ) ≤Ch−1 (kξr k4 + kξu k4 ) + C(kξr k2 + kξu k2 ) + Ch2k .                   (4.27)
+                 dt
+where C is a positive constant independent of h.
+
+                                                             16
+Proof. Since H− (2κ2 ξu , ξu ) ≤ 0 and by Lemma 4.2 and combining the estimates for Θ1 –
+Θ4 in Lemma 4.3 – Lemma 4.6, we have
+               d
+                  E(ξu , ξr ) ≤Ch−1 (kξr k4 + kξu k4 ) + C(kξr k2 + kξu k2 ) + Ch2k .
+               dt
+
+
+Lemma 4.8. If k ≥ 1, A(0) ≤ Ch2k+2 and A(t) satisﬁes the following inequality
+
+                          A′ (t) ≤ C(h−1 A2 + A + h2k ),       0 ≤ t ≤ T,                (4.28)
+
+where C is a constant independent of h and t. Then when h is small enough, we have
+
+                                   A(t) ≤ C̃h2k ,    0 ≤ t ≤ T,
+
+where C̃ is a constant independent of h and dependent on T .
+Proof. The proof of this lemma can be found in [30].
+
+    Finally, we present our main result in this section by the following Theorem.
+Theorem 4.1. Let (U, P, R, M, S) be the exact solution of the modiﬁed Camassa-Holm
+equation (1.1) satisfying the smoothness assumption (4.1), and let (u, p, r, m, s) be the nu-
+merical solution of the LDG scheme (2.4), then under the initial condition in Lemma 4.1
+and for k ≥ 1, we have
+                               kU − uk2 + kR − rk2 ≤ Ch2k ,                             (4.29)
+where C is a positive constant independent of h and dependent on the kU kL∞ ([0,T ],H k+3 (Ω)) .
+Proof. By using Lemma 4.7, Lemma 4.8, and the estimates for the initial condition in
+Lemma 4.1, we have
+
+                                        E(ξu , ξr ) ≤ Ch2k .
+
+Combining the approximation property for the projection error and using the triangle in-
+equality we get
+
+                  kU − uk + kR − rk ≤ kηu k + kηr k + kξu k + kξr k ≤ Chk .
+
+This completes the proof.
+
+
+5    Numerical experiments
+In this section, a collection of numerical tests is performed to examine the practical perfor-
+mance of the proposed LDG method and to compare the computational observations with
+the theoretical estimates. Unless explicitly stated otherwise, the temporal discretization is
+carried out by the classical fourth-order Runge–Kutta method under the time-step restric-
+tion ∆t = O(h). The numerical accuracy is evaluated through the discrete energy error
+p
+   E(U − u, R − r). The reported computations were partially carried out using the high-
+performance computing facilities of the State Key Laboratory of Scientiﬁc and Engineering
+Computing, Chinese Academy of Sciences.
+
+                                                17
+            2.6                                                           2.5
+                                                        α=0.8                                                          α=0.3
+                                                        α=0.7                                                          α=0.5
+            2.4                                         α=0.5                                                          α=0.7
+
+                                                                           2
+            2.2
+
+             2
+                                                                          1.5
+            1.8
+        u
+
+
+
+
+                                                                      u
+            1.6
+                                                                           1
+            1.4
+
+            1.2
+                                                                          0.5
+
+             1
+
+            0.8                                                            0
+                  -15   -10   -5   0   5      10   15                      -40        -20           0        20        40
+                                   x                                                                x
+
+
+
+
+Figure 1: Example 5.1: The exact solution at time T = 0.5 for α = 0.5, 0.7, 0.8 (left).
+Example 5.2: The exact solution at time T = 5.0 for α = 0.3, 0.5, 0.7 (right).
+
+
+Example 5.1. In this example, we consider a smooth soliton solution of (1.1) with κ = 0
+as shown in [23]. The exact solution can be written in the following form
+
+                                                        α2 c̃(a cosh(ξ − ξ0 ) + 1)
+                                       U = u0 +                                    ,
+                                                         u20 (cosh(ξ − ξ0 ) + a)2
+
+where
+                                                                √             √      
+                                           ξ                       1 − αeξ−ξ0 + 1 + α
+                              x − ct − x0 = + 2 ln               √             √        ,
+                                           α                       1 + αeξ−ξ0 + 1 − α
+with
+                                                                                           
+                         1                        2u30              1                1+α                  c̃
+                  a= √        ,            c̃ =        ,        ξ0 = ln                         ,   c=       + u20 .
+                       1 − α2                   1 − α2              2                1−α                 u0
+     The ﬁrst experiment is designed to assess the convergence behavior for smooth soli-
+tary waves. We choose u0 = 1, x0 = 0, and investigate three representative amplitudes,
+α = 0.5, 0.7, 0.8, on the uniform mesh over Ω = (−20, 20) until T = 0.5. The prescribed
+boundary data remain equal to the background state u0√    . Figure 1 (left) displays the cor-
+responding proﬁles. As α approaches the critical value 3/2, the wave crest becomes in-
+creasingly steep and the solution approaches a nonsmooth limiting state. The convergence
+tables demonstrate that the observed rates agree with the predicted k-th order accuracy
+for the regular cases. The mild oscillations of the rates for α = 0.8 are attributed to the
+proximity of the solution to the singular regime.
+
+Example 5.2. We consider the one-soliton solution of (1.1) with κ 6= 0 in [24]. The
+parametric representation of the one-soliton solution reads as
+
+                                                  4κ2 α             cosh ξ
+                                       U=                                        ,
+                                              (1 − (κα)2 )3/2 cosh 2ξ + 1+(κα)22
+                                                                                     1−(κα)
+
+
+                                                                 18
+                           α = 0.5              α = 0.7            α = 0.8
+                 N      Error    Order       Error    Order     Error    Order
+                 20   1.54E-01      –      7.61E-01      –    1.67E+00       –
+                 40   7.55E-02    1.03     4.47E-01    0.77   1.22E+00     0.45
+                 80   3.62E-02    1.06     2.19E-01    1.03   7.23E-01     0.76
+          P0
+                160   1.76E-02    1.04     9.90E-02    1.14   3.57E-01     1.02
+                320   8.68E-03    1.02     4.53E-02    1.13   1.58E-01     1.18
+                640   4.31E-03    1.01     2.15E-02    1.08   6.79E-02     1.22
+                 20   4.34E-02      –      1.81E-01      –    5.85E-01       –
+                 40   2.01E-02    1.11     1.05E-01    0.78   3.39E-01     0.79
+                 80   9.56E-03    1.08     5.47E-02    0.94   1.75E-01     0.95
+          P1
+                160   4.64E-03    1.04     2.76E-02    0.99   9.70E-02     0.85
+                320   2.28E-03    1.02     1.39E-02    0.99   4.22E-02     1.20
+                640   1.13E-03    1.01     6.95E-03    1.00   2.04E-02     1.05
+                 20   1.14E-02      –      1.38E-01      –    4.45E-01       –
+                 40   2.09E-03    2.45     4.81E-02    1.52   2.75E-01     0.70
+                 80   4.56E-04    2.19     8.83E-03    2.45   1.52E-01     0.86
+          P2
+                160   1.13E-04    2.02     1.31E-03    2.76   4.33E-02     1.81
+                320   2.82E-05    2.00     3.14E-04    2.06   4.13E-03     3.39
+                640   7.04E-06    2.00     7.81E-05    2.01   4.57E-04     3.18
+                 20   1.84E-03      –      5.50E-02      –    3.63E-01       –
+                 40   2.01E-04    3.19     7.63E-03    2.85   2.10E-01     0.79
+                 80   2.64E-05    2.93     7.74E-04    3.30   5.68E-02     1.89
+          P3
+                160   3.38E-06    2.97     9.62E-05    3.01   4.66E-03     3.61
+                320   4.27E-07    2.98     1.26E-05    2.94   1.98E-04     4.56
+                640   6.33E-08    2.75     1.60E-06    2.97   2.79E-05     2.83
+
+Table 1: Example 5.1: Errors and orders of the conservative scheme at the terminal time
+T = 0.5.
+
+where
+                                            ξ      1 − κα tanh ξ
+                           x − ct − x0 =      + ln
+                                           κα      1 + κα tanh ξ
+with
+                                              2κ2
+                                      c=
+                                           1 − (κα)2
+
+      The second experiment investigates a one-soliton solution with nonzero κ and provides
+an additional validation of the error analysis. We set x0 =    √ 0, κ = 1, and select α =
+0.3, 0.5, 0.7, for which the smoothness condition 0 < κα < 1/ 2(≃ 0.707) is satisﬁed. The
+computation is performed on Ω = (−20, 20) with compact-support boundary conditions and
+ﬁnal time T = 5.0. The exact wave proﬁles are plotted in Figure 1 (right). The convergence
+data in Tables 3 and 4 show that both conservative and dissipative schemes reproduce the
+theoretical k-th order convergence behavior.
+
+                                             19
+                              α = 0.5                      α = 0.7                      α = 0.8
+                 N         Error    Order               Error    Order               Error     Order
+                 20      1.71E-01      –              7.12E-01      –              1.45E+00       –
+                 40      9.60E-02    0.83             4.93E-01    0.53             1.16E+00     0.32
+                 80      5.06E-02    0.92             3.04E-01    0.70             8.54E-01     0.44
+          P0
+                160      2.59E-02    0.97             1.70E-01    0.84             5.61E-01     0.61
+                320      1.31E-02    0.98             8.95E-02    0.92             3.31E-01     0.76
+                640      6.59E-03    0.99             4.58E-02    0.97             1.79E-01     0.88
+                 20      3.85E-02      –              2.08E-01      –              6.48E-01       –
+                 40      1.73E-02    1.16             8.42E-02    1.31             2.93E-01     1.15
+                 80      8.51E-03    1.02             4.23E-02    0.99             1.42E-01     1.04
+          P1
+                160      4.25E-03    1.00             2.00E-02    1.08             7.10E-02     1.00
+                320      2.08E-03    1.03             8.25E-03    1.28             2.10E-02     1.75
+                640      9.81E-04    1.08             2.97E-03    1.48             7.00E-03     1.59
+                 20      9.63E-03      –              1.18E-01      –              3.67E-01       –
+                 40      1.71E-03    2.49             3.97E-02    1.58             2.14E-01     0.78
+                 80      4.21E-04    2.03             7.00E-03    2.50             1.06E-01     1.01
+          P2
+                160      1.08E-04    1.97             1.01E-03    2.79             2.53E-02     2.07
+                320      2.69E-05    2.00             2.16E-04    2.23             1.21E-03     4.39
+                640      6.59E-06    2.03             4.14E-05    2.38             1.16E-04     3.38
+                 20      1.48E-03      –              4.82E-02      –              2.95E-01       –
+                 40      1.82E-04    3.02             6.23E-03    2.95             1.57E-01     0.91
+                 80      2.49E-05    2.87             5.97E-04    3.38             4.21E-02     1.90
+          P3
+                160      3.17E-06    2.98             6.25E-05    3.26             1.88E-03     4.48
+                320      3.90E-07    3.02             5.85E-06    3.42             6.23E-05     4.92
+                640      5.67E-08    2.78             4.05E-07    3.85             6.35E-06     3.29
+
+Table 2: Example 5.1: Errors and orders of the dissipative scheme at the terminal time
+T = 0.5.
+
+Example 5.3. We consider the two-soliton solution of (1.1) with κ 6= 0 in [24]. The
+parametric representation reads as follows
+                                                ¯ 
+                                            1       f ḡ
+                                 u(y, t) =      ln       ,
+                                           2iκ      fg t
+                                           y      ḡg
+                                 x(y, t) = + ln ¯ ,
+                                           κ      ff
+where
+                                                                       2
+                              ξ1 +ψ1        ξ2 +ψ2            α1 − α2
+               f = 1 + i(e             +e            )−                      eξ1 +ξ2 +ψ1 +ψ2 ,
+                                                              α1 + α2
+                                                                       2
+                              ξ1 −ψ1    ξ2 −ψ2                α1 − α2
+               g = 1 + i(e             +e            )−                      eξ1 +ξ2 −ψ1 −ψ2 ,
+                                                              α1 + α2
+                                                                      s
+                                   2κ3                                      1 + καj
+               ξj = αj       y−             t ,               ψj = ln               ,     j = 1, 2.
+                                1 − (καj )2                                 1 − καj
+
+                                                          20
+                        α = 0.3              α = 0.5                  α = 0.7
+              N      Error    Order       Error    Order        N       Error    Order
+             160   3.07E-02      –      1.45E-01      –        160    7.16E-01      –
+             320   1.58E-02    0.96     7.64E-02    0.95       320    5.76E-01    0.31
+             640   8.07E-03    0.97     3.90E-02    0.97       640    4.54E-01    0.35
+     P1
+            1280   4.09E-03    0.98     1.97E-02    0.98      1280    3.20E-01    0.51
+            2560   2.06E-03    0.99     9.94E-03    0.99      2560    2.11E-01    0.60
+            5120   1.03E-03    0.99     4.98E-03    0.99      5120    1.28E-01    0.72
+             160   1.15E-03      –      2.35E-02      –       5120    8.80E-02      –
+             320   2.91E-04    1.99     3.43E-03    2.78     10240    1.73E-02    2.35
+             640   7.29E-05    2.00     8.08E-04    2.09     20480    6.83E-04    4.66
+     P2
+            1280   1.83E-05    2.00     2.00E-04    2.02     40960    1.46E-04    2.23
+            2560   4.58E-06    2.00     4.98E-05    2.00     81920    3.40E-05    2.10
+            5120   1.15E-06    2.00     1.24E-05    2.01    163840    8.43E-06    2.01
+             160   5.67E-05      –      1.72E-03      –        640    4.78E-01      –
+             320   7.60E-06    2.90     2.37E-04    2.85      1280    1.47E-01    1.70
+             640   9.73E-07    2.97     3.03E-05    2.97      2560    2.02E-02    2.87
+     P3
+            1280   1.22E-07    2.99     3.99E-06    2.92      5120    2.48E-03    3.02
+            2560   1.52E-08    3.00     5.10E-07    2.97     10240    3.49E-04    2.83
+            5120   1.90E-09    3.00     6.41E-08    2.99     20480    6.22E-05    2.49
+
+Table 3: Example 5.2: Errors and orders of the conservative scheme at the terminal time
+T = 5.0.
+
+     We test this example on uniform meshes for κ = 1, α1 = 0.7 and α2 = 0.5, which ensures
+the smoothness of the solution. The computational domain is taken as Ω = (−100, 100)
+with compact support boundary conditions and the terminal time T = 5. We show the
+exact solution at diﬀerent times in Figure 2. For k = 1, 2, 3, we also observe the k-th order
+convergence rates in Table 5.
+                                                                            q
+                                                                               3c −|x−ct|
+Example 5.4. We consider the one-peakon solution in [17] U (x, t) =            2e         with
+c = 1.0 of the mCH equation (1.1) with κ = 0, which is a right-going traveling wave
+solution and a single peakon solution. It is noted that the H 1 -norm is conserved for the
+one-peakon solution [2, 3, 4].
+     The computational domain is Ω = (−20, 20) with compact support boundary condi-
+tions, and the terminal time is T = 5.0. We plot the proﬁles of the numerical solutions at
+diﬀerent times for k = 3 on a uniform mesh with h = 6.25E-02, see Figure 3. We observe
+that the conservative LDG method can capture the peakon structure better than the dis-
+sipative LDG method for long-time evolution. We also show the diﬀerences E(0) − E(t)
+in Figure 3; it shows that the conservative scheme maintains the energy diﬀerence near
+machine precision, whereas the dissipative scheme dissipates energy monotonically.
+Example 5.5. Next, we consider the periodic peakon solution of the modiﬁed Camassa-
+Holm equation with κ = 0
+                    p
+          U (x, t) = 3c/(2 cosh(π)2 + 1) cosh(x − ct − 2π⌊(x − ct)/(2π)⌋ − π)
+
+                                             21
+                                                                                 2
+                                                                                                                                                                      T=0
+                                                                                                                                                                      T=5
+
+
+
+                                                                                1.5
+
+
+
+
+                                                                                 1
+
+
+
+                                                                           u
+                                                                                0.5
+
+
+
+
+                                                                                 0
+                                                                                                -50                        0                              50
+                                                                                                                           x
+
+
+
+
+                            Figure 2: Example 5.3: The exact solution at time T = 0 and T = 5
+
+
+
+
+                                               T=0.0                                                                       T=2.0                                                                     T=5.0
+         1.4                                                                              1.4                                                                             1.4
+                                      Ref                                                                         Ref                                                                       Ref
+         1.2                          LDG(c)                                              1.2                     LDG(c)                                                  1.2               LDG(c)
+                                      LDG(d)                                                                      LDG(d)                                                                    LDG(d)
+
+                1                                                                          1                                                                               1
+
+
+         0.8                                                                              0.8                                                                             0.8
+
+
+         0.6                                                                              0.6                                                                             0.6
+    u
+
+
+
+
+                                                                                      u
+
+
+
+
+                                                                                                                                                                      u
+
+
+
+
+         0.4                                                                              0.4                                                                             0.4
+
+
+         0.2                                                                              0.2                                                                             0.2
+
+
+                0                                                                          0                                                                               0
+
+
+       -0.2                                                                           -0.2                                                                             -0.2
+          -20             -15   -10     -5     0       5       10    15    20            -20          -15   -10     -5     0               5    10   15    20             -20   -15   -10       -5   0       5   10   15   20
+                                               x                                                                           x                                                                         x
+
+
+
+
+                    0.2                                                                                                             1.2E-08
+                                                   LDG(c)                                                                                                           LDG(c)
+                                                   LDG(d)
+                                                                                                                                           1E-08
+                0.15
+
+                                                                                                                                           8E-09
+
+                    0.1
+    E(0)-E(t)
+
+
+
+
+                                                                                                                               E(0)-E(t)
+
+
+
+
+                                                                                                                                           6E-09
+
+
+                                                                                                                                           4E-09
+                0.05
+
+                                                                                                                                           2E-09
+
+                     0
+                                                                                                                                               0
+
+
+                -0.05                                                                                                                      -2E-09
+                                          1                2               3          4                                                                         1           2               3            4
+                                                                    Time                                                                                                        Time
+
+
+
+
+Figure 3: Example 5.4: The numerical solutions u for k = 3 on a uniform mesh with h =
+6.25E-02.
+
+
+
+                                                                                                                           22
+                        α = 0.3             α = 0.5                  α = 0.7
+              N      Error    Order      Error    Order        N       Error     Order
+             160   3.09E-02      –     1.47E-01      –        160    7.17E-01       –
+             320   1.58E-02    0.96    7.64E-02    0.95       320    5.76E-01     0.31
+             640   8.07E-03    0.97    3.90E-02    0.97       640    4.54E-01     0.35
+     P1
+            1280   4.09E-03    0.98    1.97E-02    0.98      1280    3.20E-01     0.51
+            2560   2.06E-03    0.99    9.94E-03    0.99      2560    2.11E-01     0.60
+            5120   1.03E-03    0.99    4.98E-03    0.99      5120    1.28E-01     0.72
+             160   1.15E-03      –     2.35E-02      –       5120    8.80E-02       –
+             320   2.91E-04    1.99    3.43E-03    2.78     10240    1.73E-02     2.35
+             640   7.29E-05    2.00    8.08E-04    2.09     20480    6.83E-04     4.66
+     P2
+            1280   1.83E-05    2.00    2.00E-04    2.02     40960    1.46E-04     2.23
+            2560   4.58E-06    2.00    4.98E-05    2.00     81920    3.40E-05     2.10
+            5120   1.15E-06    2.00    1.24E-05    2.01    163840    8.43E-06     2.01
+             160   5.67E-05      –     1.72E-03      –        640    4.78E-01       –
+             320   7.60E-06    2.90    2.37E-04    2.85      1280    1.47E-01     1.70
+             640   9.73E-07    2.97    3.03E-05    2.97      2560    2.02E-02     2.87
+     P3
+            1280   1.22E-07    2.99    3.99E-06    2.92      5120    2.48E-03     3.02
+            2560   1.52E-08    3.00    5.10E-07    2.97     10240    3.49E-04     2.83
+            5120   1.90E-09    3.00    6.41E-08    2.99     20480    6.22E-05     2.49
+
+Table 4: Example 5.2: Errors and orders of the dissipative scheme at the terminal time
+T = 5.0.
+
+in [27]. The periodic domain is Ω = (−3π, 3π) and the terminal time is T = 5.0.
+
+    We solve this example by using the LDG method for k = 3 on a uniform mesh with N =
+1280. The proﬁles of the numerical solutions u at diﬀerent times are shown in Figure 4. The
+energy diﬀerence E(0)−E(t) versus time is also plotted in Figure 4. We again observe energy
+conservation and energy stability for the conservative and dissipative schemes, respectively.
+
+
+6    Concluding remarks
+In this work, we propose an LDG method for solving the mCH equation. For general solu-
+tions, we prove energy stability; for smooth solutions, we obtain an a priori error estimate.
+The nonlinear stability enables us to handle the nonlinear spatial discretization terms and
+to derive the optimal error estimate for k > 12 together with an a priori assumption on
+r. Our numerical results conﬁrm that the proposed schemes are of arbitrarily high order
+and can eﬀectively capture peakon solutions. The analysis presented here concerns only the
+semi-discrete scheme; the fully discrete version will be studied in our subsequent work.
+
+
+Acknowledgement
+We thank Professor Chi-Wang Shu for his valuable communications.
+
+
+
+                                             23
+                                                   T=1.0                                                                 T=2.0
+                 1.2                                                                        1.2
+                                     Ref                                                                   Ref
+                                     LDG(c)                                                                LDG(c)
+                   1                 LDG(d)                                                  1             LDG(d)
+
+
+                 0.8                                                                        0.8
+
+
+                 0.6                                                                        0.6
+         u
+
+
+
+
+                                                                                        u
+                 0.4                                                                        0.4
+
+
+                 0.2                                                                        0.2
+
+
+                   0                                                                         0
+
+
+                 -0.2                                                                    -0.2
+                                -5                 0           5                                      -5                 0           5
+                                                   x                                                                     x
+
+
+
+                                                   T=3.0                                                                 T=5.0
+                 1.2                                                                        1.2
+                                     Ref                                                                   Ref
+                                     LDG(c)                                                                LDG(c)
+                   1                 LDG(d)                                                  1             LDG(d)
+
+
+                 0.8                                                                        0.8
+
+
+                 0.6                                                                        0.6
+         u
+
+
+
+
+                                                                                        u
+
+
+
+
+                 0.4                                                                        0.4
+
+
+                 0.2                                                                        0.2
+
+
+                   0                                                                         0
+
+
+                 -0.2                                                                    -0.2
+                                -5                 0           5                                      -5                 0           5
+                                                   x                                                                     x
+
+
+
+
+                0.16                                                                4.5E-10
+
+                0.14                 LDG(c)                                             4E-10              LDG(c)
+                                     LDG(d)
+                                                                                    3.5E-10
+                0.12
+                                                                                        3E-10
+                 0.1
+                                                                                    2.5E-10
+    E(0)-E(t)
+
+
+
+
+                                                                            E(0)-E(t)
+
+
+
+
+                0.08
+                                                                                        2E-10
+                0.06
+                                                                                    1.5E-10
+                0.04
+                                                                                        1E-10
+                0.02
+                                                                                        5E-11
+
+                   0                                                                          0
+
+                -0.02                                                                   -5E-11
+                        0   1                 2            3       4   5                          0   1             2            3       4   5
+                                                  Time                                                                  Time
+
+
+
+
+Figure 4: Example 5.5: The numerical solutions u for k = 3 on a uniform mesh with
+N = 1280.
+
+
+
+
+                                                                           24
+                           The conservative scheme     The dissipative scheme
+                     N       Error       Order           Error       Order
+                   1000    2.95E-01         –          2.93E-01         –
+                   2000    1.81E-01       0.70         1.81E-01       0.70
+                   4000    9.96E-02       0.86         9.95E-02       0.86
+             P1
+                   8000    5.60E-02       0.83         5.60E-02       0.83
+                   16000   1.86E-02       1.59         1.86E-02       1.59
+                   32000   9.20E-03       1.02         9.20E-03       1.02
+                   1000    3.09E-01         –          3.06E-01         –
+                   2000    1.06E-01       1.54         1.06E-01       1.54
+                   4000    2.97E-02       1.83         2.97E-02       1.83
+             P2
+                   8000    2.55E-03       3.54         2.55E-03       3.54
+                   16000   3.58E-04       2.83         3.58E-04       2.83
+                   32000   8.66E-05       2.05         8.66E-05       2.05
+                   1000    7.49E-02         –          7.49E-02         –
+                   2000    1.77E-02       2.08         1.77E-02       2.08
+                   4000    2.17E-03       3.02         2.17E-03       3.02
+             P3
+                   8000    5.55E-05       5.29         5.55E-05       5.29
+                   16000   2.82E-06       4.30         2.82E-06       4.30
+                   32000   3.68E-07       2.94         3.68E-07       2.94
+
+Table 5: Example 5.3: Errors and orders of the conservative and dissipative schemes at the
+terminal time T = 5.0.
+
+References
+ [1] S. Anco and D. Kraus, Hamiltonian structure of peakons as weak solutions for the
+     modiﬁed Camassa–Holm equation, Discrete Contin. Dyn. Syst., 38 (2018), pp. 4449–
+     4465.
+
+ [2] X. Chang and J. Szmigielski, Lax integrability of the modiﬁed Camassa–Holm equation
+     and the concept of peakons, J. Nonlinear Math. Phys. 23 (2016), pp. 563–572.
+
+ [3] X. Chang and J. Szmigielski, Liouville integrability of conservative peakons for a mod-
+     iﬁed CH equation, J. Nonlinear Math. Phys. 24 (2017), pp. 584–595.
+
+ [4] X. Chang and J. Szmigielski, Lax integrability and the peakon problem for the modiﬁed
+     Camassa–Holm equation, Commun. Math. Phys. 358 (2018), pp. 295–341.
+
+ [5] X. Chang, X. Hu, J. Szmigielski, and A. Zhedanov, Isospectral ﬂows related to
+     Frobenius–Stickelberger–Thiele polynomials, Commun. Math. Phys. 377 (2020), pp.
+     387–419.
+
+ [6] X. Chang, Modiﬁed Camassa–Holm peakons, Plücker relations on Grassmannians, and
+     extreme degenerations, submitted.
+
+ [7] R. M. Chen, T. Hu, and Y. Liu, The shallow-water models with cubic nonlinearity, J.
+     Math. Fluid Mech., 24 (2022), 49.
+
+                                            25
+ [8] R. M. Chen, Y. Liu, C. Qu, and S. Zhang, Oscillation-induced blow-up to the modiﬁed
+     Camassa–Holm equation with linear dispersion, Adv. Math., 272 (2015), pp. 225–251.
+
+ [9] G. P. Ciarlet, The Finite Element Method for Elliptic Problems, North-Holland,
+     Amsterdam, 1978.
+
+[10] B. Cockburn and C.-W. Shu, TVB Runge–Kutta local projection discontinuous
+     Galerkin ﬁnite element method for conservation laws. II. General framework, Math.
+     Comput., 52 (1989), pp. 411–435.
+
+[11] B. Cockburn and C.-W. Shu, The local discontinuous Galerkin method for time-
+     dependent convection diﬀusion systems, SIAM J. Numer. Anal., 35 (1998), pp. 2440–
+     2463.
+
+[12] B. Cockburn and C.-W. Shu, The Runge–Kutta discontinuous Galerkin method for
+     conservation laws. V. Multidimensional systems, J. Comput. Phys., 141 (1998), pp.
+     199–224.
+
+[13] A. S. Fokas, On a class of physically important integrable equations, Phys. D 87 (1995),
+     pp. 145–150.
+
+[14] B. Fuchssteiner and A. S. Fokas, Symplectic structures, their Bäcklund transformations
+     and hereditary symmetries, Phys. D 4 (1981), pp. 47–66.
+
+[15] B. Fuchssteiner, Some tricks from the symmetry-toolbox for nonlinear equations: gen-
+     eralizations of the Camassa–Holm equation, Phys. D 95 (1996), pp. 229–243.
+
+[16] Y. Gao and J. Liu, The modiﬁed Camassa–Holm equation in Lagrangian coordinates,
+     Discrete Contin. Dyn. Syst. Ser. B, 23 (2018), pp. 2545–2592.
+
+[17] G. Gui, Y. Liu, P. J. Olver, and C. Qu, Wave-Breaking and peakons for a modiﬁed
+     Camassa–Holm equation, Commun. Math. Phys., 319 (2013), pp. 731–759.
+
+[18] D. I. Ketcheson, Relaxation Runge–Kutta methods: conservation and stability for
+     inner-product norms, SIAM J. Numer. Anal., 57 (2019), pp. 2850–2870.
+
+[19] J. Li, Y. Liu, and G. Zhu, Orbital stability of smooth solitons for the modiﬁed Camassa–
+     Holm equation, Adv. Math. 454 (2024), Paper No. 109870, 22 pp.
+
+[20] H. Liu and N. Ploymaklam, A local discontinuous Galerkin method for the Burgers-
+     Poisson equation, Numer. Math., 129 (2015), pp. 321–351.
+
+[21] J. Lu, Y. Xu, and C. Zhang, Error estimates of the local discontinuous Galerkin meth-
+     ods for two-dimensional (µ)-Camassa–Holm equations, J. Comput. Appl. Math., 420
+     (2023), 114722.
+
+[22] H. Lundmark and J. Szmigielski, A view of the peakon world through the lens of
+     approximation theory, Phys. D, 440 (2022), 133446.
+
+[23] Y. Matsuno, Bäcklund transformation and smooth multisoliton solutions for a modiﬁed
+     Camassa–Holm equation with cubic nonlinearity, J. Math. Phys., 54 (2013), 051504.
+
+                                             26
+[24] Y. Matsuno, Smooth and singular multisoliton solutions of a modiﬁed Camassa–Holm
+     equation with cubic nonlinearity and linear dispersion, J. Phys. A: Math. Theor., 47
+     (2014), 125203.
+
+[25] X. Niu, Q. Liu, and N. Li, Darboux and Bäcklund transformations approaches of the
+     modiﬁed Camassa–Holm equation, Lett. Math. Phys. 115 (2025), no. 4, Paper No. 82,
+     14 pp.
+
+[26] Z. Qiao, A new integrable equation with cuspons and W/M-shape-peaks solitons, J.
+     Math. Phys. 47 (2006), 112701.
+
+[27] C. Qu, X. Liu, and Y. Liu, Stability of peakons for an integrable modiﬁed Camassa–
+     Holm equation with cubic nonlinearity, Comm. Math. Phys., 322 (2013), pp. 967–997.
+
+[28] H. Sheng, G. Yu, and B. Feng, An integrable semidiscretization of the modiﬁed
+     Camassa–Holm equation with linear dispersion term, Stud. Appl. Math. 149 (2022),
+     no. 1, 230–265.
+
+[29] B. Feng, H. Hu, H. Sheng, W. Yin, and G. Yu, Integrable semi-discretization for a mod-
+     iﬁed Camassa–Holm equation with cubic nonlinearity, SIGMA Symmetry Integrability
+     Geom. Methods Appl. 20 (2024), Paper No. 091, 14 pp.
+
+[30] Q. Tao, X. Chang, Y. Liu, and C.-W. Shu, A local discontinuous Galerkin method for
+     the Novikov equation, Math. Comput., 94 (2025), pp. 1603–1631.
+
+[31] G. Wang, Q. Liu, and H. Mao, The modiﬁed Camassa–Holm equation: Bäcklund trans-
+     formation and nonlinear superposition formula, J. Phys. A: Math. Theor., 53 (2020),
+     294003.
+
+[32] H. Wang, C.-W. Shu, and Q. Zhang, Stability and error estimates of local discontinuous
+     Galerkin methods with implicit-explicit time-marching for advection-diﬀusion problems,
+     SIAM J. Numer. Anal., 53 (2015), pp. 206–227.
+
+[33] F. Wang, Q. Tao, and Y. Xu, The local discontinuous Galerkin method for the nonlinear
+     quantum Zakharov system, J. Comput. Appl. Math., 436 (2024), 115416.
+
+[34] Y. Xia, Y. Xu, and C.-W. Shu, Local discontinuous Galerkin methods for the generalized
+     Zakharov system, J. Comput. Phys., 229 (2010), pp. 1238–1259.
+
+[35] Y. Xu and C.-W. Shu, A local discontinuous Galerkin method for the Camassa-Holm
+     equation, SIAM J. Numer. Anal., 46 (2008), pp. 1998–2021.
+
+[36] Y. Xu and C.-W. Shu, Local discontinuous Galerkin methods for high-order time-
+     dependent partial diﬀerential equations, Commun. Comput. Phys., 7 (2010), pp. 1–46.
+
+[37] Y. Xu and C.-W. Shu, Local discontinuous Galerkin methods for the Degasperis-Procesi
+     equation, Commun. Comput. Phys., 10 (2011), pp. 474–508.
+
+[38] J. Yan and C.-W. Shu, A local discontinuous Galerkin method for KdV type equations,
+     SIAM J. Numer. Anal., 40 (2002), pp. 769–791.
+
+
+                                            27
+[39] Y. Yang, E. Fan and Y. Liu, On the global existence for the modiﬁed Camassa–Holm
+     equation, J. Lond. Math. Soc. (2) 112 (2025), no. 1, Paper No. e70232, 40 pp.
+
+[40] Q. Zhang and F. Gao, A fully-discrete local discontinuous Galerkin method for
+     convection-dominated Sobolev equation, J. Sci. Comput., 51 (2012), pp. 107–134.
+
+[41] C. Zhang, Y. Xu, and Y. Xia, Local discontinuous Galerkin methods for the µ-Camassa-
+     Holm and µ-Degasperis-Procesi equations, J. Sci. Comput., 79 (2019), pp. 1294–1334.
+
+
+
+
+                                           28
+

@@ -1,0 +1,2225 @@
+                                          An integrable semi-discretization of the Camassa-Holm
+                                          equation and its determinant solution
+                                                          Yasuhiro Ohta1 , Ken-ichi Maruno2 ‡ and Bao-Feng Feng2
+arXiv:0805.2843v2 [nlin.SI] 17 Jul 2008
+
+
+
+
+                                                          1 Department of Mathematics, Kobe University, Rokko, Kobe 657-8501, Japan
+                                                          2 Department of Mathematics, The University of Texas-Pan American, Edinburg, TX 78541
+
+
+
+                                                          Abstract. An integrable semi-discretization of the Camassa-Holm equation is presented.
+                                                          The keys of its construction are bilinear forms and determinant structure of solutions of the
+                                                          CH equation. Determinant formulas of N-soliton solutions of the continuous and semi-discrete
+                                                          Camassa-Holm equations are presented. Based on determinant formulas, we can generate
+                                                          multi-soliton, multi-cuspon and multi-soliton-cuspon solutions. Numerical computations
+                                                          using the integrable semi-discrete Camassa-Holm equation are performed. It is shown that the
+                                                          integrable semi-discrete Camassa-Holm equation gives very accurate numerical results even
+                                                          in the cases of cuspon-cuspon and soliton-cuspon interactions. The numerical computation for
+                                                          an initial value condition, which is not an exact solution, is also presented.
+
+                                                          3 November 2018
+
+                                                          PACS numbers: 02.30.Ik, 05.45.Yv
+
+
+
+                                          To be submitted to : J. Phys. A: Math. Gen.
+
+
+                                          1. Introduction
+
+                                          The Camassa-Holm (CH) equation
+                                                          wT + 2κ2 wX − wT XX + 3wwX = 2wX wXX + wwXXX .                                         (1.1)
+                                          has attracted considerable interest since it has been derived as a model equation for shallow-
+                                          water waves [1]. Here, w = w(X , T ), κ is a positive parameter and the subscripts T and X
+                                          appended to w(X , T ) denote partial differentiation. Originally, this equation has been found in
+                                          a mathematical search of recursion operators connected with the integrable partial differential
+                                          equations [2]. The CH equation has been shown to be completely integrable. In the case of
+                                          κ = 0, the CH equation admits peakon solutions which are represented by piecewise analytic
+                                          functions [3]. Schiff obtained single- and two-soliton solutions in a parametric form by using
+                                          the Bäcklund transformation [4]. An approach based on the inverse scattering transform
+                                          method (IST) provides an explicit form of the inverse mapping in terms of Wronskian
+                                          [5, 6, 7, 8]. The N-soliton solution was also constructed by using the Hirota bilinear method
+                                          [9, 10, 11, 12] (See also [13]). The key point of computations of the N-soliton solution by
+                                          ‡ e-mail: kmaruno@utpa.edu
+An integrable semi-discretization of the Camassa-Holm equation                                  2
+
+the Hirota bilinear method in those papers is the relationship between the CH equation and
+the AKNS shallow water wave equation [14]. When κ 6= 0, cusped solitary wave solutions,
+as well as analytic soliton solutions, were found in [15, 16, 17]. In [18, 19], the interaction of
+cusped soliton (cuspon) was studied in detail.
+     It is extremely difficult to perform numerical computations of the CH equation due to the
+singularities of cuspon and peakon solutions. So far, several numerical computations of the
+CH equation were presented [20, 21, 22, 23, 24, 25, 26]. However, none of these numerical
+methods gives satisfactory results for soliton-cuspon and cuspon-cuspon interactions.
+     Integrable discretizations of soliton equations have received considerable attention
+recently [27, 28]. Ablowitz and Ladik proposed how to construct integrable discrete analogues
+of soliton equations based on Lax pairs [29, 30]. Hirota proposed another method to construct
+integrable discrete analogues of soliton equations based on bilinear equations [31, 32, 33].
+Applications of integrable discretizations of soliton equations were considered in various
+fields [34, 35, 36].
+     The purpose in the present paper is to present an integrable semi-discretization of the
+CH equation through a bilinear approach and to perform numerical computations by using
+integrable scheme. We show that the integrable scheme gives very accurate numerical results
+even for the soliton-solition and cuspon-cuspon interactions.
+     The outline of this paper is as follows. In §2, we give bilinear forms and a determinant
+formula of the N-soliton solution of equation (1.1). As far as we are concerned, bilinear
+forms directly related to the CH equation have not been known yet. These bilinear forms
+can help us to understand mathematical structure of the CH equation more thoroughly. Based
+on these bilinear equations, we obtain the determinant formula for the CH equation by using
+determinant technique [37, 38, 39, 40]. In §3, we give an integrable semi-discrete Camassa-
+Holm equation and its determinant formula of the N-soliton solution. In §4, we present results
+of numerical computations by using the proposed integrable semi-discrete CH equation.
+
+2. Bilinear equations and determinant formulas of the Camassa-Holm equation
+
+In this section, we give bilinear equations and the N-soliton solution of the CH equation. All of
+the existing works in constructing N-soliton solutions of the CH equation using Hirota bilinear
+method take advantage of the relationship between the CH equation and the AKNS shallow
+water wave equation [9, 10, 11, 12, 14]. So far, the bilinear forms which are directly related to
+the CH equation remain unknown. In the present paper, we give bilinear equations obtained
+from the CH equation directly and derive the determinant solution by using the determinant
+technique. Our formulation in this section is crucial for the derivation of integrable semi-
+discretization of the CH equation.
+An integrable semi-discretization of the Camassa-Holm equation                                3
+
+Lemma 2.1. Bilinear equations
+                            
+                  1
+            
+                   Dt Dx − 1 f · f = −gh ,
+                  2
+            
+            
+            
+                1
+            
+            
+             Dt (Dy − 2cDx ) f · f = −Dx g · h ,
+            
+            
+                2                                                                          (2.1)
+                1
+            
+                 Ds Dx f · f = Dt g · h ,
+                2
+            
+            
+                                         
+                  1
+            
+            
+                    Ds (Dy − 2cDx ) − 2 f · f = (Dt Dx − 2)g · h ,
+            
+            
+            
+                  2
+have a determinant solution
+
+                                     f = τ0 ,              g = τ1 ,            h = τ−1 ,
+                                               (n)        (n+1)                (n+N−1)
+                                     ψ1                  ψ1          · · · ψ1
+                                      (n)                 (n+1)             (n+N−1)
+                                     ψ2                  ψ2          · · · ψ2
+                                 τn = .                     ..                 ..   ,
+                                      ..                     .                  .
+                                               (n)        (n+1)                (n+N−1)
+                                              ψN         ψN          · · · ψN
+where
+                                         = ai,1 (pi − c)n eξi + ai,2 (qi − c)n eηi ,
+                                  (n)
+                                ψi
+                                                              1          1
+                              ξi = pi x + p2i y +                 t+           s + ξi0 ,
+                                                           pi − c    (pi − c)2
+                                                              1          1
+                               ηi = qi x + q2i y +                t+           s + ηi0 .
+                                                           qi − c    (qi − c)2
+
+Proof. Consider the following Casorati determinant solution,
+                          (n)        (n+1)                    (n+N−1)
+                        ψ1        ψ1               · · · ψ1
+                          (n)        (n+1)                    (n+N−1)
+                        ψ2        ψ2               · · · ψ2
+              τn =       ..              ..                     ..         ,               (2.2)
+                          .               .                      .
+                          (n)        (n+1)                    (n+N−1)
+                        ψN        ψN               · · · ψN
+        (n)
+where ψi ’s are arbitrary functions of four continuous independent variables, x, y, t and s,
+which satisfy linear dispersion relations,
+                  (n)           (n+1)              (n)
+              ∂x ψi     = ψi             + cψi ,                                           (2.3)
+                  (n)              (n)
+              ∂y ψi     = ∂2x ψi ,
+                               (n+2)               (n+1)             (n)
+                        = ψi            + 2cψi             + c2 ψi ,                       (2.4)
+                  (n)  (n−1)
+              ∂t ψi = ψi     ,                                                             (2.5)
+                  (n)  (n−2)
+              ∂s ψi = ψi     .                                                             (2.6)
+                         (n)
+Thus we can choose ψi          as follows:
+
+                                         = ai,1 (pi − c)n eξi + ai,2 (qi − c)n eηi ,
+                                  (n)
+                                ψi
+An integrable semi-discretization of the Camassa-Holm equation                                          4
+                                                           1          1
+                                  ξi = pi x + p2i y +          t+           s + ξi0 ,
+                                                        pi − c    (pi − c)2
+                                                           1          1
+                                  ηi = qi x + q2i y +          t+           s + ηi0 .
+                                                        qi − c    (qi − c)2
+For simplicity, we introduce a convenient notation,
+                          (n )       (n )           (n )
+                          ψ1 1     ψ1 2     · · · ψ1 N
+                           (n )     (n )           (n )
+                          ψ2 1     ψ2 2     · · · ψ2 N
+|n1 , n2 , · · · , nN | =   ..       ..             .. .                                           (2.7)
+                             .        .              .
+                          (n )       (n )           (n )
+                    ψN 1 ψN 2 · · · ψN N
+In this notation, the solution for the above bilinear forms, τn , is rewritten as
+                   τn = |n, n + 1, · · ·, n + N − 1| .                                             (2.8)
+We show that the above τn actually satisfies the bilinear equations (2.1) by using the Laplace
+expansion technique [39, 40].
+    The differential formulas for τ are given by
+(∂x − Nc)τn = |n, n + 1, · · ·, n + N − 2, n + N| ,                                                (2.9)
+
+(∂y − 2c∂x + Nc2 )τn = |n, n + 1, · · ·, n + N − 2, n + N + 1|
+   − |n, n + 1, · · ·, n + N − 3, n + N − 1, n + N| ,                                             (2.10)
+
+∂t τn = |n − 1, n + 1, · · ·, n + N − 1| ,                                                        (2.11)
+
+∂s τn = |n − 2, n + 1, · · ·, n + N − 1| − |n − 1, n, n + 2, · · ·, n + N − 1| ,                  (2.12)
+
+(∂t (∂x − Nc) − 1)τn = |n − 1, n + 1, · · ·, n + N − 2, n + N| ,                                  (2.13)
+
+∂t (∂y − 2c∂x + Nc2 )τn = |n − 1, n + 1, · · ·, n + N − 2, n + N + 1|
+   − |n − 1, n + 1, · · ·, n + N − 3, n + N − 1, n + N| ,                                         (2.14)
+
+∂s (∂x − Nc)τn = |n − 2, n + 1, · · ·, n + N − 2, n + N|
+   − |n − 1, n, n + 2, · · ·, n + N − 2, n + N| ,                                                 (2.15)
+
+(∂s (∂y − 2c∂x + Nc2 ) − 2)τn = |n − 2, n + 1, · · ·, n + N − 2, n + N + 1|
+   − |n − 1, n, n + 2, · · ·, n + N − 2, n + N + 1| − |n − 2, n + 1, · · ·, n + N − 3, n + N − 1, n + N|
+   + |n − 1, n, n + 2, · · ·, n + N − 3, n + N − 1, n + N| ,                                      (2.16)
+which are proved by using the linear dispersion relations (2.3)-(2.6). (See Appendix)
+
+The first equation of eqs. (2.1)
+Let us introduce an identity for 2N × 2N determinant,
+    n−1        n+1       ··· n+N −2            n+N         n             Ø              n+N −1
+                                                                                                 = 0.
+    n−1                  Ø                     n+N         n    n+1 ··· n+N −2          n+N −1
+An integrable semi-discretization of the Camassa-Holm equation                                          5
+
+Applying the Laplace expansion to the left-hand side, we obtain the algebraic bilinear identity
+for determinants,
+ |n − 1, n + 1, · · ·, n + N − 2, n + N| × |n, n + 1, · · ·, n + N − 2, n + N − 1|
+−|n, n + 1, · · ·, n + N − 2, n + N| × |n − 1, n + 1, · · ·, n + N − 2, n + N − 1|
++|n + 1, · · ·, n + N − 2, n + N − 1, n + N| × |n − 1, n, n + 1, · · ·, n + N − 2| = 0,             (2.17)
+which is rewritten by using (2.8), (2.9), (2.11) and (2.13), into the differential bilinear
+equation,
+              (∂t (∂x − Nc) − 1)τn × τn − (∂x − Nc)τn × ∂t τn + τn+1 τn−1 = 0 ,
+i.e.,
+                            (∂t ∂x τn − τn ) τn − ∂t τn ∂x τn + τn+1 τn−1 = 0 .
+Setting n = 0, f = τ0 , g = τ1 , h = τ−1 , the above bilinear equation leads to the first equation
+of (2.1).
+
+The second equation of eqs. (2.1)
+Let us introduce two identities for 2N × 2N determinants,
+   n−1      n+1 ··· n+N −3              n+N −1        n+N        n                Ø
+                                                                                                    = 0,
+   n−1                         Ø                      n+N        n    n+1 ··· n+N −1
+
+  n−1      n+1      ··· n+N −2          n+N +1                       Ø                     n+N −1
+                                                                                                    = 0.
+  n−1               Ø                   n+N +1        n n+1 ··· n+N −2                     n+N −1
+Applying the Laplace expansion to the left-hand side, we obtain the algebraic bilinear
+identities for determinants,
+   |n − 1, n + 1, · · ·, n + N − 3, n + N − 1, n + N| × |n, n + 1, · · ·, n + N − 2, n + N − 1|
+− |n, n + 1, · · ·, n + N − 3, n + N − 1, n + N| × |n − 1, n + 1, · · ·, n + N − 2, n + N − 1|
++ |n − 1, n, n + 1, · · ·, n + N − 3, n + N − 1| × |n + 1, n + 2, · · ·, n + N − 1, n + N| = 0,
+                                                                                                    (2.18)
+
+   |n − 1, n + 1, · · ·, n + N − 2, n + N + 1| × |n, n + 1, · · ·, n + N − 2, n + N − 1|
+− |n, n + 1, · · ·, n + N − 2, n + N + 1| × |n − 1, n + 1, · · ·, n + N − 2, n + N − 1|
++ |n + 1, · · ·, n + N − 1, n + N + 1| × |n − 1, n, n + 1, · · ·, n + N − 3, n + N − 2| = 0 .
+                                                                                                    (2.19)
+Taking the difference of these two bilinear identities, it is rewritten by using (2.8)-(2.11) and
+(2.14) into the differential bilinear equation,
+                 ∂t (∂y − 2c∂x + Nc2 )τn × τn − (∂y − 2c∂x + Nc2 )τn × ∂t τn
+                        + (∂x − Nc)τn+1 × τn−1 − τn+1 (∂x − Nc)τn−1 = 0 ,
+An integrable semi-discretization of the Camassa-Holm equation                                                6
+
+i.e.,
+
+    (∂t ∂y τn )τn − ∂y τn ∂t τn − 2c((∂t ∂x τn )τn − ∂x τn ∂t τn ) + (∂x τn+1 )τn−1 − τn+1 (∂x τn−1 ) = 0 ,
+
+which is nothing but the second equation of (2.1).
+
+The third equation of eqs. (2.1)
+Let us introduce two identities for 2N × 2N determinants,
+    n−2      n+1 ··· n+N −2                n+N       n               Ø                   n+N −1
+                                                                                                      = 0,
+                       Ø                   n+N       n       n+1     ··· n+N −2          n+N −1
+
+ n−1      n n+2 ··· n+N −2                   n+N       n+1                     Ø                   n+N −1
+                                                                                                                  = 0.
+                         Ø                   n+N       n+1       n   n+2 ··· n+N −2                n+N −1
+Applying the Laplace expansion to the left-hand side, we obtain the algebraic bilinear
+identities for determinants,
+   |n − 2, n + 1, n + 2, · · ·, n + N − 2, n + N| × |n, n + 1, · · ·, n + N − 2, n + N − 1|
+− |n − 2, n + 1, n + 2, · · ·, n + N − 2, n + N − 1| × |n, n + 1, n + 2, · · ·, n + N − 2, n + N|
++ |n − 2, n, n + 1, n + 2, · · ·, n + N − 2| × |n + 1, n + 2, · · ·, n + N − 2, n + N − 1, n + N| = 0,
+                                                                                                       (2.20)
+
+   |n − 1, n, n + 2, · · ·, n + N − 2, n + N| × |n, n + 1, · · ·, n + N − 2, n + N − 1|
+− |n − 1, n, n + 2, · · ·, n + N − 2, n + N − 1| × |n, n + 1, n + 2, · · ·, n + N − 2, n + N|
++ |n − 1, n, n + 1, n + 2, · · ·, n + N − 2| × |n, n + 2, · · ·, n + N − 2, n + N − 1, n + N| = 0 .
+                                                                                                       (2.21)
+Taking the difference of these two bilinear identities, it is rewritten by using (2.12) and (2.15)
+into the differential bilinear equation,
+
+          ∂s (∂x − Nc)τn × τn − ∂s τn × (∂x − Nc)τn + (∂t τn−1 )τn+1 − τn−1 (∂t τn+1 ) = 0 ,
+
+i.e.,
+                    (∂s ∂x τn )τn − ∂s τn ∂x τn − (∂t τn+1 )τn−1 + τn+1 (∂t τn−1 ) = 0 .
+Setting n = 0, f = τ0 , g = τ1 , h = τ−1 , the above bilinear equation leads to the third equation
+in (2.1).
+
+The fourth equation of eqs. (2.1)
+Let us introduce four identities for 2N × 2N determinants,
+  n−2      n+1 ··· n+N −2                n+N +1          n                         Ø
+                                                                                                        = 0,
+  n−2                Ø                   n+N +1          n    n+1 ··· n+N −2               n+N −1
+An integrable semi-discretization of the Camassa-Holm equation                                          7
+    n−2       n+1      ··· n+N −3           n+N −1         n+N        n             Ø
+                                                                                                 = 0,
+    n−2                           Ø                        n+N        n       n+1   ··· n+N −1
+  n−1       n n+2         ··· n+N −2           n+N +1          n+1                   Ø
+                                                                                                  = 0,
+  n−1                     Ø                    n+N +1          n+1        n   n+2 ··· n+N −1
+ n−1       n n+2         ··· n+N −3           n+N −1         n+N          n+1              Ø
+                                                                                                            = 0.
+ n−1                     Ø                                   n+N          n+1   n n+2 ··· n+N −1
+Applying the Laplace expansion to the left-hand side, we obtain the algebraic bilinear
+identities for determinants,
+   |n − 2, n + 1, · · ·, n + N − 2, n + N + 1| × |n, n + 1, · · ·, n + N − 2, n + N − 1|
+− |n, n + 1, · · ·, n + N − 2, n + N + 1| × |n − 2, n + 1, · · ·, n + N − 2, n + N − 1|
++ |n − 2, n, n + 1, · · ·, n + N − 2| × |n + 1, · · ·, n + N − 2, n + N − 1, n + N + 1| = 0,
+                                                                                                 (2.22)
+
+   |n − 2, n + 1, · · ·, n + N − 3, n + N − 1, n + N| × |n, n + 1, · · ·, n + N − 1|
+− |n, n + 1, · · ·, n + N − 3, n + N − 1, n + N| × |n − 2, n + 1, · · ·, n + N − 1|
++ |n − 2, n, n + 1, · · ·, n + N − 3, n + N − 1| × |n + 1, · · ·, n + N − 1, n + N| = 0,
+                                                                                                 (2.23)
+
+   |n − 1, n, n + 2, · · ·, n + N − 2, n + N + 1| × |n, n + 1, · · ·, n + N − 1|
+− |n, n + 1, · · ·, n + N − 2, n + N + 1| × |n − 1, n, n + 2, · · ·, n + N − 1|
++ |n − 1, n, n + 1, · · ·, n + N − 2| × |n, n + 2, · · ·, n + N − 1, n + N + 1| = 0,
+                                                                                                 (2.24)
+
+   |n − 1, n, n + 2, · · ·, n + N − 3, n + N − 1, n + N| × |n, n + 1, · · ·, n + N − 1|
+− |n, n + 1, · · ·, n + N − 3, n + N − 1, n + N| × |n − 1, n, n + 2, · · ·, n + N − 1|
++ |n − 1, n, n + 1, · · ·, n + N − 3, n + N − 1| × |n, n + 2, · · ·, n + N − 1, n + N| = 0.
+                                                                                                 (2.25)
+Taking an appropriate linear combination of these four bilinear identities, it is rewritten by
+using (2.16) into the differential bilinear equation,
+(∂s (∂y − 2c∂x + Nc2 ) − 2)τn × τn − (∂y − 2c∂x + Nc2 )τn × ∂s τn + ∂t τn−1 × (∂x − Nc)τn+1
+− (∂t (∂x − Nc) − 1)τn−1 × τn+1 − τn−1 (∂t (∂x − Nc) − 1)τn+1 + (∂x − Nc)τn−1 × ∂t τn+1 = 0 ,
+i.e.,
+(∂s ∂y τn )τn − ∂y τn ∂s τn − 2c((∂s ∂x τn )τn − ∂x τn ∂s τn ) − 2τn τn
+− (∂t ∂x τn+1 )τn−1 + ∂x τn+1 ∂t τn−1 + ∂t τn+1 ∂x τn−1 − τn+1 ∂t ∂x τn−1 + 2τn+1 τn−1 = 0,
+which leads to the fourth equation in (2.1).
+An integrable semi-discretization of the Camassa-Holm equation                          8
+
+Theorem 2.2. Bilinear equations
+                              
+              −     1
+                       Dt Dx − 1 f · f = gh ,
+             
+                     2
+             
+             
+                2c f f = (Dx + 2c)g · h ,                                           (2.26)
+             
+             
+             
+                −2 f f = (Dt Dx + 2cDt − 2)g · h ,
+             
+
+have a determinant solution
+
+                                    f = τ0 ,          g = τ1 ,      h = τ−1 ,
+                                             (n)     (n+1)           (n+N−1)
+                                  ψ1                ψ1        · · · ψ1
+                                   (n)               (n+1)           (n+N−1)
+                                  ψ2                ψ2        · · · ψ2
+                              τn = .                   ..               ..   ,
+                                   ..                   .                .
+                                             (n)     (n+1)           (n+N−1)
+                                        ψN          ψN        · · · ψN
+where
+                                    = ai,1 (pi − c)n eξi + ai,2 (−pi − c)n eηi ,
+                              (n)
+                             ψi
+                                                      1          1
+                                  ξi = pi x +             t+           s + ξi0 ,
+                                                   pi − c    (pi − c)2
+                                                       1          1
+                              ηi = −pi x −                 t+           s + ηi0 .
+                                                    pi + c    (pi + c)2
+
+Proof. In the previous Lemma, apply the 2-reduction condition
+
+                                                     qi = −pi .
+
+This condition gives a constraint
+                                                      Dy = 0 ,
+into bilinear equations. Thus we have
+                              
+                     1
+                       Dt Dx − 1 f · f = −gh ,
+                
+                
+                
+                
+                
+                
+                    2
+                 cD D f · f = D g · h ,
+                     t   x               x
+                                                                                    (2.27)
+                1
+               
+                  Ds Dx f · f = Dt g · h ,
+                 2
+               
+               
+               
+               
+                (−cD D − 2) f · f = (D D − 2)g · h .
+                       s x                  t x
+
+After simple manipulations, we have
+                              
+                      1
+               − 2 Dt Dx − 1 f · f = gh ,
+              
+              
+              
+                 2c f f = (Dx + 2c)g · h ,                                          (2.28)
+              
+              
+              
+                 −2 f f = (Dt Dx + 2cDt − 2)g · h .
+              
+
+Let us consider a determinant solution. When we apply the 2-reduction condition
+
+                                                     qi = −pi ,
+An integrable semi-discretization of the Camassa-Holm equation                      9
+
+on the determinant solution in the previous Lemma, we will have
+                                      (n)      (n+1)           (n+N−1)
+                                ψ1            ψ1       · · · ψ1
+                                 (n)           (n+1)          (n+N−1)
+                                ψ2            ψ2       · · · ψ2
+                            τn = .               ..              ..   ,
+                                 ..               .               .
+                                      (n)      (n+1)           (n+N−1)
+                                    ψN        ψN       · · · ψN
+where
+                                 = ai,1 (pi − c)n eξi + ai,2 (−pi − c)n eηi ,
+                           (n)
+                          ψi
+                                        1          1
+                               ξi = pi x +  t+           s + ξi0 ,
+                                     pi − c    (pi − c)2
+                                         1          1
+                         ηi = −pi x −        t+           s + ηi0 .
+                                      pi + c    (pi + c)2
+Thus the theorem was proved.
+
+Theorem 2.3. The CH equation
+
+                     (∂T + w∂X )(wXX − w) + 2wX wXX − w − κ2 = 0 ,
+                                                            
+
+i.e.,
+                     wT + 2κ2 wX − wT XX + 3wwX = 2wX wXX + wwXXX ,
+where κ2 = 1/c, is decomposed into bilinear equations
+                               
+                       1
+               − 2 Dt Dx − 1 f · f = gh ,
+              
+              
+              
+                  2c f f = (Dx + 2c)g · h ,                                     (2.29)
+              
+              
+              
+                  −2 f f = (Dt Dx + 2cDt − 2)g · h ,
+              
+
+through the hodograph transformation
+                                 (                        g
+                                             X = 2cx + log ,
+                                                          h
+                                             T =t,
+and the dependent variable transformation
+                                                 g
+                                             w = log     .
+                                                     h t
+
+Proof. Consider the dependent variable transformation
+                                               g            h
+                                         u=      ,     v=     .
+                                               f            f
+From bilinear equations (2.29), we obtain
+               
+               
+                 −((log f )xt − 1) = uv ,
+               
+                  2c = (Dx + 2c)u · v ,                                         (2.30)
+               
+               
+                  −2 = (Dt Dx + (2 log f )xt + 2cDt − 2)u · v .
+               
+An integrable semi-discretization of the Camassa-Holm equation                                10
+
+Eliminating (log f )xt from the third equation using the first equation in (2.30), we obtain
+               (
+                   2c = (Dx + 2c)u · v ,
+                                                                                           (2.31)
+                   −2 = (Dt Dx + 2cDt − 2uv)u · v .
+Thus we have
+                       u          
+               2c = log          + 2c uv ,
+                             v x                                                      (2.32)
+               −2 = (log uv)xt + log u
+                                             u            u            
+                                                log     + 2c log       − 2uv uv .
+                                          v x       v t            v t
+                u
+                  
+Eliminating log v x + 2c from the second equation using the first equation in (2.32), we have
+                             u            
+                      2c = log
+                                        + 2c uv ,
+                                    v x                       
+                                             2c  u 
+                      −2 = (log uv)xt +
+                                                log     − 2uv uv .
+                                             uv      v t
+Introducing new dependent variables
+                                     u g                     gh
+                                φ=    = ,         ρ = uv =      ,
+                                     v h                     f2
+we have
+               
+                2c = (log φ) + 2c ,
+                             x
+                 ρ                                                                         (2.33)
+                 −2 = ρ(logρ)xt + 2c(log φ)t − 2ρ2 .
+               
+
+Let                                               g
+                                   w = (log φ)t = log     .
+                                                      h t
+From the first equation in (2.33), we obtain
+                                      (log φ)xt   ρ           ρ
+                      −(log ρ)t =                = (log φ)xt = wx .
+                                    2c + (log φ)x 2c          2c
+Thus we have
+                               ρ
+               
+                −(log ρ)t = wx ,
+               
+                               2c                                                          (2.34)
+                 ρ                 1 1
+               
+                   (log ρ)xt + w + = ρ2 .
+                 2c                c c
+                                               ρ
+Replacing (log ρ)t in the second equation by − 2c wx using the first equation, we obtain
+                                             ρ
+                             
+                              −(log ρ)t = wx ,
+                             
+                                            2c
+                                   ρ ρ              1 1
+                              −
+                                        wx + w + = ρ2 .
+                                  2c 2c      x        c c
+Consider the hodograph transformation
+                                  (
+                                     X = 2cx + log φ ,
+                                     T =t.
+An integrable semi-discretization of the Camassa-Holm equation                             11
+
+Then we have
+  ∂X                        g         f 2 2c                  ∂X              g
+     = 2c + (log φ)x = 2c + log     = 2c = ,                       = (log φ)t = log     = w,
+  ∂x                            h x     gh    ρ                 ∂t                  h t
+                                 
+                                  ∂ = 2c ∂ ,
+                                     x      X
+                                          ρ
+                                  ∂ = ∂ + w∂ .
+                                            t     T       X
+
+Using these results, we obtain
+                −(∂T + w∂X ) log ρ = wX ,
+               
+
+                                                                                        (2.35)
+                −wXX + w + 1 = 1 ρ2 .
+                                c c
+Eliminating ρ from the first equation using the second equation in eqs.(2.35), we obtain
+                                                        
+                                                       1
+                         (∂T + w∂X ) log −wXX + w +        = −2wX .
+                                                       c
+
+Thus we finally obtain the CH equation
+                                                            
+                                                           1
+                      (∂T + w∂X )(wXX − w) + 2wX wXX − w −     = 0.
+                                                           c
+
+The theorem was approved.
+     Furthermore we have the following theorem.
+Corollary 2.4. The CH equation has a determinant form of N-soliton solutions.
+Proof. From Theorem 2.2 and 2.3, the proof is obvious.
+
+
+3. A semi-discrete Camassa-Holm equation
+
+Lemma 3.1. Bilinear equations
+                             
+                  1 − ac
+                         Dt − 1 f (k + 1, l) · f (k, l) = −g(k + 1, l)h(k, l) ,
+            
+            
+            
+            
+            
+                  a          
+            
+                 1 − bc
+                         Dt − 1 f (k, l + 1) · f (k, l) = −g(k, l + 1)h(k, l) ,
+            
+            
+            
+                 b                                                                     (3.1)
+                  1 − ac
+                         Ds − Dt f (k + 1, l) · f (k, l) = Dt g(k + 1, l) · h(k, l) ,
+            
+            
+            
+            
+            
+                  a           
+            
+                 1 − bc
+                         Ds − Dt f (k, l + 1) · f (k, l) = Dt g(k, l + 1) · h(k, l) ,
+            
+            
+            
+                    b
+have a determinant solution
+
+               f (k, l) = τ0 (k, l) ,   g(k, l) = τ1 (k, l) ,   h(k, l) = τ−1 (k, l) ,
+An integrable semi-discretization of the Camassa-Holm equation                                                  12
+                                    (n)             (n+1)                  (n+N−1)
+                              ψ1 (k, l) ψ1      (k, l) · · · ψ1       (k, l)
+                               (n)       (n+1)                (n+N−1)
+                              ψ (k, l) ψ2       (k, l) · · · ψ2       (k, l)
+                   τn (k, l) = 2 .           ..                   ..         ,
+                                   ..         .                    .
+                                    (n)             (n+1)                  (n+N−1)
+                                   ψN (k, l) ψN             (k, l) · · · ψN          (k, l)
+where
+
+ ψi (k, l) = ai,1 (pi − c)n (1 − api )−k (1 − bpi )−l eξi + ai,2 (qi − c)n (1 − aqi )−k (1 − bqi )−l eηi ,
+  (n)
+
+
+                                               1          1
+                                     ξi =          t+           s + ξi0 ,
+                                            pi − c    (pi − c)2
+                                               1          1
+                                    ηi =           t+           s + ηi0 .
+                                            qi − c    (qi − c)2
+
+Proof. Consider the following Casorati determinant solution,
+                                    (n)             (n+1)                  (n+N−1)
+                              ψ1 (k, l) ψ1      (k, l) · · · ψ1       (k, l)
+                               (n)       (n+1)                (n+N−1)
+                              ψ (k, l) ψ2       (k, l) · · · ψ2       (k, l)
+                   τn (k, l) = 2 .           .                    .          ,
+                                   ..        ..                   ..
+                                    (n)             (n+1)                  (n+N−1)
+                                   ψN (k, l) ψN             (k, l) · · · ψN          (k, l)
+          (n)
+where ψi ’s are arbitrary functions of two continuous independent variables, t and s, and two
+discrete independent variables, k and l, which satisfy the linear dispersion relations,
+                      (n)      (n+1)         (n)
+                 ∆k ψi      = ψi       + cψi ,                                                               (3.2)
+                      (n)  (n+1)      (n)
+                 ∆l ψi = ψi       + cψi ,                                                                    (3.3)
+                     (n)  (n−1)
+                 ∂t ψi = ψi      ,                                                                           (3.4)
+                     (n)  (n−2)
+                 ∂s ψi = ψi      ,                                                                           (3.5)
+                                                            ψ(k,l)−ψ(k−1,l)                  ψ(k,l)−ψ(k,l−1)
+where ∆k and ∆l are defined as ∆k ψ(k, l) =                        a        and ∆l ψ(k, l) =        b        ,
+                                            (n)
+respectively. Thus we can choose ψi               as follows:
+
+    ψi (k, l) = (pi − c)n (1 − api )−k (1 − bpi )−l eξi + (qi − c)n (1 − aqi )−k (1 − bqi )−l eηi ,
+        (n)
+
+
+                                               1          1
+                                     ξi =          t+           s + ξi0 ,
+                                            pi − c    (pi − c)2
+                                               1          1
+                                    ηi =           t+           s + ηi0 .
+                                            qi − c    (qi − c)2
+     We use the following notation for simplicity:
+                                                        (n )              (n )                    (n )
+                                                            ψ1 1 (k1 , l1 ) ψ1 2 (k2 , l2 ) · · · ψ1 N (kN , lN )
+                                                             (n )            (n )                  (n )
+                                                            ψ 1 (k1 , l1 ) ψ2 2 (k2 , l2 ) · · · ψ2 N (kN , lN )
+                 |n1k1 ,l1 , n2k2 ,l2 , · · · , nNkN ,lN | = 2 .                  ..                    ..        .
+                                                                  ..               .                     .
+                                                        (n )              (n )                    (n )
+                                                       ψN 1 (k1 , l1 ) ψN 2 (k2 , l2 ) · · · ψN N (kN , lN )
+An integrable semi-discretization of the Camassa-Holm equation                                              13
+
+In this notation, τn (k, l) is rewritten as
+                 τn (k, l) = |nk,l , n + 1k,l , · · · , n + N − 1k,l | ,
+or suppressing the index k and l,
+                 τn (k, l) = |n, n + 1, · · ·, n + N − 1| .
+
+
+The first equation of eqs. (3.1)
+By using the Casoratian technique developed in [37] and [38], it is possible to derive the
+following differential and difference formulas for the τ function,
+               τn−1 (k, l) = |n − 1, n, · · ·, n + N − 2|,                                               (3.6)
+                                        1
+               τn (k + 1, l) =                     |nk+1 , n + 1, · · ·, n + N − 2, n + N − 1k+1 |,
+                                (1 − ac)N−2
+                             1
+                   =                  |n, · · ·, n + N − 2, n + N − 1k+1 |,                              (3.7)
+                      (1 − ac)N−1
+                                            1
+               τn+1 (k + 1, l) =                      |n + 1, · · ·, n + N − 1, n + Nk+1 |,
+                                   (1 − ac)N−1
+                              1
+                   =                   |n + 1, · · ·, n + N − 1, n + N − 1k+1 |,                         (3.8)
+                      a(1 − ac)N−2
+               ∂t τn = |n − 1, n + 1, · · ·, n + N − 2, n + N − 1| ,                                     (3.9)
+               1 − ac                               1
+                       τn (k + 1, l) =                       |n, · · ·, n + N − 2, n + N − 1k+1 | ,     (3.10)
+                   a                      a(1 − ac)N−2
+               1 − ac
+                       ∂t τn (k + 1, l) − τn(k + 1, l)
+                   a
+                           1 − ac
+                   =                   |n − 1k+1 , n + 1, · · ·, n + N − 2, n + N − 1k+1 |
+                      a(1 − ac)N−2
+                   − |nk+1 , n + 1k+1 , · · · , n + N − 2k+1 , n + N − 1k+1 |
+                              1
+                   =                   |n − 1, n + 1, · · ·, n + N − 2, n + N − 1k+1 |
+                      a(1 − ac)N−2
+                             1
+                   +                 |nk+1 , n + 1, · · ·, n + N − 2, n + N − 1k+1 |
+                     (1 − ac)N−2
+                             1
+                   −                 |nk+1 , n + 1, · · ·, n + N − 2, n + N − 1k+1 |
+                     (1 − ac)N−2
+                              1
+                   =                   |n − 1, n + 1, · · ·, n + N − 2, n + N − 1k+1 | ,                (3.11)
+                      a(1 − ac)N−2
+Let us introduce an identity for 2N × 2N determinant,
+ n + 1k    · · · n + N − 2k        n + N − 1k        n + N − 1k+1          n − 1k   nk            Ø
+                                                                                                                     = 0.
+            Ø                      n + N − 1k        n + N − 1k+1          n − 1k   nk   n + 1k   · · · n + N − 2k
+Applying the Laplace expansion to the left-hand side, we obtain the algebraic bilinear identity
+for determinants,
+  |n − 1, n + 1, · · ·, n + N − 2, n + N − 1k+1 | × |n, n + 1, · · ·, n + N − 2, n + N − 1|
+An integrable semi-discretization of the Camassa-Holm equation                                           14
+
+−|n, n + 1, · · ·, n + N − 2, n + N − 1k+1 | × |n − 1, n + 1, · · ·, n + N − 2, n + N − 1|
++|n + 1, · · ·, n + N − 2, n + N − 1, n + N − 1k+1 | × |n − 1, n, n + 1, · · ·, n + N − 2| = 0,     (3.12)
+which is rewritten into the differential bilinear equation,
+                                       
+  1 − ac                                            1 − ac
+         ∂t τn (k + 1, l) − τn(k + 1, l) τn (k, l)−        τn (k+1, l)∂t τn (k, l)+τn+1 (k+1, l)τn−1 (k, l) = 0 .
+    a                                                 a
+
+Setting n = 0, f = τ0 , g = τ1 , h = τ−1 , the above bilinear equation leads to the first equation
+in (3.1).
+
+The second equation of eqs. (3.1)
+The proof is similar to the proof of the first equation.
+
+The third equation of eqs. (3.1)
+We use the following differential and difference formulas for the τ function
+                τn−1 (k, l) = |n − 1, n, · · ·, n + N − 2|,                                               (3.13)
+                τn (k + 1, l) = |nk+1 , n + 1k+1 , · · · , n + N − 2k+1 , n + N − 1k+1 |,                 (3.14)
+                τn+1 (k + 1, l) = |n + 1k+1 , · · · , n + N − 1k+1 , n + Nk+1 |,
+                           1
+                    = − |n + 1k+1 , · · ·, n + N − 1k+1 , n + N − 1|,                                     (3.15)
+                           a
+                ∂t τn (k, l) = |n − 1, n + 1, · · ·, n + N − 2, n + N − 1| ,                              (3.16)
+                1 − ac                   1
+                         τn (k + 1, l) = |n, n + 1k+1 , · · ·, n + N − 2k+1 , n + N − 1k+1 |
+                    a                    a
+                        1
+                    = |nk+1 , n + 1, n + 2k+1 , · · · , n + N − 2k+1 , n + N − 1k+1 | ,                   (3.17)
+                        a
+                ∂t τn (k + 1, l) = |n − 1k+1 , n + 1k+1 , · · · , n + N − 2k+1 , n + N − 1k+1 | ,         (3.18)
+                ∂t τn+1 (k + 1, l) = |nk+1 , n + 2k+1 , · · ·, n + N − 1k+1 , n + Nk+1 |                  (3.19)
+                         1
+                    = − |nk+1 , n + 2k+1 , · · · , n + N − 1k+1 , n + N − 1| ,                            (3.20)
+                         a
+                ∂t τn−1 (k, l) = |n − 2, n, · · ·, n + N − 3, n + N − 2| ,                                (3.21)
+                ∂s τn (k, l) = |n − 2, n + 1, · · ·, n + N − 2, n + N − 1|
+                    + |n, n − 1, n + 2, · · ·, n + N − 2, n + N − 1| ,                                      (3.22)
+                 1 − ac                      1 − ac
+                        ∂s τn (k + 1, l) =          |n − 2k+1 , n + 1k+1 , · · · , n + N − 2k+1 , n + N − 1k+1 |
+                   a                            a
+                      1 − ac
+                    +          |nk+1 , n − 1k+1 , n + 2k+1 , · · ·, n + N − 2k+1 , n + N − 1k+1 | ,
+                         a
+                    = |n − 1k+1 , n + 1k+1 , · · ·, n + N − 2k+1 , n + N − 1k+1 |
+                      1
+                    + |n − 2, n + 1k+1 , · · · , n + N − 2k+1 , n + N − 1k+1 |
+                      a
+                      1
+                    − |n − 1, nk+1 , n + 2k+1 , · · · , n + N − 2k+1 , n + N − 1k+1 | ,                     (3.23)
+                      a
+An integrable semi-discretization of the Camassa-Holm equation                                              15
+
+      Let us introduce following identities for 2N × 2N determinant,
+ n − 1k   nk+1    n + 2k+1   · · · n + N − 1k+1        nk    n + 1k             Ø                  n + N − 1k
+                                                                                                                 = 0,
+ n − 1k                       Ø                        nk    n + 1k    n + 2k   · · · n + N − 2k   n + N − 1k
+
+and
+ n − 2k    n + 1k+1     · · · n + N − 1k+1        nk                  Ø                   n + N − 1k
+                                                                                                          = 0.
+ n − 2k                  Ø                        nk        n + 1k    · · · n + N − 2k    n + N − 1k
+Applying the Laplace expansion to the left-hand side, we obtain the algebraic bilinear
+identities for determinants, we obtain the algebraic bilinear identities for determinants,
+ |n − 1, nk+1 , n + 2k+1 , · · ·, n + N − 1k+1 | × |n, n + 1, n + 2, · · ·, n + N − 2, n + N − 1|
+−|n, nk+1 , n + 2k+1 , · · ·, n + N − 1k+1 | × |n − 1, n + 1, · · ·, n + N − 2, n + N − 1|
++|n + 1, nk+1 , n + 2k+1 , · · ·, n + N − 1k+1 | × |n − 1, n, n + 2, · · ·, n + N − 2, n + N − 1|
+−|nk+1 , n + 2k+1 , · · · , n + N − 1k+1 , n + N − 1| × |n − 1, n, n + 1, n + 2, · · ·, n + N − 2|
+  = 0,                                                                                                  (3.24)
+and
+ |n − 2, n + 1k+1 , · · · , n + N − 1k+1 | × |n, n + 1, n + 2, · · ·, n + N − 2, n + N − 1|
+−|n, n + 1k+1 , · · · , n + N − 1k+1 | × |n − 2, n + 1, · · ·, n + N − 2, n + N − 1|
++|n + 1k+1 , · · ·, n + N − 1k+1 , n + N − 1| × |n − 2, n, n + 1, · · ·, n + N − 2|
+  = 0,                                                                                                  (3.25)
+By dividing the difference of above two equations by a, we arrive at a bilinear equation
+               1 − ac                             1 − ac
+                       ∂s τn (k + 1, l)τn(k, l) −        τn (k + 1, l)∂sτn (k, l)
+                  a                                 a
+               − ∂t τn (k + 1, l)τn(k, l) + τn(k + 1, l)∂t τn (k, l)
+                 − ∂t τn+1 (k + 1, l)τn−1(k, l) + τn+1 (k + 1, l)∂t τn−1 (k, l) = 0 .
+Setting n = 0, f = τ0 , g = τ1 , h = τ−1 , the above bilinear equation leads to the third equation
+in (3.1).
+
+The fourth equation of eqs. (3.1)
+The proof is similar to the proof of the third equation.
+
+Theorem 3.2. Bilinear equations
+                             
+                  1 − ac
+                         Dt − 1 fk+1 · fk = −gk+1 hk ,
+             
+             
+             
+             
+             
+                  a          
+             
+                 1 + ac
+                         Dt − 1 fk+1 · fk = −gk hk+1 ,
+             
+             
+             
+                 a                                                                                    (3.26)
+                  1 − ac
+                         Ds − Dt fk+1 · fk = Dt gk+1 · hk ,
+             
+             
+             
+             
+             
+                  a           
+             
+                 1 + ac
+                         Ds + Dt fk+1 · fk = Dt gk · hk+1 ,
+             
+             
+             
+                    a
+An integrable semi-discretization of the Camassa-Holm equation                                         16
+
+have a determinant solution
+
+                f (k, l) = τ0 (k, 0) ,       g(k, l) = τ1 (k, 0) ,      h(k, l) = τ−1 (k, 0) ,
+                                    (n)            (n+1)                  (n+N−1)
+                               ψ1 (k, l) ψ1      (k, l) · · · ψ1       (k, l)
+                                (n)       (n+1)                (n+N−1)
+                               ψ (k, l) ψ2       (k, l) · · · ψ2       (k, l)
+                    τn (k, l) = 2 .           .                    .
+                                    ..        ..                   ..
+                                    (n)            (n+1)                  (n+N−1)
+                                  ψN (k, l) ψN             (k, l) · · · ψN          (k, l)
+where
+
+ψi (k, l) = ai,1 (pi − c)n (1 − api )−k (1 + api )−l eξi + ai,2 (−pi − c)n (1 + api )−k (1 − api )−l eηi ,
+ (n)
+
+
+                                            1          1
+                                     ξi =       t+           s + ξi0 ,
+                                         pi − c    (pi − c)2
+                                             1          1
+                                   ηi = −        t+           s + ηi0 .
+                                          pi + c    (pi + c)2
+Proof. Applying the 2-reduction condition
+
+                                            qi = −pi ,      b = −a ,
+
+the τ function satisfies
+                                                              1
+                           τn (k + 1, l + 1) = N                           τn (k, l) .
+                                                 ∏(1 − api)(1 + api)
+                                                 i=1
+
+Let
+                          fk = f (k, 0) ,       gk = g(k, 0) ,         hk = h(k, 0) ,
+Then                                    
+                            1 − ac
+                                    Dt − 1 fk+1 · fk = −gk+1 hk ,
+                       
+                       
+                       
+                       
+                       
+                             a          
+                        1 + ac
+                       
+                                    Dt − 1 fk+1 · fk = −gk hk+1 ,
+                       
+                       
+                       
+                           a              
+                            1 −  ac
+                                    Ds − Dt fk+1 · fk = Dt gk+1 · hk ,
+                       
+                       
+                       
+                       
+                       
+                             a           
+                       
+                           1 +  ac
+                                    Ds + Dt fk+1 · fk = Dt gk · hk+1 .
+                       
+                       
+                       
+                               a
+Let us consider a determinant solution. When we apply the 2-reduction condition
+
+                                            qi = −pi ,      b = −a ,
+
+on the determinant solution in the previous Lemma, we will have
+                                    (n)            (n+1)                  (n+N−1)
+                               ψ1 (k, l) ψ1      (k, l) · · · ψ1       (k, l)
+                                (n)       (n+1)                (n+N−1)
+                               ψ (k, l) ψ2       (k, l) · · · ψ2       (k, l)
+                    τn (k, l) = 2 .           .                    .
+                                    ..        ..                   ..
+                                    (n)            (n+1)                  (n+N−1)
+                                  ψN (k, l) ψN             (k, l) · · · ψN          (k, l)
+An integrable semi-discretization of the Camassa-Holm equation                                         17
+
+where
+
+ψi (k, l) = ai,1 (pi − c)n (1 − api )−k (1 + api )−l eξi + ai,2 (−pi − c)n (1 + api )−k (1 − api )−l eηi ,
+ (n)
+
+
+                                             1          1
+                                   ξi =          t+           s + ξi0 ,
+                                          pi − c    (pi − c)2
+                                              1          1
+                                 ηi = −           t+           s + ηi0 .
+                                           pi + c    (pi + c)2
+Thus the theorem was proved.
+       We propose a semi-discrete analogue of the CH equation
+                                                                  !
+                                    1              κ 2 κ4 δ2 − 4a2
+                        ∆ wk = M δk Mwk +
+                           2                              k
+                                                                    ,
+                                   δk               δk κ4 − a2
+                       
+
+                                        δ2
+                                  
+                        ∂t δk = 1 − k δk ∆wk ,
+                       
+                       
+                       
+                                        4
+where a difference operator ∆ and an average operator M are defined as
+                                      Fk+1 − Fk                    Fk+1 + Fk
+                             ∆Fk =              ,        MFk =               .
+                                         δk                            2
+
+Theorem 3.3. The semi-discrete CH equation
+                                                           !
+                        1                   κ 2 κ4 δ2 − 4a2
+              ∆ wk = M δk Mwk +
+                2                                  k
+                                                             ,
+                        δk                  δk κ4 − a2
+             
+                                                                                                   (3.27)
+                             δ2k
+                                
+              ∂t δk = 1 −         δk ∆wk ,
+             
+             
+             
+                             4
+is decomposed into bilinear equations
+                                
+                    1 −  ac
+                            Dt − 1 fk+1 · fk = −gk+1 hk ,
+              
+              
+              
+                  a
+              
+              
+                                 
+              
+                   1 + ac
+                            Dt − 1 fk+1 · fk = −gk hk+1 ,
+              
+              
+              
+                  a                                                                              (3.28)
+                    1 − ac
+                            Ds − Dt fk+1 · fk = Dt gk+1 · hk ,
+              
+              
+              
+              
+              
+                     a           
+               1 + ac
+              
+                            Ds + Dt fk+1 · fk = Dt gk · hk+1 ,
+              
+              
+              
+                       a
+through the transformation
+                                                       4a
+                               δk =                                            ,
+                                      (κ2 + a) gfk+1 hk
+                                                 k+1 f k
+                                                                      k hk+1
+                                                         + (κ2 − a) gfk+1 fk
+
+and                                                   
+                                                    gk
+                                           wk = log      .
+                                                    hk t
+where κ2 = 1/c .
+An integrable semi-discretization of the Camassa-Holm equation                               18
+
+Proof. Let us start from bilinear equations (3.28). By simple manipulation of eqs. (3.28), we
+obtain
+                         
+                    1
+          −2 a Dt − 1 fk+1 · fk = gk+1 hk + gk hk+1 ,
+         
+         
+         
+
+            2ac fk+1 fk = (1 + ac)gk+1 hk − (1 − ac)gk hk+1 ,
+         
+         
+             −2a fk+1 fk = ((1 + ac)Dt − a)gk+1 · hk − ((1 − ac)Dt + a)gk · hk+1 .
+         
+
+Let
+                                          gk             hk
+                                   uk =      ,    vk =      .
+                                          fk             fk
+Then we have
+                                      
+                      1       f k+1
+                 −2       log         − 1 = uk+1 vk + uk vk+1 ,
+               
+               
+                      a          fk t
+               
+               
+               
+               
+                2ac = (1 + ac)uk+1 vk − (1 − ac)uk vk+1 ,
+               
+               
+               
+                                                                                          (3.29)
+                                                                   
+                                           uk+1             fk+1
+                −2a = (1 + ac)        log         + log               − a uk+1 vk
+                                             vk  t           fk  t
+               
+               
+               
+                                                                      
+               
+                                           u k            f k+1
+                     − (1 − ac)       log          − log               + a uk vk+1 .
+               
+               
+               
+                                           vk+1 t             fk t
+Substituting the first equation into the third equation in eqs.(3.29), we obtain
+           
+           
+              2ac = (1 + ac)uk+1 vk − (1 − ac)uk vk+1 ,
+                                                                             
+            −2a = (1 + ac)u v log uk+1 − (1 − ac)u v                         uk
+           
+           
+           
+                                  k+1 k                           k k+1 log
+                                                  vk t                       vk+1 t
+                        a
+                     − (uk+1 vk + uk vk+1 )((1 + ac)uk+1 vk + (1 − ac)uk vk+1 )
+           
+           
+           
+           
+           
+                       2
+                     + a2 c(uk+1 vk − uk vk+1 ) .
+           
+
+Simplifying the above equations, we have
+               
+               
+                 2ac = (1 + ac)uk+1 vk − (1 − ac)uk vk+1 ,
+               
+                                                                         
+               
+                         1                                      uk+1 vk+1
+                  −2a = ((1 + ac)uk+1 vk + (1 − ac)uk vk+1 ) log                          (3.30)
+                         2                                      uk vk    t
+               
+                                u    u
+                                   k+1 k
+                       + ac log            − 2auk+1 vk+1 uk vk ,
+               
+               
+                                 vk+1 vk t
+               
+
+Let
+                                  uk gk                         gk hk
+                           φk =      = ,         ρk = uk vk =         .
+                                  vk  hk                         fk2
+From the first equation in (3.30), we obtain
+         2ac               φk+1                     2ac                           φk
+                = (1 + ac)      − (1 − ac) ,               = (1 + ac) − (1 − ac)      .
+        uk vk+1             φk                     uk+1 vk                       φk+1
+Multiplying these two equations, we obtain
+
+             (2ac)2              φk+1                                   φk
+                                                                         
+                    = (1 + ac)        − (1 − ac)   (1 + ac) − (1 − ac)        .
+            ρk+1 ρk               φk                                   φk+1
+An integrable semi-discretization of the Camassa-Holm equation                               19
+
+From the second equation of (3.30), we obtain
+                                                 ρk+1
+                                                     
+         1
+  −2a = ((1 + ac)uk+1 vk + (1 − ac)uk vk+1 ) log        + ac (log φk+1 φk )t − 2aρk+1 ρk .
+         2                                        ρk t
+Thus we have
+                                                ρk+1
+                                                    
+       (1 + ac)uk+1 vk + (1 − ac)uk vk+1                1                 1 1
+                                            log        + (log φk+1 φk )t + = ρk+1 ρk .
+                      4ac                        ρk t 2                   c c
+Let us define a lattice parameter
+                                                   4ac
+                            δk =                                      .
+                                    (1 + ac)uk+1 vk + (1 − ac)uk vk+1
+Then
+                     (1 + ac)uk+1 vk − (1 − ac)uk vk+1     (1 + ac)gk+1hk − (1 − ac)gk hk+1
+                δk = 2                                 =2
+                     (1 + ac)uk+1 vk + (1 − ac)uk vk+1     (1 + ac)gk+1hk + (1 − ac)gk hk+1
+                                                     1 + ac φk+1
+                                                                 −1
+                     (1 + ac)φk+1 − (1 − ac)φk       1 − ac φk
+                  =2                            =2                  .
+                     (1 + ac)φk+1 + (1 − ac)φk       1 + ac φk+1
+                                                                 +1
+                                                     1 − ac φk
+Thus we have
+                                                         δk
+                                       φk+1 1 − ac 1 + 2
+                                            =               ,
+                                        φk     1 + ac    δk
+                                                      1−
+                                                          2
+where a lattice parameter δk is a function depending on (k,t). The lattice parameter
+               ∂X      2c                                                               K−1
+corresponds to      =     = 2c + (log φ)x in the continuous case. At time t, X = X0 + ∑ δk is
+                ∂x     ρ                                                                k=0
+a x-coordinate of the k-th lattice point. Thus we have the following system:
+                    (2ac)2                 φk+1                                    φk
+                                                                                   
+                            = (1 + ac)          − (1 − ac)    (1 + ac) − (1 − ac)        ,
+               
+                   ρk+1 ρk                  φk                                    φk+1
+               
+               
+               
+               
+                             ρk+1
+                                 
+                    1                    1                1 1
+               
+                                      + (log φk+1 φk )t + = ρk+1 ρk ,
+               
+                        log
+               
+                   δk         ρk t 2
+               
+               
+                                                          c c                              (3.31)
+                           1 +  ac φ k+1
+                                         − 1
+               
+                           1 − ac φk
+               
+               
+                   δk = 2
+               
+                                             .
+               
+                           1 + ac φk+1
+               
+               
+               
+                                         +1
+               
+               
+                           1 − ac φk
+               
+
+Let                                                        
+                                                         gk
+                                   wk = (log φk )t = log       .
+                                                         hk t
+From the first equation in (3.31), we obtain
+                                    1 + ac φk+1             φk
+                                                            
+                                                      −
+                                    1 − ac    φk t        φk+1 t
+                − (log ρk+1 ρk )t =                +
+                                    1 + ac φk+1      1 + ac    φk
+                                                −1          −
+                                    1 − ac φk        1 − ac φk+1
+An integrable semi-discretization of the Camassa-Holm equation                       20
+                                       1 + ac φk+1           φk
+                                                                    
+                                  1 − ac φk                φ              φ
+                                                                                
+                                                              k+1
+                                                                            k+1
+                               = 1 + ac φk+1       +                log
+                                                       1 + ac     φk       φk t
+                                                 −1            −
+                                     1 − ac φk         1 − ac φk+1
+                                  1 + ac φk+1
+                                               +1 
+                                  1 − ac φk             φk+1
+                                                             
+                               =                    log
+                                  1 + ac φk+1            φk t
+                                               −1
+                                  1 − ac φk
+                                   2
+                               = (wk+1 − wk ) .
+                                  δk
+From the third equation in (3.31), we obtain
+                          1 + ac φk+1
+                           2
+                2         1 − ac φk                2              2
+                   +1 =                ,              −1 =                .
+                δk      1 + ac φk+1                δk      1 + ac φk+1
+                                    −1                                 −1
+                        1 − ac φk                          1 − ac φk
+Multiplying these two equations, we obtain
+                                                                             
+4                          4                   4(1 − ac)(1 + ac)      1
+    −1 =                                   =                   =         − 1 ρk+1 ρk .
+δ2k        1 + ac φk+1          1 − ac φk
+                          
+                                                    (2ac)2           a2 c2
+                       −1    1−
+           1 − ac φk            1 + ac φk+1         ρk+1 ρk
+Thus we have a system
+                                              wk+1 − wk
+                    
+                     −(log ρ k+1 ρ k )t  = 2           ,
+                                                 δ
+                    
+                    
+                                                  k
+                               ρk+1
+                                    
+                     1                      wk+1 + wk 1 1
+                    
+                          log              +            + = ρk+1 ρk ,
+                     δk        ρ
+                                 k      t      2        c c
+                     4 −1 =          1
+                    
+                    
+                                           − 1 ρk+1 ρk .
+                    
+                      δk
+                     2
+                                    2
+                                   a c2
+
+Let
+                                                         gk hk
+                                  rk = log ρk = log            .
+                                                          fk2
+Then we have
+                                           wk+1 − wk
+                   
+                    −∂t (rk+1 + rk ) = 2              ,
+                                              δk
+                   
+                   
+                   
+                   
+                                                              4a2 c2
+                   
+                   
+                                                          1− 2
+                   
+                   
+                     1                    wk+1 + wk 1           δk
+                        ∂t (rk+1 − rk ) +            +               = 0,
+                     δk                                  c 1 − a2 c2
+                   
+                   
+                   
+                                           2
+                    4              1
+                                         − 1 erk+1 +rk .
+                   
+                    2 −1 =
+                   
+                     δk
+                   
+                                   2
+                                  a c2
+Let
+                                         rk′ = ∂t rk .
+An integrable semi-discretization of the Camassa-Holm equation                                  21
+
+Then
+                                           wk+1 − wk
+                    
+                           ′
+                     −(rk+1   + rk′ ) = 2           ,
+                                              δk
+                    
+                    
+                    
+                    
+                                                            4a2 c2
+                    
+                    
+                                                        1− 2
+                    
+                    
+                       1 ′                wk+1 + wk 1         δk
+                          (rk+1 − rk′ ) +           +              = 0,
+                      δk                               c 1 − a2 c2
+                    
+                    
+                                             2
+                                       δ2
+                    
+                                        
+                     ∂t δk = 1 − k (wk+1 − wk ) .
+                    
+                    
+                    
+                                       4
+Eliminating rk′ , we have
+                                                                          4a2 c2
+                 
+                                                                     1  −
+                 
+                 
+                                                     wk+1 + wk δk          δ2k
+                                            
+                         wk+1 − wk wk − wk−1
+                                                  δ
+                 
+                    −2              −           +              +
+                 
+                                                   k
+                             δk        δk−1
+                 
+                                                         2         c 1 − a2 c2
+                 
+                 
+                 
+                 
+                                                                   4a2 c2
+                 
+                                                              1− 2                  (3.32)
+                                           wk + wk−1 δk−1         δk−1
+                                      +δk−1           +                   = 0,
+                 
+                 
+                                                                     2 c2
+                 
+                 
+                                               2          c   1 − a
+                                 δ2
+                 
+                                  
+                  ∂t δk = 1 − k (wk+1 − wk ) .
+                 
+                 
+                 
+                                 4
+This is a semi-discrete Camassa-Holm equation. Note that the lattice parameter depends on
+the time and space.
+    Differentiating the first equation in (3.32) with respect to t, we obtain
+                                                       ∂t wk+1 + ∂t wk        ∂t wk + ∂t wk−1
+                                              
+                     wk+1 − wk wk − wk−1
+               −2                −                + δk                 + δk−1
+                          δk           δk−1                   2                      2
+                                                t
+                                                                       4a2 c2
+                                                                              
+                                                                   1 +
+                              δ2                                        δ2k 
+                                              w + w
+                                                 k+1       k   1
+                    + 1 − k (wk+1 − wk )                     +
+                                                                              
+                                                                c 1 − a2 c2 
+                                                                              
+                               4                      2
+
+                                                  
+                                                               4a 2 c2 
+                                                            1+ 2 
+                         δ2k−1                                  δk−1 
+                               !
+                                              w + w      1
+                                               k   k−1
+                    + 1−         (wk − wk−1 )          +               = 0,
+                            4                    2       c 1 − a2 c2 
+
+Taking a continuous limit, this leads to the CH equation.
+    Then we have the following theorem.
+Corollary 3.4. The semi-discrete CH equation has a determinant form of N-soliton solutions.
+Proof. From Theorem 3.2 and 3.3, the proof is obvious.
+
+
+4. Peakons, solitons and cuspons in the semi-discrete CH equation
+
+4.1. Peakon limit in the semi-discrete Camassa-Holm equation
+
+It is known that the CH equation has a peakon solution in the limit κ → 0. Here we consider
+a peakon limit in the semi-discrete CH equation (3.27).
+An integrable semi-discretization of the Camassa-Holm equation                                        22
+
+     In the semi-discrete CH equation (3.27), consider the limit
+                         κ2
+               κ → 0,        → δ(k) ,
+                         δk
+where δ(k) is a dirac delta function. In this limit, the first equation of the semi-discrete CH
+equation (3.27) leads to
+                                   ∂2X w − w = δ(X − cT ) .
+This differential equation has a solution
+                     N
+               w = ∑ Ai (T ) exp |X − cT | ,
+                    i=1
+which is a form of the peakon solution.
+    Thus if we consider very small κ with very small δk at some points k, the solutions of the
+semi-discrete CH equation tend to the peakon solutions of the CH equation.
+
+4.2. One soliton/cuspon solution
+
+From the determinant formula with ai,1 /ai,2 = ±1, the τ-functions for one soliton/cuspon
+solution are                                       
+                       c− p θ                    c+ p θ
+              g ∝ 1±          e ,      h ∝ 1±           e ,                          (4.1)
+                       c+ p                      c− p
+with θ = 2p(x − vt − x0 ), v = 1/(c2 − p2 ) where c = 1/κ2 > 0. This leads to a solution
+                                     4p2 cv
+               w(x,t) =                                 ,                              (4.2)
+                         (c2 + p2 ) ± (c2 − p2 ) cosh θ
+                              g
+                X = 2cx + log       , T =t,                                            (4.3)
+                                h
+where the positive case in Eq.(4.2) stands for one smooth soliton solution when p < c, while
+the negative case in Eq.(4.2) stands for one-cuspon solution when p > c. Otherwise, the
+solution is singular. Thus Eq.(4.2) for nonsingular cases can be expressed to
+                                     4p2 cv
+               w(x,t) =                                  .                                          (4.4)
+                          (c2 + p2 ) + |c2 − p2 | cosh θ
+     Similarly, for the semi-discrete case, we have
+                          c − p 1 + ap k θ                        c + p 1 + ap k θ
+                                                                            
+                gk ∝ 1 +                      e ,        hk ∝ 1 +                e ,                (4.5)
+                          c + p 1 − ap                            c − p 1 − ap
+with θ = −2pv(t + x0 ), resulting in a solution of the form
+                                                      4p2 cv
+               wk (t) =                                   −k                     k        ,   (4.6)
+                          (c2 + p2 ) + |c2 − p2 |     1+ap
+                                                      1−ap        e−θ +       1+ap
+                                                                              1−ap        eθ
+
+in conjunction with a transform between an equidistance mesh (a) and a non-equidistance
+mesh
+                      (1 + ac)gk+1 hk − (1 − ac)gk hk+1
+               δk = 2                                   .                             (4.7)
+                      (1 + ac)gk+1 hk + (1 − ac)gk hk+1
+Eq. (4.6) corresponds to 1-soliton solution when p < c, 1-cuspon solution when p > c.
+An integrable semi-discretization of the Camassa-Holm equation                                   23
+
+4.3. Two soliton/cuspon solutions
+
+From the determinant formula with ai,1 /ai,2 = ±1, the τ-functions for two soliton/cuspon
+solution are
+                                                    (c1 − p1 )(c2 − p2 ) p1 − p2 2 θ1 +θ2
+                                                                                
+                      c1 − p1 θ1    c2 − p2 θ2
+              g ∝ 1+          e +             e +                                    e    ,
+                      c1 + p1       c2 + p2         (c1 + p1 )(c2 + p2 ) p1 + p2
+
+                                                    (c1 + p1 )(c2 + p2 ) p1 − p2 2 θ1 +θ2
+                                                                                
+                      c1 + p1 θ1    c2 + p2 θ2
+              h ∝ 1+          e +             e +                                    e    ,
+                      c1 − p1       c2 − p2         (c1 − p1 )(c2 − p2 ) p1 + p2
+with θ1 = 2p1 (x − v1t − x10 ), θ2 = 2p2 (x − v2t − x20 ), v1 = 1/(c21 − p21 ), v2 = 1/(c22 − p22 ).
+The parametric solution can be calculated through
+                            g                          g
+                 w(x,t) = log        ,     X = 2cx + log      , T =t,                         (4.8)
+                                h t                        h
+whose form is complicated and is omitted here. Note that the above expression includes two-
+soliton solution (p1 < c1 , p2 < c2 ), two-cuspon solution (p1 > c1 , p2 > c2 ), or soliton-cuspon
+solution (p1 < c1 , p2 > c2 ).
+     Similarly, for the semi-discrete case, we have
+           c1 − p1 1 + ap1 k θ1           c2 − p2 1 + ap2 k θ2
+                                                         
+gk ∝ 1 +                         e +                           e
+           c1 + p1 1 − ap1                c2 + p2 1 − ap2
+       (c1 − p1 )(c2 − p2 ) p1 − p2 2 1 + ap1 k 1 + ap2 k θ1 +θ2
+                                                            
+   +                                                                 e     ,
+       (c1 + p1 )(c2 + p2 ) p1 + p2          1 − ap1     1 − ap2
+
+                    1 + ap1 k θ1    c2 + p2 1 + ap2 k θ2
+                                                   
+         c1 + p1
+hk ∝ 1 +                      e +                        e
+         c1 − p1    1 − ap1         c2 − p2 1 − ap2
+     (c1 + p1 )(c2 + p2 ) p1 − p2 2 1 + ap1 k 1 + ap2 k θ1 +θ2
+                                                      
+   +                                                         e ,
+     (c1 − p1 )(c2 − p2 ) p1 + p2      1 − ap1     1 − ap2
+with θ1 = 2p1 (−v1t − x10 ), θ2 = 2p2 (−v2t − x20 ). The solution can be calculated through
+                                
+                              gk
+               wk (t) = log        ,                                                      (4.9)
+                              hk t
+with a transform
+                         (1 + ac)gk+1 hk − (1 − ac)gk hk+1
+                δk = 2                                     .                                 (4.10)
+                         (1 + ac)gk+1 hk + (1 − ac)gk hk+1
+The form is complicated and is omitted here.
+
+5. Numerical computations
+
+In this section, several examples will be illustrated to show the integrable semi-discretization
+of the CH equation is a powerful scheme for the numerical solutions of the CH equation. They
+include (1) Propagation of one-cuspon solution; (2) Interaction of two-cuspon solutions; (3)
+An integrable semi-discretization of the Camassa-Holm equation                                  24
+
+Head-on collision of soliton-cuspon. In actual computations, the initial mesh spacing δk , is
+assigned by
+                        (1 + ac)φk+1 − (1 − ac)φk
+               δk = 2                             ,                                          (5.1)
+                        (1 + ac)φk+1 + (1 − ac)φk
+where φk = gk /hk is obtainable from the corresponding determinant solutions. At each time
+step, from the second equation in (3.27), the evolution of δk can be exactly calculated by
+                            n     n
+                     cnk e(wk+1 −wk ) − 1
+               δk = 2 (wn −wn )
+                n+1
+                                          ,                                                  (5.2)
+                     cnk e k+1 k + 1
+with cnk = (2 + δnk )/(2 − δnk ). Then, the solution wn+1  k    is easily computed by solving a
+tridiagonal linear system based on the first equation of the scheme. Therefore, the computation
+cost is less than other traditional numerical methods. Furthermore, we comment that the
+mesh spacing δk is driven automatically by the solution during the numerical computation.
+Therefore, we would like to call it the self-adaptive method.
+      Example 1: 1-cuspon propagation. The parameters taken for the 1-cuspon solution
+are p = 10.98, c = 10.0. The number of grid is taken as 100 in an interval of width of 4
+in the x-domain, which implies a mesh size of h = 0.04. However, through the hodograph
+transformation, this corresponds to an interval of width 74.34 in the X -domain, which implies
+an average mesh size of 0.7434. In subsequent examples except for Example 4, the grid
+number is fixed to be 100. The time step size is taken as ∆t = 0.0004. Fig. 1(a) shows the
+initial condition. Figs. 1 (b)-(c) display the numerical solutions (solid line) and exact solutions
+(dotted line) at t = 2, 4, respectively. The L∞ norm are 0.0365 at t = 2, and 0.0985 at t = 4.
+It is noted that the numerical error is mainly due to the numerical dispersion. In other words,
+even after a fairly long time, the numerical solution of a cuspon preserves its shape very well
+except for a phase shift. The reason for the numerical dispersion is thought due to the explicit
+method to solve the equation for the time evolution of mesh size. The detailed analysis is left
+for our another paper focusing on numerical solutions of the CH equation.
+      Example 2: 2-cuspon interaction. The parameters taken for the two-cuspon solution
+are p1 = 11.0, p2 = 10.5, c = 10.0. Fig. 2(a) shows the initial condition, and Figs. 2(b)-
+2(e) display the process of collision at several different times. As far as we know, what is
+shown here is the first numerical demonstration for the cuspon-cuspon interaction due to the
+singularities of cuspon solutions. As shown in Fig. 2(e), the 2-cuspon solution regain their
+shapes after the collision, only resulting in a phase shift. As mentioned in [18], the two cuspon
+points are always present during the collision.
+      Example 3: Soliton-cuspon interaction. Here we show two examples for the soliton-
+cuspon interaction with c = 10.0. In Fig. 3, we plot the interaction process between a soliton
+of p1 = 9.12 and a cuspon of p2 = 10.98 at several different times where the soliton and
+the cuspon have almost the same amplitude. It can be seen that another singularity point
+with infinite derivative (wx ) occurs when the collision starts (t = 12.0). As collision goes
+on (t = 14.4, 14.6, 14.8), the soliton seems ’eats up’ the cuspon, and the profile looks like a
+complete elevation. However, the cuspon point is present at all times, especially, at t = 14.6,
+the profile becomes one symmetrical hump with a cuspon point in the middle of the hump.
+An integrable semi-discretization of the Camassa-Holm equation                                                                         25
+             0.4                                                                    0.4
+                                                               (a)                                                          (b)
+             0.2                                                                    0.2
+
+
+              0                                                                      0
+
+
+            −0.2                                                                   −0.2
+   w(X,t)
+
+
+
+
+                                                                          w(X,t)
+            −0.4                                                                   −0.4
+
+
+            −0.6                                                                   −0.6
+
+
+            −0.8                                                                   −0.8
+
+
+             −1                                                                     −1
+               0   10     20    30       40          50   60         70               0   10        20   30       40   50    60   70
+                                     X                                                                        X
+
+
+
+                                               0.4
+                                                                                           (c)
+                                               0.2
+
+
+                                                0
+
+
+                                              −0.2
+                                     w(X,t)
+
+
+
+
+                                              −0.4
+
+
+                                              −0.6
+
+
+                                              −0.8
+
+
+                                               −1
+                                                 0             20             40               60
+                                                                          X
+
+
+
+
+                        Figure 1. Numerical solution of one single cuspon solution: (a) t = 0.0; (b) t = 2.0; (c) t = 4.0.
+
+
+      In Figure 4, we present another example of a collision between a soliton (p1 = 9.12) and
+a cuspon (p2 = 10.5) where the cuspon has a larger amplitude (2.0) than the soliton (1.0).
+Again, when the collision starts, another singularity point appears. As collision goes on, the
+soliton is gradually absorbed by the cuspon. At t = 10.3, the whole profile looks like a single
+cuspon when the soliton is completely absorbed. Later on, the soliton emerges from the right
+until t = 16, the soliton and cuspon recover their original shapes except for a phase shift when
+the collision is complete.
+      Example 4: Initial condition of non exact soliton solutions. We show that the
+integrable scheme can be also applied for the initial value problem starting with a non-
+exact solution. We choose an initial condition in the following procedure. The mesh size
+is determined by
+                        δk = 2ac(1 − 0.8sech(2ka −Wx /3)) ,                                                                        (5.3)
+where Wx (= 8) is the width of computation, N = 201 is the number of grid in x-domain,
+k = 1, · · · , N −1, and a = Wx /(N −1) = 0.04. Then the initial profile can be calculated through
+the second equation of the semi-discretization (3.27). The initial profile is plotted in Fig. 5(a).
+Figs. 5(b), (c) and (d) show the evolution at t = 10, 20, 30, respectively. It can be seen that
+An integrable semi-discretization of the Camassa-Holm equation                                                                         26
+            0.2                                                                 0.2
+
+             0                                                                   0
+           −0.2                                                                −0.2
+
+           −0.4                                                                −0.4
+           −0.6                                                                −0.6
+           −0.8                                                                −0.8
+  w(X,t)
+
+
+
+
+                                                                      w(X,t)
+            −1                                                                  −1
+           −1.2                                                                −1.2
+
+           −1.4                                                                −1.4
+           −1.6                                                                −1.6
+           −1.8                                           (a)                  −1.8                                        (b)
+            −2                                                                  −2
+              0   10     20    30             40    50    60    70                0    10         20    30       40   50         60   70
+                                    X                                                                        X
+
+
+
+                                                                                0.2
+             0                                                                   0
+
+           −0.2                                                                −0.2
+           −0.4                                                                −0.4
+
+           −0.6                                                                −0.6
+
+           −0.8                                                                −0.8
+  w(X,t)
+
+
+
+
+                                                                      w(X,t)
+
+
+
+
+            −1                                                                  −1
+
+           −1.2                                                                −1.2
+           −1.4                                                                −1.4
+
+           −1.6                                                                −1.6
+
+           −1.8                                           (c)                  −1.8                                        (d)
+            −2                                                                  −2
+              0   10     20    30             40    50    60    70                0    10         20    30       40   50         60   70
+                                    X                                                                        X
+
+
+
+                                              0.2
+
+                                               0
+                                             −0.2
+
+                                             −0.4
+
+                                             −0.6
+                                             −0.8
+                                    w(X,t)
+
+
+
+
+                                              −1
+                                             −1.2
+
+                                             −1.4
+                                             −1.6
+                                             −1.8                                          (e)
+                                              −2
+                                                0    10    20    30             40    50         60    70
+                                                                      X
+
+
+
+
+                       Figure 2. Numerical solution for the collision of two-cuspon solution with p1 = 11.0,
+                       p2 = 10.5, c = 10.0: (a) t = 0.0; (b) t = 13.0; (c) t = 14.8; (d) t = 16.6; (e) t = 25.0.
+An integrable semi-discretization of the Camassa-Holm equation                                                                                                 27
+                  1                                                                              1
+
+                 0.8                                              (a)                           0.8                                                 (b)
+                 0.6                                                                            0.6
+
+                 0.4                                                                            0.4
+
+                 0.2                                                                            0.2
+       w(X,t)
+
+
+
+
+                                                                                      w(X,t)
+                  0                                                                              0
+
+                −0.2                                                                           −0.2
+
+                −0.4                                                                           −0.4
+
+                −0.6                                                                           −0.6
+
+                −0.8                                                                           −0.8
+
+                 −1                                                                             −1
+                   0    10   20    30            40     50        60        70                    0        10         20        30       40   50   60     70
+                                        X                                                                                            X
+
+
+
+                  1                                                                              1
+
+                 0.8                                              (c)                           0.8                                                 (d)
+                 0.6                                                                            0.6
+
+                 0.4                                                                            0.4
+
+                 0.2                                                                            0.2
+       w(X,t)
+
+
+
+
+                                                                                      w(X,t)
+                  0                                                                              0
+
+                −0.2                                                                           −0.2
+
+                −0.4                                                                           −0.4
+
+                −0.6                                                                           −0.6
+
+                −0.8                                                                           −0.8
+
+                 −1                                                                             −1
+                   0    10   20    30            40     50        60        70                    0        10         20        30       40   50   60     70
+                                        X                                                                                            X
+
+
+
+                  1                                                                              1
+
+                 0.8                                              (e)                           0.8                                                 (f)
+                 0.6                                                                            0.6
+
+                 0.4                                                                            0.4
+
+                 0.2                                                                            0.2
+       w(X,t)
+
+
+
+
+                                                                                      w(X,t)
+
+
+
+
+                  0                                                                              0
+
+                −0.2                                                                           −0.2
+
+                −0.4                                                                           −0.4
+
+                −0.6                                                                           −0.6
+
+                −0.8                                                                           −0.8
+
+                 −1                                                                             −1
+                   0    10   20    30            40     50        60        70                    0        10         20        30       40   50   60     70
+                                        X                                                                                            X
+
+
+
+                                                   1
+
+                                                  0.8                                                           (g)
+                                                  0.6
+
+                                                  0.4
+
+                                                  0.2
+                                        w(X,t)
+
+
+
+
+                                                   0
+
+                                                 −0.2
+
+                                                 −0.4
+
+                                                 −0.6
+
+                                                 −0.8
+
+                                                  −1
+                                                    0        10        20        30            40     50         60        70
+                                                                                      X
+
+
+
+
+                       Figure 3. Numerical solution for soliton-cuspon collision with p1 = 9.12, p2 = 10.98 and
+                       c = 10.0: (a) t = 0.0; (b) t = 12.0; (c) t = 14.4; (d) t = 14.6; (e) t = 14.8; (f) t = 17.0; (g)
+                       t = 25.0;
+An integrable semi-discretization of the Camassa-Holm equation                                                                                                                28
+                    1                                                                                     1
+                                                                          (a)                                                                                  (b)
+                   0.5                                                                                   0.5
+
+
+                    0                                                                                     0
+       w(X,t)
+
+
+
+
+                                                                                               w(X,t)
+                −0.5                                                                                    −0.5
+
+
+                   −1                                                                                    −1
+
+
+                −1.5                                                                                    −1.5
+
+
+                   −2                                                                                    −2
+                     0        10    20    30             40     50        60        70                     0        10         20        30       40    50    60         70
+                                                X                                                                                             X
+
+
+
+                         1                                                                                1
+                                                                          (c)                                                                                  (d)
+                    0.5                                                                                  0.5
+
+
+                         0                                                                                0
+          w(X,t)
+
+
+
+
+                                                                                               w(X,t)
+                   −0.5                                                                                 −0.5
+
+
+                    −1                                                                                   −1
+
+
+                   −1.5                                                                                 −1.5
+
+
+                    −2                                                                                   −2
+                      0        10    20    30              40        50        60                          0        10         20        30        40    50    60
+                                                 X                                                                                            X
+
+
+
+                     1                                                                                    1
+                                                                          (e)                                                                                      (f)
+                   0.5                                                                                  0.5
+
+
+                     0                                                                                    0
+                                                                                              w(X,t)
+        w(X,t)
+
+
+
+
+                 −0.5                                                                                  −0.5
+
+
+                    −1                                                                                   −1
+
+
+                 −1.5                                                                                  −1.5
+
+
+                    −2                                                                                   −2
+                      0       10    20     30              40    50        60                              0    10         20        30           40    50    60         70
+                                                X                                                                                             X
+
+
+
+                                                           1
+                                                                                                                         (g)
+                                                          0.5
+
+
+                                                           0
+                                                w(X,t)
+
+
+
+
+                                                         −0.5
+
+
+                                                          −1
+
+
+                                                         −1.5
+
+
+                                                          −2
+                                                            0        10        20        30             40     50         60        70
+                                                                                              X
+
+
+
+
+                             Figure 4. Numerical solution for soliton-cuspon collision with p1 = 9.12, p2 = 10.5 and
+                             c = 10.0: (a) t = 0.0; (b) t = 9.0; (c) t = 10.0; (d) t = 10.3; (e) t = 10.6; (f) t = 11.5; (g)
+                             t = 16.0.
+An integrable semi-discretization of the Camassa-Holm equation                                                         29
+                  2.5                                                      2.5
+                                                      (a)                                                        (b)
+                   2                                                        2
+
+
+
+                  1.5                                                      1.5
+         w(x,t)
+
+
+
+
+                                                                  w(x,t)
+                   1                                                        1
+
+
+
+                  0.5                                                      0.5
+
+
+
+                   0                                                        0
+                        −60   −40   −20   0    20    40     60                   −60   −40   −20   0   20   40   60
+                                          x                                                        x
+
+
+
+                  2.5                                                      2.5
+                                                      (c)                                                        (d)
+                   2                                                        2
+
+
+
+                  1.5                                                      1.5
+         w(x,t)
+
+
+
+
+                                                                  w(x,t)
+
+
+                   1                                                        1
+
+
+
+                  0.5                                                      0.5
+
+
+
+                   0                                                        0
+                        −60   −40   −20   0    20    40     60                   −60   −40   −20   0   20   40   60
+                                          x                                                        x
+
+
+
+
+                          Figure 5. Numerical solution starting from an initial condition: (a) t = 0.0; (b) t = 10.0; (c)
+                          t = 20.0; (d) t = 30.0.
+
+
+a soliton with large amplitude is developed first, and moving fast to the right. By t = 30, a
+second soliton with small amplitude is developed and a third soliton is born from the second
+soliton.
+
+6. Concluding remarks
+
+An integrable semi-discretization of the CH equation has been presented in this paper.
+Determinant formulas of the N-soliton solutions of both the continuous and semi-discrete CH
+equations have been derived. Multi-soliton, multi-cuspon and multi-soliton-cuspon solutions
+can be generated from above determinant formulas. As further topics, we attempt to construct
+integrable semi-discretizations of the Degasperis-Procesi equation and other soliton equations
+possessing non-smooth solutions such as peakon, cuspon, or loop-soliton solutions. We will
+address these issues in forthcoming papers.
+      Applying integrable discretizations of soliton equations to numerical computations
+remains a promising but not thoroughly explored subject. In the present paper, even for
+relatively large mesh sizes, very accurate numerical solutions of cuspon-cuspon and soliton-
+cuspon interactions for the CH equations are achieved through our proposed integrable semi-
+discrete scheme. In addition, a numerical computation starting with an non-exact initial
+An integrable semi-discretization of the Camassa-Holm equation                                             30
+
+condition is performed with a satisfactory result. It is worth noting that the integrable semi-
+discrete scheme of the CH equation is also a self-adaptive method, which is of great interest
+in the area of numerical partial differential equations. We intend to extend this new idea of
+self-adaptive method to other PDEs in the near future.
+
+7. Appendix
+
+In this appendix, we prove the differential formulas for τn , (2.9)-(2.16). Let us introduce a
+simplified notation,
+                            (n )   (n )         (n )
+                          ψ1 1 ψ1 2 · · · ψ1 N
+                            (n )   (n )         (n )
+                          ψ2 1 ψ2 2 · · · ψ2 N
+|ψ , ψ , · · · , ψ | =
+  (n1 ) (n2 )      (nN )
+                             ..     ..           ..  .                                   (7.1)
+                              .      .            .
+                                   (n )     (n )            (n )
+                                 ψN 1     ψN 2      · · · ψN N
+In this notation, we have τn = |ψ(n) , ψ(n+1) , · · ·, ψ(n+N−1) |, thus differentiating τn by x and
+using (2.3) we obtain
+         N−1
+∂x τn = ∑ |ψ(n) , ψ(n+1) , · · · , ∂x ψ(n+ j) , · · ·, ψ(n+N−1) |
+         j=0
+          N−1
+       = ∑ |ψ(n) , ψ(n+1) , · · · , ψ(n+ j+1) + cψ(n+ j) , · · · , ψ(n+N−1) |
+          j=0
+          N−1
+       = ∑ |ψ(n) , ψ(n+1) , · · · , ψ(n+ j+1) , · · · , ψ(n+N−1) |
+          j=0
+         N−1
+      + ∑ |ψ(n) , ψ(n+1) , · · ·, cψ(n+ j) , · · · , ψ(n+N−1) |
+          j=0
+
+       = |ψ(n) , ψ(n+1) , · · ·, ψ(n+N−2) , ψ(n+N) | + Nc|ψ(n) , ψ(n+1) , · · · , ψ(n+N−1) | ,
+which gives (2.9). Similarly differentiating τn by y and using (2.4) we get
+         N−1
+∂y τn = ∑ |ψ(n) , ψ(n+1) , · · ·, ∂y ψ(n+ j) , · · · , ψ(n+N−1) |
+         j=0
+          N−1
+       = ∑ |ψ(n) , ψ(n+1) , · · · , ψ(n+ j+2) + 2cψ(n+ j+1) + c2 ψ(n+ j) , · · ·, ψ(n+N−1) |
+          j=0
+
+       = |ψ(n) , ψ(n+1) , · · ·, ψ(n+N−2) , ψ(n+N+1) | − |ψ(n) , ψ(n+1) , · · · , ψ(n+N−3) , ψ(n+N−1) , ψ(n+N) |
+      + 2c|ψ(n) , ψ(n+1) , · · · , ψ(n+N−2) , ψ(n+N) | + Nc2 |ψ(n) , ψ(n+1) , · · · , ψ(n+N−1) | .
+We obtain (2.10) from the above equation and (2.9). Eqs. (2.11) and (2.12) can be proved
+by using (2.5) and (2.6) in a similar way. Finally eqs. (2.13)-(2.16) can be verified by
+differentiating (2.9) and (2.10) by t and s through similar calculations.
+
+References
+
+ [1] Camassa R and Holm D 1993 Phys. Rev. Lett. 71, 1661
+An integrable semi-discretization of the Camassa-Holm equation                                        31
+
+ [2] Fuchssteiner B and Fokas A 1981 Physica D4, 47
+ [3] Camassa R, Holm D and Hyman J M 1994 Adv. Appl. Mech. 31, 1
+ [4] Schiff J 1998 Physica D121, 24
+ [5] Constantin A 2001 Proc. R. Soc. London A457, 953
+ [6] Johnson R S 2004 Proc. R. Soc. London A459, 1687
+ [7] Li Y and Zhang J E 2004 Proc. R. Soc. London A460, 2617
+ [8] Li Y 2005 J. Nonlinear Math. Phys. 12, 466
+ [9] Parker A 2004 Proc. R. Soc. London A460, 2929
+[10] Parker A 2005 Proc. R. Soc. London A461, 3611
+[11] Parker A 2005 Proc. R. Soc. London A461, 3893
+[12] Matsuno Y 2005 J. Phys. Soc. Jpn. 74, 1983
+[13] Hone A N W 1999 J. Phys. A: Math. Gen. 32, L307
+[14] Ablowitz M J, Kaup D J, Newell A C and Segur H 1974 Stud. Appl. Math. 53, 249
+[15] Li Y A and Olver P J 1997 Discrete Contin. Dyn. Syst. 3, 419
+[16] Kraenkel R A and Zenchuk A I 1999 J. Phys. A: Math. Gen. 32, 4733
+[17] Ferreira M C, Kraenkel R A and Zenchuk A I 1999 J. Phys. A: Math. Gen. 32, 8665
+[18] Dai H H and Li Y 2005 J. Phys. A: Math. Gen. 38, L685
+[19] Parker A 2007 Chaos, Solitons & Fractals 34, 730
+[20] Kalisch H and Lenells J 2005 Chaos, Solitons & Fractals 25, 287
+[21] Camassa R, Huang J, and Lee L 2005 J. Nonlinear Math. Phys. 12, 146
+[22] Holden H, Raynaud X 2006 SIAM J. Numer. Anal. 44, 1655
+[23] Holden H and Raynaud X 2006 Discrete Contin. Dyn. Syst. 14, 505
+[24] Artebrant R and Schroll H J 2006 Appl. Numer. Math. 56, 695
+[25] Coclite G M, Karlsen K H and Risebro N H 2008 SIAM J. Numer. Anal. 46, 1554
+[26] Cohen D, Owren B and Raynaud X 2008 J. Comp. Phys. 227, 5492
+[27] Levi D and Ragnisco O (Eds.) 1998 SIDE III–Symmetries and integrability of difference equations, CRM
+       Proceedings and Lecture Notes 25, AMS, Montreal
+[28] Grammaticos B, Kosmann-Schwarzbach Y and Tamizhmani T (Eds.) 2004 Discrete Integrable Systems,
+       Lecture Notes in Physics 644, Springer-Verlag, Berlin
+[29] Ablowitz M J and Ladik J 1975 J. Math. Phys. 16, 598
+[30] Ablowitz M J and Ladik J 1976 Stud. Appl. Math. 55, 213
+[31] Hirota R 1977 J. Phys. Soc. Jpn. 43, 1424
+[32] Hirota R 1977 J. Phys. Soc. Jpn. 43, 2079
+[33] Hirota R 1977 J. Phys. Soc. Jpn. 43, 2074
+[34] Nishinari K 1999 J. Appl. Mech. 66, 695
+[35] Iwasaki M and Nakamura Y 2002 Inverse Problems 18, 1569
+[36] Iwasaki M and Nakamura Y 2006 Japan J. Indust. Appl. Math. 23, 239
+[37] Ohta Y, Hirota R, Tsujimoto S and Imai T 1993 J. Phys. Soc. Jpn., 62, 1872
+[38] Ohta Y, Kajiwara K, Matsukidaira J and Satsuma J 1993 J. Math. Phys. 34, 5190
+[39] Freeman F N and Nimmo J J C 1983 Phys. Lett. A95, 1
+[40] Freeman N C and Nimmo J J C 1983 Proc. Roy. Soc. London A389, 319
+

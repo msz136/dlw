@@ -1,0 +1,289 @@
+{
+  "notebook": "C:\\Users\\msz\\aca\\notebook\\2HS数值分析report.ipynb",
+  "notebook_sha256": "964cfdae312f2841b9ee941a419e71dbed685ed07769a4177edaf57aeb778e80",
+  "input_sha256": "46eee836050479622f5e310637bd0b777bee8f9246565ed5c18b73816f0816f1",
+  "backup": "C:\\Users\\msz\\aca\\Workspaces\\notebook_reports_20261006\\execution_inputs\\plot_range_hs_20261008_2a7ca5aca6344ed09d471e6975a5b290.ipynb",
+  "python": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\.venv\\Scripts\\python.exe",
+  "kernel": "fresh native project Python kernel",
+  "elapsed_seconds": 13.527,
+  "success": true,
+  "schema_valid": true,
+  "sources_unchanged": true,
+  "code_cell_count": 16,
+  "errors": [],
+  "failure": null,
+  "cell_timings": [
+    {
+      "id": "hs-prepare",
+      "seconds": 1.008
+    },
+    {
+      "id": "hs-config",
+      "seconds": 0.018
+    },
+    {
+      "id": "hs-reference",
+      "seconds": 0.01
+    },
+    {
+      "id": "hs-spatial",
+      "seconds": 0.006
+    },
+    {
+      "id": "hs-fd-spatial",
+      "seconds": 0.007
+    },
+    {
+      "id": "hs-initial-state",
+      "seconds": 0.005
+    },
+    {
+      "id": "hs-rk4",
+      "seconds": 0.005
+    },
+    {
+      "id": "hs-evolve",
+      "seconds": 2.69
+    },
+    {
+      "id": "hs-interpolation",
+      "seconds": 0.006
+    },
+    {
+      "id": "hs-error",
+      "seconds": 0.457
+    },
+    {
+      "id": "hs-waveforms",
+      "seconds": 0.476
+    },
+    {
+      "id": "hs-two-reference",
+      "seconds": 0.011
+    },
+    {
+      "id": "hs-two-initial",
+      "seconds": 0.01
+    },
+    {
+      "id": "hs-two-evolve",
+      "seconds": 5.885
+    },
+    {
+      "id": "hs-two-error",
+      "seconds": 0.419
+    },
+    {
+      "id": "hs-two-plots",
+      "seconds": 1.026
+    }
+  ],
+  "code_cells": [
+    {
+      "id": "hs-prepare",
+      "execution_count": 1,
+      "source_sha256": "7a0dc3edb3e5e0b9fd01cdc55da533a7879c780380cf01e4b0ef8304cf7ef538",
+      "outputs": []
+    },
+    {
+      "id": "hs-config",
+      "execution_count": 2,
+      "source_sha256": "bac8bda41aac3c00ff5f8a6204b195c6053831147b26b85a1a30110cc9930bec",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "   N     a  X 左端  X 右端       dt   T  时间步数  评价点数  绘图左端  绘图右端\n2400 0.005  -6.0   6.0 0.003125 0.5   160 32001  -5.0   5.0\n"
+        }
+      ]
+    },
+    {
+      "id": "hs-reference",
+      "execution_count": 3,
+      "source_sha256": "29abc5f767e2ab8580dfed7e8deb7d87be3046d307944b758d5ec690b5f725e9",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "初始物理左端 初始物理右端  FD 的 dx  峰值 u  谷值 rho\n  -6.8    5.8 0.005250  0.09    0.64\n"
+        }
+      ]
+    },
+    {
+      "id": "hs-spatial",
+      "execution_count": 4,
+      "source_sha256": "27b9cd40f5b6f707b0b17177629048b868ca87d1254a7b59148214b9c23d3c36",
+      "outputs": []
+    },
+    {
+      "id": "hs-fd-spatial",
+      "execution_count": 5,
+      "source_sha256": "d1d037fa96bd7cbfd759109c151e6a06acd659c022e58ac3dd03ce34c63019df",
+      "outputs": []
+    },
+    {
+      "id": "hs-initial-state",
+      "execution_count": 6,
+      "source_sha256": "87a73d80798c65ce4811c9f2b7a02ee1bb3b5bd3abb8308edddc414dbc1178e9",
+      "outputs": []
+    },
+    {
+      "id": "hs-rk4",
+      "execution_count": 7,
+      "source_sha256": "b8252a47bbd90cd54edcb0e7e5ac49012431fa21c379742bb3c9c2b74886a5e9",
+      "outputs": []
+    },
+    {
+      "id": "hs-evolve",
+      "execution_count": 8,
+      "source_sha256": "2f595fc808ca5b434fad113a28d6680d0fbca6aaaadff76406da69dd424d7196",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "        方案  已推进步数  当前时间  物理节点数\nIntegrable    160   0.5   2401\n        FD    160   0.5   2401\n"
+        }
+      ]
+    },
+    {
+      "id": "hs-interpolation",
+      "execution_count": 9,
+      "source_sha256": "1daf900a9dcb2e476da3fb1a23e1e168b7c158ad31820f49e18cdc317146a926",
+      "outputs": []
+    },
+    {
+      "id": "hs-error",
+      "execution_count": 10,
+      "source_sha256": "f2b8f56e174cc4ab68555bbf75a1dbdeb99f6534f07ca13a04bdd750b022aa0a",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "        方案         E_u(T)       E_rho(T)         终点最小格距         终点最小密度\nIntegrable 0.010012788547 0.001149677289 0.004971398357 0.640451344712\n        FD 0.000000914396 0.000002907427 0.005250000000 0.640000645407\n"
+        },
+        {
+          "type": "display_data",
+          "mime_types": [
+            "image/png",
+            "text/plain"
+          ],
+          "payload_sha256": {
+            "text/plain": "f476fe1a43b93b8c25436806582f95217224ab09cf43debf188457163acda0c6",
+            "image/png": "b05a4f7c998074f647fec35f8a5a8127a5f44494a86f8482c97366e3adee5ebf"
+          },
+          "text_plain": "<Figure size 800x350 with 1 Axes>"
+        },
+        {
+          "type": "display_data",
+          "mime_types": [
+            "image/png",
+            "text/plain"
+          ],
+          "payload_sha256": {
+            "text/plain": "f476fe1a43b93b8c25436806582f95217224ab09cf43debf188457163acda0c6",
+            "image/png": "16fccdc872913ce24e5ea60d87e8a3a361a98920eaafd3ee38dcb08edb78e05a"
+          },
+          "text_plain": "<Figure size 800x350 with 1 Axes>"
+        }
+      ]
+    },
+    {
+      "id": "hs-waveforms",
+      "execution_count": 11,
+      "source_sha256": "478ef94edfad8ab6b88c1606f4580349e0cf898e56064f025abbb3da45b92ffc",
+      "outputs": [
+        {
+          "type": "display_data",
+          "mime_types": [
+            "image/png",
+            "text/plain"
+          ],
+          "payload_sha256": {
+            "text/plain": "c9501ce41280f488e6e84532faf2d3693f187d229a61c837309156113adbc348",
+            "image/png": "c450633cc2558089cf5c18e00aab1f98533640f91a9f73f723ff6508d918f804"
+          },
+          "text_plain": "<Figure size 900x550 with 4 Axes>"
+        }
+      ]
+    },
+    {
+      "id": "hs-two-reference",
+      "execution_count": 12,
+      "source_sha256": "d56d7fef53fc85220a5d915b8a7f2c1481422b85b56001a266430ea920aeeca0",
+      "outputs": []
+    },
+    {
+      "id": "hs-two-initial",
+      "execution_count": 13,
+      "source_sha256": "26befce4ad2474d3d1c5b1d3034fce4e7248bd3045997fd5c955b88f030f727b",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "   N     a       dt   T 物理左端 物理右端    FD dx         初始最小 J\n2400 0.005 0.003125 0.5 -7.7  5.7 0.005591 1.000000002474\n"
+        }
+      ]
+    },
+    {
+      "id": "hs-two-evolve",
+      "execution_count": 14,
+      "source_sha256": "49fe577bbbc80d43b53a37c19d6d7526d65e8e0e5b418621c0348bbad528045c",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "        方案  时间步数  终点时间          最小格距           最小密度\nIntegrable   160   0.5 0.00492491920 0.513124430430\n        FD   160   0.5 0.00559090909 0.512503198899\n"
+        }
+      ]
+    },
+    {
+      "id": "hs-two-error",
+      "execution_count": 15,
+      "source_sha256": "a7de0bc8675165ddf4f63a122f9d25149c0f5c1219ca7f85fee3d136c69de214",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "        方案         E_u(T)       E_rho(T)\nIntegrable 0.034508879197 0.003993238314\n        FD 0.000000874945 0.000002861841\n"
+        }
+      ]
+    },
+    {
+      "id": "hs-two-plots",
+      "execution_count": 16,
+      "source_sha256": "4765770eb1370d89a79ac14c885153d0804973b6bc351747866f97581d9045ff",
+      "outputs": [
+        {
+          "type": "display_data",
+          "mime_types": [
+            "image/png",
+            "text/plain"
+          ],
+          "payload_sha256": {
+            "text/plain": "45261c18b7dd5498b7fc59c7298986a67a3fa63613025b0e324f420b3d125521",
+            "image/png": "205cc7f7f7866314758b26acc5328abbef03fa9550d92ebae5dbe5fdb48cae7d"
+          },
+          "text_plain": "<Figure size 1000x600 with 4 Axes>"
+        },
+        {
+          "type": "display_data",
+          "mime_types": [
+            "image/png",
+            "text/plain"
+          ],
+          "payload_sha256": {
+            "text/plain": "bacf723041267da0cde1dedf9f2a90e185a1c9680f6fad486dbc6279f59b2514",
+            "image/png": "04f0e59652d5be944b3e96b25702b9d58f0dd274d36b71fe65ee5652ab1c9461"
+          },
+          "text_plain": "<Figure size 1000x340 with 2 Axes>"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "  场  Integrable / FD 误差比\n  u   39441.206860257880\nrho    1395.339156048826\n 算例         方案         E_u(T)       E_rho(T)\n单孤子 Integrable 0.010012788547 0.001149677289\n单孤子         FD 0.000000914396 0.000002907427\n二孤子 Integrable 0.034508879197 0.003993238314\n二孤子         FD 0.000000874945 0.000002861841\n"
+        }
+      ]
+    }
+  ],
+  "outputs_saved": true
+}

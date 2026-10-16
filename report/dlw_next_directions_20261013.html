@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="DLW半离散研究的下一阶段：有限维约化、谱几何与误差机制的研究取舍。">
+<title>DLW：从可积结构到误差机制</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f3f2ef;color:#202020;font:17px/1.9 Georgia,"Times New Roman","SimSun",serif}main{max-width:980px;margin:32px auto;padding:48px 65px;background:white}h1{font-size:29px;text-align:center;line-height:1.5;margin:0}h2{font-size:22px;margin-top:34px;line-height:1.6}h3{font-size:18px;margin-top:25px}.date{text-align:center;color:#666;font-size:14px}.abstract{border-block:1px solid #999;padding:15px 0}p{overflow-wrap:anywhere}a{color:#28546a;text-underline-offset:3px}a:focus-visible{outline:2px solid #28546a;outline-offset:3px}.eq{padding:12px 18px;margin:18px 0;background:#f8f8f6;border-left:2px solid #aaa;overflow-wrap:anywhere;font-family:"Cambria Math",Georgia,serif}.table{overflow:auto}table{width:100%;border-collapse:collapse;font-size:15px}th,td{text-align:left;vertical-align:top;padding:10px;border-bottom:1px solid #ddd}th{border-block:1px solid #555}li{margin:9px 0}.refs{font-size:15px}.note{font-size:15px;color:#555}@media(max-width:650px){main{margin:0;padding:28px 20px}body{font-size:16px}h1{font-size:25px}h2{font-size:21px}th,td{padding:7px}table{min-width:590px}}@media print{body{background:white;font-size:11pt}main{max-width:none;margin:0;padding:0}h1{font-size:20pt}h2{font-size:15pt}a{color:inherit}.table{overflow:visible}table{min-width:0;font-size:10pt}}
+</style></head><body><main>
+<h1>DLW：从可积结构到误差机制</h1><p class="date">研究方向评议 · 2026年10月13日</p>
+<p class="abstract">建议将下一阶段的核心问题确定为：半离散可积结构究竟限制了哪些误差方向，这些限制在什么相空间、背景及时间范围内转化为可证明的精度收益？有限维 Hamilton 约化提供可分析的模型；谱几何与 Miwa 型连续极限提供解释；误差传播与谱缺陷提供验证。一般场的完整刘维尔可积性保留为独立的长期理论目标。</p>
+
+<h2>1　当前工作的真实起点</h2>
+<p><a href="dlw_paper_draft.html">现有论文</a>已形成双线性构造、任意有限阶 Gram 解、PE/PF 两种表示、Darboux–Lax 相容性与二阶连续极限的完整链条。数值表显示 PE 与 FD 的优劣取决于算例和场分量，PF 在当前四组固定网格比较中误差更大，SAMM 在所列四组试验中改善双场。下一步应解释这种依赖性，而非预设可积方案具有统一优势。</p>
+<p>已有材料还包含三项直接相关的基础：<a href="../Workspaces/dlw_advantage_regions_20260926/REPORT.md">受迫误差传播与频率优势带</a>；<a href="dlw_research_ideas.html#T03">完整孤子参数重标记后仍存在的二阶静态形变</a>；<a href="dlw_research_ideas.html#T04">线性高频传播的数据空间与时间阈值</a>。它们尚未合成共同初值下的一般非线性误差定理。</p>
+<p>可积性专题已有周期 Hamilton 结构、对合守恒族，以及<a href="dlw_m2_regular_liouville_20261011.html">带明确强拓扑与小背景条件的 M=2 局部弱 Liouville 研究定理</a>。M=2 仍含连续 x 的无限函数自由度；它既非有限维系统，也非一般光滑初态的全局可积性结论。本次评议依据原定理及审阅记录，不替代其完整证明复核。</p>
+
+<h2>2　方向排序</h2>
+<div class="table"><table><thead><tr><th scope="col">方向</th><th scope="col">可形成的核心成果</th><th scope="col">关键难点</th><th scope="col">建议</th></tr></thead><tbody>
+<tr><td>谱结构与误差传播</td><td>谱缺陷的演化公式、模调制误差估计、收益与失效条件</td><td>高频增长、谱逆的条件数、实际 x/t 离散破坏结构</td><td>第一主线</td></tr>
+<tr><td>原结构下的有限维约化</td><td>有限维辛叶、足够多独立对合积分、原时间及格点映射</td><td>约束不变性、继承括号、闭隙处退化</td><td>理论试验场</td></tr>
+<tr><td>Miwa 型极限与修正层级</td><td>离散移位的层级解释、物理重构缺陷分解</td><td>从 Gram 解族提升到一般场；空间移位与时间误差的区分</td><td>优先连接两主线</td></tr>
+<tr><td>一般 M 的完整作用量—角变量</td><td>一般谱不变量完备性与正则积分叶</td><td>不变量谱逆、无限维拓扑、实际流域</td><td>独立长期课题</td></tr>
+<tr><td>τ、Grassmannian 与丛的系统解释</td><td>具体约化的几何识别及其推论</td><td>需超越标准理论的重新表述</td><td>服务具体定理</td></tr>
+<tr><td>幽灵孤子与 Bäcklund 误差作用</td><td>新增离散谱、辐射及相互作用的可验证判别</td><td>实际散射问题尚未建立；有限域伪谱</td><td>谱诊断之后</td></tr>
+</tbody></table></div>
+<p>含金量来自可证的结构限制与可检验的预测。一个解释“何时改善、何时必然失败”的定理，通常比添加若干漂亮几何术语或更多精确解更能改变论文的分量。</p>
+
+<h2>3　有限维可积约化：如何真正降低自由度</h2>
+<p>仅让 y 局部化、周期化或只保留 M 个格点，并不消除 x 的函数自由度；普通有限 Fourier 截断又通常不对非线性乘法封闭。因此有限格点与有限维 Hamilton 系统必须分别证明。</p>
+<p>最值得优先调查的是有限隙或定常层级约束：从某个已知对易高阶流的定常条件，或有限次数的多项式 Killing 场条件，构造由原 t 流与格点 Darboux 移位共同保持的有限参数流形。对谱曲线的实性、周期闭合与原场约束作完整计数，再从原 Poisson 张量通过合法限制或 Dirac 约化得到括号。</p>
+<p>目标是一个维数为 2d 的辛叶及 d 个独立对合积分，且原 t 演化由这些积分的函数生成。固定全部谱不变量后的等谱叶一般只是其中的积分叶；不能把仅有角方向的固定谱曲线族直接当成完整 2d 维相空间。</p>
+<p>现有 M=2 正则图要求所有相关 actions 非零，并使用相对 action 的对数坐标。因此“把其余 actions 置零”并非该图内的合法操作。有限隙路线需要在闭隙处另建正则坐标并验证约束。固定 M 后令 h 趋零还会压缩横向周期；若要固定物理周期 L<sub>y</sub>，须研究 M(h)h=L<sub>y</sub> 的联合极限及一致估计。</p>
+<p>N 孤子族可作较低成本的辅助模型，但项目已有的孤子参数括号是另行构造的。只有证明它继承原场结构，或明确给出与原结构的 Poisson 映射，才能把它作为原系统约化的主要贡献。行波约化可作校验；只设依赖 x+κy 通常仍留下一个 1+1 PDE，继续施加行波条件后才得到 ODE。</p>
+<p>有限维 Liouville 可积性并不自动带来紧致实环面。当前系统存在双曲方向，应允许局部非紧积分叶与对数相位坐标；若声称真正的周期角变量，还需证明相应实叶紧致、正则且流完备。</p>
+
+<h2>4　谱参数的几何：先找出具体的全局谱问题</h2>
+<p>当前论文中的线性问题首先是局部 Darboux 交织表示。Gram 参数 p、q，方程归一化参数，以及未来谱问题中的谱坐标，不能直接混用。在局部线性问题中引入一个可由规范变换消去的参数，不足以建立非平凡谱几何；周期、衰减或 Floquet 条件决定哪些规范变换仍然允许。</p>
+<p>对明确构造出的矩阵谱问题，可从单值化矩阵 T(ζ) 的特征关系出发：</p>
+<div class="eq">det(μI − T(ζ)) = 0。</div>
+<p>ζ 是谱基底上的坐标，μ 是 Floquet 乘子；二者共同给出谱覆盖。其特征向量的一维子空间随谱点变化，形成特征线丛。合适有限隙条件下，经归一化和紧化可得到有限亏格谱曲线，除子在 Jacobian 上的运动描述相位演化。一般周期算子的谱关系可能具有无限多个分支点，不能仅凭矩阵阶数有限就称为代数曲线。</p>
+<p>对本项目最有用的几何问题是：格点 Darboux 移位如何改变特征线丛或除子？它是否保持同一谱曲线？其 Abel 位移与 h 的关系是什么？这些问题会给出可以计算、可以比较连续极限的量。</p>
+
+<h2>5　最有希望的连接：Miwa 型移位与物理误差</h2>
+<p>论文中的格点乘子已有如下精确局部展开。记 z 为非零谱移位变量，选择 h=0 附近的对数分支，则在 |h/(2z)|&lt;1 时</p>
+<div class="eq">λ<sub>h</sub>(z)=(z+h/2)/(z−h/2)，<br>h<sup>−1</sup>log λ<sub>h</sub>(z)=z<sup>−1</sup>+h²/(12z³)+h⁴/(80z⁵)+⋯。</div>
+<p>若以 ζ=1/z 为局部谱坐标，这正是沿奇数层级时间作组合平移的 Miwa 型特征。在当前 Gram 解族上，每个指数因子的系数已可逐项识别。这比抽象地宣称“连续极限是一种丛的极限”更接近可证明成果。</p>
+<p>下一步应检验：此展开能否提升为一般 τ 或 Lax 算子上的层级恒等式，并在物理变量的合法近恒等换元后，把修正缺陷分成对易流成分与其余成分。该分解需先定义允许的换元、相空间与补空间；不能把它当作天然存在的唯一正交分解。</p>
+<p>尤其要注意，这里展开的是 y 方向移位，并非数值 t 步进。只有把多时间层级、物理重构和实际时间演化连接起来，才能导出时间误差结论。已有孤子静态形变结果还表明：即便 τ 的变化具有层级解释，固定物理重构仍可能产生不能靠相位或谱重标记消去的二阶波形形变。</p>
+<p>连续多时间中的 Miwa 嵌入与几何极限已有成熟先例，见 <a href="https://arxiv.org/abs/1706.06830">Vermeeren 的 pluri-Lagrangian 连续极限研究</a>。本项目的潜在新增点是具体 DLW 约化、原物理结构以及由此得到的误差定理。</p>
+
+<h2>6　误差的守恒量：可以直接建立什么</h2>
+<p>在一个已闭合且具有实际流的相空间中，令 ż=F(z)，数值轨道的重构为 z̃̇=F(z̃)+r，误差 e=z̃−z。r 包含离散、插值与边界缺陷，则</p>
+<div class="eq">ė=F(z+e)−F(z)+r。</div>
+<p>这是沿真实解受迫的非自治系统；非线性解相减通常不会产生同一个可积方程。若 I 是 F 的守恒泛函并满足所需可微性，则有精确恒等式</p>
+<div class="eq">d[I(z̃)−I(z)]/dt = DI(z̃)[r]，<br>|I(z̃(t))−I(z(t))| ≤ |I(z̃(0))−I(z(0))| + ∫₀ᵗ ‖DI(z̃(s))‖ ‖r(s)‖ ds。</div>
+<p>两条同模型精确解的守恒量差恒定。对齐次线性化误差 η̇=DF(z)η，一阶变分 DI(z)η 也恒定。这些结论给出可计算的误差约束，但通常依赖背景 z，不是仅关于 e 的自主守恒律。不同模型比较时，必须说明是在同一连续泛函上评价，还是比较经匹配的离散与连续守恒量。</p>
+<p>若实际 Lax 演化的缺陷写成 L̇=[B,L]+R，在有限矩阵或合法循环迹的域内，</p>
+<div class="eq">d tr(Lᵏ)/dt = k tr(Lᵏ⁻¹R)。</div>
+<p>这可把 x 差分、t 积分和边界的破坏逐项投射到谱漂移上。单个本征值的漂移还需左右本征向量及其条件数；近重根或非正规背景下，极小的 Lax 缺陷也可能引发明显谱变化。</p>
+<p>从守恒量误差到场误差，还必须证明谱重构稳定性，或增广能量在扣除平移等中性方向后具有强制性。有限个守恒量的小漂移不能控制所有场方向。最简单的反例是 H=qp：q̇=q、ṗ=−p，H 精确守恒而轨道含指数增长。</p>
+
+<h2>7　能够检验的精度机制与“幽灵孤子”</h2>
+<p>在有稳定紧致 action–angle 图的约化中，可积修正 H<sub>ε</sub>(I)=H(I)+εK(I) 保持 actions，却使角频率改变 O(ε)，导致相位误差 O(εt)。若扰动还使 I 以 O(ε) 漂移，频率反馈可能再积累 O(εt²)。这是值得在 DLW 特定约化上证明的机制，并非当前一般场的既成结论。守恒与孤波误差增长阶的关系也已有研究，见 <a href="https://arxiv.org/abs/2102.07376">Ranocha、Quezada de Luna 与 Ketcheson</a>；具体适用假设必须重建。</p>
+<p>当前零背景线性化在非零横向波数 η 下含有</p>
+<div class="eq">σ<sub>±</sub>=−2iaξ ± √(ξ⁴+4ξ³/η)。</div>
+<p>固定 η、|ξ| 增大时有增长率约 ξ² 的分支。非线性 Gaussian 余量的保持、孤子背景下的传播估计，以及边界缺陷的控制，都是独立问题。线性振荡频带并不对非线性乘法自动封闭，不能靠截去增长频带直接获得原系统的有限维不变约化。</p>
+<p>实验应分别报告谱参数漂移、相位或位置误差、扣除允许调制后的波形误差，以及连续谱辐射或高频余量。若已有谱逆，可在其诱导度量中构造分解；只有拟合时，应检验参数可辨识性与条件数，不把拟合余量自动解释为辐射。</p>
+<p>“幽灵孤子”可作为可证伪假说：只有数值场在适当谱问题下出现新的离散本征值，而且该信号经扩域、加密、改变谱求解方法仍存在，才有理由赋予新增孤子解释。原本征值移动表示已有孤子的参数误差；范数化常数改变常对应位置变化；连续谱扰动表示辐射。误差图上的小峰、差分振铃或周期谱的小隙不自动等于新孤子。当前斜线孤子还须明确固定截面与整个二维背景的谱意义。</p>
+<p>Bäcklund 变换可用来构造受控误差和精确比较对。若变换为 B，则小误差首先按 DB(z)e 传播；它是否放大误差由这个导数决定。可逆的正则辛变换不能作为开放区域内统一吸引的误差消除器，尽管它可以压缩某些方向并扩张另一些方向。</p>
+
+<h2>8　τ 与双线性的几何应怎样进入论文</h2>
+<p>Grassmannian 的 Plücker 关系解释可分解外积坐标之间的二次恒等式；在 Sato 框架中它们与双线性留数恒等式及其 Hirota 展开相连。τ 可在适当的 determinant line bundle 或有限隙 theta line bundle 的平凡化中表示为函数；这需要明确底空间、线丛、平凡化与规范，不能仅因 τ 是行列式就宣称它天然是某个已构造丛的截面。</p>
+<p>Hirota 导数最直接的解释来自两个相反方向的平移：</p>
+<div class="eq">Dₓᵐ f·g = [∂<sub>s</sub>ᵐ f(x+s)g(x−s)]<sub>s=0</sub>。</div>
+<p>它将双线性表达组织为反对角 jet，而不是任意意义下的协变导数。真正值得写入本项目主定理的内容，是明确 Gram 点对应的 Grassmannian 数据、DLW 约化条件、半格点 Darboux 作用及其几何连续极限，并由此导出谱不变量或误差限制。主丛与联络只有在具体规范作用及平行移动需要它们时再引入。</p>
+
+<h2>9　下一轮应交付的三个结果</h2>
+<ol><li><strong>最小约化的结构判定。</strong>选择 M=2 的定常层级或有限隙候选，给出完整约束、实际不变性、原结构诱导的括号与维数计数。闭隙图失败时先定位障碍，不用新造括号绕开它。</li>
+<li><strong>半离散缺陷的几何分解。</strong>以现成格点乘子的三次谱项为起点，识别层级流、允许的近恒等换元和固定物理重构的不可去部分；明确哪些结论对 Gram 解族成立，哪些对一般场成立。</li>
+<li><strong>一个共同初值的误差定理与对应实验。</strong>先在可控制的约化或带明确正则余量的短时域，证明谱漂移或调制后误差估计。实验固定相同物理初值、边界与比较指标，分别控制 y 模型、x 差分和 t 积分；增加同阶、相近截断误差但破坏结构的对照，以及守恒但不完全可积的对照，区分可积性与一般守恒的贡献。</li></ol>
+<p>第一阶段的成功标准是出现一个明确的结构定理和一个未经末态拟合的误差预测，而不是出现更多更低的误差数字。若原流的双曲方向阻止长期场误差控制，证明谱量可控而某些场方向仍指数敏感，同样能准确揭示可积性的作用边界。</p>
+<p>一般场 Liouville 与数值误差机制宜分别形成论证完整的作品。当前论文最需要的是把“结构存在”和“数值表现”之间缺少的因果关系补出来。</p>
+
+<h2>参考入口与新颖性核对</h2><ol class="refs">
+<li><a href="dlw_paper_draft.html">当前 DLW 论文</a>；<a href="dlw_draft_audit_20261010.html">理论与数值审查</a>。</li>
+<li><a href="dlw_research_ideas.html">既有研究命题</a>；<a href="../Workspaces/dlw_modified_equation_20260926/REPORT.md">二阶修正方程</a>；<a href="../Workspaces/dlw_advantage_regions_20260926/REPORT.md">误差传播与条件优势</a>。</li>
+<li><a href="../dlw_hamilton.html">原半离散 Hamilton 结构</a>；<a href="dlw_m2_regular_liouville_20261011.html">M=2 局部弱 Liouville 定理</a>；<a href="../刘维尔可积性/research/STATE.md">一般场研究状态</a>。</li>
+<li><a href="https://arxiv.org/abs/1706.06830">M. Vermeeren, Continuum limits of pluri-Lagrangian systems, 2019</a>：Miwa 嵌入与连续层级的先例。</li>
+<li><a href="https://arxiv.org/abs/2102.07376">H. Ranocha, M. Quezada de Luna, D. I. Ketcheson, On the Rate of Error Growth in Time for Numerical Solutions of Nonlinear Dispersive Wave Equations, 2021</a>：守恒与孤波误差增长的背景。</li>
+<li><a href="https://arxiv.org/abs/2103.08734">D. S. Maltseva, R. O. Popovych, Point-symmetry pseudogroup, Lie reductions and exact solutions of Boiti–Leon–Pempinelli system, 2024</a>：约化与精确解分类的重要核对对象。采用其结果前需逐式确认与当前归一化的变换。</li>
+</ol><p class="note">本评议完成了项目材料检阅与针对性的文献初筛，尚非穷尽性新颖性审查。检索还发现 Hon–Fan 2005 年同名 DLW 代数几何论文；其原方程与本文 2+1 系统是否一致须读取全文核对，不能由名称直接认定重复或原创。</p>
+</main></body></html>

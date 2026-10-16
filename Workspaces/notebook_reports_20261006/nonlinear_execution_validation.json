@@ -1,0 +1,338 @@
+{
+  "notebook": "C:\\Users\\msz\\aca\\notebook\\非线性化report.ipynb",
+  "notebook_sha256": "601be1d52d8379fdb330399a0039ea17911ec09127fd085c8040d87eb35e4b33",
+  "input_sha256": "bc5d7f53a086dd510fadad8202ac0411fe218694ae208e78739b5c1a67e06f3b",
+  "backup": "C:\\Users\\msz\\aca\\Workspaces\\notebook_reports_20261006\\execution_inputs\\nonlinear_a3615372389f4712bc239328efc47906.ipynb",
+  "python": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\.venv\\Scripts\\python.exe",
+  "kernel": "fresh native project Python kernel",
+  "elapsed_seconds": 95.87,
+  "success": true,
+  "schema_valid": true,
+  "sources_unchanged": true,
+  "code_cell_count": 14,
+  "errors": [],
+  "failure": null,
+  "cell_timings": [
+    {
+      "id": "runtime-prepare",
+      "seconds": 0.14
+    },
+    {
+      "id": "lean-uw-import",
+      "seconds": 15.92
+    },
+    {
+      "id": "lean-uw-start",
+      "seconds": 14.922
+    },
+    {
+      "id": "lean-uw",
+      "seconds": 15.2
+    },
+    {
+      "id": "lean-qrm-import",
+      "seconds": 16.221
+    },
+    {
+      "id": "lean-qrm-start",
+      "seconds": 14.817
+    },
+    {
+      "id": "lean-qrm",
+      "seconds": 15.882
+    },
+    {
+      "id": "error-prepare",
+      "seconds": 1.161
+    },
+    {
+      "id": "error-config",
+      "seconds": 0.029
+    },
+    {
+      "id": "error-profile",
+      "seconds": 0.01
+    },
+    {
+      "id": "error-coefficient",
+      "seconds": 0.01
+    },
+    {
+      "id": "error-residual",
+      "seconds": 0.011
+    },
+    {
+      "id": "error-main",
+      "seconds": 0.04
+    },
+    {
+      "id": "error-convergence",
+      "seconds": 0.478
+    }
+  ],
+  "code_cells": [
+    {
+      "id": "runtime-prepare",
+      "execution_count": 1,
+      "source_sha256": "89016b1d5206a6c20cd3099cdad212512ea37bd8db1d9ee3ef74d1f53bf9b9f3",
+      "outputs": []
+    },
+    {
+      "id": "lean-uw-import",
+      "execution_count": 2,
+      "source_sha256": "1c23fc15ebab4025ca0238bab24e9157d858322d95e2236a576e863b5226f571",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Lean proof import: Contracts (warm_cache)\n"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Lean proof import: PkgNonlinear (warm_cache)\n"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Lean proof import: PkgLattice (warm_cache)\n"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Lean proof import: ReportNonlinearUW (warm_cache)\n"
+        }
+      ]
+    },
+    {
+      "id": "lean-uw-start",
+      "execution_count": 3,
+      "source_sha256": "08a3d5f69bdfe3c1211d5a5f88254e128afa430627952ced7fa54848cb1c8cae",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "def DLWContract.ReportUW.StartPoint : ℝ → ℝ → Lattice → Lattice → Prop :=\nfun a h F G => ∀ (j : ℤ), bil (a - h / 2) (F j) (G j) = 0 ∧ bil (a + h / 2) (F j) (G (j + 1)) = 0\n"
+        }
+      ]
+    },
+    {
+      "id": "lean-uw",
+      "execution_count": 4,
+      "source_sha256": "57f8f5a67e107b26fe2b8379785f0b8b5e047021dfdc720c1a177dfb5d0e5e9e",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "def DLWContract.ReportUW.NotebookDisplay.reportN1 : ℝ → ℝ → Lattice → Lattice → Lattice :=\nfun a h u w => dm h (lt u) + lx (dm h (fluxUW a h u w)) + lxx (dm h u + (4 / h) • mm w)\ndef DLWContract.ReportUW.NotebookDisplay.reportN2 : ℝ → ℝ → Lattice → Lattice → Lattice :=\nfun a h u w => lt w + lx (fluxOmega a h u w) - lxx w\n'DLWContract.ReportUW.semiPair_implies_report7' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DLWContract.ReportUW.semiPair_implies_report8' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+        }
+      ]
+    },
+    {
+      "id": "lean-qrm-import",
+      "execution_count": 5,
+      "source_sha256": "a5d32ad55575c3d56c211b79b8bf9c575d6b5dcd2c6c3411f8d6e071cf63d3ca",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Lean proof import: Contracts (warm_cache)\n"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Lean proof import: PkgLattice (warm_cache)\n"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Lean proof import: PkgQuotientRate (warm_cache)\n"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Lean proof import: ReportQRMCalculus (warm_cache)\n"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Lean proof import: PkgNonlinear (warm_cache)\n"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Lean proof import: ReportNonlinearUW (warm_cache)\n"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Lean proof import: ReportNonlinearQRM (warm_cache)"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "\n"
+        }
+      ]
+    },
+    {
+      "id": "lean-qrm-start",
+      "execution_count": 6,
+      "source_sha256": "2a038b36923820050d4ca0706d0390582ece132576df4ee8e794698e89ef083d",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "def DLWContract.ReportQRM.StartPoint : ℝ → ℝ → Lattice → Lattice → Prop :=\nfun a h F G => ∀ (j : ℤ), bil (a - h / 2) (F j) (G j) = 0 ∧ bil (a + h / 2) (F j) (G (j + 1)) = 0\n"
+        }
+      ]
+    },
+    {
+      "id": "lean-qrm",
+      "execution_count": 7,
+      "source_sha256": "468f648be00495a601e80c7fed87d16f927e5d0dd72f75c3fcdaf60ba4eaf264",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "'DLWContract.ReportQRM.semiPair_implies_report21' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DLWContract.ReportQRM.report22' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+        }
+      ]
+    },
+    {
+      "id": "error-prepare",
+      "execution_count": 8,
+      "source_sha256": "143e211cc2a6a124ca5ffb32c3a1cfafc15a24512b6f4d866cd8789cdf9b1741",
+      "outputs": []
+    },
+    {
+      "id": "error-config",
+      "execution_count": 9,
+      "source_sha256": "0eb516b692ed28dd8633c0405da266e58be6f69f331fc3042f54b9c20b7d3b17",
+      "outputs": [
+        {
+          "type": "display_data",
+          "mime_types": [
+            "text/html",
+            "text/plain"
+          ],
+          "payload_sha256": {
+            "text/plain": "7383d0bd72b4d64ac2617cc8a3e61f9a6d8c15c6bb1558275a3c5e7d25f85581",
+            "text/html": "369b481fbda76b902bc11bc0d8ef24f8f00367c21c3a04f5d05db826577df035"
+          },
+          "text_plain": "   K     ℓ     Γ  ζ = Kℓ      h  相位点数\n0  3 -0.75  0.25   -2.25  0.125  1601"
+        }
+      ]
+    },
+    {
+      "id": "error-profile",
+      "execution_count": 10,
+      "source_sha256": "6e60e66564f8d47f57bf9c77bf7073800391f61d42d471c41c7579ce04989964",
+      "outputs": []
+    },
+    {
+      "id": "error-coefficient",
+      "execution_count": 11,
+      "source_sha256": "c1d14a9f91bac6118a06bae77ba1420d8176cadf024979caa05dd2c2ac28efd9",
+      "outputs": []
+    },
+    {
+      "id": "error-residual",
+      "execution_count": 12,
+      "source_sha256": "25b716e47b5fe14dcc2702dff21ffd40855e952f433c42425290fce36c895be4",
+      "outputs": []
+    },
+    {
+      "id": "error-main",
+      "execution_count": 13,
+      "source_sha256": "f5d77e12c9c3807edab55789c251bf5d3a8645e285fff46a3878f8a942ad60c9",
+      "outputs": [
+        {
+          "type": "display_data",
+          "mime_types": [
+            "text/html",
+            "text/plain"
+          ],
+          "payload_sha256": {
+            "text/plain": "bd3cc7e13c57a659a19738a4613a0fd90936e1607290de2e45476b3da1a8abec",
+            "text/html": "c055c055715e6c86c5eca1f3f023ce05f0089d1e69dab816f5e1fe2719f1a5fb"
+          },
+          "text_plain": "             方程  采样 max |τ|   全波形解析上界  采样 h² max |τ|   h² 解析上界\n0  SD / SDR · 1    1.686064  3.941895       0.026345  0.061592\n1  SD / SDR · 2    0.933154  7.633301       0.014581  0.119270\n2        FD · 1    0.259897  0.949219       0.004061  0.014832\n3        FD · 2    1.395719  1.898438       0.021808  0.029663"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "continuumDefect = 4.286812441877563e-15\n"
+        }
+      ]
+    },
+    {
+      "id": "error-convergence",
+      "execution_count": 14,
+      "source_sha256": "61b12d6b6bd4a3cbbb5e76dfde61fcd5003b6002bec888916abba3eb58635377",
+      "outputs": [
+        {
+          "type": "display_data",
+          "mime_types": [
+            "text/html",
+            "text/plain"
+          ],
+          "payload_sha256": {
+            "text/plain": "88309635a291f79d45ccf43888e2064e28bc882641f44279235e6c1ddef6e948",
+            "text/html": "a169d47b6b53370c05443e58e507176f2ec0bdd870ca66e71cf2af39f55944d7"
+          },
+          "text_plain": "        方程        h  采样 max |R_h / h²|  采样 max |R_h / h² − τ|     减半收敛阶\n0   SD · 1  0.12500           1.678800               0.007336       NaN\n1   SD · 2  0.12500           0.925565               0.013112       NaN\n2   FD · 1  0.12500           0.259721               0.000245       NaN\n3   FD · 2  0.12500           1.393149               0.002665       NaN\n4   SD · 1  0.06250           1.684244               0.001838  1.996730\n5   SD · 2  0.06250           0.931249               0.003293  1.993393\n6   FD · 1  0.06250           0.259853               0.000061  1.999060\n7   FD · 2  0.06250           1.395076               0.000667  1.998600\n8   SD · 1  0.03125           1.685609               0.000460  1.999182\n9   SD · 2  0.03125           0.932677               0.000824  1.998347\n10  FD · 1  0.03125           0.259886               0.000015  1.999774\n11  FD · 2  0.03125           1.395558               0.000167  1.999650"
+        },
+        {
+          "type": "display_data",
+          "mime_types": [
+            "image/png",
+            "text/plain"
+          ],
+          "payload_sha256": {
+            "text/plain": "1dcabbdc300c605c07db6e7d7f38fcb71e599c1f4ac6f90c567546f4e1860086",
+            "image/png": "d6c6fe2c0532e97a14cfd178e2b86f1e8a1f06c0cc2c43fe423c3ef3d2c4d254"
+          },
+          "text_plain": "<Figure size 800x380 with 1 Axes>"
+        },
+        {
+          "type": "display_data",
+          "mime_types": [
+            "image/png",
+            "text/plain"
+          ],
+          "payload_sha256": {
+            "text/plain": "1dcabbdc300c605c07db6e7d7f38fcb71e599c1f4ac6f90c567546f4e1860086",
+            "image/png": "f057cd2b5ff56dc25fa7d432884d164d14c6a685fa909848ff512e5381bbb3e5"
+          },
+          "text_plain": "<Figure size 800x380 with 1 Axes>"
+        }
+      ]
+    }
+  ],
+  "outputs_saved": true,
+  "executed_notebook_sha256": "2311337adfbbe537357fabc32971c57075d90e95f9ba26f944baa766ea8e35ee",
+  "verification_mode": "original full notebook execution plus targeted Lean source re-execution",
+  "post_execution_lean_revision": "C:\\Users\\msz\\aca\\Workspaces\\integrability_notebook_20261007\\nonlinear_revision\\revision_validation.json",
+  "targeted_revision_seconds": 53.203,
+  "targeted_revision_cell_timings": [
+    {
+      "id": "runtime-prepare",
+      "seconds": 0.118
+    },
+    {
+      "id": "lean-uw-import",
+      "seconds": 18.466
+    },
+    {
+      "id": "lean-uw-start",
+      "seconds": 15.635
+    },
+    {
+      "id": "lean-uw",
+      "seconds": 17.497
+    }
+  ],
+  "original_full_execution_seconds": 95.87,
+  "preserved_numeric_cells_and_outputs": true
+}

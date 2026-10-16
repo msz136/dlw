@@ -1,0 +1,47 @@
+{
+  "config": {
+    "case": "5.1",
+    "left": -40.0,
+    "right": 40.0,
+    "kappa": 0.0,
+    "T": 0.5,
+    "dt": 0.00025,
+    "offset": 0.0,
+    "alpha": 0.5,
+    "order": 3,
+    "variant": "lf3",
+    "n": 1280,
+    "id": "smooth_FD3_N1280_halfdt"
+  },
+  "completed": true,
+  "failure": null,
+  "reached": 0.49999999999997247,
+  "last_diagnostic_time": 0.49999999999997247,
+  "steps": 2000,
+  "evolution_and_diagnostic_seconds": 2.976628000003984,
+  "initial": {
+    "t": 0.0,
+    "energy": 84.86389122627494,
+    "energy_loss": 0.0,
+    "energy_rate": -7.728597191506998e-07,
+    "mass_drift": 0.0,
+    "native_l2": 0.0,
+    "native_linf": 0.0
+  },
+  "final": {
+    "t": 0.49999999999997247,
+    "energy": 84.86389083984508,
+    "energy_loss": 3.8642986055492656e-07,
+    "energy_rate": -7.728581390007078e-07,
+    "mass_drift": -1.4210854715202004e-14,
+    "native_l2": 1.0879289805900523e-06,
+    "native_linf": 8.583059460942621e-07
+  },
+  "source_hashes": {
+    "run_suite.py": "8da45653bb1c237df4f802a7f6b2461f43266a71feb908eaaf5a6901133daa29",
+    "fd.py": "7a9585ce62453c6c85b00304240e219e7f3d98bf5765518aa4974afe49a704cb",
+    "fd_rusanov.py": "d20cd94ac6915acbfa197771dac906beb5e923bc3eadd804c0ee1bec1115ae3f",
+    "fd3.py": "f3929af6068a591f5f898cd88cdd6b44f5cba3eb0702ddd293ca5d81008a8f93",
+    "exact.py": "7308472290b4aa4c55d4eced75f91f2eeecf40f54721b9296ae1d020b8afba7e"
+  }
+}

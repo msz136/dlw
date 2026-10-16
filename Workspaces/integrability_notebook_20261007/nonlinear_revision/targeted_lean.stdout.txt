@@ -1,0 +1,12 @@
+Lean proof import: Contracts (warm_cache)
+Lean proof import: PkgNonlinear (warm_cache)
+Lean proof import: PkgLattice (warm_cache)
+Lean proof import: ReportNonlinearUW (warm_cache)
+def DLWContract.ReportUW.StartPoint : ℝ → ℝ → Lattice → Lattice → Prop :=
+fun a h F G => ∀ (j : ℤ), bil (a - h / 2) (F j) (G j) = 0 ∧ bil (a + h / 2) (F j) (G (j + 1)) = 0
+def DLWContract.ReportUW.NotebookDisplay.reportN1 : ℝ → ℝ → Lattice → Lattice → Lattice :=
+fun a h u w => dm h (lt u) + lx (dm h (fluxUW a h u w)) + lxx (dm h u + (4 / h) • mm w)
+def DLWContract.ReportUW.NotebookDisplay.reportN2 : ℝ → ℝ → Lattice → Lattice → Lattice :=
+fun a h u w => lt w + lx (fluxOmega a h u w) - lxx w
+'DLWContract.ReportUW.semiPair_implies_report7' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DLWContract.ReportUW.semiPair_implies_report8' depends on axioms: [propext, Classical.choice, Quot.sound]

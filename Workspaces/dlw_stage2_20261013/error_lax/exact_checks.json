@@ -1,0 +1,344 @@
+{
+  "passed": true,
+  "check_count": 38,
+  "checked_scalar_entries": 158,
+  "checks": [
+    {
+      "name": "exact nonlinear flux difference",
+      "passed": true,
+      "entries": 1
+    },
+    {
+      "name": "exact second physical error equation",
+      "passed": true,
+      "entries": 1
+    },
+    {
+      "name": "first PDE residual / heat-potential compatibility",
+      "passed": true,
+      "entries": 1
+    },
+    {
+      "name": "sigma difference includes both physical and potential residuals",
+      "passed": true,
+      "entries": 1
+    },
+    {
+      "name": "Ealpha = sigma/2 + h*N2/8",
+      "passed": true,
+      "entries": 1
+    },
+    {
+      "name": "Eeta = sigma/2 - h*N2/8 + kappa_x",
+      "passed": true,
+      "entries": 1
+    },
+    {
+      "name": "Darboux differential identity acting on arbitrary psi",
+      "passed": true,
+      "entries": 1
+    },
+    {
+      "name": "centered midpoint backward derivative coefficient",
+      "passed": true,
+      "entries": 1
+    },
+    {
+      "name": "midpoint mean coefficient",
+      "passed": true,
+      "entries": 1
+    },
+    {
+      "name": "native physical lift w_h = sampled w - h^2 U_yyy/6",
+      "passed": true,
+      "entries": 1
+    },
+    {
+      "name": "lift changes midpoint U_yyy coefficient from 1/24 to -1/8",
+      "passed": true,
+      "entries": 1
+    },
+    {
+      "name": "noncommutative quotient residual B*Z = FA-FB*T",
+      "passed": true,
+      "entries": 1
+    },
+    {
+      "name": "exact Lax difference including quadratic commutator",
+      "passed": true,
+      "entries": 1
+    },
+    {
+      "name": "open-chain monodromy residual telescopes with endpoint generators",
+      "passed": true,
+      "entries": 1
+    },
+    {
+      "name": "exact finite-matrix Darboux anomaly",
+      "passed": true,
+      "entries": 9
+    },
+    {
+      "name": "C2 decomposition into first-order Leibniz anomalies",
+      "passed": true,
+      "entries": 9
+    },
+    {
+      "name": "finite-grid Ealpha includes point-product defects",
+      "passed": true,
+      "entries": 3
+    },
+    {
+      "name": "finite-grid Eeta includes point-product defects",
+      "passed": true,
+      "entries": 3
+    },
+    {
+      "name": "inverse-monodromy normalized Lax source",
+      "passed": true,
+      "entries": 4
+    },
+    {
+      "name": "trace-power defect rate n=1",
+      "passed": true,
+      "entries": 1
+    },
+    {
+      "name": "trace-power defect rate n=2",
+      "passed": true,
+      "entries": 1
+    },
+    {
+      "name": "trace-power defect rate n=3",
+      "passed": true,
+      "entries": 1
+    },
+    {
+      "name": "trace-power defect rate n=4",
+      "passed": true,
+      "entries": 1
+    },
+    {
+      "name": "exact error block is constant conjugate to original direct sum",
+      "passed": true,
+      "entries": 16
+    },
+    {
+      "name": "block spectral trace contains only original spectra n=1",
+      "passed": true,
+      "entries": 1
+    },
+    {
+      "name": "block spectral trace contains only original spectra n=2",
+      "passed": true,
+      "entries": 1
+    },
+    {
+      "name": "block spectral trace contains only original spectra n=3",
+      "passed": true,
+      "entries": 1
+    },
+    {
+      "name": "block spectral trace contains only original spectra n=4",
+      "passed": true,
+      "entries": 1
+    },
+    {
+      "name": "same autonomous double-bracket flow: each quadratic trace constant",
+      "passed": true,
+      "entries": 1
+    },
+    {
+      "name": "error quadratic trace is not conserved (rate = -16)",
+      "passed": true,
+      "entries": 1
+    },
+    {
+      "name": "DLW Hamilton-grid witness: exact first equation residual",
+      "passed": true,
+      "entries": 9
+    },
+    {
+      "name": "DLW Hamilton-grid witness: exact second equation residual",
+      "passed": true,
+      "entries": 9
+    },
+    {
+      "name": "DLW Hamilton-grid witness: potential x compatibility sigma=0",
+      "passed": true,
+      "entries": 9
+    },
+    {
+      "name": "DLW Hamilton-grid witness: potential y compatibility kappa=0",
+      "passed": true,
+      "entries": 9
+    },
+    {
+      "name": "DLW Hamilton-grid witness: full Lax anomaly identity j=0",
+      "passed": true,
+      "entries": 9
+    },
+    {
+      "name": "DLW Hamilton-grid witness: full Lax anomaly identity j=1",
+      "passed": true,
+      "entries": 9
+    },
+    {
+      "name": "DLW Hamilton-grid witness: full Lax anomaly identity j=2",
+      "passed": true,
+      "entries": 9
+    },
+    {
+      "name": "DLW Hamilton-grid witness: matrix Lax defect is nonzero",
+      "passed": true,
+      "entries": 27
+    }
+  ],
+  "dlw_hamilton_grid_lax_defect_witness": {
+    "M": 3,
+    "Nx": 3,
+    "h": "2/3",
+    "dx": "3/5",
+    "c": "-4",
+    "gamma": "0",
+    "p": [
+      [
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0"
+      ]
+    ],
+    "s": [
+      [
+        "2/7",
+        "-1/7",
+        "-1/7"
+      ],
+      [
+        "-2/7",
+        "1/7",
+        "1/7"
+      ],
+      [
+        "0",
+        "0",
+        "0"
+      ]
+    ],
+    "U_t": [
+      [
+        "25/378",
+        "-505/7056",
+        "115/21168"
+      ],
+      [
+        "25/378",
+        "55/7056",
+        "-1565/21168"
+      ],
+      [
+        "-25/189",
+        "235/3528",
+        "695/10584"
+      ]
+    ],
+    "w_t": [
+      [
+        "-25/42",
+        "25/84",
+        "25/84"
+      ],
+      [
+        "25/42",
+        "-25/84",
+        "-25/84"
+      ],
+      [
+        "0",
+        "0",
+        "0"
+      ]
+    ],
+    "V": [
+      [
+        "1/5292",
+        "419/10584",
+        "-421/10584"
+      ],
+      [
+        "1/5292",
+        "-841/10584",
+        "839/10584"
+      ],
+      [
+        "1/5292",
+        "419/10584",
+        "-421/10584"
+      ]
+    ],
+    "N1": "0",
+    "N2": "0",
+    "sigma": "0",
+    "kappa": "0",
+    "sites": [
+      {
+        "j": 0,
+        "B_determinant": "-216733/296352",
+        "lax_defect_frobenius_squared_exact": "65216145050866353664475/3336199102301821011931752",
+        "lax_defect_frobenius_float": 0.13981429636310136
+      },
+      {
+        "j": 1,
+        "B_determinant": "-72245/98784",
+        "lax_defect_frobenius_squared_exact": "144856657965403451/7322517967717209768",
+        "lax_defect_frobenius_float": 0.1406497639428631
+      },
+      {
+        "j": 2,
+        "B_determinant": "-79/108",
+        "lax_defect_frobenius_squared_exact": "1470025/809170614",
+        "lax_defect_frobenius_float": 0.04262283266870092
+      }
+    ],
+    "scope": "Exact rational finite-grid counterexample to naive differential-Lax inheritance."
+  },
+  "generic_isospectral_counterexample": {
+    "flow": "L_t=[[diag(1,-1),L],L]",
+    "L_reference": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        -1
+      ]
+    ],
+    "L_perturbed": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "d_trace_error_squared_dt": "-16",
+    "scope": "generic Lax counterexample; not asserted to be a DLW solution"
+  },
+  "elapsed_seconds": 0.434,
+  "sympy_version": "1.13.3",
+  "script_sha256": "3590151fcd7617688a2f84cb878db628cdae6d29168408edc1d547d218aef9ad",
+  "interpretation": "Exact algebra certificates. General operator proofs and trace/domain hypotheses are in REPORT.md."
+}

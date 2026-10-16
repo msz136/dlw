@@ -1,0 +1,61 @@
+{
+  "scope": "Independent textual review of FinalBridge.lean, ResearchTarget.lean and All.lean, before final aggregate build finished. No source edits made.",
+  "sources": [
+    {
+      "file": "C:\\Users\\msz\\aca\\Workspaces\\square37_lean_20261014\\lean\\FinalBridge.lean",
+      "sha256": "1224a83de07a6ee34963802bc0185ef73d70b403f04617df6898ea8cbfe505c0"
+    },
+    {
+      "file": "C:\\Users\\msz\\aca\\Workspaces\\square37_lean_20261014\\lean\\ResearchTarget.lean",
+      "sha256": "0519227cdb1f35a63a8e3415510af714bf07af04a7b7500a39a7c98c5db4b632"
+    },
+    {
+      "file": "C:\\Users\\msz\\aca\\Workspaces\\square37_lean_20261014\\lean\\All.lean",
+      "sha256": "a70af187ae88590d4b40af8a4effd6f60e8517fca03bccc3ff99c60ad555f1b4"
+    },
+    {
+      "file": "C:\\Users\\msz\\aca\\Workspaces\\square37_lean_20261014\\lean\\CantrellBranch.lean",
+      "sha256": "d33552a2dd57339a8719960c0bb4ee54db34dfdd11c8f177bf642344421c9eb0"
+    }
+  ],
+  "verdict": "No mathematical or scope defect found in the reviewed statements/compositions. GlobalOptimality remains a definition; no inhabitant or unconditional global lower bound is supplied.",
+  "scope_notes": [
+    "conditional_branch_lower_bound explicitly requires FirstChain, LeftBrace, RightBrace and both central support gaps, plus a shared first-octant unit direction.",
+    "support_model_attains_minimum is attainment for a two-function necessary-support model, not existence of a complete 37-square layout.",
+    "optimality_iff_two_missing_steps proves equivalence between unrestricted optimality and the conjunction of the missing global lower bound and exact endpoint feasibility. It does not prove either missing condition.",
+    "Feasible is the coordinate-based IsPacking predicate. SquareMetric proves isometry and injectivity of parameterization; an explicit equivalence of coefficient-open inside with Mathlib interior of closed is not yet proved. The coordinate definition is mathematically faithful; do not claim a formal equivalence to T154 PlainPacking has already been built."
+  ],
+  "global_grid_baseline": {
+    "status": "Mathematical implementation proposal, not yet formalized or executed as a search",
+    "upper_side": "659861960924437/100000000000000",
+    "center_domain": "[1/2,U-1/2]^2",
+    "grid": [
+      8,
+      8
+    ],
+    "cell_width": "559861960924437/800000000000000",
+    "squared_cell_diameter": "313445415290155822287623766969/320000000000000000000000000000",
+    "strict_capacity_margin": "6554584709844177712376233031/320000000000000000000000000000",
+    "capacity_argument": "Every square contains its open radius-1/2 disk. Two centers in a cell of diameter less than 1 have overlapping such disks, so cannot have disjoint square interiors. Closed cells are allowed; selecting any containing cell yields injectivity.",
+    "occupied_subsets": 846636978475316672,
+    "D4_orbit_count_lower_bound": 105829622309414584,
+    "other_cell_count_combinatorics": {
+      "40": 9880,
+      "44": 38320568,
+      "48": 22595200368,
+      "49": 92263734836,
+      "52": 4481381406320,
+      "56": 424655979547800,
+      "64": 846636978475316672
+    },
+    "count_caveat": "Counts at m other than 64 do not assert the existence of capacity-one covers with that many cells."
+  },
+  "executable_next_steps": [
+    "Prove the square midpoint/inscribed-disk lemma with coefficient coordinates, then instantiate the exact 8x8 cover and capacity-one injection as a reusable global-to-finite theorem.",
+    "Construct improved rational polygon cells using wall containment for boundary cells and diameter certificates for interior cells. Independently check pointwise center coverage; a plot or area sum alone is insufficient.",
+    "Use certified partial-occupancy branch trees or constraint propagation, not the impossible full list of all 64-choose-37 rows. Each split must cover the parent, preserve owner count, and record a semantic implication.",
+    "Maintain each square angle in a complete independent domain, e.g. normalized theta in [-pi/4,pi/4] or half-angle q in [-(sqrt(2)-1),sqrt(2)-1]. Only a common D4 action may reflect the whole packing; independent positive-angle assumptions would lose configurations.",
+    "For each terminal state prove emptiness or capture into a specific proved local support class. Keep every residual unclosed state as an explicit remaining obligation.",
+    "Implement small feasible-packing and legal-boundary-contact positive controls, reject missing owners and incomplete angle coverage, and audit the final theorem statement and axiom list."
+  ]
+}

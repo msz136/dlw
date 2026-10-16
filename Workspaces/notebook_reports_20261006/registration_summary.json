@@ -1,0 +1,32 @@
+{
+  "ready_for_registration": true,
+  "reports": [
+    {
+      "relative_path": "notebook/非线性化report.ipynb",
+      "sha256": "2311337adfbbe537357fabc32971c57075d90e95f9ba26f944baa766ea8e35ee",
+      "code_cells": 14,
+      "elapsed_seconds": 95.87,
+      "validation_path": "Workspaces/notebook_reports_20261006/nonlinear_execution_validation.json"
+    },
+    {
+      "relative_path": "notebook/2HS数值分析report.ipynb",
+      "sha256": "e975d13df08165240dab26981a1ef21bf0dce013c84906e46f7bc6e0aa45b678",
+      "code_cells": 13,
+      "elapsed_seconds": 10.936,
+      "validation_path": "Workspaces/notebook_reports_20261006/hs_execution_validation.json"
+    },
+    {
+      "relative_path": "notebook/DLW数值分析report.ipynb",
+      "sha256": "99b1002feb5f277928508c35e11e4e71cf662fc17c13f069513434569abad363",
+      "code_cells": 15,
+      "elapsed_seconds": 27.629,
+      "validation_path": "Workspaces/notebook_reports_20261006/dlw_execution_validation.json"
+    }
+  ],
+  "original_reports": [
+    {"relative_path": "Report.html", "sha256": "c742301f456fb66afcad0965966932db854a89cfd9ff8aff40fef36f3579c937"},
+    {"relative_path": "index.html", "sha256": "25a6ffc83876ed195e31798dc108c83a4b5b726527c5cdbab0e94d7bab325d4b"}
+  ],
+  "report_progress_body": "原混合笔记本拆成 [非线性化report.ipynb](notebook/非线性化report.ipynb) 与 [2HS数值分析report.ipynb](notebook/2HS数值分析report.ipynb)。非线性化保留两路 Lean 的起点、公式推导与终点，以及 DLW 空间残差估计，30 单元／14 代码在独立原生内核实跑 95.87 秒，22 个原编号保持，复用本机 Lean／Mathlib。2HS 为 27 单元／13 代码，新增二孤子四项 tau 权重的解析参考、初值边界、RK4 推进与动态图表；最终完整实跑 10.936 秒，单、二孤子 8 个打印误差范数与原结果最大差 1.10e-12，解析导数、正 Jacobian 与坐标反解另行核对。两份正文按数学叙述穿插代码，未保留“现场计算”式机制段；结果包含 2 张 DLW 残差图及 5 张 2HS 图。旧 notebook 原件移动并保留在 Workspaces/notebook_reports_20261006/before_split/，原综合 HTML 留档 [Report_原HTML_20261006.html](report/Report_原HTML_20261006.html)，原根 HTML 字节未改。运行步骤见 [使用说明](report/notebook_usage.html)，执行、科学与交付证据均在新项目，最终哈希见 registration_summary.json。",
+  "dlw_progress_body": "将主目录 index.html 的 DLW 数值报告转为 [DLW数值分析report.ipynb](notebook/DLW数值分析report.ipynb)，31 原生单元／15 可执行代码，自包含 NumPy、pandas、SciPy、Matplotlib。模型、统一物理初值与下边界、SD／SD2／FD 核心、Euler／RK4、动网格与误差评价逐段展开；独立内核完整执行 27.629 秒，36 组主轨道和 6 组 SD2 Euler 减步轨道全部到达指定终点，保存实际误差表与 3 张图（12 子图、36 曲线）。18 配置的初态／小扰动共 36 次右端对照最大差 2.19e-11；原报告 90 个表值最大绝对差 6.44e-13，36 条 Euler 曲线最大差 1.93e-13。排序仍限于原 T=0.01、格距与边界闭合，保留 A 组 SD2 分辨率敏感等适用说明。原 HTML 留档 [DLW数值分析_原HTML_20261006.html](report/DLW数值分析_原HTML_20261006.html)，根 index.html 字节不变；两份纯数值笔记本可使用 Colab 云端 Python 或既有本地内核，非线性化复用本地 Lean。"
+}

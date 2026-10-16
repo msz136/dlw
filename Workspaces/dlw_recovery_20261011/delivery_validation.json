@@ -1,0 +1,710 @@
+{
+  "recovered_original_files_unchanged": [
+    "c0_branch_audit.md",
+    "completeness_routes.md",
+    "full_m_mixed_flow.md",
+    "mixed_bvp_audit.md",
+    "mixed_phase_symplecticity.md",
+    "nonlinear_inverse_checks.json",
+    "nonlinear_inverse_checks.md",
+    "nonlinear_inverse_checks.py",
+    "periodic_structure_audit.md",
+    "scalar_monodromy_linearization_checks.json",
+    "scalar_monodromy_linearization.md",
+    "scalar_poisson_quotient.md",
+    "verify_scalar_monodromy_linearization.py",
+    "verify_zero_mean_branch.py",
+    "zero_mean_branch_checks.json"
+  ],
+  "certificate_provenance": [
+    {
+      "record": "刘维尔可积性/research/nonlinear_inverse_checks.json",
+      "script": "刘维尔可积性/research/nonlinear_inverse_checks.py",
+      "sha256": "f33944ce6a2f83bdd0d4901eb4a9153096d8ae20698450e84d4764198f57a132",
+      "status": "all exact finite checks passed"
+    },
+    {
+      "record": "刘维尔可积性/research/scalar_monodromy_linearization_checks.json",
+      "script": "刘维尔可积性/research/verify_scalar_monodromy_linearization.py",
+      "sha256": "a341137110b9c4ee710dd5b2fb7d99ba6027199962c95b091f929b46931ecac5",
+      "status": "passed"
+    },
+    {
+      "record": "刘维尔可积性/research/zero_mean_branch_checks.json",
+      "script": "刘维尔可积性/research/verify_zero_mean_branch.py",
+      "sha256": "2df2d95f6473fb98859618189f9d5f1ddb9e8c187cfba98ec405c735ffd206de",
+      "status": "all exact checks passed"
+    },
+    {
+      "record": "Workspaces/dlw_recovery_20261011/c0_independent_certificates.json",
+      "script": "Workspaces/dlw_recovery_20261011/c0_independent_certificates.py",
+      "sha256": "e1ab4dfdf9df9b235a9803c586bb4544bf641b3b776814ac54caae7f6b101991",
+      "status": "all fresh exact checks passed"
+    },
+    {
+      "record": "Workspaces/dlw_recovery_20261011/m2_nonlinear_kernel_checks_20261011.json",
+      "script": "Workspaces/dlw_recovery_20261011/m2_nonlinear_kernel_checks_20261011.py",
+      "sha256": "6ab78c2904f3c0659901c2e12f9703db02292daad695a8a694d8342d814e29f8",
+      "status": "all new M2 nonlinear kernel exact checks passed"
+    },
+    {
+      "record": "Workspaces/dlw_recovery_20261011/m2_physical_trace_poisson_checks_20261011.json",
+      "script": "Workspaces/dlw_recovery_20261011/m2_physical_trace_poisson_checks_20261011.py",
+      "sha256": "02a1391284e7fc6d8b0b8b34f34a82ab0f060c807e527c4dae6bc05be871aebf",
+      "status": "all new nonlinear physical/AKNS trace identities passed"
+    },
+    {
+      "record": "Workspaces/dlw_recovery_20261011/m2_physical_trace_poisson_independent_checks.json",
+      "script": "Workspaces/dlw_recovery_20261011/m2_physical_trace_poisson_independent_checks.py",
+      "sha256": "1e808d56cfa35646200ce2f971854b258f6219a1b1c5ae1857d284f2bf19cdeb",
+      "status": "New independent physical fixed-lambda trace Poisson bridge"
+    },
+    {
+      "record": "Workspaces/dlw_recovery_20261011/mixed_hierarchy_symbol_checks.json",
+      "script": "Workspaces/dlw_recovery_20261011/verify_mixed_hierarchy_symbols.py",
+      "sha256": "199e1c6c766ec6f7b84ac5676ef66610cb2df29ac9d6e2127453ffd8123b808b",
+      "status": "passed"
+    },
+    {
+      "record": "Workspaces/dlw_recovery_20261011/singular_ckp_mixed_certificates.json",
+      "script": "Workspaces/dlw_recovery_20261011/singular_ckp_mixed_certificates.py",
+      "sha256": "9ce936db0bfcf92cb03de60c835f9402e1e4c398b2dd123c5680d811a19885a5",
+      "status": "all new cKP mixed algebra checks passed"
+    },
+    {
+      "record": "Workspaces/dlw_recovery_20261011/singular_m3_factor_independent_certificates.json",
+      "script": "Workspaces/dlw_recovery_20261011/singular_m3_factor_independent_certificates.py",
+      "sha256": "ae10f67d717a13ceb7dfb3674511378aea0e37af7e5ee3c9f6b2d9cc6062caca",
+      "status": "all new independent original-PDE factor checks passed"
+    },
+    {
+      "record": "Workspaces/dlw_recovery_20261011/singular_m3_flow_principal_certificates.json",
+      "script": "Workspaces/dlw_recovery_20261011/singular_m3_flow_principal_certificates.py",
+      "sha256": "7a46e468bafbd2b1a169da2637f81aecf25c407508ccf78f0b8eee77f646c50e",
+      "status": "all new exact checks passed"
+    },
+    {
+      "record": "Workspaces/dlw_recovery_20261011/singular_order2_ckp_certificates.json",
+      "script": "Workspaces/dlw_recovery_20261011/singular_order2_ckp_certificates.py",
+      "sha256": "5ba6b8d9a537e87a8119357548a8ffb71d30b5522a09ab47e2f902d135a4ef8d",
+      "status": "all new order-two cKP exact checks passed"
+    },
+    {
+      "record": "Workspaces/dlw_recovery_20261011/singular_principal_independent_certificates.json",
+      "script": "Workspaces/dlw_recovery_20261011/singular_principal_independent_certificates.py",
+      "sha256": "c1f91fb9ab14d06e7985d8eddc27140a5ccbc9e53aadbbd570d4dc06bcbb66fa",
+      "status": "all new independent constant-stage principal checks passed"
+    },
+    {
+      "record": "Workspaces/dlw_recovery_20261011/singular_stage_independent_certificates.json",
+      "script": "Workspaces/dlw_recovery_20261011/singular_stage_independent_certificates.py",
+      "sha256": "52f6c935ab94d6d90226efd2936989435c6d566401ff8054cf09bd4ef0cf6f20",
+      "status": "all new independent operator checks passed"
+    },
+    {
+      "record": "Workspaces/dlw_recovery_20261011/singular_variable_principal_certificates.json",
+      "script": "Workspaces/dlw_recovery_20261011/singular_variable_principal_certificates.py",
+      "sha256": "3c1250c0bb3265981824d14a2bad3c1a77fdb9023622af29ca4bfe2a3587403f",
+      "status": "all variable-background first-jet exact checks passed"
+    },
+    {
+      "record": "Workspaces/dlw_recovery_20261011/singular_zero_flux_certificates.json",
+      "script": "Workspaces/dlw_recovery_20261011/singular_zero_flux_certificates.py",
+      "sha256": "1b328fde673f62169661fd334ca6ea3d9cc512eee2b18a9d3d0a0de94f4c7eb5",
+      "status": "all exact checks passed"
+    },
+    {
+      "record": "Workspaces/dlw_recovery_20261011/spectral_all_m_tensor_pattern_checks_20261011.json",
+      "script": "Workspaces/dlw_recovery_20261011/spectral_all_m_tensor_pattern_checks_20261011.py",
+      "sha256": "d9b5bfc10dfed7c9b1be95e05fd478ffb8b4fd73f233dbd90780c2e4f6fbadc3",
+      "status": "record read"
+    },
+    {
+      "record": "Workspaces/dlw_recovery_20261011/spectral_fixed_frame_tail_checks_20261011.json",
+      "script": "Workspaces/dlw_recovery_20261011/spectral_fixed_frame_tail_checks_20261011.py",
+      "sha256": "45e09ec5d1f4028cf71c9d3f4c95d1172ead8e1fb03083174c9c06f9d7fe73cc",
+      "status": "Fixed-background nonlinear monodromy sample has an algebraic tail; no nonlinear inverse claim"
+    },
+    {
+      "record": "Workspaces/dlw_recovery_20261011/spectral_floquet_resonance_checks.json",
+      "script": "Workspaces/dlw_recovery_20261011/spectral_floquet_resonance_checks.py",
+      "sha256": "1752ad1dfeaa003bcb527b5657c375b8718ac0f2b1e252bfbb48e236be9a6ea9",
+      "status": "Floquet tangent bridge; no completeness claim"
+    },
+    {
+      "record": "Workspaces/dlw_recovery_20261011/spectral_m2_actual_poisson_tensor_checks_20261011.json",
+      "script": "Workspaces/dlw_recovery_20261011/spectral_m2_actual_poisson_tensor_checks_20261011.py",
+      "sha256": "966318bf7023887ff857efab6db1b9498dcd1ebf1f28b4aa9f9cb6dd5962b7f8",
+      "status": "record read"
+    },
+    {
+      "record": "Workspaces/dlw_recovery_20261011/spectral_m3_actual_poisson_tensor_search_20261011.json",
+      "script": "Workspaces/dlw_recovery_20261011/spectral_m3_actual_poisson_tensor_search_20261011.py",
+      "sha256": "275c43808f6cd35240a4cdc1e5f22e6551f2e8bd607d3a57690ef16458462096",
+      "status": "completed"
+    },
+    {
+      "record": "Workspaces/dlw_recovery_20261011/spectral_original_frame_tail_checks_20261011.json",
+      "script": "Workspaces/dlw_recovery_20261011/spectral_original_frame_tail_checks_20261011.py",
+      "sha256": "a7e2ab22157c0d764b39b8770c7393367cd46c369f4194bad00d06f03ef8016a",
+      "status": "Direct original fixed rank-one frame has constant monodromy tail; no nonlinear inverse claim"
+    },
+    {
+      "record": "Workspaces/dlw_recovery_20261011/spectral_symplectic_checks_20261011.json",
+      "script": "Workspaces/dlw_recovery_20261011/spectral_symplectic_checks_20261011.py",
+      "sha256": "8f14a670340e385d5a59ae250987641ae4083d5a7988204c933d0ade03f82892",
+      "status": "Original-physical linear symplectic bridge only; no nonlinear completeness claim"
+    },
+    {
+      "record": "Workspaces/dlw_recovery_20261011/unfixed_flux_checks.json",
+      "script": "Workspaces/dlw_recovery_20261011/verify_unfixed_flux.py",
+      "sha256": "b8d669357634b946606412f941718068036a2dae34c328fddfe5bd35b7a05865",
+      "status": "PASS"
+    },
+    {
+      "record": "Workspaces/dlw_recovery_20261011/verify_real_rational_background.json",
+      "script": "Workspaces/dlw_recovery_20261011/verify_real_rational_background.py",
+      "sha256": "8012797aef9197c2b0d6751b676d064f50e16359d87d385baa62170b4026d04a",
+      "status": "Nonempty real rational factor charts at c=Gamma=0, kappa!=0"
+    }
+  ],
+  "python_syntax": [
+    "Workspaces/dlw_recovery_20261011/build_current_report.py",
+    "Workspaces/dlw_recovery_20261011/build_m2_conditional_report.py",
+    "Workspaces/dlw_recovery_20261011/build_m2_regular_report.py",
+    "Workspaces/dlw_recovery_20261011/build_research_report.py",
+    "Workspaces/dlw_recovery_20261011/c0_independent_certificates.py",
+    "Workspaces/dlw_recovery_20261011/m2_nonlinear_kernel_checks_20261011.py",
+    "Workspaces/dlw_recovery_20261011/m2_physical_trace_poisson_checks_20261011.py",
+    "Workspaces/dlw_recovery_20261011/m2_physical_trace_poisson_independent_checks.py",
+    "Workspaces/dlw_recovery_20261011/refresh_current_records.py",
+    "Workspaces/dlw_recovery_20261011/singular_ckp_mixed_certificates.py",
+    "Workspaces/dlw_recovery_20261011/singular_m3_factor_independent_certificates.py",
+    "Workspaces/dlw_recovery_20261011/singular_m3_flow_principal_certificates.py",
+    "Workspaces/dlw_recovery_20261011/singular_order2_ckp_certificates.py",
+    "Workspaces/dlw_recovery_20261011/singular_principal_independent_certificates.py",
+    "Workspaces/dlw_recovery_20261011/singular_stage_independent_certificates.py",
+    "Workspaces/dlw_recovery_20261011/singular_variable_principal_certificates.py",
+    "Workspaces/dlw_recovery_20261011/singular_zero_flux_certificates.py",
+    "Workspaces/dlw_recovery_20261011/spectral_all_m_tensor_pattern_checks_20261011.py",
+    "Workspaces/dlw_recovery_20261011/spectral_fixed_frame_tail_checks_20261011.py",
+    "Workspaces/dlw_recovery_20261011/spectral_floquet_resonance_checks.py",
+    "Workspaces/dlw_recovery_20261011/spectral_m2_actual_poisson_tensor_checks_20261011.py",
+    "Workspaces/dlw_recovery_20261011/spectral_m3_actual_poisson_tensor_search_20261011.py",
+    "Workspaces/dlw_recovery_20261011/spectral_original_frame_tail_checks_20261011.py",
+    "Workspaces/dlw_recovery_20261011/spectral_symplectic_checks_20261011.py",
+    "Workspaces/dlw_recovery_20261011/synchronize_records.py",
+    "Workspaces/dlw_recovery_20261011/validate_delivery.py",
+    "Workspaces/dlw_recovery_20261011/verify_akns_physical_bridge_20261011.py",
+    "Workspaces/dlw_recovery_20261011/verify_mixed_hierarchy_symbols.py",
+    "Workspaces/dlw_recovery_20261011/verify_real_rational_background.py",
+    "Workspaces/dlw_recovery_20261011/verify_unfixed_flux.py"
+  ],
+  "markdown_local_links": 462,
+  "markdown_utf8_and_display_delimiters": 118,
+  "saved_manuscript_snapshot": [
+    {
+      "path": "Workspaces/dlw_recovery_20261011/akns_actions_same_strong_chart_genericity_20261011.md",
+      "sha256": "428a49804eacc4da30afab8c791545c8e5c0ae4dd9c4e98ec82f7bd489c6867d"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/akns_actions_strong_domain_independent_audit.md",
+      "sha256": "ec61280ff7e56f03169144a9d81caf0e9903962f1a413710632d2feb17591d17"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/akns_physical_state_inverse_bridge_20261011.md",
+      "sha256": "3c92732e583bd2cc6ec8f056b2919ae60357580ab16a8db1fc433a4b873127b0"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/akns_physical_state_inverse_independent_audit_20261011.md",
+      "sha256": "b511e59f233237dee660d0db64c68568f162f2eae042584d48f32b22339a6ee7"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/all_m_actual_framed_endpoint_recovery_20261011.md",
+      "sha256": "21410f649d9f5cb9582f16aeb000aedcc221a28b9cb653b0ecc13b6cf48131f3"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/all_m_actual_full_framed_state_inverse_bridge_20261011.md",
+      "sha256": "98a106d26c45d20a542f397a0fa06d9d5fc81cedccbfe8a03a7515f6b843d56a"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/all_m_actual_spectral_independent_audit.md",
+      "sha256": "44621cd39f7e462d44f692e30b66ccbe637495abf76a70543773517b733a1187"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/all_m_actual_trace_vector_akns_mod_frame_recovery_proof_20261011.md",
+      "sha256": "3780b13a597139691ca7660bf4cc5e817a5b08c588fa52441b7f81689992b1c0"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/all_m_actual_trace_vector_mod_frame_independent_audit_20261011.md",
+      "sha256": "97e52655c5c15d7afb1dad5561bc0631ac92a343484a1f56aaa8ae1f302196a4"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/all_m_cyclic_monodromy_gauge_kernel_20261011.md",
+      "sha256": "80f7a76b4681e50182a3fa63a89bf4ba5483edebe2c20aa00a16e75e1261f73e"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/all_m_cyclic_monodromy_gauge_kernel_independent_review_20261011.md",
+      "sha256": "f69176c66248d5784af80ef5c39b30ca43907547a3db34c08041bf4404ca33ae"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/all_m_endpoint_class_constraints_independent_audit_20261011.md",
+      "sha256": "a76c60cb06dcd7286b0ba068d13922af539e44ee32cfaf65f943302545f75c37"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/all_m_full_framed_endpoint_holonomy_independent_audit_20261011.md",
+      "sha256": "5a340374791d5376f0ab1137f236c41405b75870e413eef7f3850a2f149df51e"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/all_m_holonomy_image_independent_audit_20261011.md",
+      "sha256": "05ca9338c241ebd857069bf3571ca2121f34741f76eb4d565f4704d67dbb67bd"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/all_m_physical_holonomy_state_inverse_20261011.md",
+      "sha256": "048d2103dea63bcc4e214c803f11c841d9adbd124400e2ecd0c4e794dd52fb68"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/all_m_rational_gauge_hamilton_independent_review_20261011.md",
+      "sha256": "cd67cdbc76bb261410077e4623729a078021b6d8fe59340a60727ef2522c2df6"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/all_m_rational_physical_gauge_hamilton_bridge_20261011.md",
+      "sha256": "33732a941321b0771372dfb58120ed10ed2b941fb758c27bf25442cad1fa38b0"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/all_m_spectral_infinitesimal_conjugacy_lemma_20261011.md",
+      "sha256": "e009f1c87d699024ec0771730da34bcc29d2a066a90a66098b2b82e0f92eafd9"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/c0_nonzero_flux_rational_mixed_independent_audit_20261011.md",
+      "sha256": "af149f69717a526e574a797a008fe19c545b092b71c5a2b9a0cda752598338a7"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/ckp_mixed_estimate_independent_review.md",
+      "sha256": "dcc7091b7e39aa3b3e5259af3bcf97ff24b5826bb459539ff72b10ce99e84ded"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/general_m_actual_gap_trace_poisson_bridge_20261011.md",
+      "sha256": "f45c27692ae363c2d81f4cd562795a8bce00ef90e4b295fe1ec76d03920ee3fc"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/general_m_actual_high_frequency_finite_gap_recovery_audit_20261011.md",
+      "sha256": "0922f4bf4cb2da86d73cec46e6d38c714ece27ea32e4023163f0853e83d6837a"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/general_m_actual_high_frequency_riesz_gap_lemma_20261011.md",
+      "sha256": "88652aefd148f0dc803732aae7a2038891b159b49c896f424978475209da9c46"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/general_m_augmented_actual_high_norming_state_inverse_recovery_20261011.md",
+      "sha256": "daa51914b2e4ab62eba1619e0de9750977c7be533d903292970193aebd0efd15"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/general_m_augmented_norming_state_inverse_independent_spectral_audit_20261011.md",
+      "sha256": "04a948d8736bff50337039a77772a59c08fe2867d0737b3cd675c0b38e9df252"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/general_m_background_norming_original_poisson_pairing_recovery_proof_20261011.md",
+      "sha256": "d833abe8df63db2bd1a9dfc8adaeb0c097c5204c1abb3597b14516e0a7e16df1"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/general_m_background_norming_poisson_independent_audit_20261011.md",
+      "sha256": "553b0dd886c2b78fb8c973c9ed555924f1231ed4f1f0daed4e41eae4337c688c"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/general_m_even_volterra_and_gap_sequence_independent_audit_20261011.md",
+      "sha256": "8b6aae9cb6f84b81eead895fca220a8f59aa8f64ed6a23e5e2be68c5f34535ac"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/general_m_finite_gap_involution_and_order_zero_flow_independent_audit_20261011.md",
+      "sha256": "963a10df1c335ecd67ed7669ce70296b7158bb6a8aaf582961237287fe39b4c0"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/general_m_finite_high_gap_and_norming_ift_secondary_audit_20261011.md",
+      "sha256": "86ce24a1b49d1a0f1da22a05db820a7910a406939e0292504ebb6dc93b4845c0"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/general_m_fixed_gap_balanced_hamilton_flow_20261011.md",
+      "sha256": "83e49d069021db00aeacf663b86e54f60d3221b6a703cbfdbd0648f00caee092"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/general_m_framed_monodromy_fourier_kernel_20261011.md",
+      "sha256": "d16b79492f24d3532839a09662b5d4898da8b373fba3b9bbe3d692705da29a7b"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/general_m_gap_frequency_weighted_hamilton_sequence_20261011.md",
+      "sha256": "008ded2a39a8a15dd7f677fdb5b6ce3eb87595ace940eca21fb1275a0c6fd0ba"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/general_m_gauge_symbol_independent_20261011.md",
+      "sha256": "01fd257caec498f603d0d2de8eb64f0a91c3e6b635abfacf724d9d8dd74ed2fa"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/general_m_high_gap_same_strong_hilbert_transfer_20261011.md",
+      "sha256": "9a41e8868ea0e9ea49d531b9a5283439b5d785c988d445003f0ab88af418a168"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/general_m_inverse_linearization_independent.md",
+      "sha256": "de7e9cd3b3ba988125c8d8328b09147637a09f03d9d345c4a957e4cc620196f7"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/general_m_periodic_gauge_state_inverse_independent_20261011.md",
+      "sha256": "8fd4bdbeeebe03dedf6b08fed43798e07029fe85989bbfc24bf6033e2ad56976"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/general_m_physical_gauge_fredholm_and_spectral_constraints_20261011.md",
+      "sha256": "defee5323b60b25eb4c27b696fe61b4d080377afa8b561f9fdd9384cd573a91c"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/general_m_raw_monodromy_state_extraction_independent_20261011.md",
+      "sha256": "25203ebcc28f65ca96a3a4bf48be21e091425883b218e8925f543f689e6dfc89"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/general_m_strong_hilbert_fourier_preimages_independent_audit_20261011.md",
+      "sha256": "2eb9196e00e23b10c348362833c7775c24fc46074b8713149cbf7b0d8c87602a"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/general_m_uniform_resonance_independent_audit_20261011.md",
+      "sha256": "dd15d6ab57178013c95d6aba5a43e63467ae61ab57b59afbb07cc737fa66081b"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/general_m_weighted_gap_field_sequence_independent_audit_20261011.md",
+      "sha256": "dcf968e747464a88a303889e2d13eea4b009e548a281683b6a60901377d74a64"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/infinite_product_level_tangent_caution_20261011.md",
+      "sha256": "a4d5cb551167c8148c687143e575204b60af90b9bda24accb5ab0d82bfa43c7b"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/m2_action_angle_cross_operator_and_profile_obstructions_20261011.md",
+      "sha256": "043f61e2d4b015639490e3fba5746917d1a474ee5b8eabef43e88d502b471c74"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/m2_actual_mixed_low_bounded_torques_independent_audit_20261011.md",
+      "sha256": "5a77615da8c2e49bd79722e75fe4010643536fb9f0f8aa0bfb1f83429c486ed2"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/m2_actual_mixed_low_fields_bounded_torques_real_form_20261011.md",
+      "sha256": "9f4d453ad9fd89a03edf46980e8c47e70bde5f387c38c5e495ffcf1082dbfc51"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/m2_conditional_theorem_statement_20261011.md",
+      "sha256": "ff7f48c84644a4dfbae56cfd9752a239aa96aabd51407071c2d39629deb00c1d"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/m2_conditional_theorem_statement_independent_review_20261011.md",
+      "sha256": "55abf7e84bc6f999e00a540e4112cfe81c0603ed36ee093d907ae87cf52df5a8"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/m2_conditional_theorem_statement_recovery_review_20261011.md",
+      "sha256": "df77fe62ef23cc9b748e04f3573ee196f6bbb77ce0c6eb945244c79133827ae4"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/m2_gauge_kernel_independent_audit.md",
+      "sha256": "1d024f7eab1be80935adabd53fa37c41f0406a3e0b31e18535d03f6e83171e95"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/m2_kltz_physical_real_involution_independent_audit_20261011.md",
+      "sha256": "777ce51d9fddf78261218e34fffa9b8f0368b5d2083591cfcfa2e6b09b3a56e7"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/m2_physical_cross_operator_predual_20261011.md",
+      "sha256": "ace1c6e8accda28918cdada712dc556dd06210f002e3b97620d9535a4af5eeb1"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/m2_physical_trace_bridge_independent_audit_20261011.md",
+      "sha256": "f3b028b96e588941ae3f5202c7f869855bf18f892e77f317c76f2215fa733e08"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/m2_physical_trace_bridge_independent_review.md",
+      "sha256": "0e654c9f55010b841eaaf5924120d975e2ff2022ff1731fbdacbfd5ca4b08d3d"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/m2_physical_trace_closure_chain_independent_review_20261011.md",
+      "sha256": "965ba63381e7380b295314f146ae24fdd65eedbef9caa35f68732ad215b4bdd6"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/m2_physical_trace_poisson_closure_proof_20261011.md",
+      "sha256": "c661de46fb1dcec36d45e8fc3b4d63dba2ecb4c32a63b70b1446b2299ba5f6af"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/m2_physical_trace_poisson_independent_audit.md",
+      "sha256": "395b66df7d92bc3cc8c95b24dca1160ab5e6654f2583f69fa2a67f884a7b1e98"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/m2_reciprocal_actions_actual_low_hamiltonian_independent_audit_20261011.md",
+      "sha256": "1c5c20bc12513d6fb39efca4b90efb5aca790a74a2ebe8254bba34c0548ddaa1"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/m2_reciprocal_bounded_sum_derivative_independent_audit_20261011.md",
+      "sha256": "5e54c722174a31a66d42d6ce25ae2d8ada17b089ebd9036a53bbc9f6e2659822"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/m2_reciprocal_spectral_actions_and_dlw_frequencies_20261011.md",
+      "sha256": "fa27e66346acc17e9e572267e7f3a675caeb664860f6497bf361efe14a154141"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/m2_regular_core_akns_bridge_independent_audit_20261011.md",
+      "sha256": "46672049c6da7de8c61621ba5473581f7806ed72743da1b234d368a89a49de83"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/m2_regular_variable_action_original_symplectic_phase_20261011.md",
+      "sha256": "288ce834cc86c82f2980757dbf0dba97061f4c31ee1334f7cf9ac5d9550e80b8"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/m2_regular_variable_action_phase_independent_audit_20261011.md",
+      "sha256": "0655940bb988731acddbdf61b273d88c9b260c4c180d4034443a008c85aff76a"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/m2_strong_isospectral_orbits_and_relative_fiber_20261011.md",
+      "sha256": "06387290f91505c9cc57d85363711511ff5a61892d3224c9abe2d5ef0958c36b"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/mixed_strong_domain_topology_clarification.md",
+      "sha256": "21e2385db6940bcd9bbd63206f27ea63c5600964e2894c7f017a1c3b04d68c60"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/other_chat_s_ax_positive_spectral_candidate_20261011.md",
+      "sha256": "1f5ff1a9acd58dbfb575485ffcbc3cba7c68ee1868d774e597cfa2a304d920c8"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/other_chat_s_ax_positive_spectral_candidate_independent_audit_20261011.md",
+      "sha256": "6145d65326e483bbb6b49e7053890f7c6fe5b514d0f9658be059b24cb71b244d"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/relative_log_profile_geometry_independent_audit_20261011.md",
+      "sha256": "e0a7497fc7adf6efec7a12299f159e5e664f8311a6995074cfcd550e2ba863ba"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/report_scope_and_nonlinear_crossmap_review_20261011.md",
+      "sha256": "634866b1d161fee8fc7a4c7a8d381d21b843edabb7fdd64ac81dff5e2896887d"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/root_all_m_actual_framed_state_inverse_audit_20261011.md",
+      "sha256": "bd562a0bec25d55ce2a7f80c7824450936ce8a58a4e4e1caa00e486cceb5ec91"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/root_all_m_actual_gap_trace_poisson_bridge_audit_20261011.md",
+      "sha256": "f1f1b2cc0eab442b64fd7ecfc3bbf71c1921e0fd8a3c522508ab85c9ea3f98c9"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/root_all_m_actual_high_frequency_gap_audit_20261011.md",
+      "sha256": "c862d8d87a75770c777079e6604faac175fa9a0fef0c7ca958e7961ce436de4e"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/root_all_m_actual_spectral_audit_20261011.md",
+      "sha256": "c91f7192c58f86cad035fac46d7677426653f95de8fbab8f498d69f18a36f9ee"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/root_all_m_actual_vector_trace_bridge_audit_20261011.md",
+      "sha256": "8f01eb90fa364f493881177b737ff6cce7cf26275098ad25e1c2796ac2512473"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/root_all_m_augmented_actual_norming_state_inverse_audit_20261011.md",
+      "sha256": "eb74c8cc1adf3371eb4f37b7531857200011f1433c0fc048b6dd80ae45e98040"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/root_all_m_background_norming_poisson_audit_20261011.md",
+      "sha256": "6505f339b9b133df4306e3fab56f3b980083b6c1d0f540372919b201ff46e8ec"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/root_all_m_frequency_weighted_gap_sequence_audit_20261011.md",
+      "sha256": "ea5da192c310b5c685951d3c2347cfe2f8553c6c778154a1f9771b63551d6cfc"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/root_all_m_gauge_constraints_and_residue_audit_20261011.md",
+      "sha256": "177fc9c8eee7cc3eb0b5bababb2b9b610259038bf447c5a215e9b501d879bceb"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/root_all_m_high_gap_same_strong_chart_audit_20261011.md",
+      "sha256": "4818102a072ce03316e5d80e3b3deab0a8a1ef494708e9474f3387c2c068c691"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/root_all_m_uniform_actual_resonance_audit_20261011.md",
+      "sha256": "8942d891a1e6eccd3a54d610d3318989df3e518be383fc1d8526dab30462a5c4"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/root_general_m_periodic_state_inverse_audit_20261011.md",
+      "sha256": "a319dbf693cc8b88ef510d146adaac3b1c78500d0973163c78d7364133eb41b9"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/root_m2_cross_operator_and_regular_fiber_audit_20261011.md",
+      "sha256": "243b5edb589b265af55cf0fac8901c8f7c8a7bee0f40beb07a4fb3424769bacc"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/root_m2_nonlinear_closure_audit_20261011.md",
+      "sha256": "0d7a60659a9ea65ccd86d6bb67cef27c0057190e43e84645de498331639dd3ad"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/root_m2_original_frequency_normalization_audit_20261011.md",
+      "sha256": "43db99ed856aa9407716f6ab8f6569a73d1c08bdb80b7e6edde3e13a8c6fdb67"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/root_m2_reciprocal_actions_and_bounded_hamiltonians_audit_20261011.md",
+      "sha256": "6f1087630c71e20e71edeadfce8ab3a98d84bfb320b1938a4bc0495c84120d74"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/root_m2_regular_original_liouville_phase_audit_20261011.md",
+      "sha256": "f974cb66d759ee9fff8cbc53717367371db405b7e177d521ef25213aaee81be9"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/root_m2_unfrozen_physical_coupling_audit_20261011.md",
+      "sha256": "be8efaf8af171cef5d42808ea7ceedb200dade79b87e026409717d7b39c12ba9"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/root_phase_spectral_bridge_audit_20261011.md",
+      "sha256": "9fb8e65683f690eb963e0ba347e08e1c3a52c181e501eee9419c3ea1287ecc79"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/root_vector_matched_h1_and_special_candidate_audit_20261011.md",
+      "sha256": "34e5ee61c86bc5866a1af04ef4f6f40ae13e9ae8eb84101c3532d6cd9bbacac0"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/singular_all_m_rational_independent_audit.md",
+      "sha256": "d98de820cc2a8da6e9d401c1ac4fb9a3fbfe3e1c1a5c0df00a5f35bbfcd7993c"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/singular_branch_independent_audit.md",
+      "sha256": "5d13389083f2f8fea171d38e01b352ba1568e677635baae588cf455a187481bf"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/singular_m3_flow_independent_audit.md",
+      "sha256": "63bb3417d7102ed97293508e4be7c62f2ff5e0f1946c63b0a0191a347f033ba3"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/singular_paired_tangent_projector_20261011.md",
+      "sha256": "11dad550d6ced851af51e1c973a4209d0dc4cc7269f5c7b6c330737accf485d0"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/spectral_actual_quasimomentum_independent_audit.md",
+      "sha256": "be915684e7635d3a70ebe1c4c988a97d5a0a377446f9cec5c81b1f2f29ad937d"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/spectral_all_m_actual_quasimomentum_independent_audit_20261011.md",
+      "sha256": "d41f458263e8664148fe25df8e1462e1abf4bc9817d214cf15cc967ba9f7ed5e"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/spectral_fixed_frame_tail_independent_audit.md",
+      "sha256": "82c2e490ec0a9a45313a1f2f715191911aedce797da97fb0c58d48e6714c6065"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/spectral_local_inverse_audit.md",
+      "sha256": "ccf004d6278cced09ef458cf449c5f10943d9a77c0aa8c84016f51418353124f"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/spectral_m2_actual_poisson_independent_audit.md",
+      "sha256": "6acaec72acdbaefda572af0c0230fdcff213280b72ea6dab48bf46ec67c6fc57"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/spectral_m2_moving_gap_independent_audit.md",
+      "sha256": "2e3bad6036564b546b07bfcdd6ca5a2f37fd2f079b50c79dc48566bb0d44969a"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/spectral_m2_strong_domain_flow_bridge.md",
+      "sha256": "a3f54804c97af9fa8787ac4d8220fff9d2c1a05b9ed4a961b975b18cac440651"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/unfixed_flux_independent_audit.md",
+      "sha256": "5872a04cc4cfc579ca74bc1f150c01d93808f42f4af93fb4fd43b35f023d29ae"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/vector_akns_framed_l2_state_inverse_recovery_proof_20261011.md",
+      "sha256": "57b744d33e96e798c63f320ed8942e404accad8e8ae21db561860ba1ee7f46e2"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/vector_akns_twisted_h1_state_inverse_independent_audit_20261011.md",
+      "sha256": "dfc047d814b2d2c1901a86032d066f3bb25a87fb0d22801efb6f7fee95b0f1e3"
+    },
+    {
+      "path": "Workspaces/dlw_recovery_20261011/vector_akns_twisted_h1_state_inverse_recovery_proof_20261011.md",
+      "sha256": "90ba60affd9f6e99d6e9a219aae04f47c717714917a8d4bed166231179826a2e"
+    },
+    {
+      "path": "刘维尔可积性/GOAL.md",
+      "sha256": "c9eb3bf9b185da97a23f024e837afe1025bfced1d6e06c54cc45388b1e7bb561"
+    },
+    {
+      "path": "刘维尔可积性/README.md",
+      "sha256": "0b4027f9afa4965811212457b8e807098a5d794ff8f8046b794afe546940495d"
+    },
+    {
+      "path": "刘维尔可积性/research/c0_independent_review_20261011.md",
+      "sha256": "4d4830b7830734f5149bbc9d48895bd03169a660c30dd64aee514e702b905fa9"
+    },
+    {
+      "path": "刘维尔可积性/research/m2_nonlinear_spectral_kernel_20261011.md",
+      "sha256": "6aea4fb38e849307672043d94eceddfcd06933cba056819d25a17801e76e3c9c"
+    },
+    {
+      "path": "刘维尔可积性/research/mixed_independent_review_20261011.md",
+      "sha256": "50288e3dff426b378ff4929aa3f1dfbfcaba3a7afccd1a3d3ee086d901835cc2"
+    },
+    {
+      "path": "刘维尔可积性/research/real_rational_background_20261011.md",
+      "sha256": "71740336e47d0fd5509c503359a6f84c8f5fbb204c5dd196b02632a4185a14bd"
+    },
+    {
+      "path": "刘维尔可积性/research/singular_branch_review_20261011.md",
+      "sha256": "1839fdf226de4e35d719dba06145506d82285faed5b42d520065c9816d13b13c"
+    },
+    {
+      "path": "刘维尔可积性/research/singular_ckp_actual_mixed_flow_20261011.md",
+      "sha256": "9a4313d4a4ede068cc6d1e29d551d8de6b5a87d4dc4cef52b5f19251180b2238"
+    },
+    {
+      "path": "刘维尔可积性/research/singular_m3_actual_flow_20261011.md",
+      "sha256": "70aee9a218b1e4bf45df91bf23c556fe93f8e34e0e93a1efbe18abdfe5fc32df"
+    },
+    {
+      "path": "刘维尔可积性/research/singular_m3_adler_trace_map_20261011.md",
+      "sha256": "839d7849f313b8312aae405fda2b64a2b3742a207488081dbefb270ec1cb653b"
+    },
+    {
+      "path": "刘维尔可积性/research/spectral_independent_review_20261011.md",
+      "sha256": "6bc5692280b931ebec6b96be4c86cac992530832fe61bdab873b7c493a6de28d"
+    },
+    {
+      "path": "刘维尔可积性/research/STATE.md",
+      "sha256": "80f9652125b14ba820684b0dd3f3862ac4900b60205f260f27ec32039ee5d251"
+    },
+    {
+      "path": "刘维尔可积性/research/unfixed_flux_hierarchy_20261011.md",
+      "sha256": "7e0925625bd63fe4332a2067d59b1c90375984564c923e2663e01cad82c8bc9e"
+    },
+    {
+      "path": "刘维尔可积性/research_checkpoint.md",
+      "sha256": "d63f4187e3bcf74de07abcd7bcb88f3eb22ac9611bd0c4086d0759081348b852"
+    }
+  ],
+  "html": {
+    "sha256": "34e978b1c80df10983888b17608e261c6bbe6cb72814f10252f409d33d8983b3",
+    "local_links": 38,
+    "sections": 9,
+    "offline": true
+  },
+  "m2_conditional_theorem_html": {
+    "sha256": "a5f7a62167d3a45afa840eb791ec044f5189f092dac6aee9cc858e4ad1c70c9d",
+    "local_links": 8,
+    "sections": 6,
+    "offline": true
+  },
+  "m2_regular_original_liouville_html": {
+    "sha256": "1c53f5f5811c32ec9be942b460ab2d406a934662516f2b77febaafadbe5232b6",
+    "local_links": 8,
+    "sections": 5,
+    "offline": true
+  },
+  "unrelated_shared_content_preserved": {
+    "progress": true,
+    "index": true,
+    "topic_history": true
+  },
+  "git": {
+    "head": "e2ee3cc6a022c0afc723e3324b3cc57a0fa5b143",
+    "scoped_diff_check": true,
+    "commit_or_push_performed": false
+  },
+  "status": "all delivery checks passed",
+  "scope": "Saved artifacts and provenance only; not a certification of a complete nonlinear Liouville theorem.",
+  "script_sha256": "6c3e67f98f72cb85e4e772fba6c6466dbd1b9a0f89bd9cc7b5e058737aa647bd"
+}

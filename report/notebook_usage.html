@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>数学证明与数值分析笔记本 · 使用说明</title>
+  <style>
+    html{color:#202020;background:#fff}
+    body{max-width:860px;margin:48px auto;padding:0 24px;font:17px/1.8 "Times New Roman","SimSun",serif}
+    h1{font-size:27px;line-height:1.45;text-align:center;margin:0 0 32px;font-weight:600}
+    h2{font-size:20px;line-height:1.6;margin:28px 0 12px;font-weight:600}
+    p{margin:12px 0}
+    a{color:#234b72;text-underline-offset:3px}
+    table{width:100%;border-collapse:collapse;margin:18px 0;font-size:16px}
+    th,td{border-bottom:1px solid #ddd;padding:10px 12px;text-align:left;vertical-align:top}
+    th{border-top:1px solid #333;border-bottom:1px solid #333;font-weight:600}
+    code{font:14px/1.65 Consolas,monospace;overflow-wrap:anywhere}
+    ol{padding-left:1.6em}li{padding-left:4px;margin:7px 0}
+    @media(max-width:600px){body{margin:28px auto;padding:0 18px;font-size:16px}h1{font-size:24px}table{font-size:15px}th,td{padding:9px 7px}}
+    @media print{body{max-width:none;margin:0;padding:0}a{color:inherit}}
+  </style>
+</head>
+<body>
+<main>
+  <h1>数学证明与数值分析笔记本</h1>
+  <table>
+    <thead><tr><th>笔记本</th><th>内容</th><th>运行环境</th></tr></thead>
+    <tbody>
+      <tr><td><a href="../notebook/DLW理论.ipynb">DLW 理论</a></td><td>连续 DLW、半离散双线性构造、τ 解与连续极限的推导和 Lean 证明。</td><td>本地 Python 与 Lean</td></tr>
+      <tr><td><a href="../notebook/2HS数值分析report.ipynb">2HS 数值分析 report</a></td><td>精确解、数值推进、误差比较与波形图。</td><td>云端或本地 Python</td></tr>
+      <tr><td><a href="../notebook/DLW数值分析report.ipynb">DLW 数值分析 report</a></td><td>孤子算例、三种空间方案、时间推进与误差图表。</td><td>云端或本地 Python</td></tr>
+      <tr><td><a href="../notebook/DLW刘维尔可积性report.ipynb">DLW 刘维尔可积性 report</a></td><td>一般周期场的条件、守恒量、守恒与对易、Jacobian 独立见证及最终 Lean 定理。</td><td>本地 Python 与 Lean</td></tr>
+    </tbody>
+  </table>
+  <h2>在 VS Code 中使用</h2>
+  <ol>
+    <li>打开所需的 <code>.ipynb</code>，在右上角选择 Python 内核：<br><code>C:/Users/msz/aca/Workspaces/report_colab_20261006/.venv/Scripts/python.exe</code>。</li>
+    <li>从第一段代码开始，按正文顺序点击 ▶，或按 <code>Shift+Enter</code>。</li>
+    <li>修改参数后，从该配置单元向下重新执行。按 <code>Ctrl+S</code> 保存代码与结果。</li>
+  </ol>
+  <h2>在 Colab 中使用</h2>
+  <ol>
+    <li>在 <a href="https://colab.research.google.com/">Colab</a> 上传并打开所需的笔记本。</li>
+    <li>2HS 和 DLW 数值笔记本直接点击“连接”，使用 Colab 云端 Python 即可。非线性化与刘维尔可积性笔记本则双击 <a href="../notebook/启动Colab本地运行时.pyw">启动Colab本地运行时.pyw</a>，在“连接”菜单选择“连接到本地运行时”，粘贴启动窗口给出的地址。</li>
+    <li>连接后，按正文顺序运行代码单元。编辑完成后，通过“文件 → 下载 → 下载 .ipynb”保存本地版本。</li>
+  </ol>
+  <p>两份 Lean 笔记本复用本机已有的 Lean 与 Mathlib。两份数值笔记本也可通过同一启动器连接本地 Python。各单元的表格、编译输出与图显示在对应代码下方。</p>
+  <p>打开时看到的是随文件保存的运行结果；点击 ▶ 后，该单元会执行当前代码并更新输出。若修改了条件或定义，应从该单元开始向下重新运行。</p>
+  <p>原 HTML 已保留为 <a href="Report_原HTML_20261006.html">综合报告留档</a> 与 <a href="DLW数值分析_原HTML_20261006.html">DLW 数值分析留档</a>，可继续阅读。</p>
+</main>
+</body>
+</html>

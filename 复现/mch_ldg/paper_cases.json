@@ -1,0 +1,14 @@
+{
+  "source": "arXiv:2608.28077v2, Section 5",
+  "time_scheme": "classical RK4",
+  "paper_dt": "O(h), constant not specified",
+  "fluxes": ["conservative", "dissipative"],
+  "cases": [
+    {"case":"5.1","kappa":0,"background":1,"alpha":[0.5,0.7,0.8],"domain":[-20,20],"T":0.5,"k":[0,1,2,3],"n":[20,40,80,160,320,640],"boundary":"background; implementation unspecified"},
+    {"case":"5.2","kappa":1,"alpha":[0.3,0.5],"domain":[-20,20],"T":5,"k":[1,2,3],"n":[160,320,640,1280,2560,5120],"boundary":"compact support; implementation unspecified"},
+    {"case":"5.2","kappa":1,"alpha":[0.7],"domain":[-20,20],"T":5,"n_by_k":{"1":[160,320,640,1280,2560,5120],"2":[5120,10240,20480,40960,81920,163840],"3":[640,1280,2560,5120,10240,20480]},"boundary":"compact support; implementation unspecified"},
+    {"case":"5.3","kappa":1,"alpha":[0.7,0.5],"domain":[-100,100],"T":5,"k":[1,2,3],"n":[1000,2000,4000,8000,16000,32000],"boundary":"compact support; implementation unspecified"},
+    {"case":"5.4","kappa":0,"c":1,"domain":[-20,20],"T":5,"k":[3],"n":[640],"boundary":"compact support; implementation unspecified"},
+    {"case":"5.5","kappa":0,"c":"not separately specified; reproduction assumption 1","domain":"(-3pi,3pi)","T":5,"k":[3],"n":[1280],"boundary":"periodic"}
+  ]
+}

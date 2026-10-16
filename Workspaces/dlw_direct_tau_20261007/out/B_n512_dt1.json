@@ -1,0 +1,78 @@
+{
+  "case": "B",
+  "config": {
+    "intervals": 512,
+    "L": 40.0,
+    "h": 0.125,
+    "yhalf": 1.5,
+    "dt": 0.000125,
+    "T": 0.01,
+    "boundary_width": 4
+  },
+  "completed": true,
+  "reached": 0.01,
+  "reason": "",
+  "seconds": 6.607129600000917,
+  "linear_solves": 3840,
+  "normalized_linear_residual": 9.992007221626409e-16,
+  "minimum_step_tau_ratio": 0.9991253827013068,
+  "checkpoints": [
+    {
+      "t": 0.000125,
+      "logF": 2.4926105623990225e-10,
+      "logG": 3.896185596374835e-10,
+      "u": 3.9446405430965115e-07,
+      "v": 2.0438227952279675e-06,
+      "propagated_u": 1.9609439072532098e-10,
+      "propagated_v": 9.750884544246219e-10
+    },
+    {
+      "t": 0.0025,
+      "logF": 4.987525281663352e-09,
+      "logG": 7.796909839985489e-09,
+      "u": 3.944905492270223e-07,
+      "v": 2.0461984127084776e-06,
+      "propagated_u": 3.925082925348988e-09,
+      "propagated_v": 1.9490572711333698e-08
+    },
+    {
+      "t": 0.005,
+      "logF": 9.978970649804353e-09,
+      "logG": 1.560125656441258e-08,
+      "u": 3.945446980790912e-07,
+      "v": 2.048625262096593e-06,
+      "propagated_u": 7.861988171598e-09,
+      "propagated_v": 3.8939150570627135e-08
+    },
+    {
+      "t": 0.01,
+      "logF": 1.998870025055055e-08,
+      "logG": 3.1220835416956305e-08,
+      "u": 3.9490220360427486e-07,
+      "v": 2.0438418588675233e-06,
+      "propagated_u": 1.576381292167639e-08,
+      "propagated_v": 7.771469689998867e-08
+    }
+  ],
+  "final": {
+    "t": 0.01,
+    "logF": 1.998870025055055e-08,
+    "logG": 3.1220835416956305e-08,
+    "u": 3.9490220360427486e-07,
+    "v": 2.0438418588675233e-06,
+    "propagated_u": 1.576381292167639e-08,
+    "propagated_v": 7.771469689998867e-08
+  },
+  "exact_bilinear_residual": 1.1254885912137524e-14,
+  "reference": "Finite-h staggered Gram tau, not continuous DLW tau",
+  "boundaries": "Analytic lowest G; analytic 4-node strips at each x boundary",
+  "initial": {
+    "t": 0.0,
+    "logF": 0.0,
+    "logG": 0.0,
+    "u": 3.944623002127834e-07,
+    "v": 2.0440975310176412e-06,
+    "propagated_u": 0.0,
+    "propagated_v": 0.0
+  }
+}

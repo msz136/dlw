@@ -1,0 +1,40 @@
+{
+  "label": "C_SD_RK4_halfdt",
+  "case": "C",
+  "model": "SD",
+  "method": "RK4",
+  "mesh": "fixed",
+  "config": {
+    "a": 2.0,
+    "h": 0.1,
+    "dt": 5e-05,
+    "T": 0.01,
+    "L": 80.0,
+    "nx": 800,
+    "yhalf": 40.0,
+    "eval_yhalf": 30.0,
+    "eval_half": 30.0,
+    "eval_points": 6001
+  },
+  "reference": "continuous Gram exact physical u,v from paper notebook",
+  "sampling": "native uniform grid, unfiltered and uninterpolated, 21 actual times",
+  "x_boundary": "periodic numerical x stencil on buffered computational domain",
+  "y_boundary": "paper prescribed lower trace and upper error extrapolation",
+  "notebook_sha256": "e3fd9bafc73c028b59d9a4a6a6cbdc7d7d1644d18cdb5695353454c662068aec",
+  "solver_cells_sha256": "4323fa90ef051a88de371c4da1f642711e5ccb128fa4e1d79be5fd6e80c30db0",
+  "shape_tyx": [
+    21,
+    600,
+    601
+  ],
+  "seconds_evolution": 102.98252110008616,
+  "initial_max_error": {
+    "u": 7.544820626717654e-16,
+    "v": 1.1102230246251565e-15
+  },
+  "terminal_native_error": {
+    "u": 3.548405535358512e-05,
+    "v": 5.359607348731643e-05
+  },
+  "npz_sha256": "a34887cd1589bcb07f9a20cb8d6c43fea26143b0188f53d66e0cef86013fa48e"
+}

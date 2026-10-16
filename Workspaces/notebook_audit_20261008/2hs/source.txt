@@ -1,0 +1,729 @@
+=== CELL 1 markdown ===
+0001 # 2HS 数值分析
+0002 
+0003 比较可积半离散格式（Integrable）与固定网格中心差分（FD）的单孤子、二孤子计算。
+
+
+=== CELL 2 code ===
+0001 import numpy as np
+0002 import pandas as pd
+0003 import matplotlib.pyplot as plt
+0004 
+0005 # 计算使用 IEEE 754 双精度。
+0006 np.set_printoptions(precision=12)
+0007 pd.set_option("display.precision", 12)
+0008 
+0009 # 图中文字与公式统一使用随 Matplotlib 提供的 STIX 字体。
+0010 plt.rcParams.update({
+0011     "font.family": "serif",
+0012     "font.serif": ["STIXGeneral", "Times New Roman", "DejaVu Serif"],
+0013     "mathtext.fontset": "stix",
+0014     "mathtext.default": "it",
+0015     "text.usetex": False,
+0016 })
+
+
+=== CELL 3 markdown ===
+0001 ## 1　单孤子与初始网格
+0002 
+0003 考虑 $c=1$ 的 2HS 系统
+0004 
+0005 $$u_{tx}-uu_{xx}-\frac12u_x^2-4u-\frac12(\rho^2-1)=0,\qquad \rho_t=(u\rho)_x.\tag{1}$$
+0006 
+0007 取原文图 1、图 3 的参数 $p=5$、$q=1.25$、$\xi_0=\eta_0=0$，相应的连续单孤子解为
+0008 
+0009 $$\theta=\frac{15}{4}X-\frac35t,\qquad
+0010 x=X-\frac12+\frac3{10}\tanh\frac\theta2,\qquad
+0011 u=\frac9{100}\operatorname{sech}^2\frac\theta2,\qquad
+0012 \rho=\frac{16}{25-9\tanh^2(\theta/2)}.\tag{2}$$
+0013 
+0014 取 $N=2400$、$a=0.005$；具体空间格式见第 2 节。
+0015 
+0016 
+0017 默认参数如下；计算域、网格数、时间和绘图范围均可在 `CONFIG` 中调整。
+
+=== CELL 4 code ===
+0001 # 计算域使用辅助坐标 X；绘图和误差评价使用物理坐标 x。
+0002 CONFIG = dict(
+0003     X_domain=(-6.0, 6.0),       # 辅助计算区间；物理端点由孤子映射给出
+0004     N=2400,                    # 网格份数；a = 区间长度 / N
+0005     dt=0.003125, T=0.5,         # 时间步长、终止时间
+0006     xMin=-1.0, xMax=1.0,        # 误差表的评价区间
+0007     evaluationPoints=32001,    # 评价与绘图采样点数
+0008 )
+0009 hs_cfg = CONFIG
+0010 hs_N = CONFIG["N"]
+0011 hs_Xleft, hs_Xright = CONFIG["X_domain"]
+0012 hs_dt, hs_T = CONFIG["dt"], CONFIG["T"]
+0013 hs_xmin, hs_xmax = CONFIG["xMin"], CONFIG["xMax"]
+0014 hs_neval = CONFIG["evaluationPoints"]
+0015 if not np.isfinite([hs_Xleft, hs_Xright, hs_dt, hs_T, hs_xmin, hs_xmax]).all():
+0016     raise ValueError("计算域、时间、评价和绘图范围须取有限实数。")
+0017 if not (hs_Xleft < hs_Xright and hs_dt > 0 and hs_T >= 0 and hs_xmin < hs_xmax):
+0018     raise ValueError("计算域、评价区间须递增，且 dt>0、T≥0。")
+0019 if not isinstance(hs_N, int) or not 20 <= hs_N <= 6400:
+0020     raise ValueError("N 应为 20—6400 的整数。")
+0021 hs_a = (hs_Xright-hs_Xleft)/hs_N
+0022 if not isinstance(hs_neval, int) or not 101 <= hs_neval <= 64001:
+0023     raise ValueError("评价点数应为 101—64001 的整数。")
+0024 hs_steps = round(hs_T/hs_dt)
+0025 if abs(hs_steps*hs_dt-hs_T) > 1e-12 or hs_steps > 3200:
+0026     raise ValueError("T 须为 dt 的整数倍，且步数≤3200。")
+0027 print(pd.DataFrame([{
+0028     "N": hs_N, "a": hs_a, "X 左端": hs_Xleft, "X 右端": hs_Xright,
+0029     "dt": hs_dt, "T": hs_T, "时间步数": hs_steps, "评价点数": hs_neval,
+0030 }]).to_string(index=False))
+
+
+=== CELL 5 markdown ===
+0001 以下代码给出式（2）的解析场、初始物理节点及 FD 端点。
+
+
+=== CELL 6 code ===
+0001 def hs_exact_X(X, t):
+0002     """式（2）的解析场；X 可以是标量或数组。"""
+0003     X = np.asarray(X, dtype=float)
+0004     z = np.tanh((3.75 * X - 0.6 * t) / 2)
+0005     S = 1 - z * z
+0006     zX = 1.875 * S
+0007     zXX = -2 * zX * 1.875 * z
+0008     J, JX = 1 + 0.3 * zX, 0.3 * zXX
+0009     u, uX = 0.09 * S, -0.18 * z * zX
+0010     uXX = -0.18 * (zX * zX + z * zXX)
+0011     # 链式法则：d/dx=(1/J)d/dX，其中 J=dx/dX。
+0012     uxx = (uXX * J - uX * JX) / (J * J * J)
+0013     return dict(x=X - 0.5 + 0.3 * z, u=u, rho=1 / J, m=uxx + 2, X=X)
+0014 
+0015 def hs_exact_physical(x, t):
+0016     """利用 dx/dX>0，在 [x+0.2,x+0.8] 中二分反解 X。"""
+0017     x = np.asarray(x, dtype=float)
+0018     lo, hi = x + 0.2, x + 0.8
+0019     for _ in range(60):
+0020         mid = (lo + hi) / 2
+0021         lower = hs_exact_X(mid, t)["x"] < x
+0022         lo, hi = np.where(lower, mid, lo), np.where(lower, hi, mid)
+0023     value = hs_exact_X((lo + hi) / 2, t)
+0024     if np.max(np.abs(value["x"] - x)) > 2e-12:
+0025         raise ArithmeticError("物理坐标反解未达到容差。")
+0026     return value
+0027 
+0028 hs_initial = hs_exact_X(hs_Xleft + np.arange(hs_N + 1) * hs_a, 0)
+0029 hs_left, hs_right = hs_initial["x"][[0, -1]]
+0030 hs_dx = (hs_right - hs_left) / hs_N
+0031 # 固定网格与初始动网格共用物理端点。
+0032 hs_fixed_x = hs_left + np.arange(hs_N + 1) * hs_dx
+0033 if hs_xmin <= hs_left or hs_xmax >= hs_right:
+0034     raise ValueError("评价区间必须位于初始物理端点内部。")
+0035 print(pd.DataFrame([{
+0036     "初始物理左端": hs_left, "初始物理右端": hs_right,
+0037     "FD 的 dx": hs_dx, "峰值 u": 0.09, "谷值 rho": 0.64,
+0038 }]).to_string(index=False, formatters={
+0039     "初始物理左端": "{:.1f}".format, "初始物理右端": "{:.1f}".format,
+0040     "FD 的 dx": "{:.6f}".format,
+0041 }))
+
+
+=== CELL 7 markdown ===
+0001 ## 2　空间离散
+0002 
+0003 ### 2.1　Integrable
+0004 
+0005 原连续方程为
+0006 
+0007 $$u_{tx}-uu_{xx}-\frac12u_x^2-4u-\frac12(\rho^2-1)=0,
+0008 \qquad \rho_t=(u\rho)_x.$$
+0009 
+0010 将辅助坐标 $X\in[-6,6]$ 等分为 $N=2400$ 段，
+0011 $X_k=-6+ka$、$a=0.005$；式（2）将 $X=-6,6$ 映为初始物理端点，
+0012 区间约为 $[-6.8,\,5.8]$。
+0013 
+0014 令 $d_k=x_{k+1}-x_k$、$b_k=u_{k+1}-u_k$。$c=1$ 时的半离散方程为
+0015 
+0016 $$\begin{aligned}
+0017 \dot d_k&=-b_k,\qquad \dot x_0=-u_0(t),\\
+0018 \dot b_k&=2d_k(u_{k+1}+u_k)
+0019 +\frac{[d_k^2-a(a-1)]^2-b_k^2}{2d_k}-\frac{d_k}{2}.
+0020 \end{aligned}\tag{3}$$
+0021 
+0022 取解析左端值 $u_0(t)$，节点及密度按下式递推：
+0023 
+0024 $$u_{k+1}=u_k+b_k,\qquad x_{k+1}=x_k+d_k,\qquad
+0025 \rho_{k+1/2}=\frac a{d_k}.\tag{4}$$
+0026 
+0027 参数：$c=1$、$a=0.005$、$N=2400$、$\Delta t=0.003125$、$T=0.5$。
+0028 以下代码实现式（4）的恢复与式（3）的右端；RK4 时间递推见第 3 节。
+
+
+=== CELL 8 code ===
+0001 def hs_integrable_fields(t, state):
+0002     # 状态：[b_0,...,b_(N-1), d_0,...,d_(N-1), x_0]。
+0003     b, d = state[:hs_N], state[hs_N:2 * hs_N]
+0004     if not np.isfinite(state).all() or np.any(d <= 0):
+0005         raise ArithmeticError("Integrable 出现非有限状态或非正胞元格距。")
+0006     u0 = hs_exact_X(hs_Xleft, t)["u"]
+0007     u = np.r_[u0, u0 + np.cumsum(b)]
+0008     x = np.r_[state[-1], state[-1] + np.cumsum(d)]
+0009     return dict(x=x, u=u, rhoX=(x[:-1] + x[1:]) / 2, rho=hs_a / d)
+0010 
+0011 def hs_integrable_rhs(t, state):
+0012     # 式（3）：b、d 和 x_0 的时间导数。
+0013     u = hs_integrable_fields(t, state)["u"]
+0014     b, d = state[:hs_N], state[hs_N:2 * hs_N]
+0015     C = d * d - hs_a * (hs_a - 1)
+0016     db = 2 * d * (u[1:] + u[:-1]) + (C * C - b * b) / (2 * d) - d / 2
+0017     return np.r_[db, -b, -u[0]]
+
+
+=== CELL 9 markdown ===
+0001 ### 2.2　FD
+0002 
+0003 对式（1）作 $x$ 微分，令 $m=u_{xx}+2$，原方程写成
+0004 
+0005 $$m_t=um_x+2mu_x+\rho\rho_x,\qquad
+0006 \rho_t=u\rho_x+\rho u_x,\qquad u_{xx}=m-2.$$
+0007 
+0008 在初始物理端点之间等分 2400 段，$x_i=x_L+i\Delta x$；
+0009 物理端点由解析坐标映射在 $X=-6,6$ 处给出，
+0010 单孤子、二孤子的区间分别约为 $[-6.8,\,5.8]$、$[-7.7,\,5.7]$。
+0011 
+0012 中心差分及离散方程为
+0013 
+0014 $$(D_1f)_i=\frac{f_{i+1}-f_{i-1}}{2\Delta x},\qquad
+0015 (D_2f)_i=\frac{f_{i+1}-2f_i+f_{i-1}}{\Delta x^2}.\tag{5}$$
+0016 
+0017 $$\begin{aligned}
+0018 \dot m_i&=u_i(D_1m)_i+2m_i(D_1u)_i+\rho_i(D_1\rho)_i,\\
+0019 \dot\rho_i&=u_i(D_1\rho)_i+\rho_i(D_1u)_i,\\
+0020 u_{i+1}-2u_i+u_{i-1}&=\Delta x^2(m_i-2).
+0021 \end{aligned}\tag{6}$$
+0022 
+0023 参数：$c=1$、$N=2400$、$\Delta t=0.003125$、$T=0.5$；
+0024 $\Delta x\approx0.005250$（单孤子）或 $\Delta x\approx0.005591$（二孤子）。
+0025 两端取解析值。以下代码先联立求出 $u$，再计算式（6）的时间导数。
+
+
+=== CELL 10 code ===
+0001 def hs_recover_u(m, ub_left, ub_right):
+0002     # Thomas 消元：u_(i-1)-2u_i+u_(i+1)=dx^2*(m_i-2)。
+0003     count = hs_N - 1
+0004     c, d = np.zeros(count), np.zeros(count)
+0005     for j in range(count):
+0006         diagonal = -2 - (c[j - 1] if j else 0)
+0007         rhs = hs_dx * hs_dx * (m[j + 1] - 2)
+0008         if j == 0:
+0009             rhs -= ub_left
+0010         if j == count - 1:
+0011             rhs -= ub_right
+0012         c[j] = 1 / diagonal if j < count - 1 else 0
+0013         d[j] = (rhs - (d[j - 1] if j else 0)) / diagonal
+0014     u = np.empty(hs_N + 1)
+0015     u[0], u[-1] = ub_left, ub_right
+0016     for j in range(count - 1, -1, -1):
+0017         u[j + 1] = d[j] - (c[j] * u[j + 2] if j < count - 1 else 0)
+0018     return u
+0019 
+0020 def hs_fd_fields(t, state):
+0021     # FD 状态为内部 m 与 rho，端点取解析边界。
+0022     boundary = hs_exact_physical(np.array([hs_left, hs_right]), t)
+0023     m = np.r_[boundary["m"][0], state[:hs_N - 1], boundary["m"][1]]
+0024     rho = np.r_[boundary["rho"][0], state[hs_N - 1:], boundary["rho"][1]]
+0025     if not np.isfinite(m).all() or not np.isfinite(rho).all() or np.any(rho <= 0):
+0026         raise ArithmeticError("FD 出现非有限状态或非正密度。")
+0027     u = hs_recover_u(m, *boundary["u"])
+0028     return dict(x=hs_fixed_x, u=u, rhoX=hs_fixed_x, rho=rho, m=m)
+0029 
+0030 def hs_fd_rhs(t, state):
+0031     # 式（6）：固定网格上的一阶中心差分。
+0032     fields = hs_fd_fields(t, state)
+0033     m, rho, u = (fields[k] for k in ("m", "rho", "u"))
+0034     ux = (u[2:] - u[:-2]) / (2 * hs_dx)
+0035     mx = (m[2:] - m[:-2]) / (2 * hs_dx)
+0036     rx = (rho[2:] - rho[:-2]) / (2 * hs_dx)
+0037     return np.r_[u[1:-1] * mx + 2 * m[1:-1] * ux + rho[1:-1] * rx,
+0038                  u[1:-1] * rx + rho[1:-1] * ux]
+
+
+=== CELL 11 markdown ===
+0001 ### 2.3　网格策略与初值
+0002 
+0003 Integrable 的物理网格随 $\dot x=-u$ 运动，FD 保持初始物理节点固定。
+0004 两个算例均取 $N=2400$、$a=0.005$，初值为
+0005 
+0006 $$b_k^0=u_{k+1}^0-u_k^0,\qquad d_k^0=x_{k+1}^0-x_k^0,
+0007 \qquad m_i^0=(D_2u^0)_i+2,\qquad \rho_i^0=\rho(x_i,0).$$
+
+
+=== CELL 12 code ===
+0001 def hs_initial_states():
+0002     # 初始 m 使用与演化一致的二阶差分模板。
+0003     fields = hs_exact_physical(hs_fixed_x, 0)
+0004     u0 = fields["u"]
+0005     integrable = np.r_[np.diff(hs_initial["u"]), np.diff(hs_initial["x"]), hs_left]
+0006     m0 = (u0[2:] - 2 * u0[1:-1] + u0[:-2]) / (hs_dx * hs_dx) + 2
+0007     fd = np.r_[m0, fields["rho"][1:-1]]
+0008     return integrable, fd
+
+
+=== CELL 13 markdown ===
+0001 ## 3　时间推进
+0002 
+0003 记空间系统为 $\dot z=\mathcal F(t,z)$，时间递推采用 RK4：
+0004 
+0005 $$\begin{aligned}
+0006 K_1&=\mathcal F(t_n,z^n),&
+0007 K_2&=\mathcal F\!\left(t_n+\frac{\Delta t}{2},z^n+\frac{\Delta t}{2}K_1\right),\\
+0008 K_3&=\mathcal F\!\left(t_n+\frac{\Delta t}{2},z^n+\frac{\Delta t}{2}K_2\right),&
+0009 K_4&=\mathcal F(t_n+\Delta t,z^n+\Delta tK_3),\\
+0010 z^{n+1}&=z^n+\frac{\Delta t}{6}(K_1+2K_2+2K_3+K_4).
+0011 \end{aligned}\tag{7}$$
+0012 
+0013 取 $\Delta t=0.003125$、$T=0.5$，共 160 步。每个阶段按式（4）或（6）恢复场值。
+
+
+=== CELL 14 code ===
+0001 def hs_rk4_step(rhs, t, state, delta):
+0002     # 式（7）：每一级重新恢复场值和解析边界。
+0003     k1 = rhs(t, state)
+0004     k2 = rhs(t + delta / 2, state + delta / 2 * k1)
+0005     k3 = rhs(t + delta / 2, state + delta / 2 * k2)
+0006     k4 = rhs(t + delta, state + delta * k3)
+0007     return state + delta * (k1 + 2 * k2 + 2 * k3 + k4) / 6
+
+
+=== CELL 15 markdown ===
+0001 按式（7）从解析初值推进到 $T=0.5$。
+
+
+=== CELL 16 code ===
+0001 # 保存原有推进过程中的快照，末尾画图不再重新求解。
+0002 from types import FunctionType
+0003 hs_histories = {}
+0004 hs_saved_steps = set(np.unique(np.linspace(0, hs_steps, min(33, hs_steps+1), dtype=int)))
+0005 def hs_start_history(case):
+0006     reference = FunctionType(hs_exact_physical.__code__, dict(globals()),
+0007                              hs_exact_physical.__name__, hs_exact_physical.__defaults__)
+0008     hs_histories[case] = dict(reference=reference, records=[], T=hs_T)
+0009 def hs_capture(case, step_index):
+0010     if step_index not in hs_saved_steps:
+0011         return
+0012     t = step_index*hs_dt
+0013     fields = {'Integrable': hs_integrable_fields(t, hs_integrable),
+0014               'FD': hs_fd_fields(t, hs_fd)}
+0015     hs_histories[case]['records'].append((t, {
+0016         name: {key: np.array(value, copy=True) for key, value in field.items()}
+0017         for name, field in fields.items()}))
+
+=== CELL 17 code ===
+0001 hs_integrable, hs_fd = hs_initial_states()
+0002 hs_start_history("one")
+0003 hs_capture("one", 0)
+0004 # 时间层 t_n=n*dt；再次执行本单元会从当前配置的初值开始。
+0005 for hs_step in range(hs_steps):
+0006     hs_t = hs_step * hs_dt
+0007     hs_integrable = hs_rk4_step(hs_integrable_rhs, hs_t, hs_integrable, hs_dt)
+0008     hs_fd = hs_rk4_step(hs_fd_rhs, hs_t, hs_fd, hs_dt)
+0009     hs_capture("one", hs_step+1)
+0010 hs_live_fields = {
+0011     "Integrable": hs_integrable_fields(hs_T, hs_integrable),
+0012     "FD": hs_fd_fields(hs_T, hs_fd),
+0013 }
+0014 print(pd.DataFrame([
+0015     {"方案": name, "已推进步数": hs_steps, "当前时间": hs_T, "物理节点数": len(f["x"])}
+0016     for name, f in hs_live_fields.items()
+0017 ]).to_string(index=False))
+
+
+=== CELL 18 markdown ===
+0001 ## 4　单孤子误差与波形
+0002 
+0003 在 $x\in[-1,1]$ 的 32001 个等距点 $\mathcal G$ 上，线性插值后计算
+0004 
+0005 $$E_u(t)=\max_{x\in\mathcal G}|u_h(x,t)-u(x,t)|,\qquad
+0006 E_\rho(t)=\max_{x\in\mathcal G}|\rho_h(x,t)-\rho(x,t)|.\tag{8}$$
+0007 
+0008 以下代码实现插值与误差计算。误差图按 `plot_xlim` 指定的区间等分为 100 段，取段内最大绝对误差。
+
+
+=== CELL 19 code ===
+0001 def hs_interpolate(xs, values, targets):
+0002     # 物理节点上的分段线性重构。
+0003     if targets[0] < xs[0] or targets[-1] > xs[-1]:
+0004         raise ValueError("数值网格未覆盖整个评价区间。")
+0005     # side='left' 与原报告在恰好落于节点时采用相同的左区间。
+0006     j = np.clip(np.searchsorted(xs, targets, side="left") - 1, 0, len(xs) - 2)
+0007     weight = (targets - xs[j]) / (xs[j + 1] - xs[j])
+0008     return values[j] + weight * (values[j + 1] - values[j])
+
+
+=== CELL 20 code ===
+0001 # 式（8）：公共物理网格上的最大绝对误差。
+0002 hs_xx = hs_xmin + (hs_xmax - hs_xmin) * np.arange(hs_neval) / (hs_neval - 1)
+0003 hs_reference = hs_exact_physical(hs_xx, hs_T)
+0004 hs_results, hs_result_rows = {}, []
+0005 for hs_name, hs_fields in hs_live_fields.items():
+0006     hs_u = hs_interpolate(hs_fields["x"], hs_fields["u"], hs_xx)
+0007     hs_rho = hs_interpolate(hs_fields["rhoX"], hs_fields["rho"], hs_xx)
+0008     hs_eu = np.abs(hs_u - hs_reference["u"])
+0009     hs_er = np.abs(hs_rho - hs_reference["rho"])
+0010     hs_r = dict(Eu=hs_eu.max(), Erho=hs_er.max(), eu=hs_eu, er=hs_er,
+0011                 u=hs_u, rho=hs_rho, minDx=np.diff(hs_fields["x"]).min(),
+0012                 minRho=hs_fields["rho"].min())
+0013     hs_results[hs_name] = hs_r
+0014     hs_result_rows.append({"方案": hs_name, "E_u(T)": hs_r["Eu"],
+0015                            "E_rho(T)": hs_r["Erho"], "终点最小格距": hs_r["minDx"],
+0016                            "终点最小密度": hs_r["minRho"]})
+0017 print(pd.DataFrame(hs_result_rows).to_string(index=False))
+0018 
+0019 hs_single_summary = {name: dict(Eu=float(r['Eu']), Erho=float(r['Erho']))
+0020                      for name, r in hs_results.items()}
+
+
+=== CELL 21 markdown ===
+0001 ## 5　二孤子
+0002 
+0003 取 $p_1=1.1$、$p_2=1.25$、$q_1=11$、$q_2=5$、$c=1$，相位常数均为 $\log6.5$。
+0004 连续二孤子的 $\tau$ 函数为
+0005 
+0006 $$\begin{aligned}
+0007 f&=1+e^{\theta_1}+e^{\theta_2}+A_{12}e^{\theta_1+\theta_2},
+0008 \qquad A_{12}=\frac{12}{507},\\
+0009 \theta_i&=(p_i-q_i)X+\left(\frac1{p_i}-\frac1{q_i}\right)t+\log6.5.
+0010 \end{aligned}\tag{9}$$
+0011 
+0012 相应的物理坐标与场为
+0013 
+0014 $$u=\partial_t^2\log f,\qquad
+0015 x=X-\partial_t\log f-\frac1{q_1}-\frac1{q_2},\qquad
+0016 \rho=\frac1{1-\partial_X\partial_t\log f}.\tag{10}$$
+0017 
+0018 归一化后的四项指数构成权重。$u$ 是时间指数系数的方差，
+0019 $J=\partial x/\partial X$ 由时间、空间指数系数的协方差给出；
+0020 进一步的混合导数确定 $m=u_{xx}+2$，供 FD 边界使用。
+
+
+=== CELL 22 code ===
+0001 # 四项 τ 函数的指数系数；q_i=p_i/(p_i-1) 对应 c=1。
+0002 hs_two_p = np.array([1.1, 1.25])
+0003 hs_two_q = np.array([11.0, 5.0])
+0004 hs_two_phase = np.log(6.5)
+0005 hs_two_A = 12 / 507
+0006 if not np.allclose(hs_two_q, hs_two_p / (hs_two_p - 1)):
+0007     raise ValueError("p、q 必须满足 c=1 的孤子参数约束。")
+0008 hs_two_beta = np.r_[0, hs_two_p-hs_two_q, np.sum(hs_two_p-hs_two_q)][:, None]
+0009 hs_two_omega = np.r_[0, 1/hs_two_p-1/hs_two_q,
+0010                      np.sum(1/hs_two_p-1/hs_two_q)][:, None]
+0011 hs_two_logcoef = np.array([0, hs_two_phase, hs_two_phase,
+0012                           2*hs_two_phase + np.log(hs_two_A)])[:, None]
+0013 hs_two_shift = float(np.sum(1/hs_two_q))
+0014 
+0015 def hs_two_exact_X(X, t):
+0016     """u、J=dx/dX 和 m=u_xx+2 均由 τ 的解析导数计算。"""
+0017     X = np.asarray(X, dtype=float)
+0018     flat = X.reshape(-1)
+0019     logs = hs_two_beta*flat + hs_two_omega*t + hs_two_logcoef
+0020     # 减去列最大值避免指数溢出，不改变归一化权重。
+0021     weights = np.exp(logs - np.max(logs, axis=0))
+0022     weights /= np.sum(weights, axis=0)
+0023     mean_o = np.sum(weights*hs_two_omega, axis=0)
+0024     mean_b = np.sum(weights*hs_two_beta, axis=0)
+0025     do, db = hs_two_omega-mean_o, hs_two_beta-mean_b
+0026     u = np.sum(weights*do**2, axis=0)
+0027     cov = np.sum(weights*do*db, axis=0)
+0028     J = 1-cov
+0029     JX = -np.sum(weights*do*db**2, axis=0)
+0030     uX = np.sum(weights*do**2*db, axis=0)
+0031     uXX = (np.sum(weights*do**2*db**2, axis=0)
+0032            - u*np.sum(weights*db**2, axis=0) - 2*cov**2)
+0033     if not np.isfinite(J).all() or np.any(J <= 0):
+0034         raise ArithmeticError("二孤子物理坐标要求 J=dx/dX>0。")
+0035     uxx = (uXX*J-uX*JX)/J**3
+0036     return {k: value.reshape(X.shape) for k, value in dict(
+0037         x=flat-mean_o-hs_two_shift, u=u, rho=1/J, m=uxx+2,
+0038         X=flat, J=J, uX=uX, uXX=uXX, JX=JX).items()}
+0039 
+0040 def hs_two_exact_physical(x, t):
+0041     """由 τ 权重的凸组合界定 X 的区间，再二分反解。"""
+0042     x = np.asarray(x, dtype=float)
+0043     lo = x + hs_two_shift + float(np.min(hs_two_omega))
+0044     hi = x + hs_two_shift + float(np.max(hs_two_omega))
+0045     for _ in range(60):
+0046         mid = (lo+hi)/2
+0047         lower = hs_two_exact_X(mid, t)["x"] < x
+0048         lo, hi = np.where(lower, mid, lo), np.where(lower, hi, mid)
+0049     value = hs_two_exact_X((lo+hi)/2, t)
+0050     if np.max(np.abs(value["x"]-x)) > 2e-12:
+0051         raise ArithmeticError("二孤子物理坐标反解未达到容差。")
+0052     return value
+
+
+=== CELL 23 markdown ===
+0001 辅助坐标 $X\in[-6,6]$ 等分 2400 段，$a=0.005$。由二孤子解析坐标映射在 $X=-6,6$ 处得到初始物理端点，区间约为 $[-7.7,\,5.7]$；FD 等分 2400 段，$\Delta x\approx0.005591$。
+
+
+=== CELL 24 code ===
+0001 # 仅替换解析初值与边界；空间格式、时间格式和评价区间保持相同。
+0002 hs_one_results = hs_results
+0003 hs_exact_X, hs_exact_physical = hs_two_exact_X, hs_two_exact_physical
+0004 hs_initial = hs_exact_X(hs_Xleft + np.arange(hs_N+1)*hs_a, 0)
+0005 hs_left, hs_right = hs_initial["x"][[0, -1]]
+0006 hs_dx = (hs_right-hs_left)/hs_N
+0007 hs_fixed_x = hs_left + np.arange(hs_N+1)*hs_dx
+0008 if hs_xmin <= hs_left or hs_xmax >= hs_right:
+0009     raise ValueError("评价区间必须位于二孤子初始物理端点内部。")
+0010 if np.any(np.diff(hs_initial["x"]) <= 0):
+0011     raise ArithmeticError("二孤子初始物理网格必须严格递增。")
+0012 print(pd.DataFrame([{
+0013     "N": hs_N, "a": hs_a, "dt": hs_dt, "T": hs_T,
+0014     "物理左端": hs_left, "物理右端": hs_right, "FD dx": hs_dx,
+0015     "初始最小 J": float(hs_initial["J"].min()),
+0016 }]).to_string(index=False, formatters={
+0017     "物理左端": "{:.1f}".format, "物理右端": "{:.1f}".format,
+0018     "FD dx": "{:.6f}".format,
+0019 }))
+
+
+=== CELL 25 markdown ===
+0001 沿用式（3）—（7）的空间系统和 RK4；初值与边界取二孤子解析值。取 $\Delta t=0.003125$、$T=0.5$，共 160 步。
+
+
+=== CELL 26 code ===
+0001 hs_integrable, hs_fd = hs_initial_states()
+0002 hs_start_history("two")
+0003 hs_capture("two", 0)
+0004 hs_two_min_edge, hs_two_min_density = np.inf, np.inf
+0005 for hs_step in range(hs_steps):
+0006     hs_t = hs_step*hs_dt
+0007     hs_integrable = hs_rk4_step(hs_integrable_rhs, hs_t, hs_integrable, hs_dt)
+0008     hs_fd = hs_rk4_step(hs_fd_rhs, hs_t, hs_fd, hs_dt)
+0009     # 动网格正格距、两种方案正密度须在整个演化区间保持。
+0010     hs_two_min_edge = min(hs_two_min_edge, float(hs_integrable[hs_N:2*hs_N].min()))
+0011     hs_two_min_density = min(hs_two_min_density,
+0012         float(hs_a/hs_integrable[hs_N:2*hs_N].max()),
+0013         float(hs_fd[hs_N-1:].min()))
+0014     hs_capture("two", hs_step+1)
+0015 hs_live_fields = {
+0016     "Integrable": hs_integrable_fields(hs_T, hs_integrable),
+0017     "FD": hs_fd_fields(hs_T, hs_fd),
+0018 }
+0019 print(pd.DataFrame([
+0020     {"方案": name, "时间步数": hs_steps, "终点时间": hs_T,
+0021      "最小格距": float(np.diff(f["x"]).min()),
+0022      "最小密度": float(f["rho"].min())}
+0023     for name, f in hs_live_fields.items()
+0024 ]).to_string(index=False))
+
+
+=== CELL 27 markdown ===
+0001 在同一物理评价点集上按式（8）计算 $u$ 与 $\rho$ 的最大绝对误差。
+
+
+=== CELL 28 code ===
+0001 hs_xx = np.linspace(hs_xmin, hs_xmax, hs_neval)
+0002 hs_reference = hs_exact_physical(hs_xx, hs_T)
+0003 hs_results, hs_result_rows = {}, []
+0004 for hs_name, hs_fields in hs_live_fields.items():
+0005     hs_u = hs_interpolate(hs_fields["x"], hs_fields["u"], hs_xx)
+0006     hs_rho = hs_interpolate(hs_fields["rhoX"], hs_fields["rho"], hs_xx)
+0007     hs_eu = np.abs(hs_u-hs_reference["u"])
+0008     hs_er = np.abs(hs_rho-hs_reference["rho"])
+0009     hs_results[hs_name] = dict(Eu=float(hs_eu.max()), Erho=float(hs_er.max()),
+0010         eu=hs_eu, er=hs_er, u=hs_u, rho=hs_rho,
+0011         minDx=float(np.diff(hs_fields["x"]).min()), minRho=float(hs_fields["rho"].min()))
+0012     hs_result_rows.append({"方案": hs_name, "E_u(T)": hs_eu.max(),
+0013                           "E_rho(T)": hs_er.max()})
+0014 hs_two_results = hs_results
+0015 hs_two_summary = {name: dict(Eu=r["Eu"], Erho=r["Erho"])
+0016                   for name, r in hs_results.items()}
+0017 print(pd.DataFrame(hs_result_rows).to_string(index=False))
+
+
+=== CELL 29 code ===
+0001 print(pd.DataFrame([{"场": field, "Integrable / FD 误差比":
+0002     hs_results["Integrable"][key]/hs_results["FD"][key]}
+0003     for field, key in (("u", "Eu"), ("rho", "Erho"))]).to_string(index=False))
+0004 
+0005 hs_summary_rows = []
+0006 for case, results in (("单孤子", hs_single_summary), ("二孤子", hs_two_summary)):
+0007     for name, result in results.items():
+0008         hs_summary_rows.append({"算例": case, "方案": name,
+0009                                 "E_u(T)": result["Eu"], "E_rho(T)": result["Erho"]})
+0010 print(pd.DataFrame(hs_summary_rows).to_string(index=False))
+
+
+=== CELL 30 markdown ===
+0001 上表比较同一终点、同一物理评价网格上的最大绝对误差。
+
+
+=== CELL 31 markdown ===
+0001 ## 6　物理场与误差分布
+0002 
+0003 2HS 的两个物理场为 $u,\rho$，只有一个空间变量 $x$。三维图以 $x,t$ 为底面：上行为 $u$，下行为 $\rho$，三列依次为数值曲面、数值二维彩图、解析二维彩图；数值与解析使用同一色标。另列绝对误差曲面、二维误差图及终点数值／解析波形对照。图包含单孤子、二孤子和两种空间方案。
+0004 
+0005 保存原时间推进中的33个快照；绘图不再推进方程。右尾偏差在完整 $x$ 范围的物理场与误差中均保留。
+
+=== CELL 32 code ===
+0001 # 2HS 只有一个空间变量 x；三维图的第二个坐标为时间 t。
+0002 # 只修改此配置并重运行最后画图单元，无需重新推进。
+0003 PLOT_CONFIG = dict(
+0004     xlim=(-5., 5.), tlim=(0., hs_T),
+0005     cases=('one', 'two'), methods=('Integrable', 'FD'),
+0006     xpoints=601, cmap='jet', error_cmap='jet', map_style='contour', levels=11, contour_width=1.1,
+0007     centers={'u': 0., r'\rho': 1.},
+0008     elev=28., azim=-62.,
+0009 )
+
+=== CELL 33 code ===
+0001 from matplotlib.colors import Normalize, BoundaryNorm, ListedColormap, LinearSegmentedColormap
+0002 from matplotlib.ticker import MaxNLocator
+0003 
+0004 def checked_window(window, available, label):
+0005     lo, hi = window
+0006     if not np.isfinite([lo, hi]).all() or lo >= hi:
+0007         raise ValueError(f'{label} 必须是有限且递增的 (下限, 上限)。')
+0008     if lo < available[0]-1e-10 or hi > available[1]+1e-10:
+0009         raise ValueError(f'{label}={window} 超出已计算范围 {available}；请扩大计算域后重新准备场数据。')
+0010     return lo, hi
+0011 
+0012 def draw_field_panels(x, y, numerical, exact, title, names, config, second_axis='y'):
+0013     # 只裁剪已有数据；完整数组保留，改变展示参数不会触发计算。
+0014     xm = (x >= config['xlim'][0]) & (x <= config['xlim'][1])
+0015     ym = (y >= config['ylim'][0]) & (y <= config['ylim'][1])
+0016     if xm.sum() < 3 or ym.sum() < 2:
+0017         raise ValueError('绘图区间至少需要三个 x 点和两个纵向采样点。')
+0018     xx, yy = x[xm], y[ym]
+0019     X, Y = np.meshgrid(xx, yy)
+0020     fig = plt.figure(figsize=(14, 8.5), layout='constrained')
+0021     grid = fig.add_gridspec(2, 3, width_ratios=(1.15, 1, 1))
+0022     cropped = []
+0023     for row, name in enumerate(names):
+0024         n = numerical[row][np.ix_(ym, xm)]
+0025         e = exact[row][np.ix_(ym, xm)]
+0026         cropped.append(abs(n-e))
+0027         lower, upper = min(n.min(), e.min()), max(n.max(), e.max())
+0028         if upper <= lower:
+0029             upper = lower+1e-12
+0030         center = config.get('centers', {}).get(name, 0.)
+0031         color_map = config['cmap']
+0032         if color_map == 'zero_white':
+0033             # 线性色阶保持幅值含义；零附近留白，其余用清楚、柔和的分层颜色。
+0034             steps = config.get('color_steps', 12)
+0035             blue = LinearSegmentedColormap.from_list('muted_blue', ['#a9c6d1', '#668fa3', '#355c73'])
+0036             red = LinearSegmentedColormap.from_list('muted_red', ['#d7b4a4', '#bc8574', '#965e54'])
+0037             negative = [blue(t) for t in np.linspace(1, 0, steps-1)] + ['#ffffff']
+0038             positive = ['#ffffff'] + [red(t) for t in np.linspace(0, 1, steps-1)]
+0039             tolerance = max(abs(lower-center), abs(upper-center), 1e-12)*1e-6
+0040             if upper <= center+tolerance:
+0041                 color_map = ListedColormap(negative)
+0042                 bounds = np.linspace(lower, center, steps+1)
+0043             elif lower >= center-tolerance:
+0044                 color_map = ListedColormap(positive)
+0045                 bounds = np.linspace(center, upper, steps+1)
+0046             else:
+0047                 # 两侧使用相同幅值尺度，不把微小异号误差放大成深色波峰。
+0048                 span = max(abs(lower-center), abs(upper-center))
+0049                 color_map = ListedColormap(negative + positive)
+0050                 bounds = np.linspace(center-span, center+span, 2*steps+1)
+0051             norm = BoundaryNorm(bounds, color_map.N, clip=True)
+0052         else:
+0053             norm = Normalize(lower, upper)
+0054         error_map = config['error_cmap']
+0055         if error_map == 'white_red':
+0056             muted = LinearSegmentedColormap.from_list('muted_error', ['#d8bd91', '#b98c59', '#896540'])
+0057             error_map = ListedColormap(['#ffffff'] + [muted(t) for t in np.linspace(0, 1, config.get('color_steps', 12)-1)])
+0058         levels = np.linspace(lower, upper, config['levels']+2)[1:-1]
+0059         ax = fig.add_subplot(grid[row, 0], projection='3d')
+0060         sy, sx = max(1, len(yy)//160), max(1, len(xx)//300)
+0061         ax.plot_surface(X[::sy, ::sx], Y[::sy, ::sx], n[::sy, ::sx],
+0062                         cmap=color_map, norm=norm, linewidth=0,
+0063                         rcount=len(yy[::sy]), ccount=len(xx[::sx]), antialiased=False, shade=False)
+0064         ax.set(xlabel='$x$', ylabel=f'${second_axis}$', zlabel=f'${name}$',
+0065                xlim=config['xlim'], ylim=config['ylim'])
+0066         ax.view_init(config['elev'], config['azim'])
+0067         ax.set_box_aspect((1.2, 1, .85))
+0068         ax.set_title(f'${name}$: numerical surface')
+0069         for axis in (ax.xaxis, ax.yaxis, ax.zaxis):
+0070             axis.set_major_locator(MaxNLocator(4))
+0071         for col, values, label in ((1, n, 'Numerical'), (2, e, 'Exact')):
+0072             ax = fig.add_subplot(grid[row, col])
+0073             if config.get('map_style', 'contour') == 'contour':
+0074                 if values.max() > values.min():
+0075                     ax.contour(xx, yy, values, levels=levels, cmap=color_map, norm=norm,
+0076                                linewidths=config.get('contour_width', 1.1))
+0077                 image = plt.cm.ScalarMappable(norm=norm, cmap=color_map)
+0078                 label += ' contours'
+0079                 ax.grid(color='#dddddd', linewidth=.4, alpha=.45)
+0080             else:
+0081                 image = ax.pcolormesh(xx, yy, values, cmap=color_map, norm=norm, shading='auto')
+0082                 label += ' field'
+0083             ax.set(xlabel='$x$', ylabel=f'${second_axis}$',
+0084                    xlim=config['xlim'], ylim=config['ylim'], title=f'${name}$: {label}')
+0085             ax.set_box_aspect(1)
+0086             if col == 2:
+0087                 fig.colorbar(image, ax=ax, fraction=.045, pad=.025, label=f'${name}$')
+0088     fig.suptitle(title, fontsize=16)
+0089     plt.show()
+0090 
+0091     fig = plt.figure(figsize=(11, 8), layout='constrained')
+0092     grid = fig.add_gridspec(2, 2)
+0093     for row, name in enumerate(names):
+0094         error = cropped[row]
+0095         ax = fig.add_subplot(grid[row, 0], projection='3d')
+0096         ax.plot_surface(X[::sy, ::sx], Y[::sy, ::sx], error[::sy, ::sx],
+0097                         cmap=error_map, vmin=0, vmax=float(error.max()), linewidth=0,
+0098                         rcount=len(yy[::sy]), ccount=len(xx[::sx]), antialiased=False, shade=False)
+0099         ax.set(xlabel='$x$', ylabel=f'${second_axis}$', zlabel=f'$e_{{{name}}}$',
+0100                xlim=config['xlim'], ylim=config['ylim'])
+0101         ax.view_init(config['elev'], config['azim'])
+0102         ax.set_box_aspect((1.2, 1, .85))
+0103         ax.ticklabel_format(axis='z', style='sci', scilimits=(0, 0))
+0104         ax.set_title(f'${name}$: absolute error surface')
+0105         ax = fig.add_subplot(grid[row, 1])
+0106         error_norm = Normalize(0, max(float(error.max()), 1e-15))
+0107         if config.get('map_style', 'contour') == 'contour':
+0108             error_levels = np.linspace(0, error_norm.vmax, config['levels']+2)[1:-1]
+0109             if error.max() > 0:
+0110                 ax.contour(xx, yy, error, levels=error_levels, cmap=error_map, norm=error_norm,
+0111                            linewidths=config.get('contour_width', 1.1))
+0112             image = plt.cm.ScalarMappable(norm=error_norm, cmap=error_map)
+0113             ax.grid(color='#dddddd', linewidth=.4, alpha=.45)
+0114         else:
+0115             image = ax.pcolormesh(xx, yy, error, shading='auto', cmap=error_map, norm=error_norm)
+0116         ax.set(xlabel='$x$', ylabel=f'${second_axis}$', xlim=config['xlim'],
+0117                ylim=config['ylim'], title=f'${name}$: absolute error '+config.get('map_style', 'contour'))
+0118         ax.set_box_aspect(1)
+0119         fig.colorbar(image, ax=ax, fraction=.045, pad=.025, format='%.1e')
+0120     fig.suptitle(title+' | absolute error', fontsize=16)
+0121     plt.show()
+
+=== CELL 34 code ===
+0001 for hs_case in PLOT_CONFIG['cases']:
+0002     history = hs_histories[hs_case]
+0003     checked_window(PLOT_CONFIG['tlim'], (0., history['T']), 'tlim')
+0004     records = history['records']
+0005     for hs_method in PLOT_CONFIG['methods']:
+0006         left = max(float(fields[hs_method][key][0]) for _, fields in records for key in ('x', 'rhoX'))
+0007         right = min(float(fields[hs_method][key][-1]) for _, fields in records for key in ('x', 'rhoX'))
+0008         checked_window(PLOT_CONFIG['xlim'], (left, right), 'xlim')
+0009         x = np.linspace(*PLOT_CONFIG['xlim'], PLOT_CONFIG['xpoints'])
+0010         t = np.array([time for time, _ in records])
+0011         numerical, exact = [], []
+0012         for field, coordinate in (('u', 'x'), ('rho', 'rhoX')):
+0013             numerical.append(np.array([hs_interpolate(fields[hs_method][coordinate], fields[hs_method][field], x)
+0014                                        for _, fields in records]))
+0015             exact.append(np.array([history['reference'](x, time)[field] for time in t]))
+0016         drawing = dict(PLOT_CONFIG, ylim=PLOT_CONFIG['tlim'])
+0017         title = f"2HS {hs_case} soliton | {hs_method} + RK4 | x,t"
+0018         draw_field_panels(x, t, numerical, exact, title, ('u', r'\rho'), drawing, second_axis='t')
+0019         # 固定终点的波形与误差，直接比较数值精度。
+0020         fig, axes = plt.subplots(2, 2, figsize=(10, 6), layout='constrained')
+0021         for row, (field, name) in enumerate((('u', 'u'), ('rho', r'\rho'))):
+0022             axes[row, 0].plot(x, exact[row][-1], 'r-', label='Exact')
+0023             axes[row, 0].plot(x, numerical[row][-1], 'b--', label='Numerical')
+0024             axes[row, 1].plot(x, abs(numerical[row][-1]-exact[row][-1]), color='#7d247c')
+0025             axes[row, 0].set(ylabel=f'${name}$', title='Numerical / exact')
+0026             axes[row, 1].set(ylabel=f'$e_{{{name}}}$', title='Absolute error')
+0027             axes[row, 0].legend(frameon=False)
+0028         for ax in axes.flat:
+0029             ax.set(xlabel='$x$', xlim=PLOT_CONFIG['xlim']);ax.grid(alpha=.2)
+0030         fig.suptitle(f"2HS {hs_case} soliton | {hs_method} | t={t[-1]:g}")
+0031         plt.show()

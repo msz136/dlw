@@ -1,0 +1,403 @@
+{
+  "notebook": "C:\\Users\\msz\\aca\\notebook\\2HS数值分析report.ipynb",
+  "notebook_sha256": "63d5d72106abbffb2d0ef5e64db3136527ca6f48c24df4a50c5b1764fbc2f761",
+  "input_sha256": "be7d0905c8f3c604ed09ea5326a38e31698e182569ee22e33b2e3099ae7f6e3a",
+  "backup": "C:\\Users\\msz\\aca\\Workspaces\\notebook_reports_20261006\\execution_inputs\\hs_muted_colors_a56d7580f61c45e7a6c797541c54e1a9.ipynb",
+  "python": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\.venv\\Scripts\\python.exe",
+  "kernel": "fresh native project Python kernel",
+  "elapsed_seconds": 34.907,
+  "success": true,
+  "schema_valid": true,
+  "sources_unchanged": true,
+  "code_cell_count": 19,
+  "errors": [],
+  "failure": null,
+  "cell_timings": [
+    {
+      "id": "hs-prepare",
+      "seconds": 1.191
+    },
+    {
+      "id": "hs-config",
+      "seconds": 0.02
+    },
+    {
+      "id": "hs-reference",
+      "seconds": 0.013
+    },
+    {
+      "id": "hs-spatial",
+      "seconds": 0.008
+    },
+    {
+      "id": "hs-fd-spatial",
+      "seconds": 0.009
+    },
+    {
+      "id": "hs-initial-state",
+      "seconds": 0.007
+    },
+    {
+      "id": "hs-rk4",
+      "seconds": 0.006
+    },
+    {
+      "id": "hs-history",
+      "seconds": 0.009
+    },
+    {
+      "id": "hs-evolve",
+      "seconds": 3.108
+    },
+    {
+      "id": "hs-interpolation",
+      "seconds": 0.007
+    },
+    {
+      "id": "hs-error",
+      "seconds": 0.054
+    },
+    {
+      "id": "hs-two-reference",
+      "seconds": 0.011
+    },
+    {
+      "id": "hs-two-initial",
+      "seconds": 0.009
+    },
+    {
+      "id": "hs-two-evolve",
+      "seconds": 5.58
+    },
+    {
+      "id": "hs-two-error",
+      "seconds": 0.476
+    },
+    {
+      "id": "hs-two-plots",
+      "seconds": 0.009
+    },
+    {
+      "id": "hs-field-config",
+      "seconds": 0.006
+    },
+    {
+      "id": "hs-field-helpers",
+      "seconds": 0.016
+    },
+    {
+      "id": "hs-field-plots",
+      "seconds": 22.908
+    }
+  ],
+  "code_cells": [
+    {
+      "id": "hs-prepare",
+      "execution_count": 1,
+      "source_sha256": "7a0dc3edb3e5e0b9fd01cdc55da533a7879c780380cf01e4b0ef8304cf7ef538",
+      "outputs": []
+    },
+    {
+      "id": "hs-config",
+      "execution_count": 2,
+      "source_sha256": "b437179f28173bb3c493de15d93dca8a3badceb8597fa9315aec0168ab0497d7",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "   N     a  X 左端  X 右端       dt   T  时间步数  评价点数\n2400 0.005  -6.0   6.0 0.003125 0.5   160 32001\n"
+        }
+      ]
+    },
+    {
+      "id": "hs-reference",
+      "execution_count": 3,
+      "source_sha256": "091355d3af3c983d50e06fb67b7ecd6926f97455131738a9aede1f88b51010b2",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "初始物理左端 初始物理右端  FD 的 dx  峰值 u  谷值 rho\n  -6.8    5.8 0.005250  0.09    0.64\n"
+        }
+      ]
+    },
+    {
+      "id": "hs-spatial",
+      "execution_count": 4,
+      "source_sha256": "27b9cd40f5b6f707b0b17177629048b868ca87d1254a7b59148214b9c23d3c36",
+      "outputs": []
+    },
+    {
+      "id": "hs-fd-spatial",
+      "execution_count": 5,
+      "source_sha256": "d1d037fa96bd7cbfd759109c151e6a06acd659c022e58ac3dd03ce34c63019df",
+      "outputs": []
+    },
+    {
+      "id": "hs-initial-state",
+      "execution_count": 6,
+      "source_sha256": "87a73d80798c65ce4811c9f2b7a02ee1bb3b5bd3abb8308edddc414dbc1178e9",
+      "outputs": []
+    },
+    {
+      "id": "hs-rk4",
+      "execution_count": 7,
+      "source_sha256": "b8252a47bbd90cd54edcb0e7e5ac49012431fa21c379742bb3c9c2b74886a5e9",
+      "outputs": []
+    },
+    {
+      "id": "hs-history",
+      "execution_count": 8,
+      "source_sha256": "e3ca9c16362d72a741da6256e59b832cfbedc26b2b674295b64211f02fab31dd",
+      "outputs": []
+    },
+    {
+      "id": "hs-evolve",
+      "execution_count": 9,
+      "source_sha256": "c28333c8e2c55a74ec131a78e77c92a3b60bb91c068d187d6da17241a89f3c43",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "        方案  已推进步数  当前时间  物理节点数\nIntegrable    160   0.5   2401\n        FD    160   0.5   2401\n"
+        }
+      ]
+    },
+    {
+      "id": "hs-interpolation",
+      "execution_count": 10,
+      "source_sha256": "1daf900a9dcb2e476da3fb1a23e1e168b7c158ad31820f49e18cdc317146a926",
+      "outputs": []
+    },
+    {
+      "id": "hs-error",
+      "execution_count": 11,
+      "source_sha256": "488e81ae11ad03d1ba34e4803069a59c01860ffb853ed5883d91b369da1209af",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "        方案         E_u(T)       E_rho(T)         终点最小格距         终点最小密度\nIntegrable 0.010012788547 0.001149677289 0.004971398357 0.640451344712\n        FD 0.000000914396 0.000002907427 0.005250000000 0.640000645407\n"
+        }
+      ]
+    },
+    {
+      "id": "hs-two-reference",
+      "execution_count": 12,
+      "source_sha256": "d56d7fef53fc85220a5d915b8a7f2c1481422b85b56001a266430ea920aeeca0",
+      "outputs": []
+    },
+    {
+      "id": "hs-two-initial",
+      "execution_count": 13,
+      "source_sha256": "49d56746c0aa1a0e5f25d64d620728ef1341c3d8bf6b47dca934882c96c2f98c",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "   N     a       dt   T 物理左端 物理右端    FD dx         初始最小 J\n2400 0.005 0.003125 0.5 -7.7  5.7 0.005591 1.000000002474\n"
+        }
+      ]
+    },
+    {
+      "id": "hs-two-evolve",
+      "execution_count": 14,
+      "source_sha256": "8a31b25e30e66ebb5fe1e8d3c060a2a6494f46c2cee325488dd81731b777af33",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "        方案  时间步数  终点时间          最小格距           最小密度\nIntegrable   160   0.5 0.00492491920 0.513124430430\n        FD   160   0.5 0.00559090909 0.512503198899\n"
+        }
+      ]
+    },
+    {
+      "id": "hs-two-error",
+      "execution_count": 15,
+      "source_sha256": "a7de0bc8675165ddf4f63a122f9d25149c0f5c1219ca7f85fee3d136c69de214",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "        方案         E_u(T)       E_rho(T)\nIntegrable 0.034508879197 0.003993238314\n        FD 0.000000874945 0.000002861841\n"
+        }
+      ]
+    },
+    {
+      "id": "hs-two-plots",
+      "execution_count": 16,
+      "source_sha256": "3208324a5eb1dd5eb8b04293c812a61705e23faa34676eac82ebcb240699504c",
+      "outputs": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "  场  Integrable / FD 误差比\n  u   39441.206860257880\nrho    1395.339156048826\n 算例         方案         E_u(T)       E_rho(T)\n单孤子 Integrable 0.010012788547 0.001149677289\n单孤子         FD 0.000000914396 0.000002907427\n二孤子 Integrable 0.034508879197 0.003993238314\n二孤子         FD 0.000000874945 0.000002861841\n"
+        }
+      ]
+    },
+    {
+      "id": "hs-field-config",
+      "execution_count": 17,
+      "source_sha256": "9c625faf90fa89ab096ec248819a5236252697f6d4a35ec0f871a6169db4b2ed",
+      "outputs": []
+    },
+    {
+      "id": "hs-field-helpers",
+      "execution_count": 18,
+      "source_sha256": "2c7eebef887cca65ce90ab99f7516957b81a48106012820909eb941491091cde",
+      "outputs": []
+    },
+    {
+      "id": "hs-field-plots",
+      "execution_count": 19,
+      "source_sha256": "fc4695d932b325833b33326013377c1404f934c101e150be3d35e4d1e3273087",
+      "outputs": [
+        {
+          "type": "display_data",
+          "mime_types": [
+            "image/png",
+            "text/plain"
+          ],
+          "payload_sha256": {
+            "text/plain": "24bbee6f3f4c933cb97aee4b88c97e325e5cff6a4c783ba9a9028e49941fdb16",
+            "image/png": "7643d671893c7f064490c59e3257a8ee94e4ee5b433d32260e8fb5b0eb285d1b"
+          },
+          "text_plain": "<Figure size 1400x850 with 8 Axes>"
+        },
+        {
+          "type": "display_data",
+          "mime_types": [
+            "image/png",
+            "text/plain"
+          ],
+          "payload_sha256": {
+            "text/plain": "6da5fd97dcfa70c04ca32102343650887e6f9245ff3a2cd45795e3b73c4d7cff",
+            "image/png": "3ee9da809db7bb4f85e735672a7f6db5bd4f0fd7698b32413b657e9eff69c65b"
+          },
+          "text_plain": "<Figure size 1100x800 with 6 Axes>"
+        },
+        {
+          "type": "display_data",
+          "mime_types": [
+            "image/png",
+            "text/plain"
+          ],
+          "payload_sha256": {
+            "text/plain": "45261c18b7dd5498b7fc59c7298986a67a3fa63613025b0e324f420b3d125521",
+            "image/png": "fb8735f618ce955aaf0f29b02f51c0437a02bf4fcd82dee6a9f5d40ab2819d9f"
+          },
+          "text_plain": "<Figure size 1000x600 with 4 Axes>"
+        },
+        {
+          "type": "display_data",
+          "mime_types": [
+            "image/png",
+            "text/plain"
+          ],
+          "payload_sha256": {
+            "text/plain": "24bbee6f3f4c933cb97aee4b88c97e325e5cff6a4c783ba9a9028e49941fdb16",
+            "image/png": "aa4d8ebe0f9edecd6e0ca34f16b9cd611c7b514ec3e6df7b94cb9539c4823d4d"
+          },
+          "text_plain": "<Figure size 1400x850 with 8 Axes>"
+        },
+        {
+          "type": "display_data",
+          "mime_types": [
+            "image/png",
+            "text/plain"
+          ],
+          "payload_sha256": {
+            "text/plain": "6da5fd97dcfa70c04ca32102343650887e6f9245ff3a2cd45795e3b73c4d7cff",
+            "image/png": "ddac3ab3b82ca057e6af67feace39b298e5fd447f73d4bd6fb215c3f44950583"
+          },
+          "text_plain": "<Figure size 1100x800 with 6 Axes>"
+        },
+        {
+          "type": "display_data",
+          "mime_types": [
+            "image/png",
+            "text/plain"
+          ],
+          "payload_sha256": {
+            "text/plain": "45261c18b7dd5498b7fc59c7298986a67a3fa63613025b0e324f420b3d125521",
+            "image/png": "1d2848e2ac79df1613d77984a468166b83d7b4ab46076f5317dc69923ce3a290"
+          },
+          "text_plain": "<Figure size 1000x600 with 4 Axes>"
+        },
+        {
+          "type": "display_data",
+          "mime_types": [
+            "image/png",
+            "text/plain"
+          ],
+          "payload_sha256": {
+            "text/plain": "24bbee6f3f4c933cb97aee4b88c97e325e5cff6a4c783ba9a9028e49941fdb16",
+            "image/png": "e0907d856ce4d8671cb176187d6e55e66bc088c36e2559d9276dd5e4a58c34aa"
+          },
+          "text_plain": "<Figure size 1400x850 with 8 Axes>"
+        },
+        {
+          "type": "display_data",
+          "mime_types": [
+            "image/png",
+            "text/plain"
+          ],
+          "payload_sha256": {
+            "text/plain": "6da5fd97dcfa70c04ca32102343650887e6f9245ff3a2cd45795e3b73c4d7cff",
+            "image/png": "606a183c253693d80ed0a8a0185acea705833e9fe5aa68ab0722cf1f656eb937"
+          },
+          "text_plain": "<Figure size 1100x800 with 6 Axes>"
+        },
+        {
+          "type": "display_data",
+          "mime_types": [
+            "image/png",
+            "text/plain"
+          ],
+          "payload_sha256": {
+            "text/plain": "45261c18b7dd5498b7fc59c7298986a67a3fa63613025b0e324f420b3d125521",
+            "image/png": "4a24d5855113c9dfc5537b88ec2eba078a3b761a2f4e7d12aae480bd0853062e"
+          },
+          "text_plain": "<Figure size 1000x600 with 4 Axes>"
+        },
+        {
+          "type": "display_data",
+          "mime_types": [
+            "image/png",
+            "text/plain"
+          ],
+          "payload_sha256": {
+            "text/plain": "24bbee6f3f4c933cb97aee4b88c97e325e5cff6a4c783ba9a9028e49941fdb16",
+            "image/png": "9da85bafdb827ff6c1d9a8854bb6d7a22419e74096df5312d9a64f09ad55461b"
+          },
+          "text_plain": "<Figure size 1400x850 with 8 Axes>"
+        },
+        {
+          "type": "display_data",
+          "mime_types": [
+            "image/png",
+            "text/plain"
+          ],
+          "payload_sha256": {
+            "text/plain": "6da5fd97dcfa70c04ca32102343650887e6f9245ff3a2cd45795e3b73c4d7cff",
+            "image/png": "03b818cb29a2e207ca7793cef07f034a630801ba8728f40c31a9d7943a3407d8"
+          },
+          "text_plain": "<Figure size 1100x800 with 6 Axes>"
+        },
+        {
+          "type": "display_data",
+          "mime_types": [
+            "image/png",
+            "text/plain"
+          ],
+          "payload_sha256": {
+            "text/plain": "45261c18b7dd5498b7fc59c7298986a67a3fa63613025b0e324f420b3d125521",
+            "image/png": "6f5a243500f1b678a5d951a44aa60001215bec420e2266cb2254e280e9e2abca"
+          },
+          "text_plain": "<Figure size 1000x600 with 4 Axes>"
+        }
+      ]
+    }
+  ],
+  "outputs_saved": true
+}

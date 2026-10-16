@@ -1,0 +1,404 @@
+{
+  "title": "DLW physical-coordinate finite-dimensional Poisson exact certificate",
+  "passed": true,
+  "normalization": "omega=h*dx; coordinate B=J_functional_gradient/omega",
+  "boundary": "periodic x and periodic y; c != 0; gamma constant",
+  "derivative": "centered periodic Dx; Dxx=Dx@Dx in the Hamiltonian flow",
+  "jacobi_identity": "Every coordinate triple, generic physical u/v and symbolic rho=-1/c",
+  "jacobi_total_triples": 1596,
+  "jacobi_runs": [
+    {
+      "M": 2,
+      "Nx": 3,
+      "triples": 220,
+      "seconds": 1.156
+    },
+    {
+      "M": 3,
+      "Nx": 3,
+      "triples": 816,
+      "seconds": 11.227
+    },
+    {
+      "M": 2,
+      "Nx": 4,
+      "triples": 560,
+      "seconds": 1.487
+    }
+  ],
+  "general_proof": "report.md: coordinate pushforward proves Jacobi for all M,N and any fixed skew Dx",
+  "ranks": [
+    {
+      "M": 2,
+      "Nx": 3,
+      "physical_dimension": 12,
+      "mean_constrained_dimension": 6,
+      "rank": 4,
+      "x_derivative_kernel": 1,
+      "ambient_casimirs": 8
+    },
+    {
+      "M": 3,
+      "Nx": 3,
+      "physical_dimension": 18,
+      "mean_constrained_dimension": 12,
+      "rank": 8,
+      "x_derivative_kernel": 1,
+      "ambient_casimirs": 10
+    },
+    {
+      "M": 3,
+      "Nx": 4,
+      "physical_dimension": 24,
+      "mean_constrained_dimension": 16,
+      "rank": 8,
+      "x_derivative_kernel": 2,
+      "ambient_casimirs": 16
+    },
+    {
+      "M": 4,
+      "Nx": 5,
+      "physical_dimension": 40,
+      "mean_constrained_dimension": 30,
+      "rank": 24,
+      "x_derivative_kernel": 1,
+      "ambient_casimirs": 16
+    },
+    {
+      "M": 4,
+      "Nx": 6,
+      "physical_dimension": 48,
+      "mean_constrained_dimension": 36,
+      "rank": 24,
+      "x_derivative_kernel": 2,
+      "ambient_casimirs": 24
+    }
+  ],
+  "momentum_nonconservation_witness": {
+    "M": 2,
+    "Nx": 3,
+    "h": "2/3",
+    "dx": "3/5",
+    "c": "-4",
+    "gamma": "-3/2",
+    "a": "5/7",
+    "Dx": [
+      [
+        "0",
+        "5/6",
+        "-5/6"
+      ],
+      [
+        "-5/6",
+        "0",
+        "5/6"
+      ],
+      [
+        "5/6",
+        "-5/6",
+        "0"
+      ]
+    ],
+    "p": [
+      "1/7",
+      "-2/7",
+      "1/2",
+      "-1/7",
+      "2/7",
+      "-1/2"
+    ],
+    "s": [
+      "-1/2",
+      "9/22",
+      "-9/22",
+      "1/2",
+      "-9/22",
+      "9/22"
+    ],
+    "dPdt_exact": "169/12936",
+    "dPdt_float": 0.013064316635745208,
+    "dKdt_exact": "0"
+  },
+  "checks": [
+    {
+      "name": "physical M=2, Nx=3: skew",
+      "passed": true
+    },
+    {
+      "name": "physical M=2, Nx=3: explicit formula equals coordinate pushforward",
+      "passed": true
+    },
+    {
+      "name": "physical M=2, Nx=3: all physical coordinate Jacobi triples",
+      "passed": true,
+      "checked": 220,
+      "symbolic_state_variables": 12,
+      "symbolic_parameter": "rho=-1/c",
+      "seconds": 1.006
+    },
+    {
+      "name": "physical M=2, Nx=3: mean-v Casimir i=0",
+      "passed": true
+    },
+    {
+      "name": "physical M=2, Nx=3: mean-u-correction Casimir i=0",
+      "passed": true
+    },
+    {
+      "name": "physical M=2, Nx=3: mean-v Casimir i=1",
+      "passed": true
+    },
+    {
+      "name": "physical M=2, Nx=3: mean-u-correction Casimir i=1",
+      "passed": true
+    },
+    {
+      "name": "physical M=2, Nx=3: mean-v Casimir i=2",
+      "passed": true
+    },
+    {
+      "name": "physical M=2, Nx=3: mean-u-correction Casimir i=2",
+      "passed": true
+    },
+    {
+      "name": "physical M=3, Nx=3: skew",
+      "passed": true
+    },
+    {
+      "name": "physical M=3, Nx=3: explicit formula equals coordinate pushforward",
+      "passed": true
+    },
+    {
+      "name": "physical M=3, Nx=3: all physical coordinate Jacobi triples",
+      "passed": true,
+      "checked": 816,
+      "symbolic_state_variables": 18,
+      "symbolic_parameter": "rho=-1/c",
+      "seconds": 10.365
+    },
+    {
+      "name": "physical M=3, Nx=3: mean-v Casimir i=0",
+      "passed": true
+    },
+    {
+      "name": "physical M=3, Nx=3: mean-u-correction Casimir i=0",
+      "passed": true
+    },
+    {
+      "name": "physical M=3, Nx=3: mean-v Casimir i=1",
+      "passed": true
+    },
+    {
+      "name": "physical M=3, Nx=3: mean-u-correction Casimir i=1",
+      "passed": true
+    },
+    {
+      "name": "physical M=3, Nx=3: mean-v Casimir i=2",
+      "passed": true
+    },
+    {
+      "name": "physical M=3, Nx=3: mean-u-correction Casimir i=2",
+      "passed": true
+    },
+    {
+      "name": "physical M=2, Nx=4: skew",
+      "passed": true
+    },
+    {
+      "name": "physical M=2, Nx=4: explicit formula equals coordinate pushforward",
+      "passed": true
+    },
+    {
+      "name": "physical M=2, Nx=4: all physical coordinate Jacobi triples",
+      "passed": true,
+      "checked": 560,
+      "symbolic_state_variables": 16,
+      "symbolic_parameter": "rho=-1/c",
+      "seconds": 1.286
+    },
+    {
+      "name": "physical M=2, Nx=4: mean-v Casimir i=0",
+      "passed": true
+    },
+    {
+      "name": "physical M=2, Nx=4: mean-u-correction Casimir i=0",
+      "passed": true
+    },
+    {
+      "name": "physical M=2, Nx=4: mean-v Casimir i=1",
+      "passed": true
+    },
+    {
+      "name": "physical M=2, Nx=4: mean-u-correction Casimir i=1",
+      "passed": true
+    },
+    {
+      "name": "physical M=2, Nx=4: mean-v Casimir i=2",
+      "passed": true
+    },
+    {
+      "name": "physical M=2, Nx=4: mean-u-correction Casimir i=2",
+      "passed": true
+    },
+    {
+      "name": "physical M=2, Nx=4: mean-v Casimir i=3",
+      "passed": true
+    },
+    {
+      "name": "physical M=2, Nx=4: mean-u-correction Casimir i=3",
+      "passed": true
+    },
+    {
+      "name": "M=2, Nx=3: rank formula",
+      "passed": true
+    },
+    {
+      "name": "M=2, Nx=3: R skew",
+      "passed": true
+    },
+    {
+      "name": "M=2, Nx=3: Dx skew",
+      "passed": true
+    },
+    {
+      "name": "M=2, Nx=3: RD symmetric",
+      "passed": true
+    },
+    {
+      "name": "M=2, Nx=3: mean U*w constraint",
+      "passed": true
+    },
+    {
+      "name": "M=2, Nx=3: discrete K derivative",
+      "passed": true
+    },
+    {
+      "name": "M=2, Nx=3: momentum defect formula",
+      "passed": true
+    },
+    {
+      "name": "M=3, Nx=3: rank formula",
+      "passed": true
+    },
+    {
+      "name": "M=3, Nx=3: R skew",
+      "passed": true
+    },
+    {
+      "name": "M=3, Nx=3: Dx skew",
+      "passed": true
+    },
+    {
+      "name": "M=3, Nx=3: RD symmetric",
+      "passed": true
+    },
+    {
+      "name": "M=3, Nx=3: mean U*w constraint",
+      "passed": true
+    },
+    {
+      "name": "M=3, Nx=3: discrete K derivative",
+      "passed": true
+    },
+    {
+      "name": "M=3, Nx=3: momentum defect formula",
+      "passed": true
+    },
+    {
+      "name": "M=3, Nx=4: rank formula",
+      "passed": true
+    },
+    {
+      "name": "M=3, Nx=4: R skew",
+      "passed": true
+    },
+    {
+      "name": "M=3, Nx=4: Dx skew",
+      "passed": true
+    },
+    {
+      "name": "M=3, Nx=4: RD symmetric",
+      "passed": true
+    },
+    {
+      "name": "M=3, Nx=4: mean U*w constraint",
+      "passed": true
+    },
+    {
+      "name": "M=3, Nx=4: discrete K derivative",
+      "passed": true
+    },
+    {
+      "name": "M=3, Nx=4: momentum defect formula",
+      "passed": true
+    },
+    {
+      "name": "M=4, Nx=5: rank formula",
+      "passed": true
+    },
+    {
+      "name": "M=4, Nx=5: R skew",
+      "passed": true
+    },
+    {
+      "name": "M=4, Nx=5: Dx skew",
+      "passed": true
+    },
+    {
+      "name": "M=4, Nx=5: RD symmetric",
+      "passed": true
+    },
+    {
+      "name": "M=4, Nx=5: mean U*w constraint",
+      "passed": true
+    },
+    {
+      "name": "M=4, Nx=5: discrete K derivative",
+      "passed": true
+    },
+    {
+      "name": "M=4, Nx=5: momentum defect formula",
+      "passed": true
+    },
+    {
+      "name": "M=4, Nx=6: rank formula",
+      "passed": true
+    },
+    {
+      "name": "M=4, Nx=6: R skew",
+      "passed": true
+    },
+    {
+      "name": "M=4, Nx=6: Dx skew",
+      "passed": true
+    },
+    {
+      "name": "M=4, Nx=6: RD symmetric",
+      "passed": true
+    },
+    {
+      "name": "M=4, Nx=6: mean U*w constraint",
+      "passed": true
+    },
+    {
+      "name": "M=4, Nx=6: discrete K derivative",
+      "passed": true
+    },
+    {
+      "name": "M=4, Nx=6: momentum defect formula",
+      "passed": true
+    },
+    {
+      "name": "M=2,Nx=3: symbolic K gradient p, no Leibniz identity",
+      "passed": true
+    },
+    {
+      "name": "M=2,Nx=3: symbolic K gradient s, no Leibniz identity",
+      "passed": true
+    }
+  ],
+  "check_count": 66,
+  "elapsed_seconds": 16.594,
+  "python_sympy_version": "1.13.3",
+  "script_sha256": "a87d66748fbcee7b5376e59594f7fa73186504cfb5ef14a630d87d1375f8f1b6"
+}

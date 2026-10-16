@@ -1,0 +1,112 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="一般场DLW作用量—角变量研究：原弱辛结构、有限共轭坐标与一般M的带权Floquet谱积分。"><title>一般场 DLW 的作用量—角变量</title>
+<style>*{box-sizing:border-box}body{margin:0;background:#f2f1ee;color:#202020;font:17px/1.9 Georgia,"Times New Roman","SimSun",serif}main{max-width:980px;margin:30px auto;padding:48px 64px;background:white}h1{font-size:29px;text-align:center;line-height:1.5}h2{font-size:22px;margin-top:32px}p{overflow-wrap:anywhere}.date{text-align:center;color:#666;font-size:14px}.abstract{border-block:1px solid #aaa;padding:14px 0}.eq{background:#f8f8f6;border-left:2px solid #999;padding:14px 18px;font-family:"Cambria Math",Georgia,serif;overflow-wrap:anywhere}a{color:#28546a;text-underline-offset:3px}a:focus-visible{outline:2px solid #28546a}li{margin:9px 0}.note{font-size:15px;color:#555}@media(max-width:650px){main{margin:0;padding:26px 20px}body{font-size:16px}h1{font-size:25px}h2{font-size:21px}}@media print{body{background:white;font-size:11pt}main{margin:0;padding:0}h1{font-size:20pt}h2{font-size:15pt}}</style></head><body><main>
+<h1>一般场 DLW 的作用量—角变量</h1><p class="date">独立研究分支 · 2026年10月13日 · 局部定理证明稿</p>
+<p class="abstract">对任意固定有限格点周期 M，在足够小的非零均匀背景附近，本文构造保留原 Poisson 结构的全模态弱辛坐标，并在无限维 Gaussian 谱衰减域上给出原时间的准确演化与物理重构。构造保留全部空间函数自由度。证明链已完成分支内依赖复核，尚未经独立全文审查；结论不包括任意背景、粗场初值稳定性或全局实环面。</p>
+<h2>局部定理与适用域</h2>
+<p>固定 M≥2、L&gt;0，令 δ=hc/8、S=Mδ、k₁=2π/L。存在 ε<sub>M</sub>&gt;0，使 0&lt;|δ|/k₁&lt;ε<sub>M</sub> 时，在均匀背景所确定的分量均值叶上，存在一般场开邻域的解析保辛状态坐标 v 及解析逆，满足</p>
+<div class="eq">Ω=Σ<sub>α</sub>d<sub>α</sub>⁻¹dv<sup>+</sup><sub>α</sub>∧dv<sup>−</sup><sub>α</sub>，<br>𝒜<sub>α</sub>=v<sup>+</sup><sub>α</sub>v<sup>−</sup><sub>α</sub>/d<sub>α</sub>，|d<sub>α</sub>|≍〈n〉²，<br>K<sub>B</sub>=k<sub>B</sub>(J)，J<sub>α</sub>=d<sub>α</sub>𝒜<sub>α</sub>∈ℓ¹。</div>
+<p>α 保留完整的有符号谱标签及其物理共轭关系；没有有限低频剩余变量。所有坐标对非零时，每个有限作用量块独立。对数角变量在明确的 ℓ∞ 相对拓扑中定义，其邻域不是原场空间的开集。真实时间在第11节的 Gaussian 谱域内成立；实结构允许伸缩方向，不能据此宣称实等谱叶均为紧环面。</p>
+<p>完整假设、构造与证明链见<a href="../Workspaces/dlw_action_angle_20261013/LOCAL_ACTION_ANGLE_THEOREM.md">总定理</a>。以下先说明结构障碍和构造步骤，再给出全模态补全与原时间公式。</p>
+<h2>1　相空间与原结构</h2>
+<p>令 m=M−1，在满足已有非共振条件的非零均匀背景附近，取固定分量均值叶上的一般场空间</p>
+<div class="eq">E=(L²₀)ᵐ × (H¹₀)ᵐ，<br>J=−(1/16) offdiag(∂ₓIₘ)。</div>
+<p>原弱辛形式为</p>
+<div class="eq">Ω(v,w)=−16∫[(∂ₓ⁻¹v<sub>q</sub>)·w<sub>d</sub>+(∂ₓ⁻¹v<sub>d</sub>)·w<sub>q</sub>] dx。</div>
+<p>所有结论保留已有实际谱图的共同小邻域、完整矩阵 holonomy 与物理约束。这里的有限 M 只限制横向格点数，未截断 x 的函数自由度。外给平均通量的时间变化按原中心化和平移关系恢复。</p>
+<h2>2　不能采用通常的强 Hilbert 正则坐标</h2>
+<p>在 E 的标准 Hilbert 范数中，将原形式视作算子，其正频率奇异值为</p>
+<div class="eq">aₙ=16/[|kₙ|√(1+kₙ²)]，kₙ=2πn/L，实重数为 4m。</div>
+<p>这些奇异值可求和。因此原形式对应的算子是单射的迹类算子，逆却不有界。任意保持该拓扑的局部微分同胚仍将其变为紧算子，故不可能得到无权 ℓ² 上有界可逆的标准强辛形式。</p>
+<p>这不排除作用量—角变量。它要求最终坐标使用与原结构匹配的弱权重，或另行证明一个更强的相对作用量拓扑。直接除以趋零权重会改变拓扑，必须同时证明新的逆映射和流域。</p>
+<p>已有归一化谱隙 I<sub>α</sub>=g<sub>α</sub>/ω<sub>α</sub>满足 Hamilton 场序列属于 ℓ²(E)。因此其微分 E→ℓ² 是紧算子，不能为满射。尽管每个有限积分块可以独立，穷尽全部模态时，其右逆的范数必然失去统一上界。</p>
+<h2>3　一般场上的有限精确共轭坐标</h2>
+<p>对任意 r 个在给定状态独立的实际实谱积分 p₁,…,pᵣ，利用其交换的真实 Hamilton 流，可以在原场空间中建立局部坐标 (P,Q,ζ)，使</p>
+<div class="eq">Pⱼ=pⱼ−pⱼ(x*)，<br>Ω=Σⱼ dQⱼ∧dPⱼ+Ω<sub>N</sub>，<br>{Qᵢ,Pⱼ}=δᵢⱼ，{Qᵢ,Qⱼ}={Pᵢ,Pⱼ}=0。</div>
+<p>ζ 保留其余无限函数自由度。构造先选有限 Fourier 线性观测量作横截面，用联合谱流的到达时间定义共轭变量，再逐对分离原弱辛形式。每个到达时间都显式具有原 Hamilton 场，未使用弱辛空间中“任意协向量均可求逆”的错误假设。</p>
+<p>原 Hamiltonian 与这些积分对合，只能推出 H=H(P,ζ)。尚不能推出 H=H(P)：剩余 ζ 动力学仍可能影响 Q 的速度。这准确指出了有限块结果与完整 action–angle 之间的距离。</p>
+<h2>4　一般 M 的非线性作用量候选</h2>
+<p>在第 α 个高频谱隙外的固定小轮廓 Γ<sub>α</sub>上，令 μ₊、μ₋为实际两维乘子簇的两个 Floquet 乘子。由均匀背景的 fast/slow 标号确定平方根与对数分支，定义</p>
+<div class="eq">κ<sub>α</sub>(λ)=½ log(μ₊/μ₋)，<br>ω(λ)=(S²−λ²)/(16S)，<br>𝒜<sub>α</sub>=(1/2πi)∮<sub>Γα</sub> κ<sub>α</sub>(λ)/ω(λ) dλ。</div>
+<p>轮廓避开 ±S，包围该簇的两个分支点。乘子之比消除共同标量归一化，实际特征类保证框架相似变换不改变积分。固定背景标号后，各积分在同一个一般场邻域解析，并在原括号下两两对合。</p>
+<p>原 trace Hamilton 场与辅助向量谱场之间含有精确因子 ω(λ)。在上述积分的变分中，分母将它逐谱点准确抵消，得到</p>
+<div class="eq">X<sub>𝒜α</sub>=ℬ<sub>x</sub>[(1/2πi)∮ Σᵣ b<sub>αr</sub>Y<sub>Fᵣ(λ)</sub> dλ]，<br>dκ<sub>α</sub>=Σᵣ b<sub>αr</sub>dFᵣ(λ)。</div>
+<p>ℬ<sub>x</sub>是已有、与 λ 无关的完整物理约束重构算子。该式保留原 Poisson 结构与移动框架，而不是把整个物理括号替换成辅助正则括号。</p>
+<p>由实际高频 Riesz 块 B<sub>α</sub>=diag(e<sup>Lζ</sup>,1)+Q<sub>α</sub>及 Q∈ℓ²，可得共同源域上的估计</p>
+<div class="eq">Σ<sub>α</sub>〈n〉²|𝒜<sub>α</sub>| &lt; ∞，<br>Σ<sub>α</sub>‖X<sub>𝒜α</sub>‖²<sub>E</sub> &lt; ∞。</div>
+<p>进一步保留完整谱映射的导数估计，可以将组合流的系数范围从 ℓ² 扩大到 ℓ∞。令无权周期 𝒦<sub>α</sub>=(1/2πi)∮κ<sub>α</sub>dλ。它在辅助 L² 变量中构成 ℓ¹ 解析序列，先求和再取其梯度可得</p>
+<div class="eq">‖Y<sub>Σcα𝒦α</sub>‖<sub>L²</sub> ≤ C‖c‖<sub>ℓ∞</sub>‖Q‖<sub>ℓ²</sub>，<br>X<sub>Σcα𝒜α</sub>=ℬ<sub>x</sub>Y<sub>Σcα𝒦α</sub>。</div>
+<p>对任意有界系数序列，这给出原场空间中有限 Hamilton 场的收敛极限与真实局部流。各流交换、保持实际谱量，并在共同低域时间窗内保持光滑性；存在半径不随激活谱隙数量增长。</p>
+<h2>5　与原 norming 配对吻合的准确二阶项</h2>
+<p>设 λ<sup>α</sup>为准确背景碰撞点，γ<sub>α</sub>为 fast/slow 空间本征值之差对 λ 的导数。以既有实际 norming 坐标 ν⁺、ν⁻的线性部分表示，新积分的二阶齐次项为</p>
+<div class="eq">𝒜<sub>α</sub><sup>[2]</sup> = ν<sub>α</sub><sup>+,[1]</sup>ν<sub>α</sub><sup>−,[1]</sup> /(Lω<sub>α</sub>γ<sub>α</sub>)。</div>
+<p>原括号在该背景满足 {ν⁺<sub>α</sub>,ν⁻<sub>β</sub>}=δ<sub>αβ</sub>Lω<sub>α</sub>γ<sub>α</sub>，故 X<sub>𝒜α</sub>的复化线性化恰为</p>
+<div class="eq">ν̇⁺<sub>α</sub>=ν⁺<sub>α</sub>，ν̇⁻<sub>α</sub>=−ν⁻<sub>α</sub>。</div>
+<p>其余标签的线性分量为零。实 Hamiltonian 需按 Re/Im 配对作相应实化。这个结果确认了自然的二阶作用量归一化，却不等于非线性恒等式 ν̇⁺=ν⁺、ν̇⁻=−ν⁻已在整个邻域成立。</p>
+<h2>6　从二阶归一化到精确非线性周期</h2>
+<p>令 P₊、P₋为两支实际乘子的本征投影。对应的周期伴随矩阵为 W=½Y(P₊−P₋)Y⁻¹。新谱积分的完整原 Hamilton 场具有 Cauchy 规范生成元</p>
+<div class="eq">G(λ)=(1/2πi)∮ W(μ)/(μ−λ) dμ+K，<br>δA=∂ₓG−[A,G]。</div>
+<p>K 是保留的物理有限框架修正，在空间和谱参数上恒定。内外两个谱区域的生成元相差 W，其时间传输矩阵满足 T<sub>in</sub>=T<sub>out</sub>exp(tW₀)。当 t=2πi 时，</p>
+<div class="eq">exp(2πiW₀)=I−2Π，Π=P₊+P₋。</div>
+<p>Π 是整个两维谱簇的投影，在分支点处仍解析。用 I−2Π 消去内外拼接后得到整谱平面上的有界矩阵，只剩一个空间常数框架变换。原物理规范截面的局部唯一性消去它，从而得到真正的物理返回关系</p>
+<div class="eq">φ<sub>𝒜α</sub><sup>2πi</sup>(x)=x。</div>
+<p>完整复时间环路的存在由共同低域的解析场估计保证；初始半径可对每个单独高频标签统一选取。这是非线性返回恒等式，不只是背景频率为整数。</p>
+<p>结合有界系数组合流的统一估计，交换周期流在一个共同开邻域内构成可数乘积环面的连续作用。利用实际状态图作无限 Haar 平均，得到具有解析状态逆的新坐标 Z，使所有高频标签同时满足</p>
+<div class="eq">{Z<sub>β</sub><sup>±</sup>,𝒜<sub>α</sub>}=±δ<sub>αβ</sub>Z<sub>β</sub><sup>±</sup>，<br>Θ<sub>β</sub>=½log(Z<sub>β</sub><sup>+</sup>/Z<sub>β</sub><sup>−</sup>)，{Θ<sub>β</sub>,𝒜<sub>α</sub>}=δ<sub>αβ</sub>。</div>
+<p>Z 是在谱隙闭合处也正则的 Cartesian 坐标；每个对数只在对应非零坐标的局部分支上定义。全部对数同时作为坐标还需指定相对拓扑。周期平均本身不保证原弱辛形式正则化，也不保证角变量彼此对合。实结构中仍有圆周方向与伸缩方向。</p>
+<h2>7　实际 norming 数据与无限维缺口</h2>
+<p>对既有 norming 数据，原谱流保持绝对谱中心与 slow holonomy 本征值，因此移动格点中心也恒定。真正需要保留的是两维谱平面的框架导数。压缩矩阵满足 Ṁ=[V,M]，其中 V 包含 −T⁻¹Ṫ。</p>
+<div class="eq">ν̇⁺=(V₁₁−V₂₂)ν⁺−V₁₂δ，<br>ν̇⁻=−(V₁₁−V₂₂)ν⁻+V₂₁δ，<br>d(ν⁺ν⁻)/dt=−½δδ̇。</div>
+<p>δ 是同一归一化下的对角差。故谱不变性直接保持的是 ν⁺ν⁻+δ²/4，不能自动把原始 norming 对视为精确伸缩坐标。新周期平均提供了有限组情况下的实际修正。</p>
+<p>剩余关键是让所有标签共享一个状态邻域及受控逆映射。分离谱轮廓上的 L² Cauchy 算子界不随轮廓数量增长。进一步利用空间平移后的实际 monodromy，已将完整谱投影估计提升到 Cₓℓ²：对任意固定上界的谱相位序列，可在同一个场邻域内完成无限小矩阵跳跃分解。</p>
+<div class="eq">R<sub>α</sub>=W<sub>α</sub>−J<sub>ℓ</sub>(H)，<br>sup<sub>x</sub>(Σ<sub>α</sub>‖R<sub>α</sub>(x)‖²)<sup>½</sup> ≤ b<sub>N</sub>+C‖场扰动‖<sub>E</sub>，b<sub>N</sub>→0；<br>‖e<sup>tαWα</sup>e<sup>−tαJℓ</sup>−I‖<sub>Cₓℓ²</sub> ≤ C<sub>T</sub>‖R‖<sub>Cₓℓ²</sub>，‖t‖<sub>ℓ∞</sub>≤T。</div>
+<p>一个明确反例说明：任意小、行列式为一、空间光滑的跳跃，其可逆分解仍可能只按 R<sup>−p</sup>趋近单位矩阵（½&lt;p&lt;1），因而不存在通常的 1/R 首项。本次构造通过原场 Hamilton 常微分方程获得无限联合流，避开了对这一展开的依赖。</p>
+<p>新的无限状态图将高频谱流准确对角化，仍留下有限维坐标 η。η 对所有这些高频流不变，但尚未证明它对原 DLW 时间不变。对乘积 I<sub>α</sub>=Z<sup>+</sup><sub>α</sub>Z<sup>−</sup><sub>α</sub>，可以进一步建立作用量的准确归一化。</p>
+<h2>8　带权高频作用量逆与剩余辛结构</h2>
+<p>任何对全部高频环面作用不变的解析量，都唯一地写成 I∈ℓ¹ 与有限变量 η 的解析函数。证明利用各圆周独立作用强制 Taylor 单项式的正负指数配平，再以 ℓ² 中的平方根提升控制 ℓ¹ 上的收敛。</p>
+<div class="eq">d<sub>α</sub>=Lω<sub>α</sub>γ<sub>α</sub>，J<sub>α</sub>=d<sub>α</sub>𝒜<sub>α</sub>，<br>J=F(I,η)，D<sub>I</sub>F(0,0)=Id，<br>I=G(J,η)。</div>
+<p>这是保留 η 的高频不变量空间中的解析逆；不意味着物理场到作用量的微分成为普通 Hilbert 满射。原 Hamilton 恒等式还使 F<sub>α</sub>在 I<sub>α</sub>=0 时消失，故 F<sub>α</sub>=I<sub>α</sub>f<sub>α</sub>，其中 f 是一致接近 1 的 ℓ∞ 解析序列。</p>
+<p>取 U<sup>+</sup><sub>α</sub>=f<sub>α</sub>Z<sup>+</sup><sub>α</sub>、U<sup>−</sup><sub>α</sub>=Z<sup>−</sup><sub>α</sub>，得到具有真实解析状态逆的坐标变换，以及准确恒等式</p>
+<div class="eq">𝒜<sub>α</sub>=U<sup>+</sup><sub>α</sub>U<sup>−</sup><sub>α</sub>/d<sub>α</sub>，<br>{U<sup>±</sup><sub>β</sub>,𝒜<sub>α</sub>}=±δ<sub>αβ</sub>U<sup>±</sup><sub>β</sub>。</div>
+<p>令 Ω<sub>U</sub>为原弱辛形式在这些坐标中的表达，Ω<sub>lin</sub>为其背景常系数形式。剩余修正 Δ=Ω<sub>U</sub>−Ω<sub>lin</sub>是闭的、环面不变的，并满足</p>
+<div class="eq">ι<sub>X𝒜α</sub>Δ=0，对所有高频 α 成立。</div>
+<p>这尚未证明 Δ=0；消去它需要控制弱辛反演中的 d<sub>α</sub>≈n² 因子。所有高频流的共同固定集 U<sup>+</sup>=U<sup>−</sup>=0 则是一个继承原非退化辛形式的有限维解析子流形，其物理场具有空间解析性。它明确了低频待解部分，但不能替代完整一般场目标。</p>
+<p>上述乘积换元尚不能直接消去 Δ。下面利用原物理形式在原场坐标中恒定这一性质，完成高频弱辛正则化。</p>
+<h2>9　平均原 Liouville 场得到保辛谱坐标</h2>
+<p>记 Φ<sub>g</sub>为已建立的实际谱环面作用，在原场空间中平均径向向量场的拉回：</p>
+<div class="eq">W(x)=∫ DΦ<sub>g</sub>(x)⁻¹Φ<sub>g</sub>(x) dg，<br>W(x)=x+O(‖x‖²)，ℒ<sub>W</sub>Ω=2Ω。</div>
+<p>这里平均的是已有的场空间向量，不涉及原弱辛算子的反演。W 与全部谱流等变。令 ψ<sub>t</sub>为 −W 的收缩流，则 ‖ψ<sub>t</sub>(x)‖≤2e<sup>−t</sup>‖x‖，且 ψ<sub>t</sub>*Ω=e<sup>−2t</sup>Ω。因此</p>
+<div class="eq">Ξ(x)=lim<sub>t→∞</sub>e<sup>t</sup>ψ<sub>t</sub>(x)，<br>Ξ*Ω=Ω，Ξ∘Φ<sub>g</sub>=DΦ<sub>g</sub>(0)∘Ξ。</div>
+<p>极限在共同复球上解析收敛，导数在较小球上一致收敛，且 DΞ(0)=Id，故具有实际解析状态逆。辅助参数 t 只用于构造坐标，不是原 DLW 时间。在固定的背景谱线性坐标中，由此得到</p>
+<div class="eq">Ω=Σ<sub>α</sub>d<sub>α</sub>⁻¹dv<sup>+</sup><sub>α</sub>∧dv<sup>−</sup><sub>α</sub>+Ω<sub>low</sub>，<br>𝒜<sub>α</sub>=d<sub>α</sub>⁻¹v<sup>+</sup><sub>α</sub>v<sup>−</sup><sub>α</sub>。</div>
+<p>这是原弱权重下的正则图，保留全部无限高频自由度及有限常系数低频辛块。它绕开了对先前带权伴随充分条件的验证；并未声称任意弱辛形式都可用径向 Moser 方法正则化。</p>
+<p>以所有高频坐标对均非零的参考序列 v* 为基点，可在小的 ℓ∞ 相对变量 (ρ,ϑ) 中取</p>
+<div class="eq">v<sup>±</sup><sub>α</sub>=v<sup>*,±</sup><sub>α</sub>√(1+ρ<sub>α</sub>)e<sup>±ϑα</sup>，<br>𝒜<sub>α</sub>=𝒜*<sub>α</sub>(1+ρ<sub>α</sub>)，<br>Ω=Σ<sub>α</sub>𝒜*<sub>α</sub>dϑ<sub>α</sub>∧dρ<sub>α</sub>+Ω<sub>low</sub>。</div>
+<p>这给出指定相对拓扑下的高频作用量—角变量；该相对邻域不是原 ℓ² 拓扑中的开集。对一般较大背景，有限低频补全仍待处理；下面的小背景定理消去这一剩余块，并明确原时间的流域。</p>
+<h2>10　小非零背景上的全模态补全</h2>
+<p>对每个固定 M 和空间周期 L，存在 ε<sub>M</sub>&gt;0，使 0&lt;|δ|/(2π/L)&lt;ε<sub>M</sub> 时，谱窗口与 Born 逆估计从 n=1 起就一致成立。准确背景 monodromy 相对未耦合模板的误差为 O<sub>M</sub>(Lδ²/|k<sub>n</sub>|)，而慢乘子分离为 O(L|δ|)，故相对扰动由 |δ|/|k<sub>n</sub>| 控制。</p>
+<p>足够小的背景使首个非零模也落入统一预算。全部 Fourier 模的 norming 导数成为有界同构，既有状态逆和保辛平均可取 N=1，有限低频补充变量随之消失。这是完整一般场邻域，没有截断空间模态；邻域大小可依赖所选非零 δ，结论不包括 δ=0，也不替代较大非共振背景仍待处理的低频问题。</p>
+<p>在这一全模态域上，所有对谱流不变的场空间解析量都仅依赖作用量。下一节验证原 Hamiltonian 属于这一类，并给出无界频率所允许的真实时间域。</p>
+<h2>11　原 Hamiltonian 与真实时间轨道</h2>
+<p>将原 Hamiltonian 中的 ∫wUₓ 写为 −∫wₓU 后，U∈L²、w∈H¹⊂L∞ 保证每项都是当前场空间上的连续多项式。在小非零背景的全模态域中，谱不变性因此给出真正的纯作用量表示 K<sub>B</sub>=k<sub>B</sub>(J)，且</p>
+<div class="eq">Ω<sub>α</sub>⁰(J)=d<sub>α</sub>∂<sub>Jα</sub>k₀(J)，|Ω<sub>α</sub>⁰|≤C〈n〉²。</div>
+<p>原动量生成负空间平移，准确的外给参数关系为 K<sub>B</sub>=K₀+2BP+仅依赖B的常数。因此原时间轨道是</p>
+<div class="eq">τ<sub>α</sub>(t)=tΩ<sub>α</sub>⁰(J)−2ik<sub>n</sub>∫₀ᵗB(s)ds，<br>v<sup>±</sup><sub>α</sub>(t)=e<sup>±τα(t)</sup>v<sup>±</sup><sub>α</sub>(0)，J(t)=J(0)。</div>
+<p>对 Gaussian 谱范数 ‖v‖²<sub>σ</sub>=Σe<sup>2σ〈n〉²</sup>(|v⁺|²+|v⁻|²)，小初值在 C|t|&lt;σ 的时间窗内满足 ‖v(t)‖<sub>σ−C|t|</sub>≤‖v(0)‖<sub>σ</sub>。实际保辛逆重构出光滑物理场，原 Hamilton 恒等式识别其时间导数为原方程；未改变时间尺度。</p>
+<p>这给出一类无限维一般场上的真实时间公式。逐坐标延续的角在 B 恒定时准确线性，但二次增长的频率可能使轨道离开原先的有界相对角图。Cartesian 公式始终单值。原 Hamilton 恒等式、光滑重构和时间归一化已完成内部复核；粗场空间中的 Cauchy 稳定性与全局时间存在不在此结论内。</p>
+<h2>证明与核验</h2><ul>
+<li><a href="../Workspaces/dlw_action_angle_20261013/LOCAL_ACTION_ANGLE_THEOREM.md">局部总定理：假设、坐标逆、真实时间与适用域</a>；<a href="../Workspaces/dlw_action_angle_20261013/COMPLETION_AUDIT.md">十二项要求的内部依赖审计</a>；<a href="../Workspaces/dlw_action_angle_20261013/physical_born_audit.json">原χ连接路径的720项浮点配对校准</a>。</li>
+<li><a href="../Workspaces/dlw_action_angle_20261013/ORIGINAL_TIME_ACTION_FLOW.md">原 Hamiltonian、全作用量表示与真实时间域</a>；<a href="../Workspaces/dlw_action_angle_20261013/original_time_validation.json">五项归一化代数核验</a>。</li>
+<li><a href="../Workspaces/dlw_action_angle_20261013/ALL_MODE_SMALL_BACKGROUND.md">一般固定 M：小非零背景上的全非零模谱坐标</a>。</li>
+<li><a href="../Workspaces/dlw_action_angle_20261013/RESEARCH.md">原形式的拓扑障碍与有限共轭坐标：完整证明</a>。</li>
+<li><a href="../Workspaces/dlw_action_angle_20261013/RECIPROCAL_PERIODS.md">一般 M 带权 Floquet 积分：轮廓、场、序列估计与二阶归一化</a>。</li>
+<li><a href="../Workspaces/dlw_action_angle_20261013/validation.json">十项精确代数核验</a>：Fourier 辛块、共轭符号、有限正则换元、留数及单位速度。</li>
+<li><a href="../Workspaces/dlw_action_angle_20261013/PERIODIC_SPECTRAL_FLOWS.md">精确复周期与有限非线性谱坐标证明</a>；<a href="../Workspaces/dlw_action_angle_20261013/NONLINEAR_NORMING.md">完整 norming 演化</a>。</li>
+<li><a href="../Workspaces/dlw_action_angle_20261013/UNIFORM_CAUCHY_ESTIMATE.md">谱轮廓数无关的 Cauchy 界与小跳跃分解</a>；<a href="../Workspaces/dlw_action_angle_20261013/period_validation.json">新增十二项代数核验</a>。</li>
+<li><a href="../Workspaces/dlw_action_angle_20261013/TRANSLATED_JUMP_ESTIMATE.md">实际有界相位序列的统一跳跃估计、无限分解及无穷远反例</a>。</li>
+<li><a href="../Workspaces/dlw_action_angle_20261013/BOUNDED_PROFILE_PHYSICAL_FLOWS.md">任意有界系数的原物理 Hamilton 组合流</a>；<a href="../Workspaces/dlw_action_angle_20261013/INFINITE_TORUS_STATE_CHART.md">共同无限谱环面与解析状态坐标逆</a>。</li>
+<li><a href="../Workspaces/dlw_action_angle_20261013/INVARIANT_BASE_ACTION_INVERSE.md">解析不变量下降、带权高频作用量逆与原辛低频固定子流形</a>。</li>
+<li><a href="../Workspaces/dlw_action_angle_20261013/WEAK_SYMPLECTIC_RANGE_CRITERION.md">保作用量的弱辛归一化判据与径向构造失败例</a>；<a href="../Workspaces/dlw_action_angle_20261013/weak_range_validation.json">五项精确代数核验</a>。</li>
+<li><a href="../Workspaces/dlw_action_angle_20261013/SYMPLECTIC_LIOUVILLE_AVERAGING.md">平均原 Liouville 场的保辛线性化及高频 action–angle 域</a>；<a href="../Workspaces/dlw_action_angle_20261013/liouville_average_validation.json">五项模型恒等式核验</a>。</li>
+<li><a href="../刘维尔可积性/research/STATE.md">既有一般场研究状态与依赖</a>；<a href="dlw_m2_regular_liouville_20261011.html">M=2 局部弱 Liouville 结果</a>。</li></ul>
+<p class="note">上述结论依赖所链接的一般 M 实际谱、原 Hamilton 桥及物理规范截面；新证明已作分支内推导和代数核对，尚未完成独立全文复审。原χ连接另有720项浮点配对校准。累计三十七项精确计算只核对代数，不替代解析周期、函数空间、保辛极限或完整谱逆的证明。</p>
+</main></body></html>

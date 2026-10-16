@@ -1,0 +1,59 @@
+{
+  "completed": true,
+  "reached": 0.5,
+  "failure": null,
+  "steps": 180,
+  "wall_seconds": 0.7632264999992913,
+  "initial": {
+    "t": 0.0,
+    "energy": 44.86351849449032,
+    "energy_loss": 0.0,
+    "mass": 42.1970381894047,
+    "mass_drift": 0.0,
+    "semidiscrete_energy_rate": -3.2543758798908584e-08,
+    "predicted_energy_rate": -3.254375640043261e-08,
+    "l2_u": 1.85661704927429e-05,
+    "l2_r": 0.00018707108251573703,
+    "energy_error": 0.00018799013963603328,
+    "sampled_linf_u": 4.4822123170362715e-05
+  },
+  "final": {
+    "t": 0.5,
+    "energy": 44.86351848081017,
+    "energy_loss": 1.3680150345862785e-08,
+    "mass": 42.1970381894047,
+    "mass_drift": 0.0,
+    "semidiscrete_energy_rate": -2.7539697411427255e-08,
+    "predicted_energy_rate": -2.753968464005106e-08,
+    "l2_u": 0.00012264922739760456,
+    "l2_r": 0.0002055412149501672,
+    "energy_error": 0.00023935334554674634,
+    "sampled_linf_u": 0.00014645557800574416
+  },
+  "config": {
+    "left": -20.0,
+    "right": 20.0,
+    "kappa": 0.0,
+    "alpha": 0.5,
+    "k": 3,
+    "n": 40,
+    "T": 0.5,
+    "dt": 0.002857142857142857,
+    "projection": "radau",
+    "outputs": 11,
+    "case": "5.1",
+    "flux": "dissipative",
+    "boundary": "periodic",
+    "boundary_alignment": "periodic_truncation_approximation",
+    "quadrature_points": 8,
+    "time_state": "u; Helmholtz solve for u_t at every RK4 stage"
+  },
+  "python": "3.13.3",
+  "numpy": "2.2.5",
+  "source_hashes": {
+    "exact.py": "7308472290b4aa4c55d4eced75f91f2eeecf40f54721b9296ae1d020b8afba7e",
+    "experiment.py": "dc41f5e16fb6cc10088a6ee8eb67da2774383c509e3026f4e6381e680a7925bd",
+    "ldg.py": "f96fb48bcb799e1bc1ae3fa5c31ffe2dc895ebb49eee43edc3ed85b9625f0bf4",
+    "__init__.py": "8789dd626d5ab57bcf8fd46b6345ea068419eded97715262a507f70a7da0b4f9"
+  }
+}

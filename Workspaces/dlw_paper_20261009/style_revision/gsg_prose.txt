@@ -1,0 +1,358 @@
+PAGE 1
+In the present paper, two integrable and one non-integrable semi-discrete analogues
+of a generalized sine-Gordon (sG) equation are constructed. The keys of the con-
+struction are the B ¨acklund transformation of bilinear equations and appropriate
+definition of the discrete hodograph transformation. We constructN-soliton solutions
+for the semi-discrete analogues of the generalized sG equation in the determinant
+form. In the continuous limit, we show that the semi-discrete generalized sG equa-
+tions converge to the continuous generalized sG equation. Furthermore, we propose
+four self-adaptive moving mesh methods for the generalized sG equation, two are
+integrable and two are non-integrable. Integrable and non-integrable self-adaptive
+moving mesh methods are proposed and used for simulations of regular, irregular and
+loop soliton while comparing with the Crank-Nicolson (C-N) scheme. The numerical
+solutions show that the proposed self-adaptive moving methods perform better than
+Keywords Generalized sG equation · Integrable discretization ·
+Discrete hodograph transformation · Self-adaptive moving mesh method
+1 School of Mathematical and Statistical Sciences, The University of Texas Rio Grande V alley,
+2 School of Mathematical Sciences, CMA-Shanghai, Shanghai Jiao Tong University,
+Shanghai 200240, People’s Republic of China
+
+PAGE 2
+In this paper, we consider the integrable semi-discretizations of the following
+where u = u(x, t) is a scalar-valued function, ν is a real parameter, ∂2
+subscripts t and x appended to u denote partial differentiation. The generalized sG
+equation was derived for the first time in [ 1] using bi-Hamiltonian method. In the
+case ν=− 1, the integrability was shown with Lax pair and initial value problem of
+the equation was solved for decaying initial data [2]. The Riemann-Hilbert formalism
+was developed to obtain eigenfunctions of the Lax pair and construct traveling-wave
+solutions in [2]. Bilinear transformation method was used to construct multi-soliton
+solutions in the form of parametric representation and a variety of solutions which
+include kinks, loop solitons and breathers were obtained in [3]. Equation (1.1) with
+ν = 1 was solved by Hirota’s bilinear method [ 4]. It was shown that the equation
+exhibits kink and breather solutions and does not admit multi-valued solutions like
+loop solitons as obtained when ν=− 1.
+It was shown that the generalized sG equation reduces to the short pulse (SP) equa-
+tion in the short wave limit, and reduces to the sG equation in the long wave limit
+[3]. Therefore, we can say that the generalized sG equation is an interesting soli-
+ton equation lies between the SP equation and the sG equation. Due to the facts that
+the discrete sG equation has been well-known [ 5, 6], and the integrable discretiza-
+tions of the SP equation was recently proposed in [7], it would be an interesting
+problem to look for the integrable discretization of the generalized sG equation.
+Integrable discretizations of soliton equations have received considerable attention
+recently [8–11]. Integrable semi- and fully discretizations of the SP equation [ 7],
+semi-discretization of (2+1)-dimensional Zakharov equation [ 12] were constructed
+via Hirota’s bilinear method. Based on the compatibility between an integrable
+system and its B ¨acklund transformation, a systematic procedure to derive discrete
+analogues of integrable PDEs via Hirota’s bilinear method was proposed [ 13].
+Most recently, an integrable discretization for a coupled SP equation [ 14, 15]w a s
+In this paper, we attempt to construct integrable semi-discrete analogues of the
+generalized sG equation (1.1) with ν =− 1 by the same approach used in the
+Camassa-Holm equation [17] and SP equation [ 7], and apply them for the numerical
+simulations as integrable self-adaptive moving mesh (SAMM) method.
+The paper is organized as follows. In Section 2, we review the bilinear equations
+and determinant solutions of the generalized sG equation with ν=− 1. In Section 3,
+we propose two integrable semi-discrete analogues, whose N-soliton solutions are
+also constructed in terms of determinant form. We then apply the two versions of the
+generalized sG equations as integrable SAMM method while compar-
+ing with a non-integrable SAMM method. Section 4 is devoted to conclusions and
+
+PAGE 3
+In this section, we first review the results in [ 3] about the bilinear form of the
+By introducing the new dependent variable r in accordance with the relation
+the generalized sG equation (1.1) with ν=− 1 is rewritten as
+rt + (r cosu)x = 0. (2.2)
+We then define the hodograph transformation (x, t) → (y, τ)by
+dy = rdx − r cosudt, dτ = dt, (2.3)
+The x and t derivatives are then rewritten in terms of the y and τ derivatives as
+With the new variables y and τ,( 2.1)a n d(2.2) are recast into the form
+− (cos u)y = 0, (2.6)
+respectively. Further reduction is possible if one defines the variable φ by
+uy = sin φ, φ = φ(y,τ),
+It follows from (2.5)a n d( 2.7)t h a t
+Substituting (2.7)a n d( 2.8)i n t o(2.6), we find
+Let σ and σ′ be solutions of sG equation
+στy = sin σ, σ = σ(τ,y), (2.10)
+τy = sin σ′,σ ′ = σ′(τ, y). (2.11)
+In terms of σ and σ′, equations (2.7)a n d( 2.9) can be written as
+2(σ + σ′)y = sin 1
+2(σ − σ′)τ = sin 1
+
+PAGE 4
+which is a B ¨acklund transformation (BT) of the sG equation with a B ¨acklund
+where ¯f and ¯g denote the complex conjugate of f and g, respectively, then we have
+2(f 2 − ¯f 2), (2.18)
+where the Hirota’s bilinear differential operator Dm
+t is defined [ 18]b y
+t a · b ≡ ( ∂
+Now from the definition of u and φ,w eh a v e
+2(σ + σ′) = il n
+2(σ − σ′) = il n
+where F = fg and G = f ¯g.
+We give two sets of bilinear equations of 2DTL with tau functions τn and τ′
+2Dx−1 Dx1 − 1)τn · τn =− τn+1τn−1 , (2.22)
+It is known that the bilinear equations
+is one BT between τn and τ′
+n. The above two-dimensional Toda-lattice (2DTL) equa-
+tions (2.22)–(2.23)a n dB T(2.24)–(2.25) have exact solutions in Casorati determinant
+form with arbitrary parameters. If we put some restrictions on those parameters in
+which means both τn and τ′
+n are 2-period sequences. Here ≎ means two τ functions
+are equivalent up to a constant multiple and ¯τ denotes complex conjugate of τ.
+
+PAGE 5
+Proposition 1 The following Casorati determinants satisfy bilinear equations(2.22)–
+i (1 − pi)eξi + qn
+i (1 − qi)eηi , (2.29)
+i x−1 + ξi0,η i = qix1 + q−1
+i are the arbitrary parameters that can take either real or
+One can find the proof of this Proposition in [ 19] for details. Resembling the
+deduction of solutions to the coupled SP equation and coupled integrable disper-
+sionless equations, we are ready to give N-soliton solution of the generalized sG
+equation with ν=− 1. If pi and qi are real parameters, we impose restrictions on the
+qi =− pi,η i0 − ξi0 = iπ/2 + χi0. (2.31)
+If pi and qi are complex parameters with χi0 being a real parameter, we put the
+qi =−¯pi,η i0 + 2a r g(qi) − ξi0 = iπ/2 + χi0. (2.32)
+These restrictions on parameters guarantee the 2-period reduction ( 2.26), that is, two
+neighboring τ functions in both sequences are complex conjugate with a constant
+Moreover, by variable transformation τ = 2x1,y = 2x−1 and substitution τ0 =
+1 =¯g, from (2.22)–(2.23)w eh a v e
+DτDy ¯f · ¯f = 1
+2( ¯f 2 − f 2), (2.33)
+
+PAGE 6
+which are bilinear equations of the generalized sG equation. From the BT ( 2.24)–
+(2Dτ − 1)f · g + ¯f ¯g = 0, (2.35)
+(2Dy − 1) ¯f · g + f ¯g = 0. (2.36)
+From equations ( 2.35)–(2.36), we get
+Thus we obtain the expression for x by tau functions
+x = y + τ+ ln g ¯g
+Summarizing the above results, the determinant ( N-soliton) solution of the
+generalized sG equation is given by the following theorem.
+Theorem 1 The parametric form for the N-soliton solution of the generalized sG
+where F = fg . f and g are the determinants given by
+
+PAGE 7
+2pi τ+ηi0 + (−¯pi)n(1 +¯pi)e− ¯pi
+x = y + τ+ ln ¯gg
+and ηi0,ξi0 satisfy the restriction conditions (2.31)–(2.32).
+Based on the above fact, we construct the integrable spatial-discretization of the gen-
+eralized sG equation. Similar as the integrable discretization of SP equation, we start
+with two sets of bilinear equations for the semi-discrete 2DTL equations with the
+τn(k + 1) · τn(k) + τn+1(k + 1)τn−1 (k) = 0, (3.1)
+which is linked by an another bilinear equations
+Equations (3.1)–(3.2) can be viewed as B¨acklund transformations for the 2DTL equa-
+tions in the sense that if τn(k) or τ′
+n(k) is a solution to the 2DTL equations (2.22)o r
+(2.23), so is τn(k + 1) or τ′
+n(k + 1), while (3.3) is the BT linking the solution of (3.1)
+Proposition 2 The bilinear equations (3.1)–(3.3) admit the following determinant
+i (1 − api)−k eξi + qn
+i (1 − aqi)−k eηi , (3.6)
+i (1 − pi)(1 − api)−k eξi + qn
+i (1 − qi)(1 − aqi)−k eηi , (3.7)
+
+PAGE 8
+ξi = pi−1 x−1 + ξi0 ,η i = qi−1 x−1 + ηi0 .
+Here pi , qi , ξi0 and ηi0 are arbitrary parameters which can take either real or
+The proof is presented in [20].
+Applying a 2-reduction condition qi =− pi , then we could have each of the τ
+sequence becomes a sequence of period 2, i.e., τn ≎ τn+2, τ′
+by choosing particular values in phase constants, we can make τn and τn+1 complex
+By putting τ= 2x−1 ,τ0(k) = fk,τ1(k) = ¯fk ,( 3.1) can be converted into
+fk+1 · fk + ¯fk+1 ¯fk = 0, (3.8)
+¯fk+1 · ¯fk + fk+1fk = 0, (3.9)
+1(k) =¯gk ,( 3.2) can be converted into
+gk+1 · gk +¯gk+1 ¯gk = 0, (3.10)
+¯gk+1 ·¯gk + gk+1gk = 0. (3.11)
+The bilinear (3.3) is converted into
+(2Dτ − 1)fk · gk + ¯fk ¯gk = 0, (3.12)
+(2Dτ − 1) ¯fk ·¯gk + fkgk = 0. (3.13)
+The bilinear equations constitute (3.10)–(3.12) the BT for the generalized sG equa-
+tion with ν =− 1, based on which the semi-discrete generalized sG equations will
+be deduced in the subsequent two subsections.
+First, we notice that the bilinear equations (3.10)–(3.12) can be rewritten as
+
+PAGE 9
+one arrives at a pair of semi-discrete sG equation
+Next we introduce dependent variable transformations
+Prior to deriving the semi-discrete generalized sG equation, we present two useful
+The proof is given in Appendix. Furthermore, we define a discrete hodograph
+
+PAGE 10
+On the other hand, taking the derivative with respect to δk results in
+Summarizing the above results, we obtain an integrable semi-discrete analogue of
+the generalized sG equation with ν=− 1 together with its N-soliton solution by the
+Theorem 2 A semi-discrete analogue of the generalized sG equation is of the form
+dτ(uk+1 − uk) = δk sin
+where the lattice parameter δk is a function depending on (k, t) defined by
+Moreover , theN-soliton solution is given by
+where fk , gk , ¯fk and ¯gk are tau functions defined by
+2pi τ+ξi0 + (−¯pi)n(1 + a ¯pi)−k e− 1
+2pi τ+ξi0 +(−¯pi)n(1+¯pi)(1+a ¯pi)−k e− 1
+
+PAGE 11
+Next, we show that the semi-discrete generalized sG equation converges to the
+generalized sG equation in the continuous limit. In the discrete case, the dependent
+variable u is a function of K and τ, meanwhile, it can be viewed as a function of x
+and t where x is the spatial coordinate at the Kth lattice point
+holds due to (3.27)a n d( 3.28). Thus we have
+dτ = (1 + ε2)(cos uk+1 − cos uk),
+(1 − ε2)(cosuk+1 − cosuk) → cos u .
+∂s∂x → ∂t + cosu∂x . (3.39)
+(1 + ε2)(cos uk+1 − cos uk)
+In the continuous limit ??a → 0( δk → 0), we have
+→ ux, ?? uk+1 + uk
+Equation (3.40)c o n v e r g e st o
+(∂t + cosu∂x)ux = (1 + u2
+which is exactly the generalized sG equation (1.1) with ν=− 1.
+
+PAGE 12
+Following the hodograph transformation in continuous case, we define a discrete
+xk = 2ka + τ+ ln ¯gkgk
+then the nonuniform mesh can be derived as
+δk = xk+1 − xk = 2a + ln ¯gk+1gk+1 ¯fkfk
+Taking the derivative with respect to τ results in
+Referring two relations proved in previous subsection, we have
+which is defined as Δk hereafter. Therefore, we can propose an alternative integrable
+Theorem 3 An alternative semi-discrete analogue of the generalized sG equation is
+dτ(uk+1 − uk) = Δk sin
+dτ(xk+1 − xk) = cos uk+1 − cosuk , (3.48)
+
+PAGE 13
+where the lattice parameter Δk is a function depending on (k, t) defined by
+The N-soliton solution is given by the same tau functions but different parame-
+terizations. In the continuous limit, we can similarly show that above semi-discrete
+generalized sG equation converges to the original generalized sG equation.
+In this section, we propose four self-adaptive moving mesh methods and one Crank-
+Nicolson scheme for the generalized sG equation. We also compare the numerical
+results of these five numerical schemes for one kink solution.
+Based on two integrable semi-discrete generalized sG equations and a semi-implicit
+Euler scheme, we propose the following two integrable self-adaptive moving mesh
+where pk = uk+1 − uk , δk = xk+1 − xk . The superscript n represents the numerical
+value at t = nΔt .
+In addition, we have the following non-integrable semi-discrete generalized sG
+dτ(uk+1 − uk) = δk sin
+dτ(xk+1 − xk) = cosuk+1 − cosuk, (4.6)
+
+PAGE 14
+which leads to a non-integrable self-adaptive moving mesh method.
+Furthermore, based on above non-integrable scheme, we propose the following
+And we take the following approximation to calculate un+1
+It is known that self-adaptive moving mesh methods can deal with peak waves
+much better than other methods. To make the comparison we propose the Crank-
+The tau functions for the one-soliton solution are
+f ∝ 1 + ieθ,g ∝ 1 + is1eθ, (4.15)
+
+PAGE 15
+Fig. 1 Comparison between numerical and analytical results for one-soliton solution to the generalized
+sG equation through the integrable scheme 1. (a) p1 = 0.8/
+2, (b) p1 = 0.9, (c) p1 = 2
+,θ = p1y+τ/p1 +θ0. The parametric representation of one-soliton
+u = 2t a n−1 (sinhθ− p1 cosh θ)+ π, (4.16)
+x = y + τ+ ln
+It is analyzed in [3] that one-soliton solution can be classified to different types
+according to values of p1.W h e n0 <p 1 < 1√
+2 , it exhibits regular kink solution.
+2 <p 1 < 1, it exhibits irregular kink solution. While p1 > 1, loop soliton
+appears. We take the initial conditions (4.16)–(4.17) for one-soliton propagation with
+parameters y0 = 0, and p1 = 0.9,p 1 = 0.8/
+2a n d p1 = 2, respectively. In these
+three cases, the comparison between the numerical and analytical results by using the
+integrable scheme 1 is shown in Fig. 1. One can see that the numerical results are in
+good agreement with the analytical ones. The absolute error of u for one-soliton solu-
+tions through scheme 1 is demonstrated in Fig. 2. It shows that the simulation for the
+Fig.2 The absolute error u for one-soliton solution through the integrable scheme 1. (a) p1 = 0.8/
+(b) p1 = 0.9, (c) p1 = 2
+
+PAGE 16
+Fig. 3 Numerical experiment for the regular kink solution through the integrable scheme 2 with p1 =
+loop soliton is very accurate. Scheme 2 is also applied to do numerical simulation for
+the regular kink solution. It is found that the numerical error is much bigger compared
+with scheme 1 (see Fig. 3(a)). The possible reason is that in scheme 2 the potential pk
+is independent with the moving mesh δk . The error between analytic and numerical
+result for x is depicted in Fig. 3(b). Comparison between numerical and analytical
+results for one-soliton solution to the generalized sG equation through non-integrable
+scheme 4 is displayed in Fig. 4. Figure 5 shows the comparison among numerical
+Fig. 4 Comparison between numerical and analytical results for one-soliton solution to the generalized
+sG equation through scheme 4. (a) p1 = 0.8/
+2, (b) p1 = 0.9, (c) p1 = 2
+
+PAGE 17
+Fig. 5 Comparison between numerical and analytical results for one-soliton solution to the generalized
+sG equation through scheme 3 and scheme 4. (a) p1 = 0.8/
+2, (b) p1 = 0.9, (c) p1 = 2
+scheme 3, 4 and analytic solution. The absolute error of u for one-soliton through
+non-integrable scheme 3 is shown in Fig. 6 and the absolute error of u through non-
+integrable scheme 4 is displayed in Fig. 7. Compared with the integrable scheme, the
+simulation for kink and irregular kink solution owns the advantage, while for loop
+solution, the integrable scheme 1 is much better. Figure 8 exhibits the simulation
+for regular kink solution by using C-N scheme 5. One can find that the numerical
+error is much bigger compared with integrable scheme 1 or 2. In particular, the C-N
+scheme can not simulate the irregular kink and loop soliton because of the multi-
+value property. From this viewpoint, our self-adaptive moving mesh methods admit
+In this paper, we proposed two integrable and one non-integrable semi-discrete
+analogues of a generalized sine-Gordon equation. The determinant formulae of N-
+soliton solutions for the semi-discrete analogues are presented. The corresponding
+numerical schemes are given, respectively. The numerical results of one- regular
+kink, irregular kink and loop soliton are in good agreement with the analytical
+Fig.6 Absolute error for one-soliton u through the Euler scheme 3. (a) p1 = 0.8/
+2, (b) p1 = 0.9, (c)
+
+PAGE 18
+Fig. 7 Comparison between numerical and analytical results for one-soliton solution to the generalized
+sG equation through the scheme 4. (a) p1 = 0.8/
+2, (b) p1 = 0.9, (c) p1 = 2
+solution. Moreover, the numerical solutions by integrable self-adaptive moving meth-
+ods perform better than C-N scheme due to the nature of particle integrability and
+Fig.8 Comparison between numerical and analytical results for regular kink solution to the generalized
+sG equation through C-N scheme 5 with p1 = 0.8/
+
+PAGE 19
+Here we present the proof of Proposition 3. From the definition of φk,uk and
+sin uk+1 − sin uk = d
+Author contribution B. Feng proposed the original idea and made the review of the manuscript. H.
+Sheng contributed the numerical simulation. G.Y u conducted the simulation, visualization and wrote the
+manuscript draft. Both authors read and approved the final manuscript.
+Funding G. Y u’s work is supported by the National Natural Science Foundation of China, Grant
+Nos.11871336, 12175155, and Shanghai Frontier Research Institute for Modern Analysis, PR China. B.
+Feng’s work is partially supported the National Science Foundation (NSF), Grant No. DMS-1715991; U.S.
+Air Force for Scientific Research (AFOSR), Grant No. W911NF2010276.
+A vailability of supporting data Data sharing not applicable to this article as no datasets were generated
+or analyzed during the current study.
+Ethics approval and consent to participate Not applicable
+Human and animal ethics Not applicable
+Competing interests The authors declare no competing interests.
+
+PAGE 20
+1. Fokas, A.S.: On a class of physically important integrable equations. Physica D. 87, 145–150 (1995)
+2. Lenells, L., Fokas, A.S.: On a novel integrable generalization of the sine-Gordon equation. J. Math.
+3. Matsuno, Y .: A direct method for solving the generalized sine-Gordon equation. J. Phys. A: Math.
+4. Matsuno, Y .: A direct method for solving the generalized sine-Gordon equation II. J. Phys. A: Math.
+5. Hirota, R.: Nonlinear partial difference equations. III. Discrete sine-Gordon equation. J. Phys. Soc. Jpn.
+6. Orfanidis, S.: Discrete sine-Gordon equations. Phys. Rev. D 15, 3822–3827 (1978)
+7. Feng, B., Maruno, K., Ohta, Y .: Integrable discretizations of the short pulse equation. J. Phys. A Math.
+8. Levi, D., Ragnisco, O. (eds.): SIDE II-Symmetries and Integrability of Difference Equations (CRM
+Proc and Lecture Notes vol 25). AMS, Montreal (1998)
+9. Grammaticos, B., Kosmann-Schwarzbach, Y ., Tamizhmani, T. (eds.): Discrete Integrable Systems
+(Lecture Notes in Physics vol 644). Springer, Berlin (2004)
+10. Suris, Y .: The Problem of Integrable Discretization: Hamiltonian Approach (Progress in Mathemat-
+icsvol vol 219). Basel, Birkh ´auser (2003)
+11. Bobenko, A., Suris, Y .: Discrete Differential Geometry (Graduate Studies in Mathematics vol 98).
+12. Y u, G., Xu, Z.: Dynamics of a differential-difference integrable (2+1)-dimensional system. Phys. Rev
+13. Zhang, Y ., Chang, X., Hu, J., Hu, X., Tam, H.: Integrable discretization of soliton equations via
+bilinear method and B ¨acklund transformation. Science China Mathemtatics 58, 279 (2015)
+14. Dimakis, A., Muller-Hoissen, F.: Bidifferential calculus approach to AKNS hierarchies and their
+15. Matsuno, Y .: A novel multi-component generalization of the short pulse equation and its multisoliton
+solutions. J. Math. Phys. 52, 123702 (2011)
+16. Feng, B., Maruno, K., Ohta, Y .: Integrable semi-discretization of a multi-component short pulse
+equation. J. Math Phys. 56, 043502 (2015)
+17. Feng, B., Maruno, K., Ohta, Y .: An integrable semi-discretization of the Camassa-Holm equation and
+its determinant solution. J. Phys. A Math. Theor. 41, 355205 (2008)
+18. Hirota, R.: The Direct Methods in Soliton Theory. Cambridge University Press, Cambridge (2004)
+19. Feng, B.: An integrable coupled short pulse equation. J. Phys. A: Math. Theor. 45, 085202 (2012)
+20. Feng, B.: (Etc.). Integrable discretizations and self-adaptive moving mesh method for a coupled short
+pulse equation. J. Phys. A: Math. Theor. 48, 385202 (2015)
+Publisher’s noteSpringer Nature remains neutral with regard to jurisdictional claims in published
+Springer Nature or its licensor (e.g. a society or other partner) holds exclusive rights to this article under
+a publishing agreement with the author(s) or other rightsholder(s); author self-archiving of the accepted
+manuscript version of this article is solely governed by the terms of such publishing agreement and

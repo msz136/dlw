@@ -1,0 +1,870 @@
+                                          Integrable discretizations of the short pulse equation
+                                                          Bao-Feng Feng1 , Ken-ichi Maruno 1 ‡ and Yasuhiro Ohta2
+                                                          1 Department of Mathematics, The University of Texas-Pan American, Edinburg, TX 78541
+arXiv:0912.1914v1 [nlin.SI] 10 Dec 2009
+
+
+
+
+                                                          2 Department of Mathematics, Kobe University, Rokko, Kobe 657-8501, Japan
+
+
+
+                                                          Abstract. In the present paper, we propose integrable semi-discrete and full-discrete
+                                                          analogues of the short pulse (SP) equation. The key of the construction is the bilinear forms
+                                                          and determinant structure of solutions of the SP equation. We also give the determinant
+                                                          formulas of N-soliton solutions of the semi-discrete and full-discrete analogues of the SP
+                                                          equations, from which the multi-loop and multi-breather solutions can be generated. In the
+                                                          continuous limit, the full-discrete SP equation converges to the semi-discrete SP equation,
+                                                          then to the continuous SP equation. Based on the semi-discrete SP equation, an integrable
+                                                          numerical scheme, i.e., a self-adaptive moving mesh scheme, is proposed and used for the
+                                                          numerical computation of the short pulse equation.
+
+                                                          15 September 2018
+
+                                                          PACS numbers: 02.30.Ik, 05.45.Yv, 42.65.Tg, 42.81.Dp
+
+
+
+                                          To be submitted to : J. Phys. A: Math. Theo.
+
+
+                                          1. Introduction
+
+                                          Most recently, the short pulse (SP) equation
+                                                                      1
+                                                            uxt = u + (u3 )xx                                                          (1.1)
+                                                                      6
+                                          was derived as a model equation for the propagation of ultra-short optical pulses in nonlinear
+                                          media [1, 2]. Here, u = u(x,t) represents the magnitude of the electric field, the subscripts
+                                          t and x denote partial differentiation. Apart from the context of nonlinear optics, the
+                                          SP equation has also been derived as an integrable differential equation associated with
+                                          pseudospherical surfaces [3]. The SP equation has been shown to be completely integrable
+                                          [3, 4, 5, 6, 7]. The loop soliton solutions as well as smooth soliton solutions of the SP equation
+                                          were found in [8, 9, 10]. The connection between the SP equation and the sine-Gordon
+                                          equation through the hodograph transformation was clarified in [11], and then the N-soliton
+                                          solutions including multi-loop and multi-breather ones were given by using the Hirota bilinear
+                                          method.
+                                                Integrable discretizations of soliton equations have received considerable attention
+                                          recently [12, 13, 14, 15]. In our recent work, the authors proposed an integrable semi-discrete
+                                          ‡ Corresponding author; e-mail: kmaruno@utpa.edu
+Integrable discretizations of the short pulse equation                                         2
+
+analogue of the Camassa-Holm (CH) equation and apply it as a numerical scheme, i.e., a self-
+adaptive moving mesh scheme [16, 17]. The key of the discretization is an introduction of an
+nonuniform mesh, which plays a role of the hodograph transformation as in the continuous
+case.
+     In the present paper, we attempt to construct integrable semi-discrete and full-
+discretizations of the SP equation by the same approach used in the CH equation. We also
+attempt to use the semi-discrete analogue of the SP equation as a self-adaptive moving mesh
+scheme to perform numerical simulations.
+     The rest of the present paper is organized as follows. In Section 2, we review the bilinear
+equations and determinant solutions of the SP equation. In Section 3, we propose an integrable
+semi-discrete analogue of the SP equation, whose N-soliton solutions are also constructed in
+terms of determinant form. By using the semi-discrete analogue of the SP equation as a self-
+adaptive moving mesh scheme, the numerical results for one- and two-loop solutions are also
+presented. In Section 4, the full-discrete analogues of the SP equation are proposed. The
+paper is concluded by Section 5.
+
+2. Bilinear equations and determinant solutions of the short pulse equation
+
+In this section, the results in [11] regarding the bilinear equations and the solutions of the SP
+equation will be briefly reviewed.
+     First, by introducing the new dependent variable
+               r2 = 1 + u2x ,                                                               (2.1)
+the SP equation is rewritten as
+                          
+                      1 2
+              rt =      u r .                                                               (2.2)
+                      2      x
+Introducing the hodograph transformation
+                          1
+               dy = rdx + u2 rdt , ds = dt ,                                                (2.3)
+                          2
+i.e.,
+               ∂    1    ∂     ∂    ∂      ∂
+                  = u2 r + ,           =r ,
+               ∂t 2      ∂y ∂s      ∂x    ∂y
+we obtain
+               rs = r2 uuy ,                                                                (2.4)
+where
+               r2 = 1 + r2 u2y .
+The equation (2.4) can also be cast into a form of
+                              
+                 1           1 2
+                      =−       u     .                                                      (2.5)
+                 r s         2     y
+Integrable discretizations of the short pulse equation                                         3
+
+Introducing new variables
+                      1
+                r=        , u = φs ,                                                       (2.6)
+                    cos φ
+Eq.(2.5) leads to the sine-Gordon equation
+               φys = sin φ .                                                               (2.7)
+     Moreover, as is shown in [18, 22], upon the dependent variable transformation
+                                  F ∗ (y, s)
+               φ(y, s) = 2i ln               ,
+                                  F(y, s)
+the sine-Gordon equation (2.7) leads to the following bilinear equations
+                                  1
+               FFys − Fy Fs = (F 2 − F ∗ 2 ) ,                                      (2.8)
+                                  4
+                                    1
+               F ∗ Fys∗ − Fy∗ Fs∗ = (F ∗ 2 − F 2 ) ,                                (2.9)
+                                    4
+where F ∗ is the complex conjugate of F. Henceforth, the solutions of the SP equation are
+obtained by F and F ∗ through the dependent variable transformation
+                            ∂          ∂            F ∗ (y, s)
+                                                              
+               u(y, s) = φ(y, s) =          2i ln                .                 (2.10)
+                           ∂s          ∂s            F(y, s)
+      In what follows, we will show that the bilinear equations (2.8)–(2.9) are actually obtained
+as the 2-reduction of the two-dimensional Toda lattice (2DTL) equations: [19, 20, 21, 22]
+                1
+                  DY DS τn · τn = τn 2 − τn+1 τn−1 ,                                       (2.11)
+                2
+i.e.,
+                  ∂2 τn ∂τn ∂τn
+               τn       −        = τn 2 − τn+1 τn−1 ,                                     (2.12)
+                 ∂Y ∂S ∂Y ∂S
+where Dx is the Hirota D-operator which is defined as
+                            ∂   ∂ n
+                                 
+                n
+               Dx f · g =     −       f (x)g(y)|y=x .
+                            ∂x ∂y
+Applying the 2-reduction τn−1 = α−1 τn+1 (α is a constant), we obtain
+                    ∂2 τn ∂τn ∂τn
+               τn        −        = τn 2 − τ2n+1 ,                                        (2.13)
+                    ∂Y ∂S ∂Y ∂S
+                                      n
+where the gauge transformation τn → α 2 τn is used. Letting f = τ0 and f¯ = τ1 , we have
+                f fY S − fY fS = f 2 − f¯2 ,                                              (2.14)
+                f¯ f¯Y S − f¯Y f¯S = f¯2 − f 2 .                                          (2.15)
+Under the independent variable transformation y = 2Y , s = 2S, we obtain
+                                  1
+               f fys − fy fs = ( f 2 − f¯2 ) ,                                            (2.16)
+                                  4
+                                  1
+               f¯ f¯ys − f¯y f¯s = ( f¯2 − f 2 ) ,                                        (2.17)
+                                  4
+which are bilinear equations of the SP equation.
+Integrable discretizations of the short pulse equation                                                                  4
+
+    Next, we give the Casorati determinant (N-soliton) solution of the SP equation. It is
+known that the Casorati determinant solution of the 2DTL equation is of the form [21, 22]:
+                                   (n+ j−1)
+               τn (Y, S) = ψi                    (Y, S)                     ,                                       (2.18)
+                                                                 1≤i, j≤N
+        (n)
+where ψi (Y, S) satisfies linear dispersive relations
+                    (n)                            (n)
+               ∂ψi    (n+1)                  ∂ψi    (n−1)
+                   = ψi     ,                    = ψi     .                                                         (2.19)
+                ∂Y                            ∂S
+                                                   (n)
+For example, a particular choice of ψi (Y, S)
+                 (n)                         p Y + p1 S+η0i                      q Y + q1 S+η′0i
+               ψi (Y, S) = ci,1 pni e i                  i           + ci,2 qni e i     i          ,                (2.20)
+with ci,1 and ci,2 being constants, satisfies the linear dispersive relations and gives the N-
+soliton solutions.
+     Applying the 2-reduction qi = −pi and the change of variables y = 2Y and s = 2S, we
+obtain the determinant solution of bilinear equations (2.16) and (2.17):
+               f (y, s) = τ0 (y, s),             f¯(y, s) = τ1 (y, s) ,
+                                  (n+ j−1)
+               τn (y, s) = ψi                (y, s)                     ,                                           (2.21)
+                                                             1≤i, j≤N
+
+where
+                 (n)                         1
+                                                 p y+ 2p1 s+η0i                         − 1 p y− 2p1 s+η′0i
+               ψi (y, s) = ci,1 pni e 2 i                    i        + ci,2 (−pi )n e 2 i             i        .   (2.22)
+      Since u is real and the dependent variable transformation u includes the imaginary
+number, we must consider the reality condition of u. Let us introduce α and β such that
+F ∗ = α f¯ and F = β f , where F and F ∗ are complex conjugate of each other. Note that F and
+F ∗ also satisfies the bilinear equations (2.16) and (2.17) because of
+      ∂         F∗        ∂         α f¯     ∂        f¯       α      ∂        f¯
+                                                                           
+u=        2i ln       =       2i ln        =     2i ln + 2i ln     =     2i ln      .   (2.23)
+     ∂s          F       ∂s         βf       ∂s       f        β     ∂s        f
+Thus a set of F and F ∗ gives solutions of the SP equation as well as a set of f and f¯. By
+choosing phase constants appropriately, the functions f and f¯ can be made to be complex
+conjugate of each other to keep the reality and regularity of u. For example, the following
+choice
+                 (n)          1
+                                  p y+ 2p1 s+η0i −iπ/4                          − 1 p y− 2p1 s+η′0i +iπ/4
+               ψi      = pni e 2 i       i                        + (−pi )n e 2 i           i               ,       (2.24)
+guarantees the reality and regularity of the solution.
+      Summarizing the above results, the determinant (N-soliton) solution of the SP equation
+is given by
+                         ∂          f¯(y, s)
+                                            
+               u(y, s) =      2i ln            ,                                      (2.25)
+                         ∂s         f (y, s)
+               x = y − 2i(ln f¯ f )t ,            t = s,
+
+               f (y, s) = τ0 (y, s) ,            f¯(y, s) = τ1 (y, s) ,
+Integrable discretizations of the short pulse equation                                                                            5
+                                       (n+ j−1)
+                  τn (y, s) = ψi                  (y, s)               ,
+                                                           1≤i, j≤N
+
+where
+                    (n)            1 p y+ 1 s+η −iπ/4                          − 1 p y− 2p1 s+η′0i +iπ/4
+                  ψi      = pni e 2 i    2pi   0i
+                                                              + (−pi )n e 2 i             i                .
+
+3. An integrable semi-discretization of the short pulse equation and numerical
+computations
+
+Based on the above fact, we construct the integrable spatial-discretization of the SP equation.
+Consider the following Casorati determinant:
+                                       (n+ j−1)
+                  τn (k, S) = ψi                  (k, S)               ,                                                       (3.1)
+                                                            1≤i, j≤N
+         (n)
+where ψi       satisfies the dispersion relations
+                          (n)      (n+1)
+                  ∆k ψi         = ψi       ,                                                                                   (3.2)
+                      (n)   (n−1)
+                  ∂S ψi = −ψi     .                                                                                            (3.3)
+Here ∆k is the backward difference operator with the spacing constant a
+                          f (k) − f (k − 1)
+                  ∆k f (k) =                .
+                                 a
+Particularly, one can choose
+                                                                 1                                             1
+                    (n)                                               S+ξi0                                        S+ηi0
+                  ψi (k, S) = ci,1 pni (1 − api )−k e pi                      + ci,2 qni (1 − aqi )−k e qi                 ,   (3.4)
+which automatically satisfies the dispersion relations (3.2) and (3.3). The above Casorati
+determinant satisfies the bilinear form of the semi-discrete 2DTL equation (the Bäcklund
+transformation of the bilinear equation of 2DTL equation) [23, 22]
+                         
+                 1
+                   DS − 1 τn (k + 1) · τn(k) + τn+1 (k + 1)τn−1 (k) = 0 .            (3.5)
+                 a
+Applying 2-reduction
+                                                            qi = −pi ,
+and letting                                                                           !
+                                                                               N
+                                 fk = τ0 (k) ,        f¯k = τ1 (k) =          ∏ p2i τ−1(k) ,
+                                                                              i=1
+
+we obtain
+                  1
+                    DS fk+1 · fk − fk+1 fk + f¯k+1 f¯k = 0 ,                                                                   (3.6)
+                  a
+                  1
+                    DS f¯k+1 · f¯k − f¯k+1 f¯k + fk+1 fk = 0 ,                                                                 (3.7)
+                  a
+Integrable discretizations of the short pulse equation                                         6
+                                                       n
+where the gauge transformation τn → ∏N         i=1 pi τn is used. Note that f and f can be made
+                                                                                  ¯
+complex conjugate of each other by choosing the phase constants properly. Under the change
+of independent variable s = 2S, Eq.(3.5) implies the following two bilinear equations
+               2
+                 Ds fk+1 · fk − fk+1 fk + f¯k+1 f¯k = 0 ,                                  (3.8)
+               a
+               2 ¯
+                 Ds fk+1 · f¯k − f¯k+1 f¯k + fk+1 fk = 0 ,                                 (3.9)
+               a
+which can be readily shown to be equivalent to
+                                                f¯k+1 f¯k
+                                        
+                    2        fk+1
+               −        ln           −1 =                 ,                               (3.10)
+                    a           fk s            fk+1 fk
+                             f¯k+1
+                                        
+                    2                           fk+1 fk
+               −        ln ¯         −1 = ¯ ¯ .                                           (3.11)
+                    a           fk s            fk+1 fk
+Subtracting the above two equations, one obtains
+                       f¯k+1                       f¯k+1 f¯k fk+1 fk
+                                        
+               2                       fk+1
+                     ln ¯      − ln             =           −         .                    (3.12)
+               a         fk s            fk s      fk+1 fk f¯k+1 f¯k
+                                                                ¯ 
+                                                                      (s)
+Introducing the dependent variable transformation φk (s) = 2i ln ffk (s)  , one arrives at
+                                                                    k
+
+               φk+1,s − φk,s         φk+1 + φk
+                                              
+                             = sin               ,                                         (3.13)
+                   2a                     2
+which is nothing but an integrable semi-discretization of the sine-Gordon equation. Note that
+this is also known as the Bäcklund transformation of the sine-Gordon equation [24, 25].
+      It is obvious that, from the semi-discrete sine-Gordon equation (3.13), the equation
+                          φk+1 + φk          φ2k+1,s − φ2k,s
+                                  
+                   cos                  =−                   ,                           (3.14)
+                              2       s           4a
+is implied. By introducing the dependent variable transformation
+                                   f¯k (s)                φk+1 + φk
+                                                                 
+                     dφk
+               uk =      = 2i ln             , δk = cos               ,                   (3.15)
+                     ds            fk (s) s                   2
+it then follows
+                dδk       u2 − u2k
+                     = − k+1        ,                                                     (3.16)
+                 ds           4
+which is the first equation of a semi-discrete analogue of the SP equation
+    From the facts
+                    2 φk+1 + φk           2 φk+1 + φk
+                                                   
+                cos                 + sin               = 1,                              (3.17)
+                            2                     2
+                      φk+1 + φk
+                               
+                                      uk+1 − uk
+                sin                =            ,                                         (3.18)
+                          2              2a
+and
+                       δk         φk+1 + φk
+                                           
+                  1
+                     =    = cos               ,                                           (3.19)
+                  rk   a              2
+Integrable discretizations of the short pulse equation                                                    7
+
+it follows
+                 δ2k (uk+1 − uk )2
+                    +              = 1,
+                 a2      4a2
+i.e.,
+                          (uk+1 − uk )2
+                 δ2k = a2 −             ,                                           (3.20)
+                               4
+which becomes another equation of a semi-discrete analogue of the SP equation.
+    Summarizing the above results, we obtained an integrable semi-discrete analogue of the
+SP equation and its solutions
+                 (uk+1 − uk )2 = 4(a2 − δ2k ) ,                                                       (3.21)
+                 dδk      u2k+1 − u2k
+                     =−               ,                                                               (3.22)
+                  ds           4
+                                                                        l=0 δl . From the
+where the x-coordinate of the k-th lattice point is given by Xk = X0 + ∑k−1
+construction, the semi-discrete analogue of the SP equation has the following Casorati
+determinant solution:
+                                  f¯k          a f¯k+1 f¯k fk+1 fk
+                                                                
+                        d
+               uk (s) =     2i ln       , δk =            +          ,              (3.23)
+                        ds        fk           2 fk+1 fk f¯k+1 f¯k
+                                                            k−1
+                                              Xk = X0 + ∑ δl ,
+                                                            l=0
+
+                                    fk (s) = τ0 (k, s) ,    f¯k (s) = τ1 (k, s) ,
+                                                     (n+ j−1)
+                                    τn (k, s) = ψi              (k, s)              ,
+                                                                         1≤i, j≤N
+         (n)
+where ψi (k, s) satisfies
+                                1
+  (n)                                s+ξi0 −iπ/4                                − 1 s+ηi0 +iπ/4
+ψi (k, s) = pni (1 − api )−k e 2pi                 + (−pi )n (1 + api )−k e 2pi                   ,
+and the phase constants ±iπ/4 play a role of keeping the reality and regularity.
+     Note that a2 must be always greater than or equal to δ2k because (uk+1 − uk )2 ≥ 0. This
+can be easily verified by
+                               φk+1 + φk
+                                        
+               |δk | = a cos               ≤ |a| .                                     (3.24)
+                                   2
+The mesh size of self-adaptive mesh |δk | is always chosen as less than |a|.
+     We can rewrite the semi-discrete SP equation in an alternative form which converges to
+the SP equation in the continuous limit δk → 0. Multiplying Eq.(3.22) by 2δk , we have
+                dδ2k       u2 − u2k
+                     = −δk k+1         .                                                              (3.25)
+                ds             2
+Eliminating δ2k using Eq.(3.21), this leads to
+                 d(uk+1 − uk )
+                               = δk (uk+1 + uk ) .                                                    (3.26)
+                      ds
+Integrable discretizations of the short pulse equation                                            8
+
+Since
+                                      
+                  d        uk+1 − uk           1 d(uk+1 − uk ) uk+1 − uk dδk
+                                           =                  −              ,                (3.27)
+                  ds          δk               δk     ds          δ2k    ds
+it follows that
+                                                                                  2
+                  d        uk+1 − uk                     uk+1 + uk       uk+1 − uk
+                                           = uk+1 + uk +                                  ,   (3.28)
+                  ds          δk                             4              δk
+by using Eqs.(3.26) and (3.22). Equation (3.28) gives another form of the semi-discrete SP
+equation. In the continuous limit a → 0 (δk → 0), we have
+                                 uk+1 − uk   du              uk+1 + uk
+                                           →    ,                      → u,
+                                    δk       dx                  2
+
+                           ∂x ∂x0 k−1 dδ j    1 k−1                1
+                              =   +∑       = − ∑ (u2j+1 − u2j ) → − u2 ,
+                           ∂s   ∂s j=0 ds     4 j=0                4
+                                                    ∂x          1
+                                       ∂s = ∂t +       ∂x → ∂t − u2 ∂x ,
+                                                    ∂s          4
+Consequently, Eq.(3.28) converges to
+                                        
+                                     1 2          1
+                               ∂t − u ∂x ux = 2u + uu2x .
+                                     4            2
+
+By the scaling transformation 2x → x, one arrives
+                                    1
+                uxt = u + u(ux )2 + u2 uxx ,
+                                    2
+which turns out to be the SP equation
+                          1
+                uxt = u + (u3 )xx .
+                          6
+     In a similar way employed in [16, 17], the semi-discrete analogue of the SP equation can
+be used as a novel numerical scheme, i.e., the so-called self-adaptive moving mesh method,
+to perform numerical computations for the SP equation. However, the first equation (3.21)
+has ambiguity for determining the sign even if the non-uniform mesh δk is solved from
+the second equation (3.22). To avoid this difficulty, we introduce an intermediate variable
+φ̄k = (φk+1 + φk )/2, and employ the following scheme,
+                 (uk+1 − uk ) = 2a sin(φ̄k ),
+                
+
+                                                                                         (3.29)
+                 d φ̄k = uk+1 + uk .
+                     ds         2
+which can be derived from Eqs.(3.18) and (3.15). Equations (3.29) are equivalent to the
+integrable semi-discrete analogue of the SP equation, and the relation between the non-
+uniform mesh δk and φ̄k is δk = a cos(φ̄k ). Figures 1 and 2 are numerical results for one-loop
+and two-loop soliton solutions, respectively. The time stepsize is ∆t = 0.01 and the number of
+grid points is N = 200. The detailed numerical results by using the integrable semi-discrete
+SP equation will be reported somewhere else.
+Integrable discretizations of the short pulse equation                                                                                  9
+             4                                                                   4
+
+            3.5
+                   (a)                                                        3.5
+                                                                                     (b)
+             3                                                                   3
+
+            2.5                                                               2.5
+
+             2                                                                   2
+
+            1.5                                                               1.5
+
+             1                                                                   1
+
+            0.5                                                               0.5
+
+             0                                                                   0
+
+           −0.5                                                              −0.5
+             −50    −40   −30   −20   −10     0     10     20     30   40      −50   −40   −30   −20   −10   0   10   20   30   40
+
+
+
+
+                    Figure 1. Numerical solutions for one-loop soliton solution with (a) t = 0.0; (b) t = 10.0. The
+                    parameters of the initial condition are p1 = 0.5
+
+
+4. Full-discretizations of the short pulse equation
+
+To construct a full-discrete analogue of the SP equation, we introduce one more discrete
+variable l which corresponds to the discrete time variable.
+     It is known that the τ-function
+                                            (n+ j−1)
+                    τn (k, l) = ψi                       (k, l)              ,                                                       (4.1)
+                                                                  1≤i, j≤N
+with
+                                                   1 −l 2p1 s+ξi0                              1 −l 2q1 s+ηi0
+                                                                                               
+ (n)
+ψi (k, l) = ci,1 pni (1 − api )−k              1−b      e i               n
+                                                                  + ci,2 qi (1 − aqi ) −k
+                                                                                           1−b      e i       ,
+                                                   pi                                          qi
+satisfies bilinear equations [23]
+                          
+                   2
+                     Ds − 1 τn (k + 1, l) · τn(k, l) + τn+1(k + 1, l)τn−1(k, l) = 0 ,                                                (4.2)
+                   a
+and
+               (2bDs − 1)τn (k, l + 1) · τn+1(k, l) + τn(k, l)τn+1 (k, l + 1) = 0 .          (4.3)
+Applying the 2-reduction τn−1 = ∏N           2 −1 τ
+                                              
+                                       i=1 pi       n+1 , i.e., adding constraints qi = −pi to the
+N-soliton solution, we obtain
+                        
+                 2
+                   Ds − 1 τn (k + 1, l) · τn(k, l) + τn+1(k + 1, l)τn+1(k, l) = 0 ,          (4.4)
+                 a
+and
+              (2bDs − 1)τn (k, l + 1) · τn+1(k, l) + τn(k, l)τn+1 (k, l + 1) = 0 ,                                                   (4.5)
+                                                 n
+where the gauge transformation τn → ∏N     i=1 pi τn is used. Letting
+
+                                                  fk,l = τ0 (k, l) ,         f¯k,l = τ1 (k, l) ,
+Integrable discretizations of the short pulse equation                                                                              10
+           4                                                               4
+
+          3.5    (a)                                                      3.5    (b)
+           3                                                               3
+
+          2.5                                                             2.5
+
+           2                                                               2
+
+          1.5                                                             1.5
+
+           1                                                               1
+
+          0.5                                                             0.5
+
+           0                                                               0
+
+         −0.5                                                            −0.5
+           −50   −40   −30   −20   −10    0      10    20    30    40      −50   −40   −30    −20   −10   0   10   20   30   40
+
+
+
+           4                                                               4
+
+          3.5    (c)                                                      3.5    (d)
+           3                                                               3
+
+          2.5                                                             2.5
+
+           2                                                               2
+
+          1.5                                                             1.5
+
+           1                                                               1
+
+          0.5                                                             0.5
+
+           0                                                               0
+
+         −0.5                                                            −0.5
+           −50   −40   −30   −20   −10    0      10    20    30    40      −50   −40   −30    −20   −10   0   10   20   30   40
+
+
+
+                                           4
+
+                                          3.5                                               (e)
+                                           3
+
+                                          2.5
+
+                                           2
+
+                                          1.5
+
+                                           1
+
+                                          0.5
+
+                                           0
+
+                                         −0.5
+                                           −50   −40   −30   −20   −10    0      10    20     30    40
+
+
+
+
+                  Figure 2. Numerical solutions for the collision of two-loop soliton solution with (a) t = 0.0;
+                  (b) t = 6.0; (c) t = 8.0; (d) t = 10.0; (e) t = 15.0. The parameters of the initial condition are
+                  p1 = 0.5, p2 = 1.0.
+
+
+the bilinear equations (4.4) and (4.5) imply the following four equations
+                         
+                  2
+                    Ds − 1 fk+1,l · fk,l + f¯k+1,l f¯k,l = 0 ,                                                                    (4.6)
+                  a
+                         
+                  2
+                    Ds − 1 f¯k+1,l · f¯k,l + fk+1,l fk,l = 0 ,                                                                    (4.7)
+                  a
+                (2bDs − 1) fk,l+1 · f¯k,l + fk,l f¯k,l+1 = 0 ,                                                                    (4.8)
+                (2bDs − 1) f¯k,l+1 · fk,l + f¯k,l fk,l+1 = 0 ,                                                                    (4.9)
+Integrable discretizations of the short pulse equation                                          11
+
+which are actually equivalent to
+                                    f¯k+1,l f¯k,l
+                            
+               2      fk+1,l
+                   ln           −1+                = 0,                                     (4.10)
+               a        fk,l s      fk+1,l fk,l
+                  ¯         
+               2      fk+1,l        fk+1,l fk,l
+                   ln ¯         −1+ ¯              = 0,                                     (4.11)
+               a        fk,l s      fk+1,l f¯k,l
+                                      fk,l f¯k,l+1
+                             
+                       fk,l+1
+              2b ln ¯           −1+                = 0,                                     (4.12)
+                         fk,l s       fk,l+1 f¯k,l
+                   ¯
+                                      f¯k,l fk,l+1
+                              
+                       fk,l+1
+              2b ln             −1+ ¯              = 0.                                     (4.13)
+                         fk,l s       fk,l+1 fk,l
+Note that f and f¯ can be made complex conjugate of each other by choosing the phase
+constants properly. By introducing
+                            f¯k,l
+                                 
+              uk,l = 2i ln          ,                                          (4.14)
+                            fk,l s
+and
+                Xk,l = ka − (ln f¯k,l fk,l )s ,                                             (4.15)
+where Xk,l is the x-coordinate of the k-th lattice point at time l, we find the following relations
+                                   ¯
+                                     fk+1,l f¯k,l fk+1,l fk,l
+                                                               
+                uk+1,l − uk,l = ia               −               ,                           (4.16)
+                                     fk+1,l fk,l f¯k+1,l f¯k,l
+                                 i fk,l f¯k,l+1 f¯k,l fk,l+1
+                                                              
+                uk,l+1 + uk,l =                  −               ,                           (4.17)
+                                b fk,l+1 f¯k,l f¯k,l+1 fk,l
+                                 a f¯k+1,l f¯k,l fk+1,l fk,l
+                                                              
+                Xk+1,l − Xk,l =                  +                ,                          (4.18)
+                                 2 fk+1,l fk,l f¯k+1,l f¯k,l
+                                        1 fk,l f¯k,l+1 f¯k,l fk,l+1
+                                                                   
+                                   1
+                Xk,l+1 − Xk,l = − +                     +             .                      (4.19)
+                                   b 2b fk,l+1 f¯k,l f¯k,l+1 fk,l
+      It is straightforward to derive
+                (uk+1,l − uk,l )2 = 4(a2 − δ2k,l ) ,                                        (4.20)
+from Eqs.(4.16) and (4.18) and
+                                                                   !
+                                                                1 2
+                                               
+                                           1
+                (uk,l+1 + uk,l )2 = 4         − Xk,l+1 − Xk,l +       .                     (4.21)
+                                           b2                   b
+from Eqs.(4.17) and (4.19), where δk,l = Xk+1,l − Xk,l . Equations (4.20) and (4.21) give a
+full-discrete analogue of the SP equation.
+     Let us consider another full-discrete analogue of the SP equation. From Eqs.(4.16)-
+Eqs.(4.19), we obtain
+                 f¯k+1,l f¯k,l
+                                                                   
+                                 1                    uk+1,l − uk,l
+                               =    Xk+1,l − Xk,l − i                 ,              (4.22)
+                 fk+1,l fk,l     a                         2
+                                                                   
+                 fk+1,l fk,l     1                    uk+1,l − uk,l
+                               =    Xk+1,l − Xk,l + i                 ,              (4.23)
+                 f¯k+1,l f¯k,l   a                         2
+Integrable discretizations of the short pulse equation                                           12
+                fk,l f¯k,l+1
+                                                                  
+                                                1    uk,l+1 + uk,l
+                             = b Xk,l+1 − Xk,l + − i                 ,                       (4.24)
+                fk,l+1 f¯k,l                    b          2
+                f¯k,l fk,l+1
+                                                                  
+                                                1    uk,l+1 + uk,l
+                             = b Xk,l+1 − Xk,l + + i                 .                       (4.25)
+                f¯k,l+1 fk,l                    b          2
+From the relations (4.22)-(4.25), we have
+                                       u       −uk,l+1
+                Xk+1,l+1 − Xk,l+1 − i k+1,l+12
+                                       u    −uk,l
+                    Xk+1,l − Xk,l − i k+1,l2
+                                                         u   +uk+1,l
+                          Xk+1,l+1 − Xk+1,l + b1 − i k+1,l+12
+                      =                             u     +u        .                         (4.26)
+                             Xk,l+1 − Xk,l + 1b + i k,l+12 k,l
+Equating the real part and imaginary part respectively, we have
+                                       
+                                      1      uk+1,l+1 − uk,l+1 uk,l+1 + uk,l
+(Xk+1,l+1 − Xk,l+1) Xk,l+1 − Xk,l +        +
+                                      b                2                2
+                              
+                             1                       uk+1,l+1 + uk+1,l uk+1,l − uk,l
+   = Xk+1,l+1 − Xk+1,l +         (Xk+1,l − Xk,l ) −                                  ,        (4.27)
+                             b                               2               2
+                   
+                  1
+  Xk,l+1 − Xk,l +     (uk+1,l+1 − uk,l+1 ) − (Xk+1,l+1 − Xk,l+1 )(uk,l+1 + uk,l )
+                  b
+                              
+                             1
+   = Xk+1,l+1 − Xk+1,l +         (uk+1,l − uk,l ) + (Xk+1,l − Xk,l )(uk+1,l+1 + uk+1,l ) ,    (4.28)
+                             b
+which can be rearranged into the following simpler form:
+                                                                            
+                                                        1
+                (Xk+1,l+1 − Xk+1,l − Xk,l+1 + Xk,l )       − Xk+1,l + Xk,l+1
+                                                        b
+                           uk+1,l+1 + uk+1,l − uk,l+1 − uk,l uk+1,l + uk,l+1
+                      =−                                                       ,              (4.29)
+                                           2                         2                       
+                                                       2
+                (uk+1,l+1 − uk+1,l − uk,l+1 + uk,l )      + Xk+1,l+1 − Xk+1,l + Xk,l+1 − Xk,l
+                                                       b
+                 = (Xk+1,l+1 + Xk+1,l − Xk,l+1 − Xk,l )(uk+1,l+1 + uk+1,l + uk,l+1 + uk,l ) . (4.30)
+Equations (4.29) and (4.30) constitute another form of integrable full-discretization of the SP
+equation. Taking the continuous limit b → 0 in time, we obtain
+                                1
+              (Xk+1 − Xk )s = − (uk+1 − uk )(uk+1 + uk ) ,                                (4.31)
+                                4
+and
+                (uk+1 − uk )s = (Xk+1 − Xk )(uk+1 + uk ) ,                                   (4.32)
+which are nothing but the semi-discrete analogue of the SP equation (3.21) and (3.22). Here
+         F −F
+we used l+12b l → ∂s F as b → 0.
+     From the construction of the full-discrete analogue of the SP equation, the determinant
+solution of the full-discrete SP equation is
+                                             ∂          f¯k,l
+                                                           
+                          ḡk,l gk,l
+                uk,l = i ¯ −             =       2i ln          ,                     (4.33)
+                           fk,l   fk,l      ∂s          fk,l
+                                                            ∂
+                                             
+                              1 ḡk,l gk,l
+                Xk,l = ka −            +        = ka   −      (ln f¯k,l fk,l ) ,      (4.34)
+                              2 f¯k,l    fk,l              ∂s
+Integrable discretizations of the short pulse equation                                                  13
+
+                                     fk,l = τ0 (k, l) ,         f¯k,l = τ1 (k, l) ,
+                                  gk,l = ρ0 (k, l) ,           ḡk,l = ρ1 (k, l) ,
+                                     (n)              (n+1)                     (n+N−1)
+                                 ψ1 (k, l) ψ1                 (k, l) · · · ψ1             (k, l)
+                                  (n)                 (n+1)                     (n+N−1)
+                                 ψ2 (k, l)           ψ2  ···(k, l)             ψ2       (k, l)
+                  τn (k, l) =         ..                   ..       ..         ,
+                                       .       ···          .        .
+                                  (n)       (n+1)               (n+N−1)
+                                 ψ2 (k, l) ψ2     (k, l) · · · ψ2       (k, l)
+                                 (n−1)                  (n+1)                     (n+N−1)
+                                ψ1              (k, l) ψ1       (k, l) · · · ψ1             (k, l)
+                                 (n−1)                 (n+1)                     (n+N−1)
+                                ψ2     (k, l)         ψ2     (k, l)      ···    ψ2       (k, l)
+                ρn (k, l) =                ..                          .. ..      ,
+                                            .     ···                   .  .
+                                 (n−1)         (n+1)               (n+N−1)
+                                ψ2     (k, l) ψ2     (k, l) · · · ψ2       (k, l)
+         (n)
+where ψi (k, l) satisfies
+                                   1 −l 2p1 s+ξi0 −iπ/4
+                                     
+ (n)
+ψi (k, l) = pni (1 − api )−k 1−b           e i
+                                  pi
+                                               1 −l − 2p1 s+ηi0 +iπ/4
+                                                 
+                           n           −k
+                   + (−pi ) (1 + api )     1+b         e i            ,
+                                               pi
+and the phase constants ±iπ/4 play a role of keeping the reality and regularity. s is an auxiliary
+parameter. Note that ρm n can be expressed as ρn = 2∂s τn (k, l) because the auxiliary parameter
+                                                  m
+                                                          (n)          (n−1)
+s works on elements of the above determinant by 2∂s ψi (k, l) = ψi           (k, l). In the lattice
+KdV and lattice Boussinesq equations, one of τ-functions is also expressed by the derivative of
+another τ-function with respect to an auxiliary parameter [26, 27]. This is a common property
+of discrete soliton equations which are directly connected to the Bäcklund transformations of
+continuous soliton equations.
+     Let us consider Eqs.(4.20) and (4.21) again. Rewriting Eqs.(4.20) and (4.21), we have
+                   uk+1,l − uk,l 2
+                               
+                                   + δ2k,l = a2 ,                                           (4.35)
+                         2
+                   uk,l+1 + uk,l 2                   1 2
+                                                    
+                                                               1
+                                   + Xk,l+1 − Xk,l +       = 2.                             (4.36)
+                         2                           b         b
+These equations actually give conserved quantities because a2 and 1/b2 are constants.
+    Introducing
+                       uk+1,l − uk,l 2
+                                   
+              Ik,l ≡                   + δ2k,l ,                                      (4.37)
+                            2
+                       uk,l+1 + uk,l 2                   1 2
+                                                        
+              Jk,l ≡                   + Xk,l+1 − Xk,l +      ,                       (4.38)
+                             2                           b
+Eqs. (4.35) and (4.36) imply the following conserved quantities
+                                  1
+               Ik,l = a2 , Jk,l = 2 ,                                                                (4.39)
+                                  b
+Integrable discretizations of the short pulse equation                                                14
+
+for arbitrary integer values of k and l. Hence, we have
+                Ik,l+1 − Ik,l = 0 ,   Jk+1,l − Jk,l = 0 .                                         (4.40)
+A substitution of the corresponding conserved quantities leads to
+                                                                      
+  uk+1,l+1 + uk+1,l − uk,l+1 − uk,l    uk+1,l+1 − uk+1,l − uk,l+1 + uk,l
+                  2                                   2
+   = −(Xk+1,l+1 + Xk+1,l − Xk,l+1 − Xk,l )(Xk+1,l+1 − Xk+1,l − Xk,l+1 + Xk,l ) ,                  (4.41)
+                                                                      
+  uk+1,l+1 + uk+1,l + uk,l+1 + uk,l    uk+1,l+1 + uk+1,l − uk,l+1 − uk,l
+                  2                                   2
+                                               
+                                              2
+   = − Xk+1,l+1 − Xk+1,l + Xk,l+1 − Xk,l +        (Xk+1,l+1 − Xk+1,l − Xk,l+1 + Xk,l ) .          (4.42)
+                                              b
+It can be readily shown that the difference of Eq.(4.42) and Eq.(4.41) gives Eq.(4.29), whereas,
+the quotient is nothing but Eq.(4.30). In summary, Eqs.(4.35) and (4.36), which imply
+conserved quantities, can also be derived from the full-discrete analogue of the SP equation
+(4.29) and (4.30).
+
+5. Conclusions
+
+In the present paper, we proposed integrable semi-discrete and full-discrete analogues of the
+short pulse equation. The N-soliton solutions of both the continuous and discrete SP equations
+were formulated in the form of Casorati determinants, which include multi-loop soliton and
+multi-breather solutions. Based on the semi-discrete SP equation, a self-adaptive moving
+mesh method is proposed and used for the numerical solutions of the SP equation. The
+examples of one- and two-loop soliton solutions shows the potential of this novel method
+for the numerical study of the short pulse equation.
+
+References
+
+ [1] Schäfer T and Wayne C E 2004 Physica D 196, 90–105
+ [2] Chung Y, Jones C K R T, Schäfer T and Wayne C E 2005 Nonlinearity 18, 1351–1374
+ [3] Robelo M L 1989 Stud. Appl. Math. 81, 221–248
+ [4] Beals R, Rabelo M and Tenenblat K 1989 Stud. Appl. Math. 81, 125–151
+ [5] Sakovich A and Sakovich S 2005 J. Phys. Soc. Jpn. 74, 239–241
+ [6] Brunelli J C 2005 J. Math. Phys. 46, 123507
+ [7] Brunelli J C 2006 Phys. Lett. A 353, 475–478
+ [8] Sakovich A and Sakovich S 2006 J. Phys. A 39, L361–367
+ [9] Kuetche V K, Bouetou T B and Kofane T C 2007 J. Phys. Soc. Jpn. 76, 024004
+[10] Kuetche V K, Bouetou T B and Kofane T C 2007 J. Phys. A 40, 5585–5596
+[11] Matsuno Y 2007 J. Phys. Soc. Jpn. 76, 084003
+[12] Levi D and Ragnisco O (Eds.) 1998 SIDE III–Symmetries and integrability of difference equations, CRM
+       Proceedings and Lecture Notes 25, AMS, Montreal
+[13] Grammaticos B, Kosmann-Schwarzbach Y and Tamizhmani T (Eds.) 2004 Discrete Integrable Systems,
+       Lecture Notes in Physics 644, Springer-Verlag, Berlin
+[14] Suris Y B 2003 The Problem of Integrable Discretization: Hamiltonian Approach, Progress in
+       Mathematics 219, Birkháuser Verlag, Basel-Boston-Berlin
+Integrable discretizations of the short pulse equation                                              15
+
+[15] Bobenko A I and Suris Y B 2008 Discrete Differential Geometry, Graduate Studies in Mathematics 98,
+        AMS, Rhode Island
+[16] Ohta Y, Maruno K and Feng B F 2008 J. Phys. A 41, 355205
+[17] Feng B F, Ohta Y and Maruno K 2009 arXiv:0905.2693
+[18] Hirota R 1972 J. Phys. Soc. Jpn. 33, 1459–1463
+[19] Mikhailov A V 1979 JETP Lett. 30, 414–418
+[20] Hirota R 1981 J. Phys. Soc. Jpn. 50, 3785–3791
+[21] Hirota R, Ito M and Kako F 1988 Prog. Theor. Phys. Suppl. 94, 42–58
+[22] Hirota R, 2004 The Direct Method in Soliton Theory, Cambridge University Press.
+[23] Ohta Y, Kajiwara K, Matsukidaira J and Satsuma J 1993 J. Math. Phys. 34, 5190–5204
+[24] Bäcklund A V 1880 Math. Ann. 17, 285–328
+[25] Hirota R 1977 J. Phys. Soc. Jpn. 43, 2079–2086
+[26] Kajiwara K and Ohta Y 2008 J. Phys. Soc. Jpn. 77, 054004
+[27] Maruno K and Kajiwara K 2009 arXiv:0908.1800
+

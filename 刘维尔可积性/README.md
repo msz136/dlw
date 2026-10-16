@@ -1,6 +1,8 @@
 # 刘维尔可积性
 
-归档日期：2026-10-11。**尚无一般物理场上的完整无限维 Liouville 定理，也没有一般不可积性证明。** 本专题汇总现有结果、前提与缺口；本次仅整理文档，未开展新证明、数值研究或重跑历史核验。
+归档日期：2026-10-11。**尚无一般物理场上的完整无限维 Liouville 定理，也没有一般不可积性证明。** 本专题保留原归档与后续研究；本轮已开展独立复核和新证明，未重启历史检查。
+
+本轮已建立任意 Γ(t) 中心化、全部谱迹真实共同流、强无限弱辛域及同图全有限块独立；全 M 实际谱族对合与 Cₙ 桥已接合。M=2 条件 weighted 非线性谱逆、原物理 Hamilton 闭包与共同微分核最大性已审；新增 [原结构正则局部 Liouville 相空间](../report/dlw_m2_regular_liouville_20261011.html)已经给普通共同水平集、实际切空间和完整局部 Hamilton 轨道，两个场分量共同自由，非 U₀恒零分支，并有同 strong 图非空 residual 独立状态；[自足定理](../report/dlw_m2_conditional_theorem_20261011.html)明确全部条件及真实 fiber 缺口。全 M 真实 full framed 单值矩阵已在额外小非零背景图上给低阶谱 state 逆及 original-frame 局部唯一恢复；仍需 invariant action/weighted 图。一般M另有actual高频增强norming状态逆、原Poisson gap对合、同一strong参数图全部finite-gap独立和ℓ²频率加权真实无限Hamilton流；有限非谱low补充、fullframe和完备性缺口明示。零平均两条非退化分支有全 M 实际 mixed 原时间。完整一般场 Liouville 目标仍 OPEN。阅读 [简明研究报告](../report/dlw_liouville_recovery_20261011.html)；精确结构与缺口见 [research/STATE.md](research/STATE.md)，接续见 [research_checkpoint.md](research_checkpoint.md)。以下原路线表及 M=2、m=Ax 公式保留归档范围，不代表当前主线锁定该分支。
 
 ## 原方程与平均兼容
 
@@ -23,7 +25,7 @@ m=A(t)x+B(t),\qquad
 q=-A'(t)x^2/2-B'(t)x+\Gamma(t).
 $$
 
-$\Gamma$ 是平均通量的空间积分自由度。周期 $x$ 时另有 $A=0$、$B'=0$、$q=\Gamma(t)$；将 $\Gamma$ 再设为时间常数属于附加闭合。原稿的物理变量为 $U=u+2a$、$w=v-\delta_0u-4$；旧周期报告的 $c=\Pi w$ 对应这里的 $m$，其 `gamma` 对应平均通量。不同稿件的 $c$ 不混用，闭合来源须明示。
+$\Gamma$ 是平均通量的空间积分自由度。周期 $x$ 时另有 $A=0$、$B'=0$、$q=\Gamma(t)$。在 $c=\Pi w\ne0$ 分支，原方程不强制 $\Gamma_t=0$；固定它属于附加闭合或移动规范。在 $c=0$ 的兼容周期分支，进一步的涨落方程反而强制 $\Gamma_t=0$，须按分支区分。原稿的物理变量为 $U=u+2a$、$w=v-\delta_0u-4$；旧周期报告的 $c=\Pi w$ 对应这里的 $m$，其 `gamma` 对应平均通量。不同稿件的 $c$ 不混用，闭合来源须明示。
 
 ## 路线状态与积分数
 
@@ -66,7 +68,7 @@ $$
 - [历史综合报告](../dlw_liouville_integrability.md)、[有限孤子参数族材料](../Workspaces/dlw_liouville_20261005/README.md)：历史路线另有前提，不等同于本专题的 Fourier 对数族。
 - [2026-10-11 混合边值候选报告全文](sources/2026-10-11_mixed_bvp_candidate.md)：外部研究草稿，尚未完整独立复核；未取得其提及的复核脚本。
 
-## 下一步
+## 原归档接续路线（当前任务以 STATE 为准）
 
 1. 先审查候选报告的负移位线性逆统一界、端点时间迹、非线性 Lipschitz 估计与矩归纳；结论随审查结果修订。
 2. 明确物理场自身定义的函数空间、平均闭合与可积性定义，处理中心初值恢复和正则重启，再在同一条件域核验 Hamilton / Poisson 结构。

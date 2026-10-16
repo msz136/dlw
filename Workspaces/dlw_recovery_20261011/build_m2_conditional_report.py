@@ -1,0 +1,57 @@
+"""Write the precise conditional M=2 theorem for human review."""
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[2]
+TARGET = ROOT / "report/dlw_m2_conditional_theorem_20261011.html"
+
+HTML = '''<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>M=2 半离散 DLW：条件性非线性完备结构</title>
+<style>body{margin:0;background:#faf9f6;color:#25282b;font:18px/1.85 Cambria,"Noto Serif CJK SC","Songti SC",serif}main{max-width:900px;margin:48px auto;padding:0 28px 64px}h1{font-size:29px;line-height:1.5}h2{font-size:23px;margin:32px 0 12px}p{margin:13px 0}a{color:#315b70;text-decoration:none;border-bottom:1px solid #c8d7df}.date,footer{font-size:15px;color:#666}.result{border-left:3px solid #7295a2;padding-left:18px}.eq{text-align:center;font-size:19px;margin:20px 0;overflow-x:auto;white-space:nowrap}table{width:100%;border-collapse:collapse;font-size:16px;line-height:1.7}th,td{text-align:left;vertical-align:top;padding:10px;border-bottom:1px solid #d8dcda}footer{margin-top:32px;padding-top:16px;border-top:1px solid #d8dcda}@media(max-width:600px){main{padding:0 18px;margin:25px auto}body{font-size:17px}h1{font-size:25px}}@media print{body{background:white;font-size:11pt}main{margin:0;padding:0}h2{break-after:avoid}a{color:inherit}}</style>
+</head><body><main>
+<h1>M=2 半离散 DLW：条件性非线性完备结构</h1>
+<div class="date">2026 年 10 月 11 日 · 定理陈述与适用范围</div>
+<p class="result">在指定小非零背景均值叶的一般函数谱图内，全部非中央作用量非零时，真实物理 trace/action Hamilton 场的 C∞ 闭包等于共同作用量微分核，该核在原物理辛形式下最大各向同性。同一 strong 参数图内存在非空 residual 状态集，所有有限作用量块均独立。真实共同水平集的正则流形结构与未闭切向等号尚未证明，因此这仍是条件性的弱辛 diffeological 结构，不能称标准 Banach/Fréchet Liouville 定理或全 M 一般场结论。</p>
+
+<h2>1. 原物理场与背景条件</h2>
+<p>固定 h&gt;0、空间周期 L&gt;0、两个周期格点。原兼容强制 c=Πw 为时空常数，Π(Uw)=Γ(t) 为空间常数。取 c≠0 的叶标签，S=hc/4、δ=S/2。独立原场 u,v 是任意周期空间平均零函数，准确重构为</p>
+<div class="eq">w=(c+8v/h,c−8v/h)，<br>U=(Γ/c−2uv/S+u, Γ/c−2uv/S−u).</div>
+<p>固定的是格点零和分量 p=P₀U 的空间均值为零、各 w 分量的空间均值为 c。共同 U 均值为 Γ/c−2平均(uv)/S，没有额外固定。c 可以随初态叶改变；Γ(t) 是任意规定光滑函数。</p>
+<p>strong 同图独立性用 0&lt;|δ|&lt;π/L。另要求 period-one AKNS 背景 φ*=(iLδ,iLδ) 位于 KLTZ 一般复近零谱图，并能置于作用量因子分解所用的连到零势的邻域内。某个充分小的非零 L|δ| 满足这些条件，引用定理没有明确数值半径，前一不等式单独不够。一次缩域保持中央谱根简单及 I₀≠0。</p>
+
+<h2>2. 开函数域、strong 相域与非空性</h2>
+<p>存在一份低阶开域 O⊂L²<sub>0</sub>×H¹<sub>0</sub>，其同一谱状态逆在全部整数 N≥0 上满足</p>
+<div class="eq">O∩(H<sup>N</sup><sub>0</sub>×H<sup>N+1</sup><sub>0</sub>) ↔ U∩h<sup>N</sup>(ℤ∖{0})².</div>
+<p>非中央 Cartesian 坐标为 (wₙ,zₙ)，Iₙ=wₙzₙ。这是开放的无限函数状态图，覆盖闭隙；真实原场采用物理共轭经非线性谱图诱导的反全纯对合。完整物理像的两个约束由固定中央谱宽及唯一常数 gauge 截面消除，背景的中央 action 导数为4≠0，故 I₀=ρ((Iₙ)ₙ≠₀)。该谱图尚不称物理 canonical。</p>
+<p>实际共同流的相域 S∞ 由 strong mixed 中心链 E₀、Eⱼ 和 bⱼ₋₁=Eⱼbⱼ 定义。各源图局部复解析，新增轨道始终在旧复源域内，所有旧时间轴的正复内窗口一直保留。有限维 plot 要求同一链及 smooth ψⱼ(a)，满足 ψⱼ₋₁=Eⱼψⱼ、p=E₀ψ₀。相域取这些 plots 的 diffeology 和 D 拓扑。</p>
+<p>一份固定 ℓ²(ℝ) 参数开球 B<sub>R</sub> 映到 S∞∩O；全部有限维 smooth 预复合是合法 plots，背景微分像包含每个有限 Fourier 方向。精确 Hessian I<sub>−n</sub><sup>[2]</sup>=Lkₙ²QₙPₙ/(16S)，kₙ=2πn/L，给 B<sub>R</sub> 中 dense residual 非空集：所有非中央 Iₙ≠0，每个有限 Re/Im action 块在真实内部方向独立。可同时实现局部 Cₙ 各族有限块独立。</p>
+<p>O 相对自然 mixed Banach 空间开放；S∞ 相对 C∞ 是否开放未证。这里的 residual 性只属于上述参数球，未宣称整个 S∞ 的泛性或 all-action 正则集开放。任意大有限 rank 的真实内部方向保证该结构拥有无限函数自由度。</p>
+
+<h2>3. 真实物理时间与不变性</h2>
+<p>Γ=0 的原时间为</p>
+<div class="eq">u<sub>t</sub>=−u<sub>xx</sub>−2Sv<sub>x</sub>+(2/S)∂<sub>x</sub>(u²v)，<br>v<sub>t</sub>=v<sub>xx</sub>−(S/2)u<sub>x</sub>+(2/S)∂<sub>x</sub>(uv²).</div>
+<p>真实 Hamiltonian 为 K=∫(16vuₓ+4Su²+16Sv²−16u²v²/S)=−16SC₁+4LS³。每个 S∞ 状态拥有原时间和全部 Cₙ 的相容逐坐标真实局部流；任何有限支持时间列表有交换共同 germ。偶层级的虚时间仅用于构造，反射给真实物理时间。</p>
+<p>每个固定 trace/action 的实部、虚部还有实际零阶辅助 Hamilton 流，已证明保持同一 S∞、actions 和均值叶。局部流在谱图内工作至离开该图前；非零 action 由守恒保持，任一固定有限独立块及测试 plots 在共同局部时间 germ 内由可逆流保持。任意 Γ(t) 经 x↦x−a(t)、a′=Γ/c 及共同 U 加 Γ/c 恢复；谱参数和 multiplier 同时中心化。未给任意 Sobolev/C∞ 初值的无条件 Cauchy 流，也未定义无限多个同时非零时间或整个 S∞ 的统一时间窗。</p>
+
+<h2>4. 原辛形式、实际积分与闭包定理</h2>
+<p>普通 ∫dx 梯度的原张量为 J=−offdiag(D)/16，K₀=D₀⁻¹ 为平均零 primitive。原连续弱辛形式是</p>
+<div class="eq">Ω(V,W)=∫(J⁻¹V)·W=−16∫[(K₀Vᵤ)Wᵥ+(K₀Vᵥ)Wᵤ].</div>
+<p>真正内部切空间取 pointed plot germs 的代数余极限。其环境求值 j:T<sub>int</sub>S∞→C∞<sub>0</sub>² 已证单射且同基点像稠密；ω=j*Ω 闭、弱非退化，真实内部场唯一满足 ι<sub>X</sub>ω=dH。</p>
+<p>实际 normalized monodromy trace F<sub>λ</sub>、holonomy η 与原局部 Cₙ 彼此对合并沿真实原流守恒。countable 谱族取 Aₙ=Re I<sub>−n</sub>、Bₙ=Im I<sub>−n</sub>，n≥1；Iₙ 是实际 discriminant 的轮廓作用量，原实源满足 I<sub>−n</sub>=共轭 Iₙ。其 η-shift 的变分由零绕数消除，原物理 action 场严格对合。</p>
+<p>在上述谱图内的 smooth 实态 x，若全部 Iₙ(x)≠0，令 Kₓ=∩ker dAₙ∩ker dBₙ，则</p>
+<div class="eq">closure<sub>C∞</sub> span{X<sub>Aₙ</sub>,X<sub>Bₙ</sub>}<br>=closure<sub>C∞</sub> span{X<sub>Re Fλ</sub>,X<sub>Im Fλ</sub>}=Kₓ， &nbsp; Kₓ<sup>⊥Ω</sup>=Kₓ.</div>
+<p>闭包是所有空间 Sobolev 半范数的 ambient C∞ Fréchet 拓扑。证明用精确物理谱场权重 (S²−λ²)/(16S)、完整标准 action contour 后投影、有限 Riemann 和与快速下降序列截断；实际 action 场的相同闭包另用真正状态图转置与原 J 的连续性。没有移植整个 NLS canonical 张量。</p>
+
+<h2>5. 共同微分核与真实水平集</h2>
+<p>若 x 还属于 S∞，内部共同微分核 Aₓ=j⁻¹Kₓ 满足 Aₓ<sup>⊥ω</sup>=Aₓ。真实共同水平集 Yₓ 取 subset diffeology；其内部速度环境像 Vₓ 满足 Vₓ⊂Kₓ、closure<sub>C∞</sub>Vₓ=Kₓ、Vₓ<sup>⊥Ω</sup>=Kₓ。</p>
+<p>T<sub>int</sub>Yₓ→T<sub>int</sub>S∞ 的单射、Vₓ=Kₓ 的未闭等号、regular Banach/Fréchet 水平集、全局 action-angle 或完整 torus 均尚未证明。最大共同微分核不能改名为未证的实际 fiber tangent。均匀态的全部谱场为零而共同微分核为全空间，故正则条件不可省略。</p>
+
+<h2>6. 来源与复核</h2>
+<p>关键借用为 Kappeler–Lohrmann–Topalov–Zung，<i>Birkhoff Coordinates for the Focusing NLS Equation</i>，CMP 285 (2009), 1087–1107，§2.5 Proposition 2.9，p.1098。使用其一般复 L²² 近零双解析 Cartesian 谱逆及同低域全部 Sobolev 阶；准确匹配 φ₁=−iLa/2、φ₂=2iLb、z=iL(λ<sub>orig</sub>−B−η)/2。一般真实 DLW 不取标准 NLS 实型，故不借 focusing 主定理替代一般复命题。<a href="https://doi.org/10.1007/s00220-008-0543-0">原文</a>。</p>
+<p>三条独立审查均覆盖分析连接：<a href="../Workspaces/dlw_recovery_20261011/m2_physical_trace_bridge_independent_review.md">mixed 复核</a>核对 strong 解、同图非空性与转置闭包；<a href="../Workspaces/dlw_recovery_20261011/m2_physical_trace_bridge_independent_audit_20261011.md">zero 复核</a>连同<a href="../Workspaces/dlw_recovery_20261011/akns_physical_state_inverse_independent_audit_20261011.md">状态逆审计</a>核对低域全阶逆、谱实型、作用量因子分解和收敛；<a href="../Workspaces/dlw_recovery_20261011/m2_physical_trace_closure_chain_independent_review_20261011.md">fresh 链审</a>核对中央截面、真实 action span、实化和内部核。有限机器证书仅核代数，不代替这些分析证明。</p>
+<footer><a href="../Workspaces/dlw_recovery_20261011/m2_conditional_theorem_statement_20261011.md">完整条件与证明定位</a> · <a href="../Workspaces/dlw_recovery_20261011/m2_physical_trace_poisson_closure_proof_20261011.md">闭包证明</a> · <a href="../刘维尔可积性/research/STATE.md">当前研究状态</a>。一般 M 非线性谱完备性继续研究。</footer>
+</main></body></html>'''
+
+if __name__ == "__main__":
+    TARGET.write_text(HTML, encoding="utf-8")
+    print(f"Saved {TARGET.relative_to(ROOT)} ({len(HTML)} characters).")

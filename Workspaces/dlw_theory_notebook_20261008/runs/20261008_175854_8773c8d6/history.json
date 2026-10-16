@@ -1,0 +1,1765 @@
+[
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgContinuous.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\1a26b337c5e1daad0207090704ba694b595cf168c33c143dd4ef7fbf71c8ec33\\build_5fe03b1318ed4f7199c022e7c45fb4f0\\lib\\lean\\PkgContinuous.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\1a26b337c5e1daad0207090704ba694b595cf168c33c143dd4ef7fbf71c8ec33\\build_5fe03b1318ed4f7199c022e7c45fb4f0\\lib\\lean\\PkgContinuous.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgContinuous.lean"
+    ],
+    "sha256": "755a7b1a0dc366ff85f2c7ec4e9d43f93614e36fed7bbf4af921a99ac8b52c0a",
+    "stdout": "",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 16.292190799984382,
+    "artifact_sha256": "593bca61d41d87b33b60b48b4af62a1596e4bef4447309b67c51925b51a2906e",
+    "artifact_companions": {
+      "PkgContinuous.olean": "593bca61d41d87b33b60b48b4af62a1596e4bef4447309b67c51925b51a2906e"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\cells\\TheoryContinuousImport.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\lib\\lean\\TheoryContinuousImport.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\cells",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\lib\\lean\\TheoryContinuousImport.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\cells\\TheoryContinuousImport.lean"
+    ],
+    "sha256": "6af546f682b7a2ad8120a6ed98ffeedc31e6dff22b0c4a7e7624614a9cb75d81",
+    "stdout": "def DLWContract.ContinuousPair : ℝ → XYT → XYT → Prop :=\nfun a f g => cbil a f g = 0 ∧ cdybil a f g - 4 * chx f g = 0\ntheorem continuous_DLW : ∀ (a : ℝ) (f g : XYT),\n  Smooth3 f →\n    Smooth3 g →\n      Positive3 f → Positive3 g → ContinuousPair a f g → c1 a (cu f g) (cv f g) = 0 ∧ c2 a (cu f g) (cv f g) = 0 :=\nfun a f g hf hg hfp hgp hbil => c02_proved a f g hf hg hfp hgp hbil\n'continuous_Hirota_bridge' depends on axioms: [propext, Classical.choice, Quot.sound]\n'continuous_DLW' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 14.84757269997499,
+    "artifact_sha256": "ec811a7594394bbc987ea635db609e8b9b1a17d1b95c3d95161f84b1f6cc2bff",
+    "artifact_companions": {
+      "TheoryContinuousImport.olean": "ec811a7594394bbc987ea635db609e8b9b1a17d1b95c3d95161f84b1f6cc2bff"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgNumeric.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\8746d4b22c9e679b2fb4fa84d7e39d919e470c30a60b5593b3550fb5cf8847eb\\build_f9b215a8eacd49769cb822e42f857448\\lib\\lean\\PkgNumeric.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\8746d4b22c9e679b2fb4fa84d7e39d919e470c30a60b5593b3550fb5cf8847eb\\build_f9b215a8eacd49769cb822e42f857448\\lib\\lean\\PkgNumeric.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgNumeric.lean"
+    ],
+    "sha256": "71ae80c3f6879e15a168043ae5b195c332dcb469a55f40971dcab10f7f571cec",
+    "stdout": "",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 25.688641899992945,
+    "artifact_sha256": "71c53872b049085bc861ee0c7ea9ecd21049908e2acfb8b70e39d7579de49254",
+    "artifact_companions": {
+      "PkgNumeric.olean": "71c53872b049085bc861ee0c7ea9ecd21049908e2acfb8b70e39d7579de49254"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC11.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\f319cdfed51dec400897f7427ca9e5ba103ec32b9c14edaedece8a28b9d7d31a\\build_42c0e5e3d503474fbfe67862e1a429b1\\lib\\lean\\PkgC11.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\f319cdfed51dec400897f7427ca9e5ba103ec32b9c14edaedece8a28b9d7d31a\\build_42c0e5e3d503474fbfe67862e1a429b1\\lib\\lean\\PkgC11.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC11.lean"
+    ],
+    "sha256": "b523e601dfcac8e45b61ae96d4b84dfae441c0c6673983c934c9013fc7ccb881",
+    "stdout": "",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 21.17479399999138,
+    "artifact_sha256": "cb19cfb00e9f8b04c37ca281790ced3002eb17ddac6eb91587a46aa02f9ad192",
+    "artifact_companions": {
+      "PkgC11.olean": "cb19cfb00e9f8b04c37ca281790ced3002eb17ddac6eb91587a46aa02f9ad192"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\cells\\TheoryWallsImport.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\lib\\lean\\TheoryWallsImport.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\cells",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\lib\\lean\\TheoryWallsImport.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\cells\\TheoryWallsImport.lean"
+    ],
+    "sha256": "a94f164c498fd65cf820224c276cdfa6724d01eaf9f86ce86c042c5011138712",
+    "stdout": "def DLWContract.PowBound : ℕ → (ℝ → ℝ) → Prop :=\nfun p e => ∃ C, 0 ≤ C ∧ ∃ ε, 0 < ε ∧ ∀ (h : ℝ), 0 < |h| → |h| < ε → |e h| ≤ C * |h| ^ p\n'bilinear_continuum_limit' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 19.767267399991397,
+    "artifact_sha256": "27c3a64308d4579fc73e9014fbe7ed0f4d3899fb103981752c036bd760c47c57",
+    "artifact_companions": {
+      "TheoryWallsImport.olean": "27c3a64308d4579fc73e9014fbe7ed0f4d3899fb103981752c036bd760c47c57"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramEntry.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\a0f8bd0203bfd389d1f4a0255aa33b7743f96da11a7e625f77c973b3df749eea\\build_215c93f1f9d942c9a4384e921f17fe69\\lib\\lean\\PkgGramEntry.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\a0f8bd0203bfd389d1f4a0255aa33b7743f96da11a7e625f77c973b3df749eea\\build_215c93f1f9d942c9a4384e921f17fe69\\lib\\lean\\PkgGramEntry.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramEntry.lean"
+    ],
+    "sha256": "4d20e096b17a2512e370d924f029af0a9153b10259e06a2c7e0afdc06b1776ae",
+    "stdout": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramEntry.lean:116:70: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramEntry.lean:119:70: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramEntry.lean:144:66: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramEntry.lean:147:66: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead\n",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 19.043049100000644,
+    "artifact_sha256": "423d6fc08e6d7efabf5da08ef23443e8cebbf721f33d382a733d0fedf3227b90",
+    "artifact_companions": {
+      "PkgGramEntry.olean": "423d6fc08e6d7efabf5da08ef23443e8cebbf721f33d382a733d0fedf3227b90"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\cells\\TheoryInteractionImport.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\lib\\lean\\TheoryInteractionImport.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\cells",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\lib\\lean\\TheoryInteractionImport.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\cells\\TheoryInteractionImport.lean"
+    ],
+    "sha256": "a8e5e4463e1b5d711c28b60b646373ec050ee96736ea3a45b931d95dba940d03",
+    "stdout": "def DLWContract.tau : {N : ℕ} → Data N → ℝ → ℝ → ℤ → ℤ → XT :=\nfun {N} D h s n j x t => Matrix.det fun i k => entry D h s n j i k x t\ndef DLWContract.interaction : ℝ → ℝ → ℝ → ℝ → ℝ :=\nfun p₁ p₂ q₁ q₂ => (p₁ - p₂) * (q₁ - q₂) / ((p₁ + q₂) * (p₂ + q₁))\n'two_soliton_expansion' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 15.612017700012075,
+    "artifact_sha256": "0bbef9cb122b0e39d1234da118d439c7017b1a290d7ef917db9a33af23b5cb04",
+    "artifact_companions": {
+      "TheoryInteractionImport.olean": "0bbef9cb122b0e39d1234da118d439c7017b1a290d7ef917db9a33af23b5cb04"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramActual.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\bc5af35d234fa1d5697cd5945c618907c8c0c779cd40cbdbf27f50cc7f1edc19\\build_23f837e292a541bd80b694b354fb22af\\lib\\lean\\PkgGramActual.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\bc5af35d234fa1d5697cd5945c618907c8c0c779cd40cbdbf27f50cc7f1edc19\\build_23f837e292a541bd80b694b354fb22af\\lib\\lean\\PkgGramActual.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramActual.lean"
+    ],
+    "sha256": "5116f5ad6c2c87ef40125093526b8bee041fc046de99a108da9e34d195dbba7f",
+    "stdout": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramActual.lean:39:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramActual.lean:39:45: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramActual.lean:47:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramActual.lean:47:45: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramActual.lean:72:15: warning: This simp argument is unused:\n  V\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [W]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramActual.lean:71:72: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramActual.lean:72:20: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramActual.lean:78:72: warning: This simp argument is unused:\n  neg_div\n\nHint: Omit it from the simp argument list.\n  [apply] simp [gamma, neg_sub]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramActual.lean:83:6: warning: Unused tactic linter: `ring` does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramActual.lean:83:6: warning: this tactic is never executed\n\nNote: This linter can be disabled with `set_option linter.unreachableTactic false`\n",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 16.586118699982762,
+    "artifact_sha256": "d3222b1be3e5e3886b30bc33bfcbd16e73ad2dd2451fb4cc092fdc0c6a9e844d",
+    "artifact_companions": {
+      "PkgGramActual.olean": "d3222b1be3e5e3886b30bc33bfcbd16e73ad2dd2451fb4cc092fdc0c6a9e844d"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramDeterminant.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\f819b5e729eaa65eb806fa749210b5f76f2f0d78a6d2bb73a5c882c9ea788b9e\\build_ebae0326d4cb452bb40373339953802a\\lib\\lean\\PkgGramDeterminant.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\f819b5e729eaa65eb806fa749210b5f76f2f0d78a6d2bb73a5c882c9ea788b9e\\build_ebae0326d4cb452bb40373339953802a\\lib\\lean\\PkgGramDeterminant.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramDeterminant.lean"
+    ],
+    "sha256": "caa6452ce636da231818745fbd546baddd9ade13528fcd24c3dbadadce188fe2",
+    "stdout": "'DLWContract.GramDeterminant.continuous_identity_of_invertible' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 17.866591400001198,
+    "artifact_sha256": "5d87a81797c337b8849746108d4a77e79535faa83cd6a3fac875067f296d79de",
+    "artifact_companions": {
+      "PkgGramDeterminant.olean": "5d87a81797c337b8849746108d4a77e79535faa83cd6a3fac875067f296d79de"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramPlucker.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\903287758ca22dd2dcbefadf320c054c2a0ff3667f56af73cf24373e120f41da\\build_734834655a484ec49500f534bcf952b5\\lib\\lean\\PkgGramPlucker.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\903287758ca22dd2dcbefadf320c054c2a0ff3667f56af73cf24373e120f41da\\build_734834655a484ec49500f534bcf952b5\\lib\\lean\\PkgGramPlucker.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramPlucker.lean"
+    ],
+    "sha256": "42fedc534be7cf18fd265a42a4c4d6cc463933ba5ba749214f7940f848b2d983",
+    "stdout": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramPlucker.lean:32:8: warning: `continuous_finset_sum` has been deprecated: Use `continuous_finsetSum` instead\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramPlucker.lean:41:32: warning: This simp argument is unused:\n  Function.update_self\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [Matrix.updateRow]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramPlucker.lean:43:32: warning: This simp argument is unused:\n  Function.update_of_ne h\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [Matrix.updateRow]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 18.46725270000752,
+    "artifact_sha256": "df41ade6500ec05d78efbeb1d42c60b4e692b2e03a2a5a5125786399d130f7c9",
+    "artifact_companions": {
+      "PkgGramPlucker.olean": "df41ade6500ec05d78efbeb1d42c60b4e692b2e03a2a5a5125786399d130f7c9"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramIdentity.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\86e3ca8328eb8f5477a83d808ac70703c5e04ba4bb01b4b8bd53aad6dfad99ae\\build_366c416af490496fa71ffc113ef5f87a\\lib\\lean\\PkgGramIdentity.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\86e3ca8328eb8f5477a83d808ac70703c5e04ba4bb01b4b8bd53aad6dfad99ae\\build_366c416af490496fa71ffc113ef5f87a\\lib\\lean\\PkgGramIdentity.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramIdentity.lean"
+    ],
+    "sha256": "10888d695d8cd8ddd23241e20eed96a7f0a1811f72c132e0c838ec837fcb6221",
+    "stdout": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramIdentity.lean:36:83: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramIdentity.lean:41:95: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n'DLWContract.GramDeterminant.plucker_identity' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 17.29607800001395,
+    "artifact_sha256": "06083683dfa5883e8477d7076ce943ec63983ecbce3fa4c02ae6e9e8a47c0473",
+    "artifact_companions": {
+      "PkgGramIdentity.olean": "06083683dfa5883e8477d7076ce943ec63983ecbce3fa4c02ae6e9e8a47c0473"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramCalculus.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\fee4aa0a11097ec27a2dfb9083273f4eeb68a13fb0472579a5561b016c203240\\build_97c662a0401a400d8ecc7015f0d192e0\\lib\\lean\\PkgGramCalculus.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\fee4aa0a11097ec27a2dfb9083273f4eeb68a13fb0472579a5561b016c203240\\build_97c662a0401a400d8ecc7015f0d192e0\\lib\\lean\\PkgGramCalculus.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramCalculus.lean"
+    ],
+    "sha256": "8c0b95945f4298164391bab92561659570f8c9ea38a52af01f2d4243508708f8",
+    "stdout": "",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 15.498230900004273,
+    "artifact_sha256": "3c53e0a0b5d6ab2c22ff9f7bb96c763dcf8c0d078ba89abe67766d81517c40f0",
+    "artifact_companions": {
+      "PkgGramCalculus.olean": "3c53e0a0b5d6ab2c22ff9f7bb96c763dcf8c0d078ba89abe67766d81517c40f0"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramHirota.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\a07fae94bd260f646ca124c478a3e588888361c2c0e0b7450a93097f1ae22b3f\\build_9ca21589dfc7477ea223543bff7495f2\\lib\\lean\\PkgGramHirota.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\a07fae94bd260f646ca124c478a3e588888361c2c0e0b7450a93097f1ae22b3f\\build_9ca21589dfc7477ea223543bff7495f2\\lib\\lean\\PkgGramHirota.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramHirota.lean"
+    ],
+    "sha256": "f94cda236d821bebf3074d932d9cc533676fe71fccd7878db4f846e3dc606eb4",
+    "stdout": "",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 17.005834400013555,
+    "artifact_sha256": "bc7f92028b28e260dd59941bf583218a8c9f4ca33f104cb90628274253090b8f",
+    "artifact_companions": {
+      "PkgGramHirota.olean": "bc7f92028b28e260dd59941bf583218a8c9f4ca33f104cb90628274253090b8f"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC07Complete.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\16306b4c6dfe14d19d09734ef8e0e6a62e21bae914ab5b32eaa3d1b41bcc9e07\\build_8cb19a24dcd14e0bba8df6facebae1e4\\lib\\lean\\PkgC07Complete.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\16306b4c6dfe14d19d09734ef8e0e6a62e21bae914ab5b32eaa3d1b41bcc9e07\\build_8cb19a24dcd14e0bba8df6facebae1e4\\lib\\lean\\PkgC07Complete.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC07Complete.lean"
+    ],
+    "sha256": "6accaa50142717464c7c0215ba0d0b675cca50af97323b6c310cb46b2797bdfb",
+    "stdout": "'DLWContract.c07_proved' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 16.773753500019666,
+    "artifact_sha256": "6f1298b55c97466da92293d4dc5eea5cc90e325394fa0f9bd52a4efd5fe80ff4",
+    "artifact_companions": {
+      "PkgC07Complete.olean": "6f1298b55c97466da92293d4dc5eea5cc90e325394fa0f9bd52a4efd5fe80ff4"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramBridges.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\c2e9b0bec3880d6ce8604db6f07d436ec6840e03c70036301b0f099d26977b29\\build_bf8c930b53fe4896b585eee6f76e80fb\\lib\\lean\\PkgGramBridges.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\c2e9b0bec3880d6ce8604db6f07d436ec6840e03c70036301b0f099d26977b29\\build_bf8c930b53fe4896b585eee6f76e80fb\\lib\\lean\\PkgGramBridges.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramBridges.lean"
+    ],
+    "sha256": "462236c97aab6a226eb339ec0a0ca72b32967adcc83e82b5273dffa5607f95b9",
+    "stdout": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramBridges.lean:21:37: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramBridges.lean:23:37: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramBridges.lean:27:37: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramBridges.lean:29:37: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n'DLWContract.c08_of_c07' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DLWContract.c16_of_c08_c09' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 16.67641340001137,
+    "artifact_sha256": "9984e6c600cf086ec1b91d72bfab5298f0d1bfc3715d3ad84d241e5dda5204af",
+    "artifact_companions": {
+      "PkgGramBridges.olean": "9984e6c600cf086ec1b91d72bfab5298f0d1bfc3715d3ad84d241e5dda5204af"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC09Complete.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\54f49cab1cc2cbf0be5d58216b8206f21c25bf25c337d3cb2c56c27285193bac\\build_6477e123769e48f8b8810e1c0762812d\\lib\\lean\\PkgC09Complete.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\54f49cab1cc2cbf0be5d58216b8206f21c25bf25c337d3cb2c56c27285193bac\\build_6477e123769e48f8b8810e1c0762812d\\lib\\lean\\PkgC09Complete.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC09Complete.lean"
+    ],
+    "sha256": "40afa70ab22c6c8850221b5a3ac58e517839a6693587be7a815ce782bf903e22",
+    "stdout": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC09Complete.lean:119:17: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC09Complete.lean:120:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC09Complete.lean:130:15: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC09Complete.lean:130:38: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC09Complete.lean:139:17: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC09Complete.lean:140:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC09Complete.lean:150:15: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC09Complete.lean:150:31: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC09Complete.lean:181:21: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC09Complete.lean:181:33: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC09Complete.lean:191:23: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC09Complete.lean:191:34: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC09Complete.lean:196:25: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC09Complete.lean:196:36: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC09Complete.lean:199:25: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC09Complete.lean:199:37: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC09Complete.lean:202:85: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC09Complete.lean:247:23: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC09Complete.lean:247:34: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC09Complete.lean:251:21: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC09Complete.lean:264:23: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC09Complete.lean:264:35: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC09Complete.lean:264:46: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC09Complete.lean:269:25: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC09Complete.lean:269:36: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC09Complete.lean:272:25: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC09Complete.lean:272:37: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC09Complete.lean:278:21: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC09Complete.lean:278:33: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC09Complete.lean:281:21: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC09Complete.lean:281:32: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC09Complete.lean:638:15: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC09Complete.lean:642:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC09Complete.lean:646:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead\n'DLWContract.c09_proved' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 18.23495980000007,
+    "artifact_sha256": "f7fac77c2edfc98ad2b7d61485ae0c092bb06c3264025afe0f74963bd693608c",
+    "artifact_companions": {
+      "PkgC09Complete.olean": "f7fac77c2edfc98ad2b7d61485ae0c092bb06c3264025afe0f74963bd693608c"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramComplete.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\de3d9e4849b2b2b4888dc1495a00feead18475730df0275fb9f237d40aa6d7ef\\build_acc31b7292944bb7a41bcfcde133e9d0\\lib\\lean\\PkgGramComplete.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\de3d9e4849b2b2b4888dc1495a00feead18475730df0275fb9f237d40aa6d7ef\\build_acc31b7292944bb7a41bcfcde133e9d0\\lib\\lean\\PkgGramComplete.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramComplete.lean"
+    ],
+    "sha256": "caee87670e23907dc339569a9c05920a2b94a6f5a00a86a17969f6c75485dd7a",
+    "stdout": "'DLWContract.c08_proved' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DLWContract.c16_proved' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 15.490648999984842,
+    "artifact_sha256": "950ab1ecf793e382ab83388ab4f68707ee36f2d0767bc8d45cdb2200f3c1d3ca",
+    "artifact_companions": {
+      "PkgGramComplete.olean": "950ab1ecf793e382ab83388ab4f68707ee36f2d0767bc8d45cdb2200f3c1d3ca"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\cells\\TheoryGramImport.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\lib\\lean\\TheoryGramImport.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\cells",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\lib\\lean\\TheoryGramImport.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\cells\\TheoryGramImport.lean"
+    ],
+    "sha256": "38a9d91b35486a8ffd6375121801d3f15caad2f1d1ee8df5dcfbebdc18ecdfdf",
+    "stdout": "def DLWContract.SemiPair : ℝ → ℝ → Lattice → Lattice → Prop :=\nfun a h F G => ∀ (j : ℤ), bil (a - h / 2) (F j) (G j) = 0 ∧ bil (a + h / 2) (F j) (G (j + 1)) = 0\n'DLWContract.theory_gram_chain' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DLWContract.theory_exact_tau' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 16.522162300010677,
+    "artifact_sha256": "baf7e0e0f3da6c47d0a9a5e5e3660d90d51da364e8a55b2942cede9f1e303544",
+    "artifact_companions": {
+      "TheoryGramImport.olean": "baf7e0e0f3da6c47d0a9a5e5e3660d90d51da364e8a55b2942cede9f1e303544"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\cells\\TheoryRegularImport.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\lib\\lean\\TheoryRegularImport.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\cells",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\lib\\lean\\TheoryRegularImport.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\cells\\TheoryRegularImport.lean"
+    ],
+    "sha256": "2eaf53174438c780e7f5f15e5684bc684f00800ae3c925a183f980a04c1ef2f7",
+    "stdout": "def DLWContract.PositiveData : {N : ℕ} → Data N → ℝ → Prop :=\nfun {N} D h =>\n  0 < h ∧ StrictMono D.p ∧ StrictMono D.q ∧ ∀ (i : Fin N), 0 < D.p i ∧ D.p i < D.a - h / 2 ∧ 0 < D.q i ∧ 0 < D.rho i\n'regular_tau' depends on axioms: [propext, Classical.choice, Quot.sound]\n'exact_nonlinear_solution' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 15.350528499984648,
+    "artifact_sha256": "40a3d66f03797002a8ec24e99ae2834260685f544204b87a4121fa1d700fab3b",
+    "artifact_companions": {
+      "TheoryRegularImport.olean": "40a3d66f03797002a8ec24e99ae2834260685f544204b87a4121fa1d700fab3b"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\cells\\StepUWImport.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\lib\\lean\\StepUWImport.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\cells",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\lib\\lean\\StepUWImport.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\cells\\StepUWImport.lean"
+    ],
+    "sha256": "fde5382cea8b31e8656ad856e12b1966e12eea55b2f93d0a43223a9e1891072d",
+    "stdout": "",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 15.943963700003223,
+    "artifact_sha256": "e950805fee15ffdc47e7f6e4bcbb60f7e9752dd8b95606b8464a00fc73da2b23",
+    "artifact_companions": {
+      "StepUWImport.olean": "e950805fee15ffdc47e7f6e4bcbb60f7e9752dd8b95606b8464a00fc73da2b23"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\cells\\StepUWStart.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\lib\\lean\\StepUWStart.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\cells",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\lib\\lean\\StepUWStart.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\cells\\StepUWStart.lean"
+    ],
+    "sha256": "f982c49797586241fa2d16cc3d7be17a261dcd93f840b1ee385a43ca4768aee6",
+    "stdout": "def DLWContract.ReportUW.StartPoint : ℝ → ℝ → Lattice → Lattice → Prop :=\nfun a h F G => ∀ (j : ℤ), bil (a - h / 2) (F j) (G j) = 0 ∧ bil (a + h / 2) (F j) (G (j + 1)) = 0\n",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 16.293372100015404,
+    "artifact_sha256": "3b9838a6a273233a98a54040423f72f0fe16b581f9bb596da08cd783d2b2d1fa",
+    "artifact_companions": {
+      "StepUWStart.olean": "3b9838a6a273233a98a54040423f72f0fe16b581f9bb596da08cd783d2b2d1fa"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\cells\\StepUWEndpoint.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\lib\\lean\\StepUWEndpoint.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\cells",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\lib\\lean\\StepUWEndpoint.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\cells\\StepUWEndpoint.lean"
+    ],
+    "sha256": "83c568b92a41da5060a1ebd9e8702829864418030dee6b4ccd547dfcfa2be36c",
+    "stdout": "def DLWContract.ReportUW.NotebookDisplay.reportN1 : ℝ → ℝ → Lattice → Lattice → Lattice :=\nfun a h u w => dm h (lt u) + lx (dm h (fluxUW a h u w)) + lxx (dm h u + (4 / h) • mm w)\ndef DLWContract.ReportUW.NotebookDisplay.reportN2 : ℝ → ℝ → Lattice → Lattice → Lattice :=\nfun a h u w => lt w + lx (fluxOmega a h u w) - lxx w\n'DLWContract.ReportUW.semiPair_implies_report7' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DLWContract.ReportUW.semiPair_implies_report8' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 17.48733830000856,
+    "artifact_sha256": "7c4cbcd0efdcabf1e06f30b9158029cafe6c1525c41918ba4ac3aa8dfaa9452b",
+    "artifact_companions": {
+      "StepUWEndpoint.olean": "7c4cbcd0efdcabf1e06f30b9158029cafe6c1525c41918ba4ac3aa8dfaa9452b"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC17.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\0b88318e37263dafe03ea778b56bfe05748db1262d8c4fbe52eaefc9325b16a4\\build_d35dc1674a3e406396694240c6a3e5f5\\lib\\lean\\PkgC17.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\0b88318e37263dafe03ea778b56bfe05748db1262d8c4fbe52eaefc9325b16a4\\build_d35dc1674a3e406396694240c6a3e5f5\\lib\\lean\\PkgC17.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC17.lean"
+    ],
+    "sha256": "2bf3682f3e61d83d72171d894552f7176e374e1654d747efcb2bfa92e6446441",
+    "stdout": "",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 21.08385980001185,
+    "artifact_sha256": "4f2123628e9b8cff5105a4459d3d9ced963fbd15c3b1fba99ef05840c0169779",
+    "artifact_companions": {
+      "PkgC17.olean": "4f2123628e9b8cff5105a4459d3d9ced963fbd15c3b1fba99ef05840c0169779"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC18Complete.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\18a395f5cb1707612c2208e6f268cb8c729166ac84bc9111715a886e034b3cb9\\build_9a1f24fa65b64d6c90991f8100ab8c27\\lib\\lean\\PkgC18Complete.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\18a395f5cb1707612c2208e6f268cb8c729166ac84bc9111715a886e034b3cb9\\build_9a1f24fa65b64d6c90991f8100ab8c27\\lib\\lean\\PkgC18Complete.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC18Complete.lean"
+    ],
+    "sha256": "2bea013d2bfb034f7b67e96a47571e984d983e8000375233d4f777f6ac20e490",
+    "stdout": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC18Complete.lean:13:2: warning: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC18Complete.lean:82:56: warning: This simp argument is unused:\n  deriv_linear\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [iteratedDeriv_succ', iteratedDeriv_zero, deriv_const]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC18Complete.lean:82:69: warning: This simp argument is unused:\n  deriv_const\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [iteratedDeriv_succ', iteratedDeriv_zero, deriv_linear]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC18Complete.lean:104:49: warning: Variable name `hT` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _hT\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC18Complete.lean:159:34: warning: This simp argument is unused:\n  deriv_const_mul_field\n\nHint: Omit it from the simp argument list.\n  [apply] simp (disch := fun_prop) only [deriv_fun_add, deriv_fun_sub, deriv_fun_mul, deriv_fun_pow, deriv_div_const,\n    deriv_mul_const_field, deriv_const, DU, DV, DUX, DVX, DTU]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC18Complete.lean:159:56: warning: This simp argument is unused:\n  deriv_mul_const_field\n\nHint: Omit it from the simp argument list.\n  [apply] simp (disch := fun_prop) only [deriv_fun_add, deriv_fun_sub, deriv_fun_mul, deriv_fun_pow, deriv_div_const,\n    deriv_const_mul_field, deriv_const, DU, DV, DUX, DVX, DTU]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC18Complete.lean:164:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC18Complete.lean:185:16: warning: This simp argument is unused:\n  dm\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [n2, lt, lxx, lx, dx, dt, H, W, d0, mm, lap, localSamples, slice, Pi.add_apply, Pi.sub_apply,\n    Pi.mul_apply, Pi.div_apply, Pi.pow_apply, Pi.smul_apply, Pi.ofNat_apply, smul_eq_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC18Complete.lean:185:42: warning: This simp argument is unused:\n  mm\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [n2, dm, lt, lxx, lx, dx, dt, H, W, d0, lap, localSamples, slice, Pi.add_apply, Pi.sub_apply,\n    Pi.mul_apply, Pi.div_apply, Pi.pow_apply, Pi.smul_apply, Pi.ofNat_apply, smul_eq_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC18Complete.lean:189:34: warning: This simp argument is unused:\n  deriv_const_mul_field\n\nHint: Omit it from the simp argument list.\n  [apply] simp (disch := fun_prop) only [deriv_fun_add, deriv_fun_sub, deriv_fun_mul, deriv_fun_pow, deriv_div_const,\n    deriv_mul_const_field, deriv_const, DU, DV, DUX, DVX, DTV]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC18Complete.lean:189:56: warning: This simp argument is unused:\n  deriv_mul_const_field\n\nHint: Omit it from the simp argument list.\n  [apply] simp (disch := fun_prop) only [deriv_fun_add, deriv_fun_sub, deriv_fun_mul, deriv_fun_pow, deriv_div_const,\n    deriv_const_mul_field, deriv_const, DU, DV, DUX, DVX, DTV]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC18Complete.lean:194:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC18Complete.lean:200:56: warning: Variable name `hv` is not explicitly referenced.\n\nHint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:\n  [apply] _hv\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`\n'DLWContract.c18_proved' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 35.13694569998188,
+    "artifact_sha256": "4cd10fd15e41aa0737797cbbff1478f9163b98b94568cb6d3bc46205265cdbf2",
+    "artifact_companions": {
+      "PkgC18Complete.olean": "4cd10fd15e41aa0737797cbbff1478f9163b98b94568cb6d3bc46205265cdbf2"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\cells\\TheoryLimitImport.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\lib\\lean\\TheoryLimitImport.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\cells",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\lib\\lean\\TheoryLimitImport.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\cells\\TheoryLimitImport.lean"
+    ],
+    "sha256": "9291c3652b4cee177e6e3d59d9dedb7d45e0dc6400f3b5c41df9e29fad0c936e",
+    "stdout": "def DLWContract.C17 : Prop :=\n∀ (f g : XYT),\n  Smooth3 f →\n    Smooth3 g →\n      Positive3 f →\n        Positive3 g →\n          (∀ (h : ℝ),\n              physU (sampleF h f) (sampleG h g) = sampleF h (interpU h f g) ∧\n                physV h (sampleF h f) (sampleG h g) = sampleF h (interpV h f g)) ∧\n            ∀ (x y t : ℝ),\n              (PowBound 2 fun h => interpU h f g x y t - cu f g x y t) ∧\n                PowBound 2 fun h => interpV h f g x y t - cv f g x y t\n'physical_reconstruction_limit' depends on axioms: [propext, Classical.choice, Quot.sound]\n'nonlinear_continuum_limit' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 17.518699300009757,
+    "artifact_sha256": "445e0380b79294d01c6a100796cb273f4f3d45d3f04856a2cb301457d7139f1f",
+    "artifact_companions": {
+      "TheoryLimitImport.olean": "445e0380b79294d01c6a100796cb273f4f3d45d3f04856a2cb301457d7139f1f"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramRateExtension.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\ad4ec62424ec32613f60ecacd21545ce5dcb657e3feca205331a3f9aac502b9f\\build_26c3966a1be84dfcb21ce7d594a18d8f\\lib\\lean\\PkgGramRateExtension.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\ad4ec62424ec32613f60ecacd21545ce5dcb657e3feca205331a3f9aac502b9f\\build_26c3966a1be84dfcb21ce7d594a18d8f\\lib\\lean\\PkgGramRateExtension.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramRateExtension.lean"
+    ],
+    "sha256": "0bfd611dec7afd45e4dc4f79a2bdcf460e5a0f93a0e69f2faac3ec9bce0eb3df",
+    "stdout": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramRateExtension.lean:15:29: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramRateExtension.lean:15:42: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\nTry this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramRateExtension.lean:50:21: warning: This simp argument is unused:\n  logDifference_odd\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [slope, logDifference, zero_div, add_zero, sub_zero, sub_self, vsub_eq_sub, smul_eq_mul, neg_inv]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramRateExtension.lean:51:30: warning: This simp argument is unused:\n  neg_inv\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [slope, logDifference_odd, logDifference, zero_div, add_zero, sub_zero, sub_self, vsub_eq_sub,\n    smul_eq_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\n'DLWContract.GramRateExtension.extendedRate_analytic' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DLWContract.GramRateExtension.extendedRate_derivative_zero' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 17.714762799994787,
+    "artifact_sha256": "4e2beebeed754370d36ad859aa658a37457713b387c5ff314caa4f95c1f1ff69",
+    "artifact_companions": {
+      "PkgGramRateExtension.olean": "4e2beebeed754370d36ad859aa658a37457713b387c5ff314caa4f95c1f1ff69"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramInterpolation.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\e814603ddae9e4c71e0efb022c4136f305f36f5c2a562755ce98bdb991b9736a\\build_1bb028e0b3ab4c2b85000f7c89a32119\\lib\\lean\\PkgGramInterpolation.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\e814603ddae9e4c71e0efb022c4136f305f36f5c2a562755ce98bdb991b9736a\\build_1bb028e0b3ab4c2b85000f7c89a32119\\lib\\lean\\PkgGramInterpolation.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramInterpolation.lean"
+    ],
+    "sha256": "e9847658d61bb6722b0b28926dec0d26e939a22143d1c876835d7bce1673ee31",
+    "stdout": "'DLWContract.GramInterpolation.ext_even' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DLWContract.GramInterpolation.extF_positive' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 18.598221499996725,
+    "artifact_sha256": "159d8dbf859335b8c29fe0efc9b4f862c2f71914d42d4acc2f40f30c1cfa5708",
+    "artifact_companions": {
+      "PkgGramInterpolation.olean": "159d8dbf859335b8c29fe0efc9b4f862c2f71914d42d4acc2f40f30c1cfa5708"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramInterpolationBridge.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\583adbf2cd6bc4899f9da9019bea6de89ff90acbce985cee622c1877d2589eaf\\build_79256f5ee96540a099d7d64272667252\\lib\\lean\\PkgGramInterpolationBridge.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\583adbf2cd6bc4899f9da9019bea6de89ff90acbce985cee622c1877d2589eaf\\build_79256f5ee96540a099d7d64272667252\\lib\\lean\\PkgGramInterpolationBridge.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramInterpolationBridge.lean"
+    ],
+    "sha256": "8d8478e7598c934611a160037bd54669a5dd877b29a2b2242ab071344cad5599",
+    "stdout": "",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 17.9876779000042,
+    "artifact_sha256": "28b08010dd03d2288dd217736f016174aea53b3125d6541401a75393467ef83b",
+    "artifact_companions": {
+      "PkgGramInterpolationBridge.olean": "28b08010dd03d2288dd217736f016174aea53b3125d6541401a75393467ef83b"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramExtensionBridge.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\a92e97e02aaaaf49fb699455eae3f20d8bc299fba422919087eb0b677afa865f\\build_f1a29d66f77b467a96d2f2bb046cb45a\\lib\\lean\\PkgGramExtensionBridge.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\a92e97e02aaaaf49fb699455eae3f20d8bc299fba422919087eb0b677afa865f\\build_f1a29d66f77b467a96d2f2bb046cb45a\\lib\\lean\\PkgGramExtensionBridge.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramExtensionBridge.lean"
+    ],
+    "sha256": "4d4e5ede44c1939a6d848657348f45dde7a752c0d5fc40768549ea3ff1027aac",
+    "stdout": "'DLWContract.GramInterpolation.extension_zero' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DLWContract.GramInterpolation.extension_eq' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 15.922683300013887,
+    "artifact_sha256": "f5347aa3e71f65f636720a4fb0c049542814c4d6669d6e9ac8616ffaecff4018",
+    "artifact_companions": {
+      "PkgGramExtensionBridge.olean": "f5347aa3e71f65f636720a4fb0c049542814c4d6669d6e9ac8616ffaecff4018"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgUniformTaylor.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\fddc53f59480a1e3adf2978a409164219e07da8f6ebc1e70b4e4ec667fc23e01\\build_2128a8832c59459286de8b2b2e24ce4c\\lib\\lean\\PkgUniformTaylor.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\fddc53f59480a1e3adf2978a409164219e07da8f6ebc1e70b4e4ec667fc23e01\\build_2128a8832c59459286de8b2b2e24ce4c\\lib\\lean\\PkgUniformTaylor.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgUniformTaylor.lean"
+    ],
+    "sha256": "96842cda750c0b39a0bfb6167a30ce7b20cd40cada07acff7d95175fae7f6842",
+    "stdout": "'DLWContract.UniformTaylor.second_order_on_compact' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DLWContract.UniformTaylor.third_order_on_compact' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 16.262847300007707,
+    "artifact_sha256": "dbde1db2a3a0b5174f8ae26ac1607833be70fc71e7757e04514de56531072ae5",
+    "artifact_companions": {
+      "PkgUniformTaylor.olean": "dbde1db2a3a0b5174f8ae26ac1607833be70fc71e7757e04514de56531072ae5"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgUniformAnalytic.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\58d048da2eee7faa84339bda992389598d33df18c3cb96bfc63cf6b57b9ea945\\build_f0644145c42946008aa5ee22b8db42d4\\lib\\lean\\PkgUniformAnalytic.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\58d048da2eee7faa84339bda992389598d33df18c3cb96bfc63cf6b57b9ea945\\build_f0644145c42946008aa5ee22b8db42d4\\lib\\lean\\PkgUniformAnalytic.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgUniformAnalytic.lean"
+    ],
+    "sha256": "d45c4e99ec7cb5dddcb7d18de5973ff6ef0f54cb183974e22626546b474d11f8",
+    "stdout": "'DLWContract.UniformAnalytic.uniform_second_order' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DLWContract.UniformAnalytic.uniform_third_order' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 15.896633700001985,
+    "artifact_sha256": "f203f9552ff3e9f8d243cd67d9a08630358f5d1779999d9ed92488e7f2ddb66c",
+    "artifact_companions": {
+      "PkgUniformAnalytic.olean": "f203f9552ff3e9f8d243cd67d9a08630358f5d1779999d9ed92488e7f2ddb66c"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgAnalyticJets.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\689769cda71cd080e28b90d19ee30ee111c4a46403c860bce6882a5bdd212061\\build_2243c9f558da4a63bbb719946f75dbc3\\lib\\lean\\PkgAnalyticJets.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\689769cda71cd080e28b90d19ee30ee111c4a46403c860bce6882a5bdd212061\\build_2243c9f558da4a63bbb719946f75dbc3\\lib\\lean\\PkgAnalyticJets.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgAnalyticJets.lean"
+    ],
+    "sha256": "e9a2b095b0cd8836dada85caa2ff9a1c73289fe082923acb91c186a1d6516428",
+    "stdout": "",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 17.60713369998848,
+    "artifact_sha256": "b973304cfa5cd796c3bc35866527e6bc9b120ea52f9fbee2ad265d386cf9ec0e",
+    "artifact_companions": {
+      "PkgAnalyticJets.olean": "b973304cfa5cd796c3bc35866527e6bc9b120ea52f9fbee2ad265d386cf9ec0e"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramExtensionAnalytic.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\3e4a77507ae1f9e9a3bc05e069ddc094eff0e3cbc089f3517f2cbd2bfbb5f35d\\build_5544328d8a584499afe2fe27da5e45f1\\lib\\lean\\PkgGramExtensionAnalytic.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\3e4a77507ae1f9e9a3bc05e069ddc094eff0e3cbc089f3517f2cbd2bfbb5f35d\\build_5544328d8a584499afe2fe27da5e45f1\\lib\\lean\\PkgGramExtensionAnalytic.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramExtensionAnalytic.lean"
+    ],
+    "sha256": "35ffc304cc21d037ef02f2fd33bd06cf48741756bd577432310c508ca29f9235",
+    "stdout": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgGramExtensionAnalytic.lean:66:4: warning: Unused tactic linter: `change ContDiffAt ℝ ⊤ swap q` does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\n'DLWContract.GramInterpolation.jets_analytic' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 18.296720300015295,
+    "artifact_sha256": "0e10835de252eb8e37978876484b8e47d13e30e871efe256912c148ddc2756e1",
+    "artifact_companions": {
+      "PkgGramExtensionAnalytic.olean": "0e10835de252eb8e37978876484b8e47d13e30e871efe256912c148ddc2756e1"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgCenteredFamily.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\df5d88be1d3bdb255b65457667a99549b431710e687a15f097103469199ff9cd\\build_21d6677798e94a838ca2cc1ec909b366\\lib\\lean\\PkgCenteredFamily.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\df5d88be1d3bdb255b65457667a99549b431710e687a15f097103469199ff9cd\\build_21d6677798e94a838ca2cc1ec909b366\\lib\\lean\\PkgCenteredFamily.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgCenteredFamily.lean"
+    ],
+    "sha256": "c55f2238b18d89b755a453a3573dc4177bfcbb7f3de20defabf9b8882d02a403",
+    "stdout": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgCenteredFamily.lean:19:2: warning: Unused tactic linter: `change ContDiffAt ℝ ⊤ (shift c) p` does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgCenteredFamily.lean:35:53: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgCenteredFamily.lean:69:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\nTry this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\nTry this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\nTry this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    \n  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgCenteredFamily.lean:78:12: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 17.82687730001635,
+    "artifact_sha256": "a8068298b023fab928d2b32cedbdf1aa9c36f57a441f9ceadca6c7af8c60281d",
+    "artifact_companions": {
+      "PkgCenteredFamily.olean": "a8068298b023fab928d2b32cedbdf1aa9c36f57a441f9ceadca6c7af8c60281d"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgCenteredUniform.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\749d8f8f8484850bb975c4dab16281cafcb4d3a7c2cd1eb10b9d2b4a6ef3f1f1\\build_c560699d5cf3424fb99ea2ee95c02808\\lib\\lean\\PkgCenteredUniform.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\749d8f8f8484850bb975c4dab16281cafcb4d3a7c2cd1eb10b9d2b4a6ef3f1f1\\build_c560699d5cf3424fb99ea2ee95c02808\\lib\\lean\\PkgCenteredUniform.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgCenteredUniform.lean"
+    ],
+    "sha256": "a25c8172b9007d46dd4c1f1127528314a1a4a1c80b11515cef04793cacbdfb12",
+    "stdout": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgCenteredUniform.lean:14:4: warning: Unused tactic linter: `change ContDiffAt ℝ ⊤ (fun p : Full => ((0, p.2) : Full)) (0, z)` does nothing\n\nNote: This linter can be disabled with `set_option linter.unusedTactic false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgCenteredUniform.lean:25:23: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n'DLWContract.CenteredFamily.uniform_fields' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 16.654128399997717,
+    "artifact_sha256": "38511ba43f03836c675376feda3a9778727bcea054caf319bbd935cdc75f9270",
+    "artifact_companions": {
+      "PkgCenteredUniform.olean": "38511ba43f03836c675376feda3a9778727bcea054caf319bbd935cdc75f9270"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC22Complete.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\f344f8dfaaaa726f2fb6761e1f2e4f24e13b315b5a211fc972fb8a3db348e72e\\build_541d6075a27c4725997e6398bdd590a6\\lib\\lean\\PkgC22Complete.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\f344f8dfaaaa726f2fb6761e1f2e4f24e13b315b5a211fc972fb8a3db348e72e\\build_541d6075a27c4725997e6398bdd590a6\\lib\\lean\\PkgC22Complete.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC22Complete.lean"
+    ],
+    "sha256": "fb070f668292030ce371518839b8b7a49016b34a7e80fb2b88af70c91a756b7b",
+    "stdout": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC22Complete.lean:46:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n'DLWContract.c22_proved' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 16.22564489999786,
+    "artifact_sha256": "2a816d3e8d0e42fdc781fa282e0144dbd1279b989ad478b6d84fec607f231336",
+    "artifact_companions": {
+      "PkgC22Complete.olean": "2a816d3e8d0e42fdc781fa282e0144dbd1279b989ad478b6d84fec607f231336"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgContinuousGram.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\e876465e31a0ced9a5d7260aceddff0e3c0070e0a6b9b50b40061d9108b29b1b\\build_ff13280db94747ceb1105a3f2b92b955\\lib\\lean\\PkgContinuousGram.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\e876465e31a0ced9a5d7260aceddff0e3c0070e0a6b9b50b40061d9108b29b1b\\build_ff13280db94747ceb1105a3f2b92b955\\lib\\lean\\PkgContinuousGram.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgContinuousGram.lean"
+    ],
+    "sha256": "7e9be6b772cad1027e495593af2392b7f3579a77c971f7b71cdda85eeeaf6184",
+    "stdout": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgContinuousGram.lean:115:31: warning: This simp argument is unused:\n  parameter\n\nHint: Omit it from the simp argument list.\n  [apply] simp\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgContinuousGram.lean:115:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 17.18832729998394,
+    "artifact_sha256": "c1d68eb31b07a92d14a94433162b37522ace60d31b9184919aeef8748dbeb315",
+    "artifact_companions": {
+      "PkgContinuousGram.olean": "c1d68eb31b07a92d14a94433162b37522ace60d31b9184919aeef8748dbeb315"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgContinuousGramCurve.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\a2215a8e998cf53482c0412a7cc39f69bfb749a1c07e350736e5156abec0b92f\\build_b18820d74e874429b596bdb1d72cfe53\\lib\\lean\\PkgContinuousGramCurve.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\a2215a8e998cf53482c0412a7cc39f69bfb749a1c07e350736e5156abec0b92f\\build_b18820d74e874429b596bdb1d72cfe53\\lib\\lean\\PkgContinuousGramCurve.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgContinuousGramCurve.lean"
+    ],
+    "sha256": "0a89d556861a04e3fdff597d84be1b4d2794f3db7ca8a764ce9ad104d8b34d7e",
+    "stdout": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgContinuousGramCurve.lean:54:25: warning: This simp argument is unused:\n  zero_mul\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [parameter, mul_zero, zero_pow (by decide : 2 ≠ 0), add_zero, zero_div, zero_add, gamma, rate]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgContinuousGramCurve.lean:55:24: warning: This simp argument is unused:\n  zero_add\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [parameter, zero_mul, mul_zero, zero_pow (by decide : 2 ≠ 0), add_zero, zero_div, gamma, rate]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgContinuousGramCurve.lean:79:38: warning: This simp argument is unused:\n  A\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [Y, id_eq]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgContinuousGramCurve.lean:90:38: warning: This simp argument is unused:\n  Matrix.smul_apply\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [B, Y, Pi.smul_apply, smul_eq_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgContinuousGramCurve.lean:90:56: warning: This simp argument is unused:\n  B\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [Matrix.smul_apply, Y, Pi.smul_apply, smul_eq_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgContinuousGramCurve.lean:90:60: warning: This simp argument is unused:\n  Pi.smul_apply\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [Matrix.smul_apply, B, Y, smul_eq_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgContinuousGramCurve.lean:90:74: warning: This simp argument is unused:\n  smul_eq_mul\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [Matrix.smul_apply, B, Y, Pi.smul_apply]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgContinuousGramCurve.lean:79:23: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgContinuousGramCurve.lean:79:49: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgContinuousGramCurve.lean:90:23: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgContinuousGramCurve.lean:90:87: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 16.013724299991736,
+    "artifact_sha256": "024f6ad91a1a895ad4deec188a4e5344b68cd91a6be3b3438131e5c8d81ec2ee",
+    "artifact_companions": {
+      "PkgContinuousGramCurve.olean": "024f6ad91a1a895ad4deec188a4e5344b68cd91a6be3b3438131e5c8d81ec2ee"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC23Complete.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\a5f2b105f8f7f53c55353eed24f839ce03a51036c1e66ec56f01bf5e2efd1b0e\\build_4f899411e9564cbb957df5d6b199e043\\lib\\lean\\PkgC23Complete.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\report_colab_20261006\\proof_cache\\a5f2b105f8f7f53c55353eed24f839ce03a51036c1e66ec56f01bf5e2efd1b0e\\build_4f899411e9564cbb957df5d6b199e043\\lib\\lean\\PkgC23Complete.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC23Complete.lean"
+    ],
+    "sha256": "631fabb1154d1f33bd3b8ca61767a9a1bf1eb385d541228724ecdc0c44c25871",
+    "stdout": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC23Complete.lean:51:17: warning: This simp argument is unused:\n  mul_neg\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [chx, hx, slice, Pi.neg_apply, Pi.sub_apply, Pi.mul_apply, parameter, zero_pow (by decide : 2 ≠ 0),\n    mul_zero, zero_div, add_zero, sub_self, zero_mul, neg_zero, one_mul]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC23Complete.lean:51:25: warning: This simp argument is unused:\n  one_mul\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [chx, hx, slice, Pi.neg_apply, Pi.sub_apply, Pi.mul_apply, parameter, zero_pow (by decide : 2 ≠ 0),\n    mul_zero, zero_div, add_zero, sub_self, zero_mul, neg_zero, mul_neg]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC23Complete.lean:55:27: warning: This simp argument is unused:\n  slice\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [cbil, fixed_sy, Pi.zero_apply] at hd\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC23Complete.lean:55:33: warning: This simp argument is unused:\n  Pi.zero_apply\n\nHint: Omit it from the simp argument list.\n  [apply] simp only [cbil, fixed_sy, slice] at hd\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC23Complete.lean:48:24: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\nC:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\proofs\\PkgC23Complete.lean:51:34: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice\n\nNote: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`\n'DLWContract.c23_proved' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 18.683328999992227,
+    "artifact_sha256": "fd7b2b985a767d2c040dbbc7bfd24b26aae3ab143a893f2da8490b65659a5fcf",
+    "artifact_companions": {
+      "PkgC23Complete.olean": "fd7b2b985a767d2c040dbbc7bfd24b26aae3ab143a893f2da8490b65659a5fcf"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\cells\\TheorySolutionlimitImport.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\lib\\lean\\TheorySolutionlimitImport.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\cells",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\lib\\lean\\TheorySolutionlimitImport.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\cells\\TheorySolutionlimitImport.lean"
+    ],
+    "sha256": "9b15b92f66eaacdd018270c90629a450ebcbd5e9396a2d30741634ee2893bd9e",
+    "stdout": "def DLWContract.UniformBoxO2 : (ℝ → XYT) → Prop :=\nfun e =>\n  ∀ (R : ℝ),\n    0 < R →\n      ∃ C, 0 ≤ C ∧ ∃ ε, 0 < ε ∧ ∀ (h x y t : ℝ), 0 < h → h < ε → |x| ≤ R → |y| ≤ R → |t| ≤ R → |e h x y t| ≤ C * h ^ 2\n'lattice_phase_limit' depends on axioms: [propext, Classical.choice, Quot.sound]\n'exact_lattice_interpolation' depends on axioms: [propext, Classical.choice, Quot.sound]\n'continuous_Gram_pair' depends on axioms: [propext, Classical.choice, Quot.sound]\n'exact_solution_limit' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 15.948259299999336,
+    "artifact_sha256": "c6deec6ee8829aefe120a0e999a4c983bf07e4ee01c0ee886b99c131839cf78e",
+    "artifact_companions": {
+      "TheorySolutionlimitImport.olean": "c6deec6ee8829aefe120a0e999a4c983bf07e4ee01c0ee886b99c131839cf78e"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\cells\\StepQRMImport.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\lib\\lean\\StepQRMImport.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\cells",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\lib\\lean\\StepQRMImport.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\cells\\StepQRMImport.lean"
+    ],
+    "sha256": "a40068712eadd8a76899a5c64a0af043e9828884cd82c4f2cbb9f422681fe78f",
+    "stdout": "",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 15.124555199989118,
+    "artifact_sha256": "848d72bc1ec35dd5fa17ece970943a4a103ba2699c1da33b0042ef2f4e82cc16",
+    "artifact_companions": {
+      "StepQRMImport.olean": "848d72bc1ec35dd5fa17ece970943a4a103ba2699c1da33b0042ef2f4e82cc16"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\cells\\StepQRMStart.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\lib\\lean\\StepQRMStart.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\cells",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\lib\\lean\\StepQRMStart.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\cells\\StepQRMStart.lean"
+    ],
+    "sha256": "2c64133bcbcc92c6e3f0cdcf7d5a6f05bd4bb58a3c7dce54bcf71b49f7d026a0",
+    "stdout": "def DLWContract.ReportQRM.StartPoint : ℝ → ℝ → Lattice → Lattice → Prop :=\nfun a h F G => ∀ (j : ℤ), bil (a - h / 2) (F j) (G j) = 0 ∧ bil (a + h / 2) (F j) (G (j + 1)) = 0\n",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 14.928394900023704,
+    "artifact_sha256": "5c7f0c50d50e34a3630865d0cb4ab2453f9e5acdcc17a3eb24407a0db21e2a8e",
+    "artifact_companions": {
+      "StepQRMStart.olean": "5c7f0c50d50e34a3630865d0cb4ab2453f9e5acdcc17a3eb24407a0db21e2a8e"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\cells\\StepQRMEndpoint.lean",
+    "artifact": "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\lib\\lean\\StepQRMEndpoint.olean",
+    "command": [
+      "C:/Users/msz/.elan/toolchains/leanprover--lean4---v4.34.0/bin/lean.exe",
+      "-R",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\cells",
+      "-o",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\lib\\lean\\StepQRMEndpoint.olean",
+      "C:\\Users\\msz\\aca\\Workspaces\\dlw_theory_notebook_20261008\\runs\\20261008_175854_8773c8d6\\cells\\StepQRMEndpoint.lean"
+    ],
+    "sha256": "b3b6655b539fcf75c4a4fdc634e602f4d186cd9fa6f53e0b684c1614accab689",
+    "stdout": "'DLWContract.ReportQRM.semiPair_implies_report21' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DLWContract.ReportQRM.report22' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+    "stderr": "",
+    "exit_code": 0,
+    "seconds": 15.883338499988895,
+    "artifact_sha256": "25a31d2243463ca8dba15cd9c6346087aa91e44a0a415bb19f6cb5fa740f4b35",
+    "artifact_companions": {
+      "StepQRMEndpoint.olean": "25a31d2243463ca8dba15cd9c6346087aa91e44a0a415bb19f6cb5fa740f4b35"
+    },
+    "runtime_identity": {
+      "compiler_version": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+      "compiler_sha256": "a8040e2cab341c12116ab591fed9f761816f5f6b08554f6cc1680e86dfbba0a2",
+      "toolchain": "leanprover/lean4:v4.34.0",
+      "mathlib_commit": "5ed2965256430c3649e86755f9576b54eca72435",
+      "mathlib_manifest_sha256": "f119e394cf6489f81d85dc9356db2836c7fbc63515c12baf283a3295a6a5a99e",
+      "lean_paths": [
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Cli\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\batteries\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\Qq\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\aesop\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\proofwidgets\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\importGraph\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\LeanSearchClient\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\packages\\plausible\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\aca\\_lean_shared\\mathlib\\.lake\\build\\lib\\lean",
+        "C:\\Users\\msz\\.elan\\toolchains\\leanprover--lean4---v4.34.0\\lib\\lean"
+      ]
+    },
+    "passed": true
+  }
+]

@@ -1,0 +1,1690 @@
+                                                 Linearly implicit local and global energy-preserving
+                                                    methods for PDEs with a cubic Hamiltonian
+                                                                               Sølve Eidnes∗ and Lu Li*
+
+
+                                                                                      July 14, 2020
+arXiv:1907.02122v2 [math.NA] 12 Jul 2020
+
+
+
+
+                                                                                         Abstract
+                                                     We present linearly implicit methods that preserve discrete approximations to local and
+                                                 global energy conservation laws for multi-symplectic PDEs with cubic invariants. The meth-
+                                                 ods are tested on the one-dimensional Korteweg–de Vries equation and the two-dimensional
+                                                 Zakharov–Kuznetsov equation; the numerical simulations confirm the conservative proper-
+                                                 ties of the methods, and demonstrate their good stability properties and superior running
+                                                 speed when compared to fully implicit schemes.
+                                                    Keywords: Structure-preserving methods, multi-symplectic PDEs, Kahan’s method.
+                                                    Classification: 37K05, 65M06, 65P10
+
+
+                                           1    Introduction
+                                           In recent years, much attention has been given to the design and analysis of numerical methods
+                                           for differential equations that can capture geometric properties of the exact flow. The increased
+                                           interest in this subject can mainly be attributed to the superior qualitative behaviour over long
+                                           time integration of such structure-preserving methods, see [1, 2, 3]. A popular class of structure-
+                                           preserving methods are energy-preserving methods. Energy preservation has a far-reaching
+                                           importance throughout the physical sciences [4, 5]. In particular, it has been found to be crucial
+                                           in the proof of stability for several numerical methods, see e.g. [6].
+                                               Energy-preserving methods are well studied for finite-dimensional Hamiltonian systems
+                                           [7, 8, 9, 10]. It is also highly conceivable that the ideas behind the finite-dimensional setting
+                                           can be extended to the infinite-dimensional Hamiltonian systems or Hamiltonian partial dif-
+                                           ferential equations (PDEs) [11]. There are two popular ways to construct energy-preserving
+                                           methods for Hamiltonian PDEs. One approach is to semi-discretize the PDE in space so that
+                                           one obtains a system of Hamiltonian ordinary differential equations (ODEs), and then apply an
+                                           energy-preserving method to this semi-discrete system, see for example [10]. In this way, it is
+                                           straightforward to generalise the energy-preserving methods for finite-dimensional Hamiltonian
+                                              * Department of Mathematical Sciences, NTNU, N–7491 Trondheim, Norway.
+                                           Sølve Eidnes: solve.eidnes@ntnu.no; Lu Li (corresponding author): lu.li@ntnu.no.
+
+
+                                                                                             1
+systems to Hamiltonian PDEs. However, such methods conserve only a global energy that relies
+on a proper boundary condition, such as a periodic boundary condition. If this is not present, the
+energy-preserving property will be destroyed. The other approach is based on a reformulation
+of the Hamiltonian PDE into a multi-symplectic form, which provides the PDE with three local
+conservation laws: the multi-symplectic conservation law, the energy conservation law and the
+momentum conservation law [5, 12, 13]. Then one may consider methods that preserve the
+local conservation laws, see for example multi-symplectic integrators [14] and integrators which
+preserve the energy conservation law or the momentum conservation law [15, 16]. Although
+multi-symplectic integrators, like symplectic integrators, are proven to give good numerical ap-
+proximations of the solution, such methods can only preserve quadratic invariants [17, 15]. The
+focus of this paper is on integrators that preserve the local energy conservation law [18]. These
+locally defined properties are not dependent on the choice of boundary conditions, giving the
+methods that preserve local energy an advantage over methods that preserve a global energy,
+especially since local conservation laws will always lead to global conservation laws whenever
+periodic boundary conditions are considered. The concept of a multi-symplectic structure for
+PDEs was introduced by Bridges in [5, 12], see also [19] for a framework based on a Lagrangian
+formulation of the Cartan form. Local energy-preserving methods were first studied in [20], and
+have garnered much interest recently, see for example [18, 21, 22].
+     Most of the local energy-preserving methods proposed so far are fully implicit methods, for
+which a non-linear system must be solved at each time step. This is normally done by using an
+iterative solver where a linear system is solved at each iteration, which can lead to computationally
+expensive procedures, especially since the number of iterations needed in general increases with
+the size of the system. A fully explicit method on the other hand, may over-simplify the problem
+and often has inferior stability properties, so that a strong restriction on the grid ratio is needed.
+A good alternative may therefore be to develop linearly implicit schemes, where the solution at
+the next time step is found by solving only one linear system.
+     One example of linearly implicit methods for Hamiltonian ODEs is Kahan’s method, which
+was designed for solving quadratic ODEs [23] and whose geometric properties have been studied
+in a series of papers by Celledoni et al. [24, 25, 26]. For Hamiltonian PDEs, Matsuo and Furihata
+proposed the idea of using multiple points to discretize the variational derivative and thus design
+linearly implicit energy-preserving schemes [27]. Dahlby and Owren generalised this concept and
+developed a framework for deriving linearly implicit energy-preserving multi-step methods for
+Hamiltonian PDEs with polynomial invariants [28]. A comparison of this approach and Kahan’s
+method applied to PDEs is given in [29]. Recently, more work has been put into developing
+linearly implicit energy-preserving schemes for Hamiltonian PDEs, e.g. the partitioned averaged
+vector field (PAVF) method [30] and schemes based on the invariant energy quadratization (IEQ)
+approach [31] or the multiple scalar auxiliary variables (MSAV) approach [32]. However, little
+attention has been given to linearly implicit local energy-preserving methods. To the best of
+the authors’ knowledge, the only existing method is one based on the IEQ approach, specific
+for the sine-Gordon equation [33]. In this paper, we use Kahan’s method to construct a linearly
+implicit method that preserves a discrete approximation to the local energy for multi-symplectic
+PDEs with a cubic energy function. This class is extensive, and includes among other PDEs
+the Korteweg–de Vries (KdV) equation, the Benjamin–Bona–Mahony (BBM) equation [34],
+
+
+                                                  2
+Boussinesq-type systems [35], and the Camassa–Holm equation [36].
+    The rest of this paper is organized as follows. First, we give an overview of Kahan’s method
+and formulate it by using a polarised energy function. A brief introduction to multi-symplectic
+PDEs and their conservation laws are presented in Section 3. In Section 4, new linearly implicit
+local and global energy-preserving schemes are presented. Numerical examples for the KdV
+and Zakharov–Kuznetsov equations are given in Section 5, before we end the paper with some
+concluding remarks.
+
+
+2    Kahan’s method
+Consider an ODE system
+
+                                 ẏ = f (y) = Q̂(y) + B̂ y + ĉ,      y ∈ RM ,                   (2.1)
+
+where Q̂(y) is an RM valued quadratic form, B̂ ∈ RM ×M is a symmetric constant matrix, and
+ĉ ∈ RM is a constant vector. Kahan’s method is then given by
+
+                             y n+1 − y n                         y n + y n+1
+                                         = Q̄(y n , y n+1 ) + B̂             + ĉ,
+                                 ∆t                                   2
+where
+                                             1¡
+                        Q̄(y n , y n+1 ) =     Q̂(y n + y n+1 ) − Q̂(y n ) − Q̂(y n+1 )
+                                                                                        ¢
+                                             2
+is the symmetric bilinear form obtained by polarisation of the quadratic form Q̂ [24]. Polarisation,
+which maps a homogeneous polynomial function to a symmetric multi-linear form in more
+variables, was used to generalise Kahan’s method to higher degree polynomial vector fields in
+[37].
+     Suppose we restrict the problem (2.1) to be a Hamiltonian system on a Poisson vector space
+with a constant Poisson structure:
+                                          ẏ = A∇H (y),                                       (2.2)
+where A is a constant skew-symmetric matrix, and H : RM → R is a cubic polynomial function.
+We first consider the Hamiltonian H to be homogeneous. Then, following the result in Proposition
+2.1 of [37], Kahan’s method can be reformulated as
+
+                                     y n+1 − y n
+                                                 = 3A H̄ (y n , y n+1 , ·),                      (2.3)
+                                         ∆t
+where H̄ (·, ·, ·) : RM × RM × RM → R is a symmetric 3-tensor satisfying H̄ (x, x, x) = H (x). Consider
+the 3-tensor H̄ (x, y, z) = x T Q(y)z , where Q(y) = 16 ∇2 H (y), with ∇2 H being the Hessian of H ;
+then we can rewrite Kahan’s method (2.3) as
+                                      y n+1 − y n      ∂ H̄ ¯¯
+                                                  = 3A                  ,                        (2.4)
+                                          ∆t           ∂x (y n ,y n+1 )
+                                                             ¯
+
+
+where ∂∂xH̄ denotes the partial derivative with respect to the first argument of H̄ .
+
+                                                         3
+    Consider then the cases where the Hamiltonian in problem (2.2) is non-homogeneous, i.e. of
+the general form
+
+                                          H (y) = y T Q(y)y + y T B y + c T y + d ,                                             (2.5)
+
+where Q(y) is the linear part of ∇2 H (y) and thus a symmetric matrix whose elements are ho-
+mogeneous linear polynomials, B is the constant part of ∇2 H (y) and thus a symmetric constant
+matrix, c is a constant vector and d is a constant scalar. We follow the technique in [24], adding
+one variable to y = (y 1 , . . . , y M )T to get ỹ = (y 0 , y 1 , . . . , y M )T , extending A to Ã by adding a zero
+initial row and a zero initial column, considering a homogeneous function H̃ ( ỹ) based on the
+non-homogeneous Hamiltonian H (y) such that H̃ ( ỹ)| y 0 =1 = H (y), and finally solving instead of
+(2.2) the equivalent, homogeneous cubic Hamiltonian problem
+
+                                                           ỹ˙ = Ã∇ H̃ ( ỹ)
+
+with y 0 = 1. In this way we can still get the reformulation of Kahan’s method as (2.4) with
+                                            1                               1
+                  H̄ (x, y, z) = x T Q(y)z + (x T B y + y T B z + z T B x) + c T (x + y + z) + d .                              (2.6)
+                                            3                               3
+
+Remark 1. The R-valued function H̄ (x, y, z) in (2.6) has the following properties:
+
+    1. H̄ (x, y, z) is symmetric1 w.r.t. x , y and z ,
+
+    2. H̄ (x, x, x) = H (x),
+         ∂ H̄ (x,y,z)          B (y+z)
+    3.        ∂x      = Q(y)z + 3 + 3c is symmetric w.r.t. y and z .
+
+
+    In this paper, we will use the form of Kahan’s method in (2.4) to prove the energy preservation
+of the proposed methods.
+
+
+3     Conservation laws for multi-symplectic PDEs
+Many PDEs, including all one-dimensional Hamiltonian PDEs, can be written on the multi-
+symplectic form
+                      K z t + Lz x = ∇S(z), z ∈ Rl , (x, t ) ∈ R × R,            (3.1)
+where K , L ∈ Rl ×l are two constant skew-symmetric matrices and S : Rl 7→ R is a scalar-valued
+function. Following the results about multi-symplectic structure in [5], it can be shown that
+multi-symplectic PDEs satisfy the following local conservation laws [38]: the multi-symplectic
+conservation law
+                               ∂t ω + ∂x κ = 0,          ω = d z ∧ K + d z,      κ = d z ∧ L + d z,
+    1 Denote the elements in Q(y) by q               Pk                k
+                                                 k q i j y k , where q i j , i , j , k = 1, · · · , M , are scalars and y k is the k th
+                                             ijy =
+                                                                                          3
+element of y . We have that qikj satisfies qikj = qki = q ij k since qikj = 61 ∂y ∂∂yH̄∂y , which is unchanged under any
+                                                    j
+                                                                                        i   j     k
+permutation of i , j , k . This provides the symmetry of H̄ (x, y, z).
+
+
+                                                                  4
+the local energy conservation law (LECL)
+                           E t + F x = 0,    E = S(z) + z xT L + z,       F = −z tT L + z,            (3.2)
+and the local momentum conservation law (LMCL)
+                           I t +G x = 0,     G = S(z) + z tT K + z,       I = −z xT K + z,
+
+where K + and L + satisfy
+                                        K = K + − K +T ,       L = L + − L T+ .
+Decomposition of the matrices is done to make deduction of the conservation laws for energy
+and momentum more efficient [13, Section 12.3.1].
+   The multi-symplectic form (3.1) can also be generalised to problems in higher dimensional
+spaces. Consider d spatial dimensions; based on the work by Bridges [5], a multi-symplectic
+PDE can then be written as
+                                 d
+                                       L α z xα = ∇S(z),       z ∈ Rl ,    (x, t ) ∈ Rd × R,
+                                 X
+                        K zt +                                                                        (3.3)
+                                 α=1
+
+where K , L α ∈ Rl ×l (α = 1, . . . , d ) are constant skew-symmetric matrices and S : Rl → R is a
+smooth functional. Equation (3.3) has the following local energy conservation law:
+                                                      d
+                                                            F xαα = 0,
+                                                      X
+                                               Et +                                                   (3.4)
+                                                      α=1
+
+where E (z) = S(z) + dα=1 z αT L α+ z , F α = −z tT L α+ z , and L α+ are splittings of L α satisfying L α =
+                       P
+
+Lα      α T
+ + − (L + ) .
+    Say we have (3.3) defined on the spatial domain Ω ∈ Rd with periodic boundary conditions.
+Integrating over the domain Ω on both sides of the equation (3.4) and using the periodic boundary
+condition then leads to the global energy conservation law for the multi-symplectic PDEs,
+                                                  d
+                                                     E (z) = 0,                                       (3.5)
+                                                  dt
+where E (z) = Ω E (z)d Ω.
+               R
+
+Example 1. Korteweg–de Vries equation. Consider the KdV equation for modeling shallow
+water waves,
+                               u t + ηuu x + γ2 u xxx = 0,                       (3.6)
+where η, γ ∈ R. Introducing the potential φx = u , momenta v = γu x and the variable w =
+         γ2 u 2
+γv x φt + 2 by the covariant Legendre transform from the Lagrangian, we obtain
+                                            1
+                                              u t + w x = 0,
+                                            2
+                                           1                 η
+                                          − φt − γv x = −w + u 2 ,                                    (3.7)
+                                           2                 2
+                                                   γu x = v,
+                                                  −φx = −u,
+
+                                                           5
+from which we find the multi-symplectic formulation (3.1) for the KdV equation with z = (φ, u, v, w)T ,
+                         2         ηu 3
+the Hamiltonian S(z) = v2 − uw + 6 , and
+                                        1
+                                                                       
+                              0         2     0    0              0 0 0 1
+                            − 1        0     0    0            0 0 −γ 0
+                         K = 2                      ,       L=         .
+                                                                       
+                             0         0     0    0            0 γ 0 0
+                              0         0     0    0             −1 0 0 0
+
+As for the conservation laws, there are many choices of K + and L + , for example K + = K2 , L + = L2 ,
+or K + and L + being the upper triangular parts of K and L , respectively.
+Example 2. Zakharov–Kuznetsov equation. Zakharov and Kuznetsov introduced in [39] a
+(2+1)-dimensional generalisation of the KdV equation which includes weak transverse variation,
+
+                                        u t + uu x + u xxx + u x y y = 0.                             (3.8)
+
+A multi-symplectification of this leads to a system (3.3) for two spatial dimensions,
+
+                      K z t + L 1 z x + L 2 z y = ∇S(z),      z ∈ R6 ,     (x, y, t ) ∈ R2 × R.       (3.9)
+
+Following [11], we have that (3.8) is equivalent to a system of first-order PDEs,
+
+                                                          φx = u,
+                                            1                     1
+                                              φt + v x + w y = p − u 2 ,
+                                            2                     2
+                                                   w x − v y = 0,
+                                                                                                     (3.10)
+                                                  1
+                                               − u t − p x = 0,
+                                                  2
+                                                 −u x + q y = −v,
+                                                   −q x − u y = −w,
+
+which is (3.9) with z = (p, u, q, φ, v, w)T , the Hamiltonian S(z) = up − 12 (v 2 + w 2 ) − 61 u 3 , and the
+skew-symmetric matrices K , L 1 , L 2 whose only non-zero elements are
+                                        1               1
+                              k 2,4 = , k 4,2 = − ,
+                                        2               2
+                                1       1       1          1       1       1
+                              l 1,4 = l 2,5 = l 3,6 = 1, l 4,1 = l 5,2 = l 6,2 = −1,
+                                2       2              2       2
+                              l 2,6 = l 5,3 = 1,     l 6,2 = l 3,5 = −1.
+
+
+4    New linearly implicit energy-preserving schemes
+In [21], Gong, Cai and Wang present a scheme that preserves the local energy conservation
+law (3.2) of a one-dimensional multi-symplectic PDE, obtained by applying the midpoint rule
+in space and the averaged vector field (AVF) method in time. They also present schemes that
+preserve the global energy, but not (3.2), obtained by considering spatial discretizations that
+
+                                                          6
+preserve the skew-symmetric property of the difference operator ∂x . We build on their work by
+considering Kahan’s method for the discretization in time, ensuring linearly implicit schemes
+and also energy preservation.
+    To introduce our new schemes, we begin with some basic difference operators:
+
+                                    v n+1
+                                      j
+                                          − v nj                                               v nj+1 − v nj
+                       δt v nj :=                  ,                             δx v nj :=
+                                        ∆t                                                          ∆x
+                                    v n+1
+                                      j
+                                          + v nj                                               v nj+1 + v nj
+                       µt v nj :=                  ,                             µx v nj :=                    .
+                                          2                                                           2
+The operators satisfy the following properties [18]:
+
+   1. All the operators commute with each other, e.g.
+      δt δx v nj = δx δt v nj ,     δt µx v nj = µx δt v nj ,       µt δx v nj = δx µt v nj .
+
+   2. They satisfy the discrete Leibniz rule
+
+                δt (uv)nj = (εu n+1
+                                j   + (1 − ε)u nj )δt v nj + δt u nj ((1 − ε)v n+1
+                                                                               j   + εv nj ),                      0 ≤ ε ≤ 1.
+
+      Specifically,
+
+                                  δt (uv)nj = u nj δt v nj + δt u nj v n+1
+                                                                       j   ,              for ε = 0,
+                                                                                                         1
+                                  δt (uv)nj = µt u nj δt v nj + δt u nj µt v nj ,          for ε = ,
+                                                                                                         2
+                                  δt (uv)nj = u n+1
+                                                j   δt v nj + δt u nj v nj ,              for        ε = 1.
+
+One can obtain a series of similar commutative equations and discrete Leibniz rules that are
+not presented here, but which are also crucial in the proofs of the preservation properties of the
+schemes to be introduced in the remainder of this section.
+
+4.1   A local energy-preserving scheme for multi-symplectic PDEs
+In this section, we apply the midpoint rule in space and Kahan’s method in time to construct
+a local energy-preserving method for multi-symplectic PDEs. Introducing the concept by first
+considering the one-dimensional system (3.1), we apply the midpoint rule in space to get
+
+                             K ∂t µx z j + Lδx z j = ∇S(µx z j ),              j = 0, . . . , M − 1.
+
+Then applying Kahan’s method gives us the linearly implicit local energy-preserving (LILEP)
+scheme
+                                                                         ∂S̄ ¯¯
+                                    K δt µx z nj + Lδx µt z nj = 3                               .                              (4.1)
+                                                                         ∂x (µx z nj ,µx z n+1
+                                                                              ¯
+                                                                                           j
+                                                                                               )
+
+Here we consider S of the form S(y) = y T Q(y)y + y T B y + c T y + d , as in (2.5), and accordingly
+S̄(x, y, z) of the form (2.6).
+
+
+                                                                7
+Theorem 1. The scheme (4.1) satisfies the discrete local energy conservation law
+
+                                                 δt (Ē L )nj + δx (F̄ L )nj = 0,                                      (4.2)
+
+where
+             (Ē L )nj = S̄(µx z nj , µx z nj , µx z n+1
+                                                     j   )
+                         1                         1                           1                                       (4.3)
+                       + (δx z nj )T L + µx z nj + (δx z nj )T L + µx z n+1
+                                                                        j   + (δx z n+1
+                                                                                     j   )T L + µx z nj ,
+                         3                         3                           3
+                           1                         1                          1
+             (F̄ L )nj = − (δt z nj )T L + µt z nj − (δt z nj )T L + µt z n+1
+                                                                          j   − (δt z n+1
+                                                                                       j  )T L + µt z nj .
+                           3                         3                          3
+
+Proof. Taking the inner product with 13 δt µx z nj on both sides of (4.1) and using the skew-symmetry
+of matrix K , we have
+
+                             1                                             ∂S̄ ¯¯
+                               (δt µx z nj )T Lδx µt z nj = (δt µx z nj )T                         .                   (4.4)
+                                                                           ∂x (µx z nj ,µx z n+1
+                                                                                ¯
+                             3                                                               j
+                                                                                                 )
+
+
+Taking the inner product with 13 δt µx z n+1
+                                         j
+                                             on both sides of (4.1), we get
+
+     1                               1                                   n+1 T ∂S̄ ¯
+                                                                                   ¯
+       (δt µx z n+1
+                j   ) T
+                        K δ  µ z
+                            t x j
+                                 n
+                                   +   (δ  µ z
+                                          t x j
+                                               n+1 T
+                                                  )  Lδ  µ z
+                                                        x t j
+                                                             n
+                                                               = (δ  µ z
+                                                                    t x j   )                          .               (4.5)
+                                                                               ∂x (µx z nj ,µx z n+1
+                                                                                   ¯
+     3                               3                                                           j
+                                                                                                     )
+
+
+Taking the inner product with 13 δt µx z nj on both sides of the scheme (4.1) for the next time step,
+we get
+
+     1                               1                                             ∂S̄ ¯¯
+       (δt µx z nj )T K δt µx z n+1
+                                j   + (δt µx z nj )T Lδx µt z n+1
+                                                              j   = (δt µx z nj )T                          .          (4.6)
+                                                                                   ∂x (µx z n+1
+                                                                                        ¯
+     3                               3                                                      j
+                                                                                                ,µx z n+2
+                                                                                                      j
+                                                                                                          )
+
+
+Adding equations (4.4), (4.5) and (4.6) and using the skew-symmetry of matrix K , we obtain
+              1³                                                                                                   ´
+                 (δt µx z nj )T Lδx µt z nj + (δt µx z n+1      j     )T Lδx µt z nj + (δt µx z nj )T Lδx µt z n+1
+                                                                                                               j
+              3
+                                 ∂S̄                                                ∂S̄ ¯¯
+               = (δt µx z nj )T       |(µx z n ,µx z n+1 ) +(δt µx z n+1   j  )T
+                                 ∂x                                                 ∂x (µx z nj ,µx z n+1
+                                                                                         ¯
+                                             j        j                                                   )
+                                                                                                      j
+
+                                    ∂S̄ ¯¯                                                                             (4.7)
+                  + (δt µx z nj )T                                ,
+                                    ∂x (µx z n+1
+                                         ¯
+                                                 j
+                                                      ,µx z n+2
+                                                            j
+                                                                )
+                  1 ¡
+                       S̄(µx z n+1   , µx z n+1     , µx z n+2      ) − S̄(µx z nj , µx z nj , µx z n+1
+                                                                                                           ¢
+               =                j            j                j                                     j    ),
+                  ∆t
+               = δt S̄(µx z nj , µx z nj , µx z n+1
+                                                  j     ).
+
+On the other hand, using the aforementioned commutative laws and discrete Leibniz rules for the
+
+
+
+
+                                                                8
+operators, we can deduce
+
+             δt ((δx z nj )T L + µx z nj ) = (δt δx z nj )T L + µt µx z nj + (δx µt z nj )T L + δt µx z nj ,
+              δx ((δt z nj )T L + µt z nj ) = (δt δx z nj )T L + µt µx z nj + (δt µx z nj )T L + δx µt z nj ,
+           δt ((δx z n+1
+                     j   )T L + µx z nj ) = (δt δx z n+1
+                                                     j   )T L + µt µx z nj + (δx µt z n+1
+                                                                                      j   )T L + δt µx z nj ,
+                                                                                                                   (4.8)
+           δx ((δt z n+1
+                     j   )T L + µt z nj ) = (δt δx z n+1
+                                                     j   )T L + µt µx z nj + (δt µx z n+1
+                                                                                      j   )T L + δx µt z nj ,
+           δt ((δx z nj )T L + µx z n+1
+                                    j   ) = (δt δx z nj )T L + µt µx z n+1
+                                                                       j   + (δx µt z nj )T L + δt µx z n+1
+                                                                                                        j   ,
+           δx ((δt z nj )T L + µt z n+1
+                                    j   ) = (δt δx z nj )T L + µt µx z n+1
+                                                                       j   + (δt µx z nj )T L + δx µt z n+1
+                                                                                                        j   .
+
+Using the above relations (4.8), the fact that L = L + − L T+ and the result (4.7), we obtain
+
+                δt E nj + δx F jn = δt S̄(µx z nj , µx z nj , µx z n+1
+                                                                   j   )
+                                       1¡
+                                    + δt ((δx z nj )T L + µx z nj ) + δt ((δx z nj )T L + µx z n+1
+                                                                                                j      )
+                                       3
+                                                                        ¢ 1¡
+                                    + δt ((δx z n+1j   )T L + µx z nj ) − δx ((δt z nj )T L + µt z nj )
+                                                                          3
+                                                  n T             n+1
+                                    + δx ((δt z j ) L + µt z j ) + δx ((δt z n+1      )T L + µt z nj )
+                                                                                                       ¢
+                                                                                j
+                                                                          1¡
+                                  = δt S̄(µx z nj , µx z nj , µx z n+1
+                                                                   j   ) − (δt µx z nj )T Lδx µt z nj
+                                                                          3
+                                                 n+1 T               n
+                                    + (δt µx z j ) Lδx µt z j + (δt µx z nj )T Lδx µt z n+1
+                                                                                                     ¢
+                                                                                              j
+
+                                   = 0.
+
+
+
+Corollary 1. For periodic boundary conditions z(x + P, t ) = z(x, t ), the scheme (4.1) satisfies the
+discrete global energy conservation law
+                                                                        M −1
+                                       ĒLn+1 = ĒLn ,    ĒLn := ∆x              (Ē L )nj ,
+                                                                        X
+                                                                                                                   (4.9)
+                                                                           j =0
+
+
+where ∆x = P /M and (Ē L )nj is given by (4.3).
+                                                                  PM −1
+Proof. With periodic boundary conditions, we get                    j =0    δx (F̄ L )nj = 0, and thus (4.9) follows from
+(4.2).
+
+   The polarised global energy ĒLn may be considered as a function of the solution in time step
+n only, similarly to the modified Hamiltonian defined in Proposition 3 of [24].
+
+Proposition 1. With the solution z n+1 found from z n by (4.1), the discrete global energy ĒLn of
+(4.9) satisfies
+                                                   M −1 1
+                                ĒLn = ELn + ∆x              (∇E L (z nj ))T (z n+1 − z nj ),
+                                                   X
+                                                                                j                                 (4.10)
+                                                    j =0 3
+
+
+
+                                                              9
+where
+                                   M −1
+                      ELn := ∆x            E L (z nj ),   E L (z nj ) := S(µx z nj ) + (δx z nj )T L + µx z nj ,
+                                   X
+                                                                                                                        (4.11)
+                                    j =0
+
+
+while z n+1
+        j
+            − z nj satisfies
+
+                                             R L (z nj )(z n+1
+                                                           j   − z nj ) = ∆t g L (z nj ),                               (4.12)
+
+with g L (z nj ) = ∇S(µx z nj ) − Lδx z nj and R L (z nj ) = K µx − ∆t        n
+                                                                    2 ∇g L (z j ).
+
+Proof. Note that
+                                                                     1
+                    S̄(µx z nj , µx z nj , µx z n+1
+                                                j   ) = S(µx z nj ) + ∇S(µx z nj )T (µx z n+1
+                                                                                            j   − µx z nj )
+                                                                     3
+                                                                     1
+                                                      = S(µx z nj ) + ∇z nj (S(µx z nj ))T (z n+1
+                                                                                              j   − z nj ),
+                                                                     3
+and
+          1                          1                          1
+            (δx z nj )T L + µx z nj + (δx z nj )T L + µx z n+1
+                                                           j   + (δx z n+1
+                                                                         j    )T L + µx z nj
+          3                          3                          3
+                                      1¡
+          = (δx z nj )T L + µx z nj + (δx z nj )T L + (µx z n+1  − µx z nj ) + (δx z n+1   − δx z nj )T L + µx z nj
+                                                                                                                    ¢
+                                                             j                       j
+                                      3
+                                      1¡
+                    n T
+          = (δx z j ) L + µx z j + (µx z nj )T L Tx δx + (δx z nj )T L x µx (z n+1
+                                   n
+                                                                                       − z nj )
+                                                                               ¢
+                                                                                  j
+                                      3
+                                      1³                            ¢´T n+1
+          = (δx z nj )T L + µx z nj + ∇z nj (δx z nj )T L + µx z nj    (z j − z nj ).
+                                              ¡
+                                      3
+Inserting this in (4.3), we get (4.10) from (4.9). Furthermore, observing that
+
+                          ∂S̄ ¯¯                               1
+                      3                        = ∇S(µx z nj ) + ∇2 S(µx z nj )(µx z n+1
+                                                                                    j   − µx z nj ),
+                          ∂x (µx z j ,µx z j )
+                               ¯   n       n+1
+                                                               2
+
+we may rewrite (4.1) as
+              ³            ∆t       ∆t 2             ´
+                  K µx +              ∇ S(µx z nj )µx (z n+1 − z nj ) = ∆t ∇S(µx z nj ) − Lδx z nj ,
+                                                                          ¡                       ¢
+                              Lδx −                      j
+                           2        2
+which is (4.12).
+
+    Note that (4.11) is the discrete energy preserved by the fully implicit local energy-preserving
+method of [21]. Also, for methods based on the multi-symplectic structure, instead of solving for
+z directly, the normal procedure is to eliminate the auxiliary variables from the scheme and get
+an equation for one variable u . Therefore we do not give an explicit expression for the modified
+energy in z n . However, in Section 5, we present an explicit expression for the modified energy
+in u n when our scheme is applied to the KdV equation.
+
+
+
+                                                                  10
+   The results about the energy conservation for the LILEP method applied to one-dimensional
+multi-symplectic PDEs can be generalised to problems in spatial dimensions of any finite degree.
+Consider for example a 2-dimensional multi-symplectic PDE
+
+                           K z t + L 1 z x + L 2 z y = ∇S(z),             z ∈ Rl ,        (x, y, t ) ∈ R3 ,                     (4.13)
+
+for which we have the following corollary. This is presented without its proof, which is rather
+technical but similar to the proof of Theorem 1.
+
+Corollary 2. The scheme obtained by applying the midpoint rule in space and Kahan’s method
+in time to equation (4.13),
+
+                                                                                           ∂S̄ ¯¯
+              K δt µx µ y z nj,k + L 1 δx µt µ y z nj,k + L 2 δ y µt µx z nj,k = 3                                          ,   (4.14)
+                                                                                           ∂x (µx µy z nj,k ,µx µy z n+1
+                                                                                                ¯
+                                                                                                                     j ,k
+                                                                                                                          )
+
+
+where j = 0, . . . , M x − 1 and k = 0, . . . , M y − 1, satisfies the discrete local energy conservation law
+                                                                   n                  n
+                                       δt (Ē L )nj,k + δx (F̄ L1 ) j ,k + δ y (F̄ L2 ) j ,k = 0,
+
+where
+
+                (Ē L )nj,k =S̄(µx µ y z nj,k , µx µ y z nj,k , µx µ y z n+1
+                                                                         j ,k )
+                                 1                                        1
+                                + (δx µ y z nj,k )T L 1+ µx µ y z nj,k + (δx µ y z nj,k )T L 1+ µx µ y z n+1j ,k
+                                 3                                        3
+                                 1                                         1
+                                + (δx µ y z n+1    T 1                n               n T 2
+                                             j ,k ) L + µx µ y z j ,k + (δ y µx z j ,k ) L + µx µ y z j ,k
+                                                                                                              n
+                                 3                                         3
+                                 1                                         1
+                                + (δ y µx z nj,k )T L 2+ µx µ y z n+1                 n+1 T 2
+                                                                    j ,k + (δ y µx z j ,k ) L + µx µ y z j ,k ,
+                                                                                                                n
+                                 3                                         3
+                        n        1                                       1
+                (F̄ L1 ) j ,k = − (δt µ y z nj,k )T L 1+ µt µ y z nj,k − (δt µ y z nj,k )T L 1+ µt µ y z n+1
+                                                                                                         j ,k
+                                 3                                       3
+                                 1
+                                − (δt µ y z n+1    T 1               n
+                                             j ,k ) L + µt µ y z j ,k ,
+                                 3
+                        n        1                                       1
+                (F̄ L2 ) j ,k = − (δt µx z nj,k )T L 2+ µt µx z nj,k − (δt µx z nj,k )T L 2+ µt µx z n+1 j ,k
+                                 3                                       3
+                                 1
+                                − (δt µx z n+1     T 2               n
+                                             j ,k ) L + µt µx z j ,k .
+                                 3
+
+4.2     Global energy-preserving methods for multi-symplectic PDEs
+As shown in Section 3, Hamiltonian PDEs of the form (3.1) with periodic boundary conditions
+have global energy conservation which can be deduced from the local conservation law. On
+the other hand, the local conservation law is not inherent in the global conservation law. In this
+section, we will focus on giving a systematic method that preserves the global energy conservation
+law directly. We discretize ∂x with an antisymmetric differential matrix D and get the semi-
+discretized variant of (3.1),
+
+                               K ∂t z j + L(D z) j = ∇S(z j ),              j = 0, 1, . . . , M − 1,                            (4.15)
+
+                                                                  11
+                                                                M −1
+where z := (z 0 , z 1 , . . . , z M −1 )T ∈ RM ×l and (D z) j = k=0
+                                                                   P
+                                                                     D j ,k z k . We then apply Kahan’s method
+to (4.15) and obtain the linearly implicit global energy-preserving (LIGEP) scheme
+
+                                                                          ∂S̄ ¯¯
+                                      K δt z nj + L(Dµt z n ) j = 3                         .                    (4.16)
+                                                                          ∂x (z nj ,z n+1
+                                                                               ¯
+                                                                                      j
+                                                                                          )
+
+
+Define the polarised energy density by
+                                         1                     1                      1
+       Ē nj = S̄(z nj , z nj , z n+1
+                                  j   ) + (D z n )Tj L + z nj + (D z n )Tj L + z n+1
+                                                                                 j   + (D z n+1 )Tj L + z nj ,   (4.17)
+                                         3                     3                      3
+and we get the following result.
+
+Theorem 2. For periodic boundary conditions z(x + P, t ) = z(x, t ), the scheme (4.16) satisfies
+the discrete global energy conservation law
+                                                                M −1
+                                Ē n+1 = Ē n ,    Ē n := ∆x           Ē nj ,   ∆x = P /M .
+                                                                X
+                                                                                                                 (4.18)
+                                                                 j =0
+
+
+Proof. Taking the inner product with 13 δt z nj on both sides of equation (4.16) and using the
+skew-symmetry of the matrix K , we get
+
+                                 1                                         ∂S̄ ¯¯
+                                   (δt z nj )T L(Dµt z n ) j = (δt z nj )T                   .                   (4.19)
+                                                                           ∂x (z nj ,z n+1
+                                                                                ¯
+                                 3                                                     j
+                                                                                           )
+
+
+Taking the inner product with 31 δt z n+1
+                                      j
+                                          on both sides of (4.16), we get
+
+                1                          1                                    n+1 T ∂S̄ ¯
+                                                                                          ¯
+                  (δt z n+1
+                        j   ) T
+                                K δ  z
+                                    t j
+                                       n
+                                         +   (δ  z
+                                                t j
+                                                   n+1 T
+                                                      )  L(Dµ t z n
+                                                                    ) j = (δ  z
+                                                                             t j   )                    .        (4.20)
+                                                                                      ∂x (z nj ,z n+1
+                                                                                          ¯
+                3                          3                                                      j
+                                                                                                      )
+
+
+Furthermore, taking the inner product with 13 δt z nj on both sides of (4.16) for the next time step,
+we have
+                 1                          1                                      n T ∂S̄ ¯
+                                                                                           ¯
+                   (δt z nj )T K δt z n+1
+                                      j   +   (δ t z n T
+                                                     j ) L(Dµ t z n+1
+                                                                      ) j = (δ t z j )                    .      (4.21)
+                                                                                       ∂x (z n+1
+                                                                                           ¯
+                 3                          3                                                j
+                                                                                                 ,z n+2
+                                                                                                    j
+                                                                                                        )
+
+
+Adding equations (4.19), (4.20) and (4.21), we get
+                  1¡
+                    (δt z nj )T L(Dµt z n ) j + (δt z nj )T L(Dµt z n+1 ) j
+                  3                                                                                              (4.22)
+                                             +(δt z n+1   )T L(Dµt z n ) j = δt S̄(z nj , z nj , z n+1
+                                                                          ¢
+                                                    j                                              j   ).
+
+By using the commutative laws and discrete Leibniz rules,
+
+                      δt ((D z n )Tj L + z nj ) = (Dδt z n )Tj L + µt z nj + (Dµt z n ) j L + δt z nj ,
+                   δt ((D z n )Tj L + z n+1
+                                        j   ) = (Dδt z n )Tj L + µt z n+1
+                                                                      j   + (Dµt z n ) j L + δt z n+1
+                                                                                                  j   ,          (4.23)
+                   δt ((D z n+1 )Tj L + z nj ) = (Dδt z n+1 )Tj L + µt z nj + (Dµt z n+1 ) j L + δt z nj .
+
+                                                              12
+Based on the above equations (4.22) and (4.23), we obtain
+                                            1¡
+        δt E nj = δt S̄(z nj , z nj , z n+1   δt ((D z n )Tj L + z nj ) + (D z n )Tj L + z n+1 + (D z n+1 )Tj L + z nj
+                                                                                                                       ¢
+                                        j   )+                                             j
+                                            3
+                  1¡
+                = (δt z nj )T L + (Dµt z n ) j + (Dδt z n )Tj L + µt z nj
+                                                                            ¢
+                  3
+                     1¡
+                  + (δt z n+1       )T L + (Dµt z n ) j + (Dδt z n+1 )Tj L + µt z nj
+                                                                                      ¢
+                               j
+                     3
+                     1¡
+                  + (δt z nj )T L + (Dµt z n+1 ) j + (Dδt z n )Tj L + µt z n+1
+                                                                                      ¢
+                                                                                 j
+                     3
+                  NX−1
+                =      (D) j ,k G j ,k ,
+                   k=0
+
+where
+                                         1¡
+                                           (δt z n )Tj L + µt z Ln + (δt z n )TL L + µt z nj
+                                                                                             ¢
+                             G j ,k :=
+                                         3
+                                           1¡
+                                         + (δt z n+1 )Tj L + µt z Ln + (δt z n+1 )TL L + µt z nj
+                                                                                                 ¢
+                                           3
+                                           1¡
+                                         + (δt z n )Tj L + µt z Ln+1 + (δt z n )TL L + µt z n+1
+                                                                                                 ¢
+                                                                                               j  .
+                                           3
+Since D is skew-symmetric and G j ,k = G k, j , we get
+                                                            M −1
+                                                                       δt Ē nj = 0,
+                                                            X
+                                                                j =0
+
+
+which implies that the discrete global energy conservation law Ē n+1 = Ē n is satisfied.
+
+    The polarised energy Ē preserved by (4.16) may also be expressed as a modification of the
+discrete energy
+                                           M −1
+                             E n := ∆x             E (z nj ),      E (z nj ) = S(z nj ) + (D z n )Tj L + z nj ,
+                                           X
+                                                                                                                           (4.24)
+                                           j =0
+
+which is preserved by the fully implicit global energy-preserving scheme of [21]. The proof of
+the following proposition is similar to the proof of Proposition 1, and hence omitted.
+Proposition 2. If the solution z n+1 is found from z n by (4.16), the discrete global energy Ē n of
+(4.18) satisfies
+                                                           M −1 1
+                                    Ē n = E n + ∆x                     (∇E (z nj ))T (z n+1 − z nj ),
+                                                           X
+                                                                                         j
+                                                            j =0 3
+
+and z n+1
+      j
+          − z nj satisfies
+
+                                                 R(z nj )(z n+1
+                                                            j   − z nj ) = ∆t g (z nj ),
+
+where g (z nj ) = ∇S(z nj ) − L(D z)nj and R(z nj ) = K + ∆t      n
+                                                          2 ∇g (z j ).
+
+
+                                                                        13
+    The above global conservation results can be generalised to multi-symplectic formulations
+in higher spatial dimensions, as demonstrated for the two-dimensional case by the following
+corollary, whose omitted proof is in the same vein as the proof of Theorem 2.
+Corollary 3. Discretizing ∂x and ∂ y by skew-symmetric differential matrices D x and D y in
+equation (4.13) and then applying Kahan’s method to the semi-discrete system, one obtains the
+linearly implicit global energy-preserving (LIGEP) scheme
+                                                                                            ∂S̄ ¯¯
+                        K δt z nj,k + L 1 µt (D x z n ) j ,k + L 2 µt (D y z n ) j ,k = 3                        ,   (4.25)
+                                                                                            ∂x (z nj,k ,z n+1
+                                                                                                 ¯
+                                                                                                          j ,k
+                                                                                                               )
+
+where j = 0, . . . , M x − 1 and k = 0, . . . , M y − 1. For periodic boundary conditions z(x + P x , y, t ) =
+z(x, y, t ), z(x, y + P y , t ) = z(x, y, t ), the scheme (4.25) satisfies the discrete global energy conser-
+vation law
+                                                      Ē n+1 = Ē n ,
+where
+                                   x −1 MX
+                                  MX     y −1
+
+              Ē n := ∆x ∆y                        Ē nj,k ,   ∆x = P x /M x ,       ∆y = P y /M y ,
+                                    j =0    k=0
+
+             Ē nj,k = S̄(z nj,k , z nj,k , z n+1
+                                              j ,k )
+                         1                            1                            1
+                        + (D x z n )Tj,k L 1+ z nj,k + (D x z n )Tj,k L 1+ z n+1
+                                                                             j ,k + (D x z    ) j ,k L 1+ z nj,k ,
+                                                                                           n+1 T
+                         3                            3                            3
+                         1                            1                            1
+                        + (D y z n )Tj,k L 2+ z nj,k + (D y z n )Tj,k L 2+ z n+1
+                                                                             j ,k + (D y z    ) j ,k L 2+ z nj,k .
+                                                                                           n+1 T
+                         3                            3                            3
+
+5    Numerical examples
+In this section, we apply our proposed new linearly implicit energy-preserving schemes to the
+KdV equation and Zakharov–Kuznetsov equation, and compare them with fully implicit schemes.
+Among our reference methods are the methods introduced in [21], for which the local energy-
+preserving method is denoted by LEP, and the global energy-preserving method by GEP. These
+schemes are discretized in space the same way as our LILEP and LIGEP schemes, but the fully
+implicit AVF method is used for the time-stepping. For the GEP and LIGEP schemes, two
+different choices are considered for approximating the spatial derivative: the central difference
+operator δcx defined by δcx v nj := 12 (δx v nj−1 + δx v nj ) and the first order Fourier pseudospectral
+operator [11]. The latter results in the M × M matrix D , given explicitly by its elements
+                                               π
+                                           (
+                                                      i+j
+                                                          cot π(i − j )/M ,
+                                                                 ¡               ¢
+                                               P (−1)                                     if i 6= j ,
+                               Di ,j =
+                                             0,                                           if i = j ,
+evaluated on the domain [0, P ], where we assume M even and periodic boundary conditions [40].
+If M is odd, we have instead
+                                   π
+                                 
+                                         i+j
+                                  P (−1) cot ¡π(i − j )/M ¢,
+                                                  ¡            ¢
+                                 
+                                                                                    if |i − j | < M /2,
+                        D i , j = Pπ (−1)i + j cot π( j − i )/M ,                    if |i − j | > M /2,
+                                 
+                                 
+                                 0,                                                 if i = j.
+
+                                                                     14
+    The numerical results presented in this section are obtained from schemes implemented in
+MATLAB (2018b release), running on an early 2015 MacBook Pro with a dual-core 3.1 GHz
+Intel Core i7 processor and 16 GB of 1867 MHz DDR3 RAM. All fully implicit schemes are
+solved at each step by Newton’s method until kF (u n )k2 < 10−10 . Linear systems are solved
+using the backslash operator of MATLAB. MATLAB and Python codes for the experiments are
+available at https://doi.org/10.5281/zenodo.3709463.
+
+5.1     Korteweg–de Vries equation
+Consider the multi-symplectic structure of the KdV equation as presented in Example 1. Apply-
+ing the LILEP scheme (4.1) to (3.7), we obtain
+                             1
+                               δt µx u nj + δx µt w nj = 0,
+                             2
+                            1                                         η
+                           − δt µx φnj − γδx µt v nj = −µt µx w nj + µx u nj µx u n+1
+                                                                                  j   ,
+                            2                                         2
+                                           γδx µt u nj = µt µx v nj ,
+                                               δx µt φnj = µt µx u nj .
+By eliminating the auxiliary varibles φ, v and w , we see that this is equivalent to
+                                    η
+                    δt µt µ3x u nj + δx µt µx (µx u nj µx u n+1
+                                                            j    ) + γ2 δ3x µ2t u nj = 0.
+                                    2
+Omitting the average operator µt gives us
+                                    η
+                       δt µ3x u nj + δx µx (µx u nj µx u n+1
+                                                         j    ) + γ2 δ3x µt u nj = 0.                     (5.1)
+                                    2
+The polarised discrete energy preserved by this scheme is
+                           M −1 ³    1 ¡                                 ¢ 1 ¡                      ´
+               ĒLn = ∆x            − γ2 (δx u nj )2 + 2δx u nj δx u n+1      η µ     n 2
+                                                                                          µ     n+1
+                           X
+                                                                     j    +       x u j )   x u j     .   (5.2)
+                            j =0     6                                      6
+
+On the other hand, the discrete energy preserved by the LEP method of [21] is
+                                              M −1 ³    1                1            ´
+                                   ELn = ∆x            − γ2 (δx u nj )2 + η(µx u nj )3 .
+                                              X
+                                                                                                          (5.3)
+                                              j =0      2                6
+
+By Proposition 1 and elimination of the variables φ, v and w , (5.2) can be expressed as a modifi-
+cation of (5.3): we may rewrite (5.1) as
+                               ∆t 2 3 ∆t                         ¢−1 ¡ 2 3 n η
+      u n+1 − u nj = −∆t µ3x +   γ δx +   ηδx µx diag(µx u n )µx      γ δx u + δx µx (µx u n )2 ,
+                        ¡                                                                      ¢
+        j
+                               2        2                                     2
+where (µx u n )2 denotes the element-wise square of µx u n . Inserting this in (5.2), we get
+                      ∆t ∆x ¡                   η              ¢T
+            ĒLn = ELn −      − γ2 δTx δx u n + µTx (µx u n )2
+                         3                      2
+                 ¡ 3 ∆t 2 3 ∆t                                ¢−1 ¡ 2 3 n η
+                  µx +     γ δx +     ηδx µx diag(µx u n )µx       γ δx u + δx µx (µx u n )2
+                                                                                             ¢
+                        2          2                                       2
+                  n   ∆t      n T
+                                  ¡ 3 ∆t 0 n ¢−1             n
+               = EL +     (∇EL ) µx −        ζ (u ) ζL (u ),
+                       3                  2 L
+
+                                                              15
+with
+                                                                 η
+                                        ζL (u n ) = −γ2 δ3x u n − δx µx (µx u n )2 ,
+                                                                 2
+where ∇ELn means the gradient of ELn with respect to u n , and ζ0L (u n ) denotes the Jacobian matrix
+of ζL (u n ).
+    Similarly for the LIGEP method (4.16); applying it to the the multi-symplectic KdV equations
+(3.7) and eliminating the auxiliary varibles φ, v and w , we obtain
+                                        η
+                            δt µt u nj + µt (D(u n u n+1 )) j + γ2 µ2t (D 3 u n ) j = 0,
+                                        2
+where u n u n+1 denotes element-wise multiplication of the vectors. Omitting the average operator
+µt , we get
+                                    η
+                           δt u nj + (D(u n u n+1 )) j + γ2 µt (D 3 u n ) j = 0.            (5.4)
+                                             2
+The discrete global energy preserved by the GEP method is
+                                                 M −1 ³    1              1         ´
+                                   E n = ∆x               − γ2 (Du n )2j + η(u nj )3 ,
+                                                 X
+                                                                                                     (5.5)
+                                                 j =0      2              6
+
+while the polarised discrete energy preserved by (5.4) is
+                            M −1 ³      1 ¡                                   ¢ 1 ¡              ´
+                Ē n = ∆x              − γ2 (Du n )2j + 2(Du n ) j (Du n+1 ) j + η u nj )2 u n+1
+                            X
+                                                                                             j
+                            j =0        6                                       6
+                          ∆t ∆x ¡                 η         ¢T
+                    =En −         − γ2 D T Du n + (u n )2
+                             3                    2                                                  (5.6)
+                          ∆t 2 3 ∆t                    ¢−1 ¡ 2 3 n η
+                             γ D +       ηD diag(u n )      γ D u + D(u n )2
+                     ¡                                                       ¢
+                       I+
+                          2            2                           2
+                          ∆t               ∆t 0 n ¢−1
+                    =En +     (∇E n )T I −   ζ (u ) ζ(u n ),
+                                      ¡
+                           3               2
+                                   η
+where ζ(u n ) = −γ2 D 3 u n − 2 D(u n )2 .
+
+Test problem 1
+In the first numerical experiment, we consider the problem introduced in [41] and then used
+by Zhao and Qin [42] and Ascher and McLachlan [43] to test various symplectic and multi-
+symplectic schemes: the KdV equation with γ = 0.022, η = 1, and initial value
+
+                                                    u 0 (x) = cos(πx),
+
+with x ∈ [0, P ], P = 2. This problem is also considered in Example 3 of [21], where it is solved
+by implicit schemes that preserve local and/or global energy. As observed by Gong et al. the
+global energy-preserving scheme (GEP) with the central difference operator used to approximate
+∂x gives unsatisfactory results for this problem; we observed that the same is true for the LIGEP
+scheme. Therefore, the Fourier pseudospectral operator is used to approximate the spatial deriva-
+tives in the GEP and LIGEP schemes. This seems to result in more accurate solutions than the
+
+                                                               16
+LEP and LILEP schemes for the same number of discretization points, but at a considerably
+higher computational cost, as seen from Table 1. Also from Table 1, we see an example of the
+advantage that can be gained by having a linearly implicit scheme instead of a fully implicit
+scheme. The different running times give an indication of the number of iterations necessary
+in Newton’s method to solve the fully implicit schemes for the particular cases. From Figure
+1, we can conclude that our linearly implicit schemes give results close to their fully implicit
+counterparts introduced in [21], and that the different schemes converge to the same solution.
+
+Table 1: Computational time, in seconds, for finding the solution of the first test problem at time
+t = 5 by a temporal step size ∆t = 0.005 and various number of discretization points in space, M .
+
+
+                     M         200         400            600              800                  1000       1500           2000
+                 LEP        1.87           3.16           4.43         11.18                     13.81      21.53       28.54
+                 LILEP    4.24e-1        7.40e-1          1.07          1.39                      1.73       2.67        3.58
+                 GEP       12.29          78.11          242.48       1016.57                  1888.69    5793.18     13154.20
+                 LIGEP      2.16          11.15           33.50        73.94                    136.93     398.53      894.52
+
+
+           2.5                                                                       2.5
+                                         LEP                                                                      LEP
+                                         LILEP                                                                    LILEP
+            2                                                                         2
+                                         GEP                                                                      GEP
+                                         LIGEP                                                                    LIGEP
+           1.5                                                                       1.5
+
+
+            1                                                                         1
+ u(x,t)
+
+
+
+
+                                                                           u(x,t)
+
+
+
+
+           0.5                                                                       0.5
+
+
+            0                                                                         0
+
+
+          -0.5                                                                      -0.5
+
+
+            -1                                                                        -1
+                 0       0.5         1             1.5            2                        0        0.5       1            1.5   2
+                                     x                                                                        x
+
+Figure 1: Solution of test problem 1 at time t = 5 by our schemes and the fully implicit schemes
+of Gong et al. Left: M = 250, ∆t = 0.02. Right: M = 1000, ∆t = 0.002.
+
+    Compared to the schemes tested in [42, 43], our schemes do also perform well; see Figure
+2, where we have plotted solutions by our schemes for the same discretization parameters used
+in Example 5.3 of [43]. The reference solution is found by the implicit midpoint scheme of [43]
+with θ = 1 and very fine discretization in space and time: M = 2000 and ∆t = 0.0001. We observe
+that the LILEP scheme behaves similarly to the multi-symplectic box scheme of Arscher and
+McLachlan (see figures 3 and 4 in [43]), seemingly with the same superior stability for rough
+discretization in space and time. The LIGEP scheme, on the other hand, starts to blow up at
+around t = 1 when M = 60, ∆t = 1/150, but produces for M = 100, ∆t = 0.004 a solution that is
+much closer to the correct solution than any of the schemes tested in [43] (see Figure 3 in that
+
+                                                                      17
+paper for comparison).
+           2.5                                                             2.5
+                                            LILEP                                                    LILEP
+            2                               IMP                             2                        LIGEP
+                                            Reference                                                IMP
+                                                                                                     Reference
+           1.5                                                             1.5
+
+            1                                                               1
+ u(x,t)
+
+
+
+
+                                                                 u(x,t)
+           0.5                                                             0.5
+
+            0                                                               0
+
+          -0.5                                                            -0.5
+
+            -1                                                              -1
+
+          -1.5                                                            -1.5
+                 0   0.5   1          1.5               2                        0   0.5   1   1.5               2
+                           x                                                               x
+
+Figure 2: Solutions of test problem 1 at time t = 10 by our schemes and the implicit midpoint
+scheme (IMP) as given in [43] (with θ = 2/3 in the left figure and θ = 1 in the right figure). Left:
+M = 60, ∆t = 1/150. Right: M = 100, ∆t = 0.004.
+
+
+
+Test problem 2
+To get quantitative results on the performance of our methods, we wish to study a problem with a
+known solution. For the KdV equation with γ = 1, η = 6, initial value u 0 (x) = 21 c sech2 (−x +P /2)
+and periodic boundary conditions u(x + P, t ) = u(x, t ), the exact solution is a soliton moving with
+a constant speed c in the positive x -direction while keeping its initial shape. That is,
+                                     1
+                           u(x, t ) = c sech2 ((−x + c t ) mod P − P /2).
+                                     2
+In our numerical experiments, c = 4 and P = 20. For this problem, we have used the central
+difference operator to approximate ∂x in the GEP and LIGEP schemes, since it gives good results
+and yields considerably shorter computational time than if the pseudospectral operator is used.
+The proposed methods all show very good stability conditions when applied to this problem, as
+expected by methods conserving some invariant. The initial shape of the wave is well kept for
+long integration times, even when quite large step sizes in space and time are used; Figure 3
+gives a good illustration of this. As in the previous example, we again observe that little is lost in
+accuracy by choosing linearly implicit over fully implicit time integration. A close inspection of
+Figure 3 also indicates that the local energy-preserving schemes preserve the shape of the wave
+better than the global energy-preserving schemes, while on the other hand, the GEP and LIGEP
+schemes are better than the LEP and LILEP schemes at preserving the speed of the wave. This
+is confirmed in Table 2 by measuring the shape error
+                                    ²shape := min ∥ U N − u(· − τ) ∥22
+                                                   τ
+
+and phase error
+                               ²phase := |argmin ∥ U N − u(· − τ) ∥22 −c t |,
+                                               τ
+
+
+                                                            18
+where U N is the numerical solution at end time t .
+
+                          2                                                                            LEP
+                                                                                                       LILEP
+                                                                                                       GEP
+                                                                                                       LIGEP
+                u(x,t)
+                         1.5                                                                           Exact
+
+
+
+
+                          1
+
+
+
+                         0.5
+
+
+
+                          0
+
+                               0         2   4       6      8      10            12   14      16      18       20
+                                                                       x
+
+Figure 3: The soliton solution of the KdV equation at time t = 100, with M = 250 discretization
+points in space and a time step ∆t = 0.01.
+
+
+Table 2: Phase and shape errors and the computational time (CT) for different schemes applied
+to test problem 2 of the KdV equation, for varying number of discretization points M , with time
+step ∆t = 0.01 and end time t = 100.
+
+
+    M                              200                                     400                                  600
+            ²shape                 ²phase     CT         ²shape            ²phase      CT          ²shape       ²phase    CT
+  LEP      4.67e-3                   1.12    21.86       1.22e-3       3.81e-1        35.89        5.86e-4     2.43e-1   51.92
+  LILEP    4.10e-3                   1.23     5.14       5.26e-4       4.88e-1         8.26        1.45e-4     3.50e-1   10.89
+  GEP      1.62e-2                 8.61e-1   19.53       3.66e-3       1.16e-1        34.09        1.71e-3     2.32e-2   49.45
+  LIGEP    1.71e-2                 7.50e-1    6.84       4.39e-3       5.19e-5         8.10        2.47e-3     1.31e-1   12.52
+
+
+    In Figure 4, we have plotted the computational time required to reach a certain accuracy in
+the global error for the different methods, both at time t = 0.5 and at time t = 10. We compare our
+methods to the fully implicit LEP and GEP schemes of [21], to a scheme based on discretizing the
+standard form (3.6) of the KdV equation in space and applying the AVF method in time (AVFM),
+and also to two of the schemes studied in [43]: the multi-symplectic box scheme (MSB) and
+the implicit midpoint scheme (IMP). Most notably we see from both plots in Figure 4 that the
+linearly implicit schemes perform better than the fully implicit schemes. Also, we see that at time
+t = 0.5 the global error is lowest for the LILEP scheme, while at t = 10 it is lowest for the LIGEP
+scheme. This is in accordance with the schemes’ phase and shape errors, which can be observed
+from Figure 3 and Table 2; with increasing time, the phase error becomes more dominant, and
+thus the scheme with the smallest phase error becomes increasingly advantageous.
+    Figure 5 illustrates how the different schemes preserve a discrete approximation to the energy
+to machine precision. That is, the linearly implicit schemes LILEP and LIGEP preserve exactly
+
+                                                                  19
+                                                                                                              10 0
+                                                                            LEP                                                                                   LEP
+                                                                            LILEP                                                                                 LILEP
+                                                                            GEP                                                                                   GEP
+                 10 -2                                                      LIGEP                                                                                 LIGEP
+                                                                            MSB                                                                                   MSB
+                                                                            IMP                                                                                   IMP
+                                                                                                              10 -1
+  Global error
+
+
+
+
+                                                                                               Global error
+                                                                            AVFM                                                                                  AVFM
+
+                 10 -3
+
+
+                                                                                                              10 -2
+
+                 10 -4
+
+
+
+                                                                                                              10 -3
+                              10 -1         10 0               10 1          10 2                                10 -1          10 0             10 1        10 2
+                                           Computational time                                                                          Computational time
+
+
+Figure 4: Computational time required to reach a given global error, with ∆x     ∆t fixed, for test
+problem 2 of the KdV equation solved at time t . Left: t = 0.5, ∆x
+                                                                ∆t = 40 . Right: t = 10, ∆x
+                                                                                         ∆t = 8.
+
+
+
+the discrete energies (5.2) and (5.6), respectively, while keeping the discrete energies (5.3) and
+(5.5), respectively, within some bound which depends on the discretization parameters. Likewise,
+the reverse is true for the fully implicit schemes. These observations fit well with our above
+results about the different discrete approximations to the energy: that for both the local energy
+preserving and the global energy preserving schemes, either discrete energy given can be seen
+as a modification of the other approximation. Finally, we have included plots in Figure 6 which
+confirm that our schemes are of second order in space and time.
+                  10 -4                                                                                        10 -4
+
+
+                  10 -6                                                                                        10 -6
+
+
+                  10 -8                                                                                        10 -8
+ Energy error
+
+
+
+
+                                                                                              Energy error
+
+
+
+
+                                                                           LEP                                                                                   LEP
+                                                                           LILEP                                                                                 LILEP
+                 10 -10                                                    GEP                                10 -10                                             GEP
+                                                                           LIGEP                                                                                 LIGEP
+
+                 10 -12                                                                                       10 -12
+
+
+                 10 -14                                                                                       10 -14
+
+
+                 10 -16                                                                                       10 -16
+                          0           20     40           60          80           100                                 0   20            40          60     80           100
+                                                   Time                                                                                       Time
+
+Figure 5: Error in discrete approximations to the global energy, by our methods and the fully
+implicit schemes of Gong et al. Left: The error in (5.2) for LEP/LILEP and the error in (5.6) for
+GEP/LIGEP, for test problem 2 solved with M = 250 discretization points in space and time step
+∆t = 0.01. Right: The error in (5.3) for LEP/LILEP and the error in (5.5) for GEP/LIGEP.
+
+
+
+
+                                                                                         20
+                10 -1                                                                             10 0
+
+
+
+                                                                                                  10 -1
+                10 -2
+ Global error
+
+
+
+
+                                                                                   Global error
+                                                                                                  10 -2
+
+                10 -3
+                                                                                                  10 -3
+
+
+                10 -4
+                                                                                                  10 -4
+                                                                      LILEP                                                                   LILEP
+                                                                      LIGEP                                                                   LIGEP
+
+
+                                  10 -2                       10 -1                                       10 -3     10 -2             10 -1
+                                          Spatial step size                                                       Step size in time
+
+
+Figure 6: Order plots for the LILEP and LIGEP schemes, solving the second test problem for
+the KdV equation at time t = 1. The black, dashed line is a reference line with slope 2 in both
+plots. Left: Fixed temporal step ∆t = 2 × 10−4 . Right: Fixed spatial step ∆x = 4 × 10−3 .
+
+5.2                 Zakharov–Kuznetsov equation
+Kahan’s method is previously shown to have nice properties when applied to integrable ODE
+systems [24, 25], and to perform well compared to other linearly implicit methods when applied
+to the KdV and Camassa–Holm equations [29], which are completely integrable PDEs. We wish
+to test our methods also on non-integrable systems, as well as on higher-dimensional problems.
+Therefore we consider the Zakharov–Kuznetsov equation, which is a non-integrable PDE [44, 45].
+This two-dimensional generalisation of the KdV equation has a variety of applications, see e.g.
+[46] for a brief summary.
+     Applying the LILEP method (4.14) to the Zakharov–Kuznetsov equation (3.8) multi-symplectified
+as described in Example 2, we find
+                                                                  δx µt µ y φnj,k = µt µx µ y u nj,k ,
+                        1                                                                           1
+                          δt µx µ y φnj,k + δx µt µ y v nj,k + δ y µt µx w nj,k = µt µx µ y p nj,k − µx µ y u nj,k µx µ y u n+1
+                                                                                                                            j ,k ,
+                        2                                                                           2
+                                            δx µt µ y w nj,k − δ y µt µx v nj,k = 0,
+                                           1
+                                          − δt µx µ y u nj,k − δx µt µ y p nj,k = 0,
+                                           2
+                                           −δx µt µ y u nj,k + δ y µt µx q nj,k = −µt µx µ y v nj,k ,
+                                            −δx µt µ y q nj,k − δ y µt µx u nj,k = −µt µx µ y w nj,k .
+Upon eliminating all variables except u , we are left with
+                           1
+     δt µt µ3x µ y u nj,k + δx µt µx µ y (µx µ y u nj,k µx µ y u n+1       3 2 2 n               2 2 2 n
+                                                                 j ,k ) + δx µt µ y u j ,k + δx δ y µt µx u j ,k = 0.
+                           2
+The operator µt is again superfluous. Hence we get the scheme
+                                           1
+                        δt µ3x µ y u nj,k + δx µx µ y (µx µ y u nj,k µx µ y u n+1       3     2 n             2      2 n
+                                                                              j ,k ) + δx µt µ y u j ,k + δx δ y µt µx u j ,k = 0.
+                                           2
+
+                                                                              21
+This scheme preserves
+
+                           x −1 MX
+                          MX     y −1³
+             1
+       ĒLn = ∆x∆y                       2δx µ y u n+1          n                n 2                n+1           n
+                                                   j ,k δx µ y u j ,k + (δx µ y u j ,k ) + 2δ y µx u j ,k δ y µx u j ,k
+             6             j =0   k=0
+                                                                                                 ´
+                                        + (δ y µx u nj,k )2 − (µx µ y u nj,k )2 (µx µ y u n+1
+                                                                                          j ,k )   ,
+
+which is a two-step discrete approximation of the energy
+                                                        1       1
+                                                   Z
+                                              E=       ( (∇u)2 − u 3 ) d Ω.
+                                                        2       6
+   Similarly, applying the linearly implicit global energy-preserving method (4.25) to (3.10),
+we get the scheme
+                            1
+                 δt u nj,k + (D x (u n u n+1 )) j ,k + µt (D 3x (u n )) j ,k + µt (D x D 2y (u n )) j ,k = 0,
+                            2
+which preserves the two-step discrete energy approximation
+                                 MX x −1 MX y −1 ³
+                      n 1
+                    Ē = ∆x ∆y                    2(D x u n ) j ,k (D x u n+1 ) j ,k + ((D x u n ) j ,k )2
+                        6         j =0 k=0
+                                                                                                       ´
+                        + 2(D y u n ) j ,k (D y u n+1 ) j ,k + ((D y u n ) j ,k )2 − (u nj,k )2 u n+1
+                                                                                                  j ,k .
+
+
+Test problem
+Taking a note from a numerical experiment performed in [11], we study the formation of cylin-
+drical soliton pulses on the domain [0, P ] × [0, P ], P = 30, following the initial condition
+                                                             ¡1p
+                                  u 0 (x, y) = 3c sech2         c(x − P /2) + ξ(y),
+                                                                           ¢
+                                                              2
+where ξ(y) is a random perturbation.
+    Upon trying the different schemes we can immediately conclude that the local energy-
+preserving schemes are superior for this problem when compared to the global energy-preserving
+schemes. The GEP and LIGEP schemes are too costly when the pseudospectral operator is used,
+and gives oscillatory behaviour in the y -direction when the central difference operator is used,
+unless the discretization in this direction is very fine. Although the global energy-preserving
+schemes with the central difference operator are slightly faster then the local energy-preserving
+schemes, as can be seen in Table 3, this is undermined by the cost of the extra discretization
+points needed to avoid oscillations in the former case. As was the case for the KdV problem, we
+see little difference between the linearly implicit schemes and their fully implicit counterparts.
+This can be seen in Figure 7, as can the oscillations in y -direction of the solution found by the
+GEP and LIGEP methods. The plots in Figure 7 can be compared to the plot in Figure 8, where
+the same problem is solved by the LILEP method using finer discretization in space and time.
+The initial random perturbation in y -direction over 75 points is then transferred over to 225 points
+using linear interpolation.
+
+                                                               22
+Figure 7: The test problem of the Zakharov–Kuznetsov equation solved at time t = 15 by the
+different schemes, with M = M x = M y = 75 points in each spatial direction and ∆t = 0.1.
+
+
+6    Concluding remarks
+In this paper, we propose two types of linearly implicit methods with conservation properties
+for cubic invariants of multi-symplectic PDEs. The linearly implicit local energy-preserving
+(LILEP) method preserves a discrete approximation to the local energy conservation law, and
+by extension, the global energy whenever periodic boundary conditions are considered. The
+linearly implicit global energy-preserving (LIGEP) method preserves the global energy without
+inheriting the local preservation from the continuous system.
+    We test our methods on two PDEs: the one-dimensional, integrable Korteweg–de Vries
+(KdV) equation and the two-dimensional, non-integrable Zakharov–Kuznetsov equation. The
+numerical experiments confirm that the proposed methods are of second order both in space
+and time and that they preserve the expected local and global energy conservation laws. We
+have observed excellent stability properties for the LILEP scheme in particular, and very high
+accuracy in the LIGEP scheme even for quite coarse discretization when a Fourier pseudospectral
+operator is used to approximate the spatial derivative. Compared to the fully implicit methods of
+Gong et al. in [21], which was an inspiration for this paper, our methods show comparable wave
+profiles, global errors and energy errors, at a significantly lower computational cost. For two-
+dimensional problems, where fully implicit schemes quickly become very expensive to compute,
+
+
+                                               23
+Figure 8: The test problem of the Zakharov–Kuznetsov equation solved at time t = 15 by the
+LILEP scheme, with M = M x = M y = 225 discretization points in each spatial direction and a
+temporal step size ∆t = 0.001.
+
+
+the combination of local energy-preservation and a linearly implicit method seems to provide for
+a very competitive method.
+    Although we have only considered the preservation of cubic invariants in this paper, our
+schemes can be extended to preserve higher order polynomials by the polarisation techniques for
+generalising Kahan’s method suggested in [37]. This would result in (p − 2)-step methods for
+preservation of a discrete p -order polynomial invariant. Although the idea behind this is clear,
+obtaining the concrete schemes is not straightforward, and thus we leave it for future research.
+
+Acknowledgements
+This work was supported by the European Union’s Horizon 2020 research and innovation pro-
+gramme under the Marie Skłodowska-Curie grant agreement No. 691070. The authors wish to
+express gratitude to Elena Celledoni and Brynjulf Owren for constructive discussions and helpful
+suggestions during our work on this paper, and to Benjamin Tapley for helping with the language.
+
+
+References
+ [1] E. Hairer, C. Lubich, and G. Wanner, Geometric numerical integration, vol. 31 of Springer
+     Series in Computational Mathematics. Springer-Verlag, Berlin, second ed., 2006. Structure-
+     preserving algorithms for ordinary differential equations.
+
+
+                                               24
+Table 3: Running time, in seconds, for computing 100 steps in time by the various schemes and
+various number of discretization points M = M x = M y in each spatial direction, solving our test
+problem for the Zakharov–Kuznetsov equation.
+
+
+          M        45      75      105      135       165       195       225       255
+        LEP       5.10   32.20    48.43    101.59    125.23    258.64   353.98    510.00
+        LILEP     2.04   8.87     14.57    31.02      37.25     78.98   108.02    157.91
+        GEP       3.62   19.54    41.87     73.59    122.31    186.74   258.19    352.36
+        LIGEP     1.38   6.00     13.45    23.79      39.31     60.27    83.32    113.13
+
+
+
+ [2] D. Furihata and T. Matsuo, Discrete variational derivative method. Chapman & Hall/CRC
+     Numerical Analysis and Scientific Computing, CRC Press, Boca Raton, FL, 2011. A
+     structure-preserving numerical method for partial differential equations.
+
+ [3] S. H. Christiansen, H. Z. Munthe-Kaas, and B. Owren, “Topics in structure-preserving
+     discretization,” Acta Numer., vol. 20, pp. 1–119, 2011.
+
+ [4] R. P. Feynman, R. B. Leighton, and M. Sands, The Feynman lectures on physics. Vol. 1:
+     Mainly mechanics, radiation, and heat. Addison-Wesley Publishing Co., Inc., Reading,
+     Mass.-London, 1963.
+
+ [5] T. J. Bridges, “Multi-symplectic structures and wave propagation,” vol. 121, pp. 147–190,
+     1997.
+
+ [6] S. Li and L. Vu-Quoc, “Finite difference calculus invariant structure of a class of algorithms
+     for the nonlinear Klein-Gordon equation,” SIAM J. Numer. Anal., vol. 32, no. 6, pp. 1839–
+     1875, 1995.
+
+ [7] R. A. LaBudde and D. Greenspan, “Energy and momentum conserving methods of arbitrary
+     order for the numerical integration of equations of motion. II. Motion of a system of
+     particles,” Numer. Math., vol. 26, no. 1, pp. 1–16, 1976.
+
+ [8] R. I. McLachlan, G. R. W. Quispel, and N. Robidoux, “Geometric integration using discrete
+     gradients,” R. Soc. Lond. Philos. Trans. Ser. A Math. Phys. Eng. Sci., vol. 357, no. 1754,
+     pp. 1021–1045, 1999.
+
+ [9] L. Brugnano, F. Iavernaro, and D. Trigiante, “Hamiltonian boundary value methods (energy
+     preserving discrete line integral methods),” JNAIAM. J. Numer. Anal. Ind. Appl. Math.,
+     vol. 5, no. 1-2, pp. 17–37, 2010.
+
+[10] E. Celledoni, V. Grimm, R. I. McLachlan, D. I. McLaren, D. O’Neale, B. Owren, and
+     G. R. W. Quispel, “Preserving energy resp. dissipation in numerical PDEs using the
+     “average vector field” method,” J. Comput. Phys., vol. 231, no. 20, pp. 6770–6789, 2012.
+
+
+
+                                               25
+[11] T. J. Bridges and S. Reich, “Multi-symplectic spectral discretizations for the Zakharov–
+     Kuznetsov and shallow water equations,” Phys. D, vol. 152/153, pp. 491–504, 2001. Ad-
+     vances in nonlinear mathematics and science.
+
+[12] T. J. Bridges, “A geometric formulation of the conservation of wave action and its implica-
+     tions for signature and the classification of instabilities,” Proc. Roy. Soc. London Ser. A,
+     vol. 453, no. 1962, pp. 1365–1395, 1997.
+
+[13] B. Leimkuhler and S. Reich, Simulating Hamiltonian dynamics, vol. 14 of Cambridge
+     Monographs on Applied and Computational Mathematics. Cambridge University Press,
+     Cambridge, 2004.
+
+[14] Y. Sun and P. S. P. Tse, “Symplectic and multisymplectic numerical methods for Maxwell’s
+     equations,” J. Comput. Phys., vol. 230, no. 5, pp. 2076–2094, 2011.
+
+[15] Y.-W. Li and X. Wu, “General local energy-preserving integrators for solving multi-
+     symplectic Hamiltonian PDEs,” J. Comput. Phys., vol. 301, pp. 141–166, 2015.
+
+[16] G. Frasca-Caccia and P. E. Hydon, “Locally conservative finite difference schemes for the
+     modified KDV equation,” J. Comput. Dyn., vol. 6, no. 2, pp. 307–323, 2019.
+
+[17] P. Chartier, E. Faou, and A. Murua, “An algebraic approach to invariant preserving inte-
+     grators: the case of quadratic and Hamiltonian invariants,” Numer. Math., vol. 103, no. 4,
+     pp. 575–590, 2006.
+
+[18] Y. Wang, B. Wang, and M. Qin, “Local structure-preserving algorithms for partial differen-
+     tial equations,” Sci. China Ser. A, vol. 51, no. 11, pp. 2115–2136, 2008.
+
+[19] J. E. Marsden, G. W. Patrick, and S. Shkoller, “Multisymplectic geometry, variational
+     integrators, and nonlinear PDEs,” Comm. Math. Phys., vol. 199, no. 2, pp. 351–395, 1998.
+
+[20] S. Reich, “Multi-symplectic Runge-Kutta collocation methods for Hamiltonian wave equa-
+     tions,” J. Comput. Phys., vol. 157, no. 2, pp. 473–499, 2000.
+
+[21] Y. Gong, J. Cai, and Y. Wang, “Some new structure-preserving algorithms for general multi-
+     symplectic formulations of Hamiltonian PDEs,” J. Comput. Phys., vol. 279, pp. 80–102,
+     2014.
+
+[22] Y.-W. Li and X. Wu, “General local energy-preserving integrators for solving multi-
+     symplectic Hamiltonian PDEs,” J. Comput. Phys., vol. 301, pp. 141–166, 2015.
+
+[23] W. Kahan, “Unconventional numerical methods for trajectory calculations,” Unpublished
+     lecture notes, vol. 1, p. 13, 1993.
+
+[24] E. Celledoni, R. I. McLachlan, B. Owren, and G. R. W. Quispel, “Geometric properties of
+     Kahan’s method,” J. Phys. A, vol. 46, no. 2, pp. 025201, 12, 2013.
+
+
+
+
+                                               26
+[25] E. Celledoni, R. I. McLachlan, D. I. McLaren, B. Owren, and G. R. W. Quispel, “In-
+     tegrability properties of Kahan’s method,” J. Phys. A, vol. 47, no. 36, pp. 365202, 20,
+     2014.
+
+[26] E. Celledoni, D. I. McLaren, B. Owren, and G. R. W. Quispel, “Geometric and integrability
+     properties of Kahan’s method: the preservation of certain quadratic integrals,” J. Phys. A,
+     vol. 52, no. 6, pp. 065201, 9, 2019.
+
+[27] T. Matsuo and D. Furihata, “Dissipative or conservative finite-difference schemes for
+     complex-valued nonlinear partial differential equations,” J. Comput. Phys., vol. 171, no. 2,
+     pp. 425–447, 2001.
+
+[28] M. Dahlby and B. Owren, “A general framework for deriving integral preserving numerical
+     methods for PDEs,” SIAM J. Sci. Comput., vol. 33, no. 5, pp. 2318–2340, 2011.
+
+[29] S. Eidnes, L. Li, and S. Sato, “Linearly implicit structure-preserving schemes for Hamilto-
+     nian systems,” arXiv preprint, arXiv:1901.03573, 2019.
+
+[30] W. Cai, H. Li, and Y. Wang, “Partitioned averaged vector field methods,” J. Comput. Phys.,
+     vol. 370, pp. 25–42, 2018.
+
+[31] X. Yang, J. Zhao, and Q. Wang, “Numerical approximations for the molecular beam epitax-
+     ial growth model based on the invariant energy quadratization method,” J. Comput. Phys.,
+     vol. 333, pp. 104–127, 2017.
+
+[32] C. Jiang, Y. Gong, W. Cai, and Y. Wang, “A linearly implicit structure-preserving scheme
+     for the Camassa–Holm equation based on multiple scalar auxiliary variables approach,”
+     arXiv preprint, arXiv:1907.00167, 2019.
+
+[33] C. Jiang, W. Cai, and Y. Wang, “A linear-implicit and local energy-preserving scheme for
+     the sine-Gordon equation based on the invariant energy quadratization approach,” arXiv
+     preprint, arXiv:1808.06854, 2018.
+
+[34] H. Li and J. Sun, “A new multi-symplectic Euler box scheme for the BBM equation,” Math.
+     Comput. Modelling, vol. 58, no. 7-8, pp. 1489–1501, 2013.
+
+[35] A. Durán, D. Dutykh, and D. Mitsotakis, “On the multi-symplectic structure of Boussinesq-
+     type systems. I: Derivation and mathematical properties,” Phys. D, vol. 388, pp. 10–21,
+     2019.
+
+[36] D. Cohen, T. Matsuo, and X. Raynaud, “A multi-symplectic numerical integrator for the
+     two-component Camassa-Holm equation,” J. Nonlinear Math. Phys., vol. 21, no. 3, pp. 442–
+     453, 2014.
+
+[37] E. Celledoni, R. I. McLachlan, D. I. McLaren, B. Owren, and G. R. W. Quispel, “Discretiza-
+     tion of polynomial vector fields by polarization,” Proc. A., vol. 471, no. 2184, pp. 20150390,
+     10, 2015.
+
+
+                                               27
+[38] B. E. Moore and S. Reich, “Multi-symplectic integration methods for Hamiltonian PDEs,”
+     Future Generation Computer Systems, vol. 19, no. 3, pp. 395–402, 2003.
+
+[39] V. Zakharov and E. Kuznetsov, “Three-dimensional solitons,” Zh. Eksp. Teor. Fiz, vol. 66,
+     pp. 594–597, 1974.
+
+[40] Y. Chen, S. Song, and H. Zhu, “The multi-symplectic Fourier pseudospectral method for
+     solving two-dimensional Hamiltonian PDEs,” J. Comput. Appl. Math., vol. 236, no. 6,
+     pp. 1354–1369, 2011.
+
+[41] N. J. Zabusky and M. D. Kruskal, “Interaction of "solitons" in a collisionless plasma and
+     the recurrence of initial states,” Phys. Rev. Lett., vol. 15, no. 6, p. 240, 1965.
+
+[42] P. F. Zhao and M. Z. Qin, “Multisymplectic geometry and multisymplectic Preissmann
+     scheme for the KdV equation,” J. Phys. A, vol. 33, no. 18, pp. 3613–3626, 2000.
+
+[43] U. M. Ascher and R. I. McLachlan, “On symplectic and multisymplectic schemes for the
+     KdV equation,” J. Sci. Comput., vol. 25, no. 1-2, pp. 83–104, 2005.
+
+[44] H.-C. Hu, “New exact solutions of Zakharov–Kuznetsov equation,” Commun. Theor. Phys.
+     (Beijing), vol. 49, no. 3, pp. 559–561, 2008.
+
+[45] H. Nishiyama, T. Noi, and S. Oharu, “Conservative finite difference schemes for the gen-
+     eralized Zakharov–Kuznetsov equations,” J. Comput. Appl. Math., vol. 236, no. 12,
+     pp. 2998–3006, 2012.
+
+[46] H. Iwasaki, S. Toh, and T. Kawahara, “Cylindrical quasi-solitons of the Zakharov–
+     Kuznetsov equation,” Phys. D, vol. 43, no. 2-3, pp. 293–303, 1990.
+
+
+
+
+                                             28
+

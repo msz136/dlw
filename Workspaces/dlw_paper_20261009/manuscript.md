@@ -1,8 +1,8 @@
 <nav>[English](#en-title) · [中文](#zh-title)</nav>
 
-# Semi-discretization, Darboux–Lax representation and numerical simulations of the (2+1)-dimensional DLW system {#en-title}
+# Integrable semi-discretizations of the (2+1)-dimensional dispersive long wave system {#en-title}
 
-**Abstract.** We construct an integrable semi-discrete system for the (2+1)-dimensional dispersive long wave (DLW) equation. Starting from the continuous bilinear equations, we introduce a staggered lattice in the y direction and obtain Gram determinant solutions of arbitrary order that satisfy the semi-discrete bilinear system. Eliminating or retaining an auxiliary potential yields two nonlinear formulations, PE and PF, for which we establish corresponding Darboux–Lax representations. We prove that, as the lattice spacing tends to zero, the semi-discrete equations recover the continuous DLW equation with second-order accuracy, and the physical fields reconstructed from their exact solutions converge to the continuous exact solutions with second-order accuracy. Furthermore, we construct a mesh density from a conservation law of the equation and propose a self-adaptive moving mesh method in which the physical fields and node positions evolve together. Using exact one- and two-soliton solutions as benchmarks, we compare the numerical errors of PE, PF and direct finite differences, and examine the effects of different time integrators and self-adaptive moving meshes. The numerical results show that the proposed moving mesh method reduces the maximum absolute errors in both physical fields in all four tests considered.
+**Abstract.** We construct an integrable semi-discrete system for the (2+1)-dimensional dispersive long wave (DLW) equation by discretizing the y direction. Starting from the continuous bilinear equations, we introduce a staggered lattice in the y direction and obtain Gram determinant solutions of arbitrary order that satisfy the semi-discrete bilinear system. Eliminating or retaining an auxiliary potential yields two nonlinear formulations, PE and PF, for which we establish corresponding Darboux–Lax representations. We prove that, as the lattice spacing tends to zero, the semi-discrete equations recover the continuous DLW equation with second-order accuracy, and the physical fields reconstructed from their exact solutions converge to the continuous exact solutions with second-order accuracy. Furthermore, we construct a mesh density from a conservation law of the equation and propose a self-adaptive moving mesh method in which the physical fields and node positions evolve together. Using exact one- and two-soliton solutions as benchmarks, we compare the numerical errors of PE, PF and direct finite differences, and examine the effects of different time integrators and self-adaptive moving meshes. The numerical results show that the proposed moving mesh method reduces the maximum absolute errors in both physical fields in all four tests considered.
 
 **Keywords:** dispersive long wave equation; semi-discretization; Gram determinant; Darboux–Lax representation; continuum limit; self-adaptive moving mesh
 
@@ -697,7 +697,7 @@ The above construction provides a common Darboux–Lax representation for the tw
 
 ## 3. Numerical methods and experiments {#en-numerics}
 
-We construct numerical schemes from the two nonlinear formulations and compare them with a direct finite-difference discretization of the continuous DLW system. Using the continuous exact solutions as a reference, we examine the effects of the nonlinear formulation and its discrete implementation, time integration, and self-adaptive moving mesh (SAMM) methods on the physical-field errors.
+In this section, we develop numerical algorithms based on PE and PF and compare them with direct finite differences applied to the continuous DLW system. We first discretize the remaining x derivatives and combine the resulting spatial discretizations with time integration methods. We then use the conservation law derived above to construct a mesh density and a self-adaptive moving mesh (SAMM) method in which the physical fields and node positions evolve together, allowing the x-node distribution to adjust as the solution evolves. Using exact one- and two-soliton solutions as references, we examine the effects of spatial discretization, time integration, and the choice between fixed and self-adaptive moving meshes on the physical-field errors.
 
 ### 3.1 Spatial discretization {#en-schemes}
 
@@ -1000,13 +1000,15 @@ In all four tests, SAMM gives smaller maximum absolute errors in both U and V th
 
 ## 4. Conclusion {#en-conclusion}
 
-The combination of a staggered lattice and a shifted operator parameter generates both semi-discrete DLW bilinear relations from a common Gram determinant sequence. Rank-one updates yield exact solutions of arbitrary finite order, and logarithmic transformations lead to the PE and PF formulations. Both recover the same physical fields on positive τ-function solutions and are linked to the Darboux–Lax compatibility relations and second-order continuum limits.
+We have studied the construction, exact solutions and numerical implementation of an integrable semi-discretization of the (2+1)-dimensional DLW equation. Starting from the continuous bilinear equations, we introduced a lattice in the y direction while retaining continuous x and t variables, and derived nonlinear formulations and numerical algorithms for the resulting semi-discrete system.
 
-At the tested resolution, PE gives smaller physical-field errors than PF, while its relative accuracy against direct differences depends on the field and soliton parameters. For PE, RK4 and C–N give nearly identical terminal errors, and density-driven redistribution of x nodes reduces both field errors in all four soliton tests at unchanged node counts.
+By combining a staggered lattice with shifted operator parameters, we constructed Gram determinant solutions of arbitrary finite order and used determinant identities to prove that the corresponding τ functions satisfy the proposed semi-discrete bilinear equations. Eliminating or retaining the auxiliary potential yields the PE and PF nonlinear formulations, respectively. Both recover the same physical fields from the corresponding positive τ-function solutions. We also obtained their Darboux–Lax representations and proved that the compatibility conditions yield the associated nonlinear equations.
 
-## Data and code availability {#en-data}
+We further established the relation between the semi-discrete system and the continuous DLW equation. As the lattice spacing tends to zero, the semi-discrete equations recover the continuous equations with second-order accuracy. Within the stated regular parameter range, the physical fields reconstructed from the exact semi-discrete solutions also converge to their continuous counterparts with second-order accuracy. These results identify the continuum limits of both the equations and their exact solutions.
 
-The theoretical derivations and numerical materials are provided in [DLW theory](../notebook/DLW理论.ipynb) and [DLW numerical analysis](../notebook/DLW数值分析report.ipynb). The numerical notebook contains parameters, executable code and saved results; the tables use these recorded data. The PE time and mesh profiles are reproduced by the [profile plotting script](../Workspaces/dlw_paper_20261009/plot_result_profiles.py). The common-domain comparisons additionally use the [field preparation script](../Workspaces/dlw_paper_20261009/rerun_buffered.py) and [plotting script](../Workspaces/dlw_paper_20261009/plot_spatial_errors3d.py).
+We developed numerical algorithms based on PE and PF and compared them with direct finite differences applied to the continuous DLW equation, using exact one- and two-soliton solutions as benchmarks. Comparisons of spatial discretizations, time integrators and mesh configurations examined how these choices affect the numerical errors in the two physical fields.
+
+We established a conservation law for the semi-discrete DLW equation and used it to select a mesh density, from which we constructed a self-adaptive moving mesh method that evolves the physical fields and node positions together. The method retains uniform nodes in the y direction and adjusts the x-node positions as the density evolves. With the same node counts and time integration method, the self-adaptive moving mesh reduced the maximum absolute errors in both physical fields in all four soliton tests, achieving higher accuracy with a given number of nodes.
 
 ## References {#en-references}
 
@@ -1028,9 +1030,9 @@ The theoretical derivations and numerical materials are provided in [DLW theory]
 
 [9] B.-F. Feng, H.-H. Sheng, G.-F. Yu. Integrable semi-discretizations and self-adaptive moving mesh method for a generalized sine-Gordon equation. *Numerical Algorithms* **94** (2023), 351–370. [DOI](https://doi.org/10.1007/s11075-023-01504-1).
 
-# （2+1）维 DLW 系统的半离散化、Darboux–Lax 表示与数值模拟 {#zh-title}
+# （2+1）维色散长波系统的可积半离散化 {#zh-title}
 
-**摘要。** 本文构造了（2+1）维色散长波（DLW）方程的可积半离散系统。该构造从连续双线性方程出发，沿 y 方向引入交错格点，并给出满足半离散双线性系统的任意阶 Gram 行列式解。通过消去或保留辅助势，得到 PE 与 PF 两种非线性表示，并建立相应的 Darboux–Lax 表示。我们证明，当格距趋于零时，半离散方程以二阶精度恢复连续 DLW 方程，相应精确解所重构的物理场以二阶精度收敛到连续精确解。进一步，基于方程的守恒律构造网格密度，提出物理场与节点位置联立演化的自适应动网格方法。以单孤子和二孤子精确解为基准，比较 PE、PF 与直接差分方法的数值误差，并考察不同时间积分算法及自适应动网格的影响。数值结果表明，在所考察的四组算例中，所提出的自适应动网格方法均降低了两个物理场的最大绝对误差。
+**摘要。** 本文沿 y 方向构造（2+1）维色散长波（DLW）方程的可积半离散系统。该构造从连续双线性方程出发，沿 y 方向引入交错格点，并给出满足半离散双线性系统的任意阶 Gram 行列式解。通过消去或保留辅助势，得到 PE 与 PF 两种非线性表示，并建立相应的 Darboux–Lax 表示。我们证明，当格距趋于零时，半离散方程以二阶精度恢复连续 DLW 方程，相应精确解所重构的物理场以二阶精度收敛到连续精确解。进一步，基于方程的守恒律构造网格密度，提出物理场与节点位置联立演化的自适应动网格方法。以单孤子和二孤子精确解为基准，比较 PE、PF 与直接差分方法的数值误差，并考察不同时间积分算法及自适应动网格的影响。数值结果表明，在所考察的四组算例中，所提出的自适应动网格方法均降低了两个物理场的最大绝对误差。
 
 **关键词：** 色散长波方程；半离散化；Gram 行列式；Darboux–Lax 表示；连续极限；自适应动网格
 
@@ -1725,7 +1727,7 @@ Q、R 的演化方程使两项标量残差为零，从而保证线性系统相�
 
 ## 3. 数值方法与实验 {#zh-numerics}
 
-本节基于两种非线性表示构造数值格式，并与连续 DLW 系统的直接差分方法进行比较。以连续精确解为参照，考察非线性表示及其离散实现、时间积分和自适应动网格（SAMM）方法对物理场误差的影响。
+本节基于 PE 与 PF 两种非线性表示开展数值计算，并与连续 DLW 系统的直接差分方法进行比较。首先，对半离散系统中保留的 x 导数进行空间离散，并结合时间积分方法，得到相应的数值算法。进一步，利用前述守恒律构造网格密度，建立物理场与节点位置联立演化的自适应动网格（SAMM）方法，使 x 方向的节点分布随解的演化而调整。在此基础上，以单孤子和二孤子精确解为参照，考察空间离散化方法、时间积分算法及固定网格与自适应动网格的选择对物理场数值误差的影响。
 
 ### 3.1 空间离散 {#zh-schemes}
 
@@ -2028,13 +2030,15 @@ $$E_f(T)=\max_{(x,y)\in\mathcal G}|f_{\rm num}(x,y,T)-f_*(x,y,T)|,
 
 ## 4. 结论 {#zh-conclusion}
 
-交错格点与算子参数的配合，使 DLW 的两条半离散双线性关系由同一 Gram 行列式链产生。其秩一更新给出任意有限阶精确解，对数变换则把这一构造传递到 PE 与 PF 两种非线性表示。两种表示在正 τ 函数解上恢复相同的物理场，并与 Darboux–Lax 相容关系及二阶连续极限相联系。
+本文围绕（2+1）维 DLW 方程的可积半离散化，研究了半离散系统的构造、精确解及其数值计算。我们从连续双线性方程出发，沿 y 方向引入离散格点，得到保留 x 与 t 连续性的半离散双线性系统，并据此建立非线性表示和数值算法。
 
-在所测试的分辨率下，PE 的物理场误差小于 PF，而其与直接差分的相对精度随物理场及孤子参数而变。对 PE，RK4 与 C–N 给出几乎一致的终止误差；密度驱动的 x 节点重分布在保持节点数不变时，降低了四组孤子算例中两个物理场的误差。
+通过交错格点与算子参数的配合，我们构造了任意有限阶 Gram 行列式解，并利用行列式恒等式证明相应的 τ 函数满足所提出的半离散双线性方程。在非线性化过程中，消去或保留辅助势分别得到 PE 与 PF 两种表示。对于相应的正 τ 函数解，两种表示恢复相同的物理场。我们还给出了它们的 Darboux–Lax 表示，并证明其相容条件产生相应的非线性方程。
 
-## 数据与代码说明 {#zh-data}
+我们进一步考察了半离散系统与连续 DLW 方程之间的关系，证明当格距趋于零时，半离散方程以二阶精度恢复连续方程。对于所构造的精确解，在给定的正则参数范围内，重构的物理场也以二阶精度收敛到相应的连续精确解，从而明确了方程及其解在连续极限下的对应关系。
 
-本文的理论推导与数值计算材料分别收录于随稿文件 [DLW理论.ipynb](../notebook/DLW理论.ipynb) 和 [DLW数值分析report.ipynb](../notebook/DLW数值分析report.ipynb)。数值文件包含算例参数、可执行计算代码及保存的图表输出；正文中的误差表使用这些既有结果。PE 时间算法与网格比较图另附[误差剖面绘图程序](../Workspaces/dlw_paper_20261009/plot_result_profiles.py)。三种方法的数值场图另附[场数据准备程序](../Workspaces/dlw_paper_20261009/rerun_buffered.py)与[绘图程序](../Workspaces/dlw_paper_20261009/plot_spatial_errors3d.py)。
+我们基于 PE 与 PF 两种非线性表示构造了数值算法，并以单孤子和二孤子精确解为基准，与连续 DLW 方程的直接差分方法进行比较。通过空间离散化、时间积分和网格配置的对照实验，我们考察了这些选择对两个物理场数值误差的影响。
+
+我们建立了半离散 DLW 方程的一条守恒律，并据此选取网格密度，构造物理场与节点位置联立演化的自适应动网格方法。该方法保持 y 方向的均匀格点，通过密度的演化调整 x 方向的节点位置。在相同节点数和时间积分方法下，自适应动网格降低了全部四组孤子算例中两个物理场的最大绝对误差，使既定数量的节点获得了更高的计算精度。
 
 ## 参考文献 {#zh-references}
 

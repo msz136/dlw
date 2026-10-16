@@ -1,0 +1,100 @@
+{
+  "reviewer": "lean37_geometry subagent",
+  "date": "2026-10-14",
+  "scope": "Independent mathematical/scope review of root-authored CantrellSupports, certificate37-authored CantrellBranch, Angle interface, ResearchTarget and HTML report snapshot. This reviewer authored Minimax and PackingGeometry, so this is not an independent audit of those two modules. FinalBridge is excluded because root is still writing it.",
+  "sources": [
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\square37_lean_20261014\\lean\\CantrellSupports.lean",
+      "sha256": "ca463ce5e2517bba8251f8d7d9a5e6c8e64a8bf50cc88d4f2d6efe9fdb50b502"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\square37_lean_20261014\\lean\\CantrellBranch.lean",
+      "sha256": "d33552a2dd57339a8719960c0bb4ee54db34dfdd11c8f177bf642344421c9eb0"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\square37_lean_20261014\\lean\\CantrellAngle.lean",
+      "sha256": "519f201d6ef21f5ec1eb5a15f558d1f83c42c279fbde6a86e91eff23311c0a4a"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\square37_lean_20261014\\lean\\ResearchTarget.lean",
+      "sha256": "0519227cdb1f35a63a8e3415510af714bf07af04a7b7500a39a7c98c5db4b632"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\report\\square37_cantrell_lean_20261014.html",
+      "sha256": "22e1c0142cbc4fe76193752b1add259e84b94a0c3c411ec9691cc945258c6f23"
+    }
+  ],
+  "confirmed_branch_build": {
+    "result": "C:\\Users\\msz\\aca\\Workspaces\\square37_lean_20261014\\lean\\.lean-runs\\20261014_161436_f6903b50\\result.json",
+    "status": "PASSED",
+    "module_count": 4,
+    "all_current_source_hashes_match": true
+  },
+  "verdict": "No blocking mathematical defect found in the reviewed support/branch statements. The report already correctly distinguishes a certified upper bound, a conditional support-model lower bound, and unresolved global optimality/exact endpoint feasibility.",
+  "checks": [
+    {
+      "topic": "First support chain",
+      "result": "The 13 explicit fields telescope to support gap 3+c+s. The wall/axis chains yield dx<=L-4 and reversed dy<=L-3. Nonnegative weights s,c give 3+4c+5s<=(c+s)L with the reported coefficients."
+    },
+    {
+      "topic": "Left/right braces",
+      "result": "Left projections give U>=c+3s+3/2-sL and V>=s+2c+3/2. Nonnegative weights c-s,c+s and c^2+s^2=1 yield floor=3+3c+s(c-s)(5-L). Explicit coordinate reflection and two diagonal gaps yield the reported second inequality."
+    },
+    {
+      "topic": "Reflection",
+      "result": "rightLabels maps only the five labels used by LeftBrace. No global permutation or mirror symmetry of an arbitrary packing is assumed or proved."
+    },
+    {
+      "topic": "Central support coefficient",
+      "result": "For the two common grain directions with 0<=s<=c, unnormalized (1,1) support of a unit square is c; for an exact 45-degree unit square it is sqrt(2)/2. Thus both stated central inequalities have the correct coefficient."
+    },
+    {
+      "topic": "Half-angle transformations",
+      "result": "Branch uses d=1+q^2>0. c+s=(1+2q-q^2)/d and 2*(1+s*(c-s))=secondDenominator(q)/d^2. Denominators are proved positive in the relevant range. Multiplying inequalities does not reverse their signs."
+    },
+    {
+      "topic": "Parameter coverage",
+      "result": "Angle.half_angle_representation covers every single shared unit direction satisfying 0<=s<=c, with q in [0,sqrt(2)-1]. It does not cover arbitrary independent directions of all 37 squares or arbitrary separating-axis choices."
+    },
+    {
+      "topic": "Root and polynomial coefficients",
+      "result": "The HTML Q(L,r), degree-eight P(L), and even half-angle polynomial match the Lean definitions. The stated broad isolating interval matches candidateSide_strict_interval. The much tighter decimal interval is explicitly labeled as separately computed rather than Lean-replayed."
+    },
+    {
+      "topic": "Upper bound versus endpoint",
+      "result": "The report correctly gives Lrat=659861960924437/10^14 as the Lean feasible side and explicitly says the algebraic endpoint layout is unproved. Neither Angle support equalities nor minimax proves that 37 complete squares fit at the exact endpoint."
+    },
+    {
+      "topic": "Global conjecture",
+      "result": "ResearchTarget defines GlobalLowerBound and ExactEndpointFeasible separately and proves only their equivalence to GlobalOptimality. No proof of either missing premise is supplied or smuggled into the feasible upper bound."
+    },
+    {
+      "topic": "17-square trust scope",
+      "result": "The report explicitly marks T154 as a source/interface audit without complete local reconstruction and mentions all 13343 native_decide facts; no independent replay is claimed."
+    }
+  ],
+  "recommendations": [
+    {
+      "priority": 2,
+      "location": "HTML paragraph following the half-angle polynomial",
+      "current": "交点是两支撑函数最大值的全局最小点",
+      "suggested": "交点在 q∈[0,√2−1]（即0≤θ≤π/4）的这一支持模型内，使两支撑函数的最大值达到最小。",
+      "reason": "Make the precise minimax domain explicit and prevent reading global as unrestricted packing optimality."
+    },
+    {
+      "priority": 2,
+      "location": "Same HTML paragraph",
+      "current": "有理区间计算给出唯一正交点",
+      "suggested": "有理区间计算严格隔离了该交点；Lean证明该隔离区间内的根唯一。",
+      "reason": "Angle.root_exists_unique proves uniqueness only in the specified small interval. A theorem of uniqueness on all positive q has not been exported. The word 正交点 also ambiguously suggests orthogonality."
+    },
+    {
+      "priority": 3,
+      "location": "HTML minimax status/table/final compilation link",
+      "current": "精确证书已完成，Lean整合中 / 最终编译记录待整合",
+      "suggested": "Update to the actual successful aggregate run after FinalBridge and All.lean pass, retaining the branch assumptions and endpoint caveat.",
+      "reason": "Current individual minimax and branch modules already passed; aggregate integration remains in progress at review time."
+    }
+  ],
+  "required_finalbridge_boundary": "FinalBridge may eliminate the half-angle parameter using Angle.half_angle_representation, but must keep the shared c,s and the explicit FirstChain/LeftBrace/RightBrace/central support hypotheses. No theorem currently derives these hypotheses from arbitrary IsPacking."
+}

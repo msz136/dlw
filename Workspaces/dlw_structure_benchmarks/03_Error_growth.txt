@@ -1,0 +1,1809 @@
+                                               On the Rate of Error Growth in Time for
+                                                 Numerical Solutions of Nonlinear
+                                                    Dispersive Wave Equations
+
+                                                   Hendrik Ranocha∗1, Manuel Quezada de Luna†2, and
+arXiv:2102.07376v3 [math.NA] 8 Sep 2021
+
+
+
+
+                                                                 David I. Ketcheson‡2
+                                               1
+                                             Applied Mathematics, University of Münster, Germany
+                                             2
+                                               King Abdullah University of Science and Technology
+                                          (KAUST), Computer Electrical and Mathematical Science and
+                                           Engineering Division (CEMSE), Thuwal, 23955-6900, Saudi
+                                                                   Arabia
+
+                                                                            September 8, 2021
+
+
+                                                     We study the numerical error in solitary wave solutions of nonlinear dis-
+                                                   persive wave equations. A number of existing results for discretizations of
+                                                   solitary wave solutions of particular equations indicate that the error grows
+                                                   quadratically in time for numerical methods that do not conserve energy, but
+                                                   grows only linearly for conservative methods. We provide numerical exper-
+                                                   iments suggesting that this result extends to a very broad class of equations
+                                                   and numerical methods.
+
+                                            Key words. invariant conservation, summation by parts, spectral collocation methods,
+                                          relaxation schemes, error growth rate
+                                            AMS subject classification. 65M12, 65M70, 65M06, 65M60, 65M20, 35Q35
+
+
+                                          1 Introduction
+                                          In this work we study the behavior of numerical approximations of solitary wave solutions
+                                          of nonlinear wave partial differential equations (PDEs). These solitary waves evolve in time
+                                           ∗
+                                             ORCID: 0000-0002-3456-2277
+                                           †
+                                             ORCID: 0000-0001-7288-0367
+                                           ‡
+                                             ORCID: 0000-0002-1212-126X
+
+
+
+
+                                                                                        1
+only by translation; this translation symmetry is, in accordance with Noether’s Theorem
+[50], associated with a particular conserved functional of the PDE. We investigate in a
+broad setting the phenomenon, already studied for certain equations, that numerical
+methods that conserve (up to rounding errors) this functional (or the Hamiltonian of the
+system) exhibit much smaller errors over long times.
+   This behavior has been demonstrated for numerical approximations of certain solu-
+tions of Hamiltonian systems. These solutions are referred to as relative equilibria, and
+are those whose trajectory lies on a manifold defined by a symmetry group. For such so-
+lutions, numerical methods that exactly conserve certain invariants give rise to a leading
+term in the global error that grows linearly in time [24]. In contrast, for general (non-
+conservative) numerical solutions approximating relative equilibria, the error growth is
+typically quadratic (this should be contrasted with more general estimates of numerical
+error growth, which are typically exponential in time). This behavior has been shown for
+finite-dimensional Hamiltonian systems [12, 14, 15, 24]. For dispersive nonlinear wave
+equations, it was first observed in the context of solitary wave solutions of the Korteweg-
+de Vries (KdV) equation, by Sanz-Serna [72] and later by Bona, Dougalis, & Karakashian
+[10]. This behavior was eventually proved for discretizations of the KdV equation by de
+Frutos & Sanz-Serna [18].
+   Similar results were later obtained for solitary wave solutions of the nonlinear Schrödinger
+equation [25], Peregrine’s regularized long wave (RLW) equation (also known as the
+Benjamin-Bona-Mahoney (BBM) equation) [7, 49], and the generalized BBM equation [3,
+23]. An extension to certain other dispersive wave equations, including the generalized
+KdV, generalized BBM, and generalized Benjamin-Ono equations, is presented in [3]. The
+results in [49] are purely experimental, while the remaining results just cited include
+proofs along with numerical demonstrations.
+   Most of the PDE results in this direction are specific to solitary wave solutions. The
+conservative discretizations that yield linear error growth also exhibit modified solitary
+waves [7, 23]. These are discrete solitary waves that are close to but different from the
+exact solitary wave solutions. The ability of these modified solitary waves to propagate
+discretely without changing shape or amplitude means that conservative methods are
+appealing for long-time simulations of solitary waves and their interactions [22]. The
+concept of a modified solitary wave also provides, for some systems, an intuitive rough
+explanation of the observed error growth rates. In a non-conservative method, the solitary
+wave is approximated by a wave whose amplitude grows or diminishes linearly in time.
+Since the speed of the solitary wave is (at least to first approximation) a linear function of
+the amplitude, the error in the speed of the wave also grows linearly in time. This leads
+to a quadratic error in the location (phase) of the wave. Meanwhile, it was shown in [3,
+7, 23] that a conservative scheme yields a modified solitary wave whose amplitude and
+speed are constant in time (though different from those of the true solitary wave). Hence
+the phase error grows only linearly.
+   The foregoing results serve as the motivation for the present study. Here we take an
+experimental approach, allowing the consideration of several other dispersive wave equa-
+tions as well as non-dispersive hyperbolic systems that possess similar kinds of solutions.
+In this work we provide strong evidence that the phenomenon of linear error growth in
+time for conservative numerical solutions extends to a very large class of dispersive wave
+equations and nonlinear invariants, including invariants that are not quadratic, and even
+certain solutions of first-order hyperbolic systems that have no dispersive terms.
+   We briefly introduce the spatial and temporal discretization methods we will use in
+Section 3. In Section 4, we analyze the temporal error growth of solitary wave solutions
+
+
+
+                                              2
+to several nonlinear dispersive wave equations. Our experimental results include the
+Fornberg-Whitham [80], Camassa-Holm [13], Degasperis-Procesi [19], Holm-Hone [36],
+and BBM-BBM equations [9, 11]. For each of these models, we apply recently-constructed
+conservative schemes and show experimentally that they yield improved (linear) error
+growth when compared to non-conservative schemes for the same model. To demonstrate
+the importance of nonlinearity for the different error growth behaviors of conservative and
+non-conservative methods, we investigate a linear dispersive wave equation in Section 5.2.
+There, both kinds of methods result in the same asymptotic error growth rate, although the
+absolute error of the conservative method is smaller. We then go further outside the realm
+of available results and consider two first-order nonlinear hyperbolic systems that have
+been shown to possess solitary-wave-like solutions. In Section 6 we study the variable-
+coefficient 𝑝-system in one dimension, with periodically varying coefficients. Previous
+work on this system has noted similarities with dispersive nonlinear wave equations; see
+[40, 46]. In Section 7, we study the two-dimensional shallow water equations with varying
+bathymetry. Finally, we summarize and discuss our results in Section 8.
+  The main contributions of this work are as follows:
+
+  1. We illustrate via computational experiments that the favorable behavior proved for
+     conservative numerical solutions of certain nonlinear dispersive PDEs [3, 7, 18, 25]
+     holds for several other such PDEs.
+
+  2. We show through numerous examples that not only do conservative schemes exhibit
+     a better asymptotic error behavior for large times, but also a much smaller size of
+     the global error even for short times.
+
+  3. We show through a computational example that the condition of mass conservation,
+     assumed in the main theorems of [7, 18], is necessary in practice (see Section 5.1).
+
+  4. We demonstrate for the first time that the aforementioned favorable behavior can be
+     observed also in the numerical solution of a system that does not possess solitary
+     wave solutions with simple translation or rotation symmetries (see Section 6).
+
+  5. We demonstrate for the first time that dramatically better error growth for conser-
+     vative methods can be observed also in systems with two spatial dimensions (see
+     Section 7).
+
+  The source code used to generate the results of this study is available online [67]. The
+numerical methods studied in this article are implemented in Julia [8] and make use of
+the open source library SummationByPartsOperators.jl [63], which utilizes FFTW [29] for
+Fourier collocation methods. We use time integration methods from [58]. The plots are
+generated using Matplotlib [37].
+
+
+2 Relative equilibrium solutions
+One framework for understanding the rates of error growth observed in the present work
+is that of relative equilibrium theory. Here we review very briefly this theory in the
+context of finite-dimensional dynamical systems (where it is most completely developed)
+and Hamiltonian PDEs.
+   Relative equilibria are equilibria of a reduced dynamical system obtained by reduction
+modulo a set of symmetry groups of the original dynamical system. Relative equilibria
+
+
+
+                                            3
+evolve only along the manifold corresponding to the symmetry groups. In the case of
+finite-dimensional Hamiltonian systems, each symmetry group corresponds to an invari-
+ant quantity. A relative equilibrium 𝑢0 of a Hamiltonian system with Hamiltonian ℋ (𝑢)
+and invariant quantities ℐ𝑗 (𝑢) satisfies [24, Eqn. (36)]
+
+                                               Õ
+                                ∇ ­ℋ (𝑢0 ) −           𝜆 𝑖 ℐ𝑖 (𝑢0 )® = 0,                  (2.1)
+                                  ©                              ª
+
+                                  «            𝑖                 ¬
+where the values 𝜆 𝑖 are Lagrange multipliers. For a relative equilibrium solution of a
+Hamiltonian system, perturbations in directions that lie on the manifold corresponding to
+the symmetry group grow linearly in time, while perturbations in other directions grow
+quadratically [24, Lemma 2.4]. Therefore, if a numerical method conserves the invariants
+corresponding to the symmetry group, the numerical error will grow only linearly in time
+[24, Theorem 3.2].
+  The situation is analogous but more involved for Hamiltonian PDEs like the dispersive
+wave equations considered in Section 4. Each of these equations can be written as a
+Hamiltonian system
+                                          𝑢𝑡 = 𝐽𝛿ℋ (𝑢)                                     (2.2)
+where ℋ is the Hamiltonian, 𝛿 is the variational derivative, and 𝐽 is a skew-symmetric
+operator. Each system possesses an additional invariant ℐ(𝑢), such that
+                                         𝐽𝛿ℐ(𝑢) = 𝜕𝑥 𝑢.                                    (2.3)
+This implies that the symmetry group of translations is associated with the invariant ℐ;
+the relative equilibrium condition (analogous to (2.1)) is
+                                      𝛿(ℋ (𝑢) − 𝑐ℐ(𝑢)) = 0.                                (2.4)
+Using (2.2) and (2.3), we find that multiplying (2.4) on the left by 𝐽 gives the equation
+𝜕𝑡 𝑢 − 𝑐𝜕𝑥 𝑢 = 0, satisfied by translation-invariant solitary waves with speed 𝑐. Thus, for
+each of the equations we consider, solitary wave solutions correspond to relative equilibria,
+where the symmetry group is generated by translation.
+   It is possible to show also for these systems that numerical methods whose errors lie
+entirely within the appropriate manifold yield an error that grows only linearly in time;
+see e.g. [3, 18, 25] for examples of such analysis. Due to the condition (2.4), it is sufficient
+to conserve either ℋ or ℐ, in order to obtain linear growth in time of the leading term
+in the global error [3, 18]. Rigorous results in this vein require a detailed perturbation
+analysis specific to the PDE in question. We do not pursue such analysis here, and focus
+instead on an experimental study.
+   We remark here that the results proving linear error growth for KdV and RLW solitary
+waves [7, 18] also require the assumption of mass conservation. The necessity of this
+assumption has not been investigated experimentally, perhaps since “sensible methods
+exactly conserve the mass" [18]. However, the well-known orthogonal projection schemes
+can be used to conserve a nonlinear invariant at the cost of not conserving mass; in
+Section 5.1 we investigate the asymptotic error growth for such schemes.
+
+
+3 Discretization methods
+Next, we introduce the type of discretization methods employed in this article.
+
+
+
+                                                   4
+3.1 Spatial semidiscretizations
+Proving the conservation of invariants of partial differential equations usually requires
+the product/chain rule and integration by parts. It is often useful to mimic the same
+procedure at the discrete level by using summation by parts (SBP) operators, which are
+constructed specifically to satisfy a discrete analogue of integration by parts. A review of
+the relevant theory can be found in [16, 26, 76]. Many classes of numerical methods can be
+formulated within the SBP framework, including finite difference [75], finite volume [52,
+53], continuous Galerkin [1, 34, 35], discontinuous Galerkin [30], and flux reconstruction
+methods [69]. A brief review of how to formulate these methods in the SBP framework
+with application to structure-preserving numerical methods used in this article is given
+in [68].
+   Next, we will briefly introduce SBP operators in periodic domains in one space dimen-
+sion. Extensions to multiple space dimensions can be achieved via tensor products. We
+consider a grid 𝑥 = (𝑥1 , . . . , 𝑥 𝑚 ) where 𝑥1 = 𝑥min ≤ 𝑥2 · · · ≤ 𝑥 𝑚 = 𝑥max . All nonlinear
+operations will be performed pointwise, i.e. we use a collocation approach.
+Definition 3.1. Given a grid 𝑥 , a 𝑝-th order accurate 𝑖-th derivative matrix 𝐷𝑖 is a matrix that
+satisfies
+                   ∀𝑘 ∈ {0, . . . , 𝑝} : 𝐷𝑖 𝑥 𝑘 = 𝑘(𝑘 − 1) . . . (𝑘 − 𝑖 + 1)𝑥𝑥 𝑘−𝑖 ,        (3.1)
+with the convention 𝑥 0 = 1 and 0𝑥𝑥 𝑘 = 0. We say 𝐷𝑖 is consistent if 𝑝 ≥ 0.                      ⊳
+   For periodic boundary conditions (under whichsolutions at 𝑥 min and 𝑥 max are identical),
+integration by parts is basically a statement about the symmetry of a derivative operator
+with respect to the 𝐿2 scalar product. Discretely, an approximation of this scalar product
+is represented by a so-called mass matrix 𝑀.1
+Definition 3.2. A periodic first-derivative SBP operator consists of a grid 𝑥 , a consistent first-
+derivative matrix 𝐷1 , and a symmetric and positive-definite matrix 𝑀 such that
+
+                                              𝑀𝐷1 + 𝐷1𝑇 𝑀 = 0.                                            (3.2)
+
+                                                                                                              ⊳
+  We will often refer to an operator 𝐷𝑖 as a (periodic) SBP operator if the other operators
+(such as the mass matrix 𝑀) are clear from the context. We always assume derivative
+operators are consistent, but we will usually omit this term.
+Definition 3.3. A periodic second-derivative SBP operator consists of a grid 𝑥 , a consistent
+second-derivative matrix 𝐷2 , and a symmetric and positive-definite matrix 𝑀 such that
+
+                     𝑀𝐷2 = −𝐴2 ,        𝐴2 is symmetric and positive semidefinite.                        (3.3)
+
+                                                                                                              ⊳
+Definition 3.4. A periodic fourth-derivative SBP operator consists of a grid 𝑥 , a consistent
+fourth-derivative matrix 𝐷4 , and a symmetric and positive-definite matrix 𝑀 such that
+
+                      𝑀𝐷4 = 𝐴4 ,       𝐴4 is symmetric and positive semidefinite.                         (3.4)
+
+                                                                                                              ⊳
+
+ 1
+     The name mass matrix is common in the finite element literature. In classical articles on finite difference
+      SBP operators, this matrix is often called a norm matrix.
+
+
+
+
+                                                        5
+   In this work, we use Fourier (pseudospectral) collocation methods [28, 44] because
+of their efficiency and accuracy for smooth problems. This allows us to ensure, with
+reasonable grids, that the temporal discretization error dominates the spatial error for all
+of our 1D numerical tests. Nevertheless, all classes of methods within the SBP framework
+can be used and analyzed interchangeably to construct conservative semidiscretizations.
+
+3.2 Time integration methods
+To transfer the semidiscrete conservation results to fully-discrete schemes, the recent
+relaxation approach is used [39, 64–66, 70]. Related ideas date back to [72, 73] and [20, pp.
+265–266] but have been developed widely just recently.
+  Semidiscretizations reduce an initial boundary value PDE to an initial value ODE
+
+                                  𝑢 0(𝑡) = 𝑓 (𝑢(𝑡)),           𝑢(0) = 𝑢 0 .                           (3.5)
+
+Throughout this work we use superscripts to denote the time step, and here 𝑢 0 is the
+initial condition. To conserve a nonlinear invariant functional 𝐽(𝑢) discretely in a one-step
+method, we require 𝐽(𝑢 𝑛 ) = 𝐽(𝑢 𝑛−1 ) = 𝐽(𝑢 0 ). For a Runge-Kutta method
+                                          𝑠
+                         𝑦 𝑖 = 𝑢 𝑛 + Δ𝑡
+                                          Õ
+                                                𝑎 𝑖𝑗 𝑓 (𝑡 𝑛 + 𝑐 𝑗 Δ𝑡, 𝑦 𝑗 ),   𝑖 ∈ {1, . . . , 𝑠},   (3.6a)
+                                          𝑗=1
+                                           𝑠
+        𝑢(𝑡 𝑛 + Δ𝑡) ≈ 𝑢 𝑛+1 = 𝑢 𝑛 + Δ𝑡
+                                          Õ
+                                                𝑏 𝑖 𝑓 (𝑡 𝑛 + 𝑐 𝑖 Δ𝑡, 𝑦 𝑖 ),                          (3.6b)
+                                          𝑖=1
+
+we define the update direction
+                                                      𝑠
+                                                𝑛
+                                            𝑑 :=
+                                                      Õ
+                                                             𝑏 𝑖 𝑓𝑖 ,                                 (3.7)
+                                                       𝑖=1
+
+where we use the abbreviation 𝑓𝑖 := 𝑓 (𝑡 𝑛 + 𝑐 𝑖 Δ𝑡, 𝑦 𝑖 ). Since the new solution 𝑢 𝑛 will not be
+conservative in general, we modify the update formula (3.6b) by introducing a relaxation
+parameter 𝛾 𝑛 and use
+                           𝑢(𝑡 𝑛 + 𝛾 𝑛 Δ𝑡) ≈ 𝑢𝛾𝑛+1 = 𝑢 𝑛 + 𝛾 𝑛 Δ𝑡𝑑 𝑛 .                       (3.8)
+To guarantee conservation of 𝐽, 𝛾 𝑛 is computed as root of
+
+                                           𝐽(𝑢𝛾𝑛+1 ) = 𝐽(𝑢 𝑛 ).                                       (3.9)
+
+This scalar nonlinear equation can be solved efficiently using algorithms such as the
+one of [2]. By the general theory on relaxation methods, there is exactly one root 𝛾 𝑛 =
+1 + 𝒪(Δ𝑡 𝑝−1 ) of (3.9) [66, Theorem 2.14]. By construction of the relaxation parameter 𝛾 𝑛 ,
+the resulting solution 𝑢𝛾𝑛+1 conserves the invariant 𝐽. Moreover, the relaxation approach
+also automatically conserves linear invariants (as long as the semi-discretization conserves
+them), which is an important prerequisite of analytical results on linear vs. quadratic error
+growth in time. Finally, the solution (3.8) has the same local order of accuracy as that
+given by the original Runge-Kutta method (3.6).
+
+
+
+
+                                                       6
+4 Nonlinear dispersive wave equations
+In this section, we consider several nonlinear dispersive wave equations. Each possesses
+an additional invariant ℐ(𝑢), and possesses stable solitary wave solutions that satisfy the
+relative equilibrium condition (2.4). Each equation also possesses one or more linear
+invariants, which are preserved by the discretizations we use. Since these invariants do
+not require any special numerical treatment, we do not discuss them explicitly.
+   For each equation we give a numerical method that conserves ℐ(𝑢), based on SBP
+operators applied to a split form of the equation. In each case, 𝐷 𝑗 always denotes a
+periodic 𝑗th-derivative SBP operator. The matrices used for discretization of a given
+equation are also assumed to have in common a corresponding diagonal mass matrix 𝑀.
+We will sometimes require an assumption that the derivative matrices 𝐷 𝑗 commute; this
+will be stated explicitly when it is required.
+   Conservative numerical methods for these equations have been developed and analyzed
+in [68] using various classes of SBP operators. We will use split forms to preserve local
+conservation laws, since the chain and product rules cannot hold discretely for many
+high-order discretizations [61]. These are related to entropy-conservative methods in the
+sense of Tadmor [77]. While certain split forms have been known for some time [71, eq.
+(6.40)], they are still state of the art and enable the construction of numerical methods
+with desirable properties [32, 60, 74, 82].
+   For each equation, after reviewing the Hamiltonian structure and split-form conser-
+vative spatial discretization, we present a numerical test of error growth for a solitary
+wave solution. The solitary wave solutions are obtained via the Petviashvili method [56]
+using a Fourier collocation method with 216 nodes. The resulting solitary wave profile
+is interpolated to a grid using fewer nodes and used as initial condition. A conserva-
+tive semidiscretization is obtained by using Fourier collocation methods in space. This
+semidiscretization is integrated in time using the fifth-order accurate Runge-Kutta method
+of Tsitouras [78] with adaptive time stepping based on local error estimates. We show
+results for both this method without relaxation (non-conservative) and with relaxation in
+time (conservative). The errors plotted are discrete 𝐿2 errors computed using the discrete
+norm induced by the mass matrix 𝑀, which is the identity matrix times the grid spacing
+for Fourier collocation methods.
+
+4.1 Fornberg-Whitham equation
+For convenience we define 𝑆 = I −𝜕𝑥2 . Then the Fornberg-Whitham equation [80]
+                        𝑆𝜕𝑡 𝑢(𝑡, 𝑥) + 𝑆𝜕𝑥 𝑓 (𝑢(𝑡, 𝑥)) + 𝜕𝑥 𝑢(𝑡, 𝑥) = 0,
+                                                            𝑢(0, 𝑥) = 𝑢 0 (𝑥),
+                                                                                                 (4.1)
+                                                             𝑢2
+                                                     𝑓 (𝑢) =    ,
+                                                             2
+with periodic boundary conditions can also be written as
+                           𝜕𝑡 𝑢(𝑡, 𝑥) + 𝜕𝑥 𝑓 (𝑢(𝑡, 𝑥)) + 𝑆𝑃−1 𝜕𝑥 𝑢(𝑡, 𝑥) = 0,                    (4.2)
+where 𝑆𝑃−1 is the inverse of the elliptic operator I −𝜕𝑥2 with periodic boundary conditions.
+This equation possesses the Hamiltonian and additional nonlinear invariant
+                               𝑢 3 1 −1
+                      ∫ 𝑥max                   !                            ∫ 𝑥max
+            ℋ (𝑢) =               + 𝑢𝑆𝑃 𝑢 d𝑥,                      ℐ(𝑢) =              𝑢 2 d𝑥.   (4.3)
+                       𝑥 min   6   2                                            𝑥min
+
+
+
+
+                                                   7
+It can be written in the form (2.2) by taking 𝐽 = −𝜕𝑥 . The discrete equivalent 𝑢 𝑇 𝑀𝑢
+                                                                                     𝑢 of
+ℐ(𝑢) is conserved by semidiscretizations of the form
+                          1       1
+                    𝜕𝑡 𝑢 + 𝐷1𝑢 2 + 𝑢 𝐷1𝑢 + (I −𝐷2 )−1 𝐷1𝑢 = 0                                                 (4.4)
+                          3       3
+where 𝐷1 and 𝐷2 commute [68].
+
+4.2 Camassa-Holm equation
+The Camassa-Holm equation [13]
+                             3         1
+                                                                                         
+            𝑆𝜕𝑡 𝑢(𝑡, 𝑥) + 𝜕𝑥 𝑢(𝑡, 𝑥)2 − (𝜕𝑥 𝑢(𝑡, 𝑥))2 − 𝑢(𝑡, 𝑥)𝜕𝑥2 𝑢(𝑡, 𝑥) = 0,
+                             2         2                                                                      (4.5)
+                                                                                                0
+                                                                                    𝑢(0, 𝑥) = 𝑢 (𝑥),
+with periodic boundary conditions can also be written as
+
+  𝜕𝑡 𝑢 + 𝑆𝑃−1 𝜕𝑥 𝑢 2 + 𝑢𝜕𝑥 𝑢 − 𝛼𝜕𝑥 (𝑢𝜕𝑥2 𝑢) − (1 − 𝛼)𝜕𝑥2 (𝑢𝜕𝑥 𝑢)
+                                                                         − (2𝛼 − 1)(𝜕𝑥 𝑢)(𝜕𝑥2 𝑢) = 0, (4.6)
+                                                                                                     
+
+where 𝛼 ∈ R is a parameter determining the split form [68]. This equation possesses the
+Hamiltonian and an additional nonlinear invariant
+             1 𝑥max  3                              1 𝑥max 2
+               ∫                                      ∫
+                                 2
+                                                             𝑢 + (𝜕𝑥 𝑢)2 d𝑥.
+                                   
+     ℋ (𝑢) =          𝑢 + 𝑢(𝜕𝑥 𝑢) d𝑥,       ℐ(𝑢) =                                (4.7)
+                                                                        
+             2 𝑥min                                  2 𝑥min
+
+It can be written in the form (2.2) by taking 𝐽 = − 21 𝑆𝑃−1 𝜕𝑥 . The discrete equivalent
+1 𝑇
+2 𝑢 𝑀(I −𝐷2 )𝑢 of ℐ(𝑢) is conserved by semidiscretizations of the form [68]
+             𝑢
+                                                1             1
+               𝜕𝑡 𝑢 + (I −𝐷2 )−1 𝐷1𝑢 2 + 𝑢 𝐷1𝑢 − 𝐷1 (𝑢             𝑢 𝐷1𝑢 ) = 0 .
+                                                     𝑢 𝐷2𝑢 ) − 𝐷2 (𝑢                                          (4.8)
+                                                                          
+                                                2             2
+
+4.3 Degasperis-Procesi equation
+The Degasperis-Procesi equation [19]
+                           𝑆𝜕𝑡 𝑢(𝑡, 𝑥) + (4 I −𝜕𝑥2 )𝜕𝑥 𝑓 (𝑢(𝑡, 𝑥)) = 0,
+                                                              𝑢(0, 𝑥) = 𝑢 0 (𝑥),                              (4.9)
+                                                                               2
+                                                                              𝑢
+                                                                 𝑓 (𝑢) =        ,
+                                                                              2
+with periodic boundary conditions can also be written as
+                             𝜕𝑡 𝑢(𝑡, 𝑥) + 𝑆𝑃−1 (4 I −𝜕𝑥2 )𝜕𝑥 𝑓 (𝑢(𝑡, 𝑥)) = 0,                                (4.10)
+where 𝑆𝑃−1 is the inverse of the elliptic operator I −𝜕𝑥2 with periodic boundary conditions.
+This equation admits (among others) the nonlinear invariants [19]
+              ∫ 𝑥max                         ∫ 𝑥max
+                       1 3               1
+  ℋ (𝑢) = −              𝑢 d𝑥,    ℐ(𝑢) =                  (𝑢 − 𝜕𝑥2 𝑢)𝑣        d𝑥,     𝑣 = (4 I −𝜕𝑥2 )−1 𝑢.   (4.11)
+                                                                         
+               𝑥 min   6                 2     𝑥min
+
+It can be written in the form (2.2) by taking 𝐽 = 𝑆𝑃−1 (4 I −𝜕𝑥2 )𝜕𝑥 . The discrete equivalent
+1 𝑇         𝑇           −1
+2 𝑢 (I −𝐷2 ) 𝑀(4 I −𝐷2 ) 𝑢 of ℐ(𝑢) is conserved by semidiscretizations of the form [68]
+                               1
+                         𝜕𝑡 𝑢 + (I −𝐷2 )−1 (4 I −𝐷2 ) 𝐷1𝑢 2 + 𝑢 𝐷1𝑢 = 0 .
+                                                                  
+                                                                                                             (4.12)
+                               3
+
+
+                                                      8
+4.4 BBM-BBM system
+The BBM-BBM system [5, 6, 9, 11]
+
+                𝜕𝑡 𝜂(𝑡, 𝑥) + 𝜕𝑥 𝑢(𝑡, 𝑥) + 𝜕𝑥 𝜂(𝑡, 𝑥)𝑢(𝑡, 𝑥) − 𝜕𝑡 𝜕𝑥2 𝜂(𝑡, 𝑥) = 0,
+                                                                       
+
+                                                               𝑢(𝑡, 𝑥)2
+                            𝜕𝑡 𝑢(𝑡, 𝑥) + 𝜕𝑥 𝜂(𝑡, 𝑥) + 𝜕𝑥                − 𝜕𝑡 𝜕𝑥2 𝑢(𝑡, 𝑥) = 0,
+                                                                  2                                           (4.13)
+                                                                                𝜂(0, 𝑥) = 𝜂0 (𝑥),
+                                                                                   𝑢(0, 𝑥) = 𝑢 0 (𝑥),
+
+with periodic boundary conditions can also be written as
+
+                             𝜕𝑡 𝜂(𝑡, 𝑥) + 𝑆𝑃−1 𝜕𝑥 𝑢(𝑡, 𝑥) + 𝜂(𝑡, 𝑥)𝑢(𝑡, 𝑥) = 0,
+                                                                                     
+
+                                                                         𝑢(𝑡, 𝑥)2                             (4.14)
+                                                                                   
+                                    𝜕𝑡 𝑢(𝑡, 𝑥) + 𝑆𝑃−1 𝜕𝑥       𝜂(𝑡, 𝑥) +          = 0.
+                                                                            2
+
+This equation admits the nonlinear invariants
+                   ∫ 𝑥max                                                  ∫ 𝑥max
+               1                2              2
+  ℋ (𝜂, 𝑢) = −               (𝜂 + (1 + 𝜂)𝑢 ) d𝑥,           ℐ(𝜂, 𝑢) =                (𝜂𝑢 + (𝜕𝑥 𝜂)(𝜕𝑥 𝑢)) d𝑥,   (4.15)
+               2    𝑥 min                                                   𝑥min
+
+and can be written in the form (2.2) by taking
+                                                                       !
+                                                                  −1
+                                                     0           𝑆 𝜕𝑥
+                                             𝐽=     −1                .
+                                                   𝑆 𝜕𝑥           0
+
+As mentioned in Section 2, we expect to observe linear error growth whenever the numer-
+ical method conserves either ℋ (𝜂, 𝑢) or ℐ(𝜂, 𝑢). For this example, we demonstrate this by
+testing methods that conserve each of these quantities separately.
+   The discrete equivalent − 12 (𝜂
+                                 𝜂𝑇 𝑀𝜂𝜂 + 𝑢 𝑇 𝑀(11 + 𝜂 )𝑢𝑢 ) of ℋ (𝜂, 𝑢) is conserved by semidis-
+cretizations of the form
+                                 𝜕𝑡 𝜂 + (I −𝐷2 )−1 𝐷1 (𝑢
+                                                       𝑢 + 𝜂𝑢 ) = 0 ,
+                                                          1 2                              (4.16)
+                                                              
+                                             −1
+                              𝜕𝑡 𝑢 + (I −𝐷2 ) 𝐷1 𝜂 + 𝑢 = 0 .
+                                                          2
+where 𝐷1 , 𝐷2 commute [68].
+  Conservation of the discrete equivalent 𝑢 𝑇 𝑀(I −𝐷2 )𝜂
+                                                       𝜂 of ℐ(𝜂, 𝑢) can be achieved with
+the standard Galerkin method [48] or SBP methods using the split form
+
+                                        𝜕𝑡 𝜂 + (I −𝐷2 )−1 𝐷1 (𝑢
+                                                              𝑢 + 𝜂𝑢 ) = 0 ,
+                                                                                                              (4.17)
+                                     𝜕𝑡 𝑢 + (I −𝐷2 )−1 (𝐷1𝜂 + 𝑢 𝐷1𝑢 ) = 0 ;
+
+see Theorem 4.1 below.
+Theorem 4.1. If 𝐷1 is a periodic first-derivative SBP operator and 𝐷2 is a periodic second-derivative
+SBP operator with diagonal mass matrix, then the semidiscretization (4.17) conserves the quadratic
+invariant ℐ (defined in (4.15)).
+
+
+
+
+                                                           9
+Proof. Using 1𝑇 𝑀(I −𝐷2 )−1 = 1𝑇 𝑀 [68, Lemma 2.28] and 1𝑇 𝑀𝐷1 = 0𝑇 [68, Lemma 2.27]
+results in
+                       1𝑇 𝑀𝜕𝑡 𝜂 = −11𝑇 𝑀(I −𝐷2 )−1 𝐷1 (𝑢
+                                                       𝑢 + 𝜂 𝑢 ) = 0.         (4.18)
+Applying the SBP property (3.2) additionally and using that 𝑀 is diagonal yields
+
+                 1𝑇 𝑀𝜕𝑡 𝑢 = −11𝑇 𝑀(I −𝐷2 )−1 (𝐷1𝜂 + 𝑢 𝐷1𝑢 ) = −𝑢
+                                                               𝑢 𝑇 𝑀𝐷1𝑢 = 0.                                 (4.19)
+
+Finally, similar arguments based on the symmetry of I −𝐷2 with respect to the mass matrix
+𝑀 lead to
+                        𝜂 , 𝑢 ) = 𝑢 𝑇 𝑀(I −𝐷2 )𝜕𝑡 𝜂 + 𝜂 𝑇 𝑀(I −𝐷2 )𝜕𝑡 𝑢
+                   𝜕𝑡 ℐ(𝜂
+                                                                                    (4.20)
+                                = −𝑢         𝑢 + 𝜂 𝑢 ) − 𝜂 𝑇 𝑀(𝐷1𝜂 + 𝑢 𝐷1𝑢 ) = 0.
+                                    𝑢 𝑇 𝑀𝐷1 (𝑢                                          
+
+4.5 Holm-Hone equation
+As our last example in this section, we consider the Holm-Hone equation [36]:
+
+  (4 − 5𝜕𝑥2 + 𝜕𝑥4 )𝜕𝑡 𝑢 + 𝑢𝜕𝑥5 𝑢 + 2(𝜕𝑥 𝑢)𝜕𝑥4 𝑢 − 5𝑢𝜕𝑥3 𝑢 − 10(𝜕𝑥 𝑢)𝜕𝑥2 𝑢 + 12𝑢𝜕𝑥 𝑢 = 0,
+                                                                                                             (4.21)
+                                                                                       𝑢(0, 𝑥) = 𝑢 0 (𝑥),
+
+with periodic boundary conditions. It can also be written as
+
+                  2      4
+                                       𝜕𝑥 𝑢(4 I −5𝜕𝑥2 + 𝜕𝑥4 )𝑢 + (𝜕𝑥 𝑢)(4 I −5𝜕𝑥2 + 𝜕𝑥4 )𝑢
+                                                                                                
+   𝜕𝑡 𝑢 + (4 I −5𝜕𝑥,𝑃 + 𝜕𝑥,𝑃 )−1                                                                      = 0,   (4.22)
+                                                              
+
+               2      4
+where (4 I −5𝜕𝑥,𝑃  + 𝜕𝑥,𝑃 )−1 is the inverse of the elliptic operator 4 I −5𝜕𝑥2 + 𝜕𝑥4 with periodic
+boundary conditions. This equation can be written in the form (2.2) using the nonlinear
+invariant [36, 79]
+                   ∫ 𝑥max                                  ∫ 𝑥max
+               1                                     1
+       ℋ (𝑢) =              𝑢(4 I −𝜕𝑥2 )(I −𝜕𝑥2 )𝑢 =                    4𝑢 2 + 5(𝜕𝑥 𝑢)2 + (𝜕𝑥2 𝑢)2 .         (4.23)
+                                                                                                  
+               2    𝑥 min                             2     𝑥min
+
+Unlike the previous equations, this one appears to have no second nonlinear invariant;
+instead the translation symmetry is generated by the linear invariant
+
+                                              ℐ(𝑢) = 𝑢 − 𝜕𝑥2 𝑢.                                              (4.24)
+
+The relevant operator appearing in (2.2) is
+
+                                             𝐽 = −(ℐ𝜕𝑥 + 𝜕𝑥 ℐ).
+
+Both the discrete equivalent 1𝑇 𝑀(I −𝐷2 )𝑢
+                                         𝑢 of the linear invariant ℐ(𝑢) and the discrete
+            1 𝑇
+equivalent 2 𝑢 𝑀(4 I −5𝐷2 + 𝐷4 )𝑢𝑢 of the nonlinear invariant ℋ (𝑢) are conserved by
+semidiscretizations of the form
+                                                                                                      
+     𝜕𝑡 𝑢 = −(4 I −5𝐷2 + 𝐷4 )−1 𝐷1 𝑢 (4 I −5𝐷2 + 𝐷4 )𝑢
+                                                     𝑢 + (𝐷1𝑢 )(4 I −5𝐷2 + 𝐷4 )𝑢
+                                                                               𝑢                             (4.25)
+                                                                    
+
+
+where 𝐷1 , 𝐷2 , 𝐷4 commute [68].
+
+
+
+
+                                                      10
+Table 1: Summary of numerical simulations. #DOF denotes the number of the degrees of freedom
+         (number of grid points) of the spatial semidiscretization. Tol. is the local error tolerance
+         used for adaptive time stepping.
+        Equation                 Discretization         Domain          #DOF         Tol.       Fig.
+Fornberg-Whitham (4.1)                 (4.4)            [−80, 80]         28         1e-5        1a
+  Camassa-Holm (4.5)                   (4.8)            [−40, 40]         29         1e-7        1b
+Degasperis-Procesi (4.9)              (4.12)            [−40, 40]         28         1e-5        1c
+   BBM-BBM (4.13)                     (4.16)            [−40, 40]         28         1e-5         2
+   Holm-Hone (4.21)                   (4.25)            [−40, 40]         29         1e-9        1d
+
+
+
+4.6 Numerical results
+For each of the five equations just studied, we perform a similar numerical experiment. We
+use a numerically generated smooth solitary wave solution as initial condition in a periodic
+domain, and apply the corresponding SBP spatial discretization with Fourier collocation
+methods in space and Tsitouras’ fifth-order Runge-Kutta method [78] in time, with or
+without using relaxation to enforce conservation of a nonlinear invariant ℐ. Specific
+parameters for each simulation are shown in Table 1.
+   In each case, we observe approximately linear error growth for the conservative method
+and approximately quadratic growth for the non-conservative method, until eventually
+the error for the non-conservative method saturates when the exact and numerical solu-
+tions no longer overlap.
+   An example of the numerical solutions themselves is shown in Figure 3, using BBM-
+BBM. The numerical solutions obtained using the non-conservative method have a visible
+amplitude error and a significant phase error. In contrast, the conservative method
+yields numerical solutions that are visually indistinguishable from the reference solution.
+Results for the other equations are similar.
+   For the BBM-BBM system, we also conduct numerical experiments using the discretiza-
+tion (4.17) and applying relaxation to conserve the corresponding functional. The error
+growth in time using this method is visually indistinguishable from that shown for the
+method (4.16). As expected, the error of the associated conservative method grows linearly
+in time while the error of the non-conservative method grows quadratically.
+   Additionally, we perform numerical experiments with non-smooth traveling waves.
+While these are available in closed form for some of the nonlinear dispersive wave equa-
+tions studied in this article, their reduced regularity makes it more difficult to approximate
+them numerically well enough in space. Note that existing analytical results about the
+error growth in time described in Section 2 are based on discretization only in time and
+assume exactness in space. Thus, the spatial semidiscretization must be well-resolved in
+order for these results to apply to fully discrete schemes.
+   Here, we use eighth-order accurate finite difference methods with 213 nodes for peakon
+solutions of the form 𝑢(𝑡, 𝑥) = 𝑐 exp(−|𝑥 − 𝑐𝑡 |) with 𝑐 = 1.2 of the Camassa-Holm equation
+[13, 45] in the periodic domain [−35, 35]. The fifth-order Runge-Kutta method uses a
+local error tolerance of 10−7 . The results visualized in Figure 4 are in accordance with
+the expectations: We observe quadratic error growth for non-conservative methods and
+linear error growth for conservative methods.
+
+
+
+
+                                                 11
+        𝒪(𝑡 2)
+
+                                                    Error of 𝑢 (non-conservative)
+                                                    Error of 𝑢 (conservative)
+
+         100
+        𝒪(𝑡 1)                                                           100
+                                                                                                 𝒪(𝑡 2)
+        10−1
+                                                                        10−1
+      3 −2
+   1010              𝒪(𝑡 2)         104                                   Error of 𝑢 (non-conservative)                   Error
+Error
+
+
+
+
+                                                                Error
+                                                                        10−2
+        𝑡                                                                 Error of 𝑢 (conservative)                       Error
+        10−3                                                            10−3
+                     𝒪(𝑡 1)                                                                      𝒪(𝑡 1)
+        10−4                                                            10−4
+
+
+                   103                        104                                              103                  104
+                                          𝑡                                                           𝑡
+               (a) Fornberg-Whitham equation (4.1).                            (b) Camassa-Holm equation (4.5).
+         101
+                                                                        10−2                               𝒪(𝑡 2)
+         100
+                                                                        10−3
+                               𝒪(𝑡 2)
+        10−1                                                            10Error
+                                                                          −4    of 𝑢 (non-conservative)                   Error
+                                                                Error
+Error
+
+
+
+
+                                                                          Error of 𝑢 (conservative)                       Error
+        10−2                                                            10−5
+
+                                                                        10−6
+        10−3
+                                                                                                           𝒪(𝑡 1)
+                               𝒪(𝑡 1)                                   10−7
+        10−4
+                              102                   103                          102                      103
+                                          𝑡                                                           𝑡
+               (c) Degasperis-Procesi equation (4.9).                           (d) Holm-Hone equation (4.21).
+
+Figure 1: Error growth in time for numerically generated solitary wave solutions using Fourier
+          collocation in space and 5th-order Runge-Kutta in time. The conservative method uses
+          relaxation to enforce conservation of a nonlinear invariant.
+
+
+5 Significance of linear invariants
+In this section we investigate the importance of conservation of linear invariants. First, we
+study the behavior of a method that preserves energy but not mass for the KdV equation.
+Then, we consider a linear PDE in which nonlinear invariants play no role.
+
+5.1 Projection methods: non-conservation of mass
+Here we consider the propagation of a soliton solution of the KdV equation, using three
+methods. All three methods use the SBP spatial discretization of [65] with eighth-order
+accurate finite differences that is mass- and energy-conserving. The time discretizations
+are:
+        • An IMEX RK method of [38] that conserves mass but not energy
+
+        • The corresponding relaxation method that conserves both mass and energy
+
+
+
+                                                              12
+              100
+
+             10−1                 𝒪(𝑡 2)                                          Error of 𝜂 (non-conservative)
+             10−2                                                                 Error of 𝜂 (conservative)
+     Error
+
+
+
+
+                                                                                  Error of 𝑢 (non-conservative)
+             10−3                                                                 Error of 𝑢 (conservative)
+
+             10−4
+                                  𝒪(𝑡 1)
+             10−5
+                    102                103                       104
+                                          𝑡
+
+Figure 2: Error growth in time for a numerically generated solitary wave solution of the BBM-BBM
+          system (4.13), using (4.16) with Fourier collocation in space and 5th-order Runge-Kutta in
+          time. The conservative method uses relaxation to enforce conservation of ℋ (see (4.15)).
+
+
+   • The corresponding orthogonal projection method that conserves energy but not
+     mass
+
+For details on orthogonal projection, we refer to [33, Section IV.4]. A similar comparison
+was conducted in [65]; here we conduct a more detailed study of the error growth for the
+projection scheme.
+  Results are shown in Figure 5. The first two methods behave as expected, in accordance
+with theoretical results in [18]. The projection method initially performs similar to the
+relaxation method. However, its error grows quadratically after some time and eventually
+leads to a much more inaccurate solution, in accordance with the theory of [18]. Inter-
+estingly, the large global error in total mass at late times is exhibited not primarily in a
+change in mass of the soliton, but in a gradual downward drift of the ambient value of 𝑢,
+as shown in Figure 6. We observed a similar behavior of orthogonal projection methods
+also for other nonlinear dispersive wave equations such as the BBM equation.
+
+5.2 A linear dispersive equation
+As alluded to in the introduction, nonlinearity is an important condition to observe
+different behaviors of the error growth in time. To demonstrate that, we consider the
+linear dispersive equation
+
+                    (I −𝜕𝑥2 )𝜕𝑡 𝑢(𝑡, 𝑥) + 𝜕𝑥 𝑢(𝑡, 𝑥) = 0,              𝑡 ∈ (0, 𝑇), 𝑥 ∈ (𝑥min , 𝑥max ),
+                                                             0
+                                                                                                                   (5.1)
+                                              𝑢(0, 𝑥) = 𝑢 (𝑥), 𝑥 ∈ [𝑥min , 𝑥max ],
+
+with periodic boundary conditions. The functionals
+                                           ∫ 𝑥max
+                             𝐽1lin (𝑢) =              𝑢,                                                          (5.2a)
+                                            𝑥
+                                           ∫ min
+                                              𝑥 max                     ∫ 𝑥max
+                             𝐽2lin (𝑢) =                2          2
+                                                      (𝑢 + (𝜕𝑥 𝑢) ) =             𝑢(I −𝜕𝑥2 )𝑢,                    (5.2b)
+                                            𝑥 min                         𝑥 min
+
+
+
+
+                                                             13
+                              non-conservative         conservative                reference
+
+
+    0.4                                                       0.4
+
+
+    0.3                                                       0.3
+
+
+
+
+                                                          𝑢
+𝜂
+
+
+
+
+    0.2                                                       0.2
+
+
+    0.1                                                       0.1
+
+
+    0.0                                                       0.0
+                −50           0              50                             −50            0            50
+                              𝑥                                                            𝑥
+
+              (a) Numerical solution of 𝜂.                               (b) Numerical solution of 𝑢.
+
+Figure 3: Numerical solutions at the final time for a numerically generated solitary wave solution
+          of the BBM-BBM system (4.13) using relaxation methods conserving ℋ (see (4.15)).
+
+
+are invariants of solutions of (5.1), which are conserved by semidiscretizations of the form
+
+                                         𝜕𝑡 𝑢 + (I −𝐷2 )−1 𝐷1𝑢 = 0 .                                         (5.3)
+
+
+Theorem 5.1. If 𝐷1 is a periodic first-derivative SBP operator and 𝐷2 is a periodic second-derivative
+SBP operator, then the semidiscretization (5.3) conserves the invariants (5.2) of (5.1).
+
+Proof. Using 1𝑇 𝑀(I −𝐷2 )−1 = 1𝑇 𝑀 [68, Lemma 2.28] and 1𝑇 𝑀𝐷1 = 0𝑇 [68, Lemma 2.27]
+results in
+                           1𝑇 𝑀𝜕𝑡 𝑢 = −11𝑇 𝑀(I −𝐷2 )−1 𝐷1𝑢 = 0.                (5.4)
+Using the symmetry of I −𝐷2 with respect to the mass matrix 𝑀 and applying the SBP
+property (3.2) results in
+
+          𝜕𝑡 𝐽2lin (𝑢                            𝑢 𝑇 𝑀𝐷1𝑢 = −𝑢
+                           𝑢 𝑇 𝑀(I −𝐷2 )𝜕𝑡 𝑢 = −2𝑢
+                    𝑢 ) = 2𝑢                                 𝑢 𝑇 𝑀𝐷1𝑢 + 𝑢 𝑇 𝐷1𝑇 𝑀𝑢
+                                                                                 𝑢 = 0.                      (5.5)
+                                                                                                                
+  Numerical result for the analytical solution
+                                                                            1
+                                  𝑢(𝑡, 𝑥) = sin(𝜋(𝑥 − 𝑐𝑡)),         𝑐=             ,                         (5.6)
+                                                                         1 + 4𝜋2
+in the domain [𝑥min , 𝑥max ] = [−1, 1] are shown in Figure 7. The spatial semidiscretization
+using a Fourier pseudospectral method with 𝑁 = 26 nodes is integrated in time with
+the fifth-order accurate Runge-Kutta method of [78] and a tolerance of 10−5 . While the
+conservative method has a significantly reduced amplitude error, the phase error of the
+conservative and non-conservative methods are visually indistinguishable. Consequently,
+the error growth rate in time for both methods is linear. This is in accordance with analyt-
+ical results available for other linear equations such as hyperbolic systems with constant
+coefficients in periodic domains; for these equations, the error can also be bounded in time
+if non-periodic domains are used and the boundary conditions are imposed appropriately
+[43, 51, 54, 55].
+
+
+
+                                                     14
+                                   non-conservative            conservative             reference
+
+                                                                      1.2
+              100
+                                                                      1.0
+
+                                                  𝒪(𝑡 1)              0.8
+Error of 𝑢
+
+
+
+
+             10−1                 𝒪(𝑡 2)
+                                                                      0.6
+
+
+
+
+                                                                  𝑢
+                                                                      0.4
+
+             10−2                                                     0.2
+
+                                                                      0.0
+                          101                    102                              −20           0          20
+                                    𝑡                                                           𝑥
+                    (a) Error growth in time.                           (b) Numerical solutions at the final time.
+
+Figure 4: Numerical results for a non-smooth solitary wave solution of the Camassa-Holm equation
+          (4.5) using finite difference methods in space and 5th-order Runge-Kutta in time. The
+          conservative method uses relaxation to enforce conservation of the nonlinear invariant
+          ℐ(𝑢).
+
+
+6 The variable-coefficient 𝑝 -system
+The examples in Section 4 all involve dispersive nonlinear wave equations with constant
+coefficients. The results there are in line with the results available in the literature, all
+of which involve similar dispersive nonlinear wave equations. We now turn to a very
+different kind of example that demonstrates the generality of the behavior in question.
+Specifically, we study a system of nonlinear first-order hyperbolic conservation laws with
+spatially-varying coefficients. This system has no dispersive terms, and in a strict sense
+has no traveling wave solutions. It has been observed to possess solutions (known as
+“stegotons") that are similar to solitary waves, although they change shape periodically
+in time; see [46].
+   Specifically, we investigate the behavior of numerical solutions to the first-order system
+
+                                                     𝜕𝑡 𝜀(𝑡, 𝑥) − 𝜕𝑥 𝑢(𝑡, 𝑥) = 0
+                                                                                                                     (6.1)
+                                           𝜚(𝑥)𝜕𝑡 𝑢(𝑡, 𝑥) − 𝜕𝑥 𝜎(𝜀(𝑡, 𝑥), 𝑥) = 0,
+
+where 𝑢 is the velocity, 𝜚 the prescribed density, 𝜀 the strain, and
+
+                                                𝜎(𝜀, 𝑥) = exp(𝐾(𝑥)𝜀) − 1                                             (6.2)
+
+the stress [46]. Here we have used notation corresponding to elasticity, but the same
+system arises in Lagrangian gas dynamics and is referred to as the 𝑝-system. The energy
+
+                                                                       1
+                     ∫                                                                  ∫ 𝜀
+                         𝐸(𝑢(𝑡, 𝑥), 𝜀(𝑡, 𝑥), 𝑥) d𝑥,        𝐸(𝑢, 𝜀, 𝑥) = 𝜚(𝑥)𝑢 2 +             𝜎(𝑠, 𝑥) d𝑠             (6.3)
+                                                                       2                  0
+
+is conserved for strong solutions of (6.1). Generically, solutions of this system give rise
+to discontinuities (shocks) and a theory of weak solutions must be invoked. If 𝜚(𝑥) and
+𝜎(𝜀, 𝑥) do not depend explicitly on 𝑥 then the system has no traveling wave solutions.
+
+
+
+                                                             15
+                   non-conservative             relaxation               projection            analytical
+
+
+    2.0
+
+                                                                   100                                𝒪(𝑡 2)
+    1.5
+
+                                                                  10−1
+
+
+
+
+                                                          Error
+    1.0
+𝑢
+
+
+
+
+                                                                                                      𝒪(𝑡 1)
+                                                                  10−2
+    0.5
+
+                                                                  10−3
+    0.0
+          0       20           40          60       80                         102                   103
+                               𝑥                                                           𝑡
+
+              (a) Numerical solution.                                        (b) Error versus time.
+
+ Figure 5: Numerical solutions and error over time for numerical propagation of a KdV soliton.
+
+
+                   0.004
+
+                                                                                        𝑡 = 0.0
+                   0.002
+                                                                                        𝑡 = 735.4
+                                                                                        𝑡 = 1470.7
+                   0.000
+              𝑢
+
+
+
+
+                                                                                        𝑡 = 2169.3
+                                                                                        𝑡 = 2904.6
+                  −0.002
+                                                                                        𝑡 = 3640.0
+
+                  −0.004
+
+                           0          20          40               60          80
+                                                  𝑥
+
+              Figure 6: Closeup of numerical solution by projection at various times.
+
+
+However, with appropriate initial data and periodic variation of the PDE coefficients,
+solutions appear to be regular for all time and the energy (6.3) is conserved [40].
+  A straightforward application of an SBP operator 𝐷1 in a periodic domain results in the
+semidiscretization
+                                        𝜕𝑡 𝜀 = 𝐷1𝑢 ,
+                                                                                    (6.4)
+                                       𝜕𝑡 𝑢 = 𝜚 −1 𝐷1 𝜎 ,
+where 𝜎 and the division by 𝜚 are evaluated pointwise.
+Theorem 6.1. Let 𝐷1 be a periodic SBP first-derivative operator with diagonal mass matrix 𝑀.
+Then the semidiscretization
+           ∫                (6.4) conserves the total mass of 𝜀, the total mass of 𝜚𝑢, and the total
+energy 𝜂 = 𝐸.
+Proof. For a periodic SBP operator, the rate of change of the total masses is
+
+                                            𝜕𝑡 1𝑇 𝑀𝜀𝜀 = 1𝑇 𝑀𝐷1𝑢 = 0 ,
+                                                                                                               (6.5)
+                                        𝜕𝑡 1𝑇 𝑀𝜚𝜚 𝑢 = 1𝑇 𝑀𝐷1𝜎 = 0 .
+
+
+
+                                                         16
+                                  non-conservative              conservative                 analytical
+
+     1.0
+
+                                                                        10−1
+     0.5
+
+                                                                        10−2
+
+
+
+
+                                                                Error
+     0.0                                                                                                    𝒪(𝑡 1)
+𝑢
+
+
+
+
+    −0.5                                                                10−3
+
+
+    −1.0                                                                10−4
+           −1.0        −0.5       0.0       0.5          1.0                   103          104            105       106
+                                  𝑥                                                                       𝑡
+
+    (a) Numerical solution of 𝑢 at the final time.                                    (b) Error growth in time.
+
+Figure 7: Numerical results for the linear dispersive equation (5.1) using relaxation methods con-
+          serving the energy (5.2b).
+
+
+Furthermore,
+                                                    1
+                                                 𝜂 = 𝜕𝑡 1𝑇 𝑀𝜚𝜚 𝑢 2 + 𝜕𝑡 1𝑇 𝑀Σ
+                                   𝜕𝑡 𝜂 = 𝜕𝑡 1𝑇 𝑀𝜂                          Σ,                                             (6.6)
+                                                    2
+                  ∫𝜀
+where Σ = 0 𝜎(𝑠, 𝑥) d𝑠. Hence,
+
+                                                                𝑢 𝐷1𝜎 + 1𝑇 𝑀𝜎
+                         𝜕𝑡 𝜂 = 1𝑇 𝑀𝜚𝜚 𝑢 𝜕𝑡 𝑢 + 1𝑇 𝑀𝜎𝜕𝑡 𝜀 = 1𝑇 𝑀𝑢           𝜎 𝐷1𝑢
+                                                                                                                           (6.7)
+                               = 𝑢 𝑇 𝑀𝐷1𝜎 + 𝜎 𝑇 𝑀𝐷1𝑢 = 0,
+
+where we have used that the mass matrix is diagonal.                                                                          
+  We use smooth coefficients given by
+
+                                        5 3                                        5 3
+                              𝜚(𝑥) =     − sin(2𝜋𝑥),                𝐾(𝑥) =          − sin(2𝜋𝑥),
+                                        2 2                                        2 2
+in the domain [0, 20]. To study the error growth in time, we construct a stegoton solution
+numerically using Clawpack [17, 41, 42, 47] as follows. We start with a zero initial
+condition and a left boundary condition given by
+
+                                 𝜀(0, 𝑡) = 0,
+                                           (
+                                          −0.1 1 + cos 𝑡0 𝜋                          if |𝑡0 | ≤ 1,
+                                                                         
+                                                                               ,
+                                𝑢(0, 𝑡) =
+                                          0,                                         otherwise,
+
+            2.5 . This corresponds to a moving wall that generates a pulse that eventually
+where 𝑡0 = 𝑡−2.5
+becomes a train of stegotons. We solve this problem to a late time (so that the stegotons
+are well separated) on a highly-refined grid, and then isolate the first resulting stegoton.
+For more details see [67].
+  Next, we use the numerically constructed single-stegoton solution as initial condition.
+We apply an energy-conservative Fourier pseudospectral semidiscretization (6.4) with 28
+nodes. We solve the resulting ODE system using the fifth-order Runge-Kutta method of
+
+
+
+                                                               17
+[78] with adaptive time stepping and a tolerance of 10−6 . The error growth is shown in
+Figure 8 for solutions obtained with relaxation (conservative) and without relaxation (non-
+conservative). After an initial transient period, the error of the non-conservative scheme
+grows quadratically while the corresponding conservative method results in approxi-
+mately linear error growth. The error of the non-conservative method starts to saturate
+at 𝑡 ≈ 104 since the numerical and reference waves do not overlap anymore, as can be
+seen in Figure 9. The numerical solutions obtained using the non-conservative method
+have a clearly visible phase error. In addition, the shape of the numerical solutions is
+deformed, in particular for 𝑢. In contrast, the phase error of the conservative method
+is negligible. Nevertheless, the shape of the numerical solutions has changed a bit over
+these very long-time simulations, and small oscillations have appeared in the tails of the
+solitary wave.
+
+              100
+
+
+                                        𝒪(𝑡 2)
+             10−1                                               Error of 𝜀 (non-conservative)
+                                                                Error of 𝜀 (conservative)
+     Error
+
+
+
+
+                                                                Error of 𝑢 (non-conservative)
+             10−2                                               Error of 𝑢 (conservative)
+
+                                        𝒪(𝑡 1)
+             10−3
+                        102            103            104
+                                  𝑡
+
+Figure 8: Error growth in time for a numerically generated stegoton solution of the variable-
+          coefficient 𝑝-system (6.1), using (6.4) with Fourier collocation in space and fifth-order
+          Runge-Kutta in time. The conservative method uses relaxation to enforce conservation
+          of (6.3).
+
+   Although existing theory such as that reviewed in Section 2 cannot be applied to this
+system, it is perhaps not unreasonable to expect the behavior we have observed. Although
+stegotons are not translation invariant, they appear to be solutions of the form
+                                                ˜ − 𝑐𝑡, 𝑐𝑡)
+                                      𝑢(𝑥, 𝑡) = 𝑢(𝑥
+where 𝑢˜ is periodic in its second argument; i.e.
+                                      ˜
+                                      𝑢(𝑦,          ˜
+                                           𝑧 + Ω) = 𝑢(𝑦, 𝑧)
+where Ω = 1 is the period of the material coefficients 𝜚(𝑥), 𝐾(𝑥). This “periodic translation
+invariance" may fulfill the same role as simple translation invariance. Note also that the
+system considered here behaves, with a certain extreme choice of coefficients, like the
+discrete Toda lattice [46]; for the latter system, it is known that symplectic numerical
+integrators exhibit linear error growth [33, pp. 413-414].
+
+
+7 The shallow water equations
+We now turn to the shallow water equations in two space dimensions. Like the last
+example, this is a first-order hyperbolic system whose solutions generically develop shock
+
+
+
+                                                 18
+                            non-conservative        conservative              reference
+
+    0.5
+                                                            0.00
+    0.4
+                                                           −0.05
+    0.3
+                                                           −0.10
+
+
+
+
+                                                       𝑢
+𝜀
+
+
+
+
+    0.2
+                                                           −0.15
+
+    0.1
+                                                           −0.20
+
+    0.0
+                 5         10         15                                  5               10   15
+                                                                                           𝑥
+                           𝑥
+                                                                   (b) Numerical solution of 𝑢.
+           (a) Numerical solution of 𝜀.
+
+Figure 9: Numerical solutions at the final time for a numerically generated stegoton solution of the
+          variable-coefficient 𝑝-system (6.1). The conservative solution is visually indistinguishable
+          from the reference solution.
+
+
+discontinuities. As with the last example, the constant-coefficient equations have no
+traveling wave solutions; however, for appropriate initial data and varying bathymetry,
+numerical experiments suggest that solitary wave solutions exist [57]. Nevertheless, this
+example differs in important ways from all the preceding ones and from all the results
+available in the literature on error growth for dispersive nonlinear waves. It is a two-
+dimensional system, and its solitary wave solutions have a two-dimensional structure
+(localized in 𝑥 and periodic in 𝑦). Aside from the theoretical complication this involves,
+it also imposes a practical challenge. Since the exact form of the solitary wave solutions is
+not known, we will need to compute an approximate solitary wave initial condition, as we
+did in Section 6. However, in this case we cannot exhaustively resolve the solution and we
+expect that resulting initial condition is close to, but still different from, a solitary wave.
+   The shallow water equations in two space dimensions with variable bathymetry 𝑏(𝑥, 𝑦)
+are
+                                        𝜕𝑡 ℎ + 𝜕𝑥 (ℎ𝑣 𝑥 ) + 𝜕𝑦 (ℎ𝑣 𝑦 ) = 0,
+                                                 1
+                      𝜕𝑡 (ℎ𝑣 𝑥 ) + 𝜕𝑥 (ℎ𝑣 2𝑥 + 𝑔 ℎ 2 ) + 𝜕𝑦 (ℎ𝑣 𝑥 𝑣 𝑦 ) = −𝑔 ℎ𝜕𝑥 𝑏,          (7.1)
+                                                 2
+                                                               1
+                      𝜕𝑡 (ℎ𝑣 𝑦 ) + 𝜕𝑥 (ℎ𝑣 𝑥 𝑣 𝑦 ) + 𝜕𝑦 (ℎ𝑣 2𝑦 + 𝑔 ℎ 2 ) = −𝑔 ℎ𝜕𝑦 𝑏,
+                                                               2
+where ℎ(𝑥, 𝑦, 𝑡) is the water height and 𝑣 𝑥 (𝑥, 𝑦, 𝑡), 𝑣 𝑦 (𝑥, 𝑦, 𝑡) are the 𝑥- and 𝑦-components
+of velocity, respectively. The conserved energy is
+
+                                         1
+                                      𝐸 = (ℎ𝑣 2 + 𝑔 ℎ 2 ) + 𝑔 ℎ𝑏.                                    (7.2)
+                                         2
+  A two-parameter family of well-balanced, energy-conservative semidiscretizations of
+the shallow water equations with variable bathymetry was presented in [59, 62]. The
+semidiscretization
+
+           𝜕𝑡 ℎ = −𝐷1,𝑥 ℎ 𝑣 𝑥 − 𝐷1,𝑦 ℎ 𝑣 𝑦 ,                                                        (7.3a)
+
+
+
+                                                  19
+                    1                1                1
+        𝜕𝑡 ℎ 𝑣 𝑥 = − 𝐷1,𝑥 ℎ 𝑣 𝑥 2 − ℎ 𝑣 𝑥 𝐷1,𝑥 𝑣 𝑥 − 𝑣 𝑥 𝐷1,𝑥 ℎ 𝑣 𝑥                            (7.3b)
+                    2                2                2
+                    1                  1                 1
+                   − 𝐷1,𝑦 ℎ 𝑣 𝑥 𝑣 𝑦 − ℎ 𝑣 𝑥 𝐷1,𝑦 𝑣 𝑦 − 𝑣 𝑦 𝐷1,𝑦 ℎ 𝑣 𝑥 − 𝑔ℎℎ 𝐷1,𝑥 (ℎℎ + 𝑏 ),    (7.3c)
+                    2                  2                 2
+                    1                  1                1
+        𝜕𝑡 ℎ 𝑣 𝑦 = − 𝐷1,𝑥 ℎ 𝑣 𝑥 𝑣 𝑦 − ℎ 𝑣 𝑦 𝐷1,𝑥 𝑣 𝑥 − 𝑣 𝑥 𝐷1,𝑥 ℎ 𝑣 𝑦                          (7.3d)
+                    2                  2                2
+                    1                1                 1
+                   − 𝐷1,𝑦 ℎ 𝑣 𝑦 2 − ℎ 𝑣 𝑦 𝐷1,𝑦 𝑣 𝑦 − 𝑣 𝑦 𝐷1,𝑦 ℎ 𝑣 𝑦 − 𝑔ℎℎ 𝐷1,𝑦 (ℎℎ + 𝑏 ).      (7.3e)
+                    2                2                 2
+is a member of this family and was presented earlier in [31, 81], see also [27] for related
+methods.
+   In the following, we use the gravitational constant 𝑔 = 9.8 and the smooth bottom
+topography
+                                            1 1
+                                  𝑏(𝑥, 𝑦) = − sin(2𝜋𝑦)                                 (7.4)
+                                            4 4
+in the domain [0, 20] × [−0.5, 0.5] with periodic boundary conditions. Results in [57] and
+additional computations we have conducted indicate that a wide range of initial conditions
+lead to solitary waves that propagate along the 𝑥 coordinate direction, transverse to the
+variation in bathymetry. These solitary waves have a non-trivial structure in both spatial
+dimensions.
+   To study the error growth in time, we construct a solitary wave solution as follows.
+Based on [57], we start with an initial condition given by
+
+                                           𝑥2
+                                                      !
+                                ∗
+           ℎ(𝑥, 𝑦) + 𝑏(𝑥, 𝑦) = 𝜂 + 𝐴 exp −    ,               ℎ𝑣 𝑥 (𝑥, 𝑦) = ℎ𝑣 𝑦 (𝑥, 𝑦) = 0,
+                                           4
+
+where 𝜂∗ = 0.75 and 𝐴 = 5 × 10−2 . After propagating the initial condition up to a final time
+of 𝑡 = 340, we obtain a train of solitary waves, from which we isolate the largest wave. For
+more details see [67]. Next, we use the numerically constructed wave as initial condition
+for an energy-conservative Fourier pseudospectral discretization (7.3) with 210 nodes in 𝑥
+and 26 nodes in 𝑦. We solve the resulting ODE using the fifth-order Runge-Kutta method
+of [78] with adaptive time stepping and a tolerance of 10−6 . The error growth is shown in
+Figure 10. In contrast to the examples considered previously, the error growth rates of both
+methods are sublinear. In agreement with previous results, the error of the conservative
+method still grows significantly slower, resulting in an error at the final time (after 15
+periods) that is approximately an order of magnitude smaller.
+   Snapshots of the numerical solutions at the final time are shown in Figures 11 and
+12. The conservative method advects the profiles of the perturbations well, resulting in
+a numerical solution that is visually nearly indistinguishable from the initial profile. In
+contrast, the non-conservative method results in a slightly visible phase error. In addition,
+signs of nonlinear instabilities in the form of high-frequency oscillations start to manifest
+in the y-momentum and in reduced form also in the x-momentum and the total water
+height.
+   Possible reasons for error growth rates that are not linear/quadratic stem from differ-
+ences relative to the other equations studied so far: this system is two-dimensional, there
+are no known exact solitary wave solutions, and the computed initial solitary wave is still
+affected by small numerical errors due to the cost of fully resolving the wave in two dimen-
+sions. Additionally, the spatial resolution may not be sufficient, so spatial discretization
+errors may be significant in these simulations.
+
+
+
+                                                   20
+            10−2
+                                           O(t 0.7)           Error of h (non-conservative)
+                                                              Error of h (conservative)
+                                                              Error of hv x (non-conservative)
+    Error
+
+
+
+
+                                                              Error of hv x (conservative)
+            10−3
+                                           O(t 0.3)           Error of hv y (non-conservative)
+                                                              Error of hv y (conservative)
+
+
+
+                              101                     102
+                                    t
+
+Figure 10: Error growth in time for a numerically generated solitary wave solution of the shallow-
+           water equations (7.1).
+
+
+  Although these numerical results presented for the shallow water equations do not
+match the linear/quadratic error growth rates of the other examples discussed previously,
+they still show the usefulness of conservative methods. In the current implementation,
+the CPU time of the conservative and non-conservative method are comparable while the
+accuracy differs by an order of magnitude. To obtain similarly accurate solutions using the
+non-conservative method would require an increased space/time resolution and hence
+more computational resources.
+
+
+8 Summary and conclusions
+We have studied the error growth in time of numerical solitary wave solutions of sev-
+eral systems of PDEs, focusing on the difference in behavior between conservative and
+non-conservative methods. In all cases, the general pattern is the same: conservative
+methods exhibit linear error growth, while non-conservative methods exhibit quadratic
+error growth. As one might expect based on this, the magnitude of the error itself is also
+much smaller for conservative methods.
+   We have shown that this phenomenon extends to a wide range of dispersive nonlinear
+wave equations, and that this behavior seems to arise when any nonlinear invariant is
+conserved, even if it is not quadratic (see Section 4.4). Furthermore, we have shown that
+this behavior extends to other classes of equations, including the 𝑝-system example in
+Section 6. This is remarkable in that the equations in question are non-dispersive and the
+solutions are not traveling waves in the usual sense. Nevertheless, a similar advantage is
+obtained by using a conservative discretization.
+   This suggests that conservative methods may be much more efficient for solving wave
+problems that possess one or more conserved functionals. Efficiency depends also on
+the cost of the method, which we have not focused on here. In most previous works
+related to this phenomenon, energy conservation was achieved through the use of fully-
+implicit Runge-Kutta time integration. With the relaxation Runge-Kutta approach, we can
+instead employ essentially explicit relaxation Runge-Kutta methods for non-stiff spatial
+discretizations, and diagonally implicit or linearly implicit (Rosenbrock) methods for
+stiff problems. These incur only a very small additional cost per time step (in order to
+
+
+
+
+                                                 21
+     0.5                                                                                0.80
+
+
+
+
+                                                                                               h+b
+     0.0
+y
+
+    −0.5                                                                                0.75
+     0.5                                                                                0.1
+
+
+
+
+                                                                                               hv x
+     0.0                                                                                0.0
+y
+
+
+
+
+    −0.5                                                                                −0.1
+     0.5                                                                                0.01
+
+
+
+
+                                                                                                hv y
+     0.0                                                                                0.00
+y
+
+
+
+
+    −0.5                                                                                −0.01
+       0.0      2.5      5.0      7.5        10.0       12.5     15.0   17.5
+                                              x
+
+                                        (a) Initial condition.
+     0.5                                                                                0.80
+
+
+
+
+                                                                                               h+b
+     0.0
+y
+
+
+
+
+    −0.5                                                                                0.75
+     0.5                                                                                0.1
+
+
+
+
+                                                                                               hv x
+     0.0                                                                                0.0
+y
+
+
+
+
+    −0.5                                                                                −0.1
+     0.5                                                                                0.01
+
+
+
+
+                                                                                                hv y
+     0.0                                                                                0.00
+y
+
+
+
+
+    −0.5                                                                                −0.01
+       0.0      2.5      5.0      7.5        10.0       12.5     15.0   17.5
+                                              x
+
+                                  (b) Non-conservative method.
+     0.5                                                                                0.80
+
+
+
+
+                                                                                               h+b
+     0.0
+y
+
+
+
+
+    −0.5                                                                                0.75
+     0.5                                                                                0.1
+
+
+
+
+                                                                                               hv x
+     0.0                                                                                0.0
+y
+
+
+
+
+    −0.5                                                                                −0.1
+     0.5                                                                                0.01
+
+
+
+
+                                                                                                hv y
+     0.0                                                                                0.00
+y
+
+
+
+
+    −0.5                                                                                −0.01
+       0.0      2.5      5.0      7.5        10.0       12.5     15.0   17.5
+                                              x
+
+                                     (c) Conservative method.
+
+Figure 11: Snapshots of numerical solutions for a numerically generated solitary wave solution of
+           the shallow-water equations (7.1).
+
+
+solve a scalar algebraic equation). For the methods we have compared here, at least, the
+conservative approach using relaxation is much more efficient (in terms of computational
+cost for a given level of error) than the corresponding non-conservative method.
+   We expect that, for the nonlinear dispersive wave equations studied, a rigorous theoret-
+ical explanation of our results could be obtained by perturbation analysis similar to what
+has been done for other similar PDEs. It is much less clear how to obtain a theoretical
+justification for the results regarding variable-coefficient first-order hyperbolic PDEs. A
+first step in this direction might be a study focused on finite-dimensional non-autonomous
+Hamiltonian systems.
+   It is natural to ask whether the behavior studied here can be observed for more general
+solutions (not consisting of a single traveling wave). Some theoretical results are available
+for other classes of solutions; e.g. for multi-soliton solutions of KdV [4] and quasi-periodic
+solutions of KdV [21]. An extension of the current study to more general solutions is
+
+
+
+                                                 22
+             0.80 0.80
+                                                                                     Initial condition
+                                                                                     Non-conservative method
+                    0.78
+             0.78                                                                    Conservative method
+       h+b
+
+
+
+                    0.76
+             0.76
+                            10.2   10.4     10.6   10.8    11.0
+
+
+
+             0.06
+
+             0.04 0.05
+   h vx
+
+
+
+
+             0.02 0.00
+                            10.2   10.4     10.6   10.8    11.0
+             0.00
+
+
+         0.002
+
+         0.000
+hv y
+
+
+
+
+       −0.002
+
+
+                0.0          2.5          5.0        7.5          10.0   12.5       15.0          17.5         20.0
+                                                                   x
+
+                      Figure 12: Slices at 𝑦 ≈ −0.26 of the numerical solutions shown in Figure 11.
+
+
+the subject of ongoing work, and initial tests suggest a complex variety of behaviors.
+Nevertheless, these tests indicate that conservative methods are consistently much more
+accurate than their non-conservative counterparts.
+
+
+Acknowledgments
+We thank Prof. Ángel Durán for his insightful and very detailed comments on an early
+draft that helped us to improve this work, and for helping us learn the theory of relative
+equilibrium solutions.
+  Research reported in this publication was supported by the King Abdullah University
+of Science and Technology (KAUST). Funded by the Deutsche Forschungsgemeinschaft
+(DFG, German Research Foundation) under Germany’s Excellence Strategy EXC 2044-
+390685587, Mathematics Münster: Dynamics-Geometry-Structure.
+
+
+References
+ [1] R. Abgrall, J. Nordström, P. Öffner, and S. Tokareva. “Analysis of the SBP-SAT
+     Stabilization for Finite Element Methods Part I: Linear problems.” In: Journal of
+     Scientific Computing 85.2 (2020), pp. 1–29. doi: 10 . 1007 / s10915 - 020 - 01349 - z.
+     arXiv: 1912.08108 [math.NA].
+ [2] G. Alefeld, F. A. Potra, and Y. Shi. “Algorithm 748: Enclosing Zeros of Continu-
+     ous Functions.” In: ACM Transactions on Mathematical Software (TOMS) 21.3 (1995),
+     pp. 327–344. doi: 10.1145/210089.210111.
+
+
+
+                                                             23
+ [3] J Álvarez and A Durán. “On the preservation of invariants in the simulation of soli-
+     tary waves in some nonlinear dispersive equations.” In: Communications in Nonlinear
+     Science and Numerical Simulation 17.2 (2012), pp. 637–649. doi: 10.1016/j.cnsns.
+     2011.06.019.
+ [4] J Álvarez and A. Durán. “Error propagation when approximating multi-solitons:
+     The KdV equation as a case study.” In: Applied Mathematics and Computation 217.4
+     (2010), pp. 1522–1539. doi: 10.1016/j.amc.2009.06.033.
+ [5] D. C. Antonopoulos, V. A. Dougalis, and D. E. Mitsotakis. “Initial-boundary-value
+     problems for the Bona-Smith family of Boussinesq systems.” In: Advances in Differ-
+     ential Equations 14.1/2 (2009), pp. 27–53.
+ [6] D. C. Antonopoulos, V. A. Dougalis, and D. E. Mitsotakis. “Numerical solution of
+     Boussinesq systems of the Bona-Smith family.” In: Applied Numerical Mathematics
+     60.4 (2010), pp. 314–336. doi: 10.1016/j.apnum.2009.03.002.
+ [7] A Araújo and A. Durán. “Error propagation in the numerical integration of solitary
+     waves. The regularized long wave equation.” In: Applied Numerical Mathematics 36.2-
+     3 (2001), pp. 197–217. doi: 10.1016/S0168-9274(99)00148-8.
+ [8] J. Bezanson, A. Edelman, S. Karpinski, and V. B. Shah. “Julia: A Fresh Approach
+     to Numerical Computing.” In: SIAM Review 59.1 (2017), pp. 65–98. doi: 10.1137/
+     141000671. arXiv: 1411.1607 [cs.MS].
+ [9] J. L. Bona, M. Chen, and J.-C. Saut. “Boussinesq Equations and Other Systems for
+     Small-Amplitude Long Waves in Nonlinear Dispersive Media. I: Derivation and
+     Linear Theory.” In: Journal of Nonlinear Science 12.4 (2002). doi: 10.1007/s00332-
+     002-0466-4.
+[10] J. L. Bona, V. A. Dougalis, and O. A. Karakashian. “Fully discrete Galerkin methods
+     for the Korteweg-de Vries equation.” In: Computers & Mathematics with Applications
+     12.7 (1986), pp. 859–884. doi: 10.1016/0898-1221(86)90031-3.
+[11] J. L. Bona, M. Chen, and J.-C. Saut. “Boussinesq equations and other systems for
+     small-amplitude long waves in nonlinear dispersive media: II. The nonlinear the-
+     ory.” In: Nonlinearity 17.3 (2004), p. 925. doi: 10.1088/0951-7715/17/3/010.
+[12] M. Calvo, M. Laburta, J. I. Montĳano, and L. Rández. “Error growth in the numerical
+     integration of periodic orbits.” In: Mathematics and Computers in Simulation 81.12
+     (2011), pp. 2646–2661. doi: 10.1016/j.matcom.2011.05.007.
+[13] R. Camassa and D. D. Holm. “An integrable shallow water equation with peaked
+     solitons.” In: Physical Review Letters 71.11 (1993), p. 1661. doi: 10.1103/PhysRevLett.
+     71.1661.
+[14] B Cano and J. M. Sanz-Serna. “Error growth in the numerical integration of periodic
+     orbits, with application to Hamiltonian and reversible systems.” In: SIAM Journal
+     on Numerical Analysis 34.4 (1997), pp. 1391–1417. doi: 10.1137/S0036142995281152.
+[15] B Cano and J. Sanz-Serna. “Error growth in the numerical integration of periodic
+     orbits by multistep methods, with application to reversible systems.” In: IMA Journal
+     of Numerical Analysis 18.1 (1998), pp. 57–75. doi: 10.1093/imanum/18.1.57.
+[16] T. Chen and C.-W. Shu. “Review of entropy stable discontinuous Galerkin methods
+     for systems of conservation laws on unstructured simplex meshes.” In: CSIAM
+     Transactions on Applied Mathematics 1.1 (2020), pp. 1–52. doi: 10.4208/csiam- am.
+     2020-0003.
+
+
+
+                                            24
+[17] Clawpack Development Team. Clawpack software. Version 5.6.1. 2019. doi: 10.5281/
+     zenodo.3528429. url: http://www.clawpack.org.
+[18] J De Frutos and J. M. Sanz-Serna. “Accuracy and conservation properties in nu-
+     merical integration: the case of the Korteweg-de Vries equation.” In: Numerische
+     Mathematik 75.4 (1997), pp. 421–445. doi: 10.1007/s002110050247.
+[19] A. Degasperis, D. D. Holm, and A. N. Hone. “A new integrable equation with peakon
+     solutions.” In: Theoretical and Mathematical Physics 133.2 (2002), pp. 1463–1474. doi:
+     10.1023/A:1021186408422.
+[20] K. Dekker and J. G. Verwer. Stability of Runge-Kutta methods for stiff nonlinear differential
+     equations. Vol. 2. CWI Monographs. Amsterdam: North-Holland, 1984.
+[21] A. Durán. “Time behaviour of the error when simulating finite-band periodic waves.
+     The case of the KdV equation.” In: Journal of Computational Physics 227.3 (2008),
+     pp. 2130–2153. doi: 10.1016/j.jcp.2007.10.016.
+[22] A. Durán and M. López-Marcos. “Conservative numerical methods for solitary wave
+     interactions.” In: Journal of Physics A: Mathematical and General 36.28 (2003), p. 7761.
+     doi: 10.1088/0305-4470/36/28/306.
+[23] A. Durán and M. López-Marcos. “Numerical behaviour of stable and unstable
+     solitary waves.” In: Applied Numerical Mathematics 42.1-3 (2002), pp. 95–116. doi:
+     10.1016/S0168-9274(01)00144-1.
+[24] A. Durán and J. M. Sanz-Serna. “The numerical integration of relative equilibrium
+     solutions. Geometric theory.” In: Nonlinearity 11.6 (1998), p. 1547. doi: 10.1088/
+     0951-7715/11/6/008.
+[25] A. Durán and J. Sanz-Serna. “The numerical integration of relative equilibrium
+     solutions. The nonlinear Schrödinger equation.” In: IMA Journal of Numerical Analysis
+     20.2 (2000), pp. 235–261. doi: 10.1093/imanum/20.2.235.
+[26] D. C. D. R. Fernández, J. E. Hicken, and D. W. Zingg. “Review of summation-by-
+     parts operators with simultaneous approximation terms for the numerical solution
+     of partial differential equations.” In: Computers & Fluids 95 (2014), pp. 171–196. doi:
+     10.1016/j.compfluid.2014.02.016.
+[27] U. S. Fjordholm, S. Mishra, and E. Tadmor. “Well-balanced and energy stable
+     schemes for the shallow water equations with discontinuous topography.” In: Jour-
+     nal of Computational Physics 230.14 (2011), pp. 5587–5609. doi: 10.1016/j.jcp.2011.
+     03.042.
+[28] B. Fornberg. “On a Fourier method for the integration of hyperbolic equations.” In:
+     SIAM Journal on Numerical Analysis 12.4 (1975), pp. 509–528. doi: 10.1137/0712040.
+[29] M. Frigo and S. G. Johnson. “The design and implementation of FFTW3.” In: Pro-
+     ceedings of the IEEE 93.2 (2005), pp. 216–231. doi: 10.1109/JPROC.2004.840301.
+[30] G. J. Gassner. “A Skew-Symmetric Discontinuous Galerkin Spectral Element Dis-
+     cretization and Its Relation to SBP-SAT Finite Difference Methods.” In: SIAM Journal
+     on Scientific Computing 35.3 (2013), A1233–A1253. doi: 10.1137/120890144.
+[31] G. J. Gassner, A. R. Winters, and D. A. Kopriva. “A well balanced and entropy
+     conservative discontinuous Galerkin spectral element method for the shallow water
+     equations.” In: Applied Mathematics and Computation 272 (2016), pp. 291–308. doi:
+     10.1016/j.amc.2015.07.014.
+
+
+
+                                               25
+[32] G. J. Gassner, A. R. Winters, and D. A. Kopriva. “Split Form Nodal Discontinuous
+     Galerkin Schemes with Summation-By-Parts Property for the Compressible Euler
+     Equations.” In: Journal of Computational Physics 327 (2016), pp. 39–66. doi: 10.1016/
+     j.jcp.2016.09.013.
+[33] E. Hairer, C. Lubich, and G. Wanner. Geometric Numerical Integration: Structure-
+     Preserving Algorithms for Ordinary Differential Equations. Vol. 31. Springer Science &
+     Business Media, 2013.
+[34] J. E. Hicken. “Entropy-stable, high-order summation-by-parts discretizations with-
+     out interface penalties.” In: Journal of Scientific Computing 82.2 (2020), p. 50. doi:
+     10.1007/s10915-020-01154-8.
+[35] J. E. Hicken, D. C. D. R. Fernández, and D. W. Zingg. “Multidimensional Summation-
+     By-Parts Operators: General Theory and Application to Simplex Elements.” In: SIAM
+     Journal on Scientific Computing 38.4 (2016), A1935–A1958. doi: 10.1137/15M1038360.
+[36] D. D. Holm and A. N. Hone. “Nonintegrability of a fifth-order equation with in-
+     tegrable two-body dynamics.” In: Theoretical and Mathematical Physics 137.1 (2003),
+     pp. 1459–1471. doi: 10.1023/A:1026060924520.
+[37] J. D. Hunter. “Matplotlib: A 2D graphics environment.” In: Computing in Science &
+     Engineering 9.3 (2007), pp. 90–95. doi: 10.1109/MCSE.2007.55.
+[38] C. A. Kennedy and M. H. Carpenter. “Additive Runge-Kutta schemes for convection–
+     diffusion–reaction equations.” In: Applied Numerical Mathematics 44.1-2 (2003), pp. 139–
+     181. doi: 10.1016/S0168-9274(02)00138-1.
+[39] D. I. Ketcheson. “Relaxation Runge-Kutta Methods: Conservation and Stability for
+     Inner-Product Norms.” In: SIAM Journal on Numerical Analysis 57.6 (2019), pp. 2850–
+     2870. doi: 10.1137/19M1263662. arXiv: 1905.09847 [math.NA].
+[40] D. I. Ketcheson and R. J. LeVeque. “Shock Dynamics in Layered Periodic Media.”
+     In: Communications in Mathematical Sciences 10.3 (2012), pp. 859–874. doi: 10.4310/
+     CMS.2012.v10.n3.a7. arXiv: 1105.2892 [math-ph].
+[41] D. I. Ketcheson, K. Mandli, A. J. Ahmadia, A. Alghamdi, M. Quezada de Luna, M.
+     Parsani, M. G. Knepley, and M. Emmett. “PyClaw: Accessible, extensible, scalable
+     tools for wave propagation problems.” In: SIAM Journal on Scientific Computing 34.4
+     (2012), pp. C210–C231. doi: 10.1137/110856976.
+[42] D. I. Ketcheson, M. Parsani, and R. J. LeVeque. “High-order wave propagation
+     algorithms for hyperbolic systems.” In: SIAM Journal on Scientific Computing 35.1
+     (2013), A351–A377. doi: 10.1137/110830320.
+[43] D. A. Kopriva, J. Nordström, and G. J. Gassner. “Error boundedness of discontinuous
+     Galerkin spectral element approximations of hyperbolic problems.” In: Journal of
+     Scientific Computing 72.1 (2017), pp. 314–330. doi: 10.1007/s10915-017-0358-2.
+[44] H.-O. Kreiss and J. Oliger. “Comparison of accurate methods for the integration of
+     hyperbolic equations.” In: Tellus 24.3 (1972), pp. 199–215. doi: 10.3402/tellusa.
+     v24i3.10634.
+[45] J. Lenells. “Traveling wave solutions of the Camassa-Holm equation.” In: Journal of
+     Differential Equations 217.2 (2005), pp. 393–430. doi: 10.1016/j.jde.2004.09.007.
+[46] R. J. LeVeque and D. H. Yong. “Solitary waves in layered nonlinear media.” In:
+     SIAM Journal on Applied Mathematics 63.5 (2003), pp. 1539–1560. doi: 10 . 1137 /
+     S0036139902408151.
+
+
+
+                                            26
+[47] K. T. Mandli, A. J. Ahmadia, M. Berger, D. Calhoun, D. L. George, Y. Hadjimichael,
+     D. I. Ketcheson, G. I. Lemoine, and R. J. LeVeque. “Clawpack: building an open
+     source ecosystem for solving hyperbolic PDEs.” In: PeerJ Computer Science 2 (2016),
+     e68. doi: 10.7717/peerj-cs.68.
+[48] D. Mitsotakis, H. Ranocha, D. I. Ketcheson, and E. Süli. “A conservative fully-
+     discrete numerical method for the regularized shallow water wave equations.” In:
+     SIAM Journal on Scientific Computing 42 (2 Apr. 2021). doi: 10.1137/20M1364606.
+     arXiv: 2009.09641 [math.NA].
+[49] E Momoniat. “A modified equation approach to selecting a nonstandard finite
+     difference scheme applied to the regularized long wave equation.” In: Abstract and
+     Applied Analysis 2014 (2014). doi: 10.1155/2014/754543.
+[50] E. Noether. “Invariante Variationsprobleme.” ger. In: Nachrichten von der Gesellschaft
+     der Wissenschaften zu Göttingen, Mathematisch-Physikalische Klasse 1918 (1918), pp. 235–
+     257. url: http://eudml.org/doc/59024.
+[51] J. Nordström. “Error Bounded Schemes for Time-Dependent Hyperbolic Problems.”
+     In: SIAM Journal on Scientific Computing 30.1 (2007), pp. 46–59. doi: 10 . 1137 /
+     060654943.
+[52] J. Nordström and M. Björck. “Finite volume approximations and strict stability for
+     hyperbolic problems.” In: Applied Numerical Mathematics 38.3 (2001), pp. 237–255.
+     doi: 10.1016/S0168-9274(01)00027-7.
+[53] J. Nordström, K. Forsberg, C. Adamsson, and P. Eliasson. “Finite volume methods,
+     unstructured meshes and strict stability for hyperbolic problems.” In: Applied Nu-
+     merical Mathematics 45.4 (2003), pp. 453–473. doi: 10.1016/S0168-9274(02)00239-8.
+[54] P. Öffner. Error boundedness of Correction Procedure via Reconstruction / Flux Recon-
+     struction. 2018. arXiv: 1806.01575 [math.NA].
+[55] P. Öffner and H. Ranocha. “Error Boundedness of Discontinuous Galerkin Meth-
+     ods with Variable Coefficients.” In: Journal of Scientific Computing 79.3 (June 2019),
+     pp. 1572–1607. doi: 10.1007/s10915-018-00902-1. arXiv: 1806.02018 [math.NA].
+[56] V. Petviashvili. “Equation of an extraordinary soliton (ion acoustic wave packet
+     dispersion in plasma).” In: Soviet Journal of Plasma Physics 2 (1976), p. 257.
+[57] M. Quezada de Luna and D. I. Ketcheson. “Solitary water waves created by variations
+     in bathymetry.” In: Journal of Fluid Mechanics 917 (2021), A45.
+[58] C. Rackauckas and Q. Nie. “DifferentialEquations.jl – A Performant and Feature-
+     Rich Ecosystem for Solving Differential Equations in Julia.” In: Journal of Open Re-
+     search Software 5.1 (2017), p. 15. doi: 10.5334/jors.151.
+[59] H. Ranocha. “Generalised Summation-by-Parts Operators and Entropy Stability of
+     Numerical Methods for Hyperbolic Balance Laws.” PhD thesis. TU Braunschweig,
+     Feb. 2018.
+[60] H. Ranocha. “Generalised Summation-by-Parts Operators and Variable Coefficients.”
+     In: Journal of Computational Physics 362 (Feb. 2018), pp. 20–48. doi: 10.1016/j.jcp.
+     2018.02.021. arXiv: 1705.10541 [math.NA].
+[61] H. Ranocha. “Mimetic Properties of Difference Operators: Product and Chain Rules
+     as for Functions of Bounded Variation and Entropy Stability of Second Derivatives.”
+     In: BIT Numerical Mathematics 59.2 (June 2019), pp. 547–563. doi: 10.1007/s10543-
+     018-0736-7. arXiv: 1805.09126 [math.NA].
+
+
+
+                                             27
+[62] H. Ranocha. “Shallow water equations: Split-form, entropy stable, well-balanced,
+     and positivity preserving numerical methods.” In: GEM – International Journal on
+     Geomathematics 8.1 (Apr. 2017), pp. 85–133. doi: 10 . 1007 / s13137 - 016 - 0089 - 9.
+     arXiv: 1609.08029 [math.NA].
+[63] H. Ranocha. “SummationByPartsOperators.jl: A Julia library of provably stable
+     semidiscretization techniques with mimetic properties.” In: Journal of Open Source
+     Software 6.64 (Aug. 2021), p. 3454. doi: 10.21105/joss.03454. url: https://github.
+     com/ranocha/SummationByPartsOperators.jl.
+[64] H. Ranocha, L. Dalcin, and M. Parsani. “Fully-Discrete Explicit Locally Entropy-
+     Stable Schemes for the Compressible Euler and Navier-Stokes Equations.” In: Com-
+     puters and Mathematics with Applications 80.5 (July 2020), pp. 1343–1359. doi: 10 .
+     1016/j.camwa.2020.06.016. arXiv: 2003.08831 [math.NA].
+[65] H. Ranocha and D. I. Ketcheson. “Relaxation Runge-Kutta Methods for Hamiltonian
+     Problems.” In: Journal of Scientific Computing 84.1 (July 2020). doi: 10.1007/s10915-
+     020-01277-y. arXiv: 2001.04826 [math.NA].
+[66] H. Ranocha, L. Lóczi, and D. I. Ketcheson. “General Relaxation Methods for Initial-
+     Value Problems with Application to Multistep Schemes.” In: Numerische Mathematik
+     146 (Oct. 2020), pp. 875–906. doi: 10.1007/s00211-020-01158-4. arXiv: 2003.03012
+     [math.NA].
+[67] H. Ranocha, M. Quezada de Luna, and D. I. Ketcheson. Dispersive-wave-error-growth-
+     notebooks. On the Rate of Error Growth in Time for Numerical Solutions of Nonlinear
+     Dispersive Wave Equations. https : / / github . com / ranocha / Dispersive - wave -
+     error-growth-notebooks. Feb. 2021. doi: 10.5281/zenodo.4540467.
+[68] H. Ranocha, D. Mitsotakis, and D. I. Ketcheson. “A Broad Class of Conservative
+     Numerical Methods for Dispersive Wave Equations.” In: Communications in Compu-
+     tational Physics 29.4 (Feb. 2021), pp. 979–1029. doi: 10.4208/cicp.OA-2020-0119.
+     arXiv: 2006.14802 [math.NA].
+[69] H. Ranocha, P. Öffner, and T. Sonar. “Summation-by-parts operators for correction
+     procedure via reconstruction.” In: Journal of Computational Physics 311 (Apr. 2016),
+     pp. 299–328. doi: 10.1016/j.jcp.2016.02.009. arXiv: 1511.02052 [math.NA].
+[70] H. Ranocha, M. Sayyari, L. Dalcin, M. Parsani, and D. I. Ketcheson. “Relaxation
+     Runge-Kutta Methods: Fully-Discrete Explicit Entropy-Stable Schemes for the Com-
+     pressible Euler and Navier-Stokes Equations.” In: SIAM Journal on Scientific Com-
+     puting 42.2 (Mar. 2020), A612–A638. doi: 10.1137/19M1263480. arXiv: 1905.09129
+     [math.NA].
+[71] R. D. Richtmyer and K. W. Morton. Difference Methods for Boundary-Value Problems.
+     New York, London, Sydney: John Wiley & Sons, 1967.
+[72] J. M. Sanz-Serna. “An explicit finite-difference scheme with exact conservation prop-
+     erties.” In: Journal of Computational Physics 47.2 (1982), pp. 199–210. doi: 10.1016/
+     0021-9991(82)90074-2.
+[73] J. M. Sanz-Serna and V. Manoranjan. “A method for the integration in time of
+     certain partial differential equations.” In: Journal of Computational Physics 52.2 (1983),
+     pp. 273–289. doi: 10.1016/0021-9991(83)90031-1.
+
+
+
+
+                                              28
+[74] N. Shima, Y. Kuya, Y. Tamaki, and S. Kawai. “Preventing spurious pressure oscil-
+     lations in split convective form discretization for compressible flows.” In: Journal of
+     Computational Physics (2020), p. 110060. doi: 10.1016/j.jcp.2020.110060.
+[75] B. Strand. “Summation by Parts for Finite Difference Approximations for 𝑑/𝑑𝑥.” In:
+     Journal of Computational Physics 110.1 (1994), pp. 47–67. doi: 10.1006/jcph.1994.
+     1005.
+[76] M. Svärd and J. Nordström. “Review of summation-by-parts schemes for initial-
+     boundary-value problems.” In: Journal of Computational Physics 268 (2014), pp. 17–
+     38. doi: 10.1016/j.jcp.2014.02.031.
+[77] E. Tadmor. “The numerical viscosity of entropy stable schemes for systems of con-
+     servation laws. I.” In: Mathematics of Computation 49.179 (1987), pp. 91–103. doi:
+     10.1090/S0025-5718-1987-0890255-3.
+[78] C. Tsitouras. “Runge-Kutta pairs of order 5 (4) satisfying only the first column
+     simplifying assumption.” In: Computers & Mathematics with Applications 62.2 (2011),
+     pp. 770–775. doi: 10.1016/j.camwa.2011.06.002.
+[79] G. Wang, X. Yong, Y. Huang, and J. Tian. “Symmetry, Pulson Solution, and conser-
+     vation laws of the Holm-Hone equation.” In: Advances in Mathematical Physics 2019
+     (2019). doi: 10.1155/2019/4364108.
+[80] G. B. Whitham. “Variational methods and applications to water waves.” In: Proceed-
+     ings of the Royal Society of London. Series A. Mathematical and Physical Sciences 299.1456
+     (1967), pp. 6–25. doi: 10.1098/rspa.1967.0119.
+[81] N. Wintermeyer, A. R. Winters, G. J. Gassner, and D. A. Kopriva. “An entropy
+     stable nodal discontinuous Galerkin method for the two dimensional shallow water
+     equations on unstructured curvilinear meshes with discontinuous bathymetry.” In:
+     Journal of Computational Physics 340 (2017), pp. 200–242. doi: 10.1016/j.jcp.2017.
+     03.036.
+[82] A. R. Winters, R. C. Moura, G. Mengaldo, G. J. Gassner, S. Walch, J. Peiro, and S. J.
+     Sherwin. “A comparative study on polynomial dealiasing and split form discontin-
+     uous Galerkin schemes for under-resolved turbulence computations.” In: Journal of
+     Computational Physics 372 (2018), pp. 1–21. doi: 10.1016/j.jcp.2018.06.016.
+
+
+
+
+                                              29
+

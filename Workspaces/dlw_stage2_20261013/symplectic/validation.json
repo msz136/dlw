@@ -1,0 +1,821 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "leaf orthonormal embedding",
+      "value": 2.3706699889765854e-15,
+      "tolerance": 2e-13,
+      "passed": true
+    },
+    {
+      "name": "leaf initial reconstruction",
+      "value": 4.440892098500626e-16,
+      "tolerance": 2e-14,
+      "passed": true
+    },
+    {
+      "name": "leaf B skew",
+      "value": 8.589961215435384e-16,
+      "tolerance": 2e-13,
+      "passed": true
+    },
+    {
+      "name": "leaf inverse Omega",
+      "value": 2.256307293285265e-15,
+      "tolerance": 2e-13,
+      "passed": true
+    },
+    {
+      "name": "leaf Omega skew",
+      "value": 3.252095968063881e-15,
+      "tolerance": 2e-13,
+      "passed": true
+    },
+    {
+      "name": "infinitesimal Hamilton identity",
+      "value": 2.2809846677544595e-15,
+      "tolerance": 2e-13,
+      "passed": true
+    },
+    {
+      "name": "Poisson times Euclidean Hamilton gradient",
+      "value": 6.691562316174013e-15,
+      "tolerance": 2e-13,
+      "passed": true
+    },
+    {
+      "name": "analytic Jacobian complex step direction 0",
+      "value": 1.9169565676194794e-15,
+      "tolerance": 2e-13,
+      "passed": true
+    },
+    {
+      "name": "analytic Jacobian complex step direction 1",
+      "value": 1.8590830048070116e-15,
+      "tolerance": 2e-13,
+      "passed": true
+    },
+    {
+      "name": "analytic Jacobian complex step direction 2",
+      "value": 2.0322912988183005e-15,
+      "tolerance": 2e-13,
+      "passed": true
+    },
+    {
+      "name": "physical inverse differential",
+      "value": 2.400364147405262e-15,
+      "tolerance": 3e-13,
+      "passed": true
+    },
+    {
+      "name": "physical differential complex step",
+      "value": 2.036631113734192e-15,
+      "tolerance": 3e-13,
+      "passed": true
+    },
+    {
+      "name": "physical Omega pullback",
+      "value": 5.489281363302039e-16,
+      "tolerance": 3e-13,
+      "passed": true
+    },
+    {
+      "name": "Euler exact h^2 defect identity",
+      "value": 3.1153868471516596e-16,
+      "tolerance": 3e-14,
+      "passed": true
+    },
+    {
+      "name": "actual Newton tangent tol=0.01 direction 0",
+      "value": 1.8890514032098796e-16,
+      "tolerance": 3e-12,
+      "passed": true
+    },
+    {
+      "name": "actual Newton tangent tol=0.01 direction 1",
+      "value": 2.2184676106124088e-16,
+      "tolerance": 3e-12,
+      "passed": true
+    },
+    {
+      "name": "actual Newton tangent tol=0.0001 direction 0",
+      "value": 1.8112965878591495e-16,
+      "tolerance": 3e-12,
+      "passed": true
+    },
+    {
+      "name": "actual Newton tangent tol=0.0001 direction 1",
+      "value": 1.9295436132365674e-16,
+      "tolerance": 3e-12,
+      "passed": true
+    },
+    {
+      "name": "actual Newton tangent tol=1e-08 direction 0",
+      "value": 1.5047980160770966e-16,
+      "tolerance": 3e-12,
+      "passed": true
+    },
+    {
+      "name": "actual Newton tangent tol=1e-08 direction 1",
+      "value": 2.059906520210331e-16,
+      "tolerance": 3e-12,
+      "passed": true
+    },
+    {
+      "name": "actual Newton tangent tol=1e-14 direction 0",
+      "value": 1.5764239934336823e-16,
+      "tolerance": 3e-12,
+      "passed": true
+    },
+    {
+      "name": "actual Newton tangent tol=1e-14 direction 1",
+      "value": 1.9722564342560043e-16,
+      "tolerance": 3e-12,
+      "passed": true
+    },
+    {
+      "name": "RK4 tangent complex step",
+      "value": 2.378805783875769e-16,
+      "tolerance": 3e-12,
+      "passed": true
+    },
+    {
+      "name": "harmonic RK4 exact polynomial h=0.8",
+      "value": 1.3096464213477433e-16,
+      "tolerance": 2e-15,
+      "passed": true
+    },
+    {
+      "name": "harmonic Euler exact polynomial h=0.8",
+      "value": 0.0,
+      "tolerance": 2e-15,
+      "passed": true
+    },
+    {
+      "name": "harmonic midpoint Cayley h=0.8",
+      "value": 2.0342847896010285e-17,
+      "tolerance": 2e-15,
+      "passed": true
+    },
+    {
+      "name": "harmonic RK4 exact polynomial h=0.4",
+      "value": 1.6216473930439876e-16,
+      "tolerance": 2e-15,
+      "passed": true
+    },
+    {
+      "name": "harmonic Euler exact polynomial h=0.4",
+      "value": 1.5700924586837752e-16,
+      "tolerance": 2e-15,
+      "passed": true
+    },
+    {
+      "name": "harmonic midpoint Cayley h=0.4",
+      "value": 1.588337229980548e-16,
+      "tolerance": 2e-15,
+      "passed": true
+    },
+    {
+      "name": "harmonic RK4 exact polynomial h=0.2",
+      "value": 1.2889058670764072e-16,
+      "tolerance": 2e-15,
+      "passed": true
+    },
+    {
+      "name": "harmonic Euler exact polynomial h=0.2",
+      "value": 3.925231146709438e-17,
+      "tolerance": 2e-15,
+      "passed": true
+    },
+    {
+      "name": "harmonic midpoint Cayley h=0.2",
+      "value": 1.1103148017865304e-16,
+      "tolerance": 2e-15,
+      "passed": true
+    },
+    {
+      "name": "harmonic RK4 exact polynomial h=0.1",
+      "value": 1.0408104355833916e-16,
+      "tolerance": 2e-15,
+      "passed": true
+    },
+    {
+      "name": "harmonic Euler exact polynomial h=0.1",
+      "value": 9.813077866773595e-18,
+      "tolerance": 2e-15,
+      "passed": true
+    },
+    {
+      "name": "harmonic midpoint Cayley h=0.1",
+      "value": 7.85157479092138e-18,
+      "tolerance": 2e-15,
+      "passed": true
+    },
+    {
+      "name": "DOP853 physical-field reference refinement",
+      "value": 1.3322676295501878e-15,
+      "tolerance": 2e-13,
+      "passed": true
+    },
+    {
+      "name": "DOP853 tangent reference refinement",
+      "value": 4.0285554838153374e-16,
+      "tolerance": 2e-13,
+      "passed": true
+    },
+    {
+      "name": "finite physical-map pullback Euler",
+      "value": 7.673545020353424e-16,
+      "tolerance": 3e-13,
+      "passed": true
+    },
+    {
+      "name": "finite physical-map pullback RK4",
+      "value": 7.515337286115892e-16,
+      "tolerance": 3e-13,
+      "passed": true
+    },
+    {
+      "name": "finite physical-map pullback Midpoint",
+      "value": 7.692643986562204e-16,
+      "tolerance": 3e-13,
+      "passed": true
+    }
+  ],
+  "leaf": {
+    "dimension": 56,
+    "Nx": 15,
+    "M": 3,
+    "weight_h_dx": 1.6755160819145563,
+    "B_condition_number": 4.783386116752818,
+    "Omega_frobenius_norm": 12.129156156553506,
+    "casimir_x_means": [
+      [
+        -2.9999999999999996,
+        5.1810407815840646e-17,
+        3.0000000000000004
+      ],
+      [
+        -1.0000000000000002,
+        1.4802973661668754e-17,
+        1.0000000000000002
+      ]
+    ]
+  },
+  "parameters": {
+    "M": 3,
+    "h_y": 4.0,
+    "c": 2.0,
+    "gamma": 4.0,
+    "a": 0.0,
+    "Lx": 6.283185307179586,
+    "Nx": 15,
+    "T": 0.02,
+    "time_steps": [
+      0.02,
+      0.01,
+      0.005,
+      0.0025,
+      0.00125,
+      0.000625,
+      0.0003125
+    ],
+    "midpoint_default_absolute_tolerance": 1e-14,
+    "initial_data": "exact Stage-1A nonlinear Fourier witness, no new random initial state",
+    "Omega_convention": "Omega=-B_leaf^{-1}; i_X omega = dH; matches the Stage-2A convention"
+  },
+  "sources": {
+    "stage1_code": "C:\\Users\\msz\\aca\\Workspaces\\dlw_three_tracks_20261013\\conservation\\conservation_experiment.py",
+    "stage1_sha256": "66b76ed7adaed4d606a9b4a89ac3cea78dae96ee95b6f9d9dacd3f7de7766f0d",
+    "script_sha256": "e5565db00974d7f8ffd0b8fd40b7155921d4bd18464aff9c13b5961be2e3adb0"
+  },
+  "versions": {
+    "python": "3.13.3 (tags/v3.13.3:6280bb5, Apr  8 2025, 14:47:33) [MSC v.1943 64 bit (AMD64)]",
+    "numpy": "2.2.5",
+    "scipy": "1.17.0",
+    "matplotlib": "3.10.1"
+  },
+  "reference": {
+    "method": "DOP853 state and variational reference",
+    "rtol": 3e-14,
+    "atol": 3e-16,
+    "nfev": 38,
+    "accepted_steps": 3,
+    "symplectic_defect": 3.9214935967162545e-16,
+    "coarser_solve": {
+      "method": "DOP853 state and variational reference",
+      "rtol": 3e-13,
+      "atol": 3e-15,
+      "nfev": 38,
+      "accepted_steps": 3,
+      "symplectic_defect": 4.456322637799066e-16
+    },
+    "refinement_leaf_state_linf": 7.771561172376096e-16,
+    "refinement_physical_field_linf": 1.3322676295501878e-15,
+    "refinement_tangent_relative": 4.0285554838153374e-16
+  },
+  "harmonic_calibration": [
+    {
+      "dt": 0.8,
+      "RK4_measured_relative_defect": 0.003349617777777869,
+      "RK4_exact_relative_defect": 0.003349617777777779,
+      "Euler_exact_relative_defect": 0.6400000000000001,
+      "Midpoint_measured_relative_defect": 1.4384565695915363e-17
+    },
+    {
+      "dt": 0.4,
+      "RK4_measured_relative_defect": 5.57511111112241e-05,
+      "RK4_exact_relative_defect": 5.575111111111113e-05,
+      "Euler_exact_relative_defect": 0.16000000000000003,
+      "Midpoint_measured_relative_defect": 1.1231240261303024e-16
+    },
+    {
+      "dt": 0.2,
+      "RK4_measured_relative_defect": 8.844444445155197e-07,
+      "RK4_exact_relative_defect": 8.844444444444448e-07,
+      "Euler_exact_relative_defect": 0.04000000000000001,
+      "Midpoint_measured_relative_defect": 7.85111125595053e-17
+    },
+    {
+      "dt": 0.1,
+      "RK4_measured_relative_defect": 1.3871527704267805e-08,
+      "RK4_exact_relative_defect": 1.3871527777777783e-08,
+      "Euler_exact_relative_defect": 0.010000000000000002,
+      "Midpoint_measured_relative_defect": 5.5519017776538565e-18
+    }
+  ],
+  "single_step_orders": [
+    {
+      "method": "Euler",
+      "dt_coarse": 0.02,
+      "dt_fine": 0.01,
+      "coarse_defect": 0.009114781097675108,
+      "fine_defect": 0.002278695274418778,
+      "above_fit_floor": true,
+      "observed_order": 1.9999999999999998
+    },
+    {
+      "method": "Euler",
+      "dt_coarse": 0.01,
+      "dt_fine": 0.005,
+      "coarse_defect": 0.002278695274418778,
+      "fine_defect": 0.0005696738186046963,
+      "above_fit_floor": true,
+      "observed_order": 1.9999999999999956
+    },
+    {
+      "method": "Euler",
+      "dt_coarse": 0.005,
+      "dt_fine": 0.0025,
+      "coarse_defect": 0.0005696738186046963,
+      "fine_defect": 0.00014241845465117693,
+      "above_fit_floor": true,
+      "observed_order": 1.9999999999999711
+    },
+    {
+      "method": "Euler",
+      "dt_coarse": 0.0025,
+      "dt_fine": 0.00125,
+      "coarse_defect": 0.00014241845465117693,
+      "fine_defect": 3.5604613662793676e-05,
+      "above_fit_floor": true,
+      "observed_order": 2.000000000000022
+    },
+    {
+      "method": "Euler",
+      "dt_coarse": 0.00125,
+      "dt_fine": 0.000625,
+      "coarse_defect": 3.5604613662793676e-05,
+      "fine_defect": 8.90115341570137e-06,
+      "above_fit_floor": true,
+      "observed_order": 1.9999999999995217
+    },
+    {
+      "method": "Euler",
+      "dt_coarse": 0.000625,
+      "dt_fine": 0.0003125,
+      "coarse_defect": 8.90115341570137e-06,
+      "fine_defect": 2.2252883539263196e-06,
+      "above_fit_floor": true,
+      "observed_order": 1.9999999999993667
+    },
+    {
+      "method": "RK4",
+      "dt_coarse": 0.02,
+      "dt_fine": 0.01,
+      "coarse_defect": 2.8249091152077072e-08,
+      "fine_defect": 4.667139292454163e-10,
+      "above_fit_floor": true,
+      "observed_order": 5.919522117038737
+    },
+    {
+      "method": "RK4",
+      "dt_coarse": 0.01,
+      "dt_fine": 0.005,
+      "coarse_defect": 4.667139292454163e-10,
+      "fine_defect": 8.827010500736932e-12,
+      "above_fit_floor": true,
+      "observed_order": 5.724469801497508
+    },
+    {
+      "method": "RK4",
+      "dt_coarse": 0.005,
+      "dt_fine": 0.0025,
+      "coarse_defect": 8.827010500736932e-12,
+      "fine_defect": 2.1051571949172012e-13,
+      "above_fit_floor": false,
+      "observed_order": null
+    },
+    {
+      "method": "RK4",
+      "dt_coarse": 0.0025,
+      "dt_fine": 0.00125,
+      "coarse_defect": 2.1051571949172012e-13,
+      "fine_defect": 6.009799866857512e-15,
+      "above_fit_floor": false,
+      "observed_order": null
+    },
+    {
+      "method": "RK4",
+      "dt_coarse": 0.00125,
+      "dt_fine": 0.000625,
+      "coarse_defect": 6.009799866857512e-15,
+      "fine_defect": 3.8350843268224677e-16,
+      "above_fit_floor": false,
+      "observed_order": null
+    },
+    {
+      "method": "RK4",
+      "dt_coarse": 0.000625,
+      "dt_fine": 0.0003125,
+      "coarse_defect": 3.8350843268224677e-16,
+      "fine_defect": 2.960990506187597e-16,
+      "above_fit_floor": false,
+      "observed_order": null
+    },
+    {
+      "method": "Midpoint",
+      "dt_coarse": 0.02,
+      "dt_fine": 0.01,
+      "coarse_defect": 3.175727734908841e-16,
+      "fine_defect": 2.991228795035315e-16,
+      "above_fit_floor": false,
+      "observed_order": null
+    },
+    {
+      "method": "Midpoint",
+      "dt_coarse": 0.01,
+      "dt_fine": 0.005,
+      "coarse_defect": 2.991228795035315e-16,
+      "fine_defect": 3.1274299516642513e-16,
+      "above_fit_floor": false,
+      "observed_order": null
+    },
+    {
+      "method": "Midpoint",
+      "dt_coarse": 0.005,
+      "dt_fine": 0.0025,
+      "coarse_defect": 3.1274299516642513e-16,
+      "fine_defect": 2.9338786843043177e-16,
+      "above_fit_floor": false,
+      "observed_order": null
+    },
+    {
+      "method": "Midpoint",
+      "dt_coarse": 0.0025,
+      "dt_fine": 0.00125,
+      "coarse_defect": 2.9338786843043177e-16,
+      "fine_defect": 1.7549285509113506e-14,
+      "above_fit_floor": false,
+      "observed_order": null
+    },
+    {
+      "method": "Midpoint",
+      "dt_coarse": 0.00125,
+      "dt_fine": 0.000625,
+      "coarse_defect": 1.7549285509113506e-14,
+      "fine_defect": 6.315668556123433e-16,
+      "above_fit_floor": false,
+      "observed_order": null
+    },
+    {
+      "method": "Midpoint",
+      "dt_coarse": 0.000625,
+      "dt_fine": 0.0003125,
+      "coarse_defect": 6.315668556123433e-16,
+      "fine_defect": 3.0849095628037473e-16,
+      "above_fit_floor": false,
+      "observed_order": null
+    }
+  ],
+  "midpoint_min_two_control": [
+    {
+      "method": "Midpoint",
+      "Nx": 15,
+      "leaf_dimension": 56,
+      "steps": 1,
+      "dt": 0.02,
+      "T": 0.02,
+      "symplectic_defect": 3.175727734908841e-16,
+      "nonlinear_residual_max": 1.3010426069826053e-16,
+      "linear_residual_max": 1.5228593600448252e-17,
+      "newton_iterations_max": 2,
+      "newton_iterations_min": 2,
+      "casimir_mean_drift": 2.220446049250313e-16,
+      "energy_drift_context_only": 7.081687272147974e-07,
+      "field_change_linf": 0.016083075478094955,
+      "minimum_Newton_corrections_requested": 2
+    },
+    {
+      "method": "Midpoint",
+      "Nx": 15,
+      "leaf_dimension": 56,
+      "steps": 2,
+      "dt": 0.01,
+      "T": 0.02,
+      "symplectic_defect": 5.232175016972936e-16,
+      "nonlinear_residual_max": 9.8879238130678e-17,
+      "linear_residual_max": 5.36934185264501e-18,
+      "newton_iterations_max": 2,
+      "newton_iterations_min": 2,
+      "casimir_mean_drift": 4.440892098500626e-16,
+      "energy_drift_context_only": 1.768244146660436e-07,
+      "field_change_linf": 0.016083382070096075,
+      "minimum_Newton_corrections_requested": 2
+    },
+    {
+      "method": "Midpoint",
+      "Nx": 15,
+      "leaf_dimension": 56,
+      "steps": 4,
+      "dt": 0.005,
+      "T": 0.02,
+      "symplectic_defect": 7.629670716195038e-16,
+      "nonlinear_residual_max": 5.204170427930421e-17,
+      "linear_residual_max": 1.3306887601365058e-18,
+      "newton_iterations_max": 2,
+      "newton_iterations_min": 2,
+      "casimir_mean_drift": 4.440892098500626e-16,
+      "energy_drift_context_only": 4.4192574932822026e-08,
+      "field_change_linf": 0.01608345908110298,
+      "minimum_Newton_corrections_requested": 2
+    },
+    {
+      "method": "Midpoint",
+      "Nx": 15,
+      "leaf_dimension": 56,
+      "steps": 8,
+      "dt": 0.0025,
+      "T": 0.02,
+      "symplectic_defect": 1.066176848113209e-15,
+      "nonlinear_residual_max": 4.358492733391728e-17,
+      "linear_residual_max": 3.672417221939426e-19,
+      "newton_iterations_max": 2,
+      "newton_iterations_min": 2,
+      "casimir_mean_drift": 4.440892098500626e-16,
+      "energy_drift_context_only": 1.1047063708247151e-08,
+      "field_change_linf": 0.016083478356542447,
+      "minimum_Newton_corrections_requested": 2
+    },
+    {
+      "method": "Midpoint",
+      "Nx": 15,
+      "leaf_dimension": 56,
+      "steps": 16,
+      "dt": 0.00125,
+      "T": 0.02,
+      "symplectic_defect": 1.5069499753017205e-15,
+      "nonlinear_residual_max": 3.252606517456513e-17,
+      "linear_residual_max": 9.109905522169004e-20,
+      "newton_iterations_max": 2,
+      "newton_iterations_min": 2,
+      "casimir_mean_drift": 4.440892098500626e-16,
+      "energy_drift_context_only": 2.7616806619334966e-09,
+      "field_change_linf": 0.0160834831768204,
+      "minimum_Newton_corrections_requested": 2
+    },
+    {
+      "method": "Midpoint",
+      "Nx": 15,
+      "leaf_dimension": 56,
+      "steps": 32,
+      "dt": 0.000625,
+      "T": 0.02,
+      "symplectic_defect": 2.174938961214326e-15,
+      "nonlinear_residual_max": 2.883977778811442e-17,
+      "linear_residual_max": 2.261842666964999e-20,
+      "newton_iterations_max": 2,
+      "newton_iterations_min": 2,
+      "casimir_mean_drift": 7.401486830834369e-18,
+      "energy_drift_context_only": 6.904201654833741e-10,
+      "field_change_linf": 0.016083484381978153,
+      "minimum_Newton_corrections_requested": 2
+    },
+    {
+      "method": "Midpoint",
+      "Nx": 15,
+      "leaf_dimension": 56,
+      "steps": 64,
+      "dt": 0.0003125,
+      "T": 0.02,
+      "symplectic_defect": 3.740695239924426e-15,
+      "nonlinear_residual_max": 2.7755575615628914e-17,
+      "linear_residual_max": 6.193928426797071e-21,
+      "newton_iterations_max": 2,
+      "newton_iterations_min": 2,
+      "casimir_mean_drift": 2.220446049250313e-16,
+      "energy_drift_context_only": 1.7257661966141313e-10,
+      "field_change_linf": 0.01608348468327314,
+      "minimum_Newton_corrections_requested": 2
+    }
+  ],
+  "fixed_time_orders": [
+    {
+      "method": "Euler",
+      "dt_coarse": 0.02,
+      "dt_fine": 0.01,
+      "coarse_defect": 0.009114781097675108,
+      "fine_defect": 0.004562437565788691,
+      "above_fit_floor": true,
+      "observed_order": 0.998403192038599
+    },
+    {
+      "method": "Euler",
+      "dt_coarse": 0.01,
+      "dt_fine": 0.005,
+      "coarse_defect": 0.004562437565788691,
+      "fine_defect": 0.002280457105560641,
+      "above_fit_floor": true,
+      "observed_order": 1.0004817826383001
+    },
+    {
+      "method": "Euler",
+      "dt_coarse": 0.005,
+      "dt_fine": 0.0025,
+      "coarse_defect": 0.002280457105560641,
+      "fine_defect": 0.0011397847463973003,
+      "above_fit_floor": true,
+      "observed_order": 1.0005616434572688
+    },
+    {
+      "method": "Euler",
+      "dt_coarse": 0.0025,
+      "dt_fine": 0.00125,
+      "coarse_defect": 0.0011397847463973003,
+      "fine_defect": 0.0005697498868173977,
+      "above_fit_floor": true,
+      "observed_order": 1.000360752499114
+    },
+    {
+      "method": "Euler",
+      "dt_coarse": 0.00125,
+      "dt_fine": 0.000625,
+      "coarse_defect": 0.0005697498868173977,
+      "fine_defect": 0.00028483539385904303,
+      "above_fit_floor": true,
+      "observed_order": 1.0002003050866977
+    },
+    {
+      "method": "Euler",
+      "dt_coarse": 0.000625,
+      "dt_fine": 0.0003125,
+      "coarse_defect": 0.00028483539385904303,
+      "fine_defect": 0.00014240731957915976,
+      "above_fit_floor": true,
+      "observed_order": 1.000105126664045
+    },
+    {
+      "method": "RK4",
+      "dt_coarse": 0.02,
+      "dt_fine": 0.01,
+      "coarse_defect": 2.8249091152077072e-08,
+      "fine_defect": 9.309917651236192e-10,
+      "above_fit_floor": true,
+      "observed_order": 4.923292235927844
+    },
+    {
+      "method": "RK4",
+      "dt_coarse": 0.01,
+      "dt_fine": 0.005,
+      "coarse_defect": 9.309917651236192e-10,
+      "fine_defect": 3.4924965181264324e-11,
+      "above_fit_floor": true,
+      "observed_order": 4.7364378243677
+    },
+    {
+      "method": "RK4",
+      "dt_coarse": 0.005,
+      "dt_fine": 0.0025,
+      "coarse_defect": 3.4924965181264324e-11,
+      "fine_defect": 1.647916850475747e-12,
+      "above_fit_floor": true,
+      "observed_order": 4.405543322433082
+    },
+    {
+      "method": "RK4",
+      "dt_coarse": 0.0025,
+      "dt_fine": 0.00125,
+      "coarse_defect": 1.647916850475747e-12,
+      "fine_defect": 9.355503110567283e-14,
+      "above_fit_floor": false,
+      "observed_order": null
+    },
+    {
+      "method": "RK4",
+      "dt_coarse": 0.00125,
+      "dt_fine": 0.000625,
+      "coarse_defect": 9.355503110567283e-14,
+      "fine_defect": 6.002247982306073e-15,
+      "above_fit_floor": false,
+      "observed_order": null
+    },
+    {
+      "method": "RK4",
+      "dt_coarse": 0.000625,
+      "dt_fine": 0.0003125,
+      "coarse_defect": 6.002247982306073e-15,
+      "fine_defect": 3.1938052892334313e-15,
+      "above_fit_floor": false,
+      "observed_order": null
+    },
+    {
+      "method": "Midpoint",
+      "dt_coarse": 0.02,
+      "dt_fine": 0.01,
+      "coarse_defect": 3.175727734908841e-16,
+      "fine_defect": 5.232175016972936e-16,
+      "above_fit_floor": false,
+      "observed_order": null
+    },
+    {
+      "method": "Midpoint",
+      "dt_coarse": 0.01,
+      "dt_fine": 0.005,
+      "coarse_defect": 5.232175016972936e-16,
+      "fine_defect": 7.629670716195038e-16,
+      "above_fit_floor": false,
+      "observed_order": null
+    },
+    {
+      "method": "Midpoint",
+      "dt_coarse": 0.005,
+      "dt_fine": 0.0025,
+      "coarse_defect": 7.629670716195038e-16,
+      "fine_defect": 1.066176848113209e-15,
+      "above_fit_floor": false,
+      "observed_order": null
+    },
+    {
+      "method": "Midpoint",
+      "dt_coarse": 0.0025,
+      "dt_fine": 0.00125,
+      "coarse_defect": 1.066176848113209e-15,
+      "fine_defect": 2.7314661494086697e-13,
+      "above_fit_floor": false,
+      "observed_order": null
+    },
+    {
+      "method": "Midpoint",
+      "dt_coarse": 0.00125,
+      "dt_fine": 0.000625,
+      "coarse_defect": 2.7314661494086697e-13,
+      "fine_defect": 1.720950277903498e-14,
+      "above_fit_floor": false,
+      "observed_order": null
+    },
+    {
+      "method": "Midpoint",
+      "dt_coarse": 0.000625,
+      "dt_fine": 0.0003125,
+      "coarse_defect": 1.720950277903498e-14,
+      "fine_defect": 3.858606748695165e-15,
+      "above_fit_floor": false,
+      "observed_order": null
+    }
+  ],
+  "physical_pullback": [
+    {
+      "method": "Euler",
+      "reduced_defect": 0.0011397847463973003,
+      "physical_restricted_defect": 0.001139784746397328,
+      "matrix_equivalence_relative_residual": 7.673545020353424e-16,
+      "physical_coordinates": "u=U-2a with a=0; v=w+C0 p+4; restricted to the nonlinear fixed-Casimir leaf"
+    },
+    {
+      "method": "RK4",
+      "reduced_defect": 1.647916850475747e-12,
+      "physical_restricted_defect": 1.6479175957184065e-12,
+      "matrix_equivalence_relative_residual": 7.515337286115892e-16,
+      "physical_coordinates": "u=U-2a with a=0; v=w+C0 p+4; restricted to the nonlinear fixed-Casimir leaf"
+    },
+    {
+      "method": "Midpoint",
+      "reduced_defect": 1.066176848113209e-15,
+      "physical_restricted_defect": 1.3994963119905679e-15,
+      "matrix_equivalence_relative_residual": 7.692643986562204e-16,
+      "physical_coordinates": "u=U-2a with a=0; v=w+C0 p+4; restricted to the nonlinear fixed-Casimir leaf"
+    }
+  ],
+  "elapsed_seconds": 3.211638499982655,
+  "interpretation": "No spatial convergence, full discrete integrability or long-time error claim. Energy drift is context only; the tested observable is the full tangent-map two-form defect."
+}

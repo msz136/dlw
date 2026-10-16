@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "kind": "SD",
+      "nstate": 1128,
+      "affine_roundtrip_linf": 2.220446049250313e-16,
+      "batched_jvp_complex_step_relative_linf": 1.4640312386618989e-15,
+      "batched_jvp_centered_relative_linf": 5.874485736419464e-10,
+      "base_step_linf_difference": 0.0
+    },
+    {
+      "kind": "FD",
+      "nstate": 1128,
+      "affine_roundtrip_linf": 0.0,
+      "batched_jvp_complex_step_relative_linf": 8.957213581654087e-17,
+      "batched_jvp_centered_relative_linf": 5.445897405161566e-11,
+      "base_step_linf_difference": 0.0
+    }
+  ],
+  "protocol_sha256": "774b002e93082b46b13f01ff8f885086be74970012313476daefed8acd865a5b",
+  "common_sha256": "b25db57b04fc2117a15f3f144f71fbdbafdd3082612fa0e96a2affe3daa9bcc2",
+  "frozen_solver_sha256": "4323fa90ef051a88de371c4da1f642711e5ccb128fa4e1d79be5fd6e80c30db0"
+}

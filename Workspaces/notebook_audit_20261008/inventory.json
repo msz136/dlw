@@ -1,0 +1,1669 @@
+{
+  "2hs": {
+    "path": "C:\\Users\\msz\\aca\\notebook\\2HS数值分析report.ipynb",
+    "sha256": "d98b8efe2a73ec7572aa7c8721266c2d6d66ff0d2d36984cf1b396a965d86f31",
+    "metadata": {
+      "colab": {
+        "name": "2HS数值分析report.ipynb",
+        "provenance": []
+      },
+      "kernelspec": {
+        "display_name": "Python 3",
+        "language": "python",
+        "name": "python3"
+      },
+      "language_info": {
+        "codemirror_mode": {
+          "name": "ipython",
+          "version": 3
+        },
+        "file_extension": ".py",
+        "mimetype": "text/x-python",
+        "name": "python",
+        "nbconvert_exporter": "python",
+        "pygments_lexer": "ipython3",
+        "version": "3.13.3"
+      },
+      "report_split": {
+        "scope": "2HS numerical analysis",
+        "source": "C:\\Users\\msz\\aca\\Workspaces\\notebook_reports_20261006\\before_split\\Report.ipynb"
+      },
+      "report_structure": {
+        "numerical_algorithms_unchanged": true,
+        "revision": "2026-10-06 formulas-parameters-executable-code",
+        "transform": "C:\\Users\\msz\\aca\\Workspaces\\notebook_reports_20261006\\revise_hs_structure.py"
+      }
+    },
+    "cells": [
+      {
+        "cell": 1,
+        "type": "markdown",
+        "id": "hs-title",
+        "source_lines": 3,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 2,
+        "type": "code",
+        "id": "hs-prepare",
+        "source_lines": 16,
+        "execution_count": 1,
+        "outputs": []
+      },
+      {
+        "cell": 3,
+        "type": "markdown",
+        "id": "hs-single-model",
+        "source_lines": 17,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 4,
+        "type": "code",
+        "id": "hs-config",
+        "source_lines": 30,
+        "execution_count": 2,
+        "outputs": [
+          {
+            "index": 1,
+            "type": "stream"
+          }
+        ]
+      },
+      {
+        "cell": 5,
+        "type": "markdown",
+        "id": "hs-single-reference",
+        "source_lines": 1,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 6,
+        "type": "code",
+        "id": "hs-reference",
+        "source_lines": 41,
+        "execution_count": 3,
+        "outputs": [
+          {
+            "index": 1,
+            "type": "stream"
+          }
+        ]
+      },
+      {
+        "cell": 7,
+        "type": "markdown",
+        "id": "hs-space-model",
+        "source_lines": 28,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 8,
+        "type": "code",
+        "id": "hs-spatial",
+        "source_lines": 17,
+        "execution_count": 4,
+        "outputs": []
+      },
+      {
+        "cell": 9,
+        "type": "markdown",
+        "id": "hs-fd-model",
+        "source_lines": 25,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 10,
+        "type": "code",
+        "id": "hs-fd-spatial",
+        "source_lines": 38,
+        "execution_count": 5,
+        "outputs": []
+      },
+      {
+        "cell": 11,
+        "type": "markdown",
+        "id": "hs-grid-model",
+        "source_lines": 7,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 12,
+        "type": "code",
+        "id": "hs-initial-state",
+        "source_lines": 8,
+        "execution_count": 6,
+        "outputs": []
+      },
+      {
+        "cell": 13,
+        "type": "markdown",
+        "id": "hs-time-model",
+        "source_lines": 13,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 14,
+        "type": "code",
+        "id": "hs-rk4",
+        "source_lines": 7,
+        "execution_count": 7,
+        "outputs": []
+      },
+      {
+        "cell": 15,
+        "type": "markdown",
+        "id": "hs-evolve-lead",
+        "source_lines": 1,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 16,
+        "type": "code",
+        "id": "hs-history",
+        "source_lines": 17,
+        "execution_count": 8,
+        "outputs": []
+      },
+      {
+        "cell": 17,
+        "type": "code",
+        "id": "hs-evolve",
+        "source_lines": 17,
+        "execution_count": 9,
+        "outputs": [
+          {
+            "index": 1,
+            "type": "stream"
+          }
+        ]
+      },
+      {
+        "cell": 18,
+        "type": "markdown",
+        "id": "hs-error-model",
+        "source_lines": 8,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 19,
+        "type": "code",
+        "id": "hs-interpolation",
+        "source_lines": 8,
+        "execution_count": 10,
+        "outputs": []
+      },
+      {
+        "cell": 20,
+        "type": "code",
+        "id": "hs-error",
+        "source_lines": 20,
+        "execution_count": 11,
+        "outputs": [
+          {
+            "index": 1,
+            "type": "stream"
+          }
+        ]
+      },
+      {
+        "cell": 21,
+        "type": "markdown",
+        "id": "hs-two-theory",
+        "source_lines": 20,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 22,
+        "type": "code",
+        "id": "hs-two-reference",
+        "source_lines": 52,
+        "execution_count": 12,
+        "outputs": []
+      },
+      {
+        "cell": 23,
+        "type": "markdown",
+        "id": "hs-two-grid",
+        "source_lines": 1,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 24,
+        "type": "code",
+        "id": "hs-two-initial",
+        "source_lines": 19,
+        "execution_count": 13,
+        "outputs": [
+          {
+            "index": 1,
+            "type": "stream"
+          }
+        ]
+      },
+      {
+        "cell": 25,
+        "type": "markdown",
+        "id": "hs-two-time",
+        "source_lines": 1,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 26,
+        "type": "code",
+        "id": "hs-two-evolve",
+        "source_lines": 24,
+        "execution_count": 14,
+        "outputs": [
+          {
+            "index": 1,
+            "type": "stream"
+          }
+        ]
+      },
+      {
+        "cell": 27,
+        "type": "markdown",
+        "id": "hs-two-error-theory",
+        "source_lines": 1,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 28,
+        "type": "code",
+        "id": "hs-two-error",
+        "source_lines": 17,
+        "execution_count": 15,
+        "outputs": [
+          {
+            "index": 1,
+            "type": "stream"
+          }
+        ]
+      },
+      {
+        "cell": 29,
+        "type": "code",
+        "id": "hs-two-plots",
+        "source_lines": 10,
+        "execution_count": 16,
+        "outputs": [
+          {
+            "index": 1,
+            "type": "stream"
+          }
+        ]
+      },
+      {
+        "cell": 30,
+        "type": "markdown",
+        "id": "hs-two-discussion",
+        "source_lines": 1,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 31,
+        "type": "markdown",
+        "id": "hs-field-text",
+        "source_lines": 5,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 32,
+        "type": "code",
+        "id": "hs-field-config",
+        "source_lines": 9,
+        "execution_count": 17,
+        "outputs": []
+      },
+      {
+        "cell": 33,
+        "type": "code",
+        "id": "hs-field-helpers",
+        "source_lines": 121,
+        "execution_count": 18,
+        "outputs": []
+      },
+      {
+        "cell": 34,
+        "type": "code",
+        "id": "hs-field-plots",
+        "source_lines": 31,
+        "execution_count": 19,
+        "outputs": [
+          {
+            "index": 1,
+            "type": "display_data",
+            "image": "C:\\Users\\msz\\aca\\Workspaces\\notebook_audit_20261008\\extracted\\2hs\\cell_34_output_01.png",
+            "mimes": [
+              "image/png",
+              "text/plain"
+            ]
+          },
+          {
+            "index": 2,
+            "type": "display_data",
+            "image": "C:\\Users\\msz\\aca\\Workspaces\\notebook_audit_20261008\\extracted\\2hs\\cell_34_output_02.png",
+            "mimes": [
+              "image/png",
+              "text/plain"
+            ]
+          },
+          {
+            "index": 3,
+            "type": "display_data",
+            "image": "C:\\Users\\msz\\aca\\Workspaces\\notebook_audit_20261008\\extracted\\2hs\\cell_34_output_03.png",
+            "mimes": [
+              "image/png",
+              "text/plain"
+            ]
+          },
+          {
+            "index": 4,
+            "type": "display_data",
+            "image": "C:\\Users\\msz\\aca\\Workspaces\\notebook_audit_20261008\\extracted\\2hs\\cell_34_output_04.png",
+            "mimes": [
+              "image/png",
+              "text/plain"
+            ]
+          },
+          {
+            "index": 5,
+            "type": "display_data",
+            "image": "C:\\Users\\msz\\aca\\Workspaces\\notebook_audit_20261008\\extracted\\2hs\\cell_34_output_05.png",
+            "mimes": [
+              "image/png",
+              "text/plain"
+            ]
+          },
+          {
+            "index": 6,
+            "type": "display_data",
+            "image": "C:\\Users\\msz\\aca\\Workspaces\\notebook_audit_20261008\\extracted\\2hs\\cell_34_output_06.png",
+            "mimes": [
+              "image/png",
+              "text/plain"
+            ]
+          },
+          {
+            "index": 7,
+            "type": "display_data",
+            "image": "C:\\Users\\msz\\aca\\Workspaces\\notebook_audit_20261008\\extracted\\2hs\\cell_34_output_07.png",
+            "mimes": [
+              "image/png",
+              "text/plain"
+            ]
+          },
+          {
+            "index": 8,
+            "type": "display_data",
+            "image": "C:\\Users\\msz\\aca\\Workspaces\\notebook_audit_20261008\\extracted\\2hs\\cell_34_output_08.png",
+            "mimes": [
+              "image/png",
+              "text/plain"
+            ]
+          },
+          {
+            "index": 9,
+            "type": "display_data",
+            "image": "C:\\Users\\msz\\aca\\Workspaces\\notebook_audit_20261008\\extracted\\2hs\\cell_34_output_09.png",
+            "mimes": [
+              "image/png",
+              "text/plain"
+            ]
+          },
+          {
+            "index": 10,
+            "type": "display_data",
+            "image": "C:\\Users\\msz\\aca\\Workspaces\\notebook_audit_20261008\\extracted\\2hs\\cell_34_output_10.png",
+            "mimes": [
+              "image/png",
+              "text/plain"
+            ]
+          },
+          {
+            "index": 11,
+            "type": "display_data",
+            "image": "C:\\Users\\msz\\aca\\Workspaces\\notebook_audit_20261008\\extracted\\2hs\\cell_34_output_11.png",
+            "mimes": [
+              "image/png",
+              "text/plain"
+            ]
+          },
+          {
+            "index": 12,
+            "type": "display_data",
+            "image": "C:\\Users\\msz\\aca\\Workspaces\\notebook_audit_20261008\\extracted\\2hs\\cell_34_output_12.png",
+            "mimes": [
+              "image/png",
+              "text/plain"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "dlw": {
+    "path": "C:\\Users\\msz\\aca\\notebook\\DLW数值分析report.ipynb",
+    "sha256": "ee692341450d6c3b284070986bd87f84f41c48d432ab88d9bb8747a995852c94",
+    "metadata": {
+      "colab": {
+        "name": "DLW数值分析report.ipynb",
+        "provenance": []
+      },
+      "kernelspec": {
+        "display_name": "Python 3",
+        "language": "python",
+        "name": "python3"
+      },
+      "language_info": {
+        "codemirror_mode": {
+          "name": "ipython",
+          "version": 3
+        },
+        "file_extension": ".py",
+        "mimetype": "text/x-python",
+        "name": "python",
+        "nbconvert_exporter": "python",
+        "pygments_lexer": "ipython3",
+        "version": "3.13.3"
+      },
+      "report": {
+        "runtime": "Python; no Lean or external project files required",
+        "self_contained": true,
+        "source_html": "C:\\Users\\msz\\aca\\dlw_numerical.html",
+        "spatial_accuracy_order": 2,
+        "spatial_stencil": "three-point centered D1 and direct D2"
+      }
+    },
+    "cells": [
+      {
+        "cell": 1,
+        "type": "markdown",
+        "id": "dlw-title",
+        "source_lines": 3,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 2,
+        "type": "code",
+        "id": "dlw-imports",
+        "source_lines": 13,
+        "execution_count": 1,
+        "outputs": []
+      },
+      {
+        "cell": 3,
+        "type": "markdown",
+        "id": "dlw-design",
+        "source_lines": 10,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 4,
+        "type": "code",
+        "id": "dlw-config",
+        "source_lines": 14,
+        "execution_count": 2,
+        "outputs": [
+          {
+            "index": 1,
+            "type": "execute_result",
+            "mimes": [
+              "text/html",
+              "text/plain"
+            ]
+          }
+        ]
+      },
+      {
+        "cell": 5,
+        "type": "markdown",
+        "id": "dlw-exact-text",
+        "source_lines": 54,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 6,
+        "type": "code",
+        "id": "dlw-reference",
+        "source_lines": 47,
+        "execution_count": 3,
+        "outputs": []
+      },
+      {
+        "cell": 7,
+        "type": "markdown",
+        "id": "dlw-spatial-text",
+        "source_lines": 11,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 8,
+        "type": "code",
+        "id": "dlw-spatial",
+        "source_lines": 54,
+        "execution_count": 4,
+        "outputs": []
+      },
+      {
+        "cell": 9,
+        "type": "code",
+        "id": "dlw-sd_fd",
+        "source_lines": 32,
+        "execution_count": 5,
+        "outputs": []
+      },
+      {
+        "cell": 10,
+        "type": "markdown",
+        "id": "dlw-sd-text",
+        "source_lines": 43,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 11,
+        "type": "code",
+        "id": "dlw-sd",
+        "source_lines": 23,
+        "execution_count": 6,
+        "outputs": []
+      },
+      {
+        "cell": 12,
+        "type": "markdown",
+        "id": "dlw-sd2-text",
+        "source_lines": 30,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 13,
+        "type": "code",
+        "id": "dlw-sd2_lift",
+        "source_lines": 65,
+        "execution_count": 7,
+        "outputs": []
+      },
+      {
+        "cell": 14,
+        "type": "code",
+        "id": "dlw-sd2_evolution",
+        "source_lines": 32,
+        "execution_count": 8,
+        "outputs": []
+      },
+      {
+        "cell": 15,
+        "type": "markdown",
+        "id": "dlw-fd-text",
+        "source_lines": 20,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 16,
+        "type": "code",
+        "id": "dlw-fd",
+        "source_lines": 10,
+        "execution_count": 9,
+        "outputs": []
+      },
+      {
+        "cell": 17,
+        "type": "markdown",
+        "id": "dlw-mesh-text",
+        "source_lines": 15,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 18,
+        "type": "code",
+        "id": "dlw-mesh",
+        "source_lines": 42,
+        "execution_count": 10,
+        "outputs": []
+      },
+      {
+        "cell": 19,
+        "type": "markdown",
+        "id": "dlw-time-text",
+        "source_lines": 19,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 20,
+        "type": "code",
+        "id": "dlw-time",
+        "source_lines": 62,
+        "execution_count": 11,
+        "outputs": []
+      },
+      {
+        "cell": 21,
+        "type": "markdown",
+        "id": "dlw-space-text",
+        "source_lines": 3,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 22,
+        "type": "code",
+        "id": "dlw-space_experiment",
+        "source_lines": 3,
+        "execution_count": 12,
+        "outputs": [
+          {
+            "index": 1,
+            "type": "execute_result",
+            "mimes": [
+              "text/html",
+              "text/plain"
+            ]
+          }
+        ]
+      },
+      {
+        "cell": 23,
+        "type": "markdown",
+        "id": "dlw-temporal-text",
+        "source_lines": 3,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 24,
+        "type": "code",
+        "id": "dlw-time_experiment",
+        "source_lines": 6,
+        "execution_count": 13,
+        "outputs": [
+          {
+            "index": 1,
+            "type": "execute_result",
+            "mimes": [
+              "text/html",
+              "text/plain"
+            ]
+          }
+        ]
+      },
+      {
+        "cell": 25,
+        "type": "markdown",
+        "id": "dlw-order-text",
+        "source_lines": 6,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 26,
+        "type": "code",
+        "id": "dlw-order",
+        "source_lines": 22,
+        "execution_count": 14,
+        "outputs": [
+          {
+            "index": 1,
+            "type": "execute_result",
+            "mimes": [
+              "text/html",
+              "text/plain"
+            ]
+          }
+        ]
+      },
+      {
+        "cell": 27,
+        "type": "markdown",
+        "id": "dlw-moving-text",
+        "source_lines": 3,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 28,
+        "type": "code",
+        "id": "dlw-mesh_experiment",
+        "source_lines": 6,
+        "execution_count": 15,
+        "outputs": [
+          {
+            "index": 1,
+            "type": "execute_result",
+            "mimes": [
+              "text/html",
+              "text/plain"
+            ]
+          }
+        ]
+      },
+      {
+        "cell": 29,
+        "type": "markdown",
+        "id": "dlw-conclusion-text",
+        "source_lines": 3,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 30,
+        "type": "code",
+        "id": "dlw-summary",
+        "source_lines": 9,
+        "execution_count": 16,
+        "outputs": [
+          {
+            "index": 1,
+            "type": "stream"
+          },
+          {
+            "index": 2,
+            "type": "display_data",
+            "mimes": [
+              "text/html",
+              "text/plain"
+            ]
+          },
+          {
+            "index": 3,
+            "type": "stream"
+          }
+        ]
+      },
+      {
+        "cell": 31,
+        "type": "markdown",
+        "id": "dlw-limits",
+        "source_lines": 1,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 32,
+        "type": "markdown",
+        "id": "dlw-field-text",
+        "source_lines": 5,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 33,
+        "type": "code",
+        "id": "dlw-field-data",
+        "source_lines": 19,
+        "execution_count": 17,
+        "outputs": [
+          {
+            "index": 1,
+            "type": "stream"
+          }
+        ]
+      },
+      {
+        "cell": 34,
+        "type": "markdown",
+        "id": "dlw-plot-config-text",
+        "source_lines": 1,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 35,
+        "type": "code",
+        "id": "dlw-field-config",
+        "source_lines": 13,
+        "execution_count": 4,
+        "outputs": []
+      },
+      {
+        "cell": 36,
+        "type": "code",
+        "id": "dlw-field-helpers",
+        "source_lines": 121,
+        "execution_count": 5,
+        "outputs": []
+      },
+      {
+        "cell": 37,
+        "type": "code",
+        "id": "dlw-field-plots",
+        "source_lines": 10,
+        "execution_count": 6,
+        "outputs": [
+          {
+            "index": 1,
+            "type": "display_data",
+            "image": "C:\\Users\\msz\\aca\\Workspaces\\notebook_audit_20261008\\extracted\\dlw\\cell_37_output_01.png",
+            "mimes": [
+              "image/png",
+              "text/plain"
+            ]
+          },
+          {
+            "index": 2,
+            "type": "display_data",
+            "image": "C:\\Users\\msz\\aca\\Workspaces\\notebook_audit_20261008\\extracted\\dlw\\cell_37_output_02.png",
+            "mimes": [
+              "image/png",
+              "text/plain"
+            ]
+          },
+          {
+            "index": 3,
+            "type": "display_data",
+            "image": "C:\\Users\\msz\\aca\\Workspaces\\notebook_audit_20261008\\extracted\\dlw\\cell_37_output_03.png",
+            "mimes": [
+              "image/png",
+              "text/plain"
+            ]
+          },
+          {
+            "index": 4,
+            "type": "display_data",
+            "image": "C:\\Users\\msz\\aca\\Workspaces\\notebook_audit_20261008\\extracted\\dlw\\cell_37_output_04.png",
+            "mimes": [
+              "image/png",
+              "text/plain"
+            ]
+          },
+          {
+            "index": 5,
+            "type": "display_data",
+            "image": "C:\\Users\\msz\\aca\\Workspaces\\notebook_audit_20261008\\extracted\\dlw\\cell_37_output_05.png",
+            "mimes": [
+              "image/png",
+              "text/plain"
+            ]
+          },
+          {
+            "index": 6,
+            "type": "display_data",
+            "image": "C:\\Users\\msz\\aca\\Workspaces\\notebook_audit_20261008\\extracted\\dlw\\cell_37_output_06.png",
+            "mimes": [
+              "image/png",
+              "text/plain"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "theory": {
+    "path": "C:\\Users\\msz\\aca\\notebook\\DLW理论.ipynb",
+    "sha256": "96e7e880b4f3107798f2ab1c73297080c93f23bdaa14bcf0ba89749287ffdf26",
+    "metadata": {
+      "colab": {
+        "name": "DLW理论.ipynb",
+        "provenance": []
+      },
+      "kernelspec": {
+        "display_name": "Python 3",
+        "language": "python",
+        "name": "python3"
+      },
+      "language_info": {
+        "codemirror_mode": {
+          "name": "ipython",
+          "version": 3
+        },
+        "file_extension": ".py",
+        "mimetype": "text/x-python",
+        "name": "python",
+        "nbconvert_exporter": "python",
+        "pygments_lexer": "ipython3",
+        "version": "3.13.3"
+      },
+      "report_history": {
+        "report_conversion": {
+          "image_mode": "data-uri",
+          "source_name": "Report.html",
+          "source_sha256": "e972f33df1bc2466e5824c826febd48035b3e33d2e39c1da1675840c66128782"
+        },
+        "report_split": {
+          "numerical_scope": "DLW longitudinal consistency residuals",
+          "source": "C:\\Users\\msz\\aca\\Workspaces\\notebook_reports_20261006\\before_split\\Report.ipynb",
+          "source_sha256": "4a7c613a65b5a19424816c5eb165fe5045ad71ca88b4592dac5f21d1f56d2e53",
+          "title": "非线性化 report"
+        }
+      },
+      "report_theory": {
+        "builder": "Workspaces/dlw_theory_notebook_20261008/build.py",
+        "scope": "Continuous DLW, exact semidiscrete Gram tau, nonlinear reconstruction and continuum limits",
+        "title": "DLW 理论"
+      },
+      "title": "DLW 理论"
+    },
+    "cells": [
+      {
+        "cell": 1,
+        "type": "markdown",
+        "id": "theory-00",
+        "source_lines": 5,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 2,
+        "type": "code",
+        "id": "theory-02",
+        "source_lines": 8,
+        "execution_count": 1,
+        "outputs": [
+          {
+            "index": 1,
+            "type": "stream"
+          }
+        ]
+      },
+      {
+        "cell": 3,
+        "type": "markdown",
+        "id": "theory-03",
+        "source_lines": 27,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 4,
+        "type": "code",
+        "id": "theory-04",
+        "source_lines": 20,
+        "execution_count": 2,
+        "outputs": [
+          {
+            "index": 1,
+            "type": "stream"
+          },
+          {
+            "index": 2,
+            "type": "stream"
+          },
+          {
+            "index": 3,
+            "type": "stream"
+          },
+          {
+            "index": 4,
+            "type": "stream"
+          }
+        ]
+      },
+      {
+        "cell": 5,
+        "type": "markdown",
+        "id": "theory-05",
+        "source_lines": 55,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 6,
+        "type": "code",
+        "id": "theory-06",
+        "source_lines": 16,
+        "execution_count": 3,
+        "outputs": [
+          {
+            "index": 1,
+            "type": "stream"
+          },
+          {
+            "index": 2,
+            "type": "stream"
+          },
+          {
+            "index": 3,
+            "type": "stream"
+          },
+          {
+            "index": 4,
+            "type": "stream"
+          }
+        ]
+      },
+      {
+        "cell": 7,
+        "type": "markdown",
+        "id": "theory-07",
+        "source_lines": 22,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 8,
+        "type": "markdown",
+        "id": "theory-10",
+        "source_lines": 55,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 9,
+        "type": "code",
+        "id": "theory-12",
+        "source_lines": 57,
+        "execution_count": 5,
+        "outputs": [
+          {
+            "index": 1,
+            "type": "stream"
+          },
+          {
+            "index": 2,
+            "type": "stream"
+          },
+          {
+            "index": 3,
+            "type": "stream"
+          },
+          {
+            "index": 4,
+            "type": "stream"
+          },
+          {
+            "index": 5,
+            "type": "stream"
+          },
+          {
+            "index": 6,
+            "type": "stream"
+          },
+          {
+            "index": 7,
+            "type": "stream"
+          },
+          {
+            "index": 8,
+            "type": "stream"
+          },
+          {
+            "index": 9,
+            "type": "stream"
+          },
+          {
+            "index": 10,
+            "type": "stream"
+          },
+          {
+            "index": 11,
+            "type": "stream"
+          },
+          {
+            "index": 12,
+            "type": "stream"
+          },
+          {
+            "index": 13,
+            "type": "stream"
+          },
+          {
+            "index": 14,
+            "type": "stream"
+          },
+          {
+            "index": 15,
+            "type": "stream"
+          },
+          {
+            "index": 16,
+            "type": "stream"
+          },
+          {
+            "index": 17,
+            "type": "stream"
+          },
+          {
+            "index": 18,
+            "type": "stream"
+          },
+          {
+            "index": 19,
+            "type": "stream"
+          },
+          {
+            "index": 20,
+            "type": "stream"
+          },
+          {
+            "index": 21,
+            "type": "stream"
+          },
+          {
+            "index": 22,
+            "type": "stream"
+          }
+        ]
+      },
+      {
+        "cell": 10,
+        "type": "markdown",
+        "id": "theory-08",
+        "source_lines": 54,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 11,
+        "type": "code",
+        "id": "theory-09",
+        "source_lines": 16,
+        "execution_count": 4,
+        "outputs": [
+          {
+            "index": 1,
+            "type": "stream"
+          },
+          {
+            "index": 2,
+            "type": "stream"
+          },
+          {
+            "index": 3,
+            "type": "stream"
+          },
+          {
+            "index": 4,
+            "type": "stream"
+          }
+        ]
+      },
+      {
+        "cell": 12,
+        "type": "markdown",
+        "id": "theory-13",
+        "source_lines": 12,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 13,
+        "type": "code",
+        "id": "theory-14",
+        "source_lines": 19,
+        "execution_count": 6,
+        "outputs": [
+          {
+            "index": 1,
+            "type": "stream"
+          },
+          {
+            "index": 2,
+            "type": "stream"
+          },
+          {
+            "index": 3,
+            "type": "stream"
+          },
+          {
+            "index": 4,
+            "type": "stream"
+          },
+          {
+            "index": 5,
+            "type": "stream"
+          },
+          {
+            "index": 6,
+            "type": "stream"
+          },
+          {
+            "index": 7,
+            "type": "stream"
+          },
+          {
+            "index": 8,
+            "type": "stream"
+          },
+          {
+            "index": 9,
+            "type": "stream"
+          },
+          {
+            "index": 10,
+            "type": "stream"
+          },
+          {
+            "index": 11,
+            "type": "stream"
+          },
+          {
+            "index": 12,
+            "type": "stream"
+          },
+          {
+            "index": 13,
+            "type": "stream"
+          },
+          {
+            "index": 14,
+            "type": "stream"
+          }
+        ]
+      },
+      {
+        "cell": 14,
+        "type": "markdown",
+        "id": "theory-15",
+        "source_lines": 3,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 15,
+        "type": "code",
+        "id": "preserved-3",
+        "source_lines": 2,
+        "execution_count": 7,
+        "outputs": [
+          {
+            "index": 1,
+            "type": "stream"
+          },
+          {
+            "index": 2,
+            "type": "stream"
+          },
+          {
+            "index": 3,
+            "type": "stream"
+          },
+          {
+            "index": 4,
+            "type": "stream"
+          }
+        ]
+      },
+      {
+        "cell": 16,
+        "type": "markdown",
+        "id": "preserved-4",
+        "source_lines": 5,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 17,
+        "type": "code",
+        "id": "preserved-5",
+        "source_lines": 12,
+        "execution_count": 8,
+        "outputs": [
+          {
+            "index": 1,
+            "type": "stream"
+          }
+        ]
+      },
+      {
+        "cell": 18,
+        "type": "markdown",
+        "id": "preserved-6",
+        "source_lines": 75,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 19,
+        "type": "code",
+        "id": "preserved-7",
+        "source_lines": 50,
+        "execution_count": 9,
+        "outputs": [
+          {
+            "index": 1,
+            "type": "stream"
+          }
+        ]
+      },
+      {
+        "cell": 20,
+        "type": "markdown",
+        "id": "theory-21",
+        "source_lines": 14,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 21,
+        "type": "code",
+        "id": "theory-22",
+        "source_lines": 19,
+        "execution_count": 10,
+        "outputs": [
+          {
+            "index": 1,
+            "type": "stream"
+          },
+          {
+            "index": 2,
+            "type": "stream"
+          },
+          {
+            "index": 3,
+            "type": "stream"
+          },
+          {
+            "index": 4,
+            "type": "stream"
+          },
+          {
+            "index": 5,
+            "type": "stream"
+          },
+          {
+            "index": 6,
+            "type": "stream"
+          },
+          {
+            "index": 7,
+            "type": "stream"
+          },
+          {
+            "index": 8,
+            "type": "stream"
+          },
+          {
+            "index": 9,
+            "type": "stream"
+          }
+        ]
+      },
+      {
+        "cell": 22,
+        "type": "markdown",
+        "id": "theory-23",
+        "source_lines": 15,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 23,
+        "type": "code",
+        "id": "theory-24",
+        "source_lines": 30,
+        "execution_count": 11,
+        "outputs": [
+          {
+            "index": 1,
+            "type": "stream"
+          },
+          {
+            "index": 2,
+            "type": "stream"
+          },
+          {
+            "index": 3,
+            "type": "stream"
+          },
+          {
+            "index": 4,
+            "type": "stream"
+          },
+          {
+            "index": 5,
+            "type": "stream"
+          },
+          {
+            "index": 6,
+            "type": "stream"
+          },
+          {
+            "index": 7,
+            "type": "stream"
+          },
+          {
+            "index": 8,
+            "type": "stream"
+          },
+          {
+            "index": 9,
+            "type": "stream"
+          },
+          {
+            "index": 10,
+            "type": "stream"
+          },
+          {
+            "index": 11,
+            "type": "stream"
+          },
+          {
+            "index": 12,
+            "type": "stream"
+          },
+          {
+            "index": 13,
+            "type": "stream"
+          },
+          {
+            "index": 14,
+            "type": "stream"
+          },
+          {
+            "index": 15,
+            "type": "stream"
+          },
+          {
+            "index": 16,
+            "type": "stream"
+          },
+          {
+            "index": 17,
+            "type": "stream"
+          },
+          {
+            "index": 18,
+            "type": "stream"
+          },
+          {
+            "index": 19,
+            "type": "stream"
+          },
+          {
+            "index": 20,
+            "type": "stream"
+          },
+          {
+            "index": 21,
+            "type": "stream"
+          },
+          {
+            "index": 22,
+            "type": "stream"
+          },
+          {
+            "index": 23,
+            "type": "stream"
+          },
+          {
+            "index": 24,
+            "type": "stream"
+          },
+          {
+            "index": 25,
+            "type": "stream"
+          },
+          {
+            "index": 26,
+            "type": "stream"
+          },
+          {
+            "index": 27,
+            "type": "stream"
+          },
+          {
+            "index": 28,
+            "type": "stream"
+          },
+          {
+            "index": 29,
+            "type": "stream"
+          },
+          {
+            "index": 30,
+            "type": "stream"
+          },
+          {
+            "index": 31,
+            "type": "stream"
+          },
+          {
+            "index": 32,
+            "type": "stream"
+          },
+          {
+            "index": 33,
+            "type": "stream"
+          },
+          {
+            "index": 34,
+            "type": "stream"
+          },
+          {
+            "index": 35,
+            "type": "stream"
+          },
+          {
+            "index": 36,
+            "type": "stream"
+          },
+          {
+            "index": 37,
+            "type": "stream"
+          },
+          {
+            "index": 38,
+            "type": "stream"
+          }
+        ]
+      },
+      {
+        "cell": 24,
+        "type": "markdown",
+        "id": "theory-25",
+        "source_lines": 3,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 25,
+        "type": "code",
+        "id": "preserved-9",
+        "source_lines": 2,
+        "execution_count": 12,
+        "outputs": [
+          {
+            "index": 1,
+            "type": "stream"
+          },
+          {
+            "index": 2,
+            "type": "stream"
+          },
+          {
+            "index": 3,
+            "type": "stream"
+          },
+          {
+            "index": 4,
+            "type": "stream"
+          },
+          {
+            "index": 5,
+            "type": "stream"
+          },
+          {
+            "index": 6,
+            "type": "stream"
+          },
+          {
+            "index": 7,
+            "type": "stream"
+          }
+        ]
+      },
+      {
+        "cell": 26,
+        "type": "markdown",
+        "id": "preserved-10",
+        "source_lines": 1,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 27,
+        "type": "code",
+        "id": "preserved-11",
+        "source_lines": 12,
+        "execution_count": 13,
+        "outputs": [
+          {
+            "index": 1,
+            "type": "stream"
+          }
+        ]
+      },
+      {
+        "cell": 28,
+        "type": "markdown",
+        "id": "preserved-12",
+        "source_lines": 109,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 29,
+        "type": "code",
+        "id": "preserved-13",
+        "source_lines": 27,
+        "execution_count": 14,
+        "outputs": [
+          {
+            "index": 1,
+            "type": "stream"
+          }
+        ]
+      },
+      {
+        "cell": 30,
+        "type": "markdown",
+        "id": "preserved-14",
+        "source_lines": 1,
+        "execution_count": null,
+        "outputs": []
+      },
+      {
+        "cell": 31,
+        "type": "markdown",
+        "id": "theory-32",
+        "source_lines": 14,
+        "execution_count": null,
+        "outputs": []
+      }
+    ]
+  }
+}

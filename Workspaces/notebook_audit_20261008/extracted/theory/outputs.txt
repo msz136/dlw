@@ -1,0 +1,753 @@
+===== CELL 2 OUTPUT 1 =====
+DLW 理论：Lean 证明环境已载入。
+
+===== CELL 4 OUTPUT 1 =====
+Lean proof import: Contracts (warm_cache)
+
+===== CELL 4 OUTPUT 2 =====
+Lean proof import: PkgC02 (warm_cache)
+
+===== CELL 4 OUTPUT 3 =====
+Lean proof import: PkgContinuous (compiled_exact_sources)
+
+===== CELL 4 OUTPUT 4 =====
+def DLWContract.ContinuousPair : ℝ → XYT → XYT → Prop :=
+fun a f g => cbil a f g = 0 ∧ cdybil a f g - 4 * chx f g = 0
+theorem continuous_DLW : ∀ (a : ℝ) (f g : XYT),
+  Smooth3 f →
+    Smooth3 g →
+      Positive3 f → Positive3 g → ContinuousPair a f g → c1 a (cu f g) (cv f g) = 0 ∧ c2 a (cu f g) (cv f g) = 0 :=
+fun a f g hf hg hfp hgp hbil => c02_proved a f g hf hg hfp hgp hbil
+'continuous_Hirota_bridge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'continuous_DLW' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+===== CELL 6 OUTPUT 1 =====
+Lean proof import: Contracts (warm_cache)
+
+===== CELL 6 OUTPUT 2 =====
+Lean proof import: PkgNumeric (compiled_exact_sources)
+
+===== CELL 6 OUTPUT 3 =====
+Lean proof import: PkgC11 (compiled_exact_sources)
+
+===== CELL 6 OUTPUT 4 =====
+def DLWContract.PowBound : ℕ → (ℝ → ℝ) → Prop :=
+fun p e => ∃ C, 0 ≤ C ∧ ∃ ε, 0 < ε ∧ ∀ (h : ℝ), 0 < |h| → |h| < ε → |e h| ≤ C * |h| ^ p
+'bilinear_continuum_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+===== CELL 9 OUTPUT 1 =====
+Lean proof import: Contracts (warm_cache)
+
+===== CELL 9 OUTPUT 2 =====
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgGramActual.lean:39:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgGramActual.lean:39:45: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgGramActual.lean:47:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgGramActual.lean:47:45: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgGramActual.lean:72:15: warning: This simp argument is unused:
+  V
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [W]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgGramActual.lean:71:72: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgGramActual.lean:72:20: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgGramActual.lean:78:72: warning: This simp argument is unused:
+  neg_div
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [gamma, neg_sub]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgGramActual.lean:83:6: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgGramActual.lean:83:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+
+===== CELL 9 OUTPUT 3 =====
+Lean proof import: PkgGramActual (compiled_exact_sources)
+
+===== CELL 9 OUTPUT 4 =====
+'DLWContract.GramDeterminant.continuous_identity_of_invertible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+===== CELL 9 OUTPUT 5 =====
+Lean proof import: PkgGramDeterminant (compiled_exact_sources)
+
+===== CELL 9 OUTPUT 6 =====
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgGramPlucker.lean:32:8: warning: `continuous_finset_sum` has been deprecated: Use `continuous_finsetSum` instead
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgGramPlucker.lean:41:32: warning: This simp argument is unused:
+  Function.update_self
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.updateRow]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgGramPlucker.lean:43:32: warning: This simp argument is unused:
+  Function.update_of_ne h
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.updateRow]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+===== CELL 9 OUTPUT 7 =====
+Lean proof import: PkgGramPlucker (compiled_exact_sources)
+
+===== CELL 9 OUTPUT 8 =====
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgGramIdentity.lean:36:83: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgGramIdentity.lean:41:95: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'DLWContract.GramDeterminant.plucker_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+===== CELL 9 OUTPUT 9 =====
+Lean proof import: PkgGramIdentity (compiled_exact_sources)
+
+===== CELL 9 OUTPUT 10 =====
+Lean proof import: PkgGramCalculus (compiled_exact_sources)
+
+===== CELL 9 OUTPUT 11 =====
+Lean proof import: PkgGramHirota (compiled_exact_sources)
+
+===== CELL 9 OUTPUT 12 =====
+'DLWContract.c07_proved' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+===== CELL 9 OUTPUT 13 =====
+Lean proof import: PkgC07Complete (compiled_exact_sources)
+
+===== CELL 9 OUTPUT 14 =====
+Lean proof import: PkgGramEntry (warm_cache)
+
+===== CELL 9 OUTPUT 15 =====
+Lean proof import: PkgNonlinear (warm_cache)
+
+===== CELL 9 OUTPUT 16 =====
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgGramBridges.lean:21:37: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgGramBridges.lean:23:37: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgGramBridges.lean:27:37: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgGramBridges.lean:29:37: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'DLWContract.c08_of_c07' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DLWContract.c16_of_c08_c09' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+===== CELL 9 OUTPUT 17 =====
+Lean proof import: PkgGramBridges (compiled_exact_sources)
+
+===== CELL 9 OUTPUT 18 =====
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC09Complete.lean:119:17: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC09Complete.lean:120:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC09Complete.lean:130:15: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC09Complete.lean:130:38: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC09Complete.lean:139:17: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC09Complete.lean:140:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC09Complete.lean:150:15: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC09Complete.lean:150:31: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC09Complete.lean:181:21: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC09Complete.lean:181:33: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC09Complete.lean:191:23: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC09Complete.lean:191:34: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC09Complete.lean:196:25: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC09Complete.lean:196:36: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC09Complete.lean:199:25: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC09Complete.lean:199:37: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC09Complete.lean:202:85: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC09Complete.lean:247:23: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC09Complete.lean:247:34: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC09Complete.lean:251:21: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC09Complete.lean:264:23: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC09Complete.lean:264:35: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC09Complete.lean:264:46: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC09Complete.lean:269:25: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC09Complete.lean:269:36: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC09Complete.lean:272:25: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC09Complete.lean:272:37: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC09Complete.lean:278:21: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC09Complete.lean:278:33: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC09Complete.lean:281:21: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC09Complete.lean:281:32: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC09Complete.lean:638:15: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC09Complete.lean:642:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC09Complete.lean:646:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+'DLWContract.c09_proved' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+===== CELL 9 OUTPUT 19 =====
+Lean proof import: PkgC09Complete (compiled_exact_sources)
+
+===== CELL 9 OUTPUT 20 =====
+'DLWContract.c08_proved' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DLWContract.c16_proved' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+===== CELL 9 OUTPUT 21 =====
+Lean proof import: PkgGramComplete (compiled_exact_sources)
+
+===== CELL 9 OUTPUT 22 =====
+def DLWContract.SemiPair : ℝ → ℝ → Lattice → Lattice → Prop :=
+fun a h F G => ∀ (j : ℤ), bil (a - h / 2) (F j) (G j) = 0 ∧ bil (a + h / 2) (F j) (G (j + 1)) = 0
+'DLWContract.theory_gram_chain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DLWContract.theory_exact_tau' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+===== CELL 11 OUTPUT 1 =====
+Lean proof import: Contracts (warm_cache)
+
+===== CELL 11 OUTPUT 2 =====
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgGramEntry.lean:116:70: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgGramEntry.lean:119:70: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgGramEntry.lean:144:66: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgGramEntry.lean:147:66: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+===== CELL 11 OUTPUT 3 =====
+Lean proof import: PkgGramEntry (compiled_exact_sources)
+
+===== CELL 11 OUTPUT 4 =====
+def DLWContract.tau : {N : ℕ} → Data N → ℝ → ℝ → ℤ → ℤ → XT :=
+fun {N} D h s n j x t => Matrix.det fun i k => entry D h s n j i k x t
+def DLWContract.interaction : ℝ → ℝ → ℝ → ℝ → ℝ :=
+fun p₁ p₂ q₁ q₂ => (p₁ - p₂) * (q₁ - q₂) / ((p₁ + q₂) * (p₂ + q₁))
+'two_soliton_expansion' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+===== CELL 13 OUTPUT 1 =====
+Lean proof import: Contracts (warm_cache)
+
+===== CELL 13 OUTPUT 2 =====
+Lean proof import: PkgGramActual (warm_cache)
+
+===== CELL 13 OUTPUT 3 =====
+Lean proof import: PkgGramDeterminant (warm_cache)
+
+===== CELL 13 OUTPUT 4 =====
+Lean proof import: PkgGramPlucker (warm_cache)
+
+===== CELL 13 OUTPUT 5 =====
+Lean proof import: PkgGramIdentity (warm_cache)
+
+===== CELL 13 OUTPUT 6 =====
+Lean proof import: PkgGramCalculus (warm_cache)
+
+===== CELL 13 OUTPUT 7 =====
+Lean proof import: PkgGramHirota (warm_cache)
+
+===== CELL 13 OUTPUT 8 =====
+Lean proof import: PkgC07Complete (warm_cache)
+
+===== CELL 13 OUTPUT 9 =====
+Lean proof import: PkgGramEntry (warm_cache)
+
+===== CELL 13 OUTPUT 10 =====
+Lean proof import: PkgNonlinear (warm_cache)
+
+===== CELL 13 OUTPUT 11 =====
+Lean proof import: PkgGramBridges (warm_cache)
+
+===== CELL 13 OUTPUT 12 =====
+Lean proof import: PkgC09Complete (warm_cache)
+
+===== CELL 13 OUTPUT 13 =====
+Lean proof import: PkgGramComplete (warm_cache)
+
+===== CELL 13 OUTPUT 14 =====
+def DLWContract.PositiveData : {N : ℕ} → Data N → ℝ → Prop :=
+fun {N} D h =>
+  0 < h ∧ StrictMono D.p ∧ StrictMono D.q ∧ ∀ (i : Fin N), 0 < D.p i ∧ D.p i < D.a - h / 2 ∧ 0 < D.q i ∧ 0 < D.rho i
+'regular_tau' depends on axioms: [propext, Classical.choice, Quot.sound]
+'exact_nonlinear_solution' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+===== CELL 15 OUTPUT 1 =====
+Lean proof import: Contracts (warm_cache)
+
+===== CELL 15 OUTPUT 2 =====
+Lean proof import: PkgNonlinear (warm_cache)
+
+===== CELL 15 OUTPUT 3 =====
+Lean proof import: PkgLattice (warm_cache)
+
+===== CELL 15 OUTPUT 4 =====
+Lean proof import: ReportNonlinearUW (warm_cache)
+
+===== CELL 17 OUTPUT 1 =====
+def DLWContract.ReportUW.StartPoint : ℝ → ℝ → Lattice → Lattice → Prop :=
+fun a h F G => ∀ (j : ℤ), bil (a - h / 2) (F j) (G j) = 0 ∧ bil (a + h / 2) (F j) (G (j + 1)) = 0
+
+===== CELL 19 OUTPUT 1 =====
+def DLWContract.ReportUW.NotebookDisplay.reportN1 : ℝ → ℝ → Lattice → Lattice → Lattice :=
+fun a h u w => dm h (lt u) + lx (dm h (fluxUW a h u w)) + lxx (dm h u + (4 / h) • mm w)
+def DLWContract.ReportUW.NotebookDisplay.reportN2 : ℝ → ℝ → Lattice → Lattice → Lattice :=
+fun a h u w => lt w + lx (fluxOmega a h u w) - lxx w
+'DLWContract.ReportUW.semiPair_implies_report7' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DLWContract.ReportUW.semiPair_implies_report8' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+===== CELL 21 OUTPUT 1 =====
+Lean proof import: Contracts (warm_cache)
+
+===== CELL 21 OUTPUT 2 =====
+Lean proof import: PkgNumeric (warm_cache)
+
+===== CELL 21 OUTPUT 3 =====
+Lean proof import: PkgC11 (warm_cache)
+
+===== CELL 21 OUTPUT 4 =====
+Lean proof import: PkgC02 (warm_cache)
+
+===== CELL 21 OUTPUT 5 =====
+Lean proof import: PkgC17 (compiled_exact_sources)
+
+===== CELL 21 OUTPUT 6 =====
+Lean proof import: PkgLattice (warm_cache)
+
+===== CELL 21 OUTPUT 7 =====
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC18Complete.lean:13:2: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC18Complete.lean:82:56: warning: This simp argument is unused:
+  deriv_linear
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [iteratedDeriv_succ', iteratedDeriv_zero, deriv_const]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC18Complete.lean:82:69: warning: This simp argument is unused:
+  deriv_const
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [iteratedDeriv_succ', iteratedDeriv_zero, deriv_linear]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC18Complete.lean:104:49: warning: Variable name `hT` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hT
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC18Complete.lean:159:34: warning: This simp argument is unused:
+  deriv_const_mul_field
+
+Hint: Omit it from the simp argument list.
+  [apply] simp (disch := fun_prop) only [deriv_fun_add, deriv_fun_sub, deriv_fun_mul, deriv_fun_pow, deriv_div_const,
+    deriv_mul_const_field, deriv_const, DU, DV, DUX, DVX, DTU]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC18Complete.lean:159:56: warning: This simp argument is unused:
+  deriv_mul_const_field
+
+Hint: Omit it from the simp argument list.
+  [apply] simp (disch := fun_prop) only [deriv_fun_add, deriv_fun_sub, deriv_fun_mul, deriv_fun_pow, deriv_div_const,
+    deriv_const_mul_field, deriv_const, DU, DV, DUX, DVX, DTU]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC18Complete.lean:164:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC18Complete.lean:185:16: warning: This simp argument is unused:
+  dm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [n2, lt, lxx, lx, dx, dt, H, W, d0, mm, lap, localSamples, slice, Pi.add_apply, Pi.sub_apply,
+    Pi.mul_apply, Pi.div_apply, Pi.pow_apply, Pi.smul_apply, Pi.ofNat_apply, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC18Complete.lean:185:42: warning: This simp argument is unused:
+  mm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [n2, dm, lt, lxx, lx, dx, dt, H, W, d0, lap, localSamples, slice, Pi.add_apply, Pi.sub_apply,
+    Pi.mul_apply, Pi.div_apply, Pi.pow_apply, Pi.smul_apply, Pi.ofNat_apply, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC18Complete.lean:189:34: warning: This simp argument is unused:
+  deriv_const_mul_field
+
+Hint: Omit it from the simp argument list.
+  [apply] simp (disch := fun_prop) only [deriv_fun_add, deriv_fun_sub, deriv_fun_mul, deriv_fun_pow, deriv_div_const,
+    deriv_mul_const_field, deriv_const, DU, DV, DUX, DVX, DTV]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC18Complete.lean:189:56: warning: This simp argument is unused:
+  deriv_mul_const_field
+
+Hint: Omit it from the simp argument list.
+  [apply] simp (disch := fun_prop) only [deriv_fun_add, deriv_fun_sub, deriv_fun_mul, deriv_fun_pow, deriv_div_const,
+    deriv_const_mul_field, deriv_const, DU, DV, DUX, DVX, DTV]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC18Complete.lean:194:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC18Complete.lean:200:56: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'DLWContract.c18_proved' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+===== CELL 21 OUTPUT 8 =====
+Lean proof import: PkgC18Complete (compiled_exact_sources)
+
+===== CELL 21 OUTPUT 9 =====
+def DLWContract.C17 : Prop :=
+∀ (f g : XYT),
+  Smooth3 f →
+    Smooth3 g →
+      Positive3 f →
+        Positive3 g →
+          (∀ (h : ℝ),
+              physU (sampleF h f) (sampleG h g) = sampleF h (interpU h f g) ∧
+                physV h (sampleF h f) (sampleG h g) = sampleF h (interpV h f g)) ∧
+            ∀ (x y t : ℝ),
+              (PowBound 2 fun h => interpU h f g x y t - cu f g x y t) ∧
+                PowBound 2 fun h => interpV h f g x y t - cv f g x y t
+'physical_reconstruction_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'nonlinear_continuum_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+===== CELL 23 OUTPUT 1 =====
+Lean proof import: Contracts (warm_cache)
+
+===== CELL 23 OUTPUT 2 =====
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgGramRateExtension.lean:15:29: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgGramRateExtension.lean:15:42: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgGramRateExtension.lean:50:21: warning: This simp argument is unused:
+  logDifference_odd
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [slope, logDifference, zero_div, add_zero, sub_zero, sub_self, vsub_eq_sub, smul_eq_mul, neg_inv]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgGramRateExtension.lean:51:30: warning: This simp argument is unused:
+  neg_inv
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [slope, logDifference_odd, logDifference, zero_div, add_zero, sub_zero, sub_self, vsub_eq_sub,
+    smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'DLWContract.GramRateExtension.extendedRate_analytic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DLWContract.GramRateExtension.extendedRate_derivative_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+===== CELL 23 OUTPUT 3 =====
+Lean proof import: PkgGramRateExtension (compiled_exact_sources)
+
+===== CELL 23 OUTPUT 4 =====
+Lean proof import: PkgC09Complete (warm_cache)
+
+===== CELL 23 OUTPUT 5 =====
+'DLWContract.GramInterpolation.ext_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DLWContract.GramInterpolation.extF_positive' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+===== CELL 23 OUTPUT 6 =====
+Lean proof import: PkgGramInterpolation (compiled_exact_sources)
+
+===== CELL 23 OUTPUT 7 =====
+Lean proof import: PkgGramInterpolationBridge (compiled_exact_sources)
+
+===== CELL 23 OUTPUT 8 =====
+'DLWContract.GramInterpolation.extension_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DLWContract.GramInterpolation.extension_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+===== CELL 23 OUTPUT 9 =====
+Lean proof import: PkgGramExtensionBridge (compiled_exact_sources)
+
+===== CELL 23 OUTPUT 10 =====
+'DLWContract.UniformTaylor.second_order_on_compact' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DLWContract.UniformTaylor.third_order_on_compact' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+===== CELL 23 OUTPUT 11 =====
+Lean proof import: PkgUniformTaylor (compiled_exact_sources)
+
+===== CELL 23 OUTPUT 12 =====
+'DLWContract.UniformAnalytic.uniform_second_order' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DLWContract.UniformAnalytic.uniform_third_order' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+===== CELL 23 OUTPUT 13 =====
+Lean proof import: PkgUniformAnalytic (compiled_exact_sources)
+
+===== CELL 23 OUTPUT 14 =====
+Lean proof import: PkgAnalyticJets (compiled_exact_sources)
+
+===== CELL 23 OUTPUT 15 =====
+Lean proof import: PkgC02 (warm_cache)
+
+===== CELL 23 OUTPUT 16 =====
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgGramExtensionAnalytic.lean:66:4: warning: Unused tactic linter: `change ContDiffAt ℝ ⊤ swap q` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'DLWContract.GramInterpolation.jets_analytic' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+===== CELL 23 OUTPUT 17 =====
+Lean proof import: PkgGramExtensionAnalytic (compiled_exact_sources)
+
+===== CELL 23 OUTPUT 18 =====
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgCenteredFamily.lean:19:2: warning: Unused tactic linter: `change ContDiffAt ℝ ⊤ (shift c) p` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgCenteredFamily.lean:35:53: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgCenteredFamily.lean:69:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgCenteredFamily.lean:78:12: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+
+===== CELL 23 OUTPUT 19 =====
+Lean proof import: PkgCenteredFamily (compiled_exact_sources)
+
+===== CELL 23 OUTPUT 20 =====
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgCenteredUniform.lean:14:4: warning: Unused tactic linter: `change ContDiffAt ℝ ⊤ (fun p : Full => ((0, p.2) : Full)) (0, z)` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgCenteredUniform.lean:25:23: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'DLWContract.CenteredFamily.uniform_fields' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+===== CELL 23 OUTPUT 21 =====
+Lean proof import: PkgCenteredUniform (compiled_exact_sources)
+
+===== CELL 23 OUTPUT 22 =====
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC22Complete.lean:46:2: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'DLWContract.c22_proved' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+===== CELL 23 OUTPUT 23 =====
+Lean proof import: PkgC22Complete (compiled_exact_sources)
+
+===== CELL 23 OUTPUT 24 =====
+Lean proof import: PkgGramActual (warm_cache)
+
+===== CELL 23 OUTPUT 25 =====
+Lean proof import: PkgGramDeterminant (warm_cache)
+
+===== CELL 23 OUTPUT 26 =====
+Lean proof import: PkgGramPlucker (warm_cache)
+
+===== CELL 23 OUTPUT 27 =====
+Lean proof import: PkgGramIdentity (warm_cache)
+
+===== CELL 23 OUTPUT 28 =====
+Lean proof import: PkgGramCalculus (warm_cache)
+
+===== CELL 23 OUTPUT 29 =====
+Lean proof import: PkgGramHirota (warm_cache)
+
+===== CELL 23 OUTPUT 30 =====
+Lean proof import: PkgC07Complete (warm_cache)
+
+===== CELL 23 OUTPUT 31 =====
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgContinuousGram.lean:115:31: warning: This simp argument is unused:
+  parameter
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgContinuousGram.lean:115:21: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+
+===== CELL 23 OUTPUT 32 =====
+Lean proof import: PkgContinuousGram (compiled_exact_sources)
+
+===== CELL 23 OUTPUT 33 =====
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgContinuousGramCurve.lean:54:25: warning: This simp argument is unused:
+  zero_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [parameter, mul_zero, zero_pow (by decide : 2 ≠ 0), add_zero, zero_div, zero_add, gamma, rate]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgContinuousGramCurve.lean:55:24: warning: This simp argument is unused:
+  zero_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [parameter, zero_mul, mul_zero, zero_pow (by decide : 2 ≠ 0), add_zero, zero_div, gamma, rate]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgContinuousGramCurve.lean:79:38: warning: This simp argument is unused:
+  A
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Y, id_eq]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgContinuousGramCurve.lean:90:38: warning: This simp argument is unused:
+  Matrix.smul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [B, Y, Pi.smul_apply, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgContinuousGramCurve.lean:90:56: warning: This simp argument is unused:
+  B
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.smul_apply, Y, Pi.smul_apply, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgContinuousGramCurve.lean:90:60: warning: This simp argument is unused:
+  Pi.smul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.smul_apply, B, Y, smul_eq_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgContinuousGramCurve.lean:90:74: warning: This simp argument is unused:
+  smul_eq_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.smul_apply, B, Y, Pi.smul_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgContinuousGramCurve.lean:79:23: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgContinuousGramCurve.lean:79:49: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgContinuousGramCurve.lean:90:23: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgContinuousGramCurve.lean:90:87: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+
+===== CELL 23 OUTPUT 34 =====
+Lean proof import: PkgContinuousGramCurve (compiled_exact_sources)
+
+===== CELL 23 OUTPUT 35 =====
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC23Complete.lean:51:17: warning: This simp argument is unused:
+  mul_neg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [chx, hx, slice, Pi.neg_apply, Pi.sub_apply, Pi.mul_apply, parameter, zero_pow (by decide : 2 ≠ 0),
+    mul_zero, zero_div, add_zero, sub_self, zero_mul, neg_zero, one_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC23Complete.lean:51:25: warning: This simp argument is unused:
+  one_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [chx, hx, slice, Pi.neg_apply, Pi.sub_apply, Pi.mul_apply, parameter, zero_pow (by decide : 2 ≠ 0),
+    mul_zero, zero_div, add_zero, sub_self, zero_mul, neg_zero, mul_neg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC23Complete.lean:55:27: warning: This simp argument is unused:
+  slice
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [cbil, fixed_sy, Pi.zero_apply] at hd
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC23Complete.lean:55:33: warning: This simp argument is unused:
+  Pi.zero_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [cbil, fixed_sy, slice] at hd
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC23Complete.lean:48:24: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+C:\Users\msz\aca\Workspaces\dlw_theory_notebook_20261008\proofs\PkgC23Complete.lean:51:34: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'DLWContract.c23_proved' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+===== CELL 23 OUTPUT 36 =====
+Lean proof import: PkgC23Complete (compiled_exact_sources)
+
+===== CELL 23 OUTPUT 37 =====
+Lean proof import: PkgQuotientRate (warm_cache)
+
+===== CELL 23 OUTPUT 38 =====
+def DLWContract.UniformBoxO2 : (ℝ → XYT) → Prop :=
+fun e =>
+  ∀ (R : ℝ),
+    0 < R →
+      ∃ C, 0 ≤ C ∧ ∃ ε, 0 < ε ∧ ∀ (h x y t : ℝ), 0 < h → h < ε → |x| ≤ R → |y| ≤ R → |t| ≤ R → |e h x y t| ≤ C * h ^ 2
+'lattice_phase_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'exact_lattice_interpolation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'continuous_Gram_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'exact_solution_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+===== CELL 25 OUTPUT 1 =====
+Lean proof import: Contracts (warm_cache)
+
+===== CELL 25 OUTPUT 2 =====
+Lean proof import: PkgLattice (warm_cache)
+
+===== CELL 25 OUTPUT 3 =====
+Lean proof import: PkgQuotientRate (warm_cache)
+
+===== CELL 25 OUTPUT 4 =====
+Lean proof import: ReportQRMCalculus (warm_cache)
+
+===== CELL 25 OUTPUT 5 =====
+Lean proof import: PkgNonlinear (warm_cache)
+
+===== CELL 25 OUTPUT 6 =====
+Lean proof import: ReportNonlinearUW (warm_cache)
+
+===== CELL 25 OUTPUT 7 =====
+Lean proof import: ReportNonlinearQRM (warm_cache)
+
+===== CELL 27 OUTPUT 1 =====
+def DLWContract.ReportQRM.StartPoint : ℝ → ℝ → Lattice → Lattice → Prop :=
+fun a h F G => ∀ (j : ℤ), bil (a - h / 2) (F j) (G j) = 0 ∧ bil (a + h / 2) (F j) (G (j + 1)) = 0
+
+===== CELL 29 OUTPUT 1 =====
+'DLWContract.ReportQRM.semiPair_implies_report21' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DLWContract.ReportQRM.report22' depends on axioms: [propext, Classical.choice, Quot.sound]

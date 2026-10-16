@@ -1,0 +1,1273 @@
+                                          Integrable discretizations and self-adaptive moving mesh
+                                          method for a coupled short pulse equation
+arXiv:1508.00243v1 [nlin.SI] 2 Aug 2015
+
+
+
+
+                                                          Bao-Feng Feng, 1 ‡, Junchao Chen 2 , Yong Chen2 , Ken-ichi Maruno3 ,and
+                                                          Yasuhiro Ohta4
+                                                          1
+                                                            Department of Mathematics, The University of Texas-Rio Grade Valley, Edinburg, TX
+                                                          78541
+                                                          2 Shanghai Key Laboratory of Trustworthy Computing, East China Normal University,
+
+                                                          Shanghai 200062, People’s Republic of China
+                                                          3 Department of Applied Mathematics, School of Fundamental Science and Engineering,
+
+                                                          Waseda University, 3-4-1 Okubo, Shinjuku-ku, Tokyo 169-8555, Japan
+                                                          4 Department of Mathematics, Kobe University, Rokko, Kobe 657-8501, Japan
+
+
+
+                                                          Abstract. In the present paper, integrable semi-discrete and fully discrete analogues of a
+                                                          coupled short pulse (CSP) equation are constructed. The key of the construction is the bilinear
+                                                          forms and determinant structure of solutions of the CSP equation. We also construct N-
+                                                          soliton solutions for the semi-discrete and fully discrete analogues of the CSP equations in
+                                                          the form of Casorati determinant. In the continuous limit, we show that the fully discrete CSP
+                                                          equation converges to the semi-discrete CSP equation, then further to the continuous CSP
+                                                          equation. Moreover, the integrable semi-discretization of the CSP equation is used as a self-
+                                                          adaptive moving mesh method for numerical simulations. The numerical results agree with
+                                                          the analytical results very well.
+
+                                                          24 June 2021
+
+                                                          PACS numbers: 02.30.Ik, 05.45.Yv, 42.65.Tg, 42.81.Dp
+
+
+                                          1. Introduction
+
+                                          The short pulse (SP) equation
+                                                                    1
+                                                         uxt = u + (u3 )xx                                                        (1.1)
+                                                                    6
+                                          was derived by Schäfer and Wayne to describe the propagation of ultra-short optical pulses
+                                          in nonlinear media [1, 2]. Here, u = u(x,t) represents the magnitude of the electric field,
+                                          while the subscript t and x denote partial differentiations. The SP equation represents an
+                                          alternative approach in contrast with the slowly varying envelope approximation which leads
+                                          to the nonlinear Schödinger (NLS) equation. As the pulse duration shortens, the NLS equation
+                                          becomes less accurate, while the SP equation provides an increasingly better approximation
+                                          ‡ Corresponding author; e-mail: feng@utpa.edu
+Integrable discretizations and self-adaptive moving mesh method for a CSP equation            2
+
+to the corresponding solution of the Maxwell equations [2]. With the rapid progress of ultra-
+short optical pulse techniques, it is expected that the SP equation and its multi-component
+generalization will play more and more important roles in applications.
+     The SP equation has been shown to be completely integrable[3, 4, 5]. The loop-soliton
+solutions as well as smooth-soliton solutions of the SP solution were found in [6, 7, 8]. Multi-
+soliton solutions including multi-loop and multi-breathers ones were given in [9]. Periodic
+solutions to the SP equation were discussed in [10].
+     Similar to the case of the NLS equation [11], it is necessary to consider its two-
+component or multi-component generalizations of the SP equation for describing the effects
+of polarization or anisotropy. As a matter of fact, several integrable coupled short pulse have
+been proposed in the literature [12, 13, 14, 15, 16, 17]. A complex version of the integrable
+coupled short pulse equation in [14, 15] is studied in [18]. The bi-Hamiltonian structures for
+the above two-component SP equations were obtained in [19].
+     Integrable discretizations of soliton equations have received considerable attention
+recently [20, 21, 22, 23]. Integrable semi- and fully discretizations of the SP equation were
+constructed via Hirota’s bilinear method [24]. The same discretizations were reconstructed
+from the point view of geometry in [25]. Most recently, an integrable discretization for a
+coupled SP equation proposed in [14, 15] was constructed [26].
+     In the present paper, we consider integrable discretizations of another coupled short pulse
+(CSP) equation proposed by one of the authors [16]
+                              1        1
+                uxt = u + (u3 )xx + v2 uxx ,                                               (1.2)
+                              6        2
+                             1         1
+                vxt = v + (v3 )xx + u2 vxx .                                               (1.3)
+                             6         2
+     It was shown in [16] that Eqs. (1.2) and (1.3) can be derived from bilinear equations
+                                1
+                Ds Dy f · f = ( f 2 − f¯2 ) ,                                              (1.4)
+                                2
+                                1
+                Ds Dy f¯ · f¯ = ( f¯2 − f 2 ) ,                                            (1.5)
+                                2
+
+                              1
+               Ds Dy g · g = (g2 − ḡ2 ) ,                                                (1.6)
+                              2
+                              1 2
+               Ds Dy ḡ · ḡ = (ḡ − g2 ) ,                                               (1.7)
+                              2
+through a hodograph transformation
+               x = y − (ln(F F̄))s ,    t = s,                                            (1.8)
+and dependent variable transformations
+                                        
+                        F̄              Ḡ
+              u = i ln       , v = i ln      ,                                            (1.9)
+                        F s             G s
+where F = f g, G = f ḡ, F̄ and Ḡ stand for the complex conjugate of F and G, respectively.
+Meanwhile, N-soliton solutions of CSP equation in a parametric form are given, and the
+Integrable discretizations and self-adaptive moving mesh method for a CSP equation             3
+
+properties of one-soliton, soliton-breather solutions are investigated in detail in [16]. The bi-
+Hamiltonian structure of CSP equation (1.2)-(1.3) is derived by Brunelli and Sakovich [19].
+     The rest of the present paper is organized as follows. In section 2, we propose an
+integrable semi-discrete analogue of the CSP equation via constructing a Bäcklund transform
+to the bilinear equations of the CSP equation. Meanwhile, N-soliton solution is provided
+in terms of Casorati determinant form. In section 3, starting from two sets of Bäcklund
+transforms to the bilinear equations of the CSP equation, the fully discrete analogue of
+the CSP equation is proposed by introducing two auxiliary variables. Moreover, N-soliton
+solution is presented to confirm the integrability. Section 4 is contributed to the self-adaptive
+moving mesh method by applying the semi-implicit Euler scheme to the semi-discrete CSP.
+The paper is concluded by section 5. Appendix A, B and C present the proofs of Proposition
+1, Theorem 1 and Theorem 2, respectively.
+
+2. Integrable semi-discretization
+
+We start with two sets of bilinear equations for the semi-discrete two-dimensional Toda-lattice
+(2DTL) equations with the same discrete parameter a
+                            
+                  1
+                    Dx − 1 τn (k + 1) · τn(k) + τn+1 (k + 1)τn−1(k) = 0 ,                 (2.1)
+                  a −1
+                            
+                  1
+                    Dx − 1 τ′n (k + 1) · τ′n(k) + τ′n+1 (k + 1)τ′n−1(k) = 0 ,             (2.2)
+                  a −1
+which is linked by a Bäcklund transformation [27]
+               (Dx−1 − 1)τn (k) · τ′n(k) + τn+1 (k)τ′n−1(k) = 0.                           (2.3)
+Proposition 1 The bilinear equations (2.1)–(2.3) admit the following determinant solutions
+                                 (1)        (1)              (1)
+                                φn (k) φn+1 (k) · · · φn+N−1 (k)
+                                 (2)    (2)            (2)
+                                φn (k) φn+1 (k) · · · φn+N−1 (k)
+               τn (x−1 , k) =                                    ,                         (2.4)
+                                  ···     ···   ···        ···
+                                 (N)        (N)              (N)
+                                φn (k) φn+1 (k) · · · φn+N−1 (k)
+                                  (1)        (1)               (1)
+                               ψn (k) ψn+1 (k)         · · · ψn+N−1 (k)
+                                (2)    (2)                    (2)
+                               ψn (k) ψn+1 (k)         · · · ψn+N−1 (k)
+               τ′n (x−1 , k) =                                          ,                  (2.5)
+                                 ···    ···            ···        ···
+                                (N)    (N)                    (N)
+                               ψn (k) ψn+1 (k)         · · · ψn+N−1 (k)
+where
+               φn (k) = pni (1 − api )−k eξi + qni (1 − aqi )−k eηi ,
+                 (i)
+                                                                                           (2.6)
+
+               ψn (k) = pni (1 − pi )(1 − api )−k eξi + qni (1 − qi )(1 − aqi )−k eηi ,
+                 (i)
+                                                                                           (2.7)
+
+with
+                           ξi = pi −1 x−1 + ξi0 ,    ηi = qi −1 x−1 + ηi0 .
+Integrable discretizations and self-adaptive moving mesh method for a CSP equation                           4
+
+Here pi , qi , ξi0 and ηi0 are arbitrary parameters which can take either real or complex values.
+     The proof is presented in Appendix A.
+     Applying a 2-reduction condition qi = −pi , then we could have each of the τ sequences
+become a sequence of period 2, i.e., τn ≎ τn+2 , τ′n ≎ τ′n+2 . Here ≎ means two τ functions
+are equivalent up to a constant multiple. Furthermore, by choosing particular values in phase
+constants, we can make τn and τn+1 complex conjugate to each other. Based on the bilinear
+equations with 2-reduction, we construct semi-discrete analogue of the CSP equation by the
+following theorem:
+     Theorem 1 The following equations constitute an integrable semi-discretization of the
+coupled short pulse equation (1.2)–(1.3)
+                   d                 1                  1
+                      (uk+1 − uk ) = δk (uk+1 + uk ) −     (uk+1 − uk )(v2k+1 − v2k ) ,     (2.8)
+                   ds                2                 2δk
+               d                1                   1
+                  (vk+1 − vk ) = δk (vk+1 + vk ) −     (vk+1 − vk )(u2k+1 − u2k ) ,                       (2.9)
+               ds               2                  2δk
+               dδk    1
+                   = − u2k+1 − u2k + v2k+1 − v2k .
+                                                
+                                                                                                         (2.10)
+               ds     2
+Furthermore, N-soliton solution to the above semi-discrete CSP equation is of the following
+form
+                          f¯k ḡk                  f¯k gk
+                                                       
+              uk = i ln             , vk = i ln             ,                         (2.11)
+                          f k gk s                 fk ḡk s
+              xk = 2ka − ln( fk f¯k gk ḡk ) s ,
+                                            
+                                                                                      (2.12)
+
+                                    a fk+1 fk f¯k+1 f¯k gk+1 gk ḡk+1 ḡk
+                                                                         
+              δk = xk+1 − xk =                   +          +    +          ,         (2.13)
+                                    2 f¯k+1 f¯k fk+1 fk ḡk+1 ḡk gk+1 gk
+where fk , gk , f¯k and ḡk are tau-functions defined by
+                           s               s              s             s 
+                   fk = τ0 , k , f¯k = τ1 , k , gk = τ′0 , k , ḡk = τ′1 , k ,                           (2.14)
+                             2                  2              2                2
+with
+                      s                                s 
+                                  (i)                            (i)
+                  τn , k = φ(n+ j−1)                , τ′n , k = ψ(n+ j−1)          ,                     (2.15)
+                       2                   1≤i, j≤N       2               1≤i, j≤N
+
+                                              1
+                 (i)                              s+ξi0                          − 1 s+ηi0
+               φn (k) = pni (1 − api )−k e 2pi            + (−pi )n (1 + api )−k e 2pi       ,
+                                              1                                          − 1 s+ηi0
+        (i)                                  2pi s+ξi0
+      ψn (k) = pni (1 − pi )(1 − api )−k e               + (−pi )n (1 + pi )(1 + api )−k e 2pi       .
+
+    The proof is presented in Appendix B. In the process of the proof, multi-soliton solution
+expressed in determinant form is obvious. Next, we show that the semi-discrete CSP equation
+converges to the CSP equation in the continuous limit.
+    In the continuous limit a → 0 (δk → 0), we have
+               uk+1 − uk   ∂u            uk+1 + uk
+                         →    ,                    → u,                                                  (2.16)
+                  δk       ∂x                2
+Integrable discretizations and self-adaptive moving mesh method for a CSP equation                              5
+
+                 ∂x ∂x0 k−1 dδ j    1 k−1 2                            1
+                    =   +∑       = − ∑ (u j+1 + v2j+1 − u2j − v2j ) → − (u2 + v2 ) . (2.17)
+                 ∂s   ∂s j=0 ds     2 j=0                              2
+
+Thus
+                             ∂x          1
+                 ∂s = ∂t +      ∂x → ∂t − (u2 + v2 )∂x .                                                    (2.18)
+                             ∂s          2
+Consequently, Eq. (B.25) converges to
+                                          
+                                1 2
+                            ∂t − (u + v )∂x ux = u 1 + u2x ,
+                                       2
+                                                          
+                                2
+
+which is nothing but the first equation of coupled short pulse equation (1.2).
+    It can be shown in the same way that Eq. (B.26) converges to Eq. (1.3), the second
+equation of coupled short pulse equation.
+
+3. Fully discretizations of the coupled short pulse equation
+
+To construct a fully discrete analogue of the CSP equation, we introduce one more discrete
+variable l which corresponds to the discrete time variable.
+     It has been known in [29] that the τ-functions
+                               (i)                                         (i)
+                 τn (k, l) = φ(n+ j−1) (k, l)              , τ′n (k, l) = ψ(n+ j−1) (k, l)              ,    (3.1)
+                                                1≤i, j≤N                                     1≤i, j≤N
+with
+                                     1 −l 2p1 s+ξi0                          1 −l 2q1 s+ηi0
+                                                                             
+ (i)
+φn (k, l) = pni (1 − api )−k  1−b          e i           n
+                                                     + qi (1 − aqi ) −k
+                                                                         1−b      e i       ,
+                                    pi                                       qi
+
+                                             1 −l 2p1 s+ξi0
+                                               
+ (i)
+ψn (k, l) = pi (1 − pi )(1 − api )
+             n                     −k
+                                       1−b           e i
+                                             pi
+
+                                                  1 −l 2q1 s+ηi0
+                                                    
+                   n                    −k
+                +qi (1 − qi )(1 − aqi )     1−b           e i
+                                                  qi
+satisfy bilinear equations
+                          
+                   2
+                     Ds − 1 τn (k + 1, l) · τn(k, l) + τn+1(k + 1, l)τn−1(k, l) = 0 ,                        (3.2)
+                   a
+                          
+                   2
+                     Ds − 1 τ′n (k + 1, l) · τ′n(k, l) + τ′n+1(k + 1, l)τ′n−1(k, l) = 0 ,                    (3.3)
+                   a
+and
+                 (2bDs − 1)τn (k, l + 1) · τn+1(k, l) + τn(k, l)τn+1 (k, l + 1) = 0 .                        (3.4)
+
+                 (2bDs − 1)τ′n (k, l + 1) · τ′n+1(k, l) + τ′n(k, l)τ′n+1 (k, l + 1) = 0 .                    (3.5)
+
+Here n, k, l are integers, a, b are real numbers, pi , qi , ξi0 , ηi0 are arbitrary complex numbers.
+Integrable discretizations and self-adaptive moving mesh method for a CSP equation                        6
+
+     By applying a 2-reduction condition: qi = −pi , we have τn ≎ τn+2 , τ′n ≎ τ′n+2 . We can
+further have
+
+              fk,l = τ0 (k, l) ,   f¯k,l = τ1 (k, l) ,   gk,l = τ′0 (k, l) ,   ḡk,l = τ′1 (k, l) ,
+                         (n)             (n)
+by adjusting phases in φi (k, l) and ψi (k, l). Here f¯ and ḡ represent complex conjugate
+functions of f and g, respectively. A fully discrete CSP equation can be constructed as
+follows:
+     Theorem 2 The fully discrete analogue of the CSP equation (1.2)–(1.3) is of the form
+                 1
+                   (uk+1,l+1 −uk+1,l −uk,l+1 +uk,l +vk+1,l+1 −vk+1,l −vk,l+1 +vk,l )
+                 b
+               = (yk+1,l −yk,l+1 )(uk+1,l+1+uk,l +vk+1,l+1 +vk,l )
+                   + (yk+1,l+1 −yk,l )(uk,l+1+uk+1,l +vk,l+1 +vk+1,l ) ,                               (3.6)
+
+                 1
+                   (uk+1,l+1 −uk+1,l −uk,l+1 +uk,l −vk+1,l+1 +vk+1,l +vk,l+1 −vk,l )
+                 b
+               = (zk+1,l −zk,l+1 )(uk+1,l+1+uk,l −vk+1,l+1 −vk,l )
+                   + (zk+1,l+1 −zk,l )(uk,l+1+uk+1,l −vk,l+1 −vk+1,l ) ,                               (3.7)
+                                                            1                        
+                   (yk+1,l+1 − yk+1,l − yk,l+1 + yk,l )          + yk,l+1 − yk+1,l
+                                                    b
+                  1
+               = − (uk,l+1+uk+1,l +vk,l+1 +vk+1,l )
+                  4
+                 × (uk+1,l+1 +uk+1,l −uk,l+1 −uk,l +vk+1,l+1 +vk+1,l −vk,l+1 −vk,l ) ,                 (3.8)
+                                                           1                        
+                   (zk+1,l+1 − zk+1,l − zk,l+1 + zk,l )          + zk,l+1 − zk+1,l
+                                                             b
+                   1
+               = − (uk,l+1 +uk+1,l −vk,l+1 −vk+1,l )
+                   4
+                 × (uk+1,l+1 +uk+1,l −uk,l+1 −uk,l −vk+1,l+1 −vk+1,l +vk,l+1 +vk,l ) ,                 (3.9)
+where
+                           ¯                             ¯         
+                            fk,l ḡk,l                      fk,l gk,l
+               uk,l = i ln               ,     vk,l = i ln               ,                            (3.10)
+                            fk,l gk,l s                     fk,l ḡk,l s
+               yk,l = ka − (ln( fk,l f¯k,l ))s , zk,l = ka − (ln(gk,l ḡk,l ))s ,                     (3.11)
+
+and
+               xk,l = yk,l + zk,l = 2ka − ln( fk,l f¯k,l gk,l ḡk,l ) s .
+                                                                     
+                                                                                                      (3.12)
+     The proof is presented in Appendix C.
+     Finally we show that Eqs. (3.6)–(3.9) converge to the semi-discrete CSP equations (2.8)–
+(2.10) by taking a continuous limit in time (b → 0). Under this limit, Eqs. (3.6)–(3.9) become
+                d                d
+                  (uk+1 − uk ) + (vk+1 − vk ) = (yk+1 − yk )(uk+1 + uk + vk+1 + vk ), (3.13)
+               ds               ds
+                d                d
+                  (uk+1 − uk ) − (vk+1 − vk ) = (zk+1 − zk )(uk+1 + uk − vk+1 − vk ), (3.14)
+               ds               ds
+Integrable discretizations and self-adaptive moving mesh method for a CSP equation                                 7
+                d                  1
+                   (yk+1 − yk ) = − (uk+1 + uk + vk+1 + vk )(uk+1 − uk + vk+1 − vk ),                          (3.15)
+                ds                 4
+                d                  1
+                   (zk+1 − zk ) = − (uk+1 + uk − vk+1 − vk )(uk+1 − uk − vk+1 + vk ),                          (3.16)
+                ds                 4
+where Fl+12b−Fl → ∂s F(b → 0) is used. Obviously, we have
+                d                1                 1
+                   (uk+1 − uk ) = δk (uk+1 + uk ) − (vk+1 + vk )(zk+1 − zk − yk+1 + yk ) , (3.17)
+                ds               2                 2
+                d                1                 1
+                   (vk+1 − vk ) = δk (vk+1 + vk ) − (uk+1 + uk )(zk+1 − zk − yk+1 + yk ) , (3.18)
+                ds               2                 2
+from (3.13)–(3.14), and
+                 d                  1
+                   (xk+1 − xk ) = − (u2k+1 − u2k + v2k+1 − v2k ),                                              (3.19)
+                ds                  2
+by adding (3.15) and (3.16). Eq. (3.19) coincides with Eq. (2.10)
+     Finally, in view of the relations (C.17)–(C.22), we have
+                    (zk+1 − zk − yk+1 + yk )δk
+                 = (zk+1 − zk − yk+1 + yk )(zk+1 − zk + yk+1 − yk )
+                      a2 h f¯k+1 f¯k fk+1 fk 2  ḡk+1 ḡk gk+1 gk 2 i
+                 =−                  +           −           +
+                      4     fk+1 fk f¯k+1 f¯k        gk+1 gk ḡk+1 ḡk
+                 = (uk+1 − uk )(vk+1 − vk ).                                                                   (3.20)
+A substitution of (3.20) into (3.17)–(3.18) yields (2.8)–(2.9).
+     From the construction of the fully discrete analogue of the CSP equation, the multi-
+soliton solution can be expressed in the following determinant form
+                                                                                      !
+                      ¯
+                       fk,l ḡk,l
+                                  
+                                          i  ¯
+                                             f ′
+                                                 k,l   ḡ ′
+                                                            k,l   f ′
+                                                                      k,l    g  ′
+                                                                                  k,l
+          uk,l = i ln                 =        ¯     +          −          −            , (3.21)
+                       fk,l gk,l s 2 fk,l              ḡk,l       fk,l      gk,l
+                                                                                      !
+                                         i f¯′ k,l g′ k,l f ′ k,l ḡ′ k,l
+                      ¯          
+                       fk,l gk,l
+          vk,l = i ln                 =              +          −         −             , (3.22)
+                       fk,l ḡk,l s 2 f¯k,l            gk,l        fk,l      ḡk,l
+                                                                           !
+                                                     1    f¯′ k,l f ′ k,l
+          yk,l = ka − (ln( fk,l f¯k,l ))s = ka −                 +            ,           (3.23)
+                                                     2 f¯k,l          fk,l
+                                                                           !
+                                                     1 ḡ′ k,l g′ k,l
+          zk,l = ka − (ln(gk,l ḡk,l ))s = ka −                  +           ,            (3.24)
+                                                     2 ḡk,l        gk,l
+thus
+                                                                                                       !
+                                                           1       f¯′ k,l ḡ′ k,l f ′ k,l g′ k,l
+        xk,l = 2ka − ln( fk,l f¯k,l gk,l ḡk,l ) s = 2ka −
+                                              
+                                                                          +       +       +                .   (3.25)
+                                                           2        f¯k,l   ḡk,l   fk,l    gk,l
+Here
+                fk,l = τ0 (k, l) , f¯k,l = τ1 (k, l) , gk,l = τ′0 (k, l) , ḡk,l = τ′1 (k, l) ,                (3.26)
+                 ′
+                fk,l = ρ0 (k, l) , f¯′ k,l = ρ1 (k, l) , g′k,l = ρ′0 (k, l) , ḡ′ k,l = ρ′1 (k, l) ,           (3.27)
+Integrable discretizations and self-adaptive moving mesh method for a CSP equation                              8
+
+with τn (k, l) and τ′n (k, l) defined the same as (3.1), ρn (k, l) and ρ′n (k, l) defined as
+                                (i)                                        (i)
+                 ρn (k, l) = φ(n+ j−2) (k, l)              , ρ′n (k, l) = ψ(n+ j−3) (k, l)              ,   (3.28)
+                                                1≤i, j≤N                                     1≤i, j≤N
+under the 2-reduction condition qi = −pi (i = 1, · · · , N).
+Remark 3.1. Two intermediate variables yk and zk are introduced in constructing the fully
+discrete CSP equation. This often happens when we construct the fully discretizations of the
+coupled system such as the coupled modified KdV equation [28].
+
+
+4. Integrable self-adaptive moving mesh method
+
+In this section, we propose a self-adaptive moving mesh method for the CSP equation
+(1.2)–(1.3) and demonstrate the advantage of this integrable scheme by performing several
+numerical experiments.
+
+4.1. Numerical scheme
+
+One of the self-adaptive moving mesh methods for the coupled short pulse equation can be
+constructed by applying a semi-implicit Euler scheme to its integrable semi-discrete CSP
+equations (2.8)– (2.10). The resulting numerical scheme reads
+                                 ∆t n n              ∆t
+                 pn+1
+                  k   = pnk +      δk (uk+1 + unk ) − n pnk qnk (vnk+1 + vnk ) ,                             (4.1)
+                                 2                   2δk
+                                ∆t n n              ∆t
+                 qn+1
+                  k   = qnk +     δk (vk+1 + vnk ) − n pnk qnk (unk+1 + unk ) ,                              (4.2)
+                                2                   2δk
+                            ∆t
+                 δn+1          (un+1 )2 + (vn+1 )2 − (un+1 )2 − (vn+1 )2 .
+                                                                        
+                  k   =−         k+1        k+1        k          k                                          (4.3)
+                            2
+Here pk = uk+1 −uk , qk = vk+1 −vk , δk = xk+1 −xk . The superscript n represents the numerical
+value at t = n∆t. The periodic boundary condition is applied. For convenience, we reserve
+the time t → −t so that the left-moving wave becomes right-moving one. In what follows, we
+report the numerical results for one- and two- soliton solutions.
+
+4.2. Numerical experiments
+
+For the sake of numerical experiments, we list exact one- and two- soliton solutions for the
+continuous, semi- and full-discrete CSP equation.
+     (1). One soliton solution: the τ-functions for one soliton solution of the CSP equation
+(1.2)–(1.3) are
+                 f ∝ 1 + ieθ      g ∝ 1 + is1 eθ ,                                                           (4.4)
+Integrable discretizations and self-adaptive moving mesh method for a CSP equation                  9
+
+where s1 = (1 − p1 )/(1 + p1 ), θ = p1 y + s/p1 + y0 . This leads to one-soliton solution in
+parametric form
+                         1
+              u(y, s) =     (sechθ + sgn(s1 )sech(θ − ∆)) ,                            (4.5)
+                         p1
+                         1
+              v(y, s) =     (sechθ − sgn(s1 )sech(θ − ∆)) ,                            (4.6)
+                         p1
+                        1
+              x = y − (tanh(θ) + tanh(θ − ∆)) .                                        (4.7)
+                       p1
+where exp(−∆) = |s1 |.
+    For the semi-discrete CSP equation, the τ-functions are
+                           1 + ap1 k s/p1 +y0                  1 + ap1 k s/p1 +y0
+                                                                    
+              fk ∝ 1 + i             e        , gk ∝ 1 + is1             e        .             (4.8)
+                           1 − ap1                             1 − ap1
+     Finally for the fully discrete CSP equation, the τ-functions are
+                                                    !l
+                               1 + ap1 k 1 + bp−1
+                                      
+                fk,l ∝ 1 + i                     1
+                                                        ,                                       (4.9)
+                               1 − ap1    1 − bp−1
+                                                 1
+                                                                 !l
+                                                     1 + bp−1
+                                              k
+                                     1 + ap1
+                gk,l ∝ 1 + is1                             1
+                                                                      .                        (4.10)
+                                     1 − ap1         1 − bp−1
+                                                           1
+
+      The initial conditions for one-soliton propagation are taken from (4.4) with parameters
+y0 = 0, and p1 = 0.9, p1 = 2.0. The initial profiles are shown in Fig. 1(a) and (b), respectively.
+The simulations are run on a domain [−40, 40] with 800 grid points, thus the average mesh
+size is 0.1.
+      When p1 = 0.9, u is symmetric with two-spikes, and v is antisymmetric. The comparison
+between the numerical and analytical results is shown in Fig. 2, together with the nonuniform
+mesh. It can be seen that the non-uniform mesh is dense around the peak points of solitons.
+Moreover, the most dense part of the non-uniform mesh moves along with the peak point.
+When p1 = 2.0, u is antisymmetric, and v is symmetric with a loop structure. The comparison
+between the numerical and analytical results is shown in Fig. 3. The error between the
+numerical solution and the analytical one is displayed in Fig. 4.
+      (2). Two soliton solution: the τ-functions for two soliton solution of the CSP equation
+(1.2)–(1.3) are
+                f ∝ 1 + ieθ1 + ieθ2 − b12 eθ1 +θ2 ,                                            (4.11)
+                             θ1          θ2
+                g ∝ 1 + is1 e + is2 e         − b′12 eθ1 +θ2 ,                                 (4.12)
+with si = (1 − pi )/(1 + pi ), θi = pi y + s/p1 + yi0 (i = 1, 2), and b12 = (p1 − p2 )2 /(p1 + p2 )2 ,
+and b′12 = b12 ∗ s1 ∗ s2 .
+     For the semi-discrete CSP equation, the τ-functions are
+                              1 + ap1 k ξ1         1 + ap2 k ξ2
+                                                         
+                fk ∝ 1 + i                e +i                 e
+                              1 − ap1              1 − ap2
+Integrable discretizations and self-adaptive moving mesh method for a CSP equation                                                                   10
+
+                   1.5                                                                         1
+                                                               u(x,0)                                                                      u(x,0)
+                                                               v(x,0)                                                                      v(x,0)
+                    1 (a)                                      mesh
+                                                                                                     (b)                                   mesh
+
+                   0.5                                                                        0.5
+ u(x,0), v(x,0)
+
+
+
+
+                                                                            u(x,0), v(x,0)
+                    0
+
+                                                                                               0
+                  −0.5
+
+                   −1
+                                                                                             −0.5
+                  −1.5
+                    −30     −20    −10      0      10     20        30                         −30         −20   −10   0      10      20        30
+                                            x                                                                          x
+
+
+
+
+                                  Figure 1. Initial conditions for CSP equation. (a) p1 = 0.9; (b) p1 = 2.0.
+
+                   1.5                                                                        1.5
+
+                    1     (a)                                                                  1     (b)
+                   0.5                                                                        0.5
+ u(x,t)
+
+
+
+
+                                                                            v(x,t)
+
+
+
+
+                    0                                                                          0
+
+                  −0.5                                                                       −0.5
+
+                   −1                                                                         −1
+
+                  −1.5                                                                       −1.5
+                    −30     −20    −10      0      10     20        30                         −30         −20   −10   0      10      20        30
+                                            x                                                                          x
+
+
+
+
+                                  Figure 2. Comparison between numerical and analytical solutions for one-soliton to the CSP
+                                  equation with p1 = 0.9 at t = 4.0; solid line: analytical solution, blue dot: numerical solution,
+                                  red dot: self-adaptive mesh;(a) profile of u, (b) profile of v.
+
+
+                                             (1 + ap1 )(1 + ap2 ) k
+                                                                 
+                                       −                            b12 eξ1 +ξ2 ,                                                              (4.13)
+                                             (1 − ap1 )(1 − ap2 )
+                                                 1 + ap1 k ξ1           1 + ap2 k ξ2
+                                                                               
+                                  gk ∝ 1 + is1               e + is2                e
+                                                 1 − ap1                1 − ap2
+                                                (1 + ap1 )(1 + ap2 ) k ξ1 +ξ2
+                                                                    
+                                           ′
+                                       − b12                            e       ,                                                              (4.14)
+                                                (1 − ap1 )(1 − ap2 )
+with ξi = s/p1 + yi0 (i = 1, 2).
+     For the fully discrete CSP equation, the τ-functions are
+                                                   !l                                                                                 !l
+                               1 + ap1 k 1 + bp−1           1 + ap2 k                                                      1 + bp−1
+                                                                 
+                fk,l ∝ 1 + i                     1
+                                                       +i                                                                        2
+                               1 − ap1    1 − bp−1
+                                                 1
+                                                            1 − ap2                                                        1 − bp−1
+                                                                                                                                 2
+Integrable discretizations and self-adaptive moving mesh method for a CSP equation                                                   11
+
+                0.6                                                                       1
+
+                0.4    (a)                                                                      (b)
+                0.2                                                                      0.5
+   u(x,t)
+
+
+
+
+                                                                             v(x,t)
+                 0
+
+                                                                                          0
+               −0.2
+
+               −0.4
+                                                                                        −0.5
+                 −30         −20    −10     0      10     20     30                       −30         −20   −10   0   10   20   30
+                                            x                                                                     x
+
+
+
+
+                                   Figure 3. Comparison between numerical and analytical results for one-soliton solution to the
+                                   CSP equation with p1 = 2.0 at t = 12.0; solid line: analytical solution, blue dot: numerical
+                                   solution, red dot: self-adaptive mesh; (a) profile of u, (b) profile of v.
+
+
+               0.025                                                                    0.025
+
+                       (a)                                                                      (b)
+                0.02                                                                     0.02
+ Error for u
+
+
+
+
+                                                                          Error for v
+
+
+
+
+               0.015                                                                    0.015
+
+
+                0.01                                                                     0.01
+
+
+               0.005                                                                    0.005
+
+
+                   0                                                                        0
+                  −30        −20     −10     0     10     20     30                        −30        −20   −10   0   10   20   30
+                                             x                                                                    x
+
+
+
+
+                                   Figure 4. The error between numerical and analytical results for one-soliton solution to the
+                                   CSP equation with p1 = 2.0 at t = 12.0; (a) error in u, (b) error in v.
+
+
+                                                                            k                                        !l
+                                                                                               (1 + bp−1        −1
+                                                   
+                                                   (1 + ap1 )(1 + ap2 )                               1 )(1 + bp2 )
+                                           − b12                                                       ,      (4.15)
+                                                   (1 − ap1 )(1 − ap2 )      (1 − bp−1           −1
+                                                                                     1 )(1 − bp2 )
+                                                                            !l
+                                                                                                           −1 l
+                                                                                                             !
+                                                    1 + ap1 k 1 + bp−1
+                                                                                             k
+                                                                                       1 + ap 2     1 + bp
+                                   gk,l ∝ 1 + is1                        1
+                                                                         −1
+                                                                               + is2                       2
+                                                    1 − ap1      1 − bp1               1 − ap 2     1 − bp−1
+                                                                                                           2
+                                                                                                    !l
+                                                                             (1 + bp−1           −1
+                                                                        k
+                                                                                     1 )(1 + bp2 )
+                                                 
+                                                   (1 + ap1 )(1 + ap2 )
+                                          − b′12                                                       .      (4.16)
+                                                   (1 − ap1 )(1 − ap2 )      (1 − bp−1           −1
+                                                                                     1 )(1 − bp2 )
+     As pointed in [16], when p1 and p2 are complex conjugate to each other, two-soliton
+solution becomes a breather solution. Eqs. (4.11)–(4.12) are used as initial condition with
+Integrable discretizations and self-adaptive moving mesh method for a CSP equation                                                    12
+
+parameters chosen as p1 = 0.4 + i, p2 = 0.4 − i, y10 = y20 = 0. The numerical results at t = 10
+are displayed in Fig. 5 in compared with analytical solution. Here a grid points of 800 is
+used on a domain [−40, 40], the time step size is taken as ∆t = 0.005. The error between
+the numerical solution and the analytical one is displayed in Fig. 6. It can be seen that the
+numerical results are in good agreement with analytical ones.
+
+                 1                                                                         1
+
+                       (a)                                                                       (b)
+                0.5                                                                       0.5
+   u(x,t)
+
+
+
+
+                                                                              v(x,t)
+                 0                                                                         0
+
+
+
+               −0.5                                                                      −0.5
+
+
+
+                −1                                                                        −1
+                −30          −20    −10      0     10     20     30                       −30          −20   −10   0   10   20   30
+                                             x                                                                     x
+
+
+
+
+                                   Figure 5. Comparison between numerical and analytical results for breather solution to the
+                                   CSP equation for p1 = 0.4 + i, p2 = 0.4 − i at t = 10; solid line: analytical solution, dashed
+                                   line: numerical solution; (a) profile of u, (b) profile of v.
+
+
+
+                0.03                                                                      0.03
+
+               0.025
+                       (a)                                                               0.025
+                                                                                                 (b)
+
+                0.02                                                                      0.02
+ Error for u
+
+
+
+
+                                                                           Error for v
+
+
+
+
+               0.015                                                                     0.015
+
+                0.01                                                                      0.01
+
+               0.005                                                                     0.005
+
+                   0                                                                         0
+                  −30        −20     −10     0     10     20     30                         −30        −20   −10   0   10   20   30
+                                             x                                                                     x
+
+
+
+
+                                   Figure 6. The error between numerical and analytical results for one-breather solution to the
+                                   CSP equation at t = 10.0; (a) error in u, (b) error in v.
+Integrable discretizations and self-adaptive moving mesh method for a CSP equation              13
+
+5. Conclusions
+
+In this paper, we proposed integrable semi-discrete and fully discrete analogues of a coupled
+short pulse equation. The determinant formulas of N-soliton solutions for the semi-discrete
+and fully discrete analogues of the CSP equations are also presented. In the continuous limit,
+the fully discrete CSP equation converges to the semi-discrete CSP equation, then further
+converges to the continuous CSP equation.
+     In a series of papers by one of the authors, we have constructed integrable discretizations
+for a class of soliton equations with hodograph transformation, and successfully used them
+as self-adaptive moving mesh methods for the Camassa-Holm equation [30, 31] and the short
+pulse equation [16]. Based on the semi-discrete CSP equation (1.2)–(1.3), a self-adaptive
+moving mesh method is constructed and used for the numerical simulations of the CSP
+equation. It should be pointed out that the feature of self-adaptivity of the mesh is due to the
+hodograph transformation. In other words, the hodograph transformation converts the uniform
+and time-independent mesh into a non-uniform and time-dependent mesh. It is a further topic
+to seek for such kind of self-adaptive moving method when the hodograph transformation is
+not present. The numerical results confirms that it is an excellent scheme due to its nature
+of integrability and self-adaptivity of the mesh. This is our first time to extend this superior
+numerical method to a coupled system.
+
+Acknowledgments
+
+This work is partially supported by the National Natural Science Foundation of China (Nos.
+11428102, 11075055, 11275072).
+
+Appendix A. Proof of Proposition 1
+
+Proof. For simplicity, we introduce a convenient notation
+                                                  (1)     (1)                 (1)
+                                             φn (k) φn+1 (k)             · · · φn+N−1 (k)
+                                              (2)    (2)                        (2)
+                                             φn (k) φn+1 (k)             · · · φn+N−1 (k)
+               |0k , 1k , · · · , N − 1k | =                                              ,   (A.1)
+                                               ···     ···               ···        ···
+                                              (N)    (N)                        (N)
+                                             φn (k) φn+1 (k)             · · · φn+N−1 (k)
+                                                   (1)     (1)                  (1)
+                                                 ψn (k) ψn+1 (k) · · · ψn+N−1 (k)
+                                                   (2)     (2)                  (2)
+                                                 ψn (k) ψn+1 (k) · · · ψn+N−1 (k)
+                 0′k , 1′k , · · · , N − 1′k =                                    .           (A.2)
+                                                   ···    ···    ···       ···
+                                                  (N)    (N)            (N)
+                                                 ψn (k) ψn+1 (k) · · · ψn+N−1 (k)
+Since
+                       (i)          (i)           (i)            (i)          (i)
+               ∂x−1 φn (k) = φn−1 (k), φn (k + 1) − φn (k) = aφn+1 (k + 1),                   (A.3)
+                       (i)            (i)          (i)             (i)              (i)
+               ∂x−1 ψn (k) = ψn−1 (k), ψn (k + 1) − ψn (k) = aψn+1 (k + 1),                   (A.4)
+Integrable discretizations and self-adaptive moving mesh method for a CSP equation                             14
+                  (i)          (i)          (i)
+                 φn (k) − ψn (k) = φn+1 (k),                                                                (A.5)
+
+we can verify the following relations
+                 ∂x−1 τn (k) = |−1k , 1k , · · · , N − 2k , N − 1k | ,                                      (A.6)
+
+
+                 τn+1 (k+1) = |1k , 2k , · · ·, N − 2k , N − 1k , Nk+1 |
+                              1
+                            = |1k , 2k , · · · , N − 2k , N − 1k , N − 1k+1 | ,                             (A.7)
+                              a
+
+
+                 τn (k+1) = |0k+1 , 1k+1 , · · · , N − 2k+1 , N − 1k+1 |
+                             = |0k , 1k , · · · , N − 2k , N − 1k+1 | ,                                     (A.8)
+
+
+
+      ∂x−1 τn (k + 1) = |−1k , 1k , · · · , N − 2k , N − 1k+1 | + |0k , 1k , · · · , N − 2k , N − 2k+1 |
+                        = |−1k , 1k , · · · , N − 2k , N − 1k+1 | + a |0k , 1k , · · ·, N − 2k , N − 1k+1 | . (A.9)
+
+Combining (A.8) with (A.9), we have
+                        
+               1                      1
+                 ∂x−1 − 1 τn (k + 1) = |−1k , 1k , · · · , N − 2k , N − 1k+1 | .                           (A.10)
+               a                      a
+Therefore, the Plücker relation for determinants
+                 |0k , 1k , · · · , N − 2k , N − 1k | |−1k , 1k , · · · , N − 2k , N − 1k+1 |
+                 − |0k , 1k , · · · , N − 2k , N − 1k+1 | |−1k , 1k , · · · , N − 2k , N − 1k |
+                 + |1k , · · · , N − 2k , N − 1k , N − 1k+1 | |−1k , 0k , 1k , · · · , N − 2k | = 0        (A.11)
+gives
+             
+    1                              1
+      ∂x−1 − 1 τn (k + 1) × τn(k) − τn (k + 1) × ∂x−1 τn (k) + τn+1 (k + 1)τn−1 (k) = 0 , (A.12)
+    a                              a
+which is nothing but the bilinear equation (2.1). Eq. (2.2) can be proved in the same way.
+    Now we proceed to the proof of Eq. (2.3). Similarly we can verify the following relations
+                 τn (k) = |0k , 1k , · · · , N − 2k , N − 1k |
+                         = 0′k , 1′k , · · ·, N − 2′k , N − 1k ,                                           (A.13)
+
+
+                 τn+1 (k) = 1′k , 2′k , · · · , N − 1′k , Nk
+                         = 1′k , 2′k , · · · , N − 1′k , N − 1k ,                                          (A.14)
+
+                  ∂x−1 − 1 τn (k) = −1′k , 1′k , · · · , N − 2′k , N − 1k .
+                          
+                                                                                                           (A.15)
+Integrable discretizations and self-adaptive moving mesh method for a CSP equation                 15
+
+     Therefore the Plücker relation for determinants:
+                  −1′k , 1′k , · · · , N − 2′k , N − 1k 0′k , 1′k , · · ·, N − 2′k , N − 1′k
+                 − 0′k , 1′k , · · · , N − 2′k , N − 1k −1′k , 1′k , · · ·, N − 2′k , N − 1′k
+                 + −1′k , 0′k , 1′k , · · · , N − 2′k 1′k , · · · , N − 1′k , N − 1k = 0 ,      (A.16)
+gives
+                (∂x−1 − 1)τn (k) × τ′n (k) − τn(k) × ∂x−1 τ′n (k) + τn+1 (k)τ′n−1 (k) = 0 .     (A.17)
+Therefore, Eq.(2.3) is proved.
+
+
+Appendix B. Proof of Theorem 1
+
+Proof. By putting s = 2x−1 , τ0 (k) = fk , τ1 (k) = f¯k , (2.1) can be converted into
+                       
+                2
+                  Ds − 1 fk+1 · fk = − f¯k+1 f¯k ,                                               (B.1)
+                a
+                       
+                2
+                  Ds − 1 f¯k+1 · f¯k = − fk+1 fk ,                                               (B.2)
+                a
+while by putting τ′0 (k) = gk , τ′1 (k) = ḡk , (2.2) can be converted into
+                          
+                 2
+                    Ds − 1 gk+1 · gk = −ḡk+1 ḡk ,                                              (B.3)
+                 a
+                          
+                 2
+                    Ds − 1 ḡk+1 · ḡk = −gk+1 gk .                                              (B.4)
+                 a
+     Furthermore, the above bilinear equations can be rewritten as the following logarithmic
+derivatives
+                                      f¯k+1 f¯k
+                           
+              2       fk+1
+                  ln          −1 = −            ,                                       (B.5)
+              a          fk s         fk+1 fk
+                      f¯k+1
+                           
+              2                       fk+1 fk
+                  ln ¯        −1 = − ¯ ¯ ,                                              (B.6)
+              a          fk s         fk+1 fk
+                           
+              2      gk+1             ḡk+1 ḡk
+                  ln          −1 = −             ,                                      (B.7)
+              a         gk s          gk+1 gk
+                           
+              2      ḡk+1            gk+1 gk
+                  ln          −1 = −             .                                      (B.8)
+              a         ḡk s         ḡk+1 ḡk
+     Introducing two intermediate variable transformations
+
+                                      f¯k (s)
+                                                                        
+                                                                   ḡk (s)
+                     σk (s) = 2i ln             , σk (s) = 2i ln
+                                                   ′
+                                                                             ,
+                                      fk (s)                       gk (s)
+
+one arrives at a pair of semi-discrete sine-Gordon equations
+                                          σk+1 + σk
+                                                   
+                 1
+                   (σk+1 − σk )s = sin                ,                                          (B.9)
+                2a                            2
+Integrable discretizations and self-adaptive moving mesh method for a CSP equation     16
+                                        σk+1 + σ′k
+                                       ′          
+                1
+                    σ − σk s = sin
+                      ′      ′
+                               
+                                                     .                             (B.10)
+               2a k+1                        2
+It then follows that
+                      σk+1 + σk
+                               
+                                         1        2      2 
+                  cos                 =−     σk+1,s − σk,s      ,                      (B.11)
+                          2         s    4a
+                      σk+1 + σ′k
+                  ′            
+                                         1  ′     2      2 
+                  cos                 =−     σk+1,s − σk,s
+                                                       ′
+                                                                ,                      (B.12)
+                          2         s    4a
+where σk,s denoted the derivative of σk with respective to s.
+    Next, we introduce dependent variable transformations
+                                            f¯k ḡk
+                                                   
+                    1
+              uk = σk,s + σk,s = i ln
+                               ′
+                                  
+                                                      ,                                (B.13)
+                    2                       f k gk s
+                                           f¯k gk
+                                                   
+                    1
+              vk = σk,s − σk,s = i ln
+                               ′
+                                 
+                                                      ,                                (B.14)
+                    2                      fk ḡk s
+and discrete hodograph transformation
+               xk = 2ka − ln( fk f¯k gk ḡk ) s .
+                                             
+                                                                                       (B.15)
+    Then the nonuniform mesh can be derived as
+                 δk = xk+1 − xk
+                           fk+1 f¯k+1 gk+1 ḡk+1
+                                                 
+               = 2a − ln
+                                 fk f¯k gk ḡk     s
+                 a fk+1 fk f¯k+1 f¯k gk+1 gk ḡk+1 ḡk
+                                                              
+               =             +              +        +
+                 2 f¯k+1 f¯k fk+1 fk ḡk+1 ḡk gk+1 gk
+                                                   σk+1 + σ′k
+                                                   ′
+                         σk+1 + σk
+                                                           
+               = a cos                      + cos                .                     (B.16)
+                               2                       2
+    Taking the derivative with respect to s results in
+                                                      σk+1 + σ′k
+                                                     ′
+                               σk+1 + σk
+                                                              
+              dδk
+                   = a cos                    + cos
+              ds                   2        s             2       s
+                        1 2
+                   = − uk+1 − u2k + v2k+1 − v2k .
+                                                  
+                                                                                        (B.17)
+                        2
+    Furthermore, assuming
+
+                  σk + σk+1 + σ′k + σ′k+1                   σk + σk+1 − σ′k − σ′k+1
+                                                                                 
+       pk = sec                               , qk = sec                              ,
+                             4                                        4
+
+we have
+                       2a
+               δk =         ,                                                          (B.18)
+                      pk qk
+Integrable discretizations and self-adaptive moving mesh method for a CSP equation     17
+
+               d p−1              σk + σk+1 + σ′k + σ′k+1
+                                                         
+                   k     d
+                      = cos
+                 ds      ds                   4
+                                 σk + σk+1 + σ′k + σ′k+1 uk + uk+1
+                                                       
+                      = − sin
+                                             4                 2
+                                                           σk + σ′k+1
+                                                         ′
+                                      σk + σk+1
+                                                                   
+                            qk                                           uk + uk+1
+                      =−        sin               − sin
+                            2              2                   2             2
+                            qk 1                           uk + uk+1
+                      =−           σk+1 − σk + σ′k+1 − σ′k s
+                            2 2a                                 2
+                            qk 2         2
+                                           
+                      =−        u − uk ,                                           (B.19)
+                            4a k+1
+and similarly
+                dq−1       pk 2
+                  k
+                              vk+1 − v2k .
+                                        
+                      =−                                                                (B.20)
+                 ds       4a
+Thus, in turn, Eqs. (B.19) and (B.20) become
+               d p2k      u2 − u2k
+                     = p2k k+1     ,                                                    (B.21)
+               ds            δk
+and
+               dq2k      v2 − v2k
+                    = q2k k+1     ,                                                     (B.22)
+               ds           δk
+respectively.
+     On the other hand, with the help of trigonometric identity, p2k can be expressed as
+                              2 σk + σk+1 + σk + σk+1
+                                                  ′    ′   
+                 2
+               pk = 1 + tan
+                                               4
+                                 2 σk + σk+1 + σk + σk+1
+                                                     ′   ′   
+                           2
+                   = 1 + pk sin
+                                                  4
+                           2
+                         p q   2
+                   = 1 + k 2k u2k+1 − u2k
+                                              
+                          4a
+                            uk+1 − uk 2
+                                       
+                   = 1+                     ,                                            (B.23)
+                                 δk
+and similarly
+                                       2
+                            vk+1  −  vk
+               q2k = 1 +                   .                                             (B.24)
+                                 δk
+Therefore, we finally have
+                                                           !
+                                                uk+1 − uk 2 uk+1 + uk
+                                            
+                d uk+1 − uk
+                                    = 1+                                ,                (B.25)
+               ds       δk                           δk          2
+                                                           !
+                                                vk+1 − vk 2 vk+1 + vk
+                                            
+                d vk+1 − vk
+                                    = 1+                              .                  (B.26)
+               ds       δk                           δk         2
+Substituting (B.17) into (B.25)–(B.26), one arrives at (2.8)–(2.9), the first two equations of
+the semi-discrete CSP equation.
+Integrable discretizations and self-adaptive moving mesh method for a CSP equation                         18
+
+Appendix C. Proof of Theorem 2
+
+Proof. The bilinear equations (3.2)–(3.5) imply the following bilinear equations
+                       
+                2
+                  Ds − 1 fk+1,l · fk,l + f¯k+1,l f¯k,l = 0 ,                                            (C.1)
+                a
+                       
+                2
+                  Ds − 1 f¯k+1,l · f¯k,l + fk+1,l fk,l = 0 ,                                            (C.2)
+                a
+                       
+                2
+                  Ds − 1 gk+1,l · gk,l + ḡk+1,l ḡk,l = 0 ,                                            (C.3)
+                a
+                       
+                2
+                  Ds − 1 ḡk+1,l · ḡk,l + gk+1,l gk,l = 0 ,                                            (C.4)
+                a
+              (2bDs − 1) fk,l+1 · f¯k,l + fk,l f¯k,l+1 = 0 ,                                            (C.5)
+              (2bDs − 1) f¯k,l+1 · fk,l + f¯k,l fk,l+1 = 0 ,                                            (C.6)
+                 (2bDs − 1)gk,l+1 · ḡk,l + gk,l ḡk,l+1 = 0 ,                                          (C.7)
+                 (2bDs − 1)ḡk,l+1 · gk,l + ḡk,l gk,l+1 = 0 ,                                          (C.8)
+which can be rewritten by logarithmic derivatives as
+                                            f¯k+1,l f¯k,l
+                               
+               2       fk+1,l
+                   ln              = 1−                   ,                                               (C.9)
+               a          fk,l s            fk+1,l fk,l
+                  ¯            
+               2       fk+1,l               fk+1,l fk,l
+                   ln ¯            = 1− ¯                 ,                                              (C.10)
+               a          fk,l s            fk+1,l f¯k,l
+                               
+               2      gk+1,l                ḡk+1,l ḡk,l
+                   ln               = 1−                   ,                                             (C.11)
+               a         gk,l s             gk+1,l gk,l
+                               
+               2      ḡk+1,l               gk+1,l gk,l
+                   ln               = 1−                   ,                                             (C.12)
+               a         ḡk,l s            ḡk+1,l ḡk,l
+                                              fk,l f¯k,l+1
+                               
+                         fk,l+1
+              2b ln ¯                = 1−                   ,                                            (C.13)
+                            fk,l s            fk,l+1 f¯k,l
+                   ¯
+                                              f¯k,l fk,l+1
+                                
+                         fk,l+1
+              2b ln                  = 1− ¯                                                              (C.14)
+                            fk,l s            fk,l+1 fk,l
+                                
+                       gk,l+1                gk,l ḡk,l+1
+              2b ln                  = 1−                    ,                                           (C.15)
+                           ḡk,l s           gk,l+1 ḡk,l
+                                
+                        ḡk,l+1              ḡk,l gk,l+1
+              2b ln                  = 1−                    .                                           (C.16)
+                           gk,l s            ḡk,l+1 gk,l
+     Based on the dependent variable transformation (3.10) and discrete hodograph
+transformation (3.11), we can verify the following relations
+                                   ia  f¯k+1, l f¯k, l ḡk+1, l ḡk, l fk+1, l fk, l gk+1, l gk, l 
+              uk+1, l − uk, l =                         +              −             −                , (C.17)
+                                    2 fk+1, l fk, l gk+1, l gk, l f¯k+1, l f¯k, l ḡk+1, l ḡk, l
+                                     i  fk, l f¯k, l+1 gk, l ḡk, l+1 f¯k, l fk, l+1 ḡk, l gk, l+1 
+              uk, l+1 + uk, l =                          +              −             −                , (C.18)
+                                   2b fk, l+1 f¯k, l gk, l+1 ḡk, l f¯k, l+1 fk, l ḡk, l+1 gk, l
+                                   ia  f¯k+1, l f¯k, l ḡk+1, l ḡk, l fk+1, l fk, l gk+1, l gk, l 
+              vk+1, l − vk, l =                         −              −             +               , (C.19)
+                                    2 fk+1, l fk, l gk+1, l gk, l f¯k+1, l f¯k, l ḡk+1, l ḡk, l
+Integrable discretizations and self-adaptive moving mesh method for a CSP equation                           19
+
+                                    i fk, l f¯k, l+1 gk, l ḡk, l+1 f¯k, l fk, l+1 ḡk, l gk, l+1
+                  vk, l+1 + vk, l =    (               −                −                 +             ), (C.20)
+                                   2b fk, l+1 f¯k, l gk, l+1 ḡk, l f¯k, l+1 fk, l ḡk, l+1 gk, l
+                                   a  f¯k+1, l f¯k, l fk+1, l fk, l 
+              yk+1, l − yk, l =                        +                ,                                  (C.21)
+                                   2 fk+1, l fk, l f¯k+1, l f¯k, l
+                                   a  ḡk+1, l ḡk, l gk+1, l gk, l 
+              zk+1, l − zk, l =                        +                ,                                  (C.22)
+                                   2 gk+1, l gk, l ḡk+1, l ḡk, l
+                                     1      1  fk, l f¯k, l+1 f¯k, l fk, l+1 
+              yk, l+1 − yk, l = − +                             +                   ,                      (C.23)
+                                     b 2b fk, l+1 f¯k, l f¯k, l+1 fk, l
+                                     1      1  gk, l ḡk, l+1 ḡk, l gk, l+1 
+              zk, l+1 − zk, l = − +                             +                   .                      (C.24)
+                                     b 2b gk, l+1 ḡk, l ḡk, l+1 gk, l
+    Then, the ratios on the r.h.s of Eqs. (C.17)-(C.24) can be solved as
+                f¯k+1, l f¯k, l 1 h                      i                                       i
+                               = yk+1,l − yk,l − (uk+1,l − uk,l + vk+1,l − vk,l ) ,                        (C.25)
+                fk+1, l fk, l a                         2
+                fk+1, l fk, l 1 h                        i                                       i
+                               =    yk+1,l  −  y k,l  +    (u k+1,l − u k,l +   v k+1,l − v k,l ,
+                                                                                               )           (C.26)
+                f¯k+1, l f¯k, l a                       2
+                fk, l f¯k, l+1         h                     i                                        i
+                               = 1 + b yk,l+1 − yk,l − (uk,l+1 + uk,l + vk,l+1 + vk,l ) ,                  (C.27)
+                fk, l+1 f¯k, l                               2
+                f¯k, l fk, l+1         h                     i                                        i
+                               = 1 + b   yk,l+1  −   yk,l +    (u k,l+1 +   u k,l + v k,l+1 +  v k,l ,
+                                                                                                    )      (C.28)
+                f¯k, l+1 fk, l                               2
+               ḡk+1, l ḡk, l   1h                      i                                      i
+                               = zk+1,l − zk,l − (uk+1,l − uk,l − vk+1,l + vk,l ) ,                        (C.29)
+               gk+1, l gk, l     a                      2
+               gk+1, l gk, l     1h                      i                                      i
+                               = zk+1,l − zk,l + (uk+1,l − uk,l − vk+1,l + vk,l ) ,                        (C.30)
+               ḡk+1, l ḡk, l   a                      2
+               gk, l ḡk, l+1          h                     i                                       i
+                               = 1 + b zk,l+1 − zk,l − (uk,l+1 + uk,l − vk,l+1 − vk,l ) ,                  (C.31)
+               gk, l+1 ḡk, l                                2
+               ḡk, l gk, l+1          h                     i                                       i
+                               = 1 + b zk,l+1 − zk,l + (uk,l+1 + uk,l − vk,l+1 − vk,l ) .                  (C.32)
+               ḡk, l+1 gk, l                                2
+By making a shift of l → l + 1 in (C.25), then dividing it by (C.26), meanwhile, dividing
+(C.27) by (C.28) after a shift of k → k + 1, one obtains
+                      yk+1,l+1 − yk,l+1 − 2i (uk+1,l+1 − uk,l+1 + vk+1,l+1 − vk,l+1 )
+                              yk+1,l − yk,l + 2i (uk+1,l − uk,l + vk+1,l − vk,l )
+                         h                                                                i
+                    1 + b yk+1,l+1 − yk+1,l − 2i (uk+1,l+1 + uk+1,l + vk+1,l+1 + vk+1,l )
+                  =             h                                                    i      . (C.33)
+                           1 + b yk,l+1 − yk,l + 2i (uk,l+1 + uk,l + vk,l+1 + vk,l )
+Similarly, one can obtain
+                      zk+1,l+1 − zk,l+1 − 2i (uk+1,l+1 − uk,l − vk+1,l+1 + vk,l+1 )
+                          zk+1,l − zk,l + 2i (uk+1,l − uk,l − vk+1,l + vk,l )
+                         h                                                                i
+                    1 + b zk+1,l+1 − zk+1,l − 2i (uk+1,l+1 + uk+1,l − vk+1,l+1 − vk+1,l )
+                  =              h                                                   i      , (C.34)
+                           1 + b zk,l+1 − zk,l + 2i (uk,l+1 + uk,l − vk,l+1 − vk,l )
+Integrable discretizations and self-adaptive moving mesh method for a CSP equation                  20
+
+from relations (C.29)-(C.31). Equating the real parts and imaginary parts of (C.33) and (C.34),
+we have the fully discrete CSP equations (3.6)–(3.9).
+
+
+References
+
+ [1] Schäfer T and Wayne C E 2004 Physica D 196, 90–105
+ [2] Chung Y, Jones C K R T, Schäfer T and Wayne C E 2005 Nonlinearity 18, 1351–1374
+ [3] Sakovich A and Sakovich S 2005 J. Phys. Soc. Jpn. 74, 239–241
+ [4] Brunelli J C 2005 J. Math. Phys. 46, 123507
+ [5] Brunelli J C 2006 Phys. Lett. A 353, 475–478
+ [6] Sakovich A and Sakovich S 2006 J. Phys. A 39, L361–367
+ [7] Kuetche V K, Bouetou T B and Kofane T C 2007 J. Phys. Soc. Jpn. 76, 024004
+ [8] Kuetche V K, Bouetou T B and Kofane T C 2007 J. Phys. A 40, 5585–5596
+ [9] Matsuno Y 2007 J. Phys. Soc. Jpn. 76, 084003
+[10] Matsuno Y 2009 J. Math. Phys. 49, 073508
+[11] Manakov S V 1974 Sov. Phys. JETP 38, 248
+[12] Pietrzyk M, Kanattšikov I and Bandelow U 2008 J. Nonlinear Math. Phys. 15, 162
+[13] Sakovich S 2008 J. Phys. Soc. Jpn. 77, 123001
+[14] Dimakis A and Muller-Hoissen F 2010 SIGMA 6, 055
+[15] Matsuno Y 2011 J. Math. Phys. 52, 123702
+[16] Feng B F 2012 J. Phys. A 45, 085202
+[17] Yao Y and Zeng Y 2011 J. Phys. Soc. Jpn. 80, 064004
+[18] Feng B F 2015 Physica D 297, 62
+[19] Brunelli J C and Sakovich S 2013 J. Math. Phys. 54, 012701
+[20] Levi D and Ragnisco (eds) 1998 SIDE III-Symmetries and Integrability of Difference Equations (CRM
+       Proc. and Lecture Notes vol 25), Montreal: AMS
+[21] Grammaticos B, Kosmann-Schwarzbach Y and Tamizhmani T (eds) 2004 Discrete Integrable Systems
+       (Lecture Notes in Physics vol 644), Berlin: Springer
+[22] Suris Y B 2003 The Problem of Integrable Discretization: Hamiltonian Approach (Progress in
+       Mathematics vol 219), Basel: Birkháuser
+[23] Bobenko A I and Suris Y B 2008 Discrete Differential Geometry (Graduate Studies in Mathematics vol
+       98), RI: AMS
+[24] Feng B F, Maruno K and Ohta Y 2010 J. Phys. A 43, 085203
+[25] Feng B F, Inoguchi J, Kajiwara K, Maruno K and Ohta Y 2011 J. Phys. A 44, 395201
+[26] Feng B F, Maruno K and Ohta Y, 2015 J. Math. Phys. 56, 043502
+[27] Hirota R 2004 The Direct Method in Soliton Theory, Cambridge University Press
+[28] Hirota R 2000 Chaos, Solitons and Fractals 11, 77–84
+[29] Ohta Y, Kajiwara K, Matsukidaira J and Satsuma J 1993 J. Math. Phys. 34, 5190–5204
+[30] Ohta Y, Maruno K and Feng B F 2008 J. Phys. A 41, 355205
+[31] Feng B F, Maruno K and Ohta Y 2010 J. Comput. Appl. Math 235, 229–243
+

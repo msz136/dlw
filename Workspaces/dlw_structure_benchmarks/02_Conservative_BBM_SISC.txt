@@ -1,0 +1,1540 @@
+                                                    A CONSERVATIVE FULLY-DISCRETE NUMERICAL METHOD FOR THE
+                                                          REGULARISED SHALLOW WATER WAVE EQUATIONS
+
+
+                                                        DIMITRIOS MITSOTAKIS, HENDRIK RANOCHA, DAVID I. KETCHESON, AND ENDRE SÜLI
+
+
+                                                     Abstract. The paper proposes a new, conservative fully-discrete scheme for the numerical solution of the
+                                                     regularised shallow water Boussinesq system of equations in the cases of periodic and reflective boundary
+                                                     conditions. The particular system is one of a class of equations derived recently and can be used in practical
+arXiv:2009.09641v2 [math.NA] 13 Jan 2021
+
+
+
+
+                                                     simulations to describe the propagation of weakly nonlinear and weakly dispersive long water waves, such as
+                                                     tsunamis. Studies of small-amplitude long waves usually require long-time simulations in order to investigate
+                                                     scenarios such as the overtaking collision of two solitary waves or the propagation of transoceanic tsunamis.
+                                                     For long-time simulations of non-dissipative waves such as solitary waves, the preservation of the total energy
+                                                     by the numerical method can be crucial in the quality of the approximation. The new conservative fully-
+                                                     discrete method consists of a Galerkin finite element method for spatial semidiscretisation and an explicit
+                                                     relaxation Runge–Kutta scheme for integration in time. The Galerkin method is expressed and implemented
+                                                     in the framework of mixed finite element methods. The paper provides an extended experimental study of
+                                                     the accuracy and convergence properties of the new numerical method. The experiments reveal a new
+                                                     convergence pattern compared to standard Galerkin methods.
+
+
+
+
+                                                                                                  1. Introduction
+                                              In this paper we are concerned with the numerical solution of the regularised shallow water system of
+                                           Boussinesq equations, also known as the BBM-BBM system. The regularised shallow water equations derived
+                                           in [12, 14] from the incompressible Euler equations for free-surface flows may be written in dimensional
+                                           variables as
+                                                                                                       1
+                                                                                  ηt + [(D + η)u]x − D2 ηxxt = 0,
+                                           (1)                                                         6
+                                                                                                       1 2
+                                                                                   ut + gηx + uux − D uxxt = 0,
+                                                                                                       6
+                                           where g is acceleration due to gravity, D is the depth of the impenetrable horizontal sea floor, η = η(x, t),
+                                           u = u(x, t) are real functions defined at the horizontal locationp x and time t ≥ 0 denoting the free-surface
+                                           elevation of the water and the horizontal velocity at water level 2/3D. The regularised shallow water system
+                                           describes the two-way propagation of long crested waves of small amplitude, and particularly, respecting the
+                                           physics of water waves, solutions of system (1) are weakly nonlinear and weakly dispersive. In that sense,
+                                           system (1) generalises the non-dispersive shallow water system
+                                                                                                ηt + [(D + η)u]x = 0,
+                                           (2)
+                                                                                                  ut + gηx + uux = 0,
+                                           in the context of nonlinear and dispersive water waves. Both systems (1) and (2) conserve the same approx-
+                                           imation of the total energy (kinetic plus potential) in the interval I = (−∞, ∞), defined by
+                                                                                               Z
+                                                                                             1
+                                           (3)                                 E(t; η, u) :=     gη 2 + (D + η)u2 dx,
+                                                                                             2 I
+
+
+                                              Date: January 15, 2021.
+                                              2000 Mathematics Subject Classification. 65M60, 65L06,76B25.
+                                              Key words and phrases. Boussinesq system, relaxation Runge–Kutta methods, mixed finite element methods.
+                                              E. Süli is grateful to the School of Mathematics and Statistics of the Victoria University of Wellington for the kind hospitality
+                                           during his visit as the year 2015 London Mathematical Society/New Zealand Mathematical Society Forder Lecturer. Research
+                                           reported in this publication was supported by the King Abdullah University of Science and Technology (KAUST).
+                                                                                                            1
+in the sense that their solutions satisfy
+                                                 d
+(4)                                                E(t; η, u) = 0.
+                                                dt
+In addition to the energy conservation (4) the solutions of the regularised shallow water equations (1) conserve
+the following quantities
+                                                Z
+(5)                              M(t; η) :=          η dx,   (mass),
+                                                 I
+                                                Z
+(6)                                I(t; u) :=        u dx,   (momentum),
+                                                ZI
+                                                       1
+(7)                             H(t; η, u) :=      ηu + D2 ηx ux dx,         (impulse).
+                                                 I     6
+The quantity M represents the total mass and I the momentum, while H can be thought of as a generalised
+energy that is usually referred to as the impulse functional [9]. There is a Hamiltonian structure that relates
+the quantities H and E; namely ∂t ∇H(t; η, u) + ∂x ∇E(t; η, u) = 0. Equivalently, the system (1) can be
+written in Hamiltonian form as
+                                            ∂t (η, u)T = J ∇E(t; η, u),
+where
+                                                                  (I − D2 /6∂x2 )−1 ∂x
+                                                                                      
+                                               0
+                               J=                                                        ,
+                                      (I − D2 /6∂x2 )−1 ∂x                 0
+with E playing the role of the Hamiltonian. For more information about the conservation properties and
+their theoretical implications we refer to [15].
+   Existence and uniqueness of weak and classical solutions for the Cauchy problem of system (1) have been
+established only locally in time in [12, 14, 15], while global well-posedness in time was proved in [3] under
+the condition that there is an α > 0 such that the solution satisfies
+                                        D + η(x, t) ≥ α          for all   t ≥ 0.
+   Like the full Euler equations, the BBM-BBM system possesses classical solitary wave solutions. These
+are waves that travel with constant phase speed and without change in their shape. Usually, both η and
+u profiles of solitary waves have the shape of a sech2 -function [17, 12, 18]. There are no known analytical
+formulas for classical solitary waves of the BBM-BBM system (1), although there are analytical formulas
+describing other travelling wave solutions of (1); see [16]. The latter travelling waves are unphysical, as the
+value of η is negative in places so that the water surface extends below the impenetrable bottom. Other
+travelling wave solutions with analytical formulas assume that there is no water in the domain. One such
+formula, which is useful mainly for testing numerical methods, can be written in the special case D = 1,
+g = 1 in the form
+                                            r           !     !                     
+                                15            2       5                4    3         5
+                    η± (x, t) =      cosh 3      x∓ t        − 2 sech √           x∓ t      ,
+                                 4            5       2                     10        2
+(8)                                                  
+                                15     2   3        5
+                    u± (x, t) =    sech √       x∓ t       .
+                                 2         10       2
+This travelling wave solution was derived in [16, 17] and is apparently unstable under even tiny perturbations,
+which cause a point blow-up phenomenon [13]. For generalisations, physical derivation, and a review of the
+theory and numerical analysis, we refer to [18, 26].
+   For practical situations and for numerical computations the Cauchy problem for the system (1) is usually
+not very useful, since numerical methods and practical problems are set in bounded domains. The theory for
+several initial-boundary value problems in a bounded interval I = [a, b] has been established [12, 5]. More
+specifically, given appropriately smooth initial data η(x, 0) = η0 (x) and u(x, 0) = u0 (x), the existence and
+uniqueness of classical and weak solutions were proved for the following problems:
+
+                                                             2
+     • Wave-maker boundary conditions (Dirichlet–Dirichlet): η(a, t) = h1 (t), η(b, t) = h2 (t) and u(a, t) =
+       v1 (t), u(b, t) = v2 (t),
+     • Reflection boundary conditions (Neumann–Dirichlet): ηx (a, t) = ηx (b, t) = 0 and u(a, t) = u(b, t) =
+       0,
+     • Periodic boundary conditions (Periodic–Periodic): ∂xi η(a, t) = ∂xi η(b, t) and ∂xi u(a, t) = ∂xi u(b, t), for
+       all i ≥ 0, where ∂xi denotes the i-th order partial derivative with respect to x.
+   The conservation of the quantities M, I, H and E on bounded intervals depends upon the choice of
+the boundary conditions. For example, mass (5) and energy (3) are conserved with periodic and reflecting
+boundary conditions, but not with wave-maker conditions. On the other hand, the momentum (6) is con-
+
+               Table 1. Conservative quantities for different initial-boundary value problems
+
+                                            M(t; η) I(t; u) H(t; η, u) E(t; η, u)
+                                Cauchy       X        X        X          X
+                               Dirichlet                       X
+                               Reflective    X                            X
+                               Periodic      X        X        X          X
+
+served by the solutions of the periodic boundary value problem only. Finally, the conservation of the impulse
+functional (7) is only valid in the case of periodic and homogenous Dirichlet boundary value problems. The
+conservation properties of the various initial-boundary value problems are summarised in Table 1.
+   The conservation of mass M, especially, is one of the basic requirements for acceptable numerical simula-
+tions. Lack of its preservation is related to large wave damping. Conservation of the momentum I comes as a
+secondary requirement; note that momentum is conserved for the Cauchy problem, but not in the presence of
+a reflecting boundary. Typically, conventional methods preserve M and I (when the exact solution preserves
+them) without sophisticated modifications. The conservation of the impulse H can enhance the numerical
+results, but (like the momentum) it is not conserved in the presence of a reflecting boundary. The impulse is
+also conserved by conventional numerical methods such as the standard Galerkin method and by geometric
+integrators. The total energy E is not conserved by conventional methods, and yet its conservation is very
+important for both physical and geometrical reasons as it is the Hamiltonian of the particular system [14].
+Note that in the exact solution the total energy is conserved even in the presence of reflecting boundaries
+(cf. Table 1).
+   Several methods have been devised for the numerical solution of relevant initial-boundary value problems
+for the system (1). These include, for example, spectral [35, 28], finite volume/difference [22, 12] and Galerkin
+finite element methods [7, 6], where they have been analysed, tested and studied in depth. Some of these
+numerical methods appear to have good conservation and accuracy properties but none of them has been
+designed to conserve the energy functional (3). Conservative fully-discrete schemes based on the multi-
+symplectic structure of symmetric versions of Boussinesq systems were studied in [19, 20] where the energy
+functionals contain only quadratic nonlinearities. The energy functional of the BBM-BBM system though
+contains cubic nonlinearities and thus multi-symplectic methods cannot be applied in a straightforward
+manner.
+   The spatial semidiscretisation of the BBM-BBM system (1) usually leads to a non-stiff system of ordinary
+differential equations. In the case of finite element methods, non-stiffness was proven in [7] while for other
+spatial discretisations it was apparent after numerical experimentation. For this reason, explicit Runge–
+Kutta methods with favourable stability properties are efficient for its integration in time. The disadvantage
+of the explicit Runge–Kutta methods tested in the previously mentioned works is that they do not conserve
+the energy functional. Therefore, the fully-discrete systems proposed so far for the numerical solution of the
+system (1) are not conservative with the exception of the very recent work [33], where appropriate collocation
+methods were considered for the spatial discretisation combined with recently proposed relaxation Runge–
+Kutta methods for integration in time [25, 34, 32].
+   Because conservation of energy can be important, especially in some long-time simulations, our focus is
+on energy preserving fully-discrete schemes. In this paper we present a new Galerkin finite element method
+with Lagrange elements that conserves the energy functional (3). Although it has been shown that the
+                                                          3
+standard Galerkin finite element method based on high-order splines has excellent conservation properties,
+that method is immensely hard to use in two space dimensions and again it does not preserve the total
+energy E. On the other hand, Lagrange elements can be extended and used easily in two space dimensions,
+and for this reason it is important to acquire the appropriate background of such conservative methods.
+   The Galerkin semidiscretisation of the new method is expressed and implemented in the framework
+of mixed finite element methods [10]. The resulting system of ordinary differential equations, which is
+apparently non-stiff, is integrated in time using explicit relaxation Runge–Kutta schemes [25, 34, 31] that
+are specially designed as interpolation Runge–Kutta methods [36] to respect the conservation of the energy
+of systems of ordinary differential equations. The resulting full discretisation is referred to in what follows
+as the conservative Galerkin method.
+   Due to the non-existence of analytical formulas for classical solitary waves, we test the method using
+classical solitary wave profiles generated numerically with the Petviashvili method [29]. The Petviashvili
+method in the context of finite element methods for Boussinesq systems was first presented in [24]. In this
+paper we revisit the particular method in one space dimension and for the analogous initial-boundary value
+problems.
+   The structure of this paper is the following: In Section 2 we present the standard and the conservative
+Galerkin finite element methods, and review their conservation properties. Section 3 is dedicated to the
+temporal discretisation of these Galerkin methods with explicit Runge–Kutta methods. A detailed study
+of the convergence of the conservative Galerkin method is presented in Section 4. This study reveals an
+unexpected convergence behaviour of mixed Galerkin methods for the specific problem, not previously de-
+tected in standard Galerkin method. Due to the significant importance of solitary waves, Section 5 presents
+numerical experiments related to the propagation, reflection and interaction of solitary waves, showing the
+behaviour of the conservative Galerkin method. For the sake of completeness we present the Petviashvili
+method in the context of Galerkin finite element methods in Appendix A. Conclusions and perspectives are
+summarised in Section 6.
+
+
+                                  2. Galerkin finite element methods
+2.1. Notation. Let a = x0 < x1 < · · · < xN = b be a uniform partition of the interval I¯ = [a, b] with mesh
+length ∆x = xi+1 − xi . Given an integer r ≥ 1, we shall consider the finite element spaces of Lagrange
+elements
+(9)                       P r := {φ ∈ C(I)¯ : φ|[x ,x ] ∈ Pr , 0 ≤ j ≤ N − 1},
+                                                     j   j+1
+
+where C(I) is the usual space of continuous functions on I. Moreover, Pr denotes the space of polynomials
+of degree at most r. We also consider the Lagrange finite element spaces
+                                     P0r := {φ ∈ P r | φ(a) = φ(b) = 0},
+and the space of periodic Lagrange elements
+                                       Ppr := {φ ∈ P r | φ(a) = φ(b)}.
+In what follows we will denote by H s (I) the usual Sobolev spaces of s-order weakly differentiable functions,
+and their norm by k · ks . It is well-known that the Lagrange finite element spaces are all finite-dimensional
+subspaces of the space H 1 (I). The space of square-integrable functions will be denoted by L2 (I) = H 0 (I)
+with the associated norm k · k. We will also denote the spaces P0r and Ppr as Pbr where b can be either 0 or
+p, depending on the choice of the boundary conditions of the problem at hand.
+   The L2 -projection (or orthogonal projection) of a function u ∈ L2 (I) onto the space Pbr is defined as the
+operator Pbr : L2 → Pbr such that
+(10)                                (Pbr [u], φ) = (u, φ),       for all φ ∈ Pbr ,
+where
+                                                         Z b
+                                             (u, v) :=         u · v dx,
+                                                          a
+
+is the usual L2 -inner product.
+                                                          4
+2.2. Standard Galerkin semidiscretisations. We consider here the semidiscretisation of the initial-
+boundary value problem written in nondimensional but unscaled variables:
+                                                      1
+                                    ηt + [(1 + η)u]x − ηxxt = 0,
+                                                      6
+(11)                                                  1
+                                     ut + ηx + uux − uxxt = 0,
+                                                      6
+                                   η(x, 0) = η0 (x), u(x, 0) = u0 (x),
+with either reflecting boundary conditions (Neumann–Dirichlet problem)
+(12)                               ηx (a, t) = ηx (b, t) = 0 and u(a, t) = u(b, t) = 0,
+or periodic boundary conditions (Periodic–Periodic problem)
+(13)             ∂xi η(a, t) = ∂xi ηx (b, t) = 0 and ∂xi u(a, t) = ∂xi u(b, t),        for all i = 0, 1, 2, . . . .
+   The standard Galerkin semidiscretisation of (11), (12) is defined as follows: Let [0, T ] be a nonempty
+closed subinterval of the maximal interval of existence and uniqueness of the solution of (11) in H 1 (I). We
+seek η̃ : [0, T ] → P r and ũ : [0, T ] → P0r such that
+                                       1
+                           (η̃t , χ) + (η̃xt , χx ) = ((1 + η̃)ũ, χx ) ,     for all χ ∈ P r ,
+(14)                                   6
+                                       1              1
+                          (ũt , ψ) + (ũxt , ψx ) = (ũ2 , ψx ) + (η̃, ψx ), for all ψ ∈ P0r ,
+                                       6              2
+with initial conditions
+(15)                                  η̃(x, 0) = P r [η0 (x)],       ũ(x, 0) = P0r [u0 (x)].
+   The semidiscretisation of the initial-periodic boundary value problem is very similar, the only difference
+being that the finite element spaces should be replaced by the periodic polynomial space Ppr . In particular,
+the semidiscrete solutions of the periodic problem are functions η̃ : [0, T ] → Ppr and ũ : [0, T ] → Ppr such that
+                                      1
+                           (η̃t , χ) + (η̃xt , χx ) = ((1 + η̃)ũ, χx ) ,              for all χ ∈ Ppr ,
+(16)                                  6
+                                      1               1
+                          (ũt , ψ) + (ũxt , ψx ) = (ũ2 , ψx ) + (η̃, ψx ),          for all ψ ∈ Ppr ,
+                                      6               2
+with initial conditions
+(17)                                  η̃(x, 0) = Ppr [η0 (x)],       ũ(x, 0) = Ppr [u0 (x)].
+   Both semidiscretisations can be found in [5, 6, 7] where optimal order convergence was proven. In par-
+ticular, the numerical solution of these semidiscretisations is known to converge with order r + 1 and the
+following error bound was shown to hold:
+(18)                      kη̃(t) − η(t)k + kũ(t) − u(t)k ≤ C∆xr+1 ,                 for all t ∈ [0, T ],
+for some constant C independent of ∆x [6, 7]. These semidiscretisations guarantee the conservation of the
+mass functional M(t, η̃) but not the energy functional (3). In the case of periodic boundary conditions, these
+semidiscretisations also conserve the momentum I(t, ũ) and the impulse functional H(t; η̃, ũ).
+
+2.3. A conservative semidiscretisation for the reflective-boundary value problem. Consider now
+the following modified Galerkin semidiscretisation for the initial-boundary value problem with reflecting
+boundary conditions (11), (12). Let η̃ : [0, T ] → P r and ũ : [0, T ] → P0r be the solutions of the system
+                              1
+                   (η̃t , χ) + (P0r [η̃x ]t , χx ) = (P0r [(1 + η̃)ũ], χx ) ,           for all χ ∈ P r ,
+(19)                          6
+                              1                      1
+                  (ũt , ψ) + (P r [ũx ]t , ψx ) = (P r [ũ2 ], ψx ) + (P r [η̃], ψx ), for all ψ ∈ P0r ,
+                              6                      2
+given the initial conditions
+(20)                                  η̃(x, 0) = P r [η0 (x)],       ũ(x, 0) = P0r [u0 (x)].
+                                                                 5
+This modified Galerkin semidiscretisation is derived from the standard Galerkin method after replacing the
+dispersive and nonlinear terms with appropriate L2 -projections in the associated finite element spaces. The
+semidiscretisation (19) preserves both conserved quantities of the original problem as they are noted in Table
+1. Indeed, the following proposition holds.
+
+
+Proposition 2.1. The solution (η̃, ũ) of (19), (20) satisfies the following conservation laws for all t ∈ [0, T ]:
+
+    (i) Conservation of mass
+                                                       d
+                                                          M(t; η̃) = 0;
+                                                       dt
+    (ii) Conservation of energy
+                                                       d
+                                                          E(t; η̃, ũ) = 0.
+                                                       dt
+
+
+Proof. The conservation of mass (i) can be obtained by taking χ = 1 in (19). To prove (ii), let
+                                                                     1
+(21)                                          R := −(1 + η̃)ũ + η̃xt ,
+                                                                     6
+                                                        1            1
+(22)                                          Q := − ũ2 − η̃ + ũxt .
+                                                        2            6
+Then we have
+                         (η̃t , Q) + (ũt , R) = (η̃t , P r [Q]) + (ũt , P0r [R])
+                                                  = −(P0r [R], P r [Q]x ) − (P r [Q], P0r [R]x )
+                                                  = 0.
+Furthermore,
+                                                      1            1                              1
+                     (η̃t , Q) + (ũt , R) = (η̃t , − ũ2 − η̃ + ũxt ) + (ũt , −(1 + η̃)ũ + η̃xt )
+                                                      2            6                              6
+                                             1                         1 2
+                                           = ((η̃t ũt )x , 1) − (η̃t , ũ + η̃) − (ũt , (1 + η̃)ũ)
+                                             6                       2
+                                                                                                        
+                                                1 d 2               1 d                1 d 2
+                                           =−            η̃ , 1 −           η̃, ũ2 −          ũ , 1 + η̃
+                                                2 dt                2 dt               2 dt
+                                                                                
+                                                1 d 2
+                                           =−            (η̃ + (1 + η̃)ũ2 ), 1
+                                                2 dt
+                                                1 d b 2
+                                                       Z
+                                           =−               η̃ + (1 + η̃)ũ2 dx.
+                                                2 dt a
+In the previous calculations we used the fact that ũ ∈ P0r and thus ũ(a) = ũ(b) = 0, and the result follows. 
+
+
+
+
+Remark 2.1. The projection in the first (mass) equation of (19) does not need to be onto P0r but may instead
+be taken onto P r without any complications. The advantage of projection onto P0r is that the Neumann
+boundary conditions of the free-surface elevation are guaranteed to be satisfied.
+
+
+   The semidiscretisation (19) appears to be complicated, especially if one considers its implementation. An
+alternative mixed finite element formulation can resolve this difficulty by introducing new auxiliary variables
+as follows. Let η̃ : [0, T ] → P r and ũ : [0, T ] → P0r as before. In addition we consider w̃, f˜ : [0, T ] → P0r and
+                                                                6
+ṽ, g̃ : [0, T ] → P r such that
+                                             1               ˜ χx ),
+                                (η̃t , χ) + (w̃t , χx ) = (f,                         for all χ ∈ P r ,
+                                             6
+                              1                1
+                                (η̃x t , φ) − (w̃t , φ) = 0,                          for all φ ∈ P0r ,
+                              6                6
+                                                    ˜ ζ) = ((1 + η̃)ũ, ζ),
+                                                  (f,                                 for all ζ ∈ P0r ,
+(23)                                         1
+                                (ũt , ψ) + (ṽt , ψx ) = (g̃, ψx ),                  for all ψ ∈ P0r ,
+                                             6
+                               1                1
+                                 (ũxt , ξ) − (ṽt , ξ) = 0,                          for all ξ ∈ P r ,
+                               6                6                        
+                                                              1 2
+                                                  (g̃, θ) =     ũ + η̃, θ ,          for all θ ∈ P r ,
+                                                              2
+accompanied with the initial conditions
+(24)       η̃(x, 0) = P r [η0 (x)],   w̃(x, 0) = P0r [η0 x (x)],       ũ(x, 0) = P0r [u0 (x)],    ṽ(x, 0) = P r [u0x (x)].
+The formulations (19) and (23) are equivalent, but in the mixed formulation the L2 -projections are written
+explicitly as unknowns. This is a characteristic that makes mixed formulations very successful [10]. Note
+that the coefficients 1/6 in the second and fifth equations have been introduced so that the respective bilinear
+form resembles a saddle point problem, the solvability of which has been analysed in [10].
+
+2.4. A conservative semidiscretisation for the periodic boundary value problem. Now we state
+a modified Galerkin semidiscretisation for the initial-periodic boundary value problem (11)–(13). Let η̃ :
+[0, T ] → Ppr and ũ : [0, T ] → Ppr be the solutions of the system
+                              1
+                   (η̃t , χ) + (Ppr [η̃x ]t , χx ) = (Ppr [(1 + η̃)ũ], χx ),                     for all χ ∈ Ppr ,
+(25)                          6
+                              1 r                    1
+                  (ũt , ψ) + (Pp [ũx ]t , ψx ) = (Ppr [ũ2 ], ψx ) + (Ppr [η̃], ψx ),           for all ψ ∈ Ppr ,
+                              6                      2
+given the initial conditions
+(26)                                    η̃(x, 0) = Ppr [η0 (x)],       ũ(x, 0) = Ppr [u0 (x)].
+Similarly to the reflection case the following proposition holds in the case of periodic boundary conditions:
+
+Proposition 2.2. The solution (η̃, ũ) of (25), (26) satisfies the following conservation laws for all t ∈ [0, T ]:
+       (i) Conservation of mass
+                                                         d
+                                                            M(t; η̃) = 0;
+                                                         dt
+    (ii) Conservation of momentum
+                                                         d
+                                                            I(t; ũ) = 0;
+                                                         dt
+   (iii) Conservation of energy
+                                                        d
+                                                           E(t; η̃, ũ) = 0.
+                                                        dt
+Proof. The proofs of (i) and (ii) are immediate by using χ = 1 and ψ = 1 in (25). The proof of (iii) follows
+exactly the same steps as in Proposition 2.1 and is omitted.                                              
+
+Remark 2.2. The conservation of H(t; η̃, ũ) does not hold in the periodic case. A numerical investigation
+of the accuracy of this conservation law will be one of the subjects of the following sections.
+
+  The mixed formulation with periodic conditions (25) is very similar to that with reflective boundary
+conditions. Let η̃ : [0, T ] → Ppr and ũ : [0, T ] → Ppr as before. In addition we consider w̃, f˜ : [0, T ] → Ppr and
+                                                                   7
+ṽ, g̃ : [0, T ] → Ppr such that
+                                             1               ˜ χx ),
+                                (η̃t , χ) + (w̃t , χx ) = (f,                           for all χ ∈ Ppr ,
+                                             6
+                              1                1
+                                (η̃x t , φ) − (w̃t , φ) = 0,                            for all φ ∈ Ppr ,
+                              6                6
+                                                    ˜ ζ) = ((1 + η̃)ũ, ζ),
+                                                  (f,                                   for all ζ ∈ Ppr ,
+(27)                                         1
+                                (ũt , ψ) + (ṽt , ψx ) = (g̃, ψx ),                    for all ψ ∈ Ppr ,
+                                             6
+                               1                1
+                                 (ũxt , ξ) − (ṽt , ξ) = 0,                            for all ξ ∈ Ppr ,
+                               6                6                        
+                                                              1 2
+                                                  (g̃, θ) =     ũ + η̃, θ ,            for all θ ∈ Ppr ,
+                                                              2
+accompanied with the initial conditions
+(28)      η̃(x, 0) = Ppr [η0 (x)],   w̃(x, 0) = Ppr [η0 x (x)],       ũ(x, 0) = Ppr [u0 (x)],      ṽ(x, 0) = Ppr [u0x (x)].
+
+                                             3. Temporal discretisation
+   Systems (23) and (27) are autonomous systems of ordinary differential equations which, as we shall see
+later, are non-stiff. We proceed with their temporal discretisation, which is chosen so that the energy
+functional E is conserved in both cases. The time-integration methods that we will use are known as
+relaxation Runge–Kutta methods (RRK) and were introduced recently in [25, 34] and studied in detail in
+the case of Hamiltonian systems in [33]. We proceed by providing a brief description of relaxation Runge–
+Kutta methods methods.
+   A system of ordinary differential equations, such as (23) or (27), can be written
+                                              d
+                                                 y(t) = f (t, y(t)),          t ∈ (0, T ],
+(29)                                          dt
+                                                y(0) = y0 ,
+where y(t) = [yi (t)] denotes the unknown vector function. We consider a timestep 0 < ∆t < 1 and a
+uniform grid 0 = t0 < t1 < · · · < tK = T with ti+1 = ti + (i + 1)∆t for i = 0, 1, . . . , K − 1. A general explicit
+Runge–Kutta method with s stages can be fully described by its Butcher tableau
+                                                              c    A
+(30)                                                                  ,
+                                                                   bT
+where A = [aij ]si,j=1 is an s × s lower-triangular matrix with zeros in the principal diagonal, and b = [bj ]sj=1
+and c = [cj ]sj=1 are s-dimensional vectors. If yn stands for an approximation of y(tn ), then an explicit
+Runge–Kutta method given by a Butcher tableau (30) can be expressed as
+                                                           i−1
+                                                           X
+(31)                                      ỹi = yn + ∆t           aij f (tn + cj ∆t, ỹj ),      i = 1, 2, . . . , s,
+                                                           j=1
+                                                           Xs
+(32)                  y(tn + ∆t) ≈ yn+1 = yn + ∆t                 bi f (tn + ci ∆t, ỹi ).
+                                                           i=1
+If
+                                                                  s
+                                                                  X
+                                                          n
+                                                        d =             bi f i ,
+                                                                  i=1
+
+with fi = f (tn + ci ∆t, ỹi ), then the respective relaxation Runge–Kutta method is formulated by the replace-
+ment of the update formula (32) with an update in the same direction as the previous formula but of a
+different length:
+(33)                                    y(tn + γ n ∆t) ≈ yγn+1 = yn + γ n ∆t dn ,
+                                                                  8
+where yn = yγn , for n = 1, 2, . . .. The parameter γ n is called the relaxation parameter and is defined
+appropriately for all n in order for the method to satisfy certain properties. For example, we can choose γ n
+so that
+                                              E(tn + γ n ∆t; yγn+1 ) = E(tn ; yn ),
+where E is the energy functional (3). Note that the prescribed time increment ∆t is replaced by γ n ∆t in
+the solution update formula (32) to obtain (33), but the original ∆t is still used in the computation of the
+stages (31). As long as the prescribed time step is admissible from the point of view of stability, the new
+step size ∆tnγ will be very close to the prescribed value ∆t.
+    In our case we have yn = (H n , W n , U n , V n )T , where H n , W n , U n and V n denote the fully discrete
+approximations in the appropriate finite element spaces of η̃(·, tn ), w̃(·, tn ), ũ(·, tn ) and ṽ(·, tn ), respectively.
+Denote also the fully discrete approximations of (33) η̃(·, tn + γ n ∆t), w̃(·, tn + γ n ∆t), ũ(·, tn + γ n ∆t) and
+ṽ(·, tn +γ n ∆t) in the appropriate finite element spaces by Hγn+1 , Wγn+1 , Uγn+1 and Vγn+1 , respectively. Then,
+we can express the updates in H n and U n as
+                                   Hγn+1 = H n + γ n ∆t dnη ,
+(34)                                                                  for n = 0, 1, 2, . . . ,
+                                   Uγn+1 = U n + γ n ∆t dnu ,
+where dnη is the part of dn corresponding to the respective solution H n and dnu is the part of dn corresponding
+to the respective solution U n . To devise a conservative time integration scheme, we choose γ n to be such
+that
+(35)                                E(tn + γ n ∆t; Hγn+1 , Uγn+1 ) = E(tn ; H n , U n ).
+The parameter γ n can be determined by solving the algebraic equation (35) for each n. Substitution of (34)
+into (35) leads to the following roots: γn0 = 0 or
+                                                          √
+                                           ±          −B ± B2 − 4AΓ
+(36)                                     γn · ∆t =                  ,
+                                                           2A
+where
+                                    Z b
+                               A :=     dnη (dnu )2 dx,
+                                          a
+                                         Z b
+(37)                              B :=         (dnη )2 + (1 + H n )(dnu )2 + 2U n dnη dnu dx,
+                                          a
+                                         Z b
+                                  Γ :=         [2H n + (U n )2 ]dnη + 2U n (1 + H n )dnu dx.
+                                          a
+Assume that our explicit Runge–Kutta method has global error of order ∆tp . According to [34, 32] it is
+expected that there is a root γ n such that
+(38)                                                |γ n − 1| = O(∆tp−1 ) .
+This means that by choosing appropriate ∆t  1 we expect γ n to be close to 1. Unfortunately, the floating-
+point evaluation of analytical expressions for the roots of the cubic polynomial equation (35) using (36) can
+be affected by catastrophic cancellation, and thus the numerical approximation of these roots is suggested.
+In our case we use the the secant method for their approximation (with convergence tolerance 10−10 for the
+absolute error). Alternative root finding procedures for relaxation methods are discussed in [30, 33]. The
+temporal discretisation of system (23) is presented in Algorithm 1, while the time-marching scheme for the
+periodic system (27) is very similar; for this reason, we omit its detailed description.
+
+
+
+
+Remark 3.1. Taking χ = 1 in Algorithm 1 we observe that
+                  Z b
+                      H n,i dx = 0, for all i = 1, 2, . . . , s              and      n = 0, 1, 2, . . . ,
+                          a
+                                                                9
+Algorithm 1 Conservative fully-discrete scheme for the regularised shallow water equations
+  Given the timestep ∆t and interval of integration [0, T ]
+  tn = 0
+  H 0 = P r [η0 (x)] and U 0 = P0r [u0 (x)]
+  while tn ≤ T do
+      for i = 1, 2, . . . , s do
+                               Pi−1
+         H̃ i = H n + ∆t j=1 aij H n,j
+                              Pi−1
+         Ũ i = U n + ∆t j=1 aij U n,j
+         f˜ = P0r [(1         i
+                  h + H̃ )Ũ ] i
+                                 i
+
+         g̃ = P r 12 (Ũ i )2 + H̃ i
+         (
+             (H n,i , χ) + 16 (W n,i , χx ) = (f, ˜ χx ), ∀χ ∈ P r ,
+             1    n,i          1    n,i                            r
+                                                                        evaluated at tn,i = tn + ci ∆t
+               (H     , φ) −     (W      , φ) = 0,         ∀φ ∈ P    ,
+         ( 6 x                 6                                  0
+
+             (U n,i , ψ) + 61 (V n,i , ψx ) = (g̃, ψx ), ∀ψ ∈ P0r ,
+             1    n,i         1    n,i                           r
+                                                                       evaluated at tn,i = tn + ci ∆t
+             6 (Ux    , ξ) −  6 (V     , ξ) =  0,         ∀ξ ∈ P   ,
+     end for
+               s
+     dnη = i=1 bi H n,i
+            P
+            Ps
+       n
+     du = i=1 bi U n,i
+     Compute γ n by solving numerically (35)
+     H n+1 = H n + γ n ∆tdnη
+     U n+1 = U n + γ n ∆tdnu
+     tn+1 = tn + γ n ∆t
+     n←n+1
+  end while
+
+
+
+
+and thus
+                                      Z b
+                                            dnη dx = 0,   for all   n = 0, 1, 2, . . . .
+                                        a
+Therefore, the fully-discrete scheme in addition to the energy E(t; H n , U n ) preserves also the mass M(t; H n ),
+as expected.
+
+   Apparently, the resulting systems of ordinary differential equations at (14) and (16) are not stiff and thus
+explicit Runge–Kutta methods can be efficient in long-time numerical simulations. The new mixed finite
+element semidiscretisations result also in non-stiff systems of ordinary differential equations and thus in this
+paper we use the conservative relaxation methods of [25, 34, 31] for the integration in time of (23) and (27).
+Note that in our case the semidiscrete systems are autonomous, meaning that f (t, y) = f (y), but we consider
+here the more general case to include the possibility of inhomogeneous equations and the consideration of
+other source terms.
+
+
+
+
+                    4. Experimental convergence rates and accuracy estimates
+  In this section we study experimentally the convergence and accuracy of the new numerical scheme. First,
+we study the spatial errors and convergence rates. In order to complete the experimental study of the error
+analysis we perform a detailed study using certain error indicators pertinent to the propagation of travelling
+wave solutions. For the temporal discretisation of both initial-boundary value problems we use a relaxation
+Runge–Kutta method related to the classical four-stage, fourth-order Runge–Kutta method given by the
+                                                             10
+Butcher tableau:
+                                                        0      0   0        0      0
+                                                       1/2    1/2 0         0      0
+                                       c   A
+(39)                                              =    1/2     0 1/2        0      0 .
+                                           bT
+                                                        1      0   0        1      0
+                                                              1/6 1/3      1/3    1/6
+For the numerical implementation of the fully-discrete schemes we employed the library Fenics [4].
+4.1. Spatial convergence rates for the Neumann–Dirichlet problem. We consider the initial-boundary
+value problem (11), (12) in the interval [a, b] = [0, 1]. Due to the lack of exact analytical solutions for the
+specific problem, we consider the artificial solution of the form
+                                                   η(x, t) = e2t cos(πx),
+(40)
+                                                   u(x, t) = et x sin(πx),
+for x ∈ [0, 1] and t ∈ [0, 1]. This particular solution satisfies a non-homogenous initial-boundary value prob-
+lem of the form (11)–(13) with appropriate right-hand sides in both the mass and momentum conservation
+equations. Since the energy is not conserved under these non-homogenous equations, we use the classical
+Runge–Kutta method of order four (without relaxation) with small timestep ∆t = ∆x/10 to ensure that the
+numerical errors introduced by the time integration are negligible compared to the errors due to the spatial
+discretisation.
+   We study the spatial convergence of the fully-discrete scheme using the errors defined as
+(41)                                   Es [F ] := kF (·, T ; ∆x) − Fexact (·, T )ks ,
+where F = F (·; ∆x) is the computed solution in P r , i.e. either H ≈ η(·, T ) or U ≈ u(·, T ), Fexact is the
+corresponding exact solution and k · ks with s = 0, 1 corresponds to the L2 and H 1 norms, respectively. In
+addition to these standard errors, we also compute the errors of the quantities W ≈ w(·, T ) = ηx (·, T ) and
+V ≈ v(·, T ) = ux (·, T ). These errors are practically H 1 -norm based errors since the new numerical method
+computes approximations of the first derivatives ηx and ux at every time step. In particular we compute the
+error
+                                    p
+                        Ẽ1 [H] := kH(·, T ; ∆x) − η(·, T )k2 + kW (·, T ; ∆x) − ηx (·, T )k2 ,
+(42)                                p
+                         Ẽ1 [U ] := kU (·, T ; ∆x) − u(·, T )k2 + kV (·, T ; ∆x) − ux (·, T )k2 .
+Throughout this work we use quadrature rules that are exact for the polynomial integrands, with the choice
+of quadrature depending on the finite element spaces used for the spatial discretisation.
+   We compute the fully-discrete numerical solutions H and U until T = 1, and the errors (41) when P r is
+with r = 1, 2, 3 and 4, and for
+(43)                        ∆x ∈ {∆x0 , ∆x1 , . . . , ∆x5 } = {0.1, 0.05, 0.02, 0.01, 0.005}.
+All these errors are presented in Tables 2–5. We also list the experimental convergence rate:
+                                                 ln(Es [F (·; ∆xk−1 )]/Es [F (·; ∆xk )])
+(44)                                Rs [F ] :=                                           ,
+                                                            ln(∆xk−1 /∆xk )
+where ∆xk stands for the grid size listed in row k in each of the Tables 2–5. The convergence rates based
+on the error Ẽ1 are denoted by R̃1 and are presented in Table 6.
+   It is easily observed that the convergence rates for odd values of r are optimal, as expected. On the other
+hand, the convergence rates for even r are suboptimal. More specifically, we conjecture the following rule
+for the convergence rates:
+R02k−1 [H] = R02k−1 [U ] = R̃12k−1 [H] = R̃12k−1 [U ] = 2k,        R12k−1 [H] = R12k−1 [U ] = 2k − 1,
+                                                                                                        for k = 1, 2, . . . .
+R02k [H] = R02k [U ] = R̃12k [H] = R̃12k [U ] = 2k,    R12k [H] = R12k [U ] = 2k − 1,
+The respective errors are smaller for larger values of r and for the same grids, while the convergence rates
+are the same. It is also noted that when r = 4 the numerical method with ∆t = 0.01 reaches its limits with
+                                                              11
+        Table 2. Spatial errors and rates of convergence based on E0 and E1 errors for r = 1
+        (Neumann–Dirichlet problem, ∆t = ∆x/10)
+
+     ∆x        E0 [H]       R0 [H]      E0 [U ]     R0 [U ]        E1 [H]     R1 [H]      E1 [U ]     R1 [U ]
+    0.100   5.595 × 10−2      –      1.527 × 10−2     –         1.226 × 100     –      1.717 × 10−1     –
+    0.050   1.378 × 10−2    2.021    3.832 × 10−3   1.994      5.966 × 10−1   1.039    7.343 × 10−2   1.226
+    0.020   2.197 × 10−3    2.004    6.143 × 10−4   1.998      2.369 × 10−1   1.008    2.696 × 10−2   1.093
+    0.010   5.490 × 10−4    2.001    1.537 × 10−4   1.999      1.183 × 10−1   1.001    1.314 × 10−2   1.037
+    0.005   1.372 × 10−4    2.000    3.842 × 10−5   2.000      5.915 × 10−2   1.000    6.489 × 10−3   1.018
+
+        Table 3. Spatial errors and rates of convergence based on E0 and E1 errors for r = 2
+        (Neumann–Dirichlet problem, ∆t = ∆x/10)
+
+     ∆x        E0 [H]       R0 [H]      E0 [U ]     R0 [U ]       E1 [H]      R1 [H]      E1 [U ]     R1 [U ]
+    0.100   8.117 × 10−3      –      9.375 × 10−4     –        6.287 × 10−1     –      7.105 × 10−2     –
+    0.050   2.022 × 10−3    2.005    2.266 × 10−4   2.049      3.133 × 10−1   1.005    3.491 × 10−2   1.025
+    0.020   3.233 × 10−4    2.001    3.590 × 10−5   2.011      1.252 × 10−1   1.001    1.389 × 10−2   1.006
+    0.010   8.081 × 10−5    2.000    8.962 × 10−6   2.002      6.259 × 10−2   1.000    6.940 × 10−3   1.001
+    0.005   2.020 × 10−5    2.000    2.240 × 10−6   2.001      3.130 × 10−2   1.000    3.469 × 10−3   1.000
+
+        Table 4. Spatial errors and rates of convergence based on E0 and E1 errors for r = 3
+        (Neumann–Dirichlet problem, ∆t = ∆x/10)
+
+    ∆x          E0 [H]      R0 [H]    E0 [U ]        R0 [U ]      E1 [H]      R1 [H]      E1 [U ]      R1 [U ]
+   0.100    7.335 × 10−5      –    7.812 × 10−6        –       9.383 × 10−3     –      6.437 × 10−4      –
+   0.050    4.508 × 10−6    4.024 4.865 × 10−7       4.005     1.154 × 10−3   3.023    7.699 × 10−5    3.064
+   0.020    1.149 × 10−7    4.005 1.246 × 10−8       3.999     7.353 × 10−5   3.005    4.835 × 10−6    3.021
+   0.010    7.176 × 10−9    4.001 7.794 × 10−10      3.999     9.186 × 10−6   3.001    6.012 × 10−7    3.008
+   0.005    4.482 × 10−10   4.001 4.867 × 10−11      4.001     1.148 × 10−6   3.001    7.496 × 10−8    3.004
+
+        Table 5. Spatial errors and rates of convergence based on E0 and E1 errors for r = 4
+        (Neumann–Dirichlet problem, ∆t = ∆x/10)
+
+    ∆x          E0 [H]      R0 [H]    E0 [U ]        R0 [U ]      E1 [H]      R1 [H]      E1 [U ]      R1 [U ]
+   0.100    8.590 × 10−6      –    2.146 × 10−7        –       1.629 × 10−3     –      3.698 × 10−5      –
+   0.050    5.347 × 10−7    4.006 1.215 × 10−8       4.143     2.029 × 10−4   3.005    4.487 × 10−6    3.043
+   0.020    1.367 × 10−8    4.001 3.014 × 10−10      4.034     1.297 × 10−5   3.001    2.847 × 10−7    3.010
+   0.010    8.531 × 10−10   4.003 1.875 × 10−11      4.007     1.619 × 10−6   3.003    3.553 × 10−8    3.002
+
+
+errors of the order of 10−12 and thus no further convergence can be observed in double-precision floating
+point arithmetic.
+   A similar even/odd dichotomy is known to occur for discontinuous Galerkin approximations to linear
+second-order elliptic partial differential equations (cf. [23]) and for first-order linear hyperbolic equations
+(cf. [27]) on uniform meshes. In the context of dispersion analysis on uniform computational meshes, an
+even/odd dichotomy is reported in [1] for both continuous and discontinuous Galerkin approximations of
+a first-order linear hyperbolic equation in one space dimension, and in [2] for a linear second-order wave
+equation in one space dimension. For a continuous Galerkin approximation of the regularised shallow water
+wave system considered here, the observed even/odd dichotomy is perhaps new and unusual.
+                                                       12
+          Table 6. Spatial errors and rates of convergence based on Ẽ1 error (Neumann–Dirichlet
+          problem, ∆t = ∆x/10)
+
+   ∆x             Ẽ1 [H]         R̃1 [H]    Ẽ1 [U ]         R̃1 [U ]      Ẽ1 [H]         R̃1 [H]    Ẽ1 [U ]       R̃1 [U ]
+                                        r=1                                                       r=2
+  0.100        2.012 × 10−1          –    6.414 × 10−2           –       4.421 × 10−2          –    1.064 × 10−2         –
+  0.050        4.945 × 10−2        2.024 1.592 × 10−2          2.010     1.111 × 10−2        1.992 2.677 × 10−3        1.990
+  0.020        7.891 × 10−3        2.003 2.546 × 10−3          2.001     1.782 × 10−3        1.998 4.300 × 10−4        1.996
+  0.010        1.973 × 10−3        2.000 6.365 × 10−4          2.000     4.457 × 10−4        1.999 1.076 × 10−4        1.999
+  0.005        4.934 × 10−4        2.000 1.591 × 10−4          2.000     1.114 × 10−4        2.000 2.690 × 10−5        2.000
+                                        r=3                                                       r=4
+  0.100        5.358 × 10−4          –    8.736 × 10−5           –       6.485 × 10−5          –    1.020 × 10−5         –
+  0.050        3.209 × 10−5        4.062 5.046 × 10−6          4.114     4.103 × 10−6        3.982 6.605 × 10−7        3.949
+  0.020        8.159 × 10−7        4.007 1.268 × 10−7          4.021     1.055 × 10−7        3.996 1.713 × 10−8        3.986
+  0.010        5.102 × 10−8        3.999 7.903 × 10−9          4.004     6.593 × 10−9        4.000 1.073 × 10−9        3.997
+  0.005        3.191 × 10−9        3.999 4.935 × 10−10         4.001     4.139 × 10−10       3.994 6.750 × 10−11       3.990
+
+
+  On the other hand, the convergence rates using the modified H 1 -error norms (42) appear to be super-
+optimal for odd and optimal for even values of r. In particular, it can be observed that
+                            R̃12k−1 [H] = R̃12k−1 [U ] = R̃12k [H] = R̃12k [U ] = 2k, for    k = 1, 2, . . . .
+The observed super-approximation property is promising from the point of view of further developments of
+the specific conservative method.
+
+4.2. Spatial convergence rates for the periodic problem. Similarly to the Neumann–Dirichlet bound-
+ary value problem we consider a non-homogenous initial-periodic boundary value problem of the form (11),
+(13) admitting the exact solution
+                                                  η(x, t) = et sin(2π(x − 2t)),
+(45)
+                                                  u(x, t) = et/2 sin(2π(x − t/2),
+in [0, 1] with the appropriate right-hand sides. We integrate the initial-periodic boundary value problem with
+the semidiscretisation (27), (28) using Algorithm 1 adapted to periodic boundary conditions up to T = 1,
+and we record the errors Es [H], Es [U ], for s = 0, 1, and Ẽ1 [H] and Ẽ1 [U ]. The corresponding experimental
+rates of convergence computed using (44), (43) are very similar to those obtained in the Neumann–Dirichlet
+case but with some exceptions. In the case of piecewise linear elements in P 1 the rates in the H 1 -norm
+are improved, presumably because of the replacement of the Dirichlet boundary conditions with periodic
+boundary conditions. The experimental convergence rates are presented in Tables 7–10.
+
+          Table 7. Spatial errors and rates of convergence based on E0 and E1 errors for r = 1
+          (Periodic problem, ∆t = ∆x/10)
+
+        ∆x         E0 [H]          R0 [H]       E0 [U ]        R0 [U ]      E1 [H]          R1 [H]       E1 [U ]     R1 [U ]
+       0.100    6.310 × 10−2         –       7.875 × 10−2        –       2.298 × 10−0         –       2.793 × 10−0     –
+       0.050    1.579 × 10−2       1.998     1.930 × 10−2      2.028     1.109 × 10−0       1.051     1.345 × 10−0   1.054
+       0.020    2.529 × 10−3       1.999     3.072 × 10−3      2.006     4.390 × 10−1       1.011     5.325 × 10−1   1.011
+       0.010    6.323 × 10−4       2.000     7.673 × 10−4      2.001     2.192 × 10−1       1.002     2.659 × 10−1   1.002
+       0.005    1.581 × 10−4       2.000     1.918 × 10−4      2.000     1.095 × 10−1       1.001     1.329 × 10−1   1.001
+
+
+                                                                  13
+        Table 8. Spatial errors and rates of convergence based on E0 and E1 errors for r = 2
+        (Periodic problem, ∆t = ∆x/10)
+
+     ∆x        E0 [H]       R0 [H]      E0 [U ]     R0 [U ]       E1 [H]      R1 [H]      E1 [U ]     R1 [U ]
+    0.100   3.957 × 10−3      –      8.803 × 10−3     –        3.221 × 10−1     –      6.550 × 10−1     –
+    0.050   9.034 × 10−4    2.131    2.229 × 10−3   1.982      1.425 × 10−1   1.177    3.413 × 10−1   0.941
+    0.020   1.405 × 10−4    2.031    3.581 × 10−4   1.995      5.459 × 10−2   1.047    1.384 × 10−1   0.985
+    0.010   3.498 × 10−5    2.006    8.958 × 10−5   1.999      2.712 × 10−2   1.009    6.935 × 10−2   0.997
+    0.005   8.736 × 10−6    2.002    2.240 × 10−5   2.000      1.354 × 10−2   1.002    3.470 × 10−2   0.999
+
+        Table 9. Spatial errors and rates of convergence based on E0 and E1 errors for r = 3
+        (Periodic problem, ∆t = ∆x/10)
+
+    ∆x          E0 [H]      R0 [H]    E0 [U ]        R0 [U ]      E1 [H]      R1 [H]      E1 [U ]      R1 [U ]
+   0.100    7.548 × 10−5      –    9.877 × 10−5        –       1.156 × 10−2     –      1.450 × 10−2      –
+   0.050    4.689 × 10−6    4.009 5.806 × 10−6       4.088     1.418 × 10−3   3.027    1.735 × 10−3    3.063
+   0.020    1.199 × 10−7    4.001 1.461 × 10−7       4.019     9.031 × 10−5   3.005    1.097 × 10−4    3.013
+   0.010    7.494 × 10−9    4.000 9.109 × 10−9       4.004     1.128 × 10−5   3.001    1.369 × 10−5    3.002
+   0.005    4.686 × 10−10   3.999 5.713 × 10−10      3.995     1.410 × 10−6   3.000    1.710 × 10−6    3.001
+
+        Table 10. Spatial errors and rates of convergence based on E0 and E1 errors for r = 4
+        (Periodic problem, ∆t = ∆x/10)
+
+    ∆x          E0 [H]      R0 [H]    E0 [U ]        R0 [U ]      E1 [H]      R1 [H]      E1 [U ]      R1 [U ]
+   0.100    4.639 × 10−6      –    1.149 × 10−5        –       9.062 × 10−4     –      2.121 × 10−3      –
+   0.050    2.704 × 10−7    4.101 7.208 × 10−7       3.994     1.035 × 10−4   3.130    2.715 × 10−4    2.966
+   0.020    6.776 × 10−9    4.023 1.848 × 10−8       3.999     6.435 × 10−6   3.032    1.751 × 10−5    2.992
+   0.010    4.220 × 10−10   4.005 1.155 × 10−9       4.000     8.005 × 10−7   3.007    2.191 × 10−6    2.998
+   0.005    2.872 × 10−11   3.877 6.951 × 10−11      4.055     1.079 × 10−7   2.891    2.607 × 10−7    3.071
+
+
+    The convergence rates seem to follow the same pattern as in the case of reflective boundary conditions,
+and thus for odd values of r we observe the expected optimal behaviour in the L2 -norm. In addition to
+these errors, we also computed the errors and convergence rates for the homogenous periodic boundary
+value problem (11), (13) using the known, exact formula of the travelling wave solution (8) in the interval
+[a, b] = [−20, 20]. We integrate the specific initial-periodic boundary value problem until T = 10 using the
+relaxation Runge–Kutta method based on the explicit four-stage, fourth-order Runge–Kutta method with
+tableau (39). The time interval of the integration is adequate to allow the travelling wave to complete one
+period, and thus to test the boundary conditions as well. Our numerical simulation was stable for the whole
+time of integration even though the specific travelling wave is known to be unstable [13]. The results are
+almost identical to the non-homogenous case and the convergence rates (not shown here) agree with the
+convergence rates we presented in Tables 7–10.
+    We also computed the modified H 1 -errors (42). The experimental convergence rates are presented in
+Table 11 where we observe the same pattern in the rates as with the previous boundary-value problem.
+    In addition to the experimental convergence rates and errors we recorded the energy E(tn ; H n , U n ) and
+the mass M(tn ; H n ). Both quantities are conserved to within 15 decimal digits. Indicatively, we present
+the graphs of the errors in mass, energy and the relaxation parameter in Figure 1 in the cases of r = 1 and
+r = 3 with ∆x = 0.25. We observe that the errors are always less than 10−13 in the conserved quantities,
+independent of the choice of the degree of the piecewise polynomial in the finite element. The parameter
+                                                       14
+            Table 11. Spatial errors and rates of convergence based on Ẽ1 error (Periodic problem,
+            ∆t = ∆x/10)
+
+       ∆x        Ẽ1 [H]     R̃1 [H]    Ẽ1 [U ]       R̃1 [U ]      Ẽ1 [H]        R̃1 [H]    Ẽ1 [U ]    R̃1 [U ]
+                                   r=1                                                    r=2
+   0.100      3.954 × 10−1      –    4.800 × 10−1        –        1.394 × 10−2         –    6.711 × 10−2     –
+   0.050      1.001 × 10−1    1.982 1.216 × 10−1       1.982      3.630 × 10−3       1.941 1.660 × 10−2    2.015
+   0.020      1.608 × 10−2    1.995 1.951 × 10−2       1.997      6.116 × 10−4       1.944 2.647 × 10−3    2.004
+   0.010      4.022 × 10−3    1.999 4.880 × 10−3       1.999      1.543 × 10−4       1.987 6.615 × 10−4    2.001
+   0.005      1.006 × 10−3    2.000 1.220 × 10−3       2.000      3.865 × 10−5       1.997 1.653 × 10−4    2.000
+                                   r=3                                                    r=4
+   0.100      5.860 × 10−4      –    6.244 × 10−4        –        5.967 × 10−5         –    7.859 × 10−5     –
+   0.050      3.071 × 10−5    4.254 3.663 × 10−5       4.091      4.523 × 10−6       3.722 5.083 × 10−6    3.951
+   0.020      7.658 × 10−7    4.029 9.280 × 10−7       4.011      1.227 × 10−7       3.936 1.319 × 10−7    3.985
+   0.010      4.772 × 10−8    4.004 5.793 × 10−8       4.002      7.735 × 10−9       3.988 8.212 × 10−9    4.005
+   0.005      2.973 × 10−9    4.005 3.607 × 10−9       4.005      4.939 × 10−10      3.969 6.131 × 10−10   3.744
+
+
+
+γ n remains always close to 1, indicating in general the good conservation properties of the specific choice of
+Runge–Kutta method for the integration in time of such a problem.
+   Figure 2 presents the error in mass and energy obtained with the standard Galerkin method (16) and
+the classical Runge–Kutta scheme (without relaxation). We observe that using the same discretisation
+parameters as with the conservative method, the mass is conserved but the energy is increasing with time.
+In both cases the error in the energy conservation is quite large with accuracy to within 3 digits. In all
+cases where high-order elements were used, other floating-point errors arise, resulting in relatively large
+errors in the conserved quantities even though the errors in the solutions appear to be small. Note that the
+fully-discrete scheme based on the standard Galerkin method does not benefit from the use of the relaxation
+Runge–Kutta method since the spatial discretisation does not preserve the energy. Moreover, using the
+standard Galerkin method with cubic splines for the spatial discretisation, the conservation properties are
+much better than those reported here for both the conservative and non-conservative methods, [7]. In two-
+dimensional problems where Lagrange elements are practically the only choice, the new method can be of
+significant importance.
+
+
+4.3. Errors in the propagation of travelling waves. To further assess the efficiency of the new numerical
+method we study some error indicators relevant to the propagation of travelling waves, namely, the amplitude,
+shape and phase errors. For any timestep tn we define the (normalised) amplitude error as
+                                                       |H(x∗ (tn ), tn ) − H0 |
+(46)                                   Eamp (tn ) :=                            ,
+                                                               |H0 |
+where H(x, tn ) = H n is the fully discrete approximation of the free-surface elevation η at tn , H0 is the initial
+peak amplitude and x∗ (tn ) is the point where H(·, tn ) achieves its maximum. In order to find the value
+x∗ (tn ) we solve the equation dxd
+                                   H(x, tn ) = 0 using the bisection method. (In the case of piecewise linear
+             ∗ n
+functions x (t ) is always a node of the grid and so we do not use the bisection method). The bisection
+method is initiated with an interval of length 10 · ∆x.
+   Having the value x∗ (tn ) computed, we define the phase error that measures the error between the numer-
+ical approximation and the theoretical value of the phase speed cs of a solitary wave as
+(47)                                        Ephase := |x∗ (tn ) − cs tn |.
+The (normalised) shape error measures the difference in shape between the numerical solution and the exact
+travelling wave translated appropriately for best fit. The shape error with respect to the L2 norm is defined
+                                                           15
+                10 -15                                             10 -15
+       3                                                      4
+
+       0                                                      0
+
+       -3                                                    -4
+                     -13
+                10                                                 10 -14
+       1                                                      5
+
+       0                                                      0
+
+       -1                                                    -5
+                     -13                                                -13
+                10                                                 10
+       1                                                      1
+
+       0                                                      0
+
+       -1                                                    -1
+                     -6
+                10                                                 10 -6
+     7.9                                                     7.9
+
+
+
+
+     7.7                                                  7.8
+            0                                           10 0                                             10
+
+            Figure 1. Errors in the mass, energy and relaxation parameters for the conservative
+            Galerkin method with relaxation Runge–Kutta method of order 4, ∆t = ∆x/10
+
+
+as
+                                                                   kH(·, tn ) − η(·, s)k
+(48)                        Eshape (tn ) := min ζ(s),    ζ(s) :=                         ,
+                                            s                           kη(·, 0)k
+                                                                                                  d 2
+where the minimum of ζ(s) is found again using the bisection method for solving the equation ds     ζ (s) = 0
+                    n
+in the vicinity of t .
+   Note that for the bisection method we use a convergence tolerance of 10−10 for the absolute error. For
+the computation of the L2 norm we use the Gauss–Legendre numerical quadrature with three nodes in each
+subinterval.                                                                            √
+   We study the propagation of a classical solitary wave with moderate speed cs = 1.6 in the interval
+[−20, 20] and with periodic boundary conditions up to T = 1000. We generated the specific solitary wave
+using the Petviashvili method with cubic Lagrange elements P 3 (see Appendix A). In the case of linear or
+quadratic Lagrange elements, we used the L2 -projection of the solitary wave and its first derivative onto
+the appropriate finite element space. The reason for using the P 3 numerical solution for the travelling wave
+solution is because the accuracy of the derivative of the initial conditions can affect the accuracy of the
+conservative method. It also serves better for comparison purposes. The amplitude of the generated solitary
+wave is A ≈ 0.5919.
+                                                        16
+             10 -15                                                  10 -13
+     3                                                      3
+
+     0                                                      0
+
+    -3                                                      -3
+                  -14
+             10                                                      10 -12
+     2                                                      2
+
+
+
+
+    -2                                                      -2
+                  -3
+             10                                                      10 -3
+     5                                                      3
+
+
+
+
+     0                                                      0
+         0                                            10         0                                           10
+
+         Figure 2. Errors in the mass and energy, standard Galerkin method with classical Runge–
+         Kutta method of order 4, ∆t = ∆x/10
+
+
+
+   We recorded the previously mentioned error indicators for piecewise linear, quadratic and cubic Lagrange
+elements (P r , r = 1, 2, 3). For these experiments we consider a uniform spatial grid with ∆x = 0.1, while for
+the integration in time we considered ∆t = ∆x = 0.1. The propagation of the specific solitary wave is stable
+even for larger values of ∆t. For example, the propagation of the solitary wave with P 1 elements turns out
+to be unstable for ∆t > 10∆x while it remains stable for ∆t ≤ 10∆x. This observation indicates that the
+fully-discrete scheme remains in general stable without imposing restrictive stability conditions even for the
+conservative Galerkin method.
+   As the solitary wave travels to the right, several oscillations are shed to the left of the wave due to errors
+of the initial approximation and also due to error introduced by the fully-discrete scheme. By the time
+T = 100 the solitary wave has crossed the boundaries three times. The solitary wave profile is shown in
+Figures 3(a) and (b) for T = 100. In these figures it is hard to observe differences between the solutions. We
+are only able to observe differences and the generation of the various trailing tails in a magnification of the
+solitary wave at around the rest position of the free surface. These oscillations become smaller by increasing
+the degree r of the elements or by decreasing the mesh length ∆x. For the specific values of ∆x and ∆t, the
+magnitude of the tails is less than 10−5 , which is much less than the expected error of order ∆xr .
+   In Figures 3(c) and (d) we observe that the tails generated by the two methods are almost identical in the
+cases r = 1 and r = 3, and they have magnitude less than 10−5 for the same values of ∆x and ∆t as before.
+In the case of r = 2 the tails were different and of twice the magnitude compared to the corresponding tails
+in the cases of r = 1 and r = 3. Since the cases with even values of r appear to be special cases that have
+not much to offer compared to the cases with odd values of r we do not show details of the results here and
+we focus only on the cases r = 1 and r = 3.
+   Apparently, the conservative Galerkin finite element method achieves better resolution for the propagation
+of a solitary wave even for the specific values of ∆x and ∆t compared to the non-conservative method by
+                                                       17
+ 0.7
+
+
+
+
+ -0.2
+
+         10 -5                                                          10 -5
+   1                                                             1
+
+
+
+
+  -1                                                             -1
+   -20                                                      20    -20                                           20
+
+
+
+                                                                       √
+                 Figure 3. The propagation of a solitary wave with cs = 1.6 and magnification of trailing
+                 tails. Periodic boundary conditions, T = 100, (∆x = ∆t = 0.1). Note the different y-axis
+                 scales in the lower figures.
+ 0.7
+
+
+
+
+ -0.2
+
+         10 -5
+   2
+
+
+
+   0
+
+
+
+  -2
+   -20                                                      20    -20                                           20
+
+
+
+                                                                        √
+                 Figure 4. The propagation of a solitary wave with cs = 1.6 and magnification of trailing
+                 tails. Periodic boundary conditions, T = 1000, (∆x = ∆t = 0.1).
+
+T = 1000, as it is expected. In particular, the magnitude of the trailing tails grows with time if the non-
+conservative method is applied, as shown in Figure 4. This phenomenon is caused mainly by the dissipative
+hump generated at one end of the solitary pulse and in front of the rest of the dispersive tails, and can be
+observed when non-conservative methods are used [8, 21]. In order to observe the dissipative hump we ran
+a similar experiment as before where we considered the propagation of the same solitary wave (translated
+initially at x0 = −120) in the interval [−150, 150]. Figure 5 shows magnifications to the trailing dispersive
+tails and the dissipative humps before they start interacting with the solitary pulse. Although the dispersive
+tails in the conservative and non-conservative methods are very similar, the dissipative hump can be observed
+only in the non-conservative method. The dissipative hump always remains attached to the solitary pulse
+and grows in length with time, dissipating the mass and the energy of the solitary wave to the rest of the
+domain.
+   It is worth mentioning that the accuracy of the derivative of the initial condition w̃(x, 0) is crucial for the
+accuracy in the propagation of the solitary waves. The magnitude of the tails indicates analogous magnitude
+of errors in amplitude and shape. These errors are zero initially as we compare with the initial condition
+(translated by cs t units) and are increasing until they reach approximately a plateau where they become
+                                                            18
+                  Table 12. Mean value of Eamp , Ephase  √ , Eshape for t ∈ [80, 100] in the propagation of a
+                  classical solitary wave with speed cs = 1.6, (∆x = ∆t, T = 100); (a) conservative Galerkin,
+                  (b) standard Galerkin
+
+   (a) Conservative Galerkin
+          r = 1, piecewise linear polynomials                                     r = 2, piecewise quadratic polynomials
+   ∆x     Eamp            Ephase          Eshape                              Eamp            Ephase          Eshape
+                      −4              −2
+   0.1    2.7351 × 10     2.4913 × 10     1.8112 × 10−4                       3.8778 × 10 −5
+                                                                                              1.5362 × 10−4
+                                                                                                              3.4944 × 10−5
+   0.05   6.6823 × 10−5 1.2492 × 10−2 4.5165 × 10−5                           9.5895 × 10−6 1.8518 × 10−5 8.6722 × 10−6
+   0.025 1.6610 × 10−5 6.2509 × 10−3 1.1296 × 10−5                            2.4218 × 10−6 3.9029 × 10−6 2.2284 × 10−6
+                                            r = 3, piecewise cubic polynomials
+                                    ∆x      Eamp            Ephase         Eshape
+                                    0.1     8.1121 × 10−6 1.4479 × 10−4 9.0861 × 10−6
+                                    0.05    4.7310 × 10−7 7.1440 × 10−6 6.2001 × 10−7
+                                    0.025   2.3526 × 10−8 3.6515 × 10−7 3.4356 × 10−7
+   (b) Standard Galerkin
+           r = 1, piecewise linear polynomials                                    r = 2, piecewise quadratic polynomials
+   ∆x      Eamp            Ephase          Eshape                             Eamp            Ephase          Eshape
+                       −4              −2
+   0.1     8.8025 × 10     2.5331 × 10     9.1723 × 10−4                      2.2471 × 10 −5
+                                                                                              2.7796 × 10−4
+                                                                                                              1.8906 × 10−5
+                       −5              −2
+   0.05    6.7293 × 10     4.5788 × 10     5.5322 × 10−5                      8.3509 × 10 −7
+                                                                                              9.7556 × 10−6
+                                                                                                              1.0418 × 10−6
+   0.025 1.6622 × 10−5 3.1229 × 10−2 1.3839 × 10−5                            3.3815 × 10−8 5.2705 × 10−7 3.9631 × 10−7
+                                            r = 3, piecewise cubic polynomials
+                                    ∆x      Eamp            Ephase         Eshape
+                                                        −5              −5
+                                    0.1     2.2249 × 10     1.8299 × 10    2.7805 × 10−4
+                                    0.05    8.2113 × 10−7 9.7529 × 10−6 8.5842 × 10−7
+                                    0.025   3.2946 × 10−8 4.2946 × 10−7 3.8875 × 10−7
+
+ 0.7                                                                   0.7
+
+
+
+
+ -0.2                                                                  -0.2
+
+
+
+             -6                                                                    -6
+        10                                                                    10
+   2                                                                     2
+
+
+
+
+  -2                                                                    -2
+   -150                                                     150          -150                                                   150
+
+
+
+                                                                                        √
+                  Figure 5. The propagation of a solitary wave with cs =                    1.6 and the formation of trailing
+                  tails in [−150, 150] at T = 200, with ∆x = ∆t = 0.1.
+
+
+oscillatory (at least in the conservative case). The phase error is always increasing due to the numerical error
+                                                                  19
+                            √ of invariants M, I, H, E, in the propagation of a classical solitary
+        Table 13. Conservation
+        wave with speed cs = 1.6, (∆x = ∆t, T = 100); (a) conservative Galerkin, (b) standard
+        Galerkin
+
+                 (a) Conservative Galerkin
+                        r = 1, piecewise linear polynomials
+                 ∆x     EM                EI              EH                   EE
+                                    −15              −15
+                 0.1    6.2172 × 10       4.2188 × 10     1.2656 × 10−7        1.8874 × 10−15
+                 0.05   1.4211 × 10−14 9.3259 × 10−15 8.1135 × 10−9            3.3307 × 10−15
+                 0.025 1.5987 × 10−14 8.2157 × 10−15 5.1039 × 10−10            4.7740 × 10−15
+                          r = 2, piecewise quadratic polynomials
+                 ∆x       EM               EI              EH                 EE
+                 0.1      7.5495 × 10−15 4.2188 × 10−15 2.2095 × 10−6         1.8874 × 10−15
+                 0.05     3.5083 × 10−14 2.2427 × 10−14 5.5608 × 10−7         3.2196 × 10−15
+                 0.025    5.9064 × 10−14 5.3069 × 10−14 1.3909 × 10−7         4.9960 × 10−15
+                          r = 3, piecewise cubic polynomials
+                 ∆x       EM               EI               EH                 EE
+                                      −14             −14
+                 0.1      3.1974 × 10      2.9088 × 10      2.6408 × 10−11     2.8866 × 10−15
+                 0.05     5.6399 × 10−14 5.4179 × 10−14 1.1535 × 10−13         3.7748 × 10−15
+                 0.025    1.4655 × 10−13 1.2945 × 10−13 5.9952 × 10−15         4.7740 × 10−15
+                  (b) Standard Galerkin
+                          r = 1, piecewise linear polynomials
+                  ∆x      EM                EI              EH                 EE
+                                      −14               −15
+                  0.1     1.1546 × 10       7.5495 × 10     1.7655 × 10−5      2.2332 × 10−5
+                  0.05    6.2617 × 10−14 5.2847 × 10−14 5.5643 × 10−7          7.0383 × 10−7
+                  0.025 9.6367 × 10−14 8.0602 × 10−14 1.7425 × 10−8            2.2046 × 10−8
+                          r = 2, piecewise quadratic polynomials
+                  ∆x      EM               EI              EH                  EE
+                                      −14              −14
+                  0.1     3.7303 × 10      3.3973 × 10     1.7782 × 10−5       2.2493 × 10−5
+                                      −13              −13
+                  0.05    1.2745 × 10      1.1036 × 10     5.5743 × 10−7       7.0509 × 10−7
+                  0.025   3.2907 × 10−13 2.8866 × 10−13 1.7437 × 10−8          2.2056 × 10−8
+                          r = 3, piecewise cubic polynomials
+                  ∆x      EM               EI               EH                 EE
+                                      −13              −13
+                  0.1     8.8107 × 10      7.2564 × 10      1.7782 × 10−5      2.2493 × 10−5
+                  0.05    1.6684 × 10−12 1.3574 × 10−12 5.5743 × 10−7          7.0510 × 10−7
+                  0.025   3.5998 × 10−12 2.9947 × 10−12 1.7439 × 10−8          2.2059 × 10−8
+
+
+
+in the speed of the travelling wave. In Table 12 we present the mean values over the time interval [80, 100]
+of the amplitude, phase and shape errors.
+   We observe that the errors are decreasing as we increase the number of elements (decreasing ∆x) and
+also as we increase the degree of the elements r. In the case of piecewise linear elements the phase error
+remained of the same order of magnitude when we chose different values of ∆x indicating that the error
+in the phase speed is independent of the grid size. Finally, it is noted that the errors are smaller with the
+conservative method compared to the standard Galerkin method at least up to T = 1000 with the exception
+of the case of quadratic Lagrange elements. The situation for r = 2 is similar but the trailing tails are larger
+                                                       20
+than the expected ones and thus the errors are also larger. This is perhaps again due to the choice of the
+initial condition. On the other hand, the orders of magnitude of the errors are the same for the two methods,
+indicating similarity in the propagation of travelling waves for small time scales.
+   In all the experiments conserning the propagation of a classical solitary wave we considered the con-
+servation of the invariants M, I, H and E. Table 13 shows the errors EM , EI , EH and EE defined as
+EK := maxn |K(tn ) − K(t0 )|, where K is one of M, I, H, E. We observe that the conservative method
+conserves successfully the expected conserved quantities. The standard Galerkin method obviously does
+not conserve the total energy E although the errors in the computed energy are small. It is interesting,
+that although the quantity H is conserved by the standard Galerkin method but not by the conservative
+Galerkin method, the Runge–Kutta method does not preserve it and thus it is not preserved by either of
+the two fully-discrete methods. The approximations obtained by the conservative Galerkin method are more
+accurate, while in the case of cubic Lagrange polynomials the accuracy of this particular quantity is as if
+it were conserved by the numerical method. As we shall see soon this was a coincidence. A combination
+of the standard Galerkin method with an appropriate relaxation Runge–Kutta method could result in a
+fully-discrete scheme conserving the quantity H when we consider periodic boundary conditions. Since the
+particular quantity cannot be used in the case of other boundary conditions we refrain from using such a
+combination.
+   One of the advantages of the conservative method is the conservation of the invariants for simulations
+over long time intervals. Letting the solitary wave travel until T = 1000 using the interval [−20, 20] we
+recorded the various errors and invariants. The errors of the conservative method are compared against the
+corresponding errors of the standard Galerkin method in Figure 6 where the amplitude, phase and shape
+errors are presented in the case of cubic Lagrange elements until T = 1000. After an initial increase the
+amplitude and shape errors are stabilised while the phase error increases linearly with time in the case of
+the conservative Galerkin method in contrast with the standard Galerkin method, where the increase seems
+to be at least of quadratic order. The errors are in general oscillatory, and in the case of linear elements
+the errors are highly oscillatory and averaging leads to the same observations. A similar behaviour has
+been observed in the study of the propagation of a solitary wave governed by the KdV equation using a
+conservative discontinuous Galerkin method [11].
+
+                            √ of invariants M, I, H, E in the propagation of a classical solitary
+        Table 14. Conservation
+        wave with speed cs = 1.6, (∆x = ∆t = 0.1, T = 1000)
+
+    Method                            EM                EI                EH                EE
+    Conservative Galerkin (r = 1)     1.2879 × 10−14    8.6597 × 10−15    2.3305 × 10−9     2.9976 × 10−15
+    Standard Galerkin (r = 1)         1.4655 × 10−14    8.6597 × 10−15    1.7631 × 10−4     2.2301 × 10−4
+    Conservative Galerkin (r = 3)     2.7534 × 10−13    2.4225 × 10−13    3.0492 × 10−11    3.4417 × 10−15
+    Standard Galerkin (r = 3)         8.4475 × 10−12    6.8885 × 10−12    1.7758 × 10−4     2.2462 × 10−4
+
+   The conservation of the quantities M, I, H and E is very similar across the various experiments. The
+corresponding errors are presented in Table 13 with some differences shown in Table 14. The conserved
+quantities remain almost the same with the exception of loosing 1 digit in some cases. Therefore, the
+conservative method can preserve the amplitude and shape of solitary waves during their propagation over
+long time intervals. Note that the values of γ n for r = 1 satisfied 5.472 × 10−6 < γ n − 1 < 5.473 × 10−6 while
+for r = 3 the respective interval was 2.145 × 10−8 < γ n − 1 < 2.146 × 10−8 . Thanks to the conservation of
+the energy, it is expected that the specific conservative method leads to accurate numerical results in more
+general situations related to the propagation of solitary waves. Such an example is the interaction of two
+solitary waves travelling in the same direction. The particular experiment is described in the next section.
+
+                                        5. Numerical experiments
+   In this section we repeat well-known numerical experiments for nonlinear and dispersive waves, and we
+study the conservation properties of the new scheme. In particular, we considered the following cases: (i)
+the overtaking collision of two solitary waves and (ii) the reflection of a solitary wave by a vertical wall.
+                                                       21
+                     -4
+                10
+      2.0
+
+
+
+
+      0.0
+
+    0.02
+
+
+
+
+        0
+
+                10 -4
+      1.5
+
+
+
+
+        0
+            0                                                                                            1000
+
+
+            √ 6. Amplitude, phase and shape errors for the propagation of a solitary wave with
+        Figure
+        cs = 1.6 up to T = 1000, with ∆x = ∆t = 0.1.
+
+
+The first experiment is challenging as it involves integration in a long temporal interval (thus conservation
+of energy should be important) and also during the interaction of solitary waves it is known that various
+small-amplitude structures can develop, such as dispersive tails and N-shaped wavelets [7].
+
+5.1. Overtaking collision of two solitary waves. We first consider the interaction of two solitary waves
+travelling in the same direction. The two solitary waves, generated using the Petviashvili method as it is
+described in Appendix A, have phase speeds cs = 1.6 and 1.4, respectively. It is known that various small-
+amplitude dispersive tails emerge after the interaction of solitary waves, which then travel in both directions,
+[7]. The resolution of the grid with ∆x = 0.1 is adequate to capture the complete picture of the interaction
+with high resolution and without polluting the solution with small amplitude numerical artefacts.
+    Figure 7 presents snapshots before, during and after the interaction of the two solitary waves at t =
+0, 240.01, 140.01, 465.02 (times rounded to two decimal digits) with Lagrange elements P 1 and P 3 (∆x =
+∆t = 0.1). We observe that the specific discretisation parameters were adequate to describe all of the small-
+amplitude waves generated by the interaction of the two travelling waves. The interaction as approximated
+with the conservative Galerkin method with linear elements appears to have acceptable resolution and
+comparable to the case of cubic elements with the same values ∆x = ∆t = 0.1. It has been observed in [7]
+that in the case of finite element spaces with cubic splines the trailing tails are of negligible order of 10−10
+for ∆x = 0.1.
+                                                       22
+        Figure 7. Overtaking collision of two solitary waves with speeds cs = 1.6 and 1.4 and mag-
+        nifications of trailing tails, subject to periodic boundary conditions, using the conservative
+        Galerkin method.
+
+   The values of the conserved quantities are shown in Table 15. The conserved quantities agree to almost
+all digits, except for the energy because the first derivative of the initial condition differs between r = 1 and
+r = 3. The errors in the conserved quantities are presented also in Table 15. It is easily observed that the
+errors of the conserved quantities in the case of r = 1 have the same order as those with r = 3.
+        Table 15. Conserved invariants M, I, H, E and their errors, during the interaction of two
+        solitary waves with cs = 1.6 and 1.2 respectively, (∆x = ∆t = 0.1, T = 600). Periodic
+        boundary conditions, conservative Galerkin method
+
+                 Pr      M                  I              H                   E
+                 r=1     5.587664655393     4.776980337400 3.711               5.02174343002
+                 r=3     5.58766465539      4.77698033740 3.7115               5.0217441007
+                 Pr      EM                 EI             EH                  EE
+                 r=1     7.7272 × 10−14     7.2831 × 10−14
+                                                           2.0891 × 10−4       2.7445 × 10−12
+                 r=3     5.4623 × 10−13     4.3610 × 10−13
+                                                           8.0327 × 10−5       2.3537 × 10−12
+
+   In these experiments the values of γ n remained bounded in the interval 4.090×10−6 < γ n −1 < 4.205×10−5
+with differences after the fourth decimal digit for both r = 1 and r = 3. It is important to note that the
+initial conditions are generated in P 3 and then interpolated into the space P 1 . This observation is crucial
+because using different approximations to the initial conditions will lead to different errors.
+                                                       23
+5.2. Solitary wave reflection by vertical wall. Hitherto we have been concerned with the conservation
+properties of classical solitary waves in the case of periodic boundary conditions. In this section we study
+the conservation of mass and energy in the case of the reflection of a classical solitary wave by a vertical wall.
+The quantity I is not preserved by the solution of the BBM-BBM system in the case of reflective boundary
+conditions (ηx = u = 0). Because the reflection of a solitary wave by a vertical wall is equivalent to the
+head-on collision of the same solitary wave with its symmetric image (propagating in the opposite direction)
+about the wall, we expect that the conservation properties will be very similar to the periodic case.
+   In this experiment we generate a right-travelling solitary wave with phase speed cs = 1.6 in the interval
+[−40, 40]. Because our numerical method is practically a mixed Galerkin method, Neumann boundary
+conditions are essential and are enforced explicitly. In both cases of P r elements with r = 1 and r = 3 we
+use ∆x = ∆t = 0.1. Figure 8 presents a graphical comparison of the two methods for the reflection of the
+solitary wave. We observe that the specific values we used for the discretisation parameters are adequate to
+capture the reflection with high accuracy. The small artificial tails generated due to the approximation of the
+initial conditions are negligible compared to the tails generated because of the interaction of the travelling
+wave with the vertical wall.
+     2
+
+
+
+
+  -0.2
+
+
+ 0.01
+
+
+
+
+ -0.01
+
+
+     2
+
+
+
+
+  -0.2
+
+
+ 0.01
+
+
+
+
+ -0.01
+     -40                                              40        -40                                             40
+
+
+
+
+           Figure 8. Reflection of a solitary wave with speed cs = 1.6 by a vertical wall and magni-
+           fications of trailing tails. Reflective boundary conditions
+
+   The quantities M and E are presented in Table 16. The quantities I and H are not preserved even by
+the exact solution, and thus are not reported here. The conserved quantities have similar accuracy as in the
+periodic case and the reflective boundary conditions do not interfere with the conservation properties of the
+method. The errors in these quantities are also presented in Table 16.
+   Note that for r = 1 and r = 3 the values of γ n where very similar and remained bounded in the same
+interval 6.447 × 10−6 < γ n − 1 < 6.346 × 10−5 .
+                                                           24
+        Table 16. Conserved invariants M, E and their errors during the reflection of a solitary
+        wave with speed cs = 1.6, (∆x = ∆t = 0.1, T = 50). Reflective boundary conditions,
+        conservative Galerkin method
+
+               Pr    M               E               EM                         EE
+               r = 1 3.8787933082344 4.4967420062505 8.8818 × 10−15             1.5987 × 10−14
+               r = 3 3.8787933082344 4.4967426642502 3.8192 × 10−14             1.5099 × 10−14
+
+
+
+                                              6. Conclusions
+    A new fully-discrete scheme for the regularised shallow water Boussinesq system of equations was studied
+in the cases of periodic and reflective boundary conditions. The new numerical method is based on a
+mixed Galerkin finite element semidiscretisation in space and a relaxation Runge–Kutta method in time.
+Experimental studies of the spatial convergence rates reveal an unusual even/odd dichotomy, where optimal
+rates are observed only for piecewise polynomials of odd degree on spatially uniform grids. Due to the nature
+of the mixed finite element method, superconvergence is observed for the approximation in the H 1 norm.
+The new numerical method appears to have similar stability properties while achieving better accuracy
+compared to its non-conservative standard Galerkin counterpart. The main advantage of the new method
+is the conservation of the total energy functional and its potential for generalisation to multiple dimensions.
+Moreover, a study of the propagation of classical solitary waves shows that the numerical solitary waves can
+travel almost without changing shape over long time intervals by using the new conservative method. The
+dissipative hump that can be observed in the propagation of a solitary wave when nonconservative methods
+are used is not observed with the new conservative method. The new method performs very well even when
+we use low-order finite element methods with coarse grids. This makes the conservative method desirable
+for long-time simulations and especially when good conservation properties are required by the numerical
+scheme. The quality of the conservation of the total energy is not affected by the choice of the boundary
+conditions.
+
+
+                                  Appendix A. Petviashvili iteration
+   Although Boussinesq systems of BBM-BBM type are known to possess classical solitary waves [12, 16],
+there are no known closed-form solution formulas for such systems. For this reason computational methods
+are usually employed to generate solutions numerically. In this paper we consider the Petviashvili method
+[29]. The Petviashvili method is a modified fixed point algorithm for solving nonlinear equations, originally
+derived for computing travelling wave solutions. Assuming that the solution of (11) is a travelling wave of
+speed cs > 1 which satisfies the ansatz
+(49)                                  η(x, t) = η(ξ),        u(x, t) = u(ξ),
+with ξ = x − cs t − x0 , x0 ∈ R, substitution in (11) implies that
+                                                      
+                                                   1
+                                        − cs η − ηξξ + (1 + η)u = 0,
+                                                   6
+(50)                                                   
+                                                   1            1
+                                        − cs η − uξξ + η + u2 = 0.
+                                                   6            2
+System (50) is then written in the form
+(51)                                            Lw = N (w),
+where w = (η, u)T ,
+                                                          
+                          cs 1 − 61 ∂ξ2
+                                                                                       !
+                                                   1                             ηu
+(52)                   L=                                     and N (w) =    1 2
+                                                                                           .
+                               1             cs 1 − 16 ∂ξ2                       2u
+
+                                                        25
+The Galerkin finite element method for solving (51), (52) is the following. Let Sh be one of the spaces
+Ppr × Ppr or P r × P0r ; seek an approximation wh = (ηh , uh )T ∈ Sh such that
+(53)                                Lh (wh , χ) = (N (wh ), χ),          for all   χ ∈ Sh ,
+where
+                                         1                                    1
+(54)             Lh (w, χ) := cs (η, φ) + cs (ηξ , φξ ) − (w, φ) + cs (w, χ) + cs (wξ , χξ ) − (η, χ),
+                                         6                                    6
+                  T                                                 0
+for all w = (η, u) ∈ Sh and χ ∈ Sh . Given an initial guess wh for wh , the Petviashvili iteration for solving
+the nonlinear system of equations (53), (54) is then defined as
+(55)                     Lh (whn+1 , χ) = Mnγ (N (whn ), χ),        for all   χ ∈ Sh ,   n = 0, 1, . . . ,
+where Mn is defined as
+                                                          Lh (whn , whn )
+                                                 Mn :=                    .
+                                                         (N (whn ), whn )
+As an initial guess wh0 for the approximation of the solution wh we consider the L2 -projection of a p  solitary
+                                                                                         √
+wave of the form (η 0 (ξ), u0 (ξ))T = (A sech2 (λξ), cs η 0 (ξ)/(1 + η 0 (ξ)), with cs := 1 + A and λ := 3A/4.
+The exponent γ can be any number in the interval [1, 3]. As a stopping criterion for the Petviashvili iteration
+we took
+                                           |Lh (whn , whn ) − (N (whn ), whn )|
+                                    Rn :=                                       < δ,
+                                                         kwhn k2
+corresponding to the normalised residual Rn in the n-th iteration falling below an appropriate prescribed
+tolerance δ. In all the experiments considered in this paper we took γ = 2 and δ = 10−10 .
+
+
+               1.7
+
+
+
+
+              -0.2
+                 -40                                                                                              40
+
+
+                 0
+
+
+
+
+               -11
+                     1                                                                                       38
+
+
+        Figure 9. Generation of a solitary wave with speed cs = 1.6 using the Petviashvili method.
+        Top panel: solution (η, u); bottom panel: logarithm of the residual Rn
+                                                               26
+   We demonstrate the convergence of the Petviashvili method by generating a solitary wave with phase
+speed cs = 1.6 in the interval [−40, 40] with both periodic and reflective boundary conditions. Figure 9
+depicts the solution generated and the logarithm of the residual versus iteration number. The results for
+cubic and linear elements coincide and also the different boundary conditions had no effect on the convergence
+to the solution. In all cases considered 38 iterations were required to ensure that |Rn | ≤ 10−10 . On the
+other hand, although the convergence appears to be very similar for cubic and linear elements, including the
+residuals, the resolution of the numerical solution with cubic elements is better since the derivatives have
+been approximated with higher accuracy.
+
+                                                      References
+ [1] M. Ainsworth. Dispersive behaviour of high order finite element schemes for the one-way wave equation. J. Comp. Phys.,
+     259:1–10, 2014.
+ [2] M. Ainsworth and H. A. Wajid. Dispersive and dissipative behavior of the spectral element method. SIAM J. Numer.
+     Anal., 47:3910–3937, 2009.
+ [3] A. Alazman, J. Albert, J. Bona, M. Chen, and J. Wu. Comparisons between the BBM equation and a Boussinesq system.
+     Adv. Differential Equations, 11:121–166, 2006.
+ [4] M. Alnaes, J. Blechta, J. Hake, A. Johansson, B. Kehlet, A. Logg, C. Richardson, J. Ring, M. Rognes, and G. Wells. The
+     FEniCS Project Version 1.5. Archive of Numerical Software, 3(100):9–23, 2015.
+ [5] D. Antonopoulos, V. Dougalis, and D. Mitsotakis. Initial-boundary value problems for the Bona-Smith family of Boussinesq
+     systems. Adv. Differential Equations, 14:27–53, 2009.
+ [6] D. Antonopoulos, V. Dougalis, and D. Mitsotakis. Galerkin approximations of periodic solutions of Boussinesq systems.
+     Bulletin of the Hellenic Mathematical Society, 57:13–30, 2010.
+ [7] D. Antonopoulos, V. Dougalis, and D. Mitsotakis. Numerical solution of Boussinesq systems of the Bona-Smith family.
+     Applied numerical mathematics, 60:314–336, 2010.
+ [8] A. Araújo and A. Durán. Error propagation in the numerical integration of solitary waves. The regularized long wave
+     equation. Applied numerical mathematics, 36:197–217, 2001.
+ [9] T.B. Benjamin. Impulse, flow force and variational principles. IMA Journal of applied Mathematics, 32:3–68, 1984.
+[10] D. Boffi, F. Brezzi, and M. Fortin. Mixed finite element methods and applications, volume 44. Springer-Verlag Berlin
+     Heidelberg, 2013.
+[11] J. Bona, H. Chen, O. Karakashian, and Yu. Xing. Conservative, discontinuous Galerkin methods for the generalized
+     Korteweg-de Vries equation. Math. Comp., 82(283):1401–1432, 2013.
+[12] J. Bona and M. Chen. A Boussinesq system for two-way propagation of nonlinear dispersive waves. Physica D: Nonlinear
+     Phenomena, 116:191–224, 1998.
+[13] J. Bona and M. Chen. Singular solutions of a Boussinesq system for water waves. J. Math. Study, 49:205–220, 2016.
+[14] J. Bona, M. Chen, and J.-C. Saut. Boussinesq equations and other systems for small-amplitude long waves in nonlinear
+     dispersive media. i: Derivation and linear theory. J.Nonlin. Sci., 12:283–318, 2002.
+[15] J. Bona, M. Chen, and J.-C. Saut. Boussinesq equations and other systems for small-amplitude long waves in nonlinear
+     dispersive media: II. The nonlinear theory. Nonlinearity, 17:925–952, 2004.
+[16] M. Chen. Exact traveling-wave solutions to bidirectional wave equations. International Journal of Theoretical Physics,
+     37:1547–1567, 1998.
+[17] M. Chen. Solitary-wave and multi-pulsed traveling-wave solutions of boussinesq systems. Applicable Analysis, 75:213–240,
+     2000.
+[18] V. Dougalis and D. Mitsotakis. Theory and numerical analysis of boussinesq systems: A review. In N. Kampanis, V. Dou-
+     galis, and J. Ekaterinaris, editors, Effective Computational Methods in Wave Propagation, pages 63–110. CRC Press,
+     2008.
+[19] A. Durán, D. Dutykh, and D. Mitsotakis. On the multi-symplectic structure of Boussinesq-type systems. I: Derivation and
+     mathematical properties. Physica D: Nonlinear Phenomena, 388:10–21, 2019.
+[20] A. Durán, D. Dutykh, and D. Mitsotakis. On the multi-symplectic structure of Boussinesq-type systems. II: Geometric
+     discretization. Physica D: Nonlinear Phenomena, 397:1–16, 2019.
+[21] A. Durán and M.A. López-Marcos. Conservative numerical methods for solitary wave interactions. J. Phys. A: Math. Gen.,
+     36:7761–7770, 2003.
+[22] D. Dutykh, T. Katsaounis, and D. Mitsotakis. Finite volume schemes for dispersive wave propagation and runup. J. Comp.
+     Phys., 230:3035–3061, 2011.
+[23] J. Guzmán and B. Rivière. Sub-optimal convergence of non-symmetric discontinuous Galerkin methods for odd polynomial
+     approximations. J. Sci. Comput., 40:273–280, 2009.
+[24] T. Katsaounis, D. Mitsotakis, and G. Sadaka. Boussinesq-Peregrine water wave models and their numerical approximation.
+     J. Comp. Phys., 417:109579, 2020.
+[25] D. Ketcheson. Relaxation Runge-Kutta methods: Conservation and stability for inner-product norms. SIAM J. Numer.
+     Anal., 57:2850–2870, 2019.
+[26] G. Khakimzyanov, D. Dutykh, Z. Fedotova, and D. Mitsotakis. Dispersive shallow water wave modelling. Part I: Model
+     derivation on a globally flat space. Commun. Comput. Phys., 23:1–29, 2018.
+                                                             27
+[27] Y. Liu, C.-W. Shu, and M. Zhang. Sub-optimal convergence of discontinuous Galerkin methods with central fluxes for even
+     degree polynomial approximations. arXiv preprint arXiv:2001.03825, 2020.
+[28] B. Pelloni and V. Dougalis. Numerical modelling of two-way propagation of non-linear dispersive waves. Math. Comp.
+     Simul., 55:595–606, 2001.
+[29] V.I. Petviashvili. Equation of an extraordinary soliton(ion acoustic wave packet dispersion in plasma). Sov. J. Plasma
+     Phys., 2:257–258, 1976.
+[30] H. Ranocha, L. Dalcin, and M. Parsani. Fully-discrete explicit locally entropy-stable schemes for the compressible Euler
+     and Navier-Stokes equations. Computers and Mathematics with Applications, 80(5):1343–1359, 07 2020.
+[31] H. Ranocha and D. Ketcheson. Relaxation Runge-Kutta methods for Hamiltonian problems. Journal of Scientific Com-
+     puting, 84(1), 07 2020.
+[32] H. Ranocha, L. Lóczi, and D. Ketcheson. General relaxation methods for initial-value problems with application to multistep
+     schemes. Numerische Mathematik, 146:875–906, 10 2020.
+[33] H. Ranocha, D. Mitsotakis, and D. Ketcheson. A broad class of conservative numerical methods for dispersive wave
+     equations. Submitted, 2020.
+[34] H. Ranocha, M. Sayyari, L. Dalcin, M. Parsani, and D. Ketcheson. Relaxation Runge-Kutta methods: Fully-discrete explicit
+     entropy-stable schemes for the compressible Euler and Navier-Stokes equations. SIAM Journal on Scientific Computing,
+     42(2):A612–A638, 03 2020.
+[35] J. C. Xavier, M. A. Rincon, D. G. Alfaro Vigo, and D. E. Amundsen. Stability analysis for a fully discrete spectral scheme
+     for Boussinesq systems. Applicable Analysis, 97:610–632, 2018.
+[36] M. Zennaro. Natural continuous extensions of Runge-Kutta methods. Math. Comp., 46:119–133, 1986.
+
+
+  D. Mitsotakis: Victoria University of Wellington, School of Mathematics and Statistics, PO Box 600, Welling-
+ton 6140, New Zealand
+  Email address: dimitrios.mitsotakis@vuw.ac.nz
+
+  H. Ranocha: King Abdullah University of Science and Technology (KAUST), Computer Electrical and Math-
+ematical Science and Engineering Division (CEMSE), Thuwal, 23955-6900, Saudi Arabia
+  Email address: mail@ranocha.de
+
+  D. I. Ketcheson: King Abdullah University of Science and Technology (KAUST), Computer Electrical and
+Mathematical Science and Engineering Division (CEMSE), Thuwal, 23955-6900, Saudi Arabia
+  Email address: david.ketcheson@kaust.edu.sa
+
+   E. Süli: University of Oxford, Mathematical Institute, Oxford OX2 6GG, UK
+   Email address: Endre.Suli@maths.ox.ac.uk
+
+
+
+
+                                                               28
+

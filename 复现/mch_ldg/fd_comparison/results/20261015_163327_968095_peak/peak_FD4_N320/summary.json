@@ -1,0 +1,44 @@
+{
+  "config": {
+    "case": "5.4",
+    "left": -20.0,
+    "right": 20.0,
+    "kappa": 0.0,
+    "T": 5.0,
+    "dt": 0.00025,
+    "offset": 0.0,
+    "alpha": 0.5,
+    "order": 4,
+    "n": 320,
+    "id": "peak_FD4_N320"
+  },
+  "completed": false,
+  "failure": "overflow encountered in multiply",
+  "reached": 1.2930000000000144,
+  "last_diagnostic_time": 1.25,
+  "steps": 5172,
+  "evolution_and_diagnostic_seconds": 3.485865000009653,
+  "initial": {
+    "t": 0.0,
+    "energy": 3.0628058361336348,
+    "energy_loss": 0.0,
+    "energy_rate": 6.870723633521018e-15,
+    "mass_drift": 0.0,
+    "native_l2": 0.0,
+    "native_linf": 0.0
+  },
+  "final": {
+    "t": 1.25,
+    "energy": 45.144201497848954,
+    "energy_loss": -42.08139566171532,
+    "energy_rate": 1480.0650263767125,
+    "mass_drift": -3.1086244689504383e-15,
+    "native_l2": 1.6255588761752275,
+    "native_linf": 1.3672664410424475
+  },
+  "source_hashes": {
+    "run_suite.py": "9c270b927806bbc58ac4a10a8ea39a7e60ea2da8c6cfa8be5e8c9220d50d8444",
+    "fd.py": "7a9585ce62453c6c85b00304240e219e7f3d98bf5765518aa4974afe49a704cb",
+    "exact.py": "7308472290b4aa4c55d4eced75f91f2eeecf40f54721b9296ae1d020b8afba7e"
+  }
+}

@@ -1,0 +1,440 @@
+{
+  "status": "all exact finite checks passed",
+  "script_sha256": "f33944ce6a2f83bdd0d4901eb4a9153096d8ae20698450e84d4764198f57a132",
+  "sympy_version": "1.13.3",
+  "scope": "Ore differential identities and formal rational coefficients; no inverse spectral or time-flow theorem",
+  "factor_exchange": {
+    "identity": "(D-b-theta)(D-a)=(D-a-theta)(D-b)",
+    "theta": "(a-b)'/(a-b)",
+    "crossed_product_residuals": {
+      "0": "0",
+      "1": "0",
+      "2": "0"
+    },
+    "common_D_coefficient": "(-a(x)**2 + b(x)**2 - Derivative(a(x), x) + Derivative(b(x), x))/(a(x) - b(x))",
+    "constant_difference_before_theta_substitution": "-(a-b)' + theta*(a-b)",
+    "real_periodic_gap_mean_preserved": "Integral(theta)=log|gap(L)|-log|gap(0)|=0",
+    "complex_counterexample": "gap=exp(i*x), L=2*pi, theta=i, Integral(theta)=2*pi*i"
+  },
+  "generic_negative_part_matrix": [
+    {
+      "M": 1,
+      "all_first_M_negative_coefficients_match": true,
+      "max_p_index": 2
+    },
+    {
+      "M": 2,
+      "all_first_M_negative_coefficients_match": true,
+      "max_p_index": 4
+    },
+    {
+      "M": 3,
+      "all_first_M_negative_coefficients_match": true,
+      "max_p_index": 6
+    },
+    {
+      "M": 4,
+      "all_first_M_negative_coefficients_match": true,
+      "max_p_index": 8
+    },
+    {
+      "M": 5,
+      "all_first_M_negative_coefficients_match": true,
+      "max_p_index": 10
+    },
+    {
+      "M": 6,
+      "all_first_M_negative_coefficients_match": true,
+      "max_p_index": 12
+    }
+  ],
+  "uniform_antitriangle": [
+    {
+      "M": 1,
+      "determinant": "-c",
+      "expected_sign": -1,
+      "antidiagonal": "-c",
+      "below_antidiagonal_zero": true,
+      "recovered_Q": "D^1"
+    },
+    {
+      "M": 2,
+      "determinant": "-c**4",
+      "expected_sign": -1,
+      "antidiagonal": "c**2",
+      "below_antidiagonal_zero": true,
+      "recovered_Q": "D^2"
+    },
+    {
+      "M": 3,
+      "determinant": "c**9",
+      "expected_sign": 1,
+      "antidiagonal": "-c**3",
+      "below_antidiagonal_zero": true,
+      "recovered_Q": "D^3"
+    },
+    {
+      "M": 4,
+      "determinant": "c**16",
+      "expected_sign": 1,
+      "antidiagonal": "c**4",
+      "below_antidiagonal_zero": true,
+      "recovered_Q": "D^4"
+    },
+    {
+      "M": 5,
+      "determinant": "-c**25",
+      "expected_sign": -1,
+      "antidiagonal": "-c**5",
+      "below_antidiagonal_zero": true,
+      "recovered_Q": "D^5"
+    },
+    {
+      "M": 6,
+      "determinant": "-c**36",
+      "expected_sign": -1,
+      "antidiagonal": "c**6",
+      "below_antidiagonal_zero": true,
+      "recovered_Q": "D^6"
+    },
+    {
+      "M": 7,
+      "determinant": "c**49",
+      "expected_sign": 1,
+      "antidiagonal": "-c**7",
+      "below_antidiagonal_zero": true,
+      "recovered_Q": "D^7"
+    },
+    {
+      "M": 8,
+      "determinant": "c**64",
+      "expected_sign": 1,
+      "antidiagonal": "c**8",
+      "below_antidiagonal_zero": true,
+      "recovered_Q": "D^8"
+    },
+    {
+      "M": 9,
+      "determinant": "-c**81",
+      "expected_sign": -1,
+      "antidiagonal": "-c**9",
+      "below_antidiagonal_zero": true,
+      "recovered_Q": "D^9"
+    },
+    {
+      "M": 10,
+      "determinant": "-c**100",
+      "expected_sign": -1,
+      "antidiagonal": "c**10",
+      "below_antidiagonal_zero": true,
+      "recovered_Q": "D^10"
+    },
+    {
+      "M": 11,
+      "determinant": "c**121",
+      "expected_sign": 1,
+      "antidiagonal": "-c**11",
+      "below_antidiagonal_zero": true,
+      "recovered_Q": "D^11"
+    },
+    {
+      "M": 12,
+      "determinant": "c**144",
+      "expected_sign": 1,
+      "antidiagonal": "c**12",
+      "below_antidiagonal_zero": true,
+      "recovered_Q": "D^12"
+    }
+  ],
+  "nonconstant_exact_fractions": [
+    {
+      "M": 1,
+      "q_i": [
+        "x/100 + 1/100"
+      ],
+      "r_i": [
+        "x**2/50 - 97/150"
+      ],
+      "first_2M_Laurent_coefficients": [
+        "x**2/50 - x/100 - 197/300",
+        "-x**3/5000 - x**2/10000 - x/30 + 497/30000"
+      ],
+      "QP_equals_R_through_power_minus_M": true,
+      "finite_system_polynomial_residual_zero": true,
+      "exact_pointwise_recovery": [
+        {
+          "x": "0",
+          "determinant": "-197/300",
+          "recovered_q": [
+            "1/100"
+          ]
+        },
+        {
+          "x": "1/3",
+          "determinant": "-148/225",
+          "recovered_q": [
+            "1/75"
+          ]
+        }
+      ]
+    },
+    {
+      "M": 2,
+      "q_i": [
+        "x/100 + 1/100",
+        "x/50 + 1/50"
+      ],
+      "r_i": [
+        "x**2/50 + 209/450",
+        "3*x**2/100 - 391/300"
+      ],
+      "first_2M_Laurent_coefficients": [
+        "3*x**2/100 - x/50 - 397/300",
+        "-3*x**3/5000 + 99*x**2/5000 - 1547*x/15000 + 23441/45000",
+        "3*x**4/250000 - 171*x**3/250000 + 119*x**2/30000 - 6743*x/90000 + 168167/1125000",
+        "-3*x**5/12500000 + 243*x**4/12500000 - 1489*x**3/4687500 + 12601*x**2/2250000 - 1874809*x/112500000 + 11712191/112500000"
+      ],
+      "QP_equals_R_through_power_minus_M": true,
+      "finite_system_polynomial_residual_zero": true,
+      "exact_pointwise_recovery": [
+        {
+          "x": "0",
+          "determinant": "-26103433/81000000",
+          "recovered_q": [
+            "1/100",
+            "1/50"
+          ]
+        },
+        {
+          "x": "1/3",
+          "determinant": "-240463/843750",
+          "recovered_q": [
+            "1/75",
+            "2/75"
+          ]
+        }
+      ]
+    },
+    {
+      "M": 3,
+      "q_i": [
+        "x/100 + 1/100",
+        "x/50 + 1/50",
+        "3*x/100 + 3/100"
+      ],
+      "r_i": [
+        "x**2/50 - 373/1350",
+        "3*x**2/100 + 409/300",
+        "x**2/25 - 49/25"
+      ],
+      "first_2M_Laurent_coefficients": [
+        "x**2/25 - 3*x/100 - 199/100",
+        "-3*x**3/2500 + 297*x**2/10000 - 997*x/5000 + 44791/30000",
+        "9*x**4/250000 - 331*x**3/200000 + 30891*x**2/1000000 - 189609*x/1000000 + 1855243/27000000",
+        "-27*x**5/25000000 + 7257*x**4/100000000 - 51577*x**3/25000000 + 900127*x**2/50000000 - 723563*x/4500000 + 349892057/900000000",
+        "81*x**6/2500000000 - 28647*x**5/10000000000 + 1116553*x**4/10000000000 - 9287419*x**3/5000000000 + 331766057*x**2/15000000000 - 23403422513*x/270000000000 + 78257938687/270000000000",
+        "-243*x**7/250000000000 + 106569*x**6/1000000000000 - 2656359*x**5/500000000000 + 26274551*x**4/200000000000 - 5141557*x**3/2500000000 + 160598670487*x**2/9000000000000 - 1314796423961*x/13500000000000 + 4222291913639/27000000000000"
+      ],
+      "QP_equals_R_through_power_minus_M": true,
+      "finite_system_polynomial_residual_zero": true,
+      "exact_pointwise_recovery": [
+        {
+          "x": "0",
+          "determinant": "-19714852676557/196830000000000",
+          "recovered_q": [
+            "1/100",
+            "1/50",
+            "3/100"
+          ]
+        },
+        {
+          "x": "1/3",
+          "determinant": "-262076599/3075468750",
+          "recovered_q": [
+            "1/75",
+            "2/75",
+            "1/25"
+          ]
+        }
+      ]
+    },
+    {
+      "M": 4,
+      "q_i": [
+        "x/100 + 1/100",
+        "x/50 + 1/50",
+        "3*x/100 + 3/100",
+        "x/25 + 1/25"
+      ],
+      "r_i": [
+        "x**2/50 + 881/4050",
+        "3*x**2/100 - 3119/2700",
+        "x**2/25 + 203/75",
+        "x**2/20 - 157/60"
+      ],
+      "first_2M_Laurent_coefficients": [
+        "x**2/20 - x/25 - 797/300",
+        "-x**3/500 + 99*x**2/2500 - 604*x/1875 + 5518/1875",
+        "x**4/12500 - 751*x**3/250000 + 39751*x**2/750000 - 91983*x/250000 - 3509117/6750000",
+        "-x**5/312500 + 553*x**4/3125000 - 43949*x**3/9375000 + 1165073*x**2/18750000 - 14244073*x/42187500 + 616994701/506250000",
+        "x**6/7812500 - 1461*x**5/156250000 + 125159*x**4/375000000 - 242933*x**3/37500000 + 101119099*x**2/1687500000 - 394136177*x/1012500000 + 37911182321/50625000000",
+        "-x**7/195312500 + 227*x**6/488281250 - 981613*x**5/46875000000 + 1701167*x**4/3125000000 - 680424623*x**3/84375000000 + 19606872761*x**2/253125000000 - 52757570987*x/158203125000 + 67426179869/79101562500",
+        "x**8/4882812500 - 2171*x**7/97656250000 + 709523*x**6/585937500000 - 185738093*x**5/4687500000000 + 6796802381*x**4/8437500000000 - 67994504417*x**3/6328125000000 + 899051916197*x**2/10546875000000 - 51497882516357*x/126562500000000 + 29812179613403/42187500000000",
+        "-x**9/122070312500 + 1263*x**8/1220703125000 - 969047*x**7/14648437500000 + 76559371*x**6/29296875000000 - 35590051709*x**5/527343750000000 + 29969997857*x**4/25312500000000 - 168829548254*x**3/12359619140625 + 162571688691659*x**2/1582031250000000 - 690773313862601*x/1582031250000000 + 288789376052249/351562500000000"
+      ],
+      "QP_equals_R_through_power_minus_M": true,
+      "finite_system_polynomial_residual_zero": true,
+      "exact_pointwise_recovery": [
+        {
+          "x": "0",
+          "determinant": "70112362805251105597/269042006250000000000",
+          "recovered_q": [
+            "1/100",
+            "1/50",
+            "3/100",
+            "1/25"
+          ]
+        },
+        {
+          "x": "1/3",
+          "determinant": "38976120955272974191/201781504687500000000",
+          "recovered_q": [
+            "1/75",
+            "2/75",
+            "1/25",
+            "4/75"
+          ]
+        }
+      ]
+    }
+  ],
+  "marked_flags_and_wronskians": {
+    "uniform_cyclic_monodromy": [
+      {
+        "M": 1,
+        "all_kernel_dimensions": [
+          1
+        ],
+        "uniform_wronskians_checked": true
+      },
+      {
+        "M": 2,
+        "all_kernel_dimensions": [
+          1,
+          2
+        ],
+        "uniform_wronskians_checked": true
+      },
+      {
+        "M": 3,
+        "all_kernel_dimensions": [
+          1,
+          2,
+          3
+        ],
+        "uniform_wronskians_checked": true
+      },
+      {
+        "M": 4,
+        "all_kernel_dimensions": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "uniform_wronskians_checked": true
+      },
+      {
+        "M": 5,
+        "all_kernel_dimensions": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "uniform_wronskians_checked": true
+      },
+      {
+        "M": 6,
+        "all_kernel_dimensions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "uniform_wronskians_checked": true
+      },
+      {
+        "M": 7,
+        "all_kernel_dimensions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "uniform_wronskians_checked": false
+      },
+      {
+        "M": 8,
+        "all_kernel_dimensions": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "uniform_wronskians_checked": false
+      }
+    ],
+    "mixed_single_Jordan_blocks": {
+      "ordered_multipliers": [
+        5,
+        2,
+        5,
+        3,
+        2
+      ],
+      "kernel_dimensions": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "unique_marked_flag_formula": "V_k=ker(product_{j=1}^k(H-mu_j I)) for cyclic H",
+    "uniform_Wk": "exp(k*lambda*x), basis f_j=exp(lambda*x)*x^(j-1)/(j-1)!",
+    "noncyclic_counterexample": "H=I_2: every line is invariant; repeated marks (1,1) do not determine the flag",
+    "unmarked_counterexample": "H=diag(2,3): ordering (2,3) and (3,2) gives two different full flags"
+  },
+  "finite_data_counterexample": {
+    "P": "1-c*D^-1+epsilon*D^-3 (c,epsilon nonzero constants)",
+    "M": 1,
+    "finite_system_determinant": "-c",
+    "recovered_Q": "D",
+    "first_negative_coefficient": "0",
+    "next_negative_coefficient": "epsilon",
+    "conclusion": "Invertible first-M equations do not establish a differential fraction for arbitrary finite data."
+  },
+  "all_M_proof_basis": [
+    "Crossed differential products have equal D^2,D^1,D^0 coefficients.",
+    "Leibniz i-l-n=-r gives n=r+i-l, at most 2M.",
+    "Uniform p_n=binom(M,n)(-c)^n and zero for n>M; reverse columns gives an upper triangular matrix with diagonal p_M.",
+    "If a lower-order left denominator exists, two distinct monic order-M left denominators can be formed, contradicting nonsingular finite system."
+  ],
+  "limitations": [
+    "Finite generic coefficients need not satisfy all higher negative-part constraints.",
+    "Mean preservation uses a real periodic nowhere-zero gap; complex gaps need zero winding.",
+    "Invertible finite coefficient recovery alone does not recover ordered physical factors without flag and mean data.",
+    "Function-space regularity and analytic/tame estimates require separate arguments."
+  ]
+}

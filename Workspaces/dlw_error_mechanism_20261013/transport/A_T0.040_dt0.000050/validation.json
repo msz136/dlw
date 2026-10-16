@@ -1,0 +1,192 @@
+{
+  "case": "A",
+  "config": {
+    "a": 2.0,
+    "h": 0.1,
+    "dt": 5e-05,
+    "T": 0.04,
+    "L": 20.0,
+    "nx": 200,
+    "yhalf": 10.0,
+    "eval_yhalf": 5.0,
+    "eval_half": 5.0,
+    "eval_points": 1001
+  },
+  "seconds": 235.4203471998917,
+  "parts": false,
+  "intervention": false,
+  "regression_common_linf": {},
+  "final_metrics": [
+    {
+      "case": "A",
+      "t": 0.04,
+      "label": "actual_SD",
+      "joint_rms": 0.005216566155032843,
+      "u_rms": 0.004821175780132648,
+      "v_rms": 0.0019921913931388448,
+      "u_linf": 0.048806280195041477,
+      "v_linf": 0.011549507291807683
+    },
+    {
+      "case": "A",
+      "t": 0.04,
+      "label": "full_actual_SD",
+      "joint_rms": 0.004706729565654504,
+      "u_rms": 0.004448280673581968,
+      "v_rms": 0.0015382139816174452,
+      "u_linf": 0.06902450185816753,
+      "v_linf": 0.018433053629626994
+    },
+    {
+      "case": "A",
+      "t": 0.04,
+      "label": "SD_from_SD",
+      "joint_rms": 0.005211494425991019,
+      "u_rms": 0.004815805571486708,
+      "v_rms": 0.0019919063355923754,
+      "u_linf": 0.04867843572907618,
+      "v_linf": 0.011526883163415203
+    },
+    {
+      "case": "A",
+      "t": 0.04,
+      "label": "SD_from_FD",
+      "joint_rms": 0.004812046423888131,
+      "u_rms": 0.004470266940638224,
+      "v_rms": 0.0017811525103402907,
+      "u_linf": 0.041412348244398475,
+      "v_linf": 0.010302756243300739
+    },
+    {
+      "case": "A",
+      "t": 0.04,
+      "label": "unpropagated_SD",
+      "joint_rms": 0.00136458172619496,
+      "u_rms": 0.0004954518025666642,
+      "v_rms": 0.0012714601050755228,
+      "u_linf": 0.002349700179632918,
+      "v_linf": 0.00524084914326628
+    },
+    {
+      "case": "A",
+      "t": 0.04,
+      "label": "actual_FD",
+      "joint_rms": 0.004633687194389672,
+      "u_rms": 0.004295735040604082,
+      "v_rms": 0.0017371578731874297,
+      "u_linf": 0.04076018485306831,
+      "v_linf": 0.009844224832186145
+    },
+    {
+      "case": "A",
+      "t": 0.04,
+      "label": "full_actual_FD",
+      "joint_rms": 0.004235307001998923,
+      "u_rms": 0.004012036313940643,
+      "v_rms": 0.0013569782668866463,
+      "u_linf": 0.058961918627905036,
+      "v_linf": 0.01594588389137707
+    },
+    {
+      "case": "A",
+      "t": 0.04,
+      "label": "FD_from_SD",
+      "joint_rms": 0.0050383131305285,
+      "u_rms": 0.004647347683649967,
+      "v_rms": 0.0019459595855333654,
+      "u_linf": 0.047584180557523476,
+      "v_linf": 0.010947113211579668
+    },
+    {
+      "case": "A",
+      "t": 0.04,
+      "label": "FD_from_FD",
+      "joint_rms": 0.004631450694877429,
+      "u_rms": 0.0042933781410805566,
+      "v_rms": 0.0017370203443748953,
+      "u_linf": 0.04066648072542332,
+      "v_linf": 0.009833629289716777
+    },
+    {
+      "case": "A",
+      "t": 0.04,
+      "label": "unpropagated_FD",
+      "joint_rms": 0.0011891242394155624,
+      "u_rms": 0.000354581292191517,
+      "v_rms": 0.0011350280014138126,
+      "u_linf": 0.0017965039961662704,
+      "v_linf": 0.004594904158895963
+    }
+  ],
+  "final_comparisons": [
+    {
+      "case": "A",
+      "t": 0.04,
+      "propagator": "SD",
+      "source": "SD",
+      "comparison": "against_unpropagated_sum",
+      "relative_residual": 3.6703798490194077,
+      "norm_ratio": 3.8191149170104333,
+      "cosine": 0.27675921766955586
+    },
+    {
+      "case": "A",
+      "t": 0.04,
+      "propagator": "SD",
+      "source": "SD",
+      "comparison": "against_actual",
+      "relative_residual": 0.0025878447539281323,
+      "norm_ratio": 0.9990277648378079,
+      "cosine": 0.9999971213516468
+    },
+    {
+      "case": "A",
+      "t": 0.04,
+      "propagator": "SD",
+      "source": "FD",
+      "comparison": "against_unpropagated_sum",
+      "relative_residual": 3.932694012578226,
+      "norm_ratio": 4.046714602549169,
+      "cosine": 0.23597128355839464
+    },
+    {
+      "case": "A",
+      "t": 0.04,
+      "propagator": "FD",
+      "source": "SD",
+      "comparison": "against_unpropagated_sum",
+      "relative_residual": 3.536609020799029,
+      "norm_ratio": 3.692203283842501,
+      "cosine": 0.2877362864225922
+    },
+    {
+      "case": "A",
+      "t": 0.04,
+      "propagator": "FD",
+      "source": "FD",
+      "comparison": "against_unpropagated_sum",
+      "relative_residual": 3.774394819703317,
+      "norm_ratio": 3.8948417174253556,
+      "cosine": 0.2469594258717816
+    },
+    {
+      "case": "A",
+      "t": 0.04,
+      "propagator": "FD",
+      "source": "FD",
+      "comparison": "against_actual",
+      "relative_residual": 0.0021768954551544236,
+      "norm_ratio": 0.9995173391257505,
+      "cosine": 0.9999977459559096
+    }
+  ],
+  "final_source_budget": [],
+  "max_local_parts_relative_residual": 0.0,
+  "max_algebra_source_sum_linf": 0.0,
+  "max_source_independent_check": 0.0,
+  "source_interpolation_validation": null,
+  "protocol_sha256": "774b002e93082b46b13f01ff8f885086be74970012313476daefed8acd865a5b",
+  "common_sha256": "b25db57b04fc2117a15f3f144f71fbdbafdd3082612fa0e96a2affe3daa9bcc2",
+  "frozen_solver_sha256": "4323fa90ef051a88de371c4da1f642711e5ccb128fa4e1d79be5fd6e80c30db0",
+  "passed": true
+}

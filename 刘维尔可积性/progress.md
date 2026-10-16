@@ -2,6 +2,8 @@
 
 2026-10-11。本次是归档；已核对现有文稿的方程、记号、适用域及文件位置，未重新认证证明、执行研究脚本或进行新数值计算。未定位原证明的结论统一记为“既有报告声称，待独立复核”。最新完整报告见 [候选报告全文](sources/2026-10-11_mixed_bvp_candidate.md)，其中内部的“定理”“已证明”均是报告作者的声称。
 
+本文保留归档时的证据边界。后续新增推导、实际检查记录和持续研究入口见 [research/STATE.md](research/STATE.md)，原始外部报告保留原样。
+
 ## 记号与闭合
 
 [周期约化原稿](../Workspaces/dlw_hamilton_20261004/phase_space/periodic_reduction.md) 使用 $U=u+2a$、$w=v-\delta_0u-4$，$\delta_0u_j=(u_{j+1}-u_{j-1})/(2h)$。其 $c=\Pi w$、$q=\Pi(Uw)$；[一般周期场稿](../Workspaces/dlw_general_field_20261006/RESEARCH_NOTES.md) 将 $q$ 固定为 `gamma`。本专题统一用 $m=\Pi w$、$q=\Pi(Uw)$、$\Gamma(t)$ 表示实全线平均通量多项式的常数项。该 $\Gamma$ 不是先验时间常数。

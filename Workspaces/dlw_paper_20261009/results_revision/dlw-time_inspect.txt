@@ -1,0 +1,86 @@
+def step(fun, t, state, dt, method):
+    if method == 'Euler':
+        return state+dt*fun(t, state)
+    if method == 'CN':
+        # 隐式梯形法：两端右端的平均，不是中点状态的右端。
+        f0 = fun(t, state)
+        candidate = state+dt*f0
+        tolerance = 1e-12+1e-11*max(1., float(np.max(abs(state))))
+        for iteration in range(1, 81):
+            residual = candidate-state-dt*(f0+fun(t+dt, candidate))/2
+            residual_max = float(np.max(abs(residual)))
+            if residual_max <= tolerance:
+                step.cn_last = dict(iterations=iteration, residual=residual_max, tolerance=tolerance)
+                return candidate
+            candidate = candidate-residual
+        raise ValueError(f'Crank–Nicolson 隐式迭代未收敛：残差 {residual_max:.3e}')
+    if method != 'RK4':
+        raise ValueError('时间算法应为 Euler、RK4 或 CN')
+    k1 = fun(t, state)
+    k2 = fun(t+dt/2, state+dt*k1/2)
+    k3 = fun(t+dt/2, state+dt*k2/2)
+    k4 = fun(t+dt, state+dt*k3)
+    return state+dt*(k1+2*k2+2*k3+k4)/6
+
+def solve(case, model, method, mesh, config=None):
+    config = case_config(case) if config is None else config
+    if method not in ('Euler', 'RK4', 'CN'):
+        raise ValueError('时间算法应为 Euler、RK4 或 CN')
+    p = Problem(case, model, mesh, config)
+    state = p.initial()
+    initial = p.fields(state, 0.)
+    initial_ref = p.m.G.uv(p.m.js, p.X.x, 0.)
+    mask = abs(p.X.x) <= config['eval_half']
+    initial_error = max(float(abs(u[:, mask]-v[:, mask]).max())
+                        for u, v in zip(initial, initial_ref))
+    nsteps = round(config['T']/config['dt'])
+    if not np.isclose(nsteps*config['dt'], config['T'], rtol=0, atol=1e-13):
+        raise ValueError('T 必须是 dt 的整数倍')
+    reached, reason = 0., ''
+    cn_diagnostics = []
+    for n in range(nsteps):
+        try:
+            with np.errstate(over='raise', invalid='raise', divide='raise'):
+                candidate = step(p.stage, n*config['dt'], state, config['dt'], method)
+                if method == 'CN':
+                    cn_diagnostics.append(dict(step.cn_last))
+                if not np.all(np.isfinite(candidate)) or abs(candidate).max() > 1000:
+                    raise ValueError('状态非有限或绝对值超过 1000')
+                p.X.set_s(candidate[-p.X.n:])
+        except (ValueError, FloatingPointError, OverflowError) as e:
+            reason = str(e)
+            break
+        state, reached = candidate, (n+1)*config['dt']
+    xx = np.linspace(-config['eval_half'], config['eval_half'], config['eval_points'])
+    native = p.fields(state, reached)
+    margins = [float(xx[0]-p.X.x[0]), float(p.X.x[-1]-xx[-1])]
+    assert min(margins) > 0, 'Evaluation region exceeds native numerical support'
+    ymask = abs(p.m.y) < config['eval_yhalf']
+    sampled = [CubicSpline(p.X.x, f[ymask], axis=-1, extrapolate=False)(xx) for f in native]
+    assert all(np.isfinite(f).all() for f in sampled)
+    exact = p.m.G.uv(p.m.js[ymask], xx, reached)
+    errors = {f: abs(u-v) for f, u, v in zip(('u', 'v'), sampled, exact)}
+    return dict(case=case, model=model, method=method, mesh=mesh,
+        reached=reached, completed=not reason and np.isclose(reached, config['T']), reason=reason,
+        initial_error=initial_error, x=xx, y=p.m.y[ymask], fields=sampled, exact=exact,
+        errors=errors, max_errors={f: float(e.max()) for f, e in errors.items()},
+        min_J=float(p.X.J.min()), native_x=p.X.x.copy(), native_fields=native,
+        cn_diagnostics=cn_diagnostics, support_margins=margins, state=state.copy(), native_y=p.m.y.copy())
+
+results = {}
+def calculate(method, mesh):
+    for case in CASES:
+        for model in MODELS:
+            key = case, model, method, mesh
+            if key not in results:
+                results[key] = solve(case, model, method, mesh)
+    failed = [r for r in results.values() if not r['completed']]
+    if failed:
+        display(pd.DataFrame([{k: r[k] for k in ('case', 'model', 'method', 'mesh', 'reached', 'reason')}
+                             for r in failed]))
+        raise RuntimeError('未到达共同终点，停止配对比较')
+
+def error_table(method, mesh):
+    return pd.DataFrame([{'算例': case, '场': field,
+        **{m: results[case, m, method, mesh]['max_errors'][field] for m in MODELS}}
+        for case in CASES for field in ('u', 'v')]).set_index(['算例', '场'])

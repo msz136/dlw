@@ -14,6 +14,8 @@ css='\n'.join(re.findall(r'<style[^>]*>([\s\S]*?)</style>',oldpage))
 # Reserve space for equation tags inside horizontally scrollable narrow layouts.
 if 'mobile-equation-tag-spacing' not in css:
  css += '\n/* mobile-equation-tag-spacing */\n@media(max-width:600px){.eq .katex-display>.katex>.katex-html{width:max-content;min-width:100%;padding-right:4em}}'
+if '/* error-budget-table */' not in css:
+ css += '\n/* error-budget-table */\n.error-budget-wrap{break-inside:avoid}\ntable.comparison.error-budget{width:100%;table-layout:fixed;font-size:14px;line-height:1.35;border-collapse:collapse;border-top:1px solid #222;border-bottom:1px solid #222}\ntable.comparison.error-budget caption{caption-side:top;text-align:left;font-weight:600;padding:0 0 8px}\ntable.comparison.error-budget th,table.comparison.error-budget td{vertical-align:middle;text-align:center;padding:7px 4px;border:0;background:transparent}\ntable.comparison.error-budget thead{border-bottom:1px solid #222}\ntable.comparison.error-budget tbody+tbody{border-top:1px solid #aaa}\ntable.comparison.error-budget tbody th{font-weight:400}\n.budget-number{white-space:nowrap;font-variant-numeric:tabular-nums}\n.budget-note{font-size:12px;line-height:1.4;text-indent:0!important;margin:7px 0 0!important}\n@media print{table.comparison.error-budget{font-size:9pt;line-height:1.25}table.comparison.error-budget th,table.comparison.error-budget td{padding:4pt 2pt!important}table.comparison.error-budget caption{font-size:9pt;padding:0 0 6pt}.budget-note{font-size:8.5pt;line-height:1.3}table.comparison.error-budget tbody{break-inside:avoid}}\n'
 formulas=[]
 def slot(m):
  display=m[0].startswith('$$')

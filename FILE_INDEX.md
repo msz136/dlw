@@ -1,6 +1,6 @@
 # 工作区项目与探索支线索引
 
-登记单位是项目或独立探索支线，不是文件。索引用于定位；最新结论与进度统一查 [PROGRESS_LOG.md](PROGRESS_LOG.md)。
+登记单位是项目或独立探索支线，不是文件。索引用于定位；近期交接见 [PROGRESS_LOG.md](PROGRESS_LOG.md) 对应小节，项目长期结论以其正文为准；工作历史继续保存，默认不读。
 
 覆盖当前 Workspaces 下 96 个工作目录；相同探索的多次运行合并登记。一个目录内的独立问题在“共享目录内的支线”单列。
 
@@ -16,7 +16,7 @@
 - 新探索登记名称、问题范围、主要入口和所属目录；同题续推更新原项目，独立问题增加支线。
 - 每条项目只保留一个主要入口和所属目录；证明、代码、数据、图、日志、校验和备份均归入该项目，不在总索引逐一追加。
 - 同一目录有多条研究线时，在支线表区分；审查、绘图、交付及维护材料登记为对应支撑项目。
-- 查阅时先定位相关项目，再按需读项目入口；不要默认读完整进度档、历史逐文件索引或遍历产物。
+- 查阅时按关键词定位项目，只读相关条目及项目入口的必要章节；不要默认完整读取本索引、进度档、历史或遍历产物。
 - 项目范围不代表该问题已解决；科学结论、成立条件与未完成项以进度和项目正文为准。
 
 ## 基础构造与形式证明
@@ -47,7 +47,7 @@
 | 周期一般场层级 | 积分独立性、Hamilton 真流与解析障碍 | [入口](Workspaces/dlw_field_liouville_20261006/THEORY.md)；[目录](Workspaces/dlw_field_liouville_20261006) |
 | 一般场与平均模态 | 矩阵 Lax、Poisson、两格点逆与 mixed 时间 | [入口](Workspaces/dlw_general_field_20261006/README.md)；[目录](Workspaces/dlw_general_field_20261006) |
 | 一般周期可积性形式化 | balanced 系数与可积性证明链 | [入口](Workspaces/dlw_integrability_lean_20261006/LEAN_PROOF_REPORT.md)；[目录](Workspaces/dlw_integrability_lean_20261006) |
-| 平均模态核验 | DLW 平均相容条件的独立验证 | [入口](Workspaces/dlw_mean_modes_20261008/verification.json)；[目录](Workspaces/dlw_mean_modes_20261008) |
+| 平均模态核验 | DLW 平均相容条件的独立验证 | [入口](Workspaces/dlw_mean_modes_20261008)；[目录](Workspaces/dlw_mean_modes_20261008) |
 | 一般场谱完备性恢复 | M=2、一般 M、奇异分支与原物理结构的证明及审查 | [目录](Workspaces/dlw_recovery_20261011) |
 | 一般场 action–angle | 小非零背景全模态原弱辛坐标、相对角变量与原时间重构；局部定理证明稿 | [入口](Workspaces/dlw_action_angle_20261013/LOCAL_ACTION_ANGLE_THEOREM.md)；[目录](Workspaces/dlw_action_angle_20261013) |
 | 守恒量、频谱与 Poisson | 周期守恒试验、孤子频谱诊断与括号结构 | [入口](Workspaces/dlw_three_tracks_20261013/README.md)；[目录](Workspaces/dlw_three_tracks_20261013) |
@@ -161,9 +161,9 @@
 | 10/8 提交复核 | 提交范围与检查证据 | [目录](Workspaces/dlw_commit_review_20261008) |
 | 10/9 提交复核 | 后续提交范围与检查证据 | [目录](Workspaces/dlw_commit_review_20261009) |
 | Git 合并与恢复 | 同步、冲突与工作区恢复材料 | [目录](Workspaces/git_merge_20261009) |
-| 轻量归档发布 | 论文、源码、文献与提交排除核验 | [入口](Workspaces/git_publish_20261010/validation.json)；[目录](Workspaces/git_publish_20261010) |
-| Git 体积整理 | 仓库快照保留与活动仓库维护 | [入口](Workspaces/git_maintenance_20261010/archive_result.json)；[目录](Workspaces/git_maintenance_20261010) |
-| 索引与项目登记整理 | 展示页盘点、项目登记与原逐文件索引备份 | [入口](Workspaces/workspace_catalog_audit_20261013/audit.json)；[目录](Workspaces/workspace_catalog_audit_20261013) |
+| 轻量归档发布 | 论文、源码、文献与提交排除核验 | [入口](Workspaces/git_publish_20261010)；[目录](Workspaces/git_publish_20261010) |
+| Git 体积整理 | 仓库快照保留与活动仓库维护 | [入口](Workspaces/git_maintenance_20261010)；[目录](Workspaces/git_maintenance_20261010) |
+| 索引与项目登记整理 | 展示页盘点、项目登记、产物迁移恢复、当前交接与按月工作历史（默认不读历史） | [用途报告](report/workspace_file_purposes_20261016.html)；[清理复核](report/workspace_cleanup_review_20261016.html)；[入口](Workspaces/workspace_catalog_audit_20261013)；[目录](Workspaces/workspace_catalog_audit_20261013) |
 
 ## 共享目录内的支线
 
@@ -210,8 +210,10 @@
 
 ## 历史索引与资源归属
 
-- 原逐文件索引完整保存于 [历史台账](Workspaces/workspace_catalog_audit_20261013/archive/20261013_152457_066375/FILE_INDEX.md)，只在追溯具体旧文件时按需检索。
+- 工作历史归 `Workspaces/workspace_catalog_audit_20261013/progress_history/`，按月追加；主进度只保留本次和上次交接。仅明确追溯时检索历史，不默认读取；规则见 AGENTS.md。
+
+- 原逐文件索引完整保存于 [历史台账](Trash/cleanup_20261016/Workspaces/workspace_catalog_audit_20261013/archive/20261013_152457_066375/FILE_INDEX.md)，只在追溯具体旧文件时按需检索。
 - `report/` 与根目录 HTML 是各项目的展示输出；旧版、留档与试画保留原位置，本轮只调整登记。
 - `Paper/` 的原件按文献目录查阅；旧证明／报告副本归原研究项目。`notebook/` 是交付区，静态资源归对应 Notebook 项目。
 - `_lean_shared/` 是共享环境；Git、依赖、构建缓存及 `Trash/` 是环境或归档，不作为新探索项目。
-- 本索引的维护数据与覆盖核验：[项目登记数据](Workspaces/workspace_catalog_audit_20261013/projects.json)、[核验结果](Workspaces/workspace_catalog_audit_20261013/project_index_validation.json)。
+- 本索引的维护数据与覆盖核验：[项目登记数据](Workspaces/workspace_catalog_audit_20261013/projects.json)、[核验结果](Workspaces/workspace_catalog_audit_20261013)。

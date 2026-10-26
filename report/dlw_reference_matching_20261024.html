@@ -1,0 +1,36 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DLW参考解：原初值匹配的推进</title><style>body{max-width:900px;margin:48px auto;padding:0 24px;font:17px/1.85 Georgia,"Microsoft YaHei",serif;color:#222}h1{font-size:29px}h2{font-size:22px;margin-top:30px}.lead{padding:16px;background:#f3f7f8;border-left:3px solid #365c70}table{width:100%;border-collapse:collapse}td,th{padding:12px;border-bottom:1px solid #ddd;text-align:left}a{color:#245b79}.meta{color:#666;font-size:14px}</style></head><body>
+<h1>DLW参考解：原初值匹配的推进</h1><p class="meta">2026年10月24日 · 持续目标进行中</p>
+<p class="lead">当前结论：已有数值候选，但尚无原问题的存在证明与精度保证，也没有针对所需低阶解类的无解定理。最新推进是核验了与BLP系统的精确对应，并找到直接研究该系统初值问题的散射理论文献；其具体条件尚待核对。目标继续进行中。</p>
+<h2>1. 这一步解决了什么</h2>
+<p>把方程分为增长分量a=u<sub>y</sub>+v和扩散分量b=u<sub>y</sub>−v。增长分量从终点向前回推、扩散分量从初始向后推进，两者的积分算子都处于稳定方向。横向积分的特殊结构使原方程全部线性耦合可以吸收，再用收缩映射处理非线性。</p>
+<p>在指定的空间解析范数中，初终点数据总量不超过0.15时，半径0.7的球被映入半径小于0.680的球；收缩常数小于0.614。因而该辅助问题在此球中存在唯一解。</p>
+<table><thead><tr><th>候选来源</th><th>终点a与精确初始b的总量上界</th><th>定理条件</th></tr></thead><tbody><tr><td>正弦</td><td>0.075303</td><td>小于0.15</td></tr><tr><td>周期高斯</td><td>0.136988</td><td>小于0.15</td></tr></tbody></table>
+<p>这些上界由256-bit区间运算核验，包含高斯初值的无限频谱。它们是存在性定理的数据条件，不是物理场误差。</p>
+<h2>2. 为什么还不能交付参考解</h2>
+<p>原问题同时指定a和b的初值；辅助问题只指定b的初值，并选择a的终点。因此必须再求出一个终点函数g，使辅助解在初始时刻的a<strong>恰好等于原a₀</strong>。</p>
+<p>目前选用的有限多项式终点会产生横向解析解。结合此前正则性障碍证明稿，它们不可能精确匹配原初始化，即使数值上极其接近。允许横向较粗糙的终点函数后，是否能够精确匹配仍未解决。</p>
+<h2>3. 原初值的唯一性已取得证明稿</h2>
+<p>新论证直接比较具有相同初值的两个完整非线性解。通过带时间权重的能量估计，证明它们的差只能为零。证明允许一正一反的扩散，不要求高阶横向光滑性；适用解类涵盖前述辅助解。</p>
+<p>因此，精确匹配原初值的终点至多有一个。这也保证：正弦初值若存在本类解，其真实解保持周期24，数值计算使用这个较小周期有了唯一性依据。</p>
+<p>每个横向位置的空间均值必须守恒。已据此给辅助终点补上精确零频分量；修正后的正弦、高斯数据总量分别小于0.075303和0.135287，仍满足存在性定理。该修正只作用于辅助终点，不改变原初始化，也不解决非零频率的匹配。</p>
+<h2>4. 下一步的明确问题</h2>
+<p>辅助解现在已有存在性依据，可以定义“终点g映到初始a”的非线性映射。匹配的唯一性已解决，下一步集中分析给定a₀是否在这个映射的值域中。找到并严格包围这样的g可推进参考解分支；证明所有允许g都不能匹配，才可能推进针对原问题的否定分支。</p>
+<p>现阶段没有取得任何一个最终分支，η<sub>u</sub>、η<sub>v</sub>仍未知。目标保持进行中。</p>
+<h2>5. 怎样才能把计算结果变成证明</h2>
+<p>新增的条件性判据说明：如果一列终点候选的高频尾部和沿y方向的变化有统一上界，而且严格核验的初值失配趋于零，就能证明原初值的真解存在，并由唯一性保证候选收敛。现在还没有证明这些统一上界和匹配收敛，普通网格加密不能代替它们。</p>
+<p>在一个满足这些界的指定集合内，若能证明所有终点都有严格为正的初值失配，就可以排除该集合。但排除有限个指定集合，仍不等于证明原问题无解。物理误差仍未获得。</p>
+<p><a href="../Workspaces/dlw_paper_20261009/reference_certificate_20261024/COMPACT_MATCHING_CRITERION.md">紧性匹配判据与物理误差换算证明稿</a></p>
+<h2>6. 唯一性证明能否直接给精度保证</h2>
+<p>已把加权能量证明扩展为含残差的条件误差公式，并推导到整个区域内的u、v一致误差。但它需要真解大小及变化速度的已证上界。使用当前粗常数，即使这些前提成立，残差也需小到约10的负62亿次方，才能让界中一项降到1。这套估计目前不能作为实用认证器；它不是实际误差的下界，更不是原问题无解的证据。</p>
+<p><a href="../Workspaces/dlw_paper_20261009/reference_certificate_20261024/CONDITIONAL_ERROR_MODULUS.md">条件误差公式与适用前提</a> · <a href="../Workspaces/dlw_paper_20261009/reference_certificate_20261024/conditional_error_check.json">常数核验</a></p>
+<h2>7. 高阶障碍能否推出原问题无解</h2>
+<p>新证明说明：对齐次反热方程，解析初值和整个时间段的有界性，会迫使中间时刻沿y解析，包括边界。如果完整DLW也有这一性质，就能接上已有正则性障碍。但非线性源项使线性证明失效；已核验的辅助反例还表明，仅使用变换后一条方程和原函数关系并不足够。必须实质利用完整的另一条耦合演化，当前尚未完成这一步。</p>
+<p><a href="../Workspaces/dlw_paper_20261009/reference_certificate_20261024/TRANSVERSE_ANALYTICITY_BRIDGE.md">线性桥梁、适用边界及反例核查</a> · <a href="../Workspaces/dlw_paper_20261009/reference_certificate_20261024/transverse_bridge_check.json">符号核验</a></p>
+<h2>8. 对接直接研究初值问题的谱理论</h2>
+<p>已精确核验原DLW与BLP系统的等价变换，保留两组初值、周期和下边界，转换后的背景为(0,−1)。最大值原理还保证：若所需经典解存在，一个关键谱系数始终严格为负。两种常用的Burgers显式分支均不匹配原初值。</p>
+<p>找到的Garagash–Pogrebkov（1996）论文直接研究BLP初值与散射数据条件。目前仅核实了摘要；公开全文读取失败，尚不能据其得出本周期边界问题的存在或无解结论。</p>
+<p><a href="../Workspaces/dlw_paper_20261009/reference_certificate_20261024/BLP_SPECTRAL_ROUTE.md">精确变换、符号保持及文献适用性</a> · <a href="../Workspaces/dlw_paper_20261009/reference_certificate_20261024/blp_route_check.json">符号与常数核验</a></p>
+<h2>证据入口</h2>
+<p><a href="../Workspaces/dlw_paper_20261009/reference_certificate_20261024/INITIAL_VALUE_UNIQUENESS.md">原初值唯一性证明稿</a> · <a href="../Workspaces/dlw_paper_20261009/reference_certificate_20261024/uniqueness_energy_check.json">能量恒等式与常数核验</a></p>
+<p><a href="../Workspaces/dlw_paper_20261009/reference_certificate_20261024/MIXED_BVP_EXISTENCE.md">完整推导、函数空间与目标审计</a> · <a href="../Workspaces/dlw_paper_20261009/reference_certificate_20261024/mixed_bvp_check.json">区间核验结果</a> · <a href="dlw_reference_no_go_20261024.html">此前小残差路线的否定结论</a></p>
+<p class="meta">证明状态：本会话推导、自查与数值常数核验；尚无新增独立审稿或形式化验证。原初始化与原方程未改。</p></body></html>

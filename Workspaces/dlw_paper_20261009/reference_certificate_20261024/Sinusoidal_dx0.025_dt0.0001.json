@@ -1,0 +1,51 @@
+{
+  "case": "Sinusoidal",
+  "method": "FD",
+  "dx": 0.025,
+  "h": 0.1,
+  "dt": 0.0001,
+  "T": 0.01,
+  "a": 2,
+  "norm": "max over both fields and all native grid points",
+  "certified": false,
+  "diagnostics": [
+    {
+      "t": 0.001,
+      "amplitude": [
+        0.029999982070534194,
+        0.0199687300087358
+      ],
+      "high_frequency_l1": [
+        2.0852144950633824e-10,
+        1.0134724853453229e-10
+      ]
+    },
+    {
+      "t": 0.002,
+      "amplitude": [
+        0.03004939874847416,
+        0.01996572780453779
+      ],
+      "high_frequency_l1": [
+        0.0006182379511241636,
+        0.0003541031832845767
+      ]
+    },
+    {
+      "t": 0.003,
+      "amplitude": [
+        1027.8228390858872,
+        676.0975180416605
+      ],
+      "high_frequency_l1": [
+        2754.568357266804,
+        1843.1517905227552
+      ]
+    }
+  ],
+  "residual_kind": "sampled Hermite ODE defect; not an enclosure",
+  "status": "threshold_stop",
+  "stopped_at": 0.0032,
+  "sampled_ode_residual_max": 31573769851390.477,
+  "seconds": 14.245945999980904
+}

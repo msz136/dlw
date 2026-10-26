@@ -1,0 +1,286 @@
+[
+  {
+    "case": "A",
+    "method": "CSD0",
+    "original_method_label": "Centered-SD",
+    "integrator": "RK4",
+    "h": 0.1,
+    "dx": 0.1,
+    "dt": 0.0001,
+    "T": 0.01,
+    "reached": 0.01,
+    "status": "complete",
+    "error": [
+      0.0001631598183137184,
+      0.00010716026744916896
+    ],
+    "nx": 200,
+    "ny": 200,
+    "a": 2.0,
+    "lambda_parameter": -2.0,
+    "computational_half_width": 10.0,
+    "region_half_width": 5.0,
+    "initial_error": [
+      0.0,
+      0.0
+    ],
+    "metric": "Absolute sampled maximum at native field locations, |x|<=R, |y|<R.",
+    "reference": "Continuous exact soliton physical fields.",
+    "state": "u,v at the same y sites; auxiliary w=v-delta_0 u; original h^2 flux retained.",
+    "spatial_x": "Fourier differentiation; first-derivative Nyquist multiplier zero; no filtering or dealiasing.",
+    "boundary": "Exact continuous lower u_t and lower ghost u; upper ghost is exact continuous background plus quadratic extrapolation of perturbation.",
+    "reused_from": null,
+    "checks": {
+      "initial_analytic_profile_difference": 0.0,
+      "initial_lower_ut_difference": 0.0,
+      "old_initial_total": [
+        0.01648591562886159,
+        0.009267922671716278
+      ],
+      "old_initial_total_difference": 0.0,
+      "initial_physical_error": [
+        0.0,
+        0.0
+      ],
+      "legacy_final_state_difference": 0.0,
+      "legacy_trajectory": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/time_A_RK4_0.0001.npz",
+      "legacy_trajectory_sha256": "fc55caa96662ae4dbaff6e9baf0c0ffd36ff67365319f547506110918a42f6ba",
+      "legacy_record_sha256": "3325cb3695d9e35d5a020e166b703afc6693a1ab2337bbaca8ec7e5d53cd4d3e"
+    },
+    "evolution_seconds": 1.4464190000435337,
+    "processing_seconds": 1.6452328999293968,
+    "artifact": "Workspaces/dlw_paper_20261009/report_refresh_20261024/csd0_rk4_20261024/A_CSD0_RK4.npz",
+    "artifact_sha256": "f2d23f954e7bbed40f72a65833f46896144fdff6c5b8fffc5e7d8986985de764",
+    "sources": [
+      {
+        "path": "Workspaces/dlw_paper_20261009/report_refresh_20261024/csd0_rk4_20261024/run.py",
+        "sha256": "825fd0fcfa3f9f70b6b8f7438b000d46c43665ca1d4c6afb3085f237139994b2"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/run.py",
+        "sha256": "1743f9877f21e78a1eff6bf9533b67f09965ba9c1ec09d0a759fa16e042f45c5"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/run_separated.py",
+        "sha256": "41046229b00982c115ae37ad206fca3fb6821341af280a86c4cd19d3f7395904"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/paper_comparison_20261022/solver_snapshot.py",
+        "sha256": "f4be5d7cecf625c59cbea41adfd2d54f3a8b8272af3375a56cfcd506fac472a1"
+      }
+    ]
+  },
+  {
+    "case": "B",
+    "method": "CSD0",
+    "original_method_label": "Centered-SD",
+    "integrator": "RK4",
+    "h": 0.1,
+    "dx": 0.1,
+    "dt": 0.0001,
+    "T": 0.01,
+    "reached": 0.01,
+    "status": "complete",
+    "error": [
+      0.1634044246355213,
+      0.03419212281849335
+    ],
+    "nx": 400,
+    "ny": 400,
+    "a": 2.0,
+    "lambda_parameter": -2.0,
+    "computational_half_width": 20.0,
+    "region_half_width": 10.0,
+    "initial_error": [
+      0.0,
+      0.0
+    ],
+    "metric": "Absolute sampled maximum at native field locations, |x|<=R, |y|<R.",
+    "reference": "Continuous exact soliton physical fields.",
+    "state": "u,v at the same y sites; auxiliary w=v-delta_0 u; original h^2 flux retained.",
+    "spatial_x": "Fourier differentiation; first-derivative Nyquist multiplier zero; no filtering or dealiasing.",
+    "boundary": "Exact continuous lower u_t and lower ghost u; upper ghost is exact continuous background plus quadratic extrapolation of perturbation.",
+    "reused_from": null,
+    "checks": {
+      "initial_analytic_profile_difference": 0.0,
+      "initial_lower_ut_difference": 0.0,
+      "old_initial_total": [
+        0.0006997335241885061,
+        0.00021053841104312632
+      ],
+      "old_initial_total_difference": 0.0,
+      "initial_physical_error": [
+        0.0,
+        0.0
+      ],
+      "legacy_final_state_difference": 0.0,
+      "legacy_trajectory": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/time_B_RK4_0.0001.npz",
+      "legacy_trajectory_sha256": "8592c8919650167172668cda28f07e8a0d62b08919b3948588c7413635b4b44e",
+      "legacy_record_sha256": "a2661d5d14a8c4b9f5c34e24b05620ea49ea489321e447479c5967299ec47534"
+    },
+    "evolution_seconds": 12.09445589990355,
+    "processing_seconds": 13.03521720005665,
+    "artifact": "Workspaces/dlw_paper_20261009/report_refresh_20261024/csd0_rk4_20261024/B_CSD0_RK4.npz",
+    "artifact_sha256": "b7e5f09357bfcd9ac5ad092781ad6351a39d2fd90df041a4384f1b57a80d859f",
+    "sources": [
+      {
+        "path": "Workspaces/dlw_paper_20261009/report_refresh_20261024/csd0_rk4_20261024/run.py",
+        "sha256": "825fd0fcfa3f9f70b6b8f7438b000d46c43665ca1d4c6afb3085f237139994b2"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/run.py",
+        "sha256": "1743f9877f21e78a1eff6bf9533b67f09965ba9c1ec09d0a759fa16e042f45c5"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/run_separated.py",
+        "sha256": "41046229b00982c115ae37ad206fca3fb6821341af280a86c4cd19d3f7395904"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/paper_comparison_20261022/solver_snapshot.py",
+        "sha256": "f4be5d7cecf625c59cbea41adfd2d54f3a8b8272af3375a56cfcd506fac472a1"
+      }
+    ]
+  },
+  {
+    "case": "C",
+    "method": "CSD0",
+    "original_method_label": "Centered-SD",
+    "integrator": "RK4",
+    "h": 0.1,
+    "dx": 0.1,
+    "dt": 0.0001,
+    "T": 0.01,
+    "reached": 0.01,
+    "status": "complete",
+    "error": [
+      0.0001168395059128011,
+      9.092240154773279e-06
+    ],
+    "nx": 800,
+    "ny": 800,
+    "a": 2.0,
+    "lambda_parameter": -2.0,
+    "computational_half_width": 40.0,
+    "region_half_width": 30.0,
+    "initial_error": [
+      0.0,
+      0.0
+    ],
+    "metric": "Absolute sampled maximum at native field locations, |x|<=R, |y|<R.",
+    "reference": "Continuous exact soliton physical fields.",
+    "state": "u,v at the same y sites; auxiliary w=v-delta_0 u; original h^2 flux retained.",
+    "spatial_x": "Fourier differentiation; first-derivative Nyquist multiplier zero; no filtering or dealiasing.",
+    "boundary": "Exact continuous lower u_t and lower ghost u; upper ghost is exact continuous background plus quadratic extrapolation of perturbation.",
+    "reused_from": null,
+    "checks": {
+      "initial_analytic_profile_difference": 0.0,
+      "initial_lower_ut_difference": 0.0,
+      "old_initial_total": [
+        0.0007472362487277451,
+        0.00027094185053222475
+      ],
+      "old_initial_total_difference": 0.0,
+      "initial_physical_error": [
+        0.0,
+        0.0
+      ],
+      "legacy_final_state_difference": 0.0,
+      "legacy_trajectory": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/time_C_RK4_0.0001.npz",
+      "legacy_trajectory_sha256": "492be19076492c817835380488abfda27b538c75a939b9bdf8909f3dfb5df745",
+      "legacy_record_sha256": "1150c04c4216e2b5a4fad0dc4c97dd16ee7453c73c88d98062560d163597a296"
+    },
+    "evolution_seconds": 46.91881319996901,
+    "processing_seconds": 54.47067449998576,
+    "artifact": "Workspaces/dlw_paper_20261009/report_refresh_20261024/csd0_rk4_20261024/C_CSD0_RK4.npz",
+    "artifact_sha256": "15975365b8e6d03e5f0717fa9eb324c81ad900efd960d588b53fe70093360bc3",
+    "sources": [
+      {
+        "path": "Workspaces/dlw_paper_20261009/report_refresh_20261024/csd0_rk4_20261024/run.py",
+        "sha256": "825fd0fcfa3f9f70b6b8f7438b000d46c43665ca1d4c6afb3085f237139994b2"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/run.py",
+        "sha256": "1743f9877f21e78a1eff6bf9533b67f09965ba9c1ec09d0a759fa16e042f45c5"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/run_separated.py",
+        "sha256": "41046229b00982c115ae37ad206fca3fb6821341af280a86c4cd19d3f7395904"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/paper_comparison_20261022/solver_snapshot.py",
+        "sha256": "f4be5d7cecf625c59cbea41adfd2d54f3a8b8272af3375a56cfcd506fac472a1"
+      }
+    ]
+  },
+  {
+    "case": "D",
+    "method": "CSD0",
+    "original_method_label": "Centered-SD",
+    "integrator": "RK4",
+    "h": 0.1,
+    "dx": 0.1,
+    "dt": 0.0001,
+    "T": 0.01,
+    "reached": 0.01,
+    "status": "complete",
+    "error": [
+      0.00023418036323998725,
+      0.00013138136218326935
+    ],
+    "nx": 800,
+    "ny": 800,
+    "a": 2.0,
+    "lambda_parameter": -2.0,
+    "computational_half_width": 40.0,
+    "region_half_width": 30.0,
+    "initial_error": [
+      0.0,
+      0.0
+    ],
+    "metric": "Absolute sampled maximum at native field locations, |x|<=R, |y|<R.",
+    "reference": "Continuous exact soliton physical fields.",
+    "state": "u,v at the same y sites; auxiliary w=v-delta_0 u; original h^2 flux retained.",
+    "spatial_x": "Fourier differentiation; first-derivative Nyquist multiplier zero; no filtering or dealiasing.",
+    "boundary": "Exact continuous lower u_t and lower ghost u; upper ghost is exact continuous background plus quadratic extrapolation of perturbation.",
+    "reused_from": null,
+    "checks": {
+      "initial_analytic_profile_difference": 0.0,
+      "initial_lower_ut_difference": 0.0,
+      "old_initial_total": [
+        0.013921999128593043,
+        0.011288138772343359
+      ],
+      "old_initial_total_difference": 0.0,
+      "initial_physical_error": [
+        0.0,
+        0.0
+      ],
+      "legacy_final_state_difference": 0.0,
+      "legacy_trajectory": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/time_D_RK4_0.0001.npz",
+      "legacy_trajectory_sha256": "80d6867de7ebf08b2649d3f0fcc420c37e66b0d93d483bb9f22913b8c5ab56c5",
+      "legacy_record_sha256": "16a9b1f21d64be10f588f4e2ec8ffdd8fd675b8b7c09e0c30872f0020e67c9b0"
+    },
+    "evolution_seconds": 45.1014880000148,
+    "processing_seconds": 50.4399600001052,
+    "artifact": "Workspaces/dlw_paper_20261009/report_refresh_20261024/csd0_rk4_20261024/D_CSD0_RK4.npz",
+    "artifact_sha256": "3844a90054fb1bb5ed86c22e713e7f5fe05b36e7c37ba090a3a58f384d859b06",
+    "sources": [
+      {
+        "path": "Workspaces/dlw_paper_20261009/report_refresh_20261024/csd0_rk4_20261024/run.py",
+        "sha256": "825fd0fcfa3f9f70b6b8f7438b000d46c43665ca1d4c6afb3085f237139994b2"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/run.py",
+        "sha256": "1743f9877f21e78a1eff6bf9533b67f09965ba9c1ec09d0a759fa16e042f45c5"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/run_separated.py",
+        "sha256": "41046229b00982c115ae37ad206fca3fb6821341af280a86c4cd19d3f7395904"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/paper_comparison_20261022/solver_snapshot.py",
+        "sha256": "f4be5d7cecf625c59cbea41adfd2d54f3a8b8272af3375a56cfcd506fac472a1"
+      }
+    ]
+  }
+]

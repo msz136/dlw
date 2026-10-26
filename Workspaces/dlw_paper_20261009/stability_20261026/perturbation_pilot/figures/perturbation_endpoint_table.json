@@ -1,0 +1,116 @@
+{
+  "definitions": {
+    "native_max_response": "max over the experiment's native evaluation nodes divided by epsilon=1e-6, as plotted",
+    "L2_pair_gain": "sqrt(||delta u(T)||_2,h^2+||delta v(T)||_2,h^2)/sqrt(||delta u(0)||_2,h^2+||delta v(0)||_2,h^2)",
+    "L2_domain": "full periodic x interval, native y evaluation region; squared norm uses h*dx*sum(q^2)",
+    "fourier_8x_max": "finite-grid Fourier interpolant evaluated on eightfold denser x nodes, same y rows; divided by epsilon",
+    "scope": "finite-grid nonlinear sensitivity of the natural Centered-SD method",
+    "continuous_certificate": false
+  },
+  "records": [
+    {
+      "case": "A",
+      "case_label": "One-soliton",
+      "input_field": "u",
+      "T": 0.01,
+      "epsilon": 1e-06,
+      "native_max_delta_u_over_epsilon": 1.0206951057354907,
+      "native_max_delta_v_over_epsilon": 0.09185773272628417,
+      "L2_pair_gain": 1.0025155322237924,
+      "fourier_8x_max_delta_u_over_epsilon": 1.0216753348175591,
+      "fourier_8x_max_delta_v_over_epsilon": 0.09185773272628417,
+      "source_sha256": "dc033d7907ade151abb298da0ecbddd5108772f9353f8def1b931a006f7a5c07"
+    },
+    {
+      "case": "A",
+      "case_label": "One-soliton",
+      "input_field": "v",
+      "T": 0.01,
+      "epsilon": 1e-06,
+      "native_max_delta_u_over_epsilon": 0.22453287587629617,
+      "native_max_delta_v_over_epsilon": 1.0217415868725221,
+      "L2_pair_gain": 1.0141016149516295,
+      "fourier_8x_max_delta_u_over_epsilon": 0.22474439017450876,
+      "fourier_8x_max_delta_v_over_epsilon": 1.0229988592052364,
+      "source_sha256": "dc033d7907ade151abb298da0ecbddd5108772f9353f8def1b931a006f7a5c07"
+    },
+    {
+      "case": "D",
+      "case_label": "Two-soliton",
+      "input_field": "u",
+      "T": 0.01,
+      "epsilon": 1e-06,
+      "native_max_delta_u_over_epsilon": 1.0208545748173292,
+      "native_max_delta_v_over_epsilon": 0.10277959266091188,
+      "L2_pair_gain": 1.0026704836803064,
+      "fourier_8x_max_delta_u_over_epsilon": 1.021260567994938,
+      "fourier_8x_max_delta_v_over_epsilon": 0.10284271840335747,
+      "source_sha256": "32fb86f693af912a73dc10955980226aae10f035d9c7980920c4ea00316a900c"
+    },
+    {
+      "case": "D",
+      "case_label": "Two-soliton",
+      "input_field": "v",
+      "T": 0.01,
+      "epsilon": 1e-06,
+      "native_max_delta_u_over_epsilon": 0.9738208181459461,
+      "native_max_delta_v_over_epsilon": 1.0286447553910447,
+      "L2_pair_gain": 1.3079040627104515,
+      "fourier_8x_max_delta_u_over_epsilon": 0.9741838711508809,
+      "fourier_8x_max_delta_v_over_epsilon": 1.0290066058550345,
+      "source_sha256": "32fb86f693af912a73dc10955980226aae10f035d9c7980920c4ea00316a900c"
+    },
+    {
+      "case": "Gaussian",
+      "case_label": "Gaussian",
+      "input_field": "u",
+      "T": 0.01,
+      "epsilon": 1e-06,
+      "native_max_delta_u_over_epsilon": 0.9983716164527201,
+      "native_max_delta_v_over_epsilon": 0.01934814260852669,
+      "L2_pair_gain": 1.0005527072887646,
+      "fourier_8x_max_delta_u_over_epsilon": 1.000363127106504,
+      "fourier_8x_max_delta_v_over_epsilon": 0.019364508536440617,
+      "source_sha256": "5ece173738a55472f1606a97ca12cbf2094d0593ae74e0ca7f932b45eedc10f3"
+    },
+    {
+      "case": "Gaussian",
+      "case_label": "Gaussian",
+      "input_field": "v",
+      "T": 0.01,
+      "epsilon": 1e-06,
+      "native_max_delta_u_over_epsilon": 0.04922190862360276,
+      "native_max_delta_v_over_epsilon": 0.9968349338908862,
+      "L2_pair_gain": 1.0014700960405278,
+      "fourier_8x_max_delta_u_over_epsilon": 0.04931961763710794,
+      "fourier_8x_max_delta_v_over_epsilon": 0.9988239751566346,
+      "source_sha256": "5ece173738a55472f1606a97ca12cbf2094d0593ae74e0ca7f932b45eedc10f3"
+    },
+    {
+      "case": "Sinusoidal",
+      "case_label": "Sinusoidal",
+      "input_field": "u",
+      "T": 0.01,
+      "epsilon": 1e-06,
+      "native_max_delta_u_over_epsilon": 0.9984105733181842,
+      "native_max_delta_v_over_epsilon": 0.01933150465631332,
+      "L2_pair_gain": 1.0005527488076051,
+      "fourier_8x_max_delta_u_over_epsilon": 1.000372303097956,
+      "fourier_8x_max_delta_v_over_epsilon": 0.01936560228634683,
+      "source_sha256": "f08176783d0cf9c921c24cd1c22e65b4c8dac825345555ff827b8109aee96a5f"
+    },
+    {
+      "case": "Sinusoidal",
+      "case_label": "Sinusoidal",
+      "input_field": "v",
+      "T": 0.01,
+      "epsilon": 1e-06,
+      "native_max_delta_u_over_epsilon": 0.04922319227982582,
+      "native_max_delta_v_over_epsilon": 0.9968745421913555,
+      "L2_pair_gain": 1.0014700971849815,
+      "fourier_8x_max_delta_u_over_epsilon": 0.049320143418466085,
+      "fourier_8x_max_delta_v_over_epsilon": 0.9988334318848913,
+      "source_sha256": "f08176783d0cf9c921c24cd1c22e65b4c8dac825345555ff827b8109aee96a5f"
+    }
+  ]
+}

@@ -1,0 +1,540 @@
+[
+  {
+    "case": "Gaussian",
+    "method": "Endpoint-SD",
+    "integrator": "RK4",
+    "h": 0.1,
+    "dx": 0.1,
+    "dt": 0.0001,
+    "T": 0.01,
+    "reached": 0.01,
+    "status": "complete",
+    "error": [
+      7.139792701504888e-09,
+      5.561263893838486e-09
+    ],
+    "argmax_u": [
+      0.0,
+      0.0
+    ],
+    "argmax_v": [
+      -0.29999999999999716,
+      -1.75
+    ],
+    "state": "u,v; both physical fields evolved directly",
+    "nx": 1920,
+    "ny": 41,
+    "a": 2.0,
+    "computational_x_interval": [
+      -96,
+      96
+    ],
+    "computational_y_interval": [
+      -2,
+      2
+    ],
+    "evaluation_y_interval": [
+      -1.8,
+      1.8
+    ],
+    "initial_error": [
+      0.0,
+      0.0
+    ],
+    "metric": "Absolute sampled maximum at native field positions.",
+    "reference": "Compatible continuous Cole-Hopf heat-equation reference.",
+    "spatial_x": "Fourier differentiation; first-derivative Nyquist zero; no filtering or dealiasing.",
+    "boundary": "Exact continuous lower u_t and lower ghost u; backward/open chain; no upper y ghost.",
+    "checks": {
+      "initial_lower_ut_difference": 0.0,
+      "initial_physical_error": [
+        0.0,
+        0.0
+      ]
+    },
+    "evolution_seconds": 5.765897399978712,
+    "processing_seconds": 8.518322800053284,
+    "artifact": "Workspaces/dlw_paper_20261009/report_refresh_20261024/compatible_rk4_20261024/Gaussian_Endpoint-SD_RK4.npz",
+    "artifact_sha256": "89d2640123d9bac7edf7a5aa4eb4916a6f0675e3586a5bb82c58a7575f4754b8",
+    "sources": [
+      {
+        "path": "Workspaces/dlw_paper_20261009/report_refresh_20261024/compatible_rk4_20261024/run.py",
+        "sha256": "7a2699618a143b1124a945aa7f7537cc196900533baed913388f4c54588d2a38"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/report_refresh_20261024/compatible_rk4_20261024/reference_grid.py",
+        "sha256": "be45705309b812da307c4ad0b289dd02fe692dda372d2f3051f44bd3f1817471"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/report_refresh_20261024/initial_non_soliton.py",
+        "sha256": "de7b93f9cfa86ef293f1434dfbc9ea79249564799ef8c81b7cb5b0cf2abf7ff2"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024.py",
+        "sha256": "32da0396c930807152222362bc46b48b03917c04bc84648169eb51a78d80b9c0"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/probe.py",
+        "sha256": "e1ab25d35251b4a5a1106d77ba3f2e32410ed0c9e46705d27917d4f2e2cd97c1"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/run.py",
+        "sha256": "1743f9877f21e78a1eff6bf9533b67f09965ba9c1ec09d0a759fa16e042f45c5"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/run_separated.py",
+        "sha256": "41046229b00982c115ae37ad206fca3fb6821341af280a86c4cd19d3f7395904"
+      }
+    ]
+  },
+  {
+    "case": "Gaussian",
+    "method": "Centered-SD",
+    "integrator": "RK4",
+    "h": 0.1,
+    "dx": 0.1,
+    "dt": 0.0001,
+    "T": 0.01,
+    "reached": 0.01,
+    "status": "complete",
+    "error": [
+      7.141256114229222e-09,
+      1.0180979614915486e-08
+    ],
+    "argmax_u": [
+      0.0,
+      0.0
+    ],
+    "argmax_v": [
+      -2.3999999999999915,
+      1.1500000000000001
+    ],
+    "state": "u,w; physical v from current full-potential edge map",
+    "nx": 1920,
+    "ny": 41,
+    "a": 2.0,
+    "computational_x_interval": [
+      -96,
+      96
+    ],
+    "computational_y_interval": [
+      -2,
+      2
+    ],
+    "evaluation_y_interval": [
+      -1.8,
+      1.8
+    ],
+    "initial_error": [
+      0.0,
+      9.530154443382344e-13
+    ],
+    "metric": "Absolute sampled maximum at native field positions.",
+    "reference": "Compatible continuous Cole-Hopf heat-equation reference.",
+    "spatial_x": "Fourier differentiation; first-derivative Nyquist zero; no filtering or dealiasing.",
+    "boundary": "Exact continuous lower u_t; all w nodes evolved by their equation; no upper y ghost.",
+    "checks": {
+      "inverse_iterations": 33,
+      "inverse_residual": 1.9060308886764687e-12,
+      "map_residual": 9.530154443382344e-13,
+      "first_equation_identity": 1.608546629228158e-12,
+      "chain_rule_difference": 1.4334189425578402e-09,
+      "initial_lower_ut_difference": 0.0,
+      "initial_physical_error": [
+        0.0,
+        9.530154443382344e-13
+      ]
+    },
+    "evolution_seconds": 5.525213299901225,
+    "processing_seconds": 6.798224000027403,
+    "artifact": "Workspaces/dlw_paper_20261009/report_refresh_20261024/compatible_rk4_20261024/Gaussian_Centered-SD_RK4.npz",
+    "artifact_sha256": "5b36af0cc3e43600cf1977d42430b9d81354545a22f12dd3629934c9c86fa902",
+    "sources": [
+      {
+        "path": "Workspaces/dlw_paper_20261009/report_refresh_20261024/compatible_rk4_20261024/run.py",
+        "sha256": "7a2699618a143b1124a945aa7f7537cc196900533baed913388f4c54588d2a38"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/report_refresh_20261024/compatible_rk4_20261024/reference_grid.py",
+        "sha256": "be45705309b812da307c4ad0b289dd02fe692dda372d2f3051f44bd3f1817471"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/report_refresh_20261024/initial_non_soliton.py",
+        "sha256": "de7b93f9cfa86ef293f1434dfbc9ea79249564799ef8c81b7cb5b0cf2abf7ff2"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024.py",
+        "sha256": "32da0396c930807152222362bc46b48b03917c04bc84648169eb51a78d80b9c0"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/probe.py",
+        "sha256": "e1ab25d35251b4a5a1106d77ba3f2e32410ed0c9e46705d27917d4f2e2cd97c1"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/run.py",
+        "sha256": "1743f9877f21e78a1eff6bf9533b67f09965ba9c1ec09d0a759fa16e042f45c5"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/run_separated.py",
+        "sha256": "41046229b00982c115ae37ad206fca3fb6821341af280a86c4cd19d3f7395904"
+      }
+    ]
+  },
+  {
+    "case": "Gaussian",
+    "method": "FD",
+    "integrator": "RK4",
+    "h": 0.1,
+    "dx": 0.1,
+    "dt": 0.0001,
+    "T": 0.01,
+    "reached": 0.01,
+    "status": "complete",
+    "error": [
+      1.4242652258966704e-08,
+      2.2116254605464292e-08
+    ],
+    "argmax_u": [
+      0.0,
+      0.0
+    ],
+    "argmax_v": [
+      0.0,
+      1.8000000000000003
+    ],
+    "state": "u,v; both physical fields evolved directly",
+    "nx": 1920,
+    "ny": 41,
+    "a": 2.0,
+    "computational_x_interval": [
+      -96,
+      96
+    ],
+    "computational_y_interval": [
+      -2,
+      2
+    ],
+    "evaluation_y_interval": [
+      -1.8,
+      1.8
+    ],
+    "initial_error": [
+      0.0,
+      0.0
+    ],
+    "metric": "Absolute sampled maximum at native field positions.",
+    "reference": "Compatible continuous Cole-Hopf heat-equation reference.",
+    "spatial_x": "Fourier differentiation; first-derivative Nyquist zero; no filtering or dealiasing.",
+    "boundary": "Exact continuous lower u_t and lower ghost u; upper ghost uses exact continuous background plus quadratic perturbation extrapolation.",
+    "checks": {
+      "initial_lower_ut_difference": 0.0,
+      "initial_physical_error": [
+        0.0,
+        0.0
+      ]
+    },
+    "evolution_seconds": 6.208037400036119,
+    "processing_seconds": 6.995902199996635,
+    "artifact": "Workspaces/dlw_paper_20261009/report_refresh_20261024/compatible_rk4_20261024/Gaussian_FD_RK4.npz",
+    "artifact_sha256": "3d549b13029c9ce7836b148ac4cfa909a783482ab9f06d8654e078ce5f1d0150",
+    "sources": [
+      {
+        "path": "Workspaces/dlw_paper_20261009/report_refresh_20261024/compatible_rk4_20261024/run.py",
+        "sha256": "7a2699618a143b1124a945aa7f7537cc196900533baed913388f4c54588d2a38"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/report_refresh_20261024/compatible_rk4_20261024/reference_grid.py",
+        "sha256": "be45705309b812da307c4ad0b289dd02fe692dda372d2f3051f44bd3f1817471"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/report_refresh_20261024/initial_non_soliton.py",
+        "sha256": "de7b93f9cfa86ef293f1434dfbc9ea79249564799ef8c81b7cb5b0cf2abf7ff2"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024.py",
+        "sha256": "32da0396c930807152222362bc46b48b03917c04bc84648169eb51a78d80b9c0"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/probe.py",
+        "sha256": "e1ab25d35251b4a5a1106d77ba3f2e32410ed0c9e46705d27917d4f2e2cd97c1"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/run.py",
+        "sha256": "1743f9877f21e78a1eff6bf9533b67f09965ba9c1ec09d0a759fa16e042f45c5"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/run_separated.py",
+        "sha256": "41046229b00982c115ae37ad206fca3fb6821341af280a86c4cd19d3f7395904"
+      }
+    ]
+  },
+  {
+    "case": "Sinusoidal",
+    "method": "Endpoint-SD",
+    "integrator": "RK4",
+    "h": 0.1,
+    "dx": 0.1,
+    "dt": 0.0001,
+    "T": 0.01,
+    "reached": 0.01,
+    "status": "complete",
+    "error": [
+      5.285931782561537e-09,
+      4.1120182814324835e-09
+    ],
+    "argmax_u": [
+      -12.0,
+      0.0
+    ],
+    "argmax_v": [
+      84.60000000000002,
+      -1.75
+    ],
+    "state": "u,v; both physical fields evolved directly",
+    "nx": 1920,
+    "ny": 41,
+    "a": 2.0,
+    "computational_x_interval": [
+      -96,
+      96
+    ],
+    "computational_y_interval": [
+      -2,
+      2
+    ],
+    "evaluation_y_interval": [
+      -1.8,
+      1.8
+    ],
+    "initial_error": [
+      0.0,
+      0.0
+    ],
+    "metric": "Absolute sampled maximum at native field positions.",
+    "reference": "Compatible continuous Cole-Hopf heat-equation reference.",
+    "spatial_x": "Fourier differentiation; first-derivative Nyquist zero; no filtering or dealiasing.",
+    "boundary": "Exact continuous lower u_t and lower ghost u; backward/open chain; no upper y ghost.",
+    "checks": {
+      "initial_lower_ut_difference": 0.0,
+      "initial_physical_error": [
+        0.0,
+        0.0
+      ]
+    },
+    "evolution_seconds": 5.198322199983522,
+    "processing_seconds": 5.749109799973667,
+    "artifact": "Workspaces/dlw_paper_20261009/report_refresh_20261024/compatible_rk4_20261024/Sinusoidal_Endpoint-SD_RK4.npz",
+    "artifact_sha256": "54e5ef72b0069c99f7a3461a35835b82928ad082cdbaef2ab49ac5afa5c6e448",
+    "sources": [
+      {
+        "path": "Workspaces/dlw_paper_20261009/report_refresh_20261024/compatible_rk4_20261024/run.py",
+        "sha256": "7a2699618a143b1124a945aa7f7537cc196900533baed913388f4c54588d2a38"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/report_refresh_20261024/compatible_rk4_20261024/reference_grid.py",
+        "sha256": "be45705309b812da307c4ad0b289dd02fe692dda372d2f3051f44bd3f1817471"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/report_refresh_20261024/initial_non_soliton.py",
+        "sha256": "de7b93f9cfa86ef293f1434dfbc9ea79249564799ef8c81b7cb5b0cf2abf7ff2"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024.py",
+        "sha256": "32da0396c930807152222362bc46b48b03917c04bc84648169eb51a78d80b9c0"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/probe.py",
+        "sha256": "e1ab25d35251b4a5a1106d77ba3f2e32410ed0c9e46705d27917d4f2e2cd97c1"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/run.py",
+        "sha256": "1743f9877f21e78a1eff6bf9533b67f09965ba9c1ec09d0a759fa16e042f45c5"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/run_separated.py",
+        "sha256": "41046229b00982c115ae37ad206fca3fb6821341af280a86c4cd19d3f7395904"
+      }
+    ]
+  },
+  {
+    "case": "Sinusoidal",
+    "method": "Centered-SD",
+    "integrator": "RK4",
+    "h": 0.1,
+    "dx": 0.1,
+    "dt": 0.0001,
+    "T": 0.01,
+    "reached": 0.01,
+    "status": "complete",
+    "error": [
+      5.2863662440560955e-09,
+      5.366681765650583e-09
+    ],
+    "argmax_u": [
+      84.0,
+      0.0
+    ],
+    "argmax_v": [
+      93.80000000000001,
+      -1.25
+    ],
+    "state": "u,w; physical v from current full-potential edge map",
+    "nx": 1920,
+    "ny": 41,
+    "a": 2.0,
+    "computational_x_interval": [
+      -96,
+      96
+    ],
+    "computational_y_interval": [
+      -2,
+      2
+    ],
+    "evaluation_y_interval": [
+      -1.8,
+      1.8
+    ],
+    "initial_error": [
+      0.0,
+      9.9298347322474e-13
+    ],
+    "metric": "Absolute sampled maximum at native field positions.",
+    "reference": "Compatible continuous Cole-Hopf heat-equation reference.",
+    "spatial_x": "Fourier differentiation; first-derivative Nyquist zero; no filtering or dealiasing.",
+    "boundary": "Exact continuous lower u_t; all w nodes evolved by their equation; no upper y ghost.",
+    "checks": {
+      "inverse_iterations": 32,
+      "inverse_residual": 1.98507876802978e-12,
+      "map_residual": 9.9298347322474e-13,
+      "first_equation_identity": 9.012391527507546e-13,
+      "chain_rule_difference": 1.3704744958233789e-09,
+      "initial_lower_ut_difference": 0.0,
+      "initial_physical_error": [
+        0.0,
+        9.9298347322474e-13
+      ]
+    },
+    "evolution_seconds": 4.81007609993685,
+    "processing_seconds": 5.443409099942073,
+    "artifact": "Workspaces/dlw_paper_20261009/report_refresh_20261024/compatible_rk4_20261024/Sinusoidal_Centered-SD_RK4.npz",
+    "artifact_sha256": "035faeee33695702aeeb73e03c531d6c96fae752dd431662f1afa9072e623a46",
+    "sources": [
+      {
+        "path": "Workspaces/dlw_paper_20261009/report_refresh_20261024/compatible_rk4_20261024/run.py",
+        "sha256": "7a2699618a143b1124a945aa7f7537cc196900533baed913388f4c54588d2a38"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/report_refresh_20261024/compatible_rk4_20261024/reference_grid.py",
+        "sha256": "be45705309b812da307c4ad0b289dd02fe692dda372d2f3051f44bd3f1817471"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/report_refresh_20261024/initial_non_soliton.py",
+        "sha256": "de7b93f9cfa86ef293f1434dfbc9ea79249564799ef8c81b7cb5b0cf2abf7ff2"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024.py",
+        "sha256": "32da0396c930807152222362bc46b48b03917c04bc84648169eb51a78d80b9c0"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/probe.py",
+        "sha256": "e1ab25d35251b4a5a1106d77ba3f2e32410ed0c9e46705d27917d4f2e2cd97c1"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/run.py",
+        "sha256": "1743f9877f21e78a1eff6bf9533b67f09965ba9c1ec09d0a759fa16e042f45c5"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/run_separated.py",
+        "sha256": "41046229b00982c115ae37ad206fca3fb6821341af280a86c4cd19d3f7395904"
+      }
+    ]
+  },
+  {
+    "case": "Sinusoidal",
+    "method": "FD",
+    "integrator": "RK4",
+    "h": 0.1,
+    "dx": 0.1,
+    "dt": 0.0001,
+    "T": 0.01,
+    "reached": 0.01,
+    "status": "complete",
+    "error": [
+      1.0559284596006746e-08,
+      1.6384293033411268e-08
+    ],
+    "argmax_u": [
+      72.0,
+      0.0
+    ],
+    "argmax_v": [
+      72.0,
+      1.8000000000000003
+    ],
+    "state": "u,v; both physical fields evolved directly",
+    "nx": 1920,
+    "ny": 41,
+    "a": 2.0,
+    "computational_x_interval": [
+      -96,
+      96
+    ],
+    "computational_y_interval": [
+      -2,
+      2
+    ],
+    "evaluation_y_interval": [
+      -1.8,
+      1.8
+    ],
+    "initial_error": [
+      0.0,
+      0.0
+    ],
+    "metric": "Absolute sampled maximum at native field positions.",
+    "reference": "Compatible continuous Cole-Hopf heat-equation reference.",
+    "spatial_x": "Fourier differentiation; first-derivative Nyquist zero; no filtering or dealiasing.",
+    "boundary": "Exact continuous lower u_t and lower ghost u; upper ghost uses exact continuous background plus quadratic perturbation extrapolation.",
+    "checks": {
+      "initial_lower_ut_difference": 0.0,
+      "initial_physical_error": [
+        0.0,
+        0.0
+      ]
+    },
+    "evolution_seconds": 3.8707604999653995,
+    "processing_seconds": 4.181508200010285,
+    "artifact": "Workspaces/dlw_paper_20261009/report_refresh_20261024/compatible_rk4_20261024/Sinusoidal_FD_RK4.npz",
+    "artifact_sha256": "c2a2d57ce9cc68c3c9d8dda77cc6fcd1cf64dbf1aad16afc831c9d1e57513d00",
+    "sources": [
+      {
+        "path": "Workspaces/dlw_paper_20261009/report_refresh_20261024/compatible_rk4_20261024/run.py",
+        "sha256": "7a2699618a143b1124a945aa7f7537cc196900533baed913388f4c54588d2a38"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/report_refresh_20261024/compatible_rk4_20261024/reference_grid.py",
+        "sha256": "be45705309b812da307c4ad0b289dd02fe692dda372d2f3051f44bd3f1817471"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/report_refresh_20261024/initial_non_soliton.py",
+        "sha256": "de7b93f9cfa86ef293f1434dfbc9ea79249564799ef8c81b7cb5b0cf2abf7ff2"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024.py",
+        "sha256": "32da0396c930807152222362bc46b48b03917c04bc84648169eb51a78d80b9c0"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/probe.py",
+        "sha256": "e1ab25d35251b4a5a1106d77ba3f2e32410ed0c9e46705d27917d4f2e2cd97c1"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/run.py",
+        "sha256": "1743f9877f21e78a1eff6bf9533b67f09965ba9c1ec09d0a759fa16e042f45c5"
+      },
+      {
+        "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/run_separated.py",
+        "sha256": "41046229b00982c115ae37ad206fca3fb6821341af280a86c4cd19d3f7395904"
+      }
+    ]
+  }
+]

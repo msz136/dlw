@@ -1,0 +1,47 @@
+{
+  "case": "A",
+  "perturbed_component": "u",
+  "dx": 0.1,
+  "h": 0.05,
+  "dt": 0.0001,
+  "T": 0.01,
+  "reached": 0.01,
+  "status": "complete",
+  "reason": null,
+  "epsilon": 1e-06,
+  "x_mode": 4,
+  "x_wavenumber": 1.2566370614359172,
+  "y_interval": [
+    -9.95,
+    9.95
+  ],
+  "x_interval": [
+    -10.0,
+    10.0
+  ],
+  "nx": 200,
+  "ny": 399,
+  "initial_physical_perturbation": "u receives eps*sin(pi*(y-yL)/(yR-yL))^2*cos(2*pi*mx*x/Lx); other physical field unchanged",
+  "boundary": "Identical unperturbed analytic lower u_t, lower w perturbation initially zero and then freely evolved",
+  "initial_amplitude": [
+    1e-06,
+    0.0
+  ],
+  "final_amplitude": [
+    1.020841928772117e-06,
+    7.239216730943125e-08
+  ],
+  "gain_from_initial_max": [
+    1.020841928772117,
+    0.07239216730943125
+  ],
+  "initial_auxiliary_perturbation_max": 1.578673381943636e-07,
+  "initial_y_checkerboard_projection_max": 1.2849484792862568e-19,
+  "initial_v_perturbation_rounding": 1.6543612251060553e-24,
+  "algebraic_rhs_subtraction_check": 3.4173474069707155e-13,
+  "reference_status": "No perturbed continuum reference or error certificate; same-discrete-system trajectory separation only",
+  "filtering": false,
+  "source_sha256": "689cdcaa9751af4e010040a5e403e7857f5e0b7ea2c9404784a61e6118edc310",
+  "artifact_sha256": "88c842f6e6bd0f558a4e089fa86363bf254ea39b6a3b459ec08467c7978ce0c6",
+  "seconds": 12.639988800000083
+}

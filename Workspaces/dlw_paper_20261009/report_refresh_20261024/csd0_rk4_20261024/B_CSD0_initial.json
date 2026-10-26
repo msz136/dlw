@@ -1,0 +1,43 @@
+{
+  "case": "B",
+  "method": "CSD0",
+  "t": 0.0,
+  "h": 0.1,
+  "dx": 0.1,
+  "a": 2.0,
+  "total": [
+    0.0006997335241885061,
+    0.00021053841104312632
+  ],
+  "reference": "Continuous exact soliton initial time derivatives, evaluated analytically from tau moments.",
+  "state": "u,v at the same y sites; w=v-delta_0 u",
+  "checks": {
+    "initial_analytic_profile_difference": 0.0,
+    "initial_lower_ut_difference": 0.0,
+    "old_initial_total": [
+      0.0006997335241885061,
+      0.00021053841104312632
+    ],
+    "old_initial_total_difference": 0.0
+  },
+  "artifact": "Workspaces/dlw_paper_20261009/report_refresh_20261024/csd0_rk4_20261024/B_CSD0_RK4.npz",
+  "artifact_sha256": "b7e5f09357bfcd9ac5ad092781ad6351a39d2fd90df041a4384f1b57a80d859f",
+  "sources": [
+    {
+      "path": "Workspaces/dlw_paper_20261009/report_refresh_20261024/csd0_rk4_20261024/run.py",
+      "sha256": "825fd0fcfa3f9f70b6b8f7438b000d46c43665ca1d4c6afb3085f237139994b2"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/run.py",
+      "sha256": "1743f9877f21e78a1eff6bf9533b67f09965ba9c1ec09d0a759fa16e042f45c5"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/run_separated.py",
+      "sha256": "41046229b00982c115ae37ad206fca3fb6821341af280a86c4cd19d3f7395904"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/paper_comparison_20261022/solver_snapshot.py",
+      "sha256": "f4be5d7cecf625c59cbea41adfd2d54f3a8b8272af3375a56cfcd506fac472a1"
+    }
+  ]
+}

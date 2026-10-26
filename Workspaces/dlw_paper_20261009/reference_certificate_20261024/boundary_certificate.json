@@ -1,0 +1,33 @@
+{
+  "formula": "v(x,-2,t)=(.03*pi/4)*cos((pi/12)*(x-4*t))*sinh((pi/12)^2*t)",
+  "interpretation": "exact boundary trace of the full nonlinear PDE; not linearized approximation",
+  "candidates": [
+    {
+      "candidate": "ref4",
+      "scope": "max over stored lower-boundary x nodes",
+      "rigorous_lower": "4.2267e-8",
+      "rigorous_upper": "4.2270e-8",
+      "verified": true,
+      "target_upper_1e_10_rejected": true
+    },
+    {
+      "candidate": "ref8",
+      "scope": "max over stored lower-boundary x nodes",
+      "rigorous_lower": "4.2267e-8",
+      "rigorous_upper": "4.2269e-8",
+      "verified": true,
+      "target_upper_1e_10_rejected": true
+    },
+    {
+      "candidate": "80 digits, h=.1 dx=.05",
+      "scope": "max over stored lower-boundary x nodes",
+      "rigorous_lower": "4.5381e-8",
+      "rigorous_upper": "4.5383e-8",
+      "verified": true
+    }
+  ],
+  "exact_trace_representation_error_upper": "1e-72",
+  "trace_representation_scope": "480 points x=j/20, t=.01; rounded analytic trace only",
+  "full_domain_upper": null,
+  "continuum_reference_certified": false
+}

@@ -1,0 +1,30 @@
+{
+  "case": "Sinusoidal",
+  "method": "FD",
+  "dx": 0.1,
+  "h": 0.1,
+  "t": 0.0,
+  "a": 2.0,
+  "total": [
+    1.0570650126697813e-06,
+    1.6393168415973405e-06
+  ],
+  "argmax_ut": [
+    84.0,
+    0.0
+  ],
+  "argmax_vt": [
+    36.0,
+    -1.8
+  ],
+  "checks": {
+    "initial_lower_ut_difference": 0.0,
+    "initial_physical_error": [
+      0.0,
+      0.0
+    ]
+  },
+  "region": "all periodic x nodes in [-96,96); native field sites |y|<=1.8",
+  "reference": "analytic compatible continuous initial time derivatives",
+  "status": "complete"
+}

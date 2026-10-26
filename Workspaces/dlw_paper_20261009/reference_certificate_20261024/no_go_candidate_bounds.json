@@ -1,0 +1,36 @@
+{
+  "definition": "Exact rounded Chebyshev endpoint values and derivatives; exact rational cubic Bernstein controls enforce C1 time joins; lower-u corrected exactly; then add exact initial profile minus polynomial initial profile to each physical field",
+  "coordinate": "Bounds invariant under X=x-4t; apply in moving coordinates",
+  "initial_and_boundary": "Exact original initialization and u=0 lower boundary",
+  "arb_precision_bits": 192,
+  "results": [
+    {
+      "case": "Sinusoidal",
+      "source": "Sinusoidal_M32_Y24_dt5.0e-05.npz",
+      "background_bounds": {
+        "P": "[0.174071026965536603722335591509713011286560752153435871806 +/- 4.29e-58]",
+        "Q": "[0.119393274905365221554694883922724891728061760884035135203 +/- 2.78e-58]",
+        "M_a": "[0.448285283114285626748092855033179907044417245495119548337 +/- 2.17e-58]",
+        "M_b": "[0.300143229183212419303421672013753884471295741188247804724 +/- 7.80e-59]",
+        "N_a": "[0.265003985903125370348727972257451427846563096410571348436 +/- 1.73e-58]",
+        "N_b": "[0.226217436092394927239338204412001644390439574642501078029 +/- 5.24e-58]"
+      },
+      "all_six_strictly_below_one": true
+    },
+    {
+      "case": "Gaussian",
+      "source": "Gaussian_M128_Y24_dt5.0e-05.npz",
+      "background_bounds": {
+        "P": "[0.223423052694034582261754806787402698835073132413056244877 +/- 1.68e-58]",
+        "Q": "[0.123184035727839943063581489186254884705715485902234714865 +/- 1.79e-58]",
+        "M_a": "[0.607084820693423196268918681355326829106781907500727447824 +/- 5.26e-58]",
+        "M_b": "[0.360238715305354031745409067780521431436635642674614958069 +/- 5.31e-58]",
+        "N_a": "[0.276454621079708482675280353405700340214444998479183874848 +/- 3.18e-58]",
+        "N_b": "[0.230086549624028596548117375033190570803014026674714445117 +/- 5.16e-58]"
+      },
+      "all_six_strictly_below_one": true
+    }
+  ],
+  "meaning": "Proves applicability of residual-change example to these constructed baselines; does not bound baseline PDE residual or error to a true solution",
+  "continuum_reference_certified": false
+}

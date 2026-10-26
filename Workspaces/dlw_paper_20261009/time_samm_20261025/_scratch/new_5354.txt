@@ -1,0 +1,68 @@
+============================== section-5.3 ==============================
+5.3 Comparison of time integrators
+
+We next retain Centered-SD on the fixed grid and vary only the time integrator. Forward Euler, classical RK4 and Crank–Nicolson use the same initial fields, the same boundary data and the same Fourier $x$ operators, with $h=\Delta x=0.1$ and $\Delta t=10^{-4}$, and each calculation is followed from $t=0$ to $T=0.01$.
+
+At every time step $t_n$ we record the largest discrepancy in each physical field over the native locations of the region specified in Section 5.1,
+
+$E_u^{(m)}(t_n)=\max_{\mathcal G_u}\left|u_h^{(m)}(t_n)-u^*(t_n)\right|,\qquad E_v^{(m)}(t_n)=\max_{\mathcal G_v}\left|v_h^{(m)}(t_n)-v^*(t_n)\right|.$
+
+Here $m$ labels the time integrator. The two histories show how the largest error in each field develops, although the location of that maximum may change during the evolution.
+
+Table 4 lists the values at $T=0.01$. The RK4 rows reproduce the Centered-SD column of Table 3, since both calculations use the same spatial scheme and the same time step.
+
+[TABLE]
+Case | Forward Euler | RK4 | Crank–Nicolson
+E u E_u E u ​ | E v E_v E v ​ | E u E_u E u ​ | E v E_v E v ​ | E u E_u E u ​ | E v E_v E v ​
+One-soliton | 1.664 × 10 -4 | 8.026 × 10 -5 | 1.677 × 10 -4 | 7.734 × 10 -5 | 1.677 × 10 -4 | 7.734 × 10 -5
+Two-soliton | 1.420 × 10 -4 | 1.090 × 10 -4 | 1.792 × 10 -4 | 1.009 × 10 -4 | 1.805 × 10 -4 | 1.009 × 10 -4
+Gaussian | 5.107 × 10 -9 | 5.680 × 10 -8 | 2.900 × 10 -8 | 6.967 × 10 -9 | 2.900 × 10 -8 | 6.969 × 10 -9
+Sinusoidal | 1.243 × 10 -8 | 4.213 × 10 -8 | 2.003 × 10 -8 | 4.706 × 10 -9 | 2.003 × 10 -8 | 4.705 × 10 -9
+[/TABLE]
+
+RK4 and Crank–Nicolson are almost indistinguishable. Their largest relative difference is $7.3\times10^{-3}$, in the first field of the two-soliton case, and it is below $4.3\times10^{-4}$ in the other entries. At this step size the error is therefore controlled by the spatial approximation, and the second- and fourth-order schemes give the same accuracy.
+
+Forward Euler changes the level of the error rather than its development. It gives a smaller $u$ error than RK4 in all four tests, by $0.8\%$, $21\%$, $82\%$ and $38\%$, and a larger $v$ error, by $3.8\%$, $8.0\%$, and factors of $8.2$ and $9.0$. These changes follow the sign of the first-order temporal defect relative to the spatial error, so the reduction in $u$ does not indicate a better resolution of that field. Halving the step moves the Euler results towards RK4 in all four tests: for the one-soliton case the errors change from $1.664\times10^{-4}$ and $8.026\times10^{-5}$ to $1.671\times10^{-4}$ and $7.880\times10^{-5}$, and for the two-soliton case from $1.420\times10^{-4}$ and $1.090\times10^{-4}$ to $1.560\times10^{-4}$ and $1.048\times10^{-4}$.
+
+Figures 25 and 26 show the two histories for all four tests. The maximum error of each field increases monotonically and is attained at the final time for every integrator and every test. In the one-soliton, Gaussian and sinusoidal cases the growth is nearly proportional to $t$, so that the ratio $E(t)/t$ varies by less than $10\%$ over the interval; in the two-soliton case the first-field curves steepen during the last part of the calculation, where the interaction develops. The curves of RK4 and Crank–Nicolson overlap within the line width, while the Euler curve is displaced by an almost constant factor.
+
+[IMG src=Workspaces/dlw_paper_20261009/time_samm_20261025/figures/time_error_u.png]
+Figure 25. Development of the maximum absolute error in $u$ for Centered-SD with forward Euler (orange), RK4 (blue) and Crank–Nicolson (purple dashed): (a) one-soliton, (b) two-soliton, (c) Gaussian and (d) sinusoidal cases. Each value is the maximum over the native field locations in the region of Section 5.1 and is evaluated at every time step; the vertical axis is logarithmic. All calculations use $h=\Delta x=0.1$ and $\Delta t=10^{-4}$. The initial error vanishes. PDF
+
+[IMG src=Workspaces/dlw_paper_20261009/time_samm_20261025/figures/time_error_v.png]
+Figure 26. Development of the maximum absolute error in $v$, arranged as in Figure 25. Each value is the maximum over the native midpoints $y_{k-1/2}$ of the second field in the region of Section 5.1. PDF
+
+These calculations separate the time integration from the spatial approximation. At $\Delta t=10^{-4}$ the second- and fourth-order schemes agree, and the first-order scheme shifts the error by a factor that depends on the test and on the field. We retain RK4 for the mesh comparison, where a common time integrator isolates the effect of the node distribution.
+============================== section-5.4 ==============================
+5.4 Fixed and adaptive meshes
+
+We now examine how the distribution of the shared $x$ nodes affects the computed fields. The uniform and adaptive calculations have the same node count, the same $y$ lattice, the same RK4 step $\Delta t=10^{-4}$ and the same final time. Both use the mapped centred operators of Section 4.3, so the only difference is the node distribution; those operators are local in the computational coordinate rather than Fourier multipliers, so the fixed-mesh errors below are larger than those of Table 3.
+
+In the adaptive calculation the initial nodes equidistribute the transverse-averaged conservation density computed from the exact initial fields, and the nodes then move with the velocity of Section 4.3. The density ranges from $1.000$ to $1.150$ in the one-soliton case and from $1.000$ to $1.050$ in the two-soliton case. Figure 27 shows the resulting local spacing, normalized by the uniform spacing, at $t=0$ and $T=0.01$.
+
+[IMG src=Workspaces/dlw_paper_20261009/time_samm_20261025/figures/mesh_spacing.png]
+Figure 27. Local $x$ spacing normalized by the uniform spacing $\Delta x=0.1$, plotted at the interval midpoints of (a) the one-soliton and (b) the two-soliton case. Grey dashed: initial adaptive mesh; blue: $T=0.01$; orange dotted: uniform spacing. PDF
+
+Nodes are concentrated where the density is large. In the one-soliton case the spacing falls to $0.90\,\Delta x$ across the wave region, and the background is stretched to $1.04\,\Delta x$; in the two-soliton case the spacing varies between $0.97\,\Delta x$ and $1.02\,\Delta x$. The initial and final distributions nearly coincide: the largest node displacement during the calculation is $9.5\times10^{-4}$ in the one-soliton case and $5.2\times10^{-4}$ in the two-soliton case. The pattern is therefore set by the initial equidistribution and adjusted only slightly by the evolution, and the total discrete mass of the averaged density changes by less than $10^{-7}$ relative.
+
+Table 5 compares the terminal errors on the fixed and adaptive meshes and reports the relative change
+
+$\mathcal R_f=100\left(1-\frac{E_f^{\mathrm{adaptive}}(T)}{E_f^{\mathrm{uniform}}(T)}\right)\%,\qquad f=u,v,$
+
+so that positive values correspond to a reduction. The adaptive mesh lowers both errors in both cases: by $11.7\%$ in $u$ and $17.4\%$ in $v$ for the one-soliton case, and by $6.0\%$ and $5.6\%$ for the two-soliton case.
+
+[TABLE]
+Case | Uniform mesh | Adaptive mesh | Change
+E u E_u E u ​ | E v E_v E v ​ | E u E_u E u ​ | E v E_v E v ​ | R u \mathcal R_u R u ​ | R v \mathcal R_v R v ​
+One-soliton | 6.741 × 10 -4 | 1.401 × 10 -3 | 5.954 × 10 -4 | 1.157 × 10 -3 | 11.7% | 17.4%
+Two-soliton | 5.533 × 10 -4 | 1.589 × 10 -3 | 5.198 × 10 -4 | 1.501 × 10 -3 | 6.0% | 5.6%
+[/TABLE]
+
+The reduction is already obtained from the initial distribution. Holding the equidistributed initial nodes fixed gives changes of $12.8\%$ and $16.3\%$ for the one-soliton case and $5.3\%$ and $5.8\%$ for the two-soliton case, within $1.1$ percentage points of the values in Table 5. The node motion over this short interval is therefore not the main mechanism; it slightly raises the first-field error of the one-soliton case and slightly lowers the second-field error.
+
+Figure 28 shows the corresponding error profiles for the one-soliton case, that is, the maximum over the transverse layers at each native $x$ node. The adaptive mesh lowers the error over the central region of both fields and reduces the two peaks that determine the maxima of $u$; in $v$ the plateau along the wave band falls from $1.40\times10^{-3}$ to $1.16\times10^{-3}$. In the two-soliton case the reduction is smaller and is spread over the two wave branches.
+
+[IMG src=Workspaces/dlw_paper_20261009/time_samm_20261025/figures/mesh_profile_A.png]
+Figure 28. One-soliton case at $T=0.01$. Maximum over the transverse layers of the absolute error at each native $x$ node for the uniform mesh (orange dashed, open circles) and the adaptive mesh (blue): (a) $u$ and (b) $v$. Both calculations use the mapped centred operators of Section 4.3, the same number of nodes and RK4 with $\Delta t=10^{-4}$. PDF
+
+Within this setting the conservation density provides a useful allocation of the shared nodes. With the same node count and the same time integrator it lowers the maximum error in both physical fields of both tests, and most of the gain is obtained from the initial distribution. The improvement is limited by the small motion over the short interval and by the error being spread over the wave region rather than concentrated at isolated features.

@@ -1,0 +1,132 @@
+{
+  "analytic": [
+    {
+      "case": "A",
+      "type": "continuous exact",
+      "t": 0,
+      "xlim": [
+        -5.0,
+        5.0
+      ],
+      "ylim": [
+        -5.0,
+        5.0
+      ]
+    },
+    {
+      "case": "B",
+      "type": "continuous exact",
+      "t": 0,
+      "xlim": [
+        -10.0,
+        10.0
+      ],
+      "ylim": [
+        -10.0,
+        10.0
+      ]
+    },
+    {
+      "case": "C",
+      "type": "continuous exact",
+      "t": 0,
+      "xlim": [
+        -30.0,
+        30.0
+      ],
+      "ylim": [
+        -30.0,
+        30.0
+      ]
+    },
+    {
+      "case": "D",
+      "type": "continuous exact",
+      "t": 0,
+      "xlim": [
+        -30.0,
+        30.0
+      ],
+      "ylim": [
+        -30.0,
+        30.0
+      ]
+    }
+  ],
+  "numerical": [
+    {
+      "method": "PE",
+      "max_error": {
+        "u": 0.0006406395060585268,
+        "v": 0.001339511176401409
+      },
+      "nearest_y": -0.05
+    },
+    {
+      "method": "PF",
+      "max_error": {
+        "u": 0.0030612005784449448,
+        "v": 0.003067030951602545
+      },
+      "nearest_y": -0.05
+    },
+    {
+      "method": "FD",
+      "max_error": {
+        "u": 0.0004715088184300553,
+        "v": 0.0012019225494339647
+      },
+      "nearest_y": -0.05
+    },
+    {
+      "method": "PE",
+      "field": "u",
+      "section_max_error": 0.0004633694127991195,
+      "exact_interpolation_control": 1.2261875514951726e-07
+    },
+    {
+      "method": "PF",
+      "field": "u",
+      "section_max_error": 0.002851979745964961,
+      "exact_interpolation_control": 1.2261875514951726e-07
+    },
+    {
+      "method": "FD",
+      "field": "u",
+      "section_max_error": 0.000307328627064285,
+      "exact_interpolation_control": 1.2261875514951726e-07
+    },
+    {
+      "method": "PE",
+      "field": "v",
+      "section_max_error": 0.0013305213588550302,
+      "exact_interpolation_control": 5.09885969002255e-08
+    },
+    {
+      "method": "PF",
+      "field": "v",
+      "section_max_error": 0.0030475145851598384,
+      "exact_interpolation_control": 5.09885969002255e-08
+    },
+    {
+      "method": "FD",
+      "field": "v",
+      "section_max_error": 0.0011927096226802547,
+      "exact_interpolation_control": 5.09885969002255e-08
+    }
+  ],
+  "config": {
+    "a": 2.0,
+    "h": 0.1,
+    "dt": 0.0001,
+    "T": 0.01,
+    "L": 20.0,
+    "nx": 200,
+    "yhalf": 10.0,
+    "eval_yhalf": 5.0,
+    "eval_half": 5.0,
+    "eval_points": 1001
+  },
+  "notebook_sha256": "e3fd9bafc73c028b59d9a4a6a6cbdc7d7d1644d18cdb5695353454c662068aec",
+  "section_rule": "CubicSpline of numerical field in y evaluated at zero; subtract analytic y=0 reference. Not max over y."
+}

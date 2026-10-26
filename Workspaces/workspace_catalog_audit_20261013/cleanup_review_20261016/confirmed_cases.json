@@ -1,0 +1,50 @@
+[
+  {
+    "target": "Workspaces/dlw_paper_20261009/tables.json",
+    "source": "Workspaces/dlw_paper_20261009/assemble.py",
+    "evidence": "装配脚本第48行直接读取表格输入；主论文当前HTML仍完整。",
+    "read_check": "FileNotFoundError",
+    "trash_exists": true,
+    "trash_bytes": 9277
+  },
+  {
+    "target": "Workspaces/dlw_error_mechanism_20261013/sources/validation.json",
+    "source": "Workspaces/dlw_error_mechanism_20261013/validate_delivery.py",
+    "evidence": "核验入口第24行开始读取既有核验记录。",
+    "read_check": "FileNotFoundError",
+    "trash_exists": true,
+    "trash_bytes": 7925
+  },
+  {
+    "target": "Workspaces/dlw_error_mechanism_20261013/intervention/summary.csv",
+    "source": "Workspaces/dlw_error_mechanism_20261013/validate_delivery.py",
+    "evidence": "核验入口第41行直接读取；绘图入口同样使用。",
+    "read_check": "FileNotFoundError",
+    "trash_exists": true,
+    "trash_bytes": 1548
+  },
+  {
+    "target": "复现/mch_ldg/results/all_runs.csv",
+    "source": "复现/mch_ldg/README.md",
+    "evidence": "README明确将其作为完整运行记录入口；分析所需summary和trajectory也被移走。",
+    "read_check": "FileNotFoundError",
+    "trash_exists": true,
+    "trash_bytes": 19155
+  },
+  {
+    "target": "复现/mch_ldg/search/figure3_dissipative_digitized.csv",
+    "source": "复现/mch_ldg/analyze.py",
+    "evidence": "分析脚本直接读取图3对照曲线。",
+    "read_check": "FileNotFoundError",
+    "trash_exists": true,
+    "trash_bytes": 83612
+  },
+  {
+    "target": "复现/mch_ldg/search/arxiv_source_response.bin",
+    "source": "复现/mch_ldg/search/extract_figure3.py",
+    "evidence": "提取图3曲线所需原文源包；这是文献来源材料，不能仅因bin扩展名当作数值摘要。",
+    "read_check": "FileNotFoundError",
+    "trash_exists": true,
+    "trash_bytes": 657403
+  }
+]

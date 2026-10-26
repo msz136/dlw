@@ -1,0 +1,18 @@
+from pathlib import Path
+import json,re
+ROOT=Path(r'C:/Users/msz/aca'); P=ROOT/'Workspaces/dlw_paper_20261009/heatmap_preview_20261022'; rel='../Workspaces/dlw_paper_20261009/heatmap_preview_20261022/'
+parts=['''<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DLW 二维图试绘与内容对齐</title><style>body{max-width:1120px;margin:40px auto;padding:0 22px;font:17px/1.8 Georgia,"Microsoft YaHei",serif;color:#222}h1{font-size:29px}h2{font-size:23px;margin-top:40px}img{width:100%;height:auto}figure{margin:24px 0}figcaption{font-size:15px;color:#555}table{border-collapse:collapse;width:100%}td,th{padding:10px;border-bottom:1px solid #ccc;text-align:left}.compare{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media(max-width:700px){.compare{display:block}}a{color:#17638d}</style><h1>DLW 二维图试绘与内容对齐</h1><p>2026-10-22 · 讨论稿。原论文与既有三维图均保留，本页用于确认新增图的内容和布局。</p><h2>1. 对齐什么</h2><p>参考文件第14–15页（图1–2）采用“左侧近中心截面、右侧末时刻二维场”，上下分别为 u、v。我们沿用布局，并在热图上标出 y=0。参考文件中的固定 y 格点方程、参数及基准与本稿不同，不能直接移用其数值结果。</p><table><tr><th>内容</th><th>本次试图</th><th>稿件对应位置</th></tr><tr><td>孤子形状</td><td>四算例：t=0 解析场热图＋精确 y=0 截面</td><td>3.4 的四组解析三维波形</td></tr><tr><td>空间误差分布</td><td>A 算例：PE/PF/FD，T=0.01，同场共用色标</td><td>3.5.1 的三维绝对误差图</td></tr><tr><td>截面精度</td><td>A 算例：y=0 数值/解析波形及绝对误差</td><td>可补充在空间误差图之后</td></tr><tr><td>时间/网格比较</td><td>本轮未重画；现有曲线是沿 y 的最大误差</td><td>3.5.2–3.5.3，不能改标签冒充截面</td></tr></table><p>建议保留“全平面分布＋中心截面”这对互补视角。仅凭 y=0 不能判断全域峰值，也不能完整呈现二孤子的二维几何。参考图的多时刻数值截面可在下一轮补入；本轮 t=0 图是解析评价，并非时间推进。</p><h2>2. 四组解析波形</h2>''']
+for c,desc in zip('ABCD',['单孤子 (1,2)','单孤子 (4,−3)','二孤子 (6,−5; 4,−3)','二孤子 (1,2; 4,−3)']):
+    parts.append(f'<figure><img src="{rel}{c}_exact_heatmap_section.png" alt="{desc}的解析截面与热图"><figcaption>{c}：{desc}。左：y=0；右：完整展示窗口，白虚线为截面位置。采用原稿的连续解析公式、参数及展示范围。</figcaption></figure>')
+parts.append(f'''<h2>3. 数值误差 heatmap</h2><p>从现有 Notebook 求解器重新计算 A 算例，固定网格、RK4，h=Δx=0.1，Δt=10⁻⁴，T=0.01；计算窗口为 [−10,10]，展示窗口为 [−5,5]。同一场的三种方法共用从零开始的线性色标，以免单独归一化掩盖误差大小差异。</p><figure><img src="{rel}A_error_heatmaps.png" alt="三种方法的绝对误差热图"><figcaption>青色虚线标示 y=0；热图数据位于原始物理 y 网格。</figcaption></figure><h2>4. y=0 的数值波形与截面误差</h2><p>原始 y 网格不含零点（最近为 ±0.05）。先沿 y 对数值场作三次样条重构，再于 y=0 减去直接求值的解析解。该误差包含重构影响，不是原生格点误差，也不是沿 y 的最大值。对解析场实施相同重构，其最大偏差为 u：1.23×10⁻⁷，v：5.10×10⁻⁸。</p><figure><img src="{rel}A_numerical_y0_sections.png" alt="y等于零处的波形和误差"><figcaption>左侧曲线几乎重叠；右侧独立误差图显示 PE/PF/FD 的差别。仅描述本次有限网格、短时间计算。</figcaption></figure><h2>5. 参考与原图</h2><div class="compare"><figure><img src="{rel}reference_page_14.png" alt="参考PDF第14页"><figcaption>参考：PDF 图1，近中心截面＋二维场。</figcaption></figure><figure><img src="../Workspaces/dlw_paper_20261009/figures/exact_single_1_2.png" alt="本稿既有解析三维图"><figcaption>本稿既有 A 解析三维图，保持原状。新图第2节与其对应。</figcaption></figure></div><p><a href="dlw_paper_draft.html">查看原论文</a> · <a href="{rel}validation.json">数据与重构核验</a></p></html>''')
+out=ROOT/'report/dlw_heatmap_preview_20261022.html';out.write_text('\n'.join(parts),encoding='utf8')
+for src in re.findall(r'(?:src|href)="([^"]+)"',out.read_text(encoding='utf8')):
+    assert (out.parent/src).exists(),src
+(P/'README.md').write_text('''# DLW 二维图试绘（2026-10-22）
+入口：../../../report/dlw_heatmap_preview_20261022.html。
+沿用参考 PDF 第14–15页截面/热图布局，未修改论文正文和原图。
+四组连续解析 t=0 场来自 ../plot_exact_solutions.py；A 的 PE/PF/FD 固定网格 RK4 重新调用现有 Notebook 求解器。源 Notebook 摘要、参数与误差记录见 validation.json；数组 A_PE/PF/FD.npz。
+y=0 不在原始数值网格上：三次样条重构数值场，再减直接求值的连续解析基准，不能称作原生零截面。解析场重构控制误差 u=1.23e-7、v=5.10e-8。
+plot_preview.py 重现 PNG/SVG（已有数组时复用）。本轮仅试绘；B/C/D 数值误差及多时刻截面尚未新增。下一步按用户选择将图补入稿件；旧 max-y 曲线保留其定义。
+''',encoding='utf8')
+print('Report links verified')

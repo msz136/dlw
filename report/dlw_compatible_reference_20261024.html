@@ -1,0 +1,26 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DLW：有精确参考的正弦与高斯初始化</title><style>body{max-width:900px;margin:48px auto;padding:0 24px;color:#20252b;background:#fcfcfa;font:17px/1.8 system-ui,"Microsoft YaHei",sans-serif}h1{font-size:28px}h2{font-size:21px;margin-top:32px}table{border-collapse:collapse;width:100%;font-size:15px}th,td{padding:12px;border-bottom:1px solid #ccd2d6;text-align:left}.formula{padding:16px 22px;background:#eef2f3;overflow:auto;font-family:Georgia,"Microsoft YaHei",serif}.note{color:#58646d;font-size:14px}a{color:#155d83}</style></head><body>
+<h1>两组可以获得高精度参考解的初始化</h1>
+<p><strong>后续进展：</strong><a href="dlw_nondegenerate_reference_20261024.html">v₀=4−3u₀,y 的新高斯／正弦基准</a>已同时取得参考误差保证和非零Endpoint一阶首项。若用于展示该首项，请使用新报告。</p>
+<p><strong>可以做到。</strong>保留第一场的正弦／高斯形状，将第二场配成 v₀=4−∂ᵧu₀。这两组数据有光滑解的构造公式、唯一性证明稿和可计算的误差上界。</p>
+<h2>具体参数</h2>
+<p>x 的周期取192，y∈[−2,2]，z=y+2，κ=π/4，计算到 T=0.01。下边界 u=0。</p>
+<table><thead><tr><th>类型</th><th>u₀</th><th>v₀</th></tr></thead><tbody>
+<tr><td>正弦</td><td>0.03 sin(κz) cos(πx/12)</td><td>4−0.03κ cos(κz) cos(πx/12)</td></tr>
+<tr><td>高斯</td><td>0.05 sin(κz) G(x)</td><td>4−0.05κ cos(κz) G(x)</td></tr>
+</tbody></table>
+<p>G(x)=Σ<sub>j∈ℤ</sub> exp[−((x+192j)/6)²]，即宽度6的周期高斯。高斯指 x 方向；y 方向保留三角函数。第二场是在常数4上叠加相应波形。</p>
+<h2>为什么这次能给可靠参考</h2>
+<p>上述配对使 v+∂ᵧu=4 在整个演化过程中成立。原来的两条非线性方程因而可以用一个正向黏性 Burgers 方程求解；再作 Cole–Hopf 变换，就得到正向热方程。热方程解保持正性，参考公式的分母不会为零。</p>
+<p>因此可以直接计算这条解，并对舍去的无限级数尾部作统一估计。精度结论覆盖连续时空区域，不依赖网格加密结果是否接近。</p>
+<h2>参考解有多准</h2>
+<table><thead><tr><th>类型</th><th>全域公式截断误差：u、v 各自</th></tr></thead><tbody><tr><td>正弦</td><td>&lt;1.327×10<sup>−60</sup></td></tr><tr><td>高斯</td><td>&lt;4.680×10<sup>−38</sup></td></tr></tbody></table>
+<p>提供的区间求值器另行传播舍入误差。每次成功返回的区间包含精确解值，内部半径小于 1.01×10<sup>−32</sup>。若导出成普通双精度数，须另计转换舍入误差。</p>
+<p>例如 x=0、y=−1、t=0.01，参考值如下（此表只显示15位小数）：</p>
+<table><thead><tr><th>类型</th><th>u</th><th>v</th></tr></thead><tbody><tr><td>正弦</td><td>0.021197494436750</td><td>3.983351536520792</td></tr><tr><td>高斯</td><td>0.035334117038499</td><td>3.972248671318918</td></tr></tbody></table>
+<h2>适合怎样使用</h2>
+<p><strong>这两组适合检查精确解上的计算误差，但不适合展示 Endpoint 的一般一阶 v 误差。</strong>其首项为 −(h/4)∂ₓ[(v−4)²−uᵧ²]，在 v=4±uᵧ 两个分支上都恒等为零。更换振幅、宽度或正负分支不能解除这一退化；其他误差仍可能存在。这份参考认证本身也不保证一般数值方法的稳定性。</p>
+<p>若研究非零首项，必须另找不满足上述关系的纯高斯／正弦初始化，并重新认证参考解。<a href="../Workspaces/dlw_paper_20261009/reference_certificate_20261024/compatible_benchmarks/ERROR_BENCHMARK_SUITABILITY.md">首项核验与适用范围</a>。</p>
+<p>原来第二场接近零的那两组初值仍未解决。这里采用重新选择的配套第二场。两组新数据已完成 Endpoint-SD、Centered-SD 和 FD 的统一 RK4 比较，终止时刻为 T=0.01，结果见<a href="dlw_six_case_rk4_20261024.html#final-fields">六算例物理场误差表</a>。</p>
+<p class="note">证据状态：自审解析证明稿，辅以符号恒等式检查与256-bit Arb区间计算；尚未独立审稿或形式化证明。2026-10-24。</p>
+<p><a href="../Workspaces/dlw_paper_20261009/reference_certificate_20261024/compatible_benchmarks/PROOF.md">完整构造与误差证明</a> · <a href="../Workspaces/dlw_paper_20261009/reference_certificate_20261024/compatible_benchmarks/certificate.json">数值证书</a> · <a href="../Workspaces/dlw_paper_20261009/reference_certificate_20261024/compatible_benchmarks/reference.py">可调用参考求值器</a></p>
+</body></html>

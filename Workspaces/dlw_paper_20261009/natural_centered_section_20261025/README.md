@@ -1,0 +1,7 @@
+# Centered-SD natural-field nonlinearization
+
+2026-10-25. User approved replacement of paper Section 3.2 only. The English subsection retains the Centered-SD name, defines natural edge v=ΔZ, uses unscaled omega=(R-r)_x, and states only two evolution equations in Proposition 3.2. The proof displays the current equation pair after addition and after the lattice difference, and again shows the final physical equations.
+
+Sources: section_3_2.md here, integration_20261022/sections_2_3.md Section 3.2, and the previous rerun_20261024/section_3_2.md are synchronized. publish.py replaces only section-3.2 in root dlw-paper.html; original files are preserved as before_* here. All 61 formulas render, equation IDs 32–39 remain, all internal links resolve, and HTML outside this subsection is unchanged.
+
+Follow-up dependencies: Sections 3.3, 3.4 and numerical sections still describe the prior full-potential fields and normalized w. They have not been silently reinterpreted or updated. The old all-section update_paper.py should not be run to publish this new section because it rewrites downstream text to the historical full-potential formulation. Report.html remains a five-method comparison. Its preservation.json still records the historical manuscript hash; future report-only tasks should explicitly account for this authorized manuscript revision rather than assuming the historical hash is current.

@@ -1,0 +1,729 @@
+{
+  "audit_date": "2026-10-24",
+  "spatial_reference": "Analytic time derivatives of the continuous exact soliton fields, evaluated from exponential-sum moments; not semi-discrete exact solutions.",
+  "temporal_reference": "Continuous exact soliton physical fields at T=0.01, evaluated directly from continuous tau functions.",
+  "reference_evaluation": "float64 analytic formula evaluation; this audit is not an interval-arithmetic rounding certificate",
+  "metric": "Absolute maximum sampled error at native field locations, |x|<=R and |y|<R; not relative error or a continuous-domain supremum certificate.",
+  "region_half_width": {
+    "A": 5.0,
+    "B": 10.0,
+    "C": 30.0,
+    "D": 30.0
+  },
+  "computational_half_width": {
+    "A": 10.0,
+    "B": 20.0,
+    "C": 40.0,
+    "D": 40.0
+  },
+  "field_locations": {
+    "u": "y_k=-L+h/2+k*h",
+    "Endpoint_SD_v": "y_k-h/2",
+    "Centered_SD_v": "internal edge midpoints (y[k]+y[k-1])/2",
+    "FD_v": "same nodes as u"
+  },
+  "initialization": "Common continuous u,v samples. Centered-SD obtains w through nonlinear inverse constraint with continuous lower w=v-u_y.",
+  "spatial_operators": "Fourier x differentiation; first derivative Nyquist multiplier zero; second derivative retains -xi^2; centered full-potential primitive zeros zero/Nyquist modes; no filtering or dealiasing.",
+  "temporal_implementation": "Centered-SD full potential, evolved state (u,w), physical v reconstructed afterward; h=dx=.1, dt=1e-4, T=.01. Every w node including lower trace evolves; exact continuous lower u_t supplies integration constant.",
+  "recommended_titles": {
+    "spatial": "Initial physical time-derivative defects at t=0",
+    "temporal": "Final physical-field errors at T=0.01 for Centered-SD"
+  },
+  "interpretation": "T=.01 values are total errors including spatial approximation, time integration, finite periodic computational interval, boundary handling, and roundoff; they do not isolate temporal truncation error or establish temporal order.",
+  "spatial": [
+    {
+      "case": "A",
+      "method": "Endpoint-SD",
+      "dx": 0.1,
+      "h": 0.1,
+      "t": 0,
+      "total": [
+        0.0024785075145101754,
+        0.5492404740559902
+      ],
+      "status": "complete",
+      "previous_result_difference": 0.0
+    },
+    {
+      "case": "A",
+      "method": "Centered-SD",
+      "dx": 0.1,
+      "h": 0.1,
+      "t": 0,
+      "total": [
+        0.0024785075185327354,
+        0.0055634147538143885
+      ],
+      "checks": {
+        "inverse_residual": 1.0902390101819037e-12,
+        "inverse_iterations": 37,
+        "map_residual": 5.446754158811018e-13,
+        "first_equation_identity": 5.583444809799576e-13,
+        "chain_rule_difference": 2.505513796435821e-09
+      },
+      "status": "complete",
+      "seconds": 0.2848381999647245
+    },
+    {
+      "case": "A",
+      "method": "FD",
+      "dx": 0.1,
+      "h": 0.1,
+      "t": 0,
+      "total": [
+        0.004956669719123896,
+        0.013937506076530326
+      ],
+      "status": "complete",
+      "previous_result_difference": 0.0
+    },
+    {
+      "case": "B",
+      "method": "Endpoint-SD",
+      "dx": 0.1,
+      "h": 0.1,
+      "t": 0,
+      "total": [
+        5.360990276007024e-05,
+        0.03939667809219194
+      ],
+      "status": "complete",
+      "previous_result_difference": 0.0
+    },
+    {
+      "case": "B",
+      "method": "Centered-SD",
+      "dx": 0.1,
+      "h": 0.1,
+      "t": 0,
+      "total": [
+        5.3609903144651494e-05,
+        0.0005881767433830731
+      ],
+      "checks": {
+        "inverse_residual": 1.9473311851925246e-12,
+        "inverse_iterations": 34,
+        "map_residual": 9.736655925962623e-13,
+        "first_equation_identity": 1.723066134218243e-13,
+        "chain_rule_difference": 5.905115285642637e-10
+      },
+      "status": "complete",
+      "seconds": 1.2216593999182805
+    },
+    {
+      "case": "B",
+      "method": "FD",
+      "dx": 0.1,
+      "h": 0.1,
+      "t": 0,
+      "total": [
+        9.888579251072654e-05,
+        0.00010567131548822051
+      ],
+      "status": "complete",
+      "previous_result_difference": 0.0
+    },
+    {
+      "case": "C",
+      "method": "Endpoint-SD",
+      "dx": 0.1,
+      "h": 0.1,
+      "t": 0,
+      "total": [
+        6.0618636412046456e-05,
+        0.05436613838897486
+      ],
+      "status": "complete",
+      "previous_result_difference": 0.0
+    },
+    {
+      "case": "C",
+      "method": "Centered-SD",
+      "dx": 0.1,
+      "h": 0.1,
+      "t": 0,
+      "total": [
+        6.061863600392847e-05,
+        0.0006992537082548544
+      ],
+      "checks": {
+        "inverse_residual": 1.999123089291288e-12,
+        "inverse_iterations": 38,
+        "map_residual": 9.995337890700284e-13,
+        "first_equation_identity": 2.0727863869751673e-13,
+        "chain_rule_difference": 1.0900828885385128e-09
+      },
+      "status": "complete",
+      "seconds": 4.228782399906777
+    },
+    {
+      "case": "C",
+      "method": "FD",
+      "dx": 0.1,
+      "h": 0.1,
+      "t": 0,
+      "total": [
+        0.00012122820911475429,
+        0.00014545688064671047
+      ],
+      "status": "complete",
+      "previous_result_difference": 0.0
+    },
+    {
+      "case": "D",
+      "method": "Endpoint-SD",
+      "dx": 0.1,
+      "h": 0.1,
+      "t": 0,
+      "total": [
+        0.0021421529262282135,
+        0.7010137029112209
+      ],
+      "status": "complete",
+      "previous_result_difference": 0.0
+    },
+    {
+      "case": "D",
+      "method": "Centered-SD",
+      "dx": 0.1,
+      "h": 0.1,
+      "t": 0,
+      "total": [
+        0.00214215292614206,
+        0.006536759085653099
+      ],
+      "checks": {
+        "inverse_residual": 1.9993728894718288e-12,
+        "inverse_iterations": 40,
+        "map_residual": 9.996656280542027e-13,
+        "first_equation_identity": 6.24389429049188e-13,
+        "chain_rule_difference": 2.4171760149016563e-09
+      },
+      "status": "complete",
+      "seconds": 4.294589499942958
+    },
+    {
+      "case": "D",
+      "method": "FD",
+      "dx": 0.1,
+      "h": 0.1,
+      "t": 0,
+      "total": [
+        0.004283595708201027,
+        0.016443855563550436
+      ],
+      "status": "complete",
+      "previous_result_difference": 0.0
+    }
+  ],
+  "temporal": [
+    {
+      "case": "A",
+      "method": "Euler",
+      "spatial": "Centered-SD full potential",
+      "state": "U,w; w lower trace evolved by its equation",
+      "dx": 0.1,
+      "h": 0.1,
+      "dt": 0.0001,
+      "T": 0.01,
+      "reached": 0.01,
+      "status": "complete",
+      "cn_max_residual": 0,
+      "cn_max_iterations": 0,
+      "seconds": 0.55348140001297,
+      "error": [
+        2.3078346638394365e-05,
+        5.5177729819888555e-05
+      ]
+    },
+    {
+      "case": "A",
+      "method": "RK4",
+      "spatial": "Centered-SD full potential",
+      "state": "U,w; w lower trace evolved by its equation",
+      "dx": 0.1,
+      "h": 0.1,
+      "dt": 0.0001,
+      "T": 0.01,
+      "reached": 0.01,
+      "status": "complete",
+      "cn_max_residual": 0,
+      "cn_max_iterations": 0,
+      "seconds": 1.7864480999996886,
+      "error": [
+        2.438893641609763e-05,
+        5.640643431759074e-05
+      ]
+    },
+    {
+      "case": "A",
+      "method": "CN",
+      "spatial": "Centered-SD full potential",
+      "state": "U,w; w lower trace evolved by its equation",
+      "dx": 0.1,
+      "h": 0.1,
+      "dt": 0.0001,
+      "T": 0.01,
+      "reached": 0.01,
+      "status": "complete",
+      "cn_max_residual": 9.99900492423375e-13,
+      "cn_max_iterations": 5,
+      "seconds": 2.442174299969338,
+      "error": [
+        2.4388876507686064e-05,
+        5.6406339352665924e-05
+      ]
+    },
+    {
+      "case": "B",
+      "method": "Euler",
+      "spatial": "Centered-SD full potential",
+      "state": "U,w; w lower trace evolved by its equation",
+      "dx": 0.1,
+      "h": 0.1,
+      "dt": 0.0001,
+      "T": 0.01,
+      "reached": 0.01,
+      "status": "complete",
+      "cn_max_residual": 0,
+      "cn_max_iterations": 0,
+      "seconds": 3.8598746000789106,
+      "error": [
+        0.07495388565556729,
+        0.015863089246224427
+      ]
+    },
+    {
+      "case": "B",
+      "method": "RK4",
+      "spatial": "Centered-SD full potential",
+      "state": "U,w; w lower trace evolved by its equation",
+      "dx": 0.1,
+      "h": 0.1,
+      "dt": 0.0001,
+      "T": 0.01,
+      "reached": 0.01,
+      "status": "complete",
+      "cn_max_residual": 0,
+      "cn_max_iterations": 0,
+      "seconds": 17.45219400001224,
+      "error": [
+        0.16340027645454352,
+        0.034087824761273894
+      ]
+    },
+    {
+      "case": "B",
+      "method": "CN",
+      "spatial": "Centered-SD full potential",
+      "state": "U,w; w lower trace evolved by its equation",
+      "dx": 0.1,
+      "h": 0.1,
+      "dt": 0.0001,
+      "T": 0.01,
+      "reached": 0.01,
+      "status": "complete",
+      "cn_max_residual": 9.962889888082138e-13,
+      "cn_max_iterations": 10,
+      "seconds": 36.55270759994164,
+      "error": [
+        0.16685606300807163,
+        0.034644734572499114
+      ]
+    },
+    {
+      "case": "C",
+      "method": "Euler",
+      "spatial": "Centered-SD full potential",
+      "state": "U,w; w lower trace evolved by its equation",
+      "dx": 0.1,
+      "h": 0.1,
+      "dt": 0.0001,
+      "T": 0.01,
+      "reached": 0.01,
+      "status": "complete",
+      "cn_max_residual": 0,
+      "cn_max_iterations": 0,
+      "seconds": 16.40927509998437,
+      "error": [
+        5.486948741599884e-05,
+        1.2475064559036575e-05
+      ]
+    },
+    {
+      "case": "C",
+      "method": "RK4",
+      "spatial": "Centered-SD full potential",
+      "state": "U,w; w lower trace evolved by its equation",
+      "dx": 0.1,
+      "h": 0.1,
+      "dt": 0.0001,
+      "T": 0.01,
+      "reached": 0.01,
+      "status": "complete",
+      "cn_max_residual": 0,
+      "cn_max_iterations": 0,
+      "seconds": 57.315841800067574,
+      "error": [
+        0.00011682999885542216,
+        1.3112527014025321e-05
+      ]
+    },
+    {
+      "case": "C",
+      "method": "CN",
+      "spatial": "Centered-SD full potential",
+      "state": "U,w; w lower trace evolved by its equation",
+      "dx": 0.1,
+      "h": 0.1,
+      "dt": 0.0001,
+      "T": 0.01,
+      "reached": 0.01,
+      "status": "complete",
+      "cn_max_residual": 9.731591746787468e-13,
+      "cn_max_iterations": 8,
+      "seconds": 75.73544129997026,
+      "error": [
+        0.000118039036508609,
+        1.3300166768259736e-05
+      ]
+    },
+    {
+      "case": "D",
+      "method": "Euler",
+      "spatial": "Centered-SD full potential",
+      "state": "U,w; w lower trace evolved by its equation",
+      "dx": 0.1,
+      "h": 0.1,
+      "dt": 0.0001,
+      "T": 0.01,
+      "reached": 0.01,
+      "status": "complete",
+      "cn_max_residual": 0,
+      "cn_max_iterations": 0,
+      "seconds": 16.4194721999811,
+      "error": [
+        5.453662614778565e-05,
+        6.763538322185347e-05
+      ]
+    },
+    {
+      "case": "D",
+      "method": "RK4",
+      "spatial": "Centered-SD full potential",
+      "state": "U,w; w lower trace evolved by its equation",
+      "dx": 0.1,
+      "h": 0.1,
+      "dt": 0.0001,
+      "T": 0.01,
+      "reached": 0.01,
+      "status": "complete",
+      "cn_max_residual": 0,
+      "cn_max_iterations": 0,
+      "seconds": 57.397353400010616,
+      "error": [
+        0.00011582768346246599,
+        6.669150508509247e-05
+      ]
+    },
+    {
+      "case": "D",
+      "method": "CN",
+      "spatial": "Centered-SD full potential",
+      "state": "U,w; w lower trace evolved by its equation",
+      "dx": 0.1,
+      "h": 0.1,
+      "dt": 0.0001,
+      "T": 0.01,
+      "reached": 0.01,
+      "status": "complete",
+      "cn_max_residual": 9.732618778471178e-13,
+      "cn_max_iterations": 8,
+      "seconds": 75.88352459995076,
+      "error": [
+        0.00011701265396981298,
+        6.670467981684247e-05
+      ]
+    }
+  ],
+  "saved_npz_verification": [
+    {
+      "case": "A",
+      "method": "Euler",
+      "recomputed_error": [
+        2.3078346638394365e-05,
+        5.5177729819888555e-05
+      ],
+      "record_difference": 0.0,
+      "stored_v_map_difference": 0.0
+    },
+    {
+      "case": "A",
+      "method": "RK4",
+      "recomputed_error": [
+        2.438893641609763e-05,
+        5.640643431759074e-05
+      ],
+      "record_difference": 0.0,
+      "stored_v_map_difference": 0.0
+    },
+    {
+      "case": "A",
+      "method": "CN",
+      "recomputed_error": [
+        2.4388876507686064e-05,
+        5.6406339352665924e-05
+      ],
+      "record_difference": 0.0,
+      "stored_v_map_difference": 0.0
+    },
+    {
+      "case": "B",
+      "method": "Euler",
+      "recomputed_error": [
+        0.07495388565556729,
+        0.015863089246224427
+      ],
+      "record_difference": 0.0,
+      "stored_v_map_difference": 0.0
+    },
+    {
+      "case": "B",
+      "method": "RK4",
+      "recomputed_error": [
+        0.16340027645454352,
+        0.034087824761273894
+      ],
+      "record_difference": 0.0,
+      "stored_v_map_difference": 0.0
+    },
+    {
+      "case": "B",
+      "method": "CN",
+      "recomputed_error": [
+        0.16685606300807163,
+        0.034644734572499114
+      ],
+      "record_difference": 0.0,
+      "stored_v_map_difference": 0.0
+    },
+    {
+      "case": "C",
+      "method": "Euler",
+      "recomputed_error": [
+        5.486948741599884e-05,
+        1.2475064559036575e-05
+      ],
+      "record_difference": 0.0,
+      "stored_v_map_difference": 0.0
+    },
+    {
+      "case": "C",
+      "method": "RK4",
+      "recomputed_error": [
+        0.00011682999885542216,
+        1.3112527014025321e-05
+      ],
+      "record_difference": 0.0,
+      "stored_v_map_difference": 0.0
+    },
+    {
+      "case": "C",
+      "method": "CN",
+      "recomputed_error": [
+        0.000118039036508609,
+        1.3300166768259736e-05
+      ],
+      "record_difference": 0.0,
+      "stored_v_map_difference": 0.0
+    },
+    {
+      "case": "D",
+      "method": "Euler",
+      "recomputed_error": [
+        5.453662614778565e-05,
+        6.763538322185347e-05
+      ],
+      "record_difference": 0.0,
+      "stored_v_map_difference": 0.0
+    },
+    {
+      "case": "D",
+      "method": "RK4",
+      "recomputed_error": [
+        0.00011582768346246599,
+        6.669150508509247e-05
+      ],
+      "record_difference": 0.0,
+      "stored_v_map_difference": 0.0
+    },
+    {
+      "case": "D",
+      "method": "CN",
+      "recomputed_error": [
+        0.00011701265396981298,
+        6.670467981684247e-05
+      ],
+      "record_difference": 0.0,
+      "stored_v_map_difference": 0.0
+    }
+  ],
+  "sources": [
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024/README.md",
+      "sha256": "c36978c4681ec93928b3b1f06d623ff3ee2113ead434d78dd60222b11eef0fa2"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024/baselines.json",
+      "sha256": "4d910122e2c3dc5be811c5a72a283781fc8496b9e726e843f920bf77b58912fb"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024/temporal.json",
+      "sha256": "69fd184858dc8b28cf2b01e035eec31853545423ff2039ac8f65221362fdfe61"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024/methods.md",
+      "sha256": "3454e405e665647aec591cf354b406890645910ae004109aa96d05c9907ac50e"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024/experiments.md",
+      "sha256": "ebfd38a9395b2626ba2415e6404ef32611e01bb38181a7d4d3601d69d64268e3"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024.py",
+      "sha256": "32da0396c930807152222362bc46b48b03917c04bc84648169eb51a78d80b9c0"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_baselines_20261024.py",
+      "sha256": "b5cbae30184584b39f954f2ef9faaef582ee6a94434e5bc591c82082ec829b68"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/probe.py",
+      "sha256": "e1ab25d35251b4a5a1106d77ba3f2e32410ed0c9e46705d27917d4f2e2cd97c1"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/run_separated.py",
+      "sha256": "41046229b00982c115ae37ad206fca3fb6821341af280a86c4cd19d3f7395904"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/run.py",
+      "sha256": "1743f9877f21e78a1eff6bf9533b67f09965ba9c1ec09d0a759fa16e042f45c5"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/paper_comparison_20261022/solver_snapshot.py",
+      "sha256": "f4be5d7cecf625c59cbea41adfd2d54f3a8b8272af3375a56cfcd506fac472a1"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024/spatial_A_0.1_0.1.json",
+      "sha256": "d251ca191c092a67aa1ed31a01a19c9c5b47b7371dcec1fe7a4c6b5870ca8ad2"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024/time_A_Euler.json",
+      "sha256": "050d00cef922e1dc9c0be9d4e94859d0e03bb123956c454c33857f3d618d4462"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024/time_A_Euler.npz",
+      "sha256": "7e45f4b2becb7ae2c511d7d5519ecd1ba7461a56ce96a8b70ebb0c9f0a48b276"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024/time_A_RK4.json",
+      "sha256": "c93d199ff7c993c45f0fc3e91e1a1c4d5b9b9858a848083b0dcd37e6e0e85d7a"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024/time_A_RK4.npz",
+      "sha256": "a836c8690a6262fa69c6d83c53bf7f4e05b7344141e7da80a432e2387dbc1628"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024/time_A_CN.json",
+      "sha256": "914e7a8dc4b5898c83f1f512a4aa8990367bb62323a628b51598160958eac331"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024/time_A_CN.npz",
+      "sha256": "290ab71ef4afc930a30b3c469b9d36d57ed525e9842cc9791e9ef47b48740912"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024/spatial_B_0.1_0.1.json",
+      "sha256": "fcfda24e726e6bbffb56c009c019b8eec3ccb5d15eb80959e190b163d2c48712"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024/time_B_Euler.json",
+      "sha256": "b3b4696c209fdcd3b9b6135b8cb254775e47be92818d4f5efe310d9f4ed885dc"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024/time_B_Euler.npz",
+      "sha256": "de2b1e97d3f543da0a3ab64f5d955595345873beb6888e644b64021b22652b15"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024/time_B_RK4.json",
+      "sha256": "5f002509a71a124b2a1499592f279baf909aa2c0eca8425dddc616ae743aaac6"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024/time_B_RK4.npz",
+      "sha256": "ae2b42ecdd4e7d521f5e59408bc32b363b872fbe00ef4e9eb5f5ee0d6c28ca90"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024/time_B_CN.json",
+      "sha256": "cbd321fcb8ad276074a0135397e4c73a5e12785ced0c9f5d3aeee038599a37c2"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024/time_B_CN.npz",
+      "sha256": "2732972ee30852347fa4363d61a888d844a9bf00aefb8ddddf8bfea4c18ad047"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024/spatial_C_0.1_0.1.json",
+      "sha256": "563af70ed5cb8a8d0c30a511dccac2c095d04d12f57d4fc29a421245b0e34911"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024/time_C_Euler.json",
+      "sha256": "70d0c62f49c6deeae50096f2ff11fc0bd643b39cac518a6b88075fd4f5c07969"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024/time_C_Euler.npz",
+      "sha256": "5860c37663852930e0fa1c6dc485a5b37af0b7512953feaed7ff1a106c88a6ac"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024/time_C_RK4.json",
+      "sha256": "a04096d20f3f0faa623df85d400ae022509e191efcd37c56449f567f02655c8c"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024/time_C_RK4.npz",
+      "sha256": "54f9c0c1b69b58dcadd56240e2acf545e318853d7bcc38854a6db57c042a6e5e"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024/time_C_CN.json",
+      "sha256": "660d22aa37a03b6de1a4c727a87608ac50d8471ef9ba709e9fa662d50dcffc01"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024/time_C_CN.npz",
+      "sha256": "d4588fccc8ab63e0ce6353406a13f1bc3c95eba1acb3542bbb792bdff39ade9c"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024/spatial_D_0.1_0.1.json",
+      "sha256": "9009e59bf6dcc774aa47461bf4571e3297d36ccfda0b862e9ff3b4f4e690e23e"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024/time_D_Euler.json",
+      "sha256": "a0db741e2818864221de88e32729b6e8179537721f453d9eb2accd1477e310c4"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024/time_D_Euler.npz",
+      "sha256": "bffe1803a27a4a9af8d3926bcda6661f313ea1ccab03fc2493ea24e3af072f8b"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024/time_D_RK4.json",
+      "sha256": "6c2b02cc4024ee31087c35c69328132908e59ab59c145d172a59d18b48122bf6"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024/time_D_RK4.npz",
+      "sha256": "c64b2937969c70f9d6ad1cdb94d82feb17f5f21e31e41e5a1717d60bee3d7bdc"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024/time_D_CN.json",
+      "sha256": "fd060a75d38dd55c3446cdcdba6afbc977ea6d45af8cb2ce90a96cb6b4712b27"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024/time_D_CN.npz",
+      "sha256": "5f1afd0673029dfe6be7bc23b4d9674689f238ce7feff08eddca85bbc1b0152a"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "formulas": "u_t=3u_xx-(u+4)u_x; v_t=-u_xxy+3[u_y*u_x+(u+4)u_xy]",
+  "data": "u0=A sin(pi*(y+2)/4) F(x), v0=4-3u0_y",
+  "scope": "Analytic continuous initial-reference evaluation at every stored sample.",
+  "script_sha256": "67cc51a15da622dbf1e52f8b8dcdbc861aad499a3838b90e0021dbe837cd6f55",
+  "cases": [
+    {
+      "case": "Gaussian",
+      "precision_digits": 80,
+      "nx": 1920,
+      "distinct_y_sites": 99,
+      "certified_stored_values": {
+        "u": 314880,
+        "v": 312960,
+        "ut": 314880,
+        "vt": 312960
+      },
+      "bounds": {
+        "u": "[1.839759567953810e-17 +/- 1.97e-33]",
+        "v": "[4.849680883584198e-16 +/- 1.89e-32]",
+        "ut": "[1.843949665821442e-17 +/- 2.17e-33]",
+        "vt": "[4.724741660281924e-17 +/- 2.56e-33]"
+      },
+      "uniform_sample_bound_u": "1e-13",
+      "uniform_sample_bound_v": "1e-13",
+      "uniform_sample_bound_ut": "1e-13",
+      "uniform_sample_bound_vt": "1e-13",
+      "coordinates": "Exact binary64 values of stored x, y and yv arrays.",
+      "conversion": "Stored binary64 reference values enclosed directly, including evaluation and conversion rounding.",
+      "gaussian_omitted_jet_bound": "1e-990",
+      "sources": [
+        {
+          "path": "initial_Gaussian_Endpoint-SD.npz",
+          "sha256": "7bf9b4781d22d6527718151645f7df6f533aac98a51fd3c2a1b4a0c0e140e4c2"
+        },
+        {
+          "path": "initial_Gaussian_CSD0.npz",
+          "sha256": "836935280120d580e5650075337c55077a24f894642935f140d0e937e792ecc3"
+        },
+        {
+          "path": "initial_Gaussian_Centered-SD.npz",
+          "sha256": "824af6733c1dd2520d2112f162472acf3df41947420982810c106f2b88d6bfa7"
+        },
+        {
+          "path": "initial_Gaussian_FD.npz",
+          "sha256": "247d8350584162e599148ee5f8183c08951b595bba3334840797b31c12c773cc"
+        }
+      ],
+      "seconds": 3.6536809999961406
+    },
+    {
+      "case": "Sinusoidal",
+      "precision_digits": 80,
+      "nx": 1920,
+      "distinct_y_sites": 99,
+      "certified_stored_values": {
+        "u": 314880,
+        "v": 312960,
+        "ut": 314880,
+        "vt": 312960
+      },
+      "bounds": {
+        "u": "[1.298155144533424e-16 +/- 4.51e-32]",
+        "v": "[7.257748823483394e-16 +/- 2.14e-32]",
+        "ut": "[1.418598607969796e-16 +/- 4.30e-32]",
+        "vt": "[3.136040114902898e-16 +/- 3.10e-32]"
+      },
+      "uniform_sample_bound_u": "1e-13",
+      "uniform_sample_bound_v": "1e-13",
+      "uniform_sample_bound_ut": "1e-13",
+      "uniform_sample_bound_vt": "1e-13",
+      "coordinates": "Exact binary64 values of stored x, y and yv arrays.",
+      "conversion": "Stored binary64 reference values enclosed directly, including evaluation and conversion rounding.",
+      "gaussian_omitted_jet_bound": "0",
+      "sources": [
+        {
+          "path": "initial_Sinusoidal_Endpoint-SD.npz",
+          "sha256": "4eded5eaa600ee6933df7bfc8a4c68c68bf8b1f821f9f1cbad0e1d50a5a7e32b"
+        },
+        {
+          "path": "initial_Sinusoidal_CSD0.npz",
+          "sha256": "7c37912fc53709b96cb85cbeb1e6bc75e41960d12c8e68ebc607ed5642f463e3"
+        },
+        {
+          "path": "initial_Sinusoidal_Centered-SD.npz",
+          "sha256": "0691d767f3ac74ddf088b9f4029ba538d4fd46f7e090b0f716e2b40807c40dca"
+        },
+        {
+          "path": "initial_Sinusoidal_FD.npz",
+          "sha256": "ba57ccbb7afdad8a4c1bb6b89a723166c50a6ae97a5b9b2f6819e1afe60e45b9"
+        }
+      ],
+      "seconds": 3.887769299908541
+    }
+  ]
+}

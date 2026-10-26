@@ -1,0 +1,83 @@
+{
+  "case": "A",
+  "status": "complete",
+  "reason": null,
+  "T": 0.01,
+  "reached": 0.01,
+  "epsilon": 1e-06,
+  "kappa": 1.5707963267948966,
+  "x_mode": 5,
+  "h": 0.1,
+  "dx": 0.1,
+  "dt": 0.0001,
+  "x_interval": [
+    -10.0,
+    10.0
+  ],
+  "y_interval": [
+    -9.95,
+    9.950000000000001
+  ],
+  "nx": 200,
+  "ny": 200,
+  "perturbation": "Independent u-only / v-only epsilon*sin(pi*(y-yL)/(yR-yL))^2*cos(pi*x/2), sampled at each physical field native sites",
+  "lower_boundary": "Identical analytic lower u_t for baseline and perturbed trajectories; lower w perturbation starts at zero and evolves",
+  "initial_delta_max": [
+    [
+      9.999376947588285e-07,
+      0.0
+    ],
+    [
+      0.0,
+      1e-06
+    ]
+  ],
+  "final_delta_max": [
+    [
+      1.0206951057354907e-06,
+      9.185773272628416e-08
+    ],
+    [
+      2.2453287587629615e-07,
+      1.021741586872522e-06
+    ]
+  ],
+  "gain_relative_to_initial_max": [
+    [
+      1.0207587043527433,
+      0.09186345630108385
+    ],
+    [
+      0.22453287587629617,
+      1.0217415868725221
+    ]
+  ],
+  "initial_physical_v_map_errors": [
+    3.308722450212111e-24,
+    1.0587911840678754e-22
+  ],
+  "initial_w_max": [
+    1.5787717538267536e-07,
+    1.0000623130060232e-06
+  ],
+  "initial_checkerboard_w_projection_max": [
+    1.246337779227705e-11,
+    6.231300602400507e-11
+  ],
+  "baseline_exact_error": [
+    0.0001677233376562448,
+    7.733758362471477e-05
+  ],
+  "baseline_reproduces_published_rk4_maxdiff": 0.0,
+  "certificate": false,
+  "reference_bound_u": null,
+  "reference_bound_v": null,
+  "reference_scope": "Numerical discrete baseline and nonlinear perturbation trajectories; no continuous perturbed-solution certificate.",
+  "source_sha256": {
+    "run_suite.py": "f186c4390554cfc23504246dd7ea016f565e99371f64977c00ee54f50b39a485",
+    "run_pilot.py": "689cdcaa9751af4e010040a5e403e7857f5e0b7ea2c9404784a61e6118edc310",
+    "run_time.py": "2c9c77f84c4c8b70a53ba57eef431fd2c8f25a94cd6f3daabfb46084db364e64"
+  },
+  "artifact_sha256": "dc033d7907ade151abb298da0ecbddd5108772f9353f8def1b931a006f7a5c07",
+  "seconds": 7.7886530999999195
+}

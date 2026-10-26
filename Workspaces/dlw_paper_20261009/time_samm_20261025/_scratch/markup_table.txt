@@ -1,0 +1,112 @@
+---- table ----
+ class="mspace" style="margin-right:0.2778em;">
+</span>
+<span class="mrel">=</span>
+<span class="mspace" style="margin-right:0.2778em;">
+</span>
+</span>
+<span class="katex-base">
+<span class="katex-strut" style="height:0.6444em;">
+</span>
+<span class="mord">0.01</span>
+</span>
+</span>
+</span> and measures the resulting errors in the physical fields.</p>
+<div class="table-wrap">
+<table id="table-final">
+<caption>Table 3. Physical-field errors at T = 0.01 with RK4, Δt = 10⁻⁴ and h = Δx = 0.1.</caption>
+<thead>
+<tr>
+<th rowspan="2">Case</th>
+<th colspan="2">Endpoint-SD</th>
+<th colspan="2">Centered-SD</th>
+<th colspan="2">FD</th>
+</tr>
+<tr>
+<th>
+<span class="katex">
+<span class="katex-mathml">
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<semantics>
+<mrow>
+<msub>
+<mi>E</mi>
+<mi>u</mi>
+</msub>
+</mrow>
+<annotation encoding="application/x-tex">E_u</annotation>
+</semantics>
+</math>
+</span>
+<span aria-hidden="true" class="katex-html">
+<span class="katex-base">
+<span class="katex-strut" style="height:0.8333em;vertical-align:-0.15em;">
+</span>
+<span class="mord">
+<span class="mord mathnormal" style="margin-right:0.0576em;">E</span>
+<span class="msupsub">
+<span class="vlist-t vlist-t2">
+<span class="vlist-r">
+<span class="vlist" style="height:0.1514em;">
+<span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;">
+<span class="pstrut" style="height:2.7em;">
+</span>
+<span class="katex-sizing reset-size6 size3 mtight">
+<span class="mord mathnormal mtight">u</span>
+</span>
+</span>
+</span>
+<span class="vlist-s">​</span>
+</span>
+<span class="vlist-r">
+<span class="vlist" style="height:0.15em;">
+<span>
+</span>
+</span>
+</span>
+</span>
+</span>
+</span>
+</span>
+</span>
+</span>
+</th>
+<th>
+<span class="katex">
+<span class="katex-mathml">
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<semantics>
+<mrow>
+<msub>
+<mi>E</mi>
+<mi>v</mi>
+</msub>
+</mrow>
+<annotatio
+---- eq class ----
+0 8 3
+---- nav ----
+<nav aria-label="Contents"><a href="#section-1">1. Introduction</a>
+<a href="#section-2">2. Bilinear lattice construction and exact solutions</a>
+<a class="subsection" href="#section-2.1">2.1 The continuous DLW system and its bilinear representation</a>
+<a class="subsection" href="#section-2.2">2.2 An unreduced bilinear lattice from the Hirota–Miwa equation</a>
+<a class="subsection" href="#section-2.3">2.3 A symmetric staggered formulation</a>
+<a class="subsection" href="#section-2.4">2.4 Gram determinant solutions and regularity</a>
+<a href="#section-3">3. Nonlinear formulations and integrable structure</a>
+<a class="subsection" href="#section-3.1">3.1 The endpoint-based semi-discretization (Endpoint-SD)</a>
+<a class="subsection" href="#section-3.2">3.2 The centered semi-discretization (Centered-SD)</a>
+<a class="subsection" href="#section-3.3">3.3 Darboux–Lax representations</a>
+<a class="subsection" href="#section-3.4">3.4 Continuous limit and approximation of the physical fields</a>
+<a href="#section-4">4. Numerical formulation and linear stability</a>
+<a class="subsection" href="#section-4.1">4.1 Fourier differentiation and spatial formulations</a>
+<a class="subsection" href="#section-4.2">4.2 Initial and boundary data and time integration</a>
+<a href="#section-5">5. Numerical experiments</a>
+<a class="subsection" href="#section-5.1">5.1 Test problems and error measures</a>
+<a class="subsection" href="#section-5.2">5.2 Comparison of spatial formulations</a>
+<a class="subsection" href="#section-5.3">5.3 Comparison of time integrators</a>
+<a href="#section-6">6. Conclusions</a>
+</nav>
+<section id="section-1"><h2>1. Introduction</h2>
+<!-- Editorial guide: 从连续 DLW 的可积结构与数值逼近需求引出问题；说明格点来源、对称物理场、非线性表示与计算之间的联系。贡献声明在推导核验后定稿。 -->
+</section>
+<section id="section-2"><h2>2. Bilinear lattice construction and exact solutions</h2><p>In this section, we develop a bilinear lattice description of the DLW system that connects the continuous equations, the arrangement of the τ functions and the construction of exact solutions. In Section 2.1, we recall the continuous system and its bilinear representation, fixing the parameters and the transformation to the physical fields. We then derive an unreduced bilinear lattice from the Hirota–Miwa equation in Section 2.2, making the origin of the discrete relations explicit. Building on these relations, Section 2.3 introduces a symmetric staggered formulation through a shift of the bilinear parameter. In Section 2.4, we construct the corresponding Gram determinant solutions and specify the conditions under which they yield regular physical fields. These results provide the basis for the nonlinear formulations and integrable structure developed in Section 3.</p><section id="section-2.1"><h3>2.1 The continuous DLW system and its bilinear representation</h3><p>We begin with the continuous DLW system and its bilinear representation. Specifically, we seek a description in which the physical fields and their explicit solutions can be obtained f

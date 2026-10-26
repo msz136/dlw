@@ -1,0 +1,37 @@
+{
+  "target": "full nonlinear continuous DLW at T=.01",
+  "domain": "periodic x in [-96,96), y in [-2,2]",
+  "initial_data": "approved periodic Gaussian sum and original sinusoidal fields",
+  "candidate_full_fields_available": true,
+  "candidate_time_interval": [
+    0,
+    0.01
+  ],
+  "eta_u": null,
+  "eta_v": null,
+  "certified": false,
+  "reason": "No continuum certificate; positive all-mode test R2 is proved unable to close for nonzero-frequency uncertainty",
+  "independently_verified": [
+    "canonical integral equations and boundary reconstruction",
+    "dealiased Fourier product vs direct convolution",
+    "y integration on polynomials",
+    "x/y/time refinement observations",
+    "independent DOP853 comparison",
+    "exact internal forward/backward parabolic decomposition"
+  ],
+  "excluded_routes": [
+    "summable nonnegative R2 envelopes with nonzero-frequency error/residual seeds",
+    "uniform finite-order Gevrey-y regularity for the actual sine data, conditional on smooth existence"
+  ],
+  "not_established": [
+    "data-specific nonlinear continuum existence and uniqueness class",
+    "alternative structure-based full-domain error estimate",
+    "finite numeric eta_u and eta_v",
+    "eta<=.01D"
+  ],
+  "nonexistence_of_requested_data_claimed": false,
+  "candidate_files": {
+    "Sinusoidal": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_20261009\\reference_certificate_20261024\\canonical_reference\\Sinusoidal_M32_Y24_dt5.0e-05.npz",
+    "Gaussian": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_20261009\\reference_certificate_20261024\\canonical_reference\\Gaussian_M128_Y24_dt5.0e-05.npz"
+  }
+}

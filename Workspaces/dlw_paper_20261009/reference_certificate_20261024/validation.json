@@ -1,0 +1,152 @@
+{
+  "endpoint_eigenpair_symbolic": true,
+  "endpoint_minus_eigenvalue_symbolic": true,
+  "gaussian_periodic_derivative_jump": "7.0573451271567842784e-111",
+  "growth": [
+    {
+      "dx": 0.1,
+      "log10_amplification": 4.277389558556214,
+      "amplification": "18940.4179672",
+      "note": "Endpoint linear first-site lower bound; not a nonlinear certificate"
+    },
+    {
+      "dx": 0.05,
+      "log10_amplification": 17.1274039260856,
+      "amplification": "1.34092326574e+17",
+      "note": "Endpoint linear first-site lower bound; not a nonlinear certificate"
+    },
+    {
+      "dx": 0.025,
+      "log10_amplification": 68.54532104091132,
+      "amplification": "3.5101125402e+68",
+      "note": "Endpoint linear first-site lower bound; not a nonlinear certificate"
+    }
+  ],
+  "comparisons": {
+    "Gaussian": {
+      "x_refinement_native": [
+        0.07061851267913212,
+        0.04141436878062059
+      ],
+      "half_time_step": [
+        0.05732862859202509,
+        0.05138928358732266
+      ]
+    },
+    "Sinusoidal": {
+      "x_refinement_native": [
+        2.7676415960597316,
+        2.0212191492536338
+      ],
+      "half_time_step": [
+        0.05586481441204055,
+        0.0417124704369864
+      ]
+    }
+  },
+  "precision": {
+    "decimal_precision_difference": "1.09189023552118e-35",
+    "full_double_vs_high_precision": [
+      2.767833638626299,
+      2.021714921615943
+    ],
+    "amplitude": [
+      0.029999952816552895,
+      0.019687323903136045
+    ],
+    "certified": false
+  },
+  "fundamental_float64_control": {
+    "case": "Sinusoidal",
+    "domain": [
+      0,
+      24
+    ],
+    "dx": 0.05,
+    "h": 0.1,
+    "dt": 0.0001,
+    "T": 0.01,
+    "precision": "float64",
+    "amplitude": [
+      0.28422224736564244,
+      0.26708442304466457
+    ],
+    "difference_to_80digit": [
+      0.2841878662760543,
+      0.26709710290223265
+    ],
+    "certified": false
+  },
+  "continuum_certificate": false,
+  "eta": null,
+  "missing": [
+    "nonlinear continuum existence/stability in a specified space",
+    "unresolved x mode bounds",
+    "validated full-time residual/boundary enclosures"
+  ],
+  "conditional_arithmetic_test": {
+    "eta_upper": "2.0201003341703562154185002599709714830332710543097968476198693047078633569471412E-14",
+    "bootstrap_closes": true,
+    "relative_budget_met": true,
+    "radius": "1E-10",
+    "error_interval": [
+      "9.9999797989966582964378458149974002902851696672894569020315238013069529213664305E-9",
+      "1.0000020201003341703562154185002599709714830332710543097968476198693047078633570E-8"
+    ],
+    "continuum_certified": false,
+    "status": "conditional arithmetic only; analytic/enclosure hypotheses not verified"
+  },
+  "boundary_certificate": {
+    "formula": "v(x,-2,t)=(.03*pi/4)*cos((pi/12)*(x-4*t))*sinh((pi/12)^2*t)",
+    "interpretation": "exact boundary trace of the full nonlinear PDE; not linearized approximation",
+    "candidates": [
+      {
+        "candidate": "ref4",
+        "scope": "max over stored lower-boundary x nodes",
+        "rigorous_lower": "4.2267e-8",
+        "rigorous_upper": "4.2270e-8",
+        "verified": true,
+        "target_upper_1e_10_rejected": true
+      },
+      {
+        "candidate": "ref8",
+        "scope": "max over stored lower-boundary x nodes",
+        "rigorous_lower": "4.2267e-8",
+        "rigorous_upper": "4.2269e-8",
+        "verified": true,
+        "target_upper_1e_10_rejected": true
+      },
+      {
+        "candidate": "80 digits, h=.1 dx=.05",
+        "scope": "max over stored lower-boundary x nodes",
+        "rigorous_lower": "4.5381e-8",
+        "rigorous_upper": "4.5383e-8",
+        "verified": true
+      }
+    ],
+    "exact_trace_representation_error_upper": "1e-72",
+    "trace_representation_scope": "480 points x=j/20, t=.01; rounded analytic trace only",
+    "full_domain_upper": null,
+    "continuum_reference_certified": false
+  },
+  "periodic_gaussian_certificate": {
+    "profile": "G_per(x)=sum_{m in Z} exp(-((x+192m)/6)^2)",
+    "initial_u": ".05 e(y) G_per(x)",
+    "initial_v": ".03 e(y) G_per(x)",
+    "envelope": "e(y)=sin(pi*(y+2)/4)",
+    "a": 2,
+    "lambda_value": -2,
+    "user_approved": true,
+    "old_profile_uniform_difference_upper": "1.324e-111",
+    "boundary_v_formula": "(.05*pi/8)*(H_{-t}G_per(x-4t)-H_t G_per(x-4t))",
+    "heat_formula": "H_s G_per(x)=6/sqrt(36+4s)*sum_m exp(-(x+192m)^2/(36+4s))",
+    "boundary_trace_time_condition": "0<=t<9",
+    "T": ".01",
+    "omitted_sum_boundary_v_uniform_upper": "1e-998",
+    "rounded_trace_sample_error_upper": "1e-80",
+    "sample_scope": "1921 points x=-96+j/10, j=0,...,1920, y=-2, T=.01",
+    "full_domain_upper": null,
+    "continuum_reference_certified": false,
+    "note": "Exact nonlinear boundary trace and its evaluation only; no interior solution certificate"
+  }
+}

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="DLW论文稿的叙述审阅：证据分层、叙述与证据的错位，以及可执行的改写方案。">
+<title>DLW 论文叙述审阅</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f3f2ef;color:#202020;font:17px/1.9 Georgia,"Times New Roman","SimSun",serif}main{max-width:980px;margin:32px auto;padding:48px 65px;background:white}h1{font-size:29px;text-align:center;line-height:1.5;margin:0}h2{font-size:22px;margin-top:36px;line-height:1.6;border-bottom:1px solid #ddd;padding-bottom:6px}h3{font-size:18px;margin-top:26px;margin-bottom:6px}.date{text-align:center;color:#666;font-size:14px}.abstract{border-block:1px solid #999;padding:15px 0;background:#fbfaf8}p{overflow-wrap:anywhere}a{color:#28546a;text-underline-offset:3px}.lead{font-weight:600}.table{overflow:auto}table{width:100%;border-collapse:collapse;font-size:15px;margin:14px 0}th,td{text-align:left;vertical-align:top;padding:8px 10px;border-bottom:1px solid #ddd}th{border-block:1px solid #555;background:#fafaf8}td.q{font-weight:600;white-space:nowrap}li{margin:6px 0}blockquote{margin:14px 0;padding:10px 18px;border-left:2px solid #aaa;background:#f8f8f6;font-size:15.5px}.note{font-size:15px;color:#555}.tag{font-size:13px;padding:1px 7px;border-radius:3px;background:#eceae5;color:#444;white-space:nowrap}
+@media(max-width:650px){main{margin:0;padding:28px 20px}body{font-size:16px}h1{font-size:25px}h2{font-size:21px}th,td{padding:7px}table{min-width:600px}}
+@media print{body{background:white;font-size:11pt}main{max-width:none;margin:0;padding:0}h1{font-size:20pt}h2{font-size:15pt}a{color:inherit}.table{overflow:visible}table{min-width:0;font-size:10pt}}
+</style></head><body><main>
+
+<h1>DLW 论文叙述审阅</h1>
+<p class="date">针对 <a href="dlw_paper_draft.html">report/dlw_paper_draft.html</a> 与其源 <a href="../Workspaces/dlw_paper_20261009/manuscript.md">manuscript.md</a> · 2026年10月18日</p>
+
+<p class="abstract">论文的实际内容是一篇可积构造论文，它的叙述却按数值比较论文的体例组织。几乎全部具体问题都由此派生：题目与摘要承诺可积结构与网格收益，正文交付的却是“三种二阶格式差别不大、PF 更差、时间积分无关、动网格改善 3%—18%”。建议把立题从“结构离散更准”改为“构造与定量极限，并回答结构在数值上值多少”；同时补四处范围声明、补齐三处引而不发、修正四处技术硬伤。本文只审阅叙述与证据的对应关系，未改动论文与数值。</p>
+
+<h2>1　项目证据的真实分层</h2>
+<p>先分清哪些已经站得住、哪些还在路上。下表按“能否直接写进论文”排序，不按工作量排序。</p>
+<div class="table"><table><thead><tr><th scope="col">层</th><th scope="col">实际结论</th><th scope="col">严格程度</th><th scope="col">在论文中</th></tr></thead><tbody>
+<tr><td>构造与精确解<br><span class="note">§2.1—2.3</span></td><td>交错格点 + 算子参数平移得到半离散双线性系统；任意有限阶 Gram 解，含正性充分条件</td><td>定理、引理、两处完整证明</td><td>已有</td></tr>
+<tr><td>连续极限<br><span class="note">§2.5、附录 A</span></td><td>方程一致、重构一致、精确解族 h² 收敛，并给出首项系数 C<sub>U</sub>、C<sub>V</sub></td><td>严格；比同类文献多做了“解族之差”</td><td>已有</td></tr>
+<tr><td>Darboux–Lax<br><span class="note">§2.6</span></td><td>双向形式算子相容，反向需 w<sub>j</sub>≠0</td><td>形式意义下严格，非 IST</td><td>已有</td></tr>
+<tr><td>结构可积性</td><td>周期平均叶上 Hamilton/Poisson 精确等价；Tr L<sup>n</sup> 对合族（Lean 机器核验，条件为显式谱基础）；Q4/Q5 直接证书；M=2 一自由度 Liouville 环域；一般 M 小背景 action–angle（分支内草稿，未独立审）</td><td>从已证到未审跨越很大</td><td><span class="tag">未进入</span></td></tr>
+<tr><td>数值比较<br><span class="note">§3</span></td><td>四例、h=Δx=0.1、RK4、T=0.01：FD 取得 8 项中 6 项最优，PE 2 项，PF 0 项；PF 比最优差 1.0—16.8 倍；SAMM 降幅 2.7%—18.5%（均值约 7%）</td><td>单配置实测，无收敛性定理</td><td>已有</td></tr>
+<tr><td>误差机制</td><td>PE 与 FD 共享同一 x 领先系数，y 系数相差 (1/4)∂<sub>xx</sub>Δ<sub>b</sub>u<sub>yy</sub>−∂<sub>x</sub>Δ<sub>b</sub>K；A 例余弦 +0.33/−0.85，C 例 −0.58/+0.87；领先项复原完整源场误差 0.12%—2.12%</td><td>仅 u、仅 t=0、仅 PE/FD；数据当前只在 git 历史</td><td><span class="tag">未进入</span></td></tr>
+<tr><td>优势邻域</td><td>a≈4、p≈1、q≈3 的参数盒，两档网格 27/27 双场胜 FD，细网格至少降 21.8%/21.2%；p≈2 盒细网格 24/27；T=.005 时反转</td><td>有限点验证，非区间证明</td><td><span class="tag">未进入</span></td></tr>
+<tr><td>长时与稳定性</td><td>另一配置下 40 条轨道 0 条到达 t=1（RK4 主配置约 t≈0.05—0.08 停止）；PE 线性化存在高频增长分支</td><td>诊断性，未系统化</td><td><span class="tag">未进入</span></td></tr>
+</tbody></table></div>
+<p>这张表就是问题所在：论文只用了第一、二、三、五层；第四、六、七、八层里有全项目最有说服力的东西，而第五层恰好是最弱的一层，却被写成了全文的落点。</p>
+
+<h2>2　叙述与证据的错位</h2>
+
+<h3>2.1　立题错位：题目承诺“可积”，摘要只交付“动网格降误差”</h3>
+<p>摘要末句是全文唯一带结论语气的判断：“the proposed moving mesh method reduces the maximum absolute errors in both physical fields in all four tests considered”。它没有给量级。评阅者只需把表 2 相减，就会得到 2.7%—18.5%、平均约 7%——这正是任何审稿人都会做的第一件事。当摘要用“reduces”而非“by 3%—18%”时，实际传达的信息是“作者不想让你看这个数”。</p>
+<p>更根本的是题目与内容的量纲不匹配：标题承诺 integrable，正文的理论部分也确实做到了；但落点在数值比较，而数值比较证明的恰恰是“可积与否在二阶精度下不改变量级”。两者没有一句话连接。读者合上论文时无法回答“那我为什么要用这个离散化”。</p>
+
+<h3>2.2　表格是终点，机制缺席</h3>
+<p>表 1 的结论现在是：“PE 在两个算例的 U 上最优，FD 在最多的比较项上最优，PF 全部更大。”这是计数，不是解释。而解释材料在论文内部已经写了一半：§3.1 末尾算出了 PE 与 FD 的截断系数 B<sub>h,PE</sub>、B<sub>h,FD</sub>，指出两者在联合极限下趋于同一个 B——这正是“为什么差别只有几十个百分点”的答案。但这块推导在 §3.5 中从未被引用一次，读者读完表 1 不会知道 §3.1 里埋着它的解释。</p>
+<p>更完整的解释在项目里已经有了（误差机制层）：两种格式的 x 领先项相同，差别全在 y 项。在 u 分量上，y 项与共同 x 项的夹角余弦在 A 例为 PE +0.33、FD −0.85，在 C 例为 PE −0.58、FD +0.87——同一个离散化在不同算例里先抵消后增强，排名自然翻转；领先项复原完整源场的相对差只有 0.12%—2.12%。把这层写进去，表 1 从“我们的方法有时输”变成“离散结构决定误差方向，方向随解改变”——这是一项结果，不是一个让步。</p>
+<blockquote>但入文前必须补齐四项，否则会被审稿人当场拆掉：①只有 u 分量——C 例 v 分量的余弦方向与 u 相反（PE −0.43、FD −0.78，FD 抵消更多）而两者总误差几乎相同，“PE 靠抵消取胜”在 v 上不成立；②只有 t=0 的瞬时源，不等于终态误差；③只有 PE 与 FD，PF 完全未覆盖；④相关数据文件在 10 月 16 日清理后已不在工作树，需先 <code>git checkout 0a9a21a -- Workspaces/dlw_error_mechanism_20261013</code> 恢复再核。</blockquote>
+
+<h3>2.3　三处“承诺了没给”</h3>
+<ul>
+<li><b>FD 的动网格结果。</b>§3.2 明写“The FD moving-mesh comparison uses the same density, averaging and velocity formulas”，但 §3.5.3 与表 2 只有 PE 的固定/动网格。项目里 FD 动网格的数据是有的，且部分算例的 v 误差会上升——这是选择性交付的形状。</li>
+<li><b>e<sub>model</sub>/e<sub>num</sub>/ρ 分解。</b>§3.4 花两式引入，全文再未出现。引入而不使用，是审稿意见里最容易被点名的形态。</li>
+<li><b>§3.1 的截断系数。</b>同上，给出而未用。</li>
+</ul>
+<p>三处都是“要么补结果、要么删承诺”，中间状态最伤。</p>
+
+<h3>2.4　四处技术硬伤，且都会直接进入审稿意见</h3>
+<div class="table"><table><thead><tr><th scope="col">项</th><th scope="col">现状</th><th scope="col">需要补的一句或一式</th></tr></thead><tbody>
+<tr><td>算例越出定理范围</td><td>定理 2.8 与命题 2.4 要求 0&lt;p<sub>i</sub>&lt;a−h/2、0&lt;q<sub>i</sub>；本文 a=2、h=0.1 给出上限 1.95。四例中只有 (1,2) 满足，(4,−3)、(6,−5;4,−3)、(1,2;4,−3) 三例全在范围外，正文未声明</td><td>在参数表后加一句正性核验（已有的证法：det C=4/3、γ=4/3 与 2、0&lt;h&lt;2 有效），并说明极限结论经“正则实分支”延用</td></tr>
+<tr><td>PF 初始化不可复现</td><td>附录 D 只给“左端归一 + 中心差分递推”；中心差分是两步递推，一个归一条件不足，周期 D<sub>1</sub> 下与 u<sub>*</sub>&gt;0 矛盾。正文只写“prescribed additive jumps”，未给规则</td><td>写出增广线性系统与跳跃值（已有：约 −0.7492 / 0.9999 / 1.6663；缺省残差 2.40/3.20/5.33 对 1.7e−15）</td></tr>
+<tr><td>“守恒密度”名不副实</td><td>§3.2 由半离散方程导出 ∂<sub>t</sub>ρ+∂<sub>x</sub>q=0，读者会以为离散算法里也守恒。实际离散缺陷为 ρ̇+D<sub>1</sub>q<sub>h</sub>=−(Δx²/4)D<sub>2</sub>²ρ，初值最大节点缺陷约 0.2383 / 7.49e−4 / 1.47e−3</td><td>改称监测函数（monitor density），并给出缺陷量级；区分“原节点通量恒等式失效”与“总质量不守恒”</td></tr>
+<tr><td>没有时间窗与稳定性声明</td><td>全文以“100 步、T=0.01”一笔带过，未说明为何如此短。项目自身长时试验显示该格式族在 t≈0.05 量级即停止，且 PE 线性化有高频增长分支</td><td>加一段范围声明：结果限于指定解析孤子、给定分辨率与 T=0.01 的短时计算；二阶一致性不构成一般初值问题的收敛定理</td></tr>
+</tbody></table></div>
+
+<h3>2.5　时间积分一节没有命题</h3>
+<p>§3.5.2 只有三句。数据本身很有信息：C–N 与 RK4 的端点最大误差相差不到 0.01%；Euler 与 RK4 相差 0.08%—10%（u 上 2% 以内，v 上在二孤子例可达 10%），且 Euler 还在一例的 u 上略优。该说的是——在 Δt=10<sup>−4</sup> 下时间误差不是瓶颈，因此用终态最大误差给时间格式排名没有分辨力；要排就得给观测阶。项目已有 Euler 观测阶约 0.99—1.00 的数据。否则这一节的存在本身就在提示读者：作者没有意识到自己的实验没有信息。</p>
+
+<h3>2.6　SAMM 的收益既未量化也未分离</h3>
+<p>“动网格更好”混合了两种效应：等分布的初始节点，和节点的持续运动。审阅已经指出这一点，而论文的表格无法区分。项目有“冻结初始格”控制的先例，一句话即可说明“本文报告的是同节点数、同时间积分下的总效应，未分离初始摆放与运动”，比含糊地宣称改进更稳。</p>
+
+<h3>2.7　结论是摘要的重述</h3>
+<p>六段全部以“We have studied / By combining / We further established / We developed / We established”开头，按章节顺序复述，没有发现、没有范围、没有展望，也没有回答“所以结构值多少”。结论段是全文唯一允许作者下判断的地方，现在被用成了目录。</p>
+
+<h3>2.8　语域：推导注释体</h3>
+<p>§2 约一百段中过半是“一句话 + 一个公式”的引场：<span class="note">“Here r,s,m are nonnegative integers.” “The definitions of u<sub>j</sub>,ω<sub>j</sub>,Z<sub>j</sub> give.” “Taking the x-derivatives of … yields.”</span> 这读起来是带批注的计算记录，不是论文。配套的还有三件事：</p>
+<ul>
+<li><b>we-next 链。</b>We begin / We next / We then / Having obtained / Finally / The following …… 全篇 72 处 we，多数是程序性引导。</li>
+<li><b>图注式分析。</b>§3.5.1 四段正文是“Both fields … are negative oblique pulses. Figure 1 shows …”，属于图注内容，不是分析。</li>
+<li><b>中文式搭配。</b>“Based on the bilinear formulation presented above, we construct …”“With this substitution, the first evolution equation contains …”。</li>
+</ul>
+<p>这一类问题不改变结论，但决定论文读起来像不像专业期刊文章。</p>
+
+<h2>3　建议的骨架</h2>
+<div class="table"><table><thead><tr><th scope="col">位置</th><th scope="col">改动</th></tr></thead><tbody>
+<tr><td>题目</td><td>去掉复数与“numerical”暗示的强弱问题，直接点明构造、Gram 解与二阶极限；数值是否进题目取决于第 5 节的路线选择</td></tr>
+<tr><td>摘要</td><td>四句：构造与任意阶解；双向 Darboux–Lax；三条 h² 极限及首项系数；数值的受控结论（含区间与条件，不再只说 reduces）</td></tr>
+<tr><td>§1</td><td>补 gap 声明（此前没有 DLW 的可积半离散、也就没有其 Lax 与极限）与三条 contributions；把“[9] 的思路”改成方法归属，明确 SAMM 借用 [9] 而密度是本系统特有的是非</td></tr>
+<tr><td>§2</td><td>不动数学；每小节末补一句“这一步换来了什么”；§2.4 末加一张 PE/PF 对照表（变量、方程、重构、数值角色），为后文“理论最干净的表示未必数值最好”埋伏</td></tr>
+<tr><td>§3</td><td>3.1 三格式 → 3.2 SAMM → 3.3 误差解剖（把 §3.1 的截断块与 A/C 符号搬来，回答“为什么排名会翻转、为什么量级相同”）→ 3.4 结果（含区间、条件与时间曲线）</td></tr>
+<tr><td>§4</td><td>三条发现 + 一条范围 + 一段展望，不再复述章节</td></tr>
+<tr><td>附录</td><td>§3.1 的推导移入附录，与 §3.4 的 e<sub>model</sub> 框架合并为一节；图与表连续编号，统一 u/v 与 U/V 的大小写规则</td></tr>
+</tbody></table></div>
+
+<h2>4　两段改写示例</h2>
+<p class="lead">摘要末句（现状）</p>
+<blockquote>Using exact one- and two-soliton solutions as benchmarks, we compare the numerical errors of PE, PF and direct finite differences, and examine the effects of different time integrators and self-adaptive moving meshes. The numerical results show that the proposed moving mesh method reduces the maximum absolute errors in both physical fields in all four tests considered.</blockquote>
+<p class="lead">建议改为</p>
+<blockquote>On four one- and two-soliton benchmarks, all second-order x-discretizations reach the same order of accuracy: PE and direct differences differ by at most about 1.4× and exchange places as the spectral parameters change, whereas PF, whose potential is reconstructed layer by layer, is up to about sixteen times worse. The difference between PE and direct differences is explained by the leading y-consistency terms, which enter the error with a formulation-dependent sign. At a fixed node count, redistributing the x nodes with the conserved density lowers the maximum errors by 3%—18%, the largest reductions occurring where the common x-difference error dominates.</blockquote>
+<p class="lead">结论首段（现状）</p>
+<blockquote>We have studied the construction, exact solutions and numerical implementation of an integrable semi-discretization of the (2+1)-dimensional DLW equation. Starting from the continuous bilinear equations, we introduced a lattice in the y direction while retaining continuous x and t variables, and derived nonlinear formulations and numerical algorithms for the resulting semi-discrete system.</blockquote>
+<p class="lead">建议改为（先给发现，再给依据）</p>
+<blockquote>The (2+1)-dimensional DLW equation admits an integrable semi-discretization in y: a staggered lattice whose bilinear form is recovered by averaging two shifted lattice equations, whose exact solutions are Gram determinants of arbitrary order, and whose solution families converge to the continuous ones at second order with explicitly computable leading coefficients. Numerically, the discrete structure fixes the sign of the leading error rather than its order: which of the two formulations is more accurate depends on the spectral parameters, and within a parameter window the structure-based formulation is the more accurate one.</blockquote>
+
+<h2>5　定位的抉择</h2>
+<p><b>路线一（推荐）：写成构造论文。</b>目标读者是可积系统与数学物理（Physica D、J. Phys. A 一类）。主张是“存在、可解、可证极限”，数值部分定位为验证与受控诊断。不需要任何新计算，只需重写与补齐 §2.4 的四处硬伤。审稿人问“为什么不比差分强”时，答案是“本文不主张更强，而主张可解、可验证、极限可证”。</p>
+<p><b>路线二：写成数值论文。</b>按项目自己立的标准（不围绕小幅误差差异立题，收益应达数量级），当前 3%—18.5% 的证据不足；已有优势邻域给出 21%—38%，仍不到一个数量级。若选这条路，需先把邻域图做成主结果，并补冻结格控制、误差增长曲线与成本说明——那是另一轮工作。</p>
+<p>两条路线共用的部分是一样的：四处范围声明、三处引而不发、四处技术硬伤、§2 与 §3.5 的语域改写。这些不依赖路线选择，可以先做。</p>
+
+<h2>6　下一步</h2>
+<p>建议先按路线一重写题目、摘要、§1 的 contributions、§4 与三处承诺缺口（约一轮），再决定是否投入路线二所需的计算。需要你定的只有一件事：这篇稿子投给谁——这决定题目要不要带数值、§3 占多少篇幅。</p>
+<p class="note">本次只做审阅：未改动论文、数值、图或既有结论；引用到的误差机制数据需先从 git 0a9a21a 恢复方可复核。</p>
+
+</main></body></html>

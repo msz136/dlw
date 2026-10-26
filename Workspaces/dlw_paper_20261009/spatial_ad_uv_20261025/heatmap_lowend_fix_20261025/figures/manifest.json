@@ -1,0 +1,730 @@
+[
+  {
+    "case": "A",
+    "label": "One-soliton case",
+    "stage": "final",
+    "section_y": 0,
+    "section_xlim": [
+      -5,
+      5
+    ],
+    "heatmap_xlim": [
+      -5,
+      5
+    ],
+    "section_error": "absolute y=0 section error; all native x samples connected",
+    "color_scale": "logarithmic, common per component across methods; values at or below vmin share the lowest viridis color, including zero; threshold labeled <= vmin",
+    "curves": [
+      {
+        "field": "u",
+        "method": "Endpoint-SD",
+        "maximum": 0.0003952600021646102,
+        "marker": false,
+        "all_x_points": 101,
+        "source_key": "endpoint_line_error_final_u"
+      },
+      {
+        "field": "u",
+        "method": "Centered-SD",
+        "maximum": 0.00010525036345941684,
+        "marker": false,
+        "all_x_points": 101,
+        "source_key": "centered_line_error_final_u"
+      },
+      {
+        "field": "u",
+        "method": "FD",
+        "maximum": 4.517326400121924e-05,
+        "marker": false,
+        "all_x_points": 101,
+        "source_key": "fd_line_error_final_u"
+      },
+      {
+        "field": "v",
+        "method": "Endpoint-SD",
+        "maximum": 0.005523290780780732,
+        "marker": false,
+        "all_x_points": 101,
+        "source_key": "endpoint_line_error_final_v"
+      },
+      {
+        "field": "v",
+        "method": "Centered-SD",
+        "maximum": 7.702268626186282e-05,
+        "marker": false,
+        "all_x_points": 101,
+        "source_key": "centered_line_error_final_v"
+      },
+      {
+        "field": "v",
+        "method": "FD",
+        "maximum": 0.00013716178652356525,
+        "marker": false,
+        "all_x_points": 101,
+        "source_key": "fd_line_error_final_v"
+      }
+    ],
+    "maps": [
+      {
+        "field": "u",
+        "method": "Endpoint-SD",
+        "vmin": 4.702086069325873e-08,
+        "vmax": 0.00047020860693258726,
+        "native": true,
+        "source_key": "endpoint_error_final_u",
+        "below_color_minimum": 692,
+        "zero_values": 0,
+        "low_end_policy": "clip to lowest viridis color, including zero",
+        "lower_color_rgba": [
+          0.267004,
+          0.004874,
+          0.329415,
+          1.0
+        ],
+        "colorbar_threshold_label": "<= 4.70e-08"
+      },
+      {
+        "field": "u",
+        "method": "Centered-SD",
+        "vmin": 4.702086069325873e-08,
+        "vmax": 0.00047020860693258726,
+        "native": true,
+        "source_key": "centered_error_final_u",
+        "below_color_minimum": 2420,
+        "zero_values": 0,
+        "low_end_policy": "clip to lowest viridis color, including zero",
+        "lower_color_rgba": [
+          0.267004,
+          0.004874,
+          0.329415,
+          1.0
+        ],
+        "colorbar_threshold_label": "<= 4.70e-08"
+      },
+      {
+        "field": "u",
+        "method": "FD",
+        "vmin": 4.702086069325873e-08,
+        "vmax": 0.00047020860693258726,
+        "native": true,
+        "source_key": "fd_error_final_u",
+        "below_color_minimum": 1386,
+        "zero_values": 0,
+        "low_end_policy": "clip to lowest viridis color, including zero",
+        "lower_color_rgba": [
+          0.267004,
+          0.004874,
+          0.329415,
+          1.0
+        ],
+        "colorbar_threshold_label": "<= 4.70e-08"
+      },
+      {
+        "field": "v",
+        "method": "Endpoint-SD",
+        "vmin": 5.546591666669265e-07,
+        "vmax": 0.005546591666669265,
+        "native": true,
+        "source_key": "endpoint_error_final_v",
+        "below_color_minimum": 2021,
+        "zero_values": 0,
+        "low_end_policy": "clip to lowest viridis color, including zero",
+        "lower_color_rgba": [
+          0.267004,
+          0.004874,
+          0.329415,
+          1.0
+        ],
+        "colorbar_threshold_label": "<= 5.55e-07"
+      },
+      {
+        "field": "v",
+        "method": "Centered-SD",
+        "vmin": 5.546591666669265e-07,
+        "vmax": 0.005546591666669265,
+        "native": true,
+        "source_key": "centered_error_final_v",
+        "below_color_minimum": 3885,
+        "zero_values": 0,
+        "low_end_policy": "clip to lowest viridis color, including zero",
+        "lower_color_rgba": [
+          0.267004,
+          0.004874,
+          0.329415,
+          1.0
+        ],
+        "colorbar_threshold_label": "<= 5.55e-07"
+      },
+      {
+        "field": "v",
+        "method": "FD",
+        "vmin": 5.546591666669265e-07,
+        "vmax": 0.005546591666669265,
+        "native": true,
+        "source_key": "fd_error_final_v",
+        "below_color_minimum": 4775,
+        "zero_values": 0,
+        "low_end_policy": "clip to lowest viridis color, including zero",
+        "lower_color_rgba": [
+          0.267004,
+          0.004874,
+          0.329415,
+          1.0
+        ],
+        "colorbar_threshold_label": "<= 5.55e-07"
+      }
+    ],
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\natural_selection_20261025\\figures\\data\\A.npz",
+    "source_sha256": "23cc7630a113753794484626e63b02157a3eaaf2549839beac8c4df8f9cf124c",
+    "png": "spatial_A.png",
+    "pdf": "spatial_A.pdf",
+    "png_sha256": "376883cdfaa72e5b0689bbb7a69a2a26cfc2e5d1ce2eb5ad883b8481d85e6522",
+    "pdf_sha256": "8181792492253afe1a4a953c1eb47e3e928719cbfd50528442871d54aaa3515f"
+  },
+  {
+    "case": "D",
+    "label": "Two-soliton case",
+    "stage": "final",
+    "section_y": 0,
+    "section_xlim": [
+      -8,
+      8
+    ],
+    "heatmap_xlim": [
+      -30,
+      30
+    ],
+    "section_error": "absolute y=0 section error; all native x samples connected",
+    "color_scale": "logarithmic, common per component across methods; values at or below vmin share the lowest viridis color, including zero; threshold labeled <= vmin",
+    "curves": [
+      {
+        "field": "u",
+        "method": "Endpoint-SD",
+        "maximum": 0.0004637794478752344,
+        "marker": false,
+        "all_x_points": 601,
+        "source_key": "endpoint_line_error_final_u"
+      },
+      {
+        "field": "u",
+        "method": "Centered-SD",
+        "maximum": 0.00013204688266954534,
+        "marker": false,
+        "all_x_points": 601,
+        "source_key": "centered_line_error_final_u"
+      },
+      {
+        "field": "u",
+        "method": "FD",
+        "maximum": 6.0010100568552716e-05,
+        "marker": false,
+        "all_x_points": 601,
+        "source_key": "fd_line_error_final_u"
+      },
+      {
+        "field": "v",
+        "method": "Endpoint-SD",
+        "maximum": 0.006758872132803795,
+        "marker": false,
+        "all_x_points": 601,
+        "source_key": "endpoint_line_error_final_v"
+      },
+      {
+        "field": "v",
+        "method": "Centered-SD",
+        "maximum": 8.9701492032912e-05,
+        "marker": false,
+        "all_x_points": 601,
+        "source_key": "centered_line_error_final_v"
+      },
+      {
+        "field": "v",
+        "method": "FD",
+        "maximum": 0.00016417014772862615,
+        "marker": false,
+        "all_x_points": 601,
+        "source_key": "fd_line_error_final_v"
+      }
+    ],
+    "maps": [
+      {
+        "field": "u",
+        "method": "Endpoint-SD",
+        "vmin": 4.941924069901127e-08,
+        "vmax": 0.0004941924069901127,
+        "native": true,
+        "source_key": "endpoint_error_final_u",
+        "below_color_minimum": 4201,
+        "zero_values": 0,
+        "low_end_policy": "clip to lowest viridis color, including zero",
+        "lower_color_rgba": [
+          0.267004,
+          0.004874,
+          0.329415,
+          1.0
+        ],
+        "colorbar_threshold_label": "<= 4.94e-08"
+      },
+      {
+        "field": "u",
+        "method": "Centered-SD",
+        "vmin": 4.941924069901127e-08,
+        "vmax": 0.0004941924069901127,
+        "native": true,
+        "source_key": "centered_error_final_u",
+        "below_color_minimum": 4287,
+        "zero_values": 0,
+        "low_end_policy": "clip to lowest viridis color, including zero",
+        "lower_color_rgba": [
+          0.267004,
+          0.004874,
+          0.329415,
+          1.0
+        ],
+        "colorbar_threshold_label": "<= 4.94e-08"
+      },
+      {
+        "field": "u",
+        "method": "FD",
+        "vmin": 4.941924069901127e-08,
+        "vmax": 0.0004941924069901127,
+        "native": true,
+        "source_key": "fd_error_final_u",
+        "below_color_minimum": 4458,
+        "zero_values": 0,
+        "low_end_policy": "clip to lowest viridis color, including zero",
+        "lower_color_rgba": [
+          0.267004,
+          0.004874,
+          0.329415,
+          1.0
+        ],
+        "colorbar_threshold_label": "<= 4.94e-08"
+      },
+      {
+        "field": "v",
+        "method": "Endpoint-SD",
+        "vmin": 7.075525185746168e-07,
+        "vmax": 0.007075525185746168,
+        "native": true,
+        "source_key": "endpoint_error_final_v",
+        "below_color_minimum": 114080,
+        "zero_values": 0,
+        "low_end_policy": "clip to lowest viridis color, including zero",
+        "lower_color_rgba": [
+          0.267004,
+          0.004874,
+          0.329415,
+          1.0
+        ],
+        "colorbar_threshold_label": "<= 7.08e-07"
+      },
+      {
+        "field": "v",
+        "method": "Centered-SD",
+        "vmin": 7.075525185746168e-07,
+        "vmax": 0.007075525185746168,
+        "native": true,
+        "source_key": "centered_error_final_v",
+        "below_color_minimum": 144532,
+        "zero_values": 0,
+        "low_end_policy": "clip to lowest viridis color, including zero",
+        "lower_color_rgba": [
+          0.267004,
+          0.004874,
+          0.329415,
+          1.0
+        ],
+        "colorbar_threshold_label": "<= 7.08e-07"
+      },
+      {
+        "field": "v",
+        "method": "FD",
+        "vmin": 7.075525185746168e-07,
+        "vmax": 0.007075525185746168,
+        "native": true,
+        "source_key": "fd_error_final_v",
+        "below_color_minimum": 154779,
+        "zero_values": 0,
+        "low_end_policy": "clip to lowest viridis color, including zero",
+        "lower_color_rgba": [
+          0.267004,
+          0.004874,
+          0.329415,
+          1.0
+        ],
+        "colorbar_threshold_label": "<= 7.08e-07"
+      }
+    ],
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\natural_selection_20261025\\figures\\data\\D.npz",
+    "source_sha256": "54be9e883da1c1cee4db9e79c3e307fd0be0b3593993dd101e1b3552eaca1c91",
+    "png": "spatial_D.png",
+    "pdf": "spatial_D.pdf",
+    "png_sha256": "50f3f5440eeb358b576786ec8b875d33d44ffd13815955ce2867827fadf7fb4c",
+    "pdf_sha256": "7cd730b7ee45bd672007b078e39591a80b18db5dffe409c1d5fa4cb4f1a1011d"
+  },
+  {
+    "case": "Gaussian",
+    "label": "Gaussian case",
+    "stage": "final",
+    "section_y": 0,
+    "section_xlim": [
+      -18,
+      18
+    ],
+    "heatmap_xlim": [
+      -18,
+      18
+    ],
+    "section_error": "absolute y=0 section error; all native x samples connected",
+    "color_scale": "logarithmic, common per component across methods; values at or below vmin share the lowest viridis color, including zero; threshold labeled <= vmin",
+    "curves": [
+      {
+        "field": "u",
+        "method": "Endpoint-SD",
+        "maximum": 2.1466918839752047e-08,
+        "marker": false,
+        "all_x_points": 481,
+        "source_key": "endpoint_line_error_final_u"
+      },
+      {
+        "field": "u",
+        "method": "Centered-SD",
+        "maximum": 2.899936715067275e-08,
+        "marker": false,
+        "all_x_points": 481,
+        "source_key": "centered_line_error_final_u"
+      },
+      {
+        "field": "u",
+        "method": "FD",
+        "maximum": 4.279950781976849e-08,
+        "marker": false,
+        "all_x_points": 481,
+        "source_key": "fd_line_error_final_u"
+      },
+      {
+        "field": "v",
+        "method": "Endpoint-SD",
+        "maximum": 1.8283152769527078e-12,
+        "marker": false,
+        "all_x_points": 481,
+        "source_key": "endpoint_line_error_final_v"
+      },
+      {
+        "field": "v",
+        "method": "Centered-SD",
+        "maximum": 2.1866952693017083e-12,
+        "marker": false,
+        "all_x_points": 481,
+        "source_key": "centered_line_error_final_v"
+      },
+      {
+        "field": "v",
+        "method": "FD",
+        "maximum": 4.076738946423575e-13,
+        "marker": false,
+        "all_x_points": 481,
+        "source_key": "fd_line_error_final_v"
+      }
+    ],
+    "maps": [
+      {
+        "field": "u",
+        "method": "Endpoint-SD",
+        "vmin": 4.279950858998572e-12,
+        "vmax": 4.279950858998571e-08,
+        "native": true,
+        "source_key": "endpoint_error_final_u",
+        "below_color_minimum": 1,
+        "zero_values": 0,
+        "low_end_policy": "clip to lowest viridis color, including zero",
+        "lower_color_rgba": [
+          0.267004,
+          0.004874,
+          0.329415,
+          1.0
+        ],
+        "colorbar_threshold_label": "<= 4.28e-12"
+      },
+      {
+        "field": "u",
+        "method": "Centered-SD",
+        "vmin": 4.279950858998572e-12,
+        "vmax": 4.279950858998571e-08,
+        "native": true,
+        "source_key": "centered_error_final_u",
+        "below_color_minimum": 3,
+        "zero_values": 0,
+        "low_end_policy": "clip to lowest viridis color, including zero",
+        "lower_color_rgba": [
+          0.267004,
+          0.004874,
+          0.329415,
+          1.0
+        ],
+        "colorbar_threshold_label": "<= 4.28e-12"
+      },
+      {
+        "field": "u",
+        "method": "FD",
+        "vmin": 4.279950858998572e-12,
+        "vmax": 4.279950858998571e-08,
+        "native": true,
+        "source_key": "fd_error_final_u",
+        "below_color_minimum": 0,
+        "zero_values": 0,
+        "low_end_policy": "clip to lowest viridis color, including zero",
+        "lower_color_rgba": [
+          0.267004,
+          0.004874,
+          0.329415,
+          1.0
+        ],
+        "colorbar_threshold_label": "<= 4.28e-12"
+      },
+      {
+        "field": "v",
+        "method": "Endpoint-SD",
+        "vmin": 6.036230431050172e-11,
+        "vmax": 6.036230431050171e-07,
+        "native": true,
+        "source_key": "endpoint_error_final_v",
+        "below_color_minimum": 2526,
+        "zero_values": 0,
+        "low_end_policy": "clip to lowest viridis color, including zero",
+        "lower_color_rgba": [
+          0.267004,
+          0.004874,
+          0.329415,
+          1.0
+        ],
+        "colorbar_threshold_label": "<= 6.04e-11"
+      },
+      {
+        "field": "v",
+        "method": "Centered-SD",
+        "vmin": 6.036230431050172e-11,
+        "vmax": 6.036230431050171e-07,
+        "native": true,
+        "source_key": "centered_error_final_v",
+        "below_color_minimum": 2450,
+        "zero_values": 0,
+        "low_end_policy": "clip to lowest viridis color, including zero",
+        "lower_color_rgba": [
+          0.267004,
+          0.004874,
+          0.329415,
+          1.0
+        ],
+        "colorbar_threshold_label": "<= 6.04e-11"
+      },
+      {
+        "field": "v",
+        "method": "FD",
+        "vmin": 6.036230431050172e-11,
+        "vmax": 6.036230431050171e-07,
+        "native": true,
+        "source_key": "fd_error_final_v",
+        "below_color_minimum": 1239,
+        "zero_values": 5,
+        "low_end_policy": "clip to lowest viridis color, including zero",
+        "lower_color_rgba": [
+          0.267004,
+          0.004874,
+          0.329415,
+          1.0
+        ],
+        "colorbar_threshold_label": "<= 6.04e-11"
+      }
+    ],
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\natural_selection_20261025\\figures\\data\\Gaussian.npz",
+    "source_sha256": "3113172592e578af49e63e0bcd1435a7e4f35f8d9b79643e69c63e487f5893af",
+    "png": "spatial_Gaussian.png",
+    "pdf": "spatial_Gaussian.pdf",
+    "png_sha256": "c9d6f8fe00efe1fc1dcf3d120271ef8a7e94e360fc7c4760025c6394897b7648",
+    "pdf_sha256": "80318ac2cc38cf26d40eef177fdc4f984df957ef02d564a40a54458cf688fb06"
+  },
+  {
+    "case": "Sinusoidal",
+    "label": "Sinusoidal case",
+    "stage": "final",
+    "section_y": 0,
+    "section_xlim": [
+      -12,
+      12
+    ],
+    "heatmap_xlim": [
+      -12,
+      12
+    ],
+    "section_error": "absolute y=0 section error; all native x samples connected",
+    "color_scale": "logarithmic, common per component across methods; values at or below vmin share the lowest viridis color, including zero; threshold labeled <= vmin",
+    "curves": [
+      {
+        "field": "u",
+        "method": "Endpoint-SD",
+        "maximum": 1.5876419116878093e-08,
+        "marker": false,
+        "all_x_points": 481,
+        "source_key": "endpoint_line_error_final_u"
+      },
+      {
+        "field": "u",
+        "method": "Centered-SD",
+        "maximum": 2.002896448347058e-08,
+        "marker": false,
+        "all_x_points": 481,
+        "source_key": "centered_line_error_final_u"
+      },
+      {
+        "field": "u",
+        "method": "FD",
+        "maximum": 3.1699681973113014e-08,
+        "marker": false,
+        "all_x_points": 481,
+        "source_key": "fd_line_error_final_u"
+      },
+      {
+        "field": "v",
+        "method": "Endpoint-SD",
+        "maximum": 1.1941558852868184e-12,
+        "marker": false,
+        "all_x_points": 481,
+        "source_key": "endpoint_line_error_final_v"
+      },
+      {
+        "field": "v",
+        "method": "Centered-SD",
+        "maximum": 2.2586377212974185e-12,
+        "marker": false,
+        "all_x_points": 481,
+        "source_key": "centered_line_error_final_v"
+      },
+      {
+        "field": "v",
+        "method": "FD",
+        "maximum": 5.262457136723242e-13,
+        "marker": false,
+        "all_x_points": 481,
+        "source_key": "fd_line_error_final_v"
+      }
+    ],
+    "maps": [
+      {
+        "field": "u",
+        "method": "Endpoint-SD",
+        "vmin": 3.169982822071038e-12,
+        "vmax": 3.169982822071038e-08,
+        "native": true,
+        "source_key": "endpoint_error_final_u",
+        "below_color_minimum": 0,
+        "zero_values": 0,
+        "low_end_policy": "clip to lowest viridis color, including zero",
+        "lower_color_rgba": [
+          0.267004,
+          0.004874,
+          0.329415,
+          1.0
+        ],
+        "colorbar_threshold_label": "<= 3.17e-12"
+      },
+      {
+        "field": "u",
+        "method": "Centered-SD",
+        "vmin": 3.169982822071038e-12,
+        "vmax": 3.169982822071038e-08,
+        "native": true,
+        "source_key": "centered_error_final_u",
+        "below_color_minimum": 0,
+        "zero_values": 0,
+        "low_end_policy": "clip to lowest viridis color, including zero",
+        "lower_color_rgba": [
+          0.267004,
+          0.004874,
+          0.329415,
+          1.0
+        ],
+        "colorbar_threshold_label": "<= 3.17e-12"
+      },
+      {
+        "field": "u",
+        "method": "FD",
+        "vmin": 3.169982822071038e-12,
+        "vmax": 3.169982822071038e-08,
+        "native": true,
+        "source_key": "fd_error_final_u",
+        "below_color_minimum": 0,
+        "zero_values": 0,
+        "low_end_policy": "clip to lowest viridis color, including zero",
+        "lower_color_rgba": [
+          0.267004,
+          0.004874,
+          0.329415,
+          1.0
+        ],
+        "colorbar_threshold_label": "<= 3.17e-12"
+      },
+      {
+        "field": "v",
+        "method": "Endpoint-SD",
+        "vmin": 2.832996388590914e-11,
+        "vmax": 2.832996388590914e-07,
+        "native": true,
+        "source_key": "endpoint_error_final_v",
+        "below_color_minimum": 29,
+        "zero_values": 0,
+        "low_end_policy": "clip to lowest viridis color, including zero",
+        "lower_color_rgba": [
+          0.267004,
+          0.004874,
+          0.329415,
+          1.0
+        ],
+        "colorbar_threshold_label": "<= 2.83e-11"
+      },
+      {
+        "field": "v",
+        "method": "Centered-SD",
+        "vmin": 2.832996388590914e-11,
+        "vmax": 2.832996388590914e-07,
+        "native": true,
+        "source_key": "centered_error_final_v",
+        "below_color_minimum": 253,
+        "zero_values": 0,
+        "low_end_policy": "clip to lowest viridis color, including zero",
+        "lower_color_rgba": [
+          0.267004,
+          0.004874,
+          0.329415,
+          1.0
+        ],
+        "colorbar_threshold_label": "<= 2.83e-11"
+      },
+      {
+        "field": "v",
+        "method": "FD",
+        "vmin": 2.832996388590914e-11,
+        "vmax": 2.832996388590914e-07,
+        "native": true,
+        "source_key": "fd_error_final_v",
+        "below_color_minimum": 253,
+        "zero_values": 0,
+        "low_end_policy": "clip to lowest viridis color, including zero",
+        "lower_color_rgba": [
+          0.267004,
+          0.004874,
+          0.329415,
+          1.0
+        ],
+        "colorbar_threshold_label": "<= 2.83e-11"
+      }
+    ],
+    "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\natural_selection_20261025\\figures\\data\\Sinusoidal.npz",
+    "source_sha256": "a703dfcebfdc19a1a919cd0f72a07ead2b4ded96115f53d9345bdd6b018e9fad",
+    "png": "spatial_Sinusoidal.png",
+    "pdf": "spatial_Sinusoidal.pdf",
+    "png_sha256": "ee8521cc9574d861a57beb1e4f1bf2f066321752695096424e6bdf49a55a8501",
+    "pdf_sha256": "c4c3ffaae9f1feaa72544bff99783ba122080dd48f89fe21efa52cdca7b10d11"
+  }
+]

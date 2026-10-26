@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>给定初值下的 DLW 参考解与理论障碍</title>
+<style>body{max-width:960px;margin:48px auto;padding:0 24px;color:#20242a;background:#fff;font:17px/1.85 Georgia,"Microsoft YaHei",serif}h1{font-size:30px;line-height:1.45}h2{font-size:22px;margin-top:36px}p{margin:14px 0}.meta{color:#626871;font-size:14px}.lead{border-left:3px solid #335e79;padding:10px 20px;background:#f5f8fa}table{width:100%;border-collapse:collapse;font-size:15px}th,td{text-align:left;padding:12px 10px;border-bottom:1px solid #ddd}th{border-top:2px solid #333}.eq{overflow:auto;padding:16px;background:#f6f6f4;font:16px/1.9 Georgia,serif;white-space:pre-wrap}a{color:#255a7a}footer{margin-top:40px;border-top:1px solid #ddd;padding-top:14px;font-size:14px}</style></head>
+<body><h1>给定初值下的 DLW 参考解与理论障碍</h1><p class="meta">2026年10月24日 · 周期高斯与正弦初值 · T=0.01</p>
+<p class="lead">全场数值候选已可求值，但尚无对原连续初边值问题的误差上界。本轮将周期高斯的高阶横向正则性障碍补成含显式常数的证明稿：在给定时间内，具有所述900阶边界导数的解不可能存在。低阶经典解或弱解的存在性与参考误差仍未解决。</p>
+<h2>1. 保持不变的初始化</h2>
+<p>令 z=y+2∈[0,4]，x 的周期为192，下边界 u(x,0,t)=0。方程为</p>
+<div class="eq">u<sub>zt</sub>=−v<sub>xx</sub>−[(u+4)u<sub>z</sub>]<sub>x</sub>,
+v<sub>t</sub>=−u<sub>xxz</sub>−[(u+4)v−4u]<sub>x</sub>.</div>
+<p>正弦初值为 u₀=0.03 sin(πz/4)cos(πx/12)、v₀=0.02 sin(πz/4)sin(πx/12)。周期高斯初值为 u₀=0.05 sin(πz/4)G(x)、v₀=0.03 sin(πz/4)G(x)，其中 G(x)=Σ<sub>j∈ℤ</sub>exp[−((x+192j)/6)²]。</p>
+<h2>2. 可使用的数值候选</h2>
+<p>候选采用完整非线性积分形式的 Fourier–Galerkin / Chebyshev 离散，时间步长5×10⁻⁵。下表是在 (x,y,t)=(0,0,0.01) 的求值结果，显示位数不代表已证明的准确位数。</p>
+<table><thead><tr><th>初值</th><th>u 候选值</th><th>v 候选值</th><th>空间阶数</th></tr></thead><tbody>
+<tr><td>正弦</td><td>0.0299981532338190</td><td>−0.0002076007936283</td><td>M=32，Y=24</td></tr>
+<tr><td>周期高斯</td><td>0.0500189675563063</td><td>0.0300031144031902</td><td>M=128，Y=24</td></tr></tbody></table>
+<p>既有空间、时间加密与独立时间积分比较，在共同采样网格上达到约10⁻¹⁵量级的一致性。候选的无限频率误差尚无上界，因此不能据此宣称连续参考误差达到该量级。任意点求值入口为 <a href="../Workspaces/dlw_paper_20261009/reference_certificate_20261024/canonical_reference/evaluate.py">evaluate.py</a>；完整数据说明见<a href="../Workspaces/dlw_paper_20261009/reference_certificate_20261024/canonical_reference/README.md">候选说明</a>。</p>
+<h2>3. 本轮新增的显式理论证据</h2>
+<p>在 X=x−4t 中取 a=u<sub>z</sub>+v、b=u<sub>z</sub>−v。它们分别具有反扩散和扩散主部。以 a<sub>m</sub>=∂<sub>z</sub><sup>m</sup>a(X,0,t)/m! 记归一化边界导数。对周期高斯，设</p>
+<div class="eq">N=901，m=900，t*=1801/180200≈0.00999445061043，
+K=(π/96)Nℓ，ℓ∈ℕ。</div>
+<p>在能够合法微分、取迹及使用 Fourier 方程的解类中，对 K⁻²&lt;t* 必有</p>
+<div class="eq">Re[i⁹⁰⁰ â₉₀₀(Nℓ,t*)]
+ ≥ C K⁻⁹⁰⁰ exp(K²/180200) − D exp(−K²/360400)，
+C &gt; exp(−12265)，D &lt; exp(26000)。</div>
+<p>正项来自901个初始 Gaussian 因子的同相链；所有可能抵消的项及低次数项均由第二项控制。常数 D 已通过树结构系数和离散 Gaussian 矩的显式上界给出，不再依赖未量化的“足够高频”。</p>
+<p>在原周期指标 n=4,505,000 时，上式已严格大于 exp(97000)。随着 ℓ→∞，增长快于任何多项式，故不能是周期分布的 Fourier 系数。这排除在 [0,0.01] 上保持所述900阶 a,b 边界正则性的解，涉及 u 的901阶和 v 的900阶横向导数。</p>
+<p>这是高阶导数的障碍，不能解释为物理场振幅或数值误差巨大。低阶横向经典解与弱解没有被本证明排除。正弦的既有证明则排除有限阶 Gevrey 横向正则性，尚不排除 C∞ 非 Gevrey 解。</p>
+<p>完整推导见<a href="../Workspaces/dlw_paper_20261009/reference_certificate_20261024/GAUSSIAN_EXPLICIT_OBSTRUCTION.md">带显式常数的证明稿</a>；<a href="../Workspaces/dlw_paper_20261009/reference_certificate_20261024/explicit_obstruction_check.json">256-bit Arb 核验</a>给出 25923&lt;log D&lt;25924、−12265&lt;log C&lt;−12264。证明经过本会话复核，尚无新增独立审稿或形式化核验。</p>
+<h2>4. 哪些部分已有准确参考</h2>
+<p>下边界 u=0 的非线性方程恰好闭合为线性迹方程，因而 v 的下边界值已有精确公式。正弦时，令 ω=π/12：</p>
+<div class="eq">v(x,−2,t)=(0.03π/4)cos[ω(x−4t)]sinh(ω²t)。</div>
+<p>周期高斯时，设 H<sub>s</sub>G(x)=6/√(36+4s) Σ<sub>j</sub>exp[−(x+192j)²/(36+4s)]：</p>
+<div class="eq">v(x,−2,t)=(0.05π/8)[H<sub>−t</sub>G(x−4t)−H<sub>t</sub>G(x−4t)]，0≤t&lt;9。</div>
+<p>既有区间计算对 T=0.01 的指定采样点分别给出了小于10⁻⁷²和10⁻⁸⁰的数值表示误差界。这些公式准确规定任何满足迹条件的解的边界值，但不构造内部解。相关证据见<a href="../Workspaces/dlw_paper_20261009/reference_certificate_20261024/BOUNDARY_THEOREM.md">边界推导</a>及<a href="../Workspaces/dlw_paper_20261009/reference_certificate_20261024/periodic_gaussian_certificate.json">周期高斯边界认证</a>。</p>
+<h2>5. 全场参考仍缺少的条件</h2>
+<p>保留给定初值时，必须先在允许的低阶横向正则性空间建立存在性与唯一性，再控制反扩散分量的真实无限频率尾部。现有扩散分量的条件性尾界、边界精确公式和数值加密一致性都不能代替这一步。当前 η<sub>u</sub>、η<sub>v</sub>仍未知，尚未获得用户要求的带确切全场误差保证的参考解。</p>
+<footer>本报告区分数值观察、证明稿和区间核验。初始化与原方程均保持不变。<a href="../Workspaces/dlw_paper_20261009/reference_certificate_20261024/TAIL_ESTIMATE_CONTINUATION.md">上一轮尾部估计</a>。</footer>
+</body></html>
+

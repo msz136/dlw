@@ -1,0 +1,1981 @@
+{
+  "date": "2026-10-16",
+  "files": 197017,
+  "bytes": 24080591278,
+  "categories": {
+    "source": {
+      "title": "研究源码、证明与配置",
+      "files": 2364,
+      "bytes": 13125787,
+      "judgment": "保留",
+      "description": "算法、证明、生成器及配置，是复现工作的基础。"
+    },
+    "writing": {
+      "title": "论文、笔记与说明",
+      "files": 794,
+      "bytes": 210397520,
+      "judgment": "保留",
+      "description": "正文、推导、操作说明与研究记录。"
+    },
+    "literature": {
+      "title": "文献原件与阅读资料",
+      "files": 1293,
+      "bytes": 67986938,
+      "judgment": "保留",
+      "description": "论文与外部参考资料。"
+    },
+    "evidence": {
+      "title": "实验摘要与核验证据",
+      "files": 2715,
+      "bytes": 99038041,
+      "judgment": "保留",
+      "description": "误差表、参数、校验、运行清单等；通常体积小。"
+    },
+    "array": {
+      "title": "数值轨迹、场与终态",
+      "files": 6035,
+      "bytes": 8574920671,
+      "judgment": "研究证据，保留",
+      "description": "完整数值数组；重画图、改评价指标和独立核查需要。"
+    },
+    "checkpoint": {
+      "title": "断点续算状态",
+      "files": 5,
+      "bytes": 286830285,
+      "judgment": "完成状态待核对",
+      "description": "用于中断后继续计算，不等同于最终研究结果。"
+    },
+    "cache": {
+      "title": "可重算的中间数组",
+      "files": 42,
+      "bytes": 614032742,
+      "judgment": "可重建，按需保留",
+      "description": "为了避免重复计算而保存，移走会增加后续重算成本。"
+    },
+    "figure": {
+      "title": "图、动画与展示资源",
+      "files": 1377,
+      "bytes": 254506163,
+      "judgment": "按引用保留",
+      "description": "论文插图、误差图、动画、网页资源及预览。"
+    },
+    "build": {
+      "title": "编译产物与证明运行环境",
+      "files": 138527,
+      "bytes": 8840826617,
+      "judgment": "可重建，按需保留",
+      "description": "Lean 编译结果和隔离运行副本；不是新证明。"
+    },
+    "dependency": {
+      "title": "第三方依赖与工具",
+      "files": 30364,
+      "bytes": 338932563,
+      "judgment": "运行需要，保留可用环境",
+      "description": "Mathlib 源码、Python 包、前端库等。"
+    },
+    "bytecode": {
+      "title": "解释器及工具缓存",
+      "files": 3984,
+      "bytes": 44227953,
+      "judgment": "低价值可重建",
+      "description": "Python 字节码、工具临时缓存。"
+    },
+    "backup": {
+      "title": "历史版本、恢复备份与留档",
+      "files": 5835,
+      "bytes": 4517226700,
+      "judgment": "归档保留",
+      "description": "提供回滚和历史证据；不能仅据旧日期判定无用。"
+    },
+    "git": {
+      "title": "当前版本库内部数据",
+      "files": 3466,
+      "bytes": 215013301,
+      "judgment": "保留",
+      "description": "当前 Git 对象与索引，支持版本历史。"
+    },
+    "log": {
+      "title": "运行日志",
+      "files": 89,
+      "bytes": 395544,
+      "judgment": "辅助排障，按需保留",
+      "description": "计算与执行过程记录。"
+    },
+    "other": {
+      "title": "用途待核对",
+      "files": 127,
+      "bytes": 3130453,
+      "judgment": "待核对",
+      "description": "仅凭格式及路径无法可靠确定用途。"
+    }
+  },
+  "largest_files": [
+    {
+      "path": "Trash/git_snapshot_20261010_212349/.git/objects/pack/pack-70b9729a005cd925bef405b0c4eef3c2442218ea.pack",
+      "bytes": 2587477291,
+      "category": "backup",
+      "content": "other",
+      "judgment": "归档保留",
+      "basis": "路径表明历史留档",
+      "references": []
+    },
+    {
+      "path": "_lean_shared/mathlib/.lake/packages/batteries/.lake/build/bin/runLinter",
+      "bytes": 248204592,
+      "category": "build",
+      "content": "other",
+      "judgment": "可重建，按需保留",
+      "basis": "编译格式/隔离证明运行路径",
+      "references": []
+    },
+    {
+      "path": "Workspaces/dlw_three_tracks_20261013/shared/C_SD_RK4_halfdt.npz",
+      "bytes": 216507279,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": [
+        "Workspaces/workspace_catalog_audit_20261013/audit.json",
+        "Workspaces/dlw_three_tracks_20261013/spectrum/out/manifest.json",
+        "Workspaces/dlw_error_mechanism_20261013/morphology/validation.json"
+      ]
+    },
+    {
+      "path": "Workspaces/dlw_three_tracks_20261013/shared/C_SD_RK4.npz",
+      "bytes": 216505840,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": [
+        "Workspaces/workspace_catalog_audit_20261013/audit.json",
+        "Workspaces/dlw_three_tracks_20261013/spectrum/out/manifest.json",
+        "Workspaces/dlw_error_mechanism_20261013/morphology/validation.json"
+      ]
+    },
+    {
+      "path": "Workspaces/dlw_three_tracks_20261013/shared/C_FD_RK4.npz",
+      "bytes": 216457304,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": [
+        "Workspaces/workspace_catalog_audit_20261013/audit.json",
+        "Workspaces/dlw_three_tracks_20261013/spectrum/out/manifest.json",
+        "Workspaces/dlw_error_mechanism_20261013/morphology/validation.json"
+      ]
+    },
+    {
+      "path": "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000500_parts_cache5/checkpoint.npz",
+      "bytes": 143272644,
+      "category": "checkpoint",
+      "content": "array",
+      "judgment": "已到目标步数且终态回执到T；续算用途已完成，可归档",
+      "basis": "断点状态命名及续算代码",
+      "references": [
+        "Workspaces/dlw_error_mechanism_20261013/transport/run_transport.py"
+      ]
+    },
+    {
+      "path": "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000100_parts_cache5/checkpoint.npz",
+      "bytes": 143272644,
+      "category": "checkpoint",
+      "content": "array",
+      "judgment": "未核实完成，保留续算能力",
+      "basis": "断点状态命名及续算代码",
+      "references": [
+        "Workspaces/dlw_error_mechanism_20261013/transport/run_transport.py"
+      ]
+    },
+    {
+      "path": "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000500_parts_cache5/final_common.npz",
+      "bytes": 128456344,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": [
+        "Workspaces/dlw_error_mechanism_20261013/transport/README.md",
+        "Workspaces/dlw_error_mechanism_20261013/transport/run_transport.py"
+      ]
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/boundary_run/C_SD_RK4_fixed.npz",
+      "bytes": 116281267,
+      "category": "backup",
+      "content": "array",
+      "judgment": "归档保留",
+      "basis": "finish_buffered.py 明确旧域结果不再作为当前论文结论；仍保留历史用途",
+      "references": [
+        "Workspaces/workspace_catalog_audit_20261013/audit.json"
+      ]
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/boundary_run/C_SD2_RK4_fixed.npz",
+      "bytes": 114555590,
+      "category": "backup",
+      "content": "array",
+      "judgment": "归档保留",
+      "basis": "finish_buffered.py 明确旧域结果不再作为当前论文结论；仍保留历史用途",
+      "references": [
+        "Workspaces/workspace_catalog_audit_20261013/audit.json"
+      ]
+    },
+    {
+      "path": "_lean_shared/mathlib/.lake/build/bin/cache.exe",
+      "bytes": 111443968,
+      "category": "build",
+      "content": "other",
+      "judgment": "可重建，按需保留",
+      "basis": "编译格式/隔离证明运行路径",
+      "references": []
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/buffered_run/C_SD_RK4_fixed.npz",
+      "bytes": 109115450,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": [
+        "Workspaces/workspace_catalog_audit_20261013/audit.json"
+      ]
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/buffered_run/C_FD_RK4_fixed.npz",
+      "bytes": 109093422,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": [
+        "Workspaces/workspace_catalog_audit_20261013/audit.json"
+      ]
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/buffered_run/C_SD2_RK4_fixed.npz",
+      "bytes": 108837799,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": [
+        "Workspaces/workspace_catalog_audit_20261013/audit.json"
+      ]
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/buffered_run/D_SD2_RK4_fixed.npz",
+      "bytes": 106289481,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": [
+        "Workspaces/workspace_catalog_audit_20261013/audit.json"
+      ]
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/physd_domains_run/C_SD_RK4_fixed.npz",
+      "bytes": 105241028,
+      "category": "backup",
+      "content": "array",
+      "judgment": "归档保留",
+      "basis": "finish_buffered.py 明确旧域结果不再作为当前论文结论；仍保留历史用途",
+      "references": [
+        "Workspaces/workspace_catalog_audit_20261013/audit.json"
+      ]
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/physd_domains_run/C_FD_RK4_fixed.npz",
+      "bytes": 105239199,
+      "category": "backup",
+      "content": "array",
+      "judgment": "归档保留",
+      "basis": "finish_buffered.py 明确旧域结果不再作为当前论文结论；仍保留历史用途",
+      "references": [
+        "Workspaces/workspace_catalog_audit_20261013/audit.json"
+      ]
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/buffered_run/D_SD_RK4_fixed.npz",
+      "bytes": 105192408,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": [
+        "Workspaces/workspace_catalog_audit_20261013/audit.json"
+      ]
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/buffered_run/D_FD_RK4_fixed.npz",
+      "bytes": 105095972,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": [
+        "Workspaces/workspace_catalog_audit_20261013/audit.json"
+      ]
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/physd_domains_run/C_SD2_RK4_fixed.npz",
+      "bytes": 104745193,
+      "category": "backup",
+      "content": "array",
+      "judgment": "归档保留",
+      "basis": "finish_buffered.py 明确旧域结果不再作为当前论文结论；仍保留历史用途",
+      "references": [
+        "Workspaces/workspace_catalog_audit_20261013/audit.json"
+      ]
+    },
+    {
+      "path": "_lean_shared/mathlib/.lake/packages/batteries/.lake/build.barrel",
+      "bytes": 99915523,
+      "category": "build",
+      "content": "other",
+      "judgment": "可重建，按需保留",
+      "basis": "编译格式/隔离证明运行路径",
+      "references": []
+    },
+    {
+      "path": "Workspaces/dlw_waveform_fields_20261001/plotted_fields.npz",
+      "bytes": 95557531,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": [
+        "Workspaces/workspace_catalog_audit_20261013/audit.json",
+        "Workspaces/notebook_audit_20261008/registration_before_20261009_e876db6f/FILE_INDEX.md",
+        "Workspaces/notebook_audit_20261008/registration_before_20261009_03cb439d/FILE_INDEX.md",
+        "Workspaces/integrability_notebook_20261007/proposed_FILE_INDEX.md",
+        "Workspaces/gsg_project/dlw_report/integrate_dlw_numerics.py",
+        "Workspaces/dlw_waveform_fields_20261001/build_reports.py"
+      ]
+    },
+    {
+      "path": ".git/objects/pack/pack-a3a008447f97850033f81539eafbacf55e5fd7d6.pack",
+      "bytes": 94972414,
+      "category": "git",
+      "content": "other",
+      "judgment": "保留",
+      "basis": "Git 内部路径",
+      "references": []
+    },
+    {
+      "path": "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000500_parts_cache5/frame_00020.npz",
+      "bytes": 65697604,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": [
+        "Workspaces/dlw_error_mechanism_20261013/transport/summarize_transport.py"
+      ]
+    },
+    {
+      "path": "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000500_parts_cache5/frame_00019.npz",
+      "bytes": 65680526,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": []
+    },
+    {
+      "path": "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000500_parts_cache5/frame_00018.npz",
+      "bytes": 65667817,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": []
+    },
+    {
+      "path": "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000500_parts_cache5/frame_00017.npz",
+      "bytes": 65643359,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": []
+    },
+    {
+      "path": "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000500_parts_cache5/frame_00016.npz",
+      "bytes": 65621779,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": []
+    },
+    {
+      "path": "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000500_parts_cache5/frame_00015.npz",
+      "bytes": 65595409,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": []
+    },
+    {
+      "path": "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000500_parts_cache5/frame_00014.npz",
+      "bytes": 65573914,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": []
+    },
+    {
+      "path": "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000500_parts_cache5/frame_00013.npz",
+      "bytes": 65548994,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": []
+    },
+    {
+      "path": "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000500_parts_cache5/frame_00012.npz",
+      "bytes": 65516881,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": []
+    },
+    {
+      "path": "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000500_parts_cache5/frame_00011.npz",
+      "bytes": 65478922,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": []
+    },
+    {
+      "path": "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000500_parts_cache5/frame_00010.npz",
+      "bytes": 65444408,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": []
+    },
+    {
+      "path": "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000500_parts_cache5/frame_00009.npz",
+      "bytes": 65382452,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": []
+    },
+    {
+      "path": "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000500_parts_cache5/frame_00008.npz",
+      "bytes": 65305463,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": []
+    },
+    {
+      "path": "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000500_parts_cache5/frame_00007.npz",
+      "bytes": 65201885,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": []
+    },
+    {
+      "path": "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000500_parts_cache5/frame_00006.npz",
+      "bytes": 65063691,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": []
+    },
+    {
+      "path": "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000500_parts_cache5/frame_00005.npz",
+      "bytes": 64893325,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": []
+    },
+    {
+      "path": "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000500_parts_cache5/frame_00004.npz",
+      "bytes": 64701034,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": [
+        "Workspaces/dlw_error_mechanism_20261013/transport/summarize_transport.py"
+      ]
+    },
+    {
+      "path": "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000100_parts_cache5/frame_00020.npz",
+      "bytes": 64658475,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": [
+        "Workspaces/dlw_error_mechanism_20261013/transport/summarize_transport.py"
+      ]
+    },
+    {
+      "path": "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000500_parts_cache5/frame_00003.npz",
+      "bytes": 64446519,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": []
+    },
+    {
+      "path": "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000100_parts_cache5/frame_00015.npz",
+      "bytes": 64406931,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": []
+    },
+    {
+      "path": "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000500_parts_cache5/frame_00002.npz",
+      "bytes": 64143055,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": []
+    },
+    {
+      "path": "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000100_parts/frame_00010.npz",
+      "bytes": 64120756,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": []
+    },
+    {
+      "path": "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000100_parts_cache5/frame_00010.npz",
+      "bytes": 64113677,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": []
+    },
+    {
+      "path": "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000100_parts/frame_00005.npz",
+      "bytes": 63831894,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": []
+    },
+    {
+      "path": "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000100_parts_cache5/frame_00005.npz",
+      "bytes": 63827097,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": []
+    },
+    {
+      "path": "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000500_parts_cache5/frame_00001.npz",
+      "bytes": 61871680,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": []
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/trial_h02/C_FD_RK4_fixed.npz",
+      "bytes": 52282401,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": [
+        "Workspaces/workspace_catalog_audit_20261013/audit.json"
+      ]
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/trial_h02/C_SD_RK4_fixed.npz",
+      "bytes": 52279096,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": [
+        "Workspaces/workspace_catalog_audit_20261013/audit.json"
+      ]
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/trial_h02/C_SD2_RK4_fixed.npz",
+      "bytes": 51503089,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": [
+        "Workspaces/workspace_catalog_audit_20261013/audit.json"
+      ]
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/trial_h02/D_FD_RK4_fixed.npz",
+      "bytes": 50998144,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": [
+        "Workspaces/workspace_catalog_audit_20261013/audit.json"
+      ]
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/trial_h02/D_SD_RK4_fixed.npz",
+      "bytes": 50989196,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": [
+        "Workspaces/workspace_catalog_audit_20261013/audit.json"
+      ]
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/trial_h02/D_SD2_RK4_fixed.npz",
+      "bytes": 50776639,
+      "category": "array",
+      "content": "array",
+      "judgment": "研究证据，保留",
+      "basis": "数值二进制；需结合生成器判断使用范围",
+      "references": [
+        "Workspaces/workspace_catalog_audit_20261013/audit.json"
+      ]
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/unified_run/C_SD_RK4_fixed.npz",
+      "bytes": 48625199,
+      "category": "backup",
+      "content": "array",
+      "judgment": "归档保留",
+      "basis": "finish_buffered.py 明确旧域结果不再作为当前论文结论；仍保留历史用途",
+      "references": [
+        "Workspaces/workspace_catalog_audit_20261013/audit.json"
+      ]
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/unified_run/C_FD_RK4_fixed.npz",
+      "bytes": 48622214,
+      "category": "backup",
+      "content": "array",
+      "judgment": "归档保留",
+      "basis": "finish_buffered.py 明确旧域结果不再作为当前论文结论；仍保留历史用途",
+      "references": [
+        "Workspaces/workspace_catalog_audit_20261013/audit.json"
+      ]
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/unified_run/C_SD2_RK4_fixed.npz",
+      "bytes": 48462927,
+      "category": "backup",
+      "content": "array",
+      "judgment": "归档保留",
+      "basis": "finish_buffered.py 明确旧域结果不再作为当前论文结论；仍保留历史用途",
+      "references": [
+        "Workspaces/workspace_catalog_audit_20261013/audit.json"
+      ]
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/unified_run/A_SD2_RK4_fixed.npz",
+      "bytes": 42196598,
+      "category": "backup",
+      "content": "array",
+      "judgment": "归档保留",
+      "basis": "finish_buffered.py 明确旧域结果不再作为当前论文结论；仍保留历史用途",
+      "references": [
+        "Workspaces/workspace_catalog_audit_20261013/audit.json"
+      ]
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/unified_run/A_FD_RK4_fixed.npz",
+      "bytes": 40800102,
+      "category": "backup",
+      "content": "array",
+      "judgment": "归档保留",
+      "basis": "finish_buffered.py 明确旧域结果不再作为当前论文结论；仍保留历史用途",
+      "references": [
+        "Workspaces/workspace_catalog_audit_20261013/audit.json"
+      ]
+    }
+  ],
+  "array_details": {
+    "Workspaces/dlw_three_tracks_20261013/shared/C_SD_RK4_halfdt.npz": [
+      {
+        "array": "x.npy",
+        "shape": [
+          601
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 4936,
+        "compressed_bytes": 1337
+      },
+      {
+        "array": "y.npy",
+        "shape": [
+          600
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 4928,
+        "compressed_bytes": 1292
+      },
+      {
+        "array": "t.npy",
+        "shape": [
+          21
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 296,
+        "compressed_bytes": 183
+      },
+      {
+        "array": "metadata_json.npy",
+        "shape": [],
+        "dtype": "<U963",
+        "raw_bytes": 3980,
+        "compressed_bytes": 914
+      },
+      {
+        "array": "u.npy",
+        "shape": [
+          21,
+          600,
+          601
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 60580928,
+        "compressed_bytes": 55306129
+      },
+      {
+        "array": "v.npy",
+        "shape": [
+          21,
+          600,
+          601
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 60580928,
+        "compressed_bytes": 58150019
+      },
+      {
+        "array": "exact_u.npy",
+        "shape": [
+          21,
+          600,
+          601
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 60580928,
+        "compressed_bytes": 51586400
+      },
+      {
+        "array": "exact_v.npy",
+        "shape": [
+          21,
+          600,
+          601
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 60580928,
+        "compressed_bytes": 51460087
+      }
+    ],
+    "Workspaces/dlw_three_tracks_20261013/shared/C_SD_RK4.npz": [
+      {
+        "array": "x.npy",
+        "shape": [
+          601
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 4936,
+        "compressed_bytes": 1337
+      },
+      {
+        "array": "y.npy",
+        "shape": [
+          600
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 4928,
+        "compressed_bytes": 1292
+      },
+      {
+        "array": "t.npy",
+        "shape": [
+          21
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 296,
+        "compressed_bytes": 183
+      },
+      {
+        "array": "metadata_json.npy",
+        "shape": [],
+        "dtype": "<U1004",
+        "raw_bytes": 4144,
+        "compressed_bytes": 937
+      },
+      {
+        "array": "u.npy",
+        "shape": [
+          21,
+          600,
+          601
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 60580928,
+        "compressed_bytes": 55305251
+      },
+      {
+        "array": "v.npy",
+        "shape": [
+          21,
+          600,
+          601
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 60580928,
+        "compressed_bytes": 58149435
+      },
+      {
+        "array": "exact_u.npy",
+        "shape": [
+          21,
+          600,
+          601
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 60580928,
+        "compressed_bytes": 51586400
+      },
+      {
+        "array": "exact_v.npy",
+        "shape": [
+          21,
+          600,
+          601
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 60580928,
+        "compressed_bytes": 51460087
+      }
+    ],
+    "Workspaces/dlw_three_tracks_20261013/shared/C_FD_RK4.npz": [
+      {
+        "array": "x.npy",
+        "shape": [
+          601
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 4936,
+        "compressed_bytes": 1337
+      },
+      {
+        "array": "y.npy",
+        "shape": [
+          600
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 4928,
+        "compressed_bytes": 1292
+      },
+      {
+        "array": "t.npy",
+        "shape": [
+          21
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 296,
+        "compressed_bytes": 183
+      },
+      {
+        "array": "metadata_json.npy",
+        "shape": [],
+        "dtype": "<U984",
+        "raw_bytes": 4064,
+        "compressed_bytes": 925
+      },
+      {
+        "array": "u.npy",
+        "shape": [
+          21,
+          600,
+          601
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 60580928,
+        "compressed_bytes": 55265483
+      },
+      {
+        "array": "v.npy",
+        "shape": [
+          21,
+          600,
+          601
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 60580928,
+        "compressed_bytes": 58140679
+      },
+      {
+        "array": "exact_u.npy",
+        "shape": [
+          21,
+          600,
+          601
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 60580928,
+        "compressed_bytes": 51586400
+      },
+      {
+        "array": "exact_v.npy",
+        "shape": [
+          21,
+          600,
+          601
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 60580928,
+        "compressed_bytes": 51460087
+      }
+    ],
+    "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000500_parts_cache5/checkpoint.npz": [
+      {
+        "array": "n.npy",
+        "shape": [],
+        "dtype": "<i8",
+        "raw_bytes": 136,
+        "compressed_bytes": 136
+      },
+      {
+        "array": "accum.npy",
+        "shape": [
+          2,
+          1279200
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 20467328,
+        "compressed_bytes": 20467328
+      },
+      {
+        "array": "normsum.npy",
+        "shape": [
+          2
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 144,
+        "compressed_bytes": 144
+      },
+      {
+        "array": "actual_SD.npy",
+        "shape": [
+          1279200
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 10233728,
+        "compressed_bytes": 10233728
+      },
+      {
+        "array": "actual_FD.npy",
+        "shape": [
+          1279200
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 10233728,
+        "compressed_bytes": 10233728
+      },
+      {
+        "array": "pred_SD.npy",
+        "shape": [
+          2,
+          1279200
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 20467328,
+        "compressed_bytes": 20467328
+      },
+      {
+        "array": "pred_FD.npy",
+        "shape": [
+          2,
+          1279200
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 20467328,
+        "compressed_bytes": 20467328
+      },
+      {
+        "array": "ep_SD.npy",
+        "shape": [
+          3,
+          1279200
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 30700928,
+        "compressed_bytes": 30700928
+      },
+      {
+        "array": "ep_FD.npy",
+        "shape": [
+          3,
+          1279200
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 30700928,
+        "compressed_bytes": 30700928
+      }
+    ],
+    "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000100_parts_cache5/checkpoint.npz": [
+      {
+        "array": "n.npy",
+        "shape": [],
+        "dtype": "<i8",
+        "raw_bytes": 136,
+        "compressed_bytes": 136
+      },
+      {
+        "array": "accum.npy",
+        "shape": [
+          2,
+          1279200
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 20467328,
+        "compressed_bytes": 20467328
+      },
+      {
+        "array": "normsum.npy",
+        "shape": [
+          2
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 144,
+        "compressed_bytes": 144
+      },
+      {
+        "array": "actual_SD.npy",
+        "shape": [
+          1279200
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 10233728,
+        "compressed_bytes": 10233728
+      },
+      {
+        "array": "actual_FD.npy",
+        "shape": [
+          1279200
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 10233728,
+        "compressed_bytes": 10233728
+      },
+      {
+        "array": "pred_SD.npy",
+        "shape": [
+          2,
+          1279200
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 20467328,
+        "compressed_bytes": 20467328
+      },
+      {
+        "array": "pred_FD.npy",
+        "shape": [
+          2,
+          1279200
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 20467328,
+        "compressed_bytes": 20467328
+      },
+      {
+        "array": "ep_SD.npy",
+        "shape": [
+          3,
+          1279200
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 30700928,
+        "compressed_bytes": 30700928
+      },
+      {
+        "array": "ep_FD.npy",
+        "shape": [
+          3,
+          1279200
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 30700928,
+        "compressed_bytes": 30700928
+      }
+    ],
+    "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000500_parts_cache5/final_common.npz": [
+      {
+        "array": "reference.npy",
+        "shape": [
+          1279200
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 10233728,
+        "compressed_bytes": 7737403
+      },
+      {
+        "array": "actual_SD.npy",
+        "shape": [
+          1279200
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 10233728,
+        "compressed_bytes": 9914079
+      },
+      {
+        "array": "actual_FD.npy",
+        "shape": [
+          1279200
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 10233728,
+        "compressed_bytes": 9908367
+      },
+      {
+        "array": "pred_SD.npy",
+        "shape": [
+          2,
+          1279200
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 20467328,
+        "compressed_bytes": 19904213
+      },
+      {
+        "array": "pred_FD.npy",
+        "shape": [
+          2,
+          1279200
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 20467328,
+        "compressed_bytes": 19901821
+      },
+      {
+        "array": "accum.npy",
+        "shape": [
+          2,
+          1279200
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 20467328,
+        "compressed_bytes": 17334051
+      },
+      {
+        "array": "parts_SD.npy",
+        "shape": [
+          3,
+          1279200
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 30700928,
+        "compressed_bytes": 21872887
+      },
+      {
+        "array": "parts_FD.npy",
+        "shape": [
+          3,
+          1279200
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 30700928,
+        "compressed_bytes": 21882545
+      }
+    ],
+    "Workspaces/dlw_paper_20261009/buffered_run/C_SD_RK4_fixed.npz": [
+      {
+        "array": "x.npy",
+        "shape": [
+          6001
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 48136,
+        "compressed_bytes": 13755
+      },
+      {
+        "array": "y.npy",
+        "shape": [
+          600
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 4928,
+        "compressed_bytes": 1292
+      },
+      {
+        "array": "u.npy",
+        "shape": [
+          600,
+          6001
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 28804928,
+        "compressed_bytes": 26658986
+      },
+      {
+        "array": "v.npy",
+        "shape": [
+          600,
+          6001
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 28804928,
+        "compressed_bytes": 27000625
+      },
+      {
+        "array": "exact_u.npy",
+        "shape": [
+          600,
+          6001
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 28804928,
+        "compressed_bytes": 22812739
+      },
+      {
+        "array": "exact_v.npy",
+        "shape": [
+          600,
+          6001
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 28804928,
+        "compressed_bytes": 22951772
+      },
+      {
+        "array": "native_x.npy",
+        "shape": [
+          800
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 6528,
+        "compressed_bytes": 1726
+      },
+      {
+        "array": "native_u.npy",
+        "shape": [
+          800,
+          800
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 5120128,
+        "compressed_bytes": 4718670
+      },
+      {
+        "array": "native_v.npy",
+        "shape": [
+          800,
+          800
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 5120128,
+        "compressed_bytes": 4954843
+      }
+    ],
+    "Workspaces/dlw_paper_20261009/buffered_run/C_FD_RK4_fixed.npz": [
+      {
+        "array": "x.npy",
+        "shape": [
+          6001
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 48136,
+        "compressed_bytes": 13755
+      },
+      {
+        "array": "y.npy",
+        "shape": [
+          600
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 4928,
+        "compressed_bytes": 1292
+      },
+      {
+        "array": "u.npy",
+        "shape": [
+          600,
+          6001
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 28804928,
+        "compressed_bytes": 26653335
+      },
+      {
+        "array": "v.npy",
+        "shape": [
+          600,
+          6001
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 28804928,
+        "compressed_bytes": 26994367
+      },
+      {
+        "array": "exact_u.npy",
+        "shape": [
+          600,
+          6001
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 28804928,
+        "compressed_bytes": 22812739
+      },
+      {
+        "array": "exact_v.npy",
+        "shape": [
+          600,
+          6001
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 28804928,
+        "compressed_bytes": 22951772
+      },
+      {
+        "array": "native_x.npy",
+        "shape": [
+          800
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 6528,
+        "compressed_bytes": 1726
+      },
+      {
+        "array": "native_u.npy",
+        "shape": [
+          800,
+          800
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 5120128,
+        "compressed_bytes": 4711334
+      },
+      {
+        "array": "native_v.npy",
+        "shape": [
+          800,
+          800
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 5120128,
+        "compressed_bytes": 4952060
+      }
+    ],
+    "Workspaces/dlw_paper_20261009/buffered_run/C_SD2_RK4_fixed.npz": [
+      {
+        "array": "x.npy",
+        "shape": [
+          6001
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 48136,
+        "compressed_bytes": 13755
+      },
+      {
+        "array": "y.npy",
+        "shape": [
+          600
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 4928,
+        "compressed_bytes": 1292
+      },
+      {
+        "array": "u.npy",
+        "shape": [
+          600,
+          6001
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 28804928,
+        "compressed_bytes": 26731681
+      },
+      {
+        "array": "v.npy",
+        "shape": [
+          600,
+          6001
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 28804928,
+        "compressed_bytes": 26823999
+      },
+      {
+        "array": "exact_u.npy",
+        "shape": [
+          600,
+          6001
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 28804928,
+        "compressed_bytes": 22812739
+      },
+      {
+        "array": "exact_v.npy",
+        "shape": [
+          600,
+          6001
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 28804928,
+        "compressed_bytes": 22951772
+      },
+      {
+        "array": "native_x.npy",
+        "shape": [
+          800
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 6528,
+        "compressed_bytes": 1726
+      },
+      {
+        "array": "native_u.npy",
+        "shape": [
+          800,
+          800
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 5120128,
+        "compressed_bytes": 4776433
+      },
+      {
+        "array": "native_v.npy",
+        "shape": [
+          800,
+          800
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 5120128,
+        "compressed_bytes": 4723360
+      }
+    ],
+    "Workspaces/dlw_paper_20261009/buffered_run/D_SD2_RK4_fixed.npz": [
+      {
+        "array": "x.npy",
+        "shape": [
+          6001
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 48136,
+        "compressed_bytes": 13755
+      },
+      {
+        "array": "y.npy",
+        "shape": [
+          600
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 4928,
+        "compressed_bytes": 1292
+      },
+      {
+        "array": "u.npy",
+        "shape": [
+          600,
+          6001
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 28804928,
+        "compressed_bytes": 26601080
+      },
+      {
+        "array": "v.npy",
+        "shape": [
+          600,
+          6001
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 28804928,
+        "compressed_bytes": 27083837
+      },
+      {
+        "array": "exact_u.npy",
+        "shape": [
+          600,
+          6001
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 28804928,
+        "compressed_bytes": 21881319
+      },
+      {
+        "array": "exact_v.npy",
+        "shape": [
+          600,
+          6001
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 28804928,
+        "compressed_bytes": 21781559
+      },
+      {
+        "array": "native_x.npy",
+        "shape": [
+          800
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 6528,
+        "compressed_bytes": 1726
+      },
+      {
+        "array": "native_u.npy",
+        "shape": [
+          800,
+          800
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 5120128,
+        "compressed_bytes": 4481912
+      },
+      {
+        "array": "native_v.npy",
+        "shape": [
+          800,
+          800
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 5120128,
+        "compressed_bytes": 4441959
+      }
+    ],
+    "Workspaces/dlw_paper_20261009/buffered_run/D_SD_RK4_fixed.npz": [
+      {
+        "array": "x.npy",
+        "shape": [
+          6001
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 48136,
+        "compressed_bytes": 13755
+      },
+      {
+        "array": "y.npy",
+        "shape": [
+          600
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 4928,
+        "compressed_bytes": 1292
+      },
+      {
+        "array": "u.npy",
+        "shape": [
+          600,
+          6001
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 28804928,
+        "compressed_bytes": 26527318
+      },
+      {
+        "array": "v.npy",
+        "shape": [
+          600,
+          6001
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 28804928,
+        "compressed_bytes": 26832087
+      },
+      {
+        "array": "exact_u.npy",
+        "shape": [
+          600,
+          6001
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 28804928,
+        "compressed_bytes": 21881319
+      },
+      {
+        "array": "exact_v.npy",
+        "shape": [
+          600,
+          6001
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 28804928,
+        "compressed_bytes": 21781559
+      },
+      {
+        "array": "native_x.npy",
+        "shape": [
+          800
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 6528,
+        "compressed_bytes": 1726
+      },
+      {
+        "array": "native_u.npy",
+        "shape": [
+          800,
+          800
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 5120128,
+        "compressed_bytes": 3952939
+      },
+      {
+        "array": "native_v.npy",
+        "shape": [
+          800,
+          800
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 5120128,
+        "compressed_bytes": 4199371
+      }
+    ],
+    "Workspaces/dlw_paper_20261009/buffered_run/D_FD_RK4_fixed.npz": [
+      {
+        "array": "x.npy",
+        "shape": [
+          6001
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 48136,
+        "compressed_bytes": 13755
+      },
+      {
+        "array": "y.npy",
+        "shape": [
+          600
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 4928,
+        "compressed_bytes": 1292
+      },
+      {
+        "array": "u.npy",
+        "shape": [
+          600,
+          6001
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 28804928,
+        "compressed_bytes": 26472499
+      },
+      {
+        "array": "v.npy",
+        "shape": [
+          600,
+          6001
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 28804928,
+        "compressed_bytes": 26805080
+      },
+      {
+        "array": "exact_u.npy",
+        "shape": [
+          600,
+          6001
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 28804928,
+        "compressed_bytes": 21881319
+      },
+      {
+        "array": "exact_v.npy",
+        "shape": [
+          600,
+          6001
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 28804928,
+        "compressed_bytes": 21781559
+      },
+      {
+        "array": "native_x.npy",
+        "shape": [
+          800
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 6528,
+        "compressed_bytes": 1726
+      },
+      {
+        "array": "native_u.npy",
+        "shape": [
+          800,
+          800
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 5120128,
+        "compressed_bytes": 3945356
+      },
+      {
+        "array": "native_v.npy",
+        "shape": [
+          800,
+          800
+        ],
+        "dtype": "<f8",
+        "raw_bytes": 5120128,
+        "compressed_bytes": 4192344
+      }
+    ]
+  },
+  "checkpoints": [
+    {
+      "path": "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000500_parts_cache5/checkpoint.npz",
+      "bytes": 143272644,
+      "checkpoint_step": 20,
+      "target_steps": 20,
+      "completion_receipt_exists": true,
+      "receipt_final_time": 0.01,
+      "judgment": "已到目标步数且终态回执到T；续算用途已完成，可归档"
+    },
+    {
+      "path": "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000100_parts_cache5/checkpoint.npz",
+      "bytes": 143272644,
+      "checkpoint_step": 20,
+      "target_steps": 100,
+      "completion_receipt_exists": false,
+      "receipt_final_time": null,
+      "judgment": "未核实完成，保留续算能力"
+    }
+  ],
+  "large_exact_duplicates": [
+    {
+      "bytes_each": 30700928,
+      "sha256": "cfbe240ddd26b1e55c11140e7cb9f815a77d52530e6a86fd1969dc8a9c3bdd74",
+      "paths": [
+        "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000500_parts_cache5/independent_source_cache/FD_0.npy",
+        "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000100_parts_cache5/independent_source_cache/FD_0.npy"
+      ],
+      "redundant_bytes": 30700928
+    },
+    {
+      "bytes_each": 30700928,
+      "sha256": "1340c02c0287c4dd7ed87a704e106366d84f5bbdeb42392e08198e7a27cd5b1c",
+      "paths": [
+        "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000500_parts_cache5/independent_source_cache/FD_1.npy",
+        "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000100_parts_cache5/independent_source_cache/FD_1.npy"
+      ],
+      "redundant_bytes": 30700928
+    },
+    {
+      "bytes_each": 30700928,
+      "sha256": "cf2ed7c795e4e1551025207698478b995186a40ae1487593ac60a667e68674fd",
+      "paths": [
+        "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000500_parts_cache5/independent_source_cache/FD_2.npy",
+        "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000100_parts_cache5/independent_source_cache/FD_2.npy"
+      ],
+      "redundant_bytes": 30700928
+    },
+    {
+      "bytes_each": 30700928,
+      "sha256": "739b788a11d51eee49ccea32408f46dbc42afb21230bf7a92e7dbe26de15ff8b",
+      "paths": [
+        "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000500_parts_cache5/independent_source_cache/FD_3.npy",
+        "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000100_parts_cache5/independent_source_cache/FD_3.npy"
+      ],
+      "redundant_bytes": 30700928
+    },
+    {
+      "bytes_each": 30700928,
+      "sha256": "167d5d19534b01849ac1dc50596a40bff71d7b755aea56c92b1f429197e01dae",
+      "paths": [
+        "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000500_parts_cache5/independent_source_cache/FD_4.npy",
+        "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000100_parts_cache5/independent_source_cache/FD_4.npy"
+      ],
+      "redundant_bytes": 30700928
+    },
+    {
+      "bytes_each": 30700928,
+      "sha256": "935e5365770ea98f70dda0fa6b0cae52e1183809398842b8f04790275fb773c6",
+      "paths": [
+        "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000500_parts_cache5/independent_source_cache/SD_0.npy",
+        "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000100_parts_cache5/independent_source_cache/SD_0.npy"
+      ],
+      "redundant_bytes": 30700928
+    },
+    {
+      "bytes_each": 30700928,
+      "sha256": "b9bf3af240ba51966b417d307b0f03e96b183db125bc729b10d380542dc76272",
+      "paths": [
+        "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000500_parts_cache5/independent_source_cache/SD_1.npy",
+        "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000100_parts_cache5/independent_source_cache/SD_1.npy"
+      ],
+      "redundant_bytes": 30700928
+    },
+    {
+      "bytes_each": 30700928,
+      "sha256": "5eae7d4fa0989c57067f2afe0f62772596a10913486340c02849480934f502b4",
+      "paths": [
+        "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000500_parts_cache5/independent_source_cache/SD_2.npy",
+        "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000100_parts_cache5/independent_source_cache/SD_2.npy"
+      ],
+      "redundant_bytes": 30700928
+    },
+    {
+      "bytes_each": 30700928,
+      "sha256": "a2da698cb7c17fdfe96a3f4eef0da5ef64bca502e20af852571ee0d4911bb47a",
+      "paths": [
+        "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000500_parts_cache5/independent_source_cache/SD_3.npy",
+        "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000100_parts_cache5/independent_source_cache/SD_3.npy"
+      ],
+      "redundant_bytes": 30700928
+    },
+    {
+      "bytes_each": 30700928,
+      "sha256": "19d017d09f44cbfc0abeaee990d0fe6abe06bab1873e8ed2e166706cc3a25a8e",
+      "paths": [
+        "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000500_parts_cache5/independent_source_cache/SD_4.npy",
+        "Workspaces/dlw_error_mechanism_20261013/transport/C_T0.010_dt0.000100_parts_cache5/independent_source_cache/SD_4.npy"
+      ],
+      "redundant_bytes": 30700928
+    }
+  ],
+  "unreadable": [
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_semidiscrete\\numerics\\.research_deps\\__pycache__",
+      "error": "[WinError 5] 拒绝访问。: 'C:\\\\Users\\\\msz\\\\aca\\\\Workspaces\\\\dlw_semidiscrete\\\\numerics\\\\.research_deps\\\\__pycache__'"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_semidiscrete\\numerics\\.research_deps\\soupsieve-2.9.2.dist-info",
+      "error": "[WinError 5] 拒绝访问。: 'C:\\\\Users\\\\msz\\\\aca\\\\Workspaces\\\\dlw_semidiscrete\\\\numerics\\\\.research_deps\\\\soupsieve-2.9.2.dist-info'"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_semidiscrete\\numerics\\.research_deps\\soupsieve",
+      "error": "[WinError 5] 拒绝访问。: 'C:\\\\Users\\\\msz\\\\aca\\\\Workspaces\\\\dlw_semidiscrete\\\\numerics\\\\.research_deps\\\\soupsieve'"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_semidiscrete\\numerics\\.research_deps\\share",
+      "error": "[WinError 5] 拒绝访问。: 'C:\\\\Users\\\\msz\\\\aca\\\\Workspaces\\\\dlw_semidiscrete\\\\numerics\\\\.research_deps\\\\share'"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_semidiscrete\\numerics\\.research_deps\\scipy.libs",
+      "error": "[WinError 5] 拒绝访问。: 'C:\\\\Users\\\\msz\\\\aca\\\\Workspaces\\\\dlw_semidiscrete\\\\numerics\\\\.research_deps\\\\scipy.libs'"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_semidiscrete\\numerics\\.research_deps\\scipy-1.18.1.dist-info",
+      "error": "[WinError 5] 拒绝访问。: 'C:\\\\Users\\\\msz\\\\aca\\\\Workspaces\\\\dlw_semidiscrete\\\\numerics\\\\.research_deps\\\\scipy-1.18.1.dist-info'"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_semidiscrete\\numerics\\.research_deps\\scipy",
+      "error": "[WinError 5] 拒绝访问。: 'C:\\\\Users\\\\msz\\\\aca\\\\Workspaces\\\\dlw_semidiscrete\\\\numerics\\\\.research_deps\\\\scipy'"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_semidiscrete\\numerics\\.research_deps\\pyparsing-3.3.3.dist-info",
+      "error": "[WinError 5] 拒绝访问。: 'C:\\\\Users\\\\msz\\\\aca\\\\Workspaces\\\\dlw_semidiscrete\\\\numerics\\\\.research_deps\\\\pyparsing-3.3.3.dist-info'"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_semidiscrete\\numerics\\.research_deps\\pyparsing",
+      "error": "[WinError 5] 拒绝访问。: 'C:\\\\Users\\\\msz\\\\aca\\\\Workspaces\\\\dlw_semidiscrete\\\\numerics\\\\.research_deps\\\\pyparsing'"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_semidiscrete\\numerics\\.research_deps\\mpmath-1.4.1.dist-info",
+      "error": "[WinError 5] 拒绝访问。: 'C:\\\\Users\\\\msz\\\\aca\\\\Workspaces\\\\dlw_semidiscrete\\\\numerics\\\\.research_deps\\\\mpmath-1.4.1.dist-info'"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_semidiscrete\\numerics\\.research_deps\\mpmath",
+      "error": "[WinError 5] 拒绝访问。: 'C:\\\\Users\\\\msz\\\\aca\\\\Workspaces\\\\dlw_semidiscrete\\\\numerics\\\\.research_deps\\\\mpmath'"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_semidiscrete\\numerics\\.research_deps\\mpl_toolkits",
+      "error": "[WinError 5] 拒绝访问。: 'C:\\\\Users\\\\msz\\\\aca\\\\Workspaces\\\\dlw_semidiscrete\\\\numerics\\\\.research_deps\\\\mpl_toolkits'"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_semidiscrete\\numerics\\.research_deps\\matplotlib-3.11.2.dist-info",
+      "error": "[WinError 5] 拒绝访问。: 'C:\\\\Users\\\\msz\\\\aca\\\\Workspaces\\\\dlw_semidiscrete\\\\numerics\\\\.research_deps\\\\matplotlib-3.11.2.dist-info'"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_semidiscrete\\numerics\\.research_deps\\matplotlib",
+      "error": "[WinError 5] 拒绝访问。: 'C:\\\\Users\\\\msz\\\\aca\\\\Workspaces\\\\dlw_semidiscrete\\\\numerics\\\\.research_deps\\\\matplotlib'"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_semidiscrete\\numerics\\.research_deps\\markdown-3.10.3.dist-info",
+      "error": "[WinError 5] 拒绝访问。: 'C:\\\\Users\\\\msz\\\\aca\\\\Workspaces\\\\dlw_semidiscrete\\\\numerics\\\\.research_deps\\\\markdown-3.10.3.dist-info'"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_semidiscrete\\numerics\\.research_deps\\markdown",
+      "error": "[WinError 5] 拒绝访问。: 'C:\\\\Users\\\\msz\\\\aca\\\\Workspaces\\\\dlw_semidiscrete\\\\numerics\\\\.research_deps\\\\markdown'"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_semidiscrete\\numerics\\.research_deps\\kiwisolver-1.5.1.dist-info",
+      "error": "[WinError 5] 拒绝访问。: 'C:\\\\Users\\\\msz\\\\aca\\\\Workspaces\\\\dlw_semidiscrete\\\\numerics\\\\.research_deps\\\\kiwisolver-1.5.1.dist-info'"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_semidiscrete\\numerics\\.research_deps\\kiwisolver",
+      "error": "[WinError 5] 拒绝访问。: 'C:\\\\Users\\\\msz\\\\aca\\\\Workspaces\\\\dlw_semidiscrete\\\\numerics\\\\.research_deps\\\\kiwisolver'"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_semidiscrete\\numerics\\.research_deps\\fonttools-4.65.0.dist-info",
+      "error": "[WinError 5] 拒绝访问。: 'C:\\\\Users\\\\msz\\\\aca\\\\Workspaces\\\\dlw_semidiscrete\\\\numerics\\\\.research_deps\\\\fonttools-4.65.0.dist-info'"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_semidiscrete\\numerics\\.research_deps\\fontTools",
+      "error": "[WinError 5] 拒绝访问。: 'C:\\\\Users\\\\msz\\\\aca\\\\Workspaces\\\\dlw_semidiscrete\\\\numerics\\\\.research_deps\\\\fontTools'"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_semidiscrete\\numerics\\.research_deps\\cycler-0.12.1.dist-info",
+      "error": "[WinError 5] 拒绝访问。: 'C:\\\\Users\\\\msz\\\\aca\\\\Workspaces\\\\dlw_semidiscrete\\\\numerics\\\\.research_deps\\\\cycler-0.12.1.dist-info'"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_semidiscrete\\numerics\\.research_deps\\cycler",
+      "error": "[WinError 5] 拒绝访问。: 'C:\\\\Users\\\\msz\\\\aca\\\\Workspaces\\\\dlw_semidiscrete\\\\numerics\\\\.research_deps\\\\cycler'"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_semidiscrete\\numerics\\.research_deps\\contourpy-1.4.0.dist-info",
+      "error": "[WinError 5] 拒绝访问。: 'C:\\\\Users\\\\msz\\\\aca\\\\Workspaces\\\\dlw_semidiscrete\\\\numerics\\\\.research_deps\\\\contourpy-1.4.0.dist-info'"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_semidiscrete\\numerics\\.research_deps\\contourpy",
+      "error": "[WinError 5] 拒绝访问。: 'C:\\\\Users\\\\msz\\\\aca\\\\Workspaces\\\\dlw_semidiscrete\\\\numerics\\\\.research_deps\\\\contourpy'"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_semidiscrete\\numerics\\.research_deps\\bs4",
+      "error": "[WinError 5] 拒绝访问。: 'C:\\\\Users\\\\msz\\\\aca\\\\Workspaces\\\\dlw_semidiscrete\\\\numerics\\\\.research_deps\\\\bs4'"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_semidiscrete\\numerics\\.research_deps\\bin",
+      "error": "[WinError 5] 拒绝访问。: 'C:\\\\Users\\\\msz\\\\aca\\\\Workspaces\\\\dlw_semidiscrete\\\\numerics\\\\.research_deps\\\\bin'"
+    },
+    {
+      "path": "C:\\Users\\msz\\aca\\Workspaces\\dlw_semidiscrete\\numerics\\.research_deps\\beautifulsoup4-4.15.0.dist-info",
+      "error": "[WinError 5] 拒绝访问。: 'C:\\\\Users\\\\msz\\\\aca\\\\Workspaces\\\\dlw_semidiscrete\\\\numerics\\\\.research_deps\\\\beautifulsoup4-4.15.0.dist-info'"
+    }
+  ],
+  "skipped_links": [],
+  "method": "Logical bytes, no symlink traversal; pathname/format classification with targeted source inspection. Absence of a textual mention is not evidence of disuse. Audit outputs excluded. Duplicate check: equal-size non-environment research files >=10 MB, excluding Trash."
+}

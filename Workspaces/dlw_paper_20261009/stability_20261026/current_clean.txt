@@ -1,0 +1,1148 @@
+##### section-4.1
+
+4.1 Fourier differentiation and spatial formulations
+We apply the same Fourier differentiation in
+$x$
+to Endpoint-SD, Centered-SD and FD. The operators
+$\mathcal D_x$
+and
+$\mathcal D_{xx}$
+have multipliers
+$\mathrm i\xi$
+and
+$-\xi^2$
+, respectively. The first-derivative multiplier is set to zero at the Nyquist frequency. Products are evaluated at the grid points. These calligraphic operators denote numerical differentiation and are distinct from Hirota's bilinear derivatives.
+Both semi-discrete formulations place
+$u$
+at nodes and
+$v$
+at edge midpoints; FD places both fields at nodes. Write
+$H(u)=u^2/2+2au$
+,
+$\Delta_hq_k=(q_k-q_{k-1})/h$
+,
+$\mathcal M_-q_k=(q_k+q_{k-1})/2$
+and
+$\delta_0q_k=(q_{k+1}-q_{k-1})/(2h)$
+. Recalling the physical-field equations (27)–(28), Endpoint-SD takes the form
+$\begin{aligned}\Delta_h\dot u_k&=-\mathcal D_x\Delta_hH(u_k)-\mathcal D_{xx}v_k,\\\dot v_k&=-\mathcal D_x[(\mathcal M_-u_k+2a-2h)v_k+hv_k^2/4-4\mathcal M_-u_k-h(\Delta_hu_k)^2/4]-\mathcal D_{xx}\Delta_hu_k.\end{aligned}$
+For Centered-SD, the field definition in Section 3.2 gives
+$v_k=\Delta_hu_k+2(\omega_k+\omega_{k-1})/h$
+. We retain this relation in the numerical formulation. The equations for the time derivatives are
+$\begin{aligned}\Delta_h\dot u_k&=-\mathcal D_x\Delta_h[H(u_k)+\omega_k^2/2-h\omega_k]-\mathcal D_{xx}v_k,\\\dot\omega_k&=\mathcal D_{xx}\omega_k-\mathcal D_x[(u_k+2a)\omega_k-hu_k],\\\dot v_k&=\Delta_h\dot u_k+\frac2h(\dot\omega_k+\dot\omega_{k-1}).\end{aligned}$
+The first equation is summed from the prescribed lower value of
+$\dot u$
+. Advancing
+$(u,\omega)$
+and recovering
+$v$
+through the field relation implements the physical-field equations of Proposition 3.2. The same differentiated relation supplies
+$\dot v$
+when measuring the initial spatial error.
+For comparison, direct discretization of the continuous DLW system gives the FD baseline,
+$\begin{aligned}\Delta_h\dot u_k&=-\mathcal D_x\Delta_hH(u_k)-\mathcal D_{xx}\mathcal M_-v_k,\\\dot v_k&=-\mathcal D_x[(u_k+2a)v_k-4u_k]-\mathcal D_{xx}\delta_0u_k.\end{aligned}$
+These equations use the same Fourier operators and lower derivative data as the two semi-discrete formulations. The location of the physical fields and the discrete nonlinear fluxes determine their different spatial approximations.
+
+##### section-4.4
+
+4.4 Linearized evolution under the numerical closure
+
+##### section-5
+
+5. Numerical experiments
+In this section, we use four representative initial-value problems — a one-soliton wave, a two-soliton interaction, a localized Gaussian pulse, and a periodic sinusoidal wave — to examine how the spatial and temporal formulations developed in Sections 2–4 perform in practice. Section 5.1 introduces the test problems, their continuous reference solutions, and the native-grid error measures used throughout the comparisons. In Section 5.2, we compare the physical fields computed by Endpoint-SD, Centered-SD, and the finite-difference baseline (FD) at
+$T=0.01$
+under common RK4 time integration, using the initial time-derivative defects at
+$t=0$
+as a short diagnostic of the spatial approximation. Retaining Centered-SD on the fixed grid, Section 5.3 compares forward Euler, classical RK4, and Crank–Nicolson by following the error histories across the entire time interval. Finally, Section 5.4 examines how redistributing the shared
+$x$
+nodes according to the semi-discrete conservation density affects the computed soliton fields.
+5.1 Test problems and error measures
+All numerical tests use the parameters
+$a=2$
+and
+$\lambda=-2$
+. The one- and two-soliton reference solutions are generated directly from the continuous Gram determinant formulas (6)–(7) in Section 2.1, with
+$\rho_i=1$
+and zero phase shifts. Table 1 lists their spectral parameters, evaluation windows, and computational intervals.
+Table 1. Spectral parameters and regions for the soliton tests.
+Case
+Spectral pairs
+Region
+Periodic x interval
+One-soliton
+(1, 2)
+R = 5
+[−10, 10)
+Two-soliton
+(1, 2), (4, −3)
+R = 30
+[−40, 40)
+Writing the periodic
+$x$
+interval as
+$[-L,L)$
+, we use the same interval in
+$y$
+and place the computational boundaries well outside the region
+$[-R,R]^2$
+containing the principal wave profiles.
+As shown in Figures 1 and 2, the one-soliton case consists of a single oblique wave band with smooth negative troughs in both
+$u$
+and
+$v$
+.
+Figure 1.
+One-soliton case. Exact initial physical fields. Left: sections at
+$y=0$
+; right: physical-field heatmaps, with the central section marked by a white dashed line. The upper and lower rows show
+$u$
+and
+$v$
+, respectively.
+PDF
+Figure 2.
+One-soliton case. Three-dimensional views of the exact initial physical fields
+$u^*(x,y,0)$
+and
+$v^*(x,y,0)$
+. Surface height and color represent the field value in each panel.
+PDF
+The two-soliton case (Figures 3 and 4) combines the spectral pair of the one-soliton wave with a second pair
+$(4,-3)$
+. Its first field
+$u$
+features a dominant negative trough alongside a shallower positive ridge, whereas both intersecting wave bands remain negative in the second field
+$v$
+, allowing us to test the schemes on interacting waves of different amplitudes and polarities.
+Figure 3.
+Two-soliton case. Exact initial physical fields. Left: sections at
+$y=0$
+; right: physical-field heatmaps, with the central section marked by a white dashed line. The upper and lower rows show
+$u$
+and
+$v$
+, respectively. The section panels focus on
+$x\in[-8,8]$
+; the heatmaps retain the full
+$[-30,30]$
+window.
+PDF
+Figure 4.
+Two-soliton case. Three-dimensional views of the exact initial physical fields
+$u^*(x,y,0)$
+and
+$v^*(x,y,0)$
+. Surface height and color represent the field value in each panel. The full
+$[-30,30]$
+window shows the two oblique wave bands.
+PDF
+For the Gaussian and sinusoidal tests, let
+$z=y+2$
+and
+$\kappa=\pi/4$
+, and take the separable initial fields
+$u_0(x,y)=A\sin(\kappa z)F(x),\qquad v_0(x,y)=4-3A\kappa\cos(\kappa z)F(x).$
+The Gaussian test uses
+$A=0.05$
+with the periodic localized profile
+$F(x)=\sum_{j\in\mathbb Z}\exp[-((x+192j)/6)^2]$
+, while the sinusoidal test uses
+$A=0.03$
+with
+$F(x)=\cos(\pi x/12)$
+. Both problems are computed on the periodic interval
+$x\in[-96,96)$
+over the transverse strip
+$y\in[-2,2]$
+with homogeneous lower boundary data
+$u=0$
+.
+Because the initial fields satisfy the relation
+$v_0=4-3u_{0y}$
+, the subsequent evolution under the full DLW system can be represented through two linear heat equations and a Laplace transformation over
+$0\le t\le0.01$
+. Interval evaluation of these analytical representations provides continuous reference values and initial time derivatives with an absolute error bound of
+$10^{-13}$
+.
+As illustrated in Figures 5 and 6, the Gaussian test starts from a localized positive hump in
+$u$
+, while
+$v$
+varies symmetrically about the background value
+$v=4$
+with opposite signs in the upper and lower halves of the strip and remains equal to four along the central section
+$y=0$
+.
+Figure 5.
+Gaussian case. Exact initial physical fields. Left: sections at
+$y=0$
+; right: physical-field heatmaps, with the central section marked by a white dashed line. The upper and lower rows show
+$u$
+and
+$v$
+, respectively. The displayed
+$x$
+window is
+$[-18,18]$
+; the error tables use the full periodic interval
+$[-96,96)$
+. The exact central second field satisfies
+$v(x,0,t)=4$
+.
+PDF
+Figure 6.
+Gaussian case. Three-dimensional views of the exact initial physical fields
+$u^*(x,y,0)$
+and
+$v^*(x,y,0)$
+. Surface height and color represent the field value in each panel. The second field is shown with its background value
+$v=4$
+.
+PDF
+The sinusoidal test (Figures 7 and 8) replaces the localized pulse in
+$x$
+by a periodic cosine wave, so that
+$u$
+alternates in sign along
+$x$
+while the departure of
+$v$
+from its background
+$v=4$
+reverses sign across
+$y=0$
+.
+Figure 7.
+Sinusoidal case. Exact initial physical fields. Left: sections at
+$y=0$
+; right: physical-field heatmaps, with the central section marked by a white dashed line. The upper and lower rows show
+$u$
+and
+$v$
+, respectively. The displayed
+$x$
+window is
+$[-12,12]$
+; the error tables use the full periodic interval
+$[-96,96)$
+. The exact central second field satisfies
+$v(x,0,t)=4$
+.
+PDF
+Figure 8.
+Sinusoidal case. Three-dimensional views of the exact initial physical fields
+$u^*(x,y,0)$
+and
+$v^*(x,y,0)$
+. Surface height and color represent the field value in each panel. The second field is shown with its background value
+$v=4$
+.
+PDF
+Each numerical method is initialized by sampling the continuous reference fields at its native grid locations. Recall that both semi-discrete formulations place
+$u$
+at transverse nodes and
+$v$
+at edge midpoints, whereas FD places both fields at the nodes. Errors are evaluated directly at these native sites inside the specified interior region (
+$|x|\le R$
+and
+$|y|<R$
+for the soliton tests, and all
+$x$
+nodes with
+$|y|\le1.8$
+for the Gaussian and sinusoidal tests). At the final time
+$T=0.01$
+, we record the maximum absolute errors
+$E_u(T)=\max_{\mathcal G_u}\left|u_h(T)-u^*(T)\right|,\qquad E_v(T)=\max_{\mathcal G_v}\left|v_h(T)-v^*(T)\right|,$
+where
+$\mathcal G_u$
+and
+$\mathcal G_v$
+denote the native lattice sites of the two physical fields within the evaluation region. As an initial diagnostic of the spatial discretization, we also record
+$E_{u_t}$
+and
+$E_{v_t}$
+, defined analogously as the maximum absolute differences between the spatially computed and exact continuous time derivatives at
+$t=0$
+. In all tables below, bold entries indicate the smallest error among the compared methods for each case and field.
+5.2 Comparison of spatial formulations
+We first compare the physical fields produced by Endpoint-SD, Centered-SD, and FD at
+$T=0.01$
+. All three spatial formulations use the grid spacings
+$h=\Delta x=0.1$
+and advance from the exact initial data using classical RK4 with
+$\Delta t=10^{-4}$
+. Before examining the evolved fields, Table 2 summarizes the initial time-derivative errors at
+$t=0$
+, which reflect the local consistency properties analyzed in Section 3.4.
+Table 2. Initial time-derivative errors at h = Δx = 0.1.
+Case
+Endpoint-SD
+Centered-SD
+FD
+$E_{u_t}$
+$E_{v_t}$
+$E_{u_t}$
+$E_{v_t}$
+$E_{u_t}$
+$E_{v_t}$
+One-soliton
+2.479 × 10
+-3
+5.492 × 10
+-1
+1.656 × 10
+-2
+8.443 × 10
+-3
+4.957 × 10
+-3
+1.394 × 10
+-2
+Two-soliton
+2.142 × 10
+-3
+7.010 × 10
+-1
+1.295 × 10
+-2
+1.089 × 10
+-2
+4.284 × 10
+-3
+1.644 × 10
+-2
+Gaussian
+2.142 × 10
+-6
+6.038 × 10
+-5
+2.900 × 10
+-6
+6.997 × 10
+-7
+4.284 × 10
+-6
+2.215 × 10
+-6
+Sinusoidal
+1.586 × 10
+-6
+2.833 × 10
+-5
+2.003 × 10
+-6
+4.715 × 10
+-7
+3.171 × 10
+-6
+1.639 × 10
+-6
+At
+$t=0$
+, the two semi-discrete formulations show a clear division between the two components: Endpoint-SD gives the smallest initial
+$u_t$
+defect
+$E_{u_t}$
+in all four cases, whereas Centered-SD gives the smallest
+$v_t$
+defect
+$E_{v_t}$
+. This pattern is consistent with Proposition 3.4. In the first equation, both formulations are second-order consistent, and the difference in
+$E_{u_t}$
+comes from the
+$O(h^2)$
+auxiliary flux term retained by Centered-SD. In the second equation, however, the one-sided pairing of Endpoint-SD leaves a first-order
+$O(h)$
+truncation term, which makes its initial
+$v_t$
+error significantly larger than those of Centered-SD and FD.
+Table 3 follows these initial states to
+$T=0.01$
+and reports the resulting errors in the physical fields
+$u$
+and
+$v$
+. In the accompanying figures, the cross-section panels compare the continuous reference profiles at
+$y=0$
+with the numerical values (using a verified 12-point local polynomial interpolation in
+$y$
+whenever
+$y=0$
+lies between native lattice lines), while the planar heatmaps and three-dimensional surfaces display the spatial distribution of the absolute errors across the evaluation region.
+Table 3. Physical-field errors at T = 0.01 with RK4, Δt = 10⁻⁴ and h = Δx = 0.1.
+Case
+Endpoint-SD
+Centered-SD
+FD
+$E_u$
+$E_v$
+$E_u$
+$E_v$
+$E_u$
+$E_v$
+One-soliton
+4.702 × 10
+-4
+5.547 × 10
+-3
+1.677 × 10
+-4
+7.734 × 10
+-5
+5.568 × 10
+-5
+1.428 × 10
+-4
+Two-soliton
+4.942 × 10
+-4
+7.076 × 10
+-3
+1.792 × 10
+-4
+1.009 × 10
+-4
+1.149 × 10
+-4
+1.694 × 10
+-4
+Gaussian
+2.147 × 10
+-8
+6.036 × 10
+-7
+2.900 × 10
+-8
+6.967 × 10
+-9
+4.280 × 10
+-8
+2.206 × 10
+-8
+Sinusoidal
+1.588 × 10
+-8
+2.833 × 10
+-7
+2.003 × 10
+-8
+4.706 × 10
+-9
+3.170 × 10
+-8
+1.637 × 10
+-8
+Looking across Table 3, we see that Centered-SD maintains the smallest
+$v$
+error in all four tests, while the ordering of the
+$u$
+error depends on the test problem.
+One-soliton and two-soliton cases
+In the one-soliton test (Figures 9–12), all three formulations capture the shape and position of the central pulse. Comparing the two semi-discrete schemes, we notice that Centered-SD not only reduces the terminal
+$v$
+error relative to Endpoint-SD by a factor of
+$72$
+(from
+$5.547\times10^{-3}$
+to
+$7.734\times10^{-5}$
+), but also achieves a smaller terminal
+$u$
+error by a factor of
+$2.8$
+(reducing
+$E_u$
+from
+$4.702\times10^{-4}$
+to
+$1.677\times10^{-4}$
+), reversing their initial ordering in Table 2. A simple explanation for this reversal lies in the coupled evolution of the two fields: because the first DLW equation contains the dispersive term
+$v_{xx}$
+, the much larger
+$O(h)$
+error incurred by Endpoint-SD in
+$v$
+feeds back into the time derivative of
+$u$
+as the wave evolves, whereas the symmetric staggered arrangement of Centered-SD keeps both components at second order.
+Figure 9.
+One-soliton case at
+$T=0.01$
+. Panels (a,c) compare the continuous
+$y=0$
+profiles with numerical symbols; panels (b,d) show the absolute errors along that section. The lower rows show the
+$u$
+and
+$v$
+error maps, with columns for Endpoint-SD, Centered-SD and FD. Each row uses one logarithmic color scale; values at or below its lower limit, including zero, share the darkest color, as indicated by the ≤ label on the colorbar. Panel maxima refer to the full table region.
+PDF
+Figure 10.
+One-soliton case. Separate three-dimensional views of the
+$T=0.01$
+physical-field errors. Rows show
+$|u_h-u^*|$
+and
+$|v_h-v^*|$
+; columns show Endpoint-SD, Centered-SD and FD. Each row shares the same linear height and color scale.
+PDF
+Figure 11.
+One-soliton case. The three spatial formulations on common three-dimensional axes at
+$T=0.01$
+. The left and right panels show
+$|u_h-u^*|$
+and
+$|v_h-v^*|$
+. Blue, orange and green identify Endpoint-SD, Centered-SD and FD. Transparent surfaces and colored wireframes retain the same physical coordinates and linear height scale.
+PDF
+Figure 12.
+One-soliton case. Absolute physical-field errors at
+$T=0.01$
+. The left and right panels show
+$|u_h-u^*|$
+and
+$|v_h-v^*|$
+. Blue, orange and green identify Endpoint-SD, Centered-SD and FD. The three methods share the same spatial coordinates and linear height scale within each panel.
+The two-soliton test (Figures 13–16) shows the exact same behavior across the two intersecting wave bands. Relative to Endpoint-SD, Centered-SD reduces the terminal
+$u$
+error from
+$4.942\times10^{-4}$
+to
+$1.792\times10^{-4}$
+and the
+$v$
+error from
+$7.076\times10^{-3}$
+to
+$1.009\times10^{-4}$
+. The improvement factors — about
+$2.8$
+in
+$u$
+and
+$70$
+in
+$v$
+— are nearly identical to those observed in the single-soliton case, and Centered-SD also improves upon the FD baseline in the second field by a factor of about
+$1.7$
+.
+Figure 13.
+Two-soliton case at
+$T=0.01$
+. Panels (a,c) compare the continuous
+$y=0$
+profiles with numerical symbols; panels (b,d) show the absolute errors along that section. The lower rows show the
+$u$
+and
+$v$
+error maps, with columns for Endpoint-SD, Centered-SD and FD. Each row uses one logarithmic color scale; values at or below its lower limit, including zero, share the darkest color, as indicated by the ≤ label on the colorbar. Panel maxima refer to the full table region. The sections focus on
+$x\in[-8,8]$
+, while the maps retain
+$[-30,30]$
+.
+PDF
+Figure 14.
+Two-soliton case. Separate three-dimensional views of the
+$T=0.01$
+physical-field errors. Rows show
+$|u_h-u^*|$
+and
+$|v_h-v^*|$
+; columns show Endpoint-SD, Centered-SD and FD. Each row shares the same linear height and color scale.
+PDF
+Figure 15.
+Two-soliton case. The three spatial formulations on common three-dimensional axes at
+$T=0.01$
+. The left and right panels show
+$|u_h-u^*|$
+and
+$|v_h-v^*|$
+. Blue, orange and green identify Endpoint-SD, Centered-SD and FD. Transparent surfaces and colored wireframes retain the same physical coordinates and linear height scale.
+PDF
+Figure 16.
+Two-soliton case. Absolute physical-field errors at
+$T=0.01$
+. The left and right panels show
+$|u_h-u^*|$
+and
+$|v_h-v^*|$
+. Blue, orange and green identify Endpoint-SD, Centered-SD and FD. The three methods share the same spatial coordinates and linear height scale within each panel.
+Gaussian and sinusoidal cases
+In the smooth, small-amplitude Gaussian (Figures 17–20) and sinusoidal (Figures 21–24) tests, the field gradients are much milder and the terminal error ordering at
+$T=0.01$
+follows the initial derivative defects of Table 2. Endpoint-SD gives the smallest
+$u$
+error, while Centered-SD lies between Endpoint-SD and FD in
+$u$
+and produces the smallest
+$v$
+error in both tests. Specifically, Centered-SD reduces
+$E_v$
+to
+$6.967\times10^{-9}$
+in the Gaussian case (about
+$3.2$
+times smaller than FD and
+$87$
+times smaller than Endpoint-SD) and to
+$4.706\times10^{-9}$
+in the sinusoidal case (
+$3.5$
+times smaller than FD and
+$60$
+times smaller than Endpoint-SD). Because the exact second field remains constant at
+$v=4$
+along the symmetry line
+$y=0$
+, the cross-sectional
+$v$
+error along
+$y=0$
+is near machine precision, while the heatmaps and surface plots show how the errors distribute symmetrically across the upper and lower halves of the strip.
+Figure 17.
+Gaussian case at
+$T=0.01$
+. Panels (a,c) compare the continuous
+$y=0$
+profiles with numerical symbols; panels (b,d) show the absolute errors along that section. The lower rows show the
+$u$
+and
+$v$
+error maps, with columns for Endpoint-SD, Centered-SD and FD. Each row uses one logarithmic color scale; values at or below its lower limit, including zero, share the darkest color, as indicated by the ≤ label on the colorbar. Panel maxima refer to the full table region. The display window is
+$[-18,18]$
+; the table uses the full periodic interval
+$[-96,96)$
+. The exact central second field is
+$v(x,0,t)=4$
+.
+PDF
+Figure 18.
+Gaussian case. Separate three-dimensional views of the
+$T=0.01$
+physical-field errors. Rows show
+$|u_h-u^*|$
+and
+$|v_h-v^*|$
+; columns show Endpoint-SD, Centered-SD and FD. Each row shares the same linear height and color scale. The display window is
+$[-18,18]$
+; the table uses the full periodic interval
+$[-96,96)$
+.
+PDF
+Figure 19.
+Gaussian case. The three spatial formulations on common three-dimensional axes at
+$T=0.01$
+. The left and right panels show
+$|u_h-u^*|$
+and
+$|v_h-v^*|$
+. Blue, orange and green identify Endpoint-SD, Centered-SD and FD. Transparent surfaces and colored wireframes retain the same physical coordinates and linear height scale. The display window is
+$[-18,18]$
+; the table uses the full periodic interval
+$[-96,96)$
+.
+PDF
+Figure 20.
+Gaussian case. Absolute physical-field errors at
+$T=0.01$
+. The left and right panels show
+$|u_h-u^*|$
+and
+$|v_h-v^*|$
+. Blue, orange and green identify Endpoint-SD, Centered-SD and FD. The three methods share the same spatial coordinates and linear height scale within each panel. The display window is
+$[-18,18]$
+; the table uses the full periodic interval
+$[-96,96)$
+.
+Figure 21.
+Sinusoidal case at
+$T=0.01$
+. Panels (a,c) compare the continuous
+$y=0$
+profiles with numerical symbols; panels (b,d) show the absolute errors along that section. The lower rows show the
+$u$
+and
+$v$
+error maps, with columns for Endpoint-SD, Centered-SD and FD. Each row uses one logarithmic color scale; values at or below its lower limit, including zero, share the darkest color, as indicated by the ≤ label on the colorbar. Panel maxima refer to the full table region. The display window is
+$[-12,12]$
+; the table uses the full periodic interval
+$[-96,96)$
+. The exact central second field is
+$v(x,0,t)=4$
+.
+PDF
+Figure 22.
+Sinusoidal case. Separate three-dimensional views of the
+$T=0.01$
+physical-field errors. Rows show
+$|u_h-u^*|$
+and
+$|v_h-v^*|$
+; columns show Endpoint-SD, Centered-SD and FD. Each row shares the same linear height and color scale. The display window is
+$[-12,12]$
+; the table uses the full periodic interval
+$[-96,96)$
+.
+PDF
+Figure 23.
+Sinusoidal case. The three spatial formulations on common three-dimensional axes at
+$T=0.01$
+. The left and right panels show
+$|u_h-u^*|$
+and
+$|v_h-v^*|$
+. Blue, orange and green identify Endpoint-SD, Centered-SD and FD. Transparent surfaces and colored wireframes retain the same physical coordinates and linear height scale. The display window is
+$[-12,12]$
+; the table uses the full periodic interval
+$[-96,96)$
+.
+PDF
+Figure 24.
+Sinusoidal case. Absolute physical-field errors at
+$T=0.01$
+. The left and right panels show
+$|u_h-u^*|$
+and
+$|v_h-v^*|$
+. Blue, orange and green identify Endpoint-SD, Centered-SD and FD. The three methods share the same spatial coordinates and linear height scale within each panel. The display window is
+$[-12,12]$
+; the table uses the full periodic interval
+$[-96,96)$
+.
+Taken together, the initial diagnostics in Table 2 and the evolved errors in Table 3 illustrate how the lattice geometry shapes the numerical approximation of the coupled DLW fields. Although Endpoint-SD and Centered-SD originate from the same Hirota–Miwa bilinear reduction and share the same Lax integrability, their physical-field reconstructions behave quite differently in computation. At
+$t=0$
+, Endpoint-SD shows a smaller residual in the first equation because it avoids the
+$O(h^2)$
+auxiliary flux term, whereas its one-sided pairing leaves an
+$O(h)$
+truncation defect in the second equation. Following the evolution to
+$T=0.01$
+shows that this initial advantage in
+$u_t$
+is fragile: in the small-amplitude Gaussian and sinusoidal regimes, the mild gradients allow the initial ordering of
+$u$
+to persist over short times, but in the steeper one- and two-soliton regimes, the first-order defect in
+$v$
+feeds back into
+$u$
+through the dispersive coupling term
+$v_{xx}$
+, causing Endpoint-SD to lose accuracy in both components.
+By placing the
+$\tau$
+functions and bilinear parameters symmetrically, Centered-SD restores second-order consistency to both equations and prevents this cross-component degradation. Across all four test problems—spanning single and interacting solitons as well as localized and periodic dispersive waves—Centered-SD consistently delivers the most accurate approximation of the second field
+$v$
+, improving upon Endpoint-SD by factors of
+$60$
+to
+$87$
+and upon the collocated FD baseline by factors of
+$1.7$
+to
+$3.5$
+, while maintaining a competitive second-order approximation in
+$u$
+. These results confirm that preserving the symmetric staggered structure of the bilinear system translates directly into a more balanced and reliable physical-field solver. With the spatial behavior of the three formulations established, we retain Centered-SD in Sections 5.3 and 5.4 to examine how time integration and adaptive node redistribution affect the computed waves.
+5.3 Comparison of time integrators
+We next hold the Centered-SD spatial discretization fixed on the uniform grid (
+$h=\Delta x=0.1$
+) and vary only the time integrator. Starting from the same initial data and using the same boundary conditions and Fourier
+$x$
+operators, we advance each test problem from
+$t=0$
+to
+$T=0.01$
+with step size
+$\Delta t=10^{-4}$
+using forward Euler, classical RK4, and Crank–Nicolson.
+Table 4. Physical-field errors at T = 0.01 for Centered-SD with forward Euler, RK4 and Crank–Nicolson at h = Δx = 0.1 and Δt = 10⁻⁴.
+Case
+Forward Euler
+RK4
+Crank–Nicolson
+$E_u$
+$E_v$
+$E_u$
+$E_v$
+$E_u$
+$E_v$
+One-soliton
+1.664 × 10
+-4
+8.026 × 10
+-5
+1.677 × 10
+-4
+7.734 × 10
+-5
+1.677 × 10
+-4
+7.734 × 10
+-5
+Two-soliton
+1.420 × 10
+-4
+1.090 × 10
+-4
+1.792 × 10
+-4
+1.009 × 10
+-4
+1.805 × 10
+-4
+1.009 × 10
+-4
+Gaussian
+5.107 × 10
+-9
+5.680 × 10
+-8
+2.900 × 10
+-8
+6.967 × 10
+-9
+2.900 × 10
+-8
+6.969 × 10
+-9
+Sinusoidal
+1.243 × 10
+-8
+4.213 × 10
+-8
+2.003 × 10
+-8
+4.706 × 10
+-9
+2.003 × 10
+-8
+4.705 × 10
+-9
+Table 4 collects the terminal errors at
+$T=0.01$
+. The RK4 columns reproduce the Centered-SD benchmarks from Table 3, and the implicit second-order Crank–Nicolson scheme matches these values to within a relative difference of at most
+$7.3\times10^{-3}$
+(attained in
+$u$
+for the two-soliton case). By contrast, first-order forward Euler shifts the error levels in opposite directions for the two physical components: it produces a larger
+$v$
+error than RK4 in every test — by
+$3.8\%$
+and
+$8.0\%$
+in the two soliton cases, and by factors of
+$8.2$
+and
+$9.0$
+in the Gaussian and sinusoidal cases — yet it gives the smallest terminal
+$u$
+error in all four tests, lying below the RK4 value by
+$0.8\%$
+,
+$21\%$
+,
+$82\%$
+, and
+$38\%$
+. Looking only at the final time
+$T=0.01$
+therefore ranks the integrators differently depending on which component is inspected, without showing how these differences develop.
+To see how the errors accumulate during the computation, we record the maximum absolute error over the native grid sites at every time step
+$t_n=n\Delta t$
+,
+$E_u^{(m)}(t_n)=\max_{\mathcal G_u}\left|u_h^{(m)}(t_n)-u^*(t_n)\right|,\qquad E_v^{(m)}(t_n)=\max_{\mathcal G_v}\left|v_h^{(m)}(t_n)-v^*(t_n)\right|,$
+where
+$m$
+labels the time integrator. Because the grid point attaining the maximum can shift as the wave moves, these curves track the evolution of the worst-case error in each field across the domain.
+Figure 25.
+Development of the maximum absolute error in
+$u$
+for Centered-SD with forward Euler (orange, triangles), RK4 (blue) and Crank–Nicolson (green dashed): (a) one-soliton, (b) two-soliton, (c) Gaussian and (d) sinusoidal cases. Each value is the maximum over the native field locations in the region of Section 5.1 and is evaluated at every time step; the vertical axis is logarithmic. All calculations use
+$h=\Delta x=0.1$
+and
+$\Delta t=10^{-4}$
+. The initial error vanishes.
+PDF
+Figure 26.
+Development of the maximum absolute error in
+$v$
+, with the same symbols as Figure 25. Each value is the maximum over the native midpoints
+$y_{k-1/2}$
+of the second field in the region of Section 5.1.
+PDF
+Figures 25 and 26 plot the resulting error histories for
+$u$
+and
+$v$
+. In all four problems, the errors start at zero and grow monotonically without numerical oscillations, reaching their maxima at
+$T=0.01$
+. For the one-soliton, Gaussian, and sinusoidal tests, the growth is nearly linear in
+$t$
+, with the ratio
+$E_u(t)/t$
+varying by less than
+$10\%$
+over the interval; on the logarithmic vertical scale, this steady accumulation appears as a smooth concave curve. The two-soliton case follows the same near-linear trend up to about
+$t=0.009$
+and then steepens, with
+$E_u(t)/t$
+increasing by
+$36\%$
+over the final tenth of the run. This late-stage steepening corresponds to the time window in which the two soliton branches meet and form sharper gradients on the scale of the grid.
+Comparing the three curves within each panel, we see that RK4 and Crank–Nicolson lie on top of each other throughout the entire evolution, whereas the forward Euler curve is shifted vertically by a factor that remains nearly constant in time. For
+$u$
+(Figure 25), the Euler curve lies below RK4 by factors near
+$0.99$
+,
+$0.18$
+, and
+$0.62$
+in the one-soliton, Gaussian, and sinusoidal tests, and drifts from
+$0.97$
+to
+$0.79$
+during the two-soliton interaction. For
+$v$
+(Figure 26), the Euler curve follows the same shape but is displaced above RK4 — by factors of
+$1.04$
+and
+$1.08$
+in the two soliton tests and
+$8.2$
+and
+$9.0$
+in the Gaussian and sinusoidal tests.
+This opposite displacement is a straightforward consequence of adding a first-order temporal defect to a slowly varying spatial residual. In Centered-SD, the state variables
+$(u_k,\omega_k)$
+are advanced in time and
+$v_k$
+is recovered from the differentiated staggered relation
+$\dot v_k=\Delta_h\dot u_k+\frac2h(\dot\omega_k+\dot\omega_{k-1})$
+. Through this relation, the leading
+$O(\Delta t)$
+truncation error of forward Euler enters the two physical fields with opposite signs, partially canceling the spatial discretization error in
+$u$
+while adding to it in
+$v$
+. Confirming this interpretation, if we halve the time step to
+$\Delta t=5\times10^{-5}$
+, the first-order defect diminishes and the Euler errors move back toward the RK4 benchmark in both components — changing from
+$(1.664\times10^{-4},\,8.026\times10^{-5})$
+to
+$(1.671\times10^{-4},\,7.880\times10^{-5})$
+in the one-soliton test, and from
+$(1.420\times10^{-4},\,1.090\times10^{-4})$
+to
+$(1.560\times10^{-4},\,1.048\times10^{-4})$
+in the two-soliton test. The smaller
+$u$
+error of forward Euler in Table 4 is therefore a cancellation between temporal and spatial errors rather than a more accurate resolution of the wave.
+Taken together, the terminal table and the time histories clarify three points. First, the rate at which the numerical solution departs from the continuous reference is governed by the spatial discretization: all three integrators share the same growth profile, which remains steady until sharper wave interactions develop. Second, at
+$\Delta t=10^{-4}$
+, a second-order time integrator already matches the fourth-order benchmark, whereas a first-order scheme introduces a noticeable vertical shift, particularly in the more sensitive second field
+$v$
+. Third, because temporal and spatial errors can combine with opposite signs in different components, tracking both fields over time is necessary to distinguish genuine accuracy from error cancellation. In Section 5.4, we therefore retain RK4 at
+$\Delta t=10^{-4}$
+so that temporal errors remain negligible when comparing fixed and adaptive meshes.
+5.4 Fixed and adaptive meshes
+In our final experiment, we examine how redistributing the shared
+$x$
+nodes according to the conservation law of Section 4.3 affects the accuracy of Centered-SD. Both the uniform-mesh and adaptive-mesh calculations use the same number of nodes, the same uniform
+$y$
+lattice (
+$h=\Delta x=0.1$
+), and the same RK4 time step
+$\Delta t=10^{-4}$
+up to
+$T=0.01$
+. To ensure a direct comparison in which node placement is the only difference, both calculations evaluate
+$x$
+derivatives using the mapped three-point centered difference operators
+$D_x$
+and
+$D_{xx}$
+of Section 4.3 (with zero node displacement and unit Jacobian on the uniform grid). Because these local difference operators are less accurate than the spectral Fourier multipliers used in Sections 5.2 and 5.3, the uniform-mesh errors reported below are larger than those in Table 3. We perform this comparison on the one- and two-soliton problems, where the fields decay to zero in the background. In the Gaussian and sinusoidal problems, the second field oscillates about
+$v=4$
+so that the transverse-averaged conservation density vanishes identically, leaving the equidistribution mapping and mesh velocity of Section 4.3 undefined.
+In the adaptive runs, the initial
+$x$
+nodes are placed by equidistributing the transverse-averaged density
+$\bar\rho$
+computed from the exact initial fields, and the nodes subsequently evolve according to the conservation-based velocity of Section 4.3. The averaged density ranges from
+$1.000$
+in the background to
+$1.150$
+across the wave core in the one-soliton case, and from
+$1.000$
+to
+$1.050$
+in the wider domain of the two-soliton case. Figure 27 plots the resulting local grid spacing, normalized by the uniform spacing
+$\Delta x=0.1$
+, at
+$t=0$
+and
+$T=0.01$
+.
+Figure 27.
+Local
+$x$
+spacing normalized by the uniform spacing
+$\Delta x=0.1$
+, plotted at the interval midpoints of (a) the one-soliton and (b) the two-soliton case. Grey dashed: initial adaptive mesh; blue:
+$T=0.01$
+; orange dotted: uniform spacing.
+PDF
+As seen in Figure 27, the equidistribution concentrates nodes in the region of larger density. In the one-soliton test, the local spacing contracts to
+$0.90\Delta x$
+across the wave trough while stretching to
+$1.04\Delta x$
+in the background; in the two-soliton test, it varies more mildly between
+$0.97\Delta x$
+and
+$1.02\Delta x$
+. Over the short evolution to
+$T=0.01$
+, the initial and final node distributions are nearly indistinguishable: the maximum node displacement is
+$9.5\times10^{-4}$
+in the one-soliton case and
+$5.2\times10^{-4}$
+in the two-soliton case, and the total discrete mass of
+$\bar\rho$
+is conserved to within
+$10^{-7}$
+relative error. The spatial resolution pattern is thus established by the initial equidistribution and adjusted only slightly by the node motion during the run.
+Table 5 compares the terminal errors at
+$T=0.01$
+on the uniform and adaptive meshes, measuring the relative improvement via
+$\mathcal R_f=100\left(1-\frac{E_f^{\mathrm{adaptive}}(T)}{E_f^{\mathrm{uniform}}(T)}\right)\%,\qquad f=u,v.$
+Table 5. Physical-field errors at T = 0.01 on the uniform and adaptive meshes, with the relative change defined in the text. Both calculations use Centered-SD with mapped centred x differences, RK4, Δt = 10⁻⁴ and the same number of nodes.
+Case
+Uniform mesh
+Adaptive mesh
+Change
+$E_u$
+$E_v$
+$E_u$
+$E_v$
+$\mathcal R_u$
+$\mathcal R_v$
+One-soliton
+6.741 × 10
+-4
+1.401 × 10
+-3
+5.954 × 10
+-4
+1.157 × 10
+-3
+11.7%
+17.4%
+Two-soliton
+5.533 × 10
+-4
+1.589 × 10
+-3
+5.198 × 10
+-4
+1.501 × 10
+-3
+6.0%
+5.6%
+Positive values of
+$\mathcal R_f$
+indicate an error reduction. The adaptive mesh lowers the errors in both physical fields for both test problems: by
+$11.7\%$
+in
+$u$
+and
+$17.4\%$
+in
+$v$
+for the one-soliton case, and by
+$6.0\%$
+in
+$u$
+and
+$5.6\%$
+in
+$v$
+for the two-soliton case. These improvements are modest and commensurate with the
+$3\%$
+–
+$10\%$
+local spacing reductions shown in Figure 27, but they occur consistently across both components without degrading either field. Moreover, a control calculation in which the initially equidistributed nodes are held fixed in time (
+$\mathcal V_i=0$
+) yields reductions of
+$12.8\%$
+and
+$16.3\%$
+for the one-soliton case and
+$5.3\%$
+and
+$5.8\%$
+for the two-soliton case — within
+$1.1$
+percentage points of the moving-mesh values in Table 5. Over this short time interval, the accuracy gain therefore comes primarily from the initial density-adapted node placement rather than from dynamic node motion.
+To show where this reduction takes place in space, Figure 28 plots the transverse-maximum error profiles
+$\max_{|y|<5}|u_h-u^*|$
+and
+$\max_{|y|<5}|v_h-v^*|$
+as functions of
+$x$
+for the one-soliton case. On the uniform mesh, the numerical error is not distributed evenly across the domain, but is localized along the central wave band
+$x\in[-3,3]$
+. Because the conservation density
+$\bar\rho$
+peaks in this same band, the equidistribution shifts nodes from the quiet background directly into the region where the truncation error is generated. As a result, the adaptive mesh lowers the error across the entire wave zone — reducing the main peak in
+$u$
+from
+$6.74\times10^{-4}$
+to
+$5.95\times10^{-4}$
+and lowering the broad plateau in
+$v$
+from
+$1.40\times10^{-3}$
+to
+$1.16\times10^{-3}$
+. We also notice that the relative gain in the one-soliton test is larger for
+$v$
+(
+$17.4\%$
+) than for
+$u$
+(
+$11.7\%$
+). This is natural in the Centered-SD formulation: the monitor density
+$\rho_k=1-\omega_k/h$
+is a shifted rescaling of the auxiliary variable
+$\omega_k$
+, which enters the staggered reconstruction
+$v_k=\Delta_hu_k+\frac2h(\omega_k+\omega_{k-1})$
+and specifically weights the part of
+$v$
+not captured by the backward difference of
+$u$
+.
+Figure 28.
+One-soliton case at
+$T=0.01$
+. Maximum over the transverse layers of the absolute error at each native
+$x$
+node for the uniform mesh (orange dashed, open circles) and the adaptive mesh (blue): (a)
+$u$
+and (b)
+$v$
+. Both calculations use the mapped centred operators of Section 4.3, the same number of nodes and RK4 with
+$\Delta t=10^{-4}$
+.
+PDF
+In summary, the mesh comparison illustrates both the utility and the natural scope of the conservation-based grid over the present test horizon. With a fixed node count and time integrator, equidistributing the semi-discrete conservation density places additional resolution along the soliton wave band and produces a consistent error reduction in both physical fields. At the same time, because the local difference operators remain second order and the transverse-averaged density varies moderately over the domain, the magnitude of the improvement is bounded by the local spacing compression. Finally, because the wave translates by only a small fraction of a grid cell over
+$T=0.01$
+, the present experiments primarily test the static adaptation of the grid to the conservation density; longer-time simulations, in which the soliton core travels over many grid spacings, would be required to test the dynamic tracking capability of the moving mesh.
+5.5 Nonexact initial data and stability diagnostics
+
+##### section-5.5
+
+5.5 Nonexact initial data and stability diagnostics

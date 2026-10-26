@@ -1,0 +1,64 @@
+{
+  "case": "A",
+  "spatial": "Current natural Centered-SD",
+  "h": 0.1,
+  "dx": 0.1,
+  "dt": 0.0001,
+  "T": 0.01,
+  "status": "complete",
+  "a": 2.0,
+  "samples": 101,
+  "integrators": {
+    "Euler": {
+      "error": [
+        0.00016643976852237508,
+        8.025607553241443e-05
+      ],
+      "cn_max_residual": 0.0,
+      "cn_max_iterations": 0,
+      "evolution_seconds": 0.2773665996501222
+    },
+    "RK4": {
+      "error": [
+        0.0001677233376562448,
+        7.733758362471477e-05
+      ],
+      "cn_max_residual": 0.0,
+      "cn_max_iterations": 0,
+      "evolution_seconds": 1.3318657003110275
+    },
+    "CN": {
+      "error": [
+        0.00016772319335633945,
+        7.733760200556716e-05
+      ],
+      "cn_max_residual": 1.9268487298439463e-14,
+      "cn_max_iterations": 6,
+      "evolution_seconds": 1.9608220004010946
+    }
+  },
+  "state": "u,w with v=diff(u)/h+adjacent_average(w); omega=h*w/4",
+  "boundary": "Exact continuous lower u_t; all w nodes including lower trace evolved by the same natural auxiliary equation",
+  "metric": "Maximum absolute error at native physical-field sites, same region as the spatial comparison",
+  "region": "abs(x)<=R, abs(y)<R, R=5.0",
+  "reference": "Continuous analytic soliton",
+  "reference_certificate_scope": "For Gaussian/Sinusoidal the previous 1e-13 certificate covers stored t=0 and T=.01 samples; intermediate-time values use the same analytic evaluator and are not relabelled as newly certified.",
+  "cn_solver": "Fixed-point solution of trapezoidal residual in the complete u,w state",
+  "cn_absolute_tolerance": 2e-14,
+  "initial_error": [
+    0.0,
+    2.220446049250313e-16
+  ],
+  "rk4_saved_state_max_difference": 0.0,
+  "rk4_published_error_difference": 0.0,
+  "source_sha256": {
+    "Workspaces\\dlw_paper_20261009\\time_samm_20261025\\time\\run_time.py": "2c9c77f84c4c8b70a53ba57eef431fd2c8f25a94cd6f3daabfb46084db364e64",
+    "Workspaces\\dlw_paper_20261009\\spatial_audit_20261023\\separated\\reconstruction_probe\\probe.py": "e1ab25d35251b4a5a1106d77ba3f2e32410ed0c9e46705d27917d4f2e2cd97c1",
+    "Workspaces\\dlw_paper_20261009\\spatial_audit_20261023\\separated\\reconstruction_probe\\rerun_20261024.py": "32da0396c930807152222362bc46b48b03917c04bc84648169eb51a78d80b9c0",
+    "Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\nondegenerate_rk4_20261024\\run.py": "c8b8311e4bf879a01a71b0e9f71c98635b4c832215d0ebb682ee8d21e3977ecb",
+    "Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\nondegenerate_rk4_20261024\\reference_grid.py": "941b41a9aa912b80cc858e116446e388ecaa4ae70711eccab0c514081e851515"
+  },
+  "artifact": "Workspaces\\dlw_paper_20261009\\time_samm_20261025\\time\\A_time.npz",
+  "artifact_sha256": "c1f7d6614f3c50b065f224373133eac55da11061871fa8ec8e5ecca250ecba05",
+  "seconds": 5.949631399940699
+}

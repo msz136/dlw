@@ -1,0 +1,38 @@
+{
+  "symbolic_checks": "passed: physical residual identity, full nonlinear difference, bump extrema, exact initial values, antiheat forcing, background transport cancellation",
+  "arb_precision_bits": 256,
+  "example_assumptions": "P,Q,M_a,M_b,N_a,N_b <= 1; not established bounds on actual continuum solution",
+  "examples": [
+    {
+      "n": 1024,
+      "strip_width_enclosure": "[1.32778070010264286167914319041492866623974486982285345011140039847637411519e-5 +/- 5.03e-80]",
+      "full_physical_residual_difference_upper_enclosure": "[1.80657289541666478151030911638962437525112665140327166653322672946230853865e-5 +/- 5.08e-80]",
+      "rounded_strict_upper": "1.81e-5",
+      "terminal_v_difference_exact": "0.001"
+    },
+    {
+      "n": 2048,
+      "strip_width_enclosure": "[3.1081745977569375129412488374617402704622864874794320600371603101279484961e-20 +/- 2.23e-94]",
+      "full_physical_residual_difference_upper_enclosure": "[1.54291190977388648047851341200551728905475946293582920278840423763784593039e-19 +/- 7.94e-94]",
+      "rounded_strict_upper": "1.55e-19",
+      "terminal_v_difference_exact": "0.001"
+    },
+    {
+      "n": 4096,
+      "strip_width_enclosure": "[9.333007761982944691246823079273043782692651751111791039699094923661696932e-79 +/- 4.90e-152]",
+      "full_physical_residual_difference_upper_enclosure": "[1.7647433072709702911288462485063272674942204374478871622706109198166315439e-77 +/- 7.01e-151]",
+      "rounded_strict_upper": "1.77e-77",
+      "terminal_v_difference_exact": "0.001"
+    }
+  ],
+  "theorem_scope": "No residual-to-maximum-error modulus without extra regularity/tail constraints; preserves exact initialization and boundary",
+  "does_not_prove": [
+    "nonexistence of all actual low-regularity solutions",
+    "two distinct exact solutions with the same initialization",
+    "impossibility of every future structural certificate"
+  ],
+  "independently_reviewed": false,
+  "continuum_reference_certified": false,
+  "eta_u": null,
+  "eta_v": null
+}

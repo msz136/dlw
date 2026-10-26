@@ -1,0 +1,55 @@
+{
+  "case": "Sinusoidal",
+  "status": "complete",
+  "controls": [
+    {
+      "integrator": "Euler",
+      "control": "half_step",
+      "dt": 5e-05,
+      "tolerance": 2e-14,
+      "physical_field_difference_from_main": [
+        8.902642529423632e-09,
+        1.905050250883278e-08
+      ],
+      "error": [
+        1.510111786659496e-08,
+        2.3115828806652416e-08
+      ],
+      "cn_max_residual": 0.0,
+      "cn_max_iterations": 0
+    },
+    {
+      "integrator": "RK4",
+      "control": "half_step",
+      "dt": 5e-05,
+      "tolerance": 2e-14,
+      "physical_field_difference_from_main": [
+        2.2571363181289605e-12,
+        3.963052108701959e-12
+      ],
+      "error": [
+        2.002905410969369e-08,
+        4.704773459707212e-09
+      ],
+      "cn_max_residual": 0.0,
+      "cn_max_iterations": 0
+    },
+    {
+      "integrator": "CN",
+      "control": "tight_solve",
+      "dt": 0.0001,
+      "tolerance": 2e-15,
+      "physical_field_difference_from_main": [
+        0.0,
+        0.0
+      ],
+      "error": [
+        2.0029023769380094e-08,
+        4.7049946161337175e-09
+      ],
+      "cn_max_residual": 5.342596125590965e-16,
+      "cn_max_iterations": 3
+    }
+  ],
+  "seconds": 38.343315799953416
+}

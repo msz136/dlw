@@ -1,0 +1,36 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DLW：保留误差首项的高斯与正弦基准</title><style>body{max-width:920px;margin:44px auto;padding:0 24px;font:17px/1.85 system-ui,"Microsoft YaHei",sans-serif;color:#20262b;background:#fcfcfa}h1{font-size:28px}h2{font-size:21px;margin-top:30px}table{border-collapse:collapse;width:100%;font-size:15px}td,th{border-bottom:1px solid #cdd4d8;padding:12px;text-align:left}.eq{background:#edf2f3;padding:14px 20px;overflow:auto}.small{font-size:14px;color:#59656c}a{color:#126184}</style></head><body>
+<h1>保留一阶误差首项的高斯／正弦参数</h1>
+<p><strong>已找到同时具备纯波形、非零目标首项和高精度参考的一组初始化。</strong>第一场保留原波形，第二场取 v₀=4−3∂ᵧu₀。这里的关系只用于初始时刻；之后由完整DLW方程演化。</p>
+<h2>可直接采用的参数</h2>
+<p>x周期192，y∈[−2,2]，z=y+2，κ=π/4，T=0.01；下边界u=0。</p>
+<table><thead><tr><th>类型</th><th>u₀</th><th>v₀</th></tr></thead><tbody>
+<tr><td>正弦</td><td>0.03 sin(κz) cos(πx/12)</td><td>4−0.09κ cos(κz) cos(πx/12)</td></tr>
+<tr><td>高斯</td><td>0.05 sin(κz) G(x)</td><td>4−0.15κ cos(κz) G(x)</td></tr>
+</tbody></table>
+<p>G(x)=Σ<sub>j∈ℤ</sub> exp[−((x+192j)/6)²]：宽度6的周期高斯。两场在x方向均为纯高斯／正弦；第二场有常数4背景，y方向为三角函数。</p>
+<h2>为什么不再抵消首项</h2>
+<p>Endpoint 的内部 v 方程初始缺陷为 hCᵥ+O(h²)，其中</p>
+<div class="eq">Cᵥ=−¼∂ₓ[(v₀−4)²−(∂ᵧu₀)²]=−4(∂ᵧu₀)(∂ₓ∂ᵧu₀)。</div>
+<p>两组数据的Cᵥ均不恒为零。之前的系数“−1”会抵消；这里用“−3”得到非零首项。又因为 ∂ₜ(v−4+3uᵧ)|<sub>t=0</sub>=8u₀,xxy 一般非零，所以不能把它当成演化中保持不变的配对关系。</p>
+<h2>已用当前格式检查：一阶项能看见</h2>
+<p>固定dx=0.1，在原生v节点|y|≤1.8上计算t=0的最大导数缺陷：</p>
+<table><thead><tr><th>h</th><th>正弦</th><th>高斯</th></tr></thead><tbody>
+<tr><td>0.1</td><td>2.83336×10<sup>−5</sup></td><td>6.03768×10<sup>−5</sup></td></tr>
+<tr><td>0.05</td><td>1.41760×10<sup>−5</sup></td><td>3.03086×10<sup>−5</sup></td></tr>
+<tr><td>0.025</td><td>7.08905×10<sup>−6</sup></td><td>1.51818×10<sup>−5</sup></td></tr>
+<tr><td>0.0125</td><td>3.54463×10<sup>−6</sup></td><td>7.59746×10<sup>−6</sup></td></tr>
+<tr><td>最后一级观测阶</td><td>0.99996</td><td>0.99875</td></tr>
+</tbody></table>
+<p>网格减半，误差约减半；扣掉hCᵥ后，余项约缩小四倍。这个测试展示初始空间首项，不替代终态误差收敛分析。</p>
+<h2>参考解的依据和精度</h2>
+<p>通过两条线性热方程和一次Laplace变换构造完整非线性DLW解，精确恢复上述初值及下边界。两个公式分母在整个连续时空区域分别大于0.6606和0.4199，因此不存在分母零点；既有强解类唯一性证明适用。</p>
+<p><strong>每个物理场的全域公式截断误差均小于10<sup>−40</sup>。</strong>提供的320-bit区间求值器另外传播舍入，每次成功返回的区间半径小于10<sup>−50</sup>。这些是对公式尾部和计算舍入的界，不是靠两次网格结果接近来猜精度。导出成普通双精度时，须另计转换误差。</p>
+<p>例如x=0、y=−1、t=0.01（下表仅显示15位小数）：</p>
+<table><thead><tr><th>类型</th><th>u</th><th>v</th></tr></thead><tbody>
+<tr><td>正弦</td><td>0.021168417478947</td><td>3.950031772559666</td></tr>
+<tr><td>高斯</td><td>0.035294838690742</td><td>3.916715164740999</td></tr>
+</tbody></table>
+<p>当前比较使用 h=Δx=0.1、RK4、Δt=10<sup>−4</sup>、T=0.01，包含 Endpoint-SD、CSD0、Centered-SD 与 FD。批量求值所用的全部初始及终态参考值，逐点绝对误差均小于 10<sup>−13</sup>；该界包括解析截断、区间求值、坐标和输出舍入。<a href="../Report.html">查看六算例误差表</a> · <a href="../Workspaces/dlw_paper_20261009/report_refresh_20261024/nondegenerate_rk4_20261024/reference_certificate.json">查看批量参考值证书</a>。</p>
+<p class="small">证据状态：自审解析证明稿、完整变换的符号恒等式核验、Arb全域常数及求值包络、初值/边界/初始导数检查。尚未独立审稿或形式化验证。八组四格式终态计算及参考值核验现已完成，已接入当前误差表。原零背景v初始化是另一组问题，仍未解决。2026-10-24。</p>
+<p><a href="../Workspaces/dlw_paper_20261009/reference_certificate_20261024/nondegenerate_benchmarks/PROOF.md">完整构造与证明</a> · <a href="../Workspaces/dlw_paper_20261009/reference_certificate_20261024/nondegenerate_benchmarks/certificate.json">核验与误差证书</a> · <a href="../Workspaces/dlw_paper_20261009/reference_certificate_20261024/nondegenerate_benchmarks/reference.py">参考求值器</a> · <a href="../Workspaces/dlw_paper_20261009/reference_certificate_20261024/nondegenerate_benchmarks/initial_defect.json">首项测试数据</a></p>
+</body></html>

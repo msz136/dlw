@@ -1,0 +1,113 @@
+{
+  "status": "verified_all_stored_sample_values",
+  "uniform_bound_each": 1e-13,
+  "initial": {
+    "u": 1e-13,
+    "v": 1e-13,
+    "ut": 1e-13,
+    "vt": 1e-13
+  },
+  "final": {
+    "u": 1e-13,
+    "v": 1e-13
+  },
+  "scope": "Stored continuum reference evaluations only; analytic truncation, Arb finite evaluation, float conversion, actual float-coordinate displacement are included.",
+  "nominal_final_time": "1/100",
+  "reference_source_sha256": "be45705309b812da307c4ad0b289dd02fe692dda372d2f3051f44bd3f1817471",
+  "certificate_source_sha256": "23fd7d0c596c382b1d04c18bb3ee7bbf8f5560d908e79190cf79461657465a6c",
+  "proof_status": "Analytic proof and Arb computational certificate; not a formal proof assistant verification.",
+  "cases": [
+    {
+      "case": "Gaussian",
+      "precision_bits": 160,
+      "t_actual_float": "0.01",
+      "x_nodes": 1920,
+      "distinct_y": 99,
+      "counts": {
+        "initial_u": 236160,
+        "initial_v": 234240,
+        "initial_ut": 236160,
+        "initial_vt": 234240,
+        "final_u": 236160,
+        "final_v": 234240
+      },
+      "max_certified_enclosures": {
+        "initial_u": 7.289725571650128e-17,
+        "initial_v": 4.82786866473569e-16,
+        "initial_ut": 1.5437538298495643e-17,
+        "initial_vt": 1.3036927831845845e-17,
+        "final_u": 5.023819512844265e-16,
+        "final_v": 8.304193276363797e-16
+      },
+      "uniform_bound_each": 1e-13,
+      "coordinate_error_contribution": [
+        4.3093113087248566e-16,
+        3.472191544732751e-16
+      ],
+      "derivative_tail": "[9.59755704054202158786310097774062813441433778e-41 +/- 7.82e-86]",
+      "elapsed_seconds": 94.21579799999017,
+      "files": {
+        "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\compatible_rk4_20261024\\Gaussian_Endpoint-SD_RK4.npz": "89d2640123d9bac7edf7a5aa4eb4916a6f0675e3586a5bb82c58a7575f4754b8",
+        "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\compatible_rk4_20261024\\Gaussian_Centered-SD_RK4.npz": "5b36af0cc3e43600cf1977d42430b9d81354545a22f12dd3629934c9c86fa902",
+        "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\compatible_rk4_20261024\\Gaussian_FD_RK4.npz": "3d549b13029c9ce7836b148ac4cfa909a783482ab9f06d8654e078ce5f1d0150"
+      },
+      "nominal_time_correction": {
+        "weight4_exponent_norm": "[0.624208592504383391147849661659243947693044088 +/- 3.01e-46]",
+        "time_derivative_bound_each": 100000,
+        "nominal_time": "1/100",
+        "actual_time": "[0.010000000000000000208166817117216851329430937767 +/- 2.89e-50]",
+        "correction_upper": 2.0816681711721688e-14
+      },
+      "nominal_final_enclosures": {
+        "u": 2.1319063663006115e-14,
+        "v": 2.164710103935807e-14
+      }
+    },
+    {
+      "case": "Sinusoidal",
+      "precision_bits": 160,
+      "t_actual_float": "0.01",
+      "x_nodes": 1920,
+      "distinct_y": 99,
+      "counts": {
+        "initial_u": 236160,
+        "initial_v": 234240,
+        "initial_ut": 236160,
+        "initial_vt": 234240,
+        "final_u": 236160,
+        "final_v": 234240
+      },
+      "max_certified_enclosures": {
+        "initial_u": 1.5729950444879503e-16,
+        "initial_v": 5.567559808343799e-16,
+        "initial_ut": 1.3635590253570666e-16,
+        "initial_vt": 1.0640257660263493e-16,
+        "final_u": 4.052190502617812e-16,
+        "final_v": 7.315878229050107e-16
+      },
+      "uniform_bound_each": 1e-13,
+      "coordinate_error_contribution": [
+        3.4500680492502133e-16,
+        2.5090941171116427e-16
+      ],
+      "derivative_tail": "[2.97790501964050206213122534120311699460477023e-60 +/- 4.17e-105]",
+      "elapsed_seconds": 8.949467099970207,
+      "files": {
+        "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\compatible_rk4_20261024\\Sinusoidal_Endpoint-SD_RK4.npz": "54e5ef72b0069c99f7a3461a35835b82928ad082cdbaef2ab49ac5afa5c6e448",
+        "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\compatible_rk4_20261024\\Sinusoidal_Centered-SD_RK4.npz": "035faeee33695702aeeb73e03c531d6c96fae752dd431662f1afa9072e623a46",
+        "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\compatible_rk4_20261024\\Sinusoidal_FD_RK4.npz": "c2a2d57ce9cc68c3c9d8dda77cc6fcd1cf64dbf1aad16afc831c9d1e57513d00"
+      },
+      "nominal_time_correction": {
+        "weight4_exponent_norm": "[0.25930982108942548946236915700570473449041971183 +/- 5.85e-48]",
+        "time_derivative_bound_each": 100000,
+        "nominal_time": "1/100",
+        "actual_time": "[0.010000000000000000208166817117216851329430937767 +/- 2.89e-50]",
+        "correction_upper": 2.0816681711721688e-14
+      },
+      "nominal_final_enclosures": {
+        "u": 2.122190076198347e-14,
+        "v": 2.15482695346267e-14
+      }
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "case": "D",
+  "status": "complete",
+  "controls": [
+    {
+      "integrator": "Euler",
+      "control": "half_step",
+      "dt": 5e-05,
+      "tolerance": 2e-14,
+      "physical_field_difference_from_main": [
+        2.6064480855858813e-05,
+        4.870182449323579e-06
+      ],
+      "error": [
+        0.00015595307213100488,
+        0.00010477593677782338
+      ],
+      "cn_max_residual": 0.0,
+      "cn_max_iterations": 0
+    },
+    {
+      "integrator": "RK4",
+      "control": "half_step",
+      "dt": 5e-05,
+      "tolerance": 2e-14,
+      "physical_field_difference_from_main": [
+        3.6203980041351518e-09,
+        8.106624341924616e-10
+      ],
+      "error": [
+        0.00017916480458669013,
+        0.00010090617838587335
+      ],
+      "cn_max_residual": 0.0,
+      "cn_max_iterations": 0
+    },
+    {
+      "integrator": "CN",
+      "control": "tight_solve",
+      "dt": 0.0001,
+      "tolerance": 2e-15,
+      "physical_field_difference_from_main": [
+        1.411926676751329e-09,
+        2.900182716932529e-10
+      ],
+      "error": [
+        0.00018047480964506114,
+        0.00010094877298527649
+      ],
+      "cn_max_residual": 1.957120976184434e-15,
+      "cn_max_iterations": 10
+    }
+  ],
+  "seconds": 178.90761019999627
+}

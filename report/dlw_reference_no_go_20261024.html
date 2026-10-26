@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DLW参考解认证：同初值小残差路线的否定结论</title>
+<style>body{max-width:940px;margin:48px auto;padding:0 24px;font:17px/1.85 Georgia,"Microsoft YaHei",serif;color:#222;background:#fff}h1{font-size:29px;line-height:1.45}h2{font-size:22px;margin-top:34px}.meta{font-size:14px;color:#666}.lead{padding:14px 20px;border-left:3px solid #34576a;background:#f4f7f8}.eq{padding:16px;background:#f6f6f3;overflow:auto;white-space:pre-wrap;font-family:Georgia,serif}table{border-collapse:collapse;width:100%;font-size:15px}th,td{padding:11px;border-bottom:1px solid #ddd;text-align:left}th{border-top:2px solid #333}a{color:#245b79}footer{border-top:1px solid #ccc;margin-top:36px;padding-top:16px;font-size:14px}</style></head>
+<body><h1>DLW参考解认证：同初值小残差路线的否定结论</h1><p class="meta">2026年10月24日 · 原正弦与周期高斯初值不变 · T=0.01</p>
+<p class="lead"><strong>现有证据框架不能提供全场精度保证。</strong>这一判断现在有完整非线性方程的反例支持：精确保持初值和下边界，可以使整个时空区域的PDE残差趋零，而终点v的最大误差保持固定。任意有限批网格的一致性也不能补足这个缺口。</p>
+<h2>1. 明确被否定的估计</h2>
+<p>设给定初值确有一个足够正则的目标解(U,V)。若只使用准确初值、准确边界和物理方程的一致残差r，则不存在适用于所有此类近似场的误差模量ω，使</p>
+<div class="eq">‖v<sub>app</sub>(T)−V(T)‖<sub>∞</sub> ≤ ω(r)，且 ω(r)→0 当 r→0。</div>
+<p>这里r包括两个完整非线性连续方程的残差，不是有限维投影残差，也不是若干采样点的残差。反例不需要改变原初始化。它否定的是没有额外定量正则性或尾界约束的稳定认证。</p>
+<h2>2. 为什么反例成立</h2>
+<p>在X=x−4t中取a=u<sub>z</sub>+v、b=u<sub>z</sub>−v。a含反扩散主部，而u是(a+b)的横向原函数。把a的高频扰动放在很窄的横向条带内，v可以有固定幅值，u及其引起的非线性耦合却随条带宽度减小。</p>
+<p>构造使用一个有零积分的横向形状、一个初始为零的时间因子和高频空间因子。对一般内部条带，空间因子沿背景输运解一个稳定反向的标量抛物问题。初始截断产生的残差由正向热平滑压小；其余项随条带变窄而趋零。所有二次非线性项均保留。</p>
+<div class="eq">初始差 = 0，边界差 = 0，
+完整PDE残差变化 → 0，
+终点 ‖δv‖<sub>∞</sub> = ε &gt; 0。</div>
+<p>条带可放在任何指定开内部区间，包括原评价区域|y|≤1.8。给定任意有限批横向网格，还可以把条带放在采样点之间，使两场在所有这些点、整个时间区间内完全相同。</p>
+<h2>3. 与当前候选相连的显式核验</h2>
+<p>从当前两条候选生成时间C¹的明确多项式，再精确补回原初始化，得到两种基准场。192-bit区间运算证明它们所需的六个背景常数均小于1。基准场仅用于反例，不是新认证的真实解。</p>
+<p>一个下边界邻近的显式条带构造给出下表。误差尺度固定为ε=10⁻³，频率指标按原周期192计。</p>
+<table><thead><tr><th>Fourier指标</th><th>完整物理残差变化的严格上界</th><th>终点v最大差</th></tr></thead><tbody>
+<tr><td>1024</td><td>1.81×10⁻⁵</td><td>10⁻³</td></tr>
+<tr><td>2048</td><td>1.55×10⁻¹⁹</td><td>10⁻³</td></tr>
+<tr><td>4096</td><td>1.77×10⁻⁷⁷</td><td>10⁻³</td></tr>
+</tbody></table>
+<p>这认证的是两场<strong>残差之差</strong>，不是基准场自身残差，更不是某一场到真实解的误差。它们不可能同时距同一目标小于5×10⁻⁴，但本构造不判定哪个更接近目标。</p>
+<p>一般内部条带定理另用抛物核的平滑性，不把上表的显式数值常数移用于内部构造。符号检查覆盖物理残差转换、完整非线性差分、形状归一化与输运抵消；数值不等式以256-bit Arb核验。</p>
+<h2>4. 本次探索已经关闭哪些路线</h2>
+<table><thead><tr><th>路线</th><th>结论</th></tr></thead><tbody>
+<tr><td>小PDE残差加精确初边值</td><td>没有额外定量正则性约束时，不存在趋零的全场误差模量。</td></tr>
+<tr><td>有限网格、步长和精度加密一致</td><td>不能排除采样点之间的固定最大误差。</td></tr>
+<tr><td>常规范数中的初值小邻域</td><td>任意邻域都包含反热边界迹不允许的初值，不能得到整个邻域的经典适定性。</td></tr>
+<tr><td>正Fourier误差包络</td><td>既有证明已排除非零误差种子下的可求和闭合。</td></tr>
+<tr><td>高斯全阶横向光滑解作为目标</td><td>既有显式常数证明稿在T=0.01内给出900阶a,b边界导数障碍。</td></tr>
+</tbody></table>
+<h2>5. 不能据此声称什么</h2>
+<p>这里没有构造同初值的两个精确解，也没有排除所有低阶经典解或弱解。反例近似场的残差很小但不恒零。原精确初值是否存在可用特殊结构认证的低阶解，仍是开放问题。</p>
+<p><strong>因此，不能把结论写成“永远无法精确估计这个固定初值”。</strong>准确结论是：现有小残差与有限加密路线已经被否定；继续同类加密不能成为充分的理论证据。要重新开启全场认证，必须证明新的存在唯一性与定量正则性/尾界，或给出精确的结构性构造。</p>
+<p>当前候选可保留为数值探索结果；η<sub>u</sub>、η<sub>v</sub>仍未知，不应作为已认证连续真解发布精确误差表。</p>
+<footer>
+<p>完整证明：<a href="../Workspaces/dlw_paper_20261009/reference_certificate_20261024/RESIDUAL_NO_GO_CLOSURE.md">同初值残差认证否定定理</a>。核验：<a href="../Workspaces/dlw_paper_20261009/reference_certificate_20261024/residual_no_go_check.json">符号与256-bit区间结果</a>、<a href="../Workspaces/dlw_paper_20261009/reference_certificate_20261024/no_go_candidate_bounds.json">两种候选基准的192-bit背景界</a>。</p>
+<p>证明状态：本会话推导、自查与常数核验，尚无新增独立审稿或形式化验证。此前结果见<a href="dlw_reference_theory_20261024.html">高斯显式正则性障碍报告</a>。</p>
+</footer></body></html>
+

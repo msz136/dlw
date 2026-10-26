@@ -1,0 +1,26 @@
+============================== section-4.2 ==============================
+4.2 Initial and boundary data and time integration
+
+We specify the initial and boundary data, then describe how forward Euler, classical RK4 and Crank�CNicolson advance the physical fields in our numerical experiments. Each spatial formulation samples the same continuous reference fields at its native lattice locations. Endpoint-SD and FD advance the state $z=(u_k,v_k)_k$; Centered-SD advances $z=(u_k,\omega_k)_k$ and recovers $v$ through the field relation in Section 4.1. At each time stage, the current state and the prescribed boundary data determine the derivatives required by the time integrator.
+
+For Centered-SD, the initial lower auxiliary value is $\omega_0=h(v^*-u_y^*)/4$, evaluated at the lower node. The remaining values follow from the linear reconstruction (34),
+
+$\omega_k=\frac h2(v_k-\Delta_hu_k)-\omega_{k-1}.$
+
+This recurrence reproduces the prescribed physical field $v$ on every internal edge. During evolution, the lower auxiliary value follows the same $\omega$ equation as the interior values. The lower value of $u_t$ is supplied by the continuous reference solution at every stage.
+
+Endpoint-SD uses the prescribed lower derivative and the continuous lower ghost value of $u$ in its backward lattice relations. For FD, the lower data are supplied in the same way, while the upper ghost value extrapolates the departure from the continuous reference. Writing $e_k=u_k-u_k^*$, this closure is $u_{N+1}=u_{N+1}^*+3e_N-3e_{N-1}+e_{N-2}$. The reference values are evaluated at the current stage time. Fourier differentiation acts on a periodic $x$ interval extending beyond the principal wave profiles; the products are evaluated at the nodes without filtering, dealiasing or artificial viscosity.
+
+Writing the resulting evolution equations as $\dot z=F(t,z)$, forward Euler advances the state by $z^{n+1}=z^n+\Delta t F(t_n,z^n)$. Classical RK4 uses four stage derivatives,
+
+$\begin{aligned}K_1&=F(t_n,z^n),&K_2&=F(t_n+\Delta t/2,z^n+\Delta t K_1/2),\\K_3&=F(t_n+\Delta t/2,z^n+\Delta t K_2/2),&K_4&=F(t_n+\Delta t,z^n+\Delta t K_3),\\z^{n+1}&=z^n+\frac{\Delta t}{6}(K_1+2K_2+2K_3+K_4).\end{aligned}$
+
+Crank�CNicolson determines the next state from
+
+$z^{n+1}=z^n+\frac{\Delta t}{2}\bigl[F(t_n,z^n)+F(t_{n+1},z^{n+1})\bigr].$
+
+The implicit step uses an Euler prediction followed by fixed-point iteration, with a stopping criterion of $10^{-12}$ for the maximum absolute equation residual. The spatial-formulation comparisons in Section 5.2 use RK4 with $\Delta t=10^{-4}$ and final time $T=0.01$. In every comparison, errors are measured in the physical fields $u,v$.
+============================== section-4.3 ==============================
+4.3 A conservation-based moving mesh
+
+ Editorial guide: �����շ�������ʽ���غ��ɹ��칲�� x �������Ƶ���������任�� ALE ��ھ��ȼ����������� FFT���ٽ��� Jacobian ת���������������ڷǾ��������ڵ���ֱ������ͨ FFT��

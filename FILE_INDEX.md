@@ -6,7 +6,7 @@
 
 ## 快速入口
 
-- 理论总览：[理论成果](theory_results.html)；DLW 数值：[数值报告](dlw_numerical.html)；2HS／综合：[综合报告](Report.html)。
+- 理论总览：[理论成果](theory_results.html)；DLW 数值：[数值报告](dlw_numerical.html)；当前误差比较：[初始导数与短时物理场误差](Report.html)。
 - Hamilton／可积性：[结构入口](dlw_hamilton.html)、[静态理论报告](dlw_integrability.html)；一般场最新探索：[action–angle](report/dlw_general_action_angle_20261013.html)。
 - 论文：[原稿](report/dlw_paper_draft.html)、[优化稿](report/dlw_paper_optimized.html)、[重写稿](report/dlw_paper_rewritten.html)；版本关系见下方论文项目。
 - 文献：[本地文献目录](Paper/LITERATURE.md)；Notebook：[交付目录](notebook)、[使用说明](report/notebook_usage.html)。
@@ -33,6 +33,7 @@
 | τ 函数证明 | 半离散 τ 构造、Gram 恒等式与解的证明 | [入口](Workspaces/dlw_tau_proof_20261008/report.src.html)；[目录](Workspaces/dlw_tau_proof_20261008) |
 | Lax 推导 | 局部相容性、势函数与半离散 Lax 表示 | [入口](Workspaces/dlw_lax_derivation_20261009/manuscript.md)；[目录](Workspaces/dlw_lax_derivation_20261009) |
 | Lax 专题汇报 | Lax 推导的统一叙述与适用范围 | [入口](Workspaces/dlw_lax_briefing_20261010/manuscript.md)；[目录](Workspaces/dlw_lax_briefing_20261010) |
+| DLW Miura 连接 | 连续三 τ／modified GDLW、半离散 AKNS 型势约束与 NLS／Kaup 条件约化 | [报告](report/dlw_miura_connections_20261022.html)；[目录](Workspaces/dlw_miura_connections_20261022) |
 | 可积结构早期复核 | Gram、Darboux、Lax 与非线性闭合的范围审查 | [入口](Workspaces/dlw_integrability_audit_20261002/SCOPE_AUDIT.md)；[目录](Workspaces/dlw_integrability_audit_20261002) |
 | 早期多路线探索 | 有限差分、谱法、FEM/DG、SBP、Hamilton/Poisson、变分、多辛、Hirota/Bäcklund、Toda；各次运行作为同一项目的版本 | [运行1](Workspaces/expression_deepseek-v4-flash_20260917_220258)、[运行2](Workspaces/expression_deepseek-v4.1-flash_20260917_222927)、[运行3](Workspaces/expression_glm-5.3-flash_20260917_225005)、[运行4](Workspaces/expression_union-alpha_20260917_221034) |
 | 既有 Lean Toda 工程 | 既有 Toda／DLW 构造与 Lean 工程 | [目录](lean-toda) |
@@ -112,7 +113,7 @@
 
 | 项目 | 探索范围 | 入口与工作目录 |
 | --- | --- | --- |
-| DLW 论文主项目 | 双语正文、PE／PF／FD 数值、时间／网格图表及修订 | [入口](Workspaces/dlw_paper_20261009/manuscript.md)；[目录](Workspaces/dlw_paper_20261009) |
+| DLW 论文主项目 | 正式成果整合、英文正文、Endpoint-SD／Centered-SD／FD 空间比较与时间积分、动网格与修订 | [正式整合稿](dlw-paper.html)；[既有正文](Workspaces/dlw_paper_20261009/manuscript.md)；[二维图试绘](report/dlw_heatmap_preview_20261022.html)；[目录](Workspaces/dlw_paper_20261009) |
 | 论文推导与范围审查 | 草稿理论推导、适用条件与结论审查 | [入口](Workspaces/dlw_draft_audit_20261010/audit.md)；[目录](Workspaces/dlw_draft_audit_20261010) |
 | 研究定位与文献对标 | 结构和数值论证的参照文献 | [入口](Workspaces/dlw_structure_benchmarks/guide.html)；[目录](Workspaces/dlw_structure_benchmarks) |
 | 理论英文版本 | 理论正文英文整理 | [目录](Workspaces/dlw_theory_english_20261009) |
@@ -205,8 +206,13 @@
 | Rm 网格、统计与校准 | 时间法与路线扩展 | 四路线×四时间方法、独立参数批次与收敛 | [入口](Workspaces/hs_conserved_mesh_20260925/TIME_METHOD_COMPARISON_REPORT.md) |
 | Rm 网格、统计与校准 | 可积参数校准 | C(a) 校准、九参数比较、空间阶与 Euler 时间误差 | [入口](Workspaces/hs_conserved_mesh_20260925/PARAMETER_CALIBRATION_REPORT.md) |
 | 误差系数与主动选参 | 主动选参与持续动格大表 | 残差系数选参；13 参数六路线完整持续动格比较 | [入口](Workspaces/hs_error_theory_20260926/DYNAMIC_MESH_REPORT.html) |
-| DLW 论文主项目 | 理论与数值正文及双语论文排版 | τ／Gram、PE／PF、Lax 桥、连续极限及四组实验 | [入口](report/dlw_paper_draft.html)；[英文排版](report/dlw_paper_en_print.html)、[中文排版](report/dlw_paper_zh_print.html)；[目录](Workspaces/dlw_paper_20261009) |
+| DLW 论文主项目 | 理论与数值正文及双语论文排版 | 格点来源与转换、τ／Gram、PE／PF、Lax、连续极限及数值整合 | [正式整合稿](dlw-paper.html)；[既有稿](report/dlw_paper_draft.html)；[英文排版](report/dlw_paper_en_print.html)、[中文排版](report/dlw_paper_zh_print.html)；[目录](Workspaces/dlw_paper_20261009) |
+| DLW 论文主项目 | 三格式数值比较与图文整合 | 四算例（A/D孤子、高斯、正弦）的RK4终态物理场；初始导数仅表，精确初始场3D、截面/热图及分格式与同轴3D误差 | [主论文图文](dlw-paper.html)；[当前误差表](Report.html)；[当前图文与核验](Workspaces/dlw_paper_20261009/spatial_ad_uv_20261025/README.md)；[图表独立审查](report/dlw_figtable_audit_20261025.html)；[英文图文草稿](report/dlw_numerical_text_20261025.html)；[报告数据入口](Workspaces/dlw_paper_20261009/report_refresh_20261024/README.md)；[图文与核验目录](Workspaces/dlw_paper_20261009/report_refresh_20261024/natural_selection_20261025)；[并行稿归档](Paper/sources/dlw_y_lattice_20261018/INDEX.md) |
 | Notebook 独立审查 | 2HS／DLW／C–N 支线 | 各笔记本逐项复核及 C–N 容差、保存输出审查 | [入口](Workspaces/notebook_audit_20261008) |
+| DLW 物理场重构支线 | 转移Endpoint的u首项优势至Centered解族 | 完整势与自然边场重构、匹配Gram二阶、空间扫描与五格式RK4比较 | [自然边场比较](report/dlw_natural_edge_comparison_20261024.html)；[完整势实验](report/dlw_full_potential_experiments_20261024.html)；[推导报告](report/dlw_centered_reconstruction_probe_20261023.html)；[当前入口](Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024/README.md) |
+| DLW 非孤子参考解认证 | 高斯/正弦连续参考的可计算误差界 | 混合小解存在性、原初值唯一性、条件匹配/误差、解析桥梁与BLP谱理论对接；值域待解；保留残差/正则性障碍证明稿（待独立复核）；原问题未认证 | [最新匹配进展](report/dlw_reference_matching_20261024.html)；[否定路线报告](report/dlw_reference_no_go_20261024.html)；[高斯理论报告](report/dlw_reference_theory_20261024.html)；[尾部推导与高斯证明稿](Workspaces/dlw_paper_20261009/reference_certificate_20261024/TAIL_ESTIMATE_CONTINUATION.md)；[全场候选报告](report/dlw_continuum_reference_20261024.html)；[入口](Workspaces/dlw_paper_20261009/reference_certificate_20261024/README.md)；[目录](Workspaces/dlw_paper_20261009/reference_certificate_20261024) |
+| DLW 兼容正弦／高斯基准 | 用户允许重选v₀=4−u₀_y的独立初始化支线 | 正向热方程参考、存在唯一性证明稿、连续全域截断界与Arb区间求值；不替代原初值认证 | [阅读报告](report/dlw_compatible_reference_20261024.html)；[证明与求值器目录](Workspaces/dlw_paper_20261009/reference_certificate_20261024/compatible_benchmarks) |
+| DLW 非退化高斯／正弦基准 | 纯波形与非零Endpoint一阶v误差首项 | v₀=4−3u₀_y，仅初时配对；热方程/Laplace参考、全域误差界及四格式RK4比较；解析证明稿与独立数值核验 | [阅读报告](report/dlw_nondegenerate_reference_20261024.html)；[当前误差表](Report.html)；[证明与求值器目录](Workspaces/dlw_paper_20261009/reference_certificate_20261024/nondegenerate_benchmarks)；[比较与认证目录](Workspaces/dlw_paper_20261009/report_refresh_20261024/nondegenerate_rk4_20261024) |
 
 ## 历史索引与资源归属
 

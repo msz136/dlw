@@ -1,0 +1,47 @@
+{
+  "case": "A",
+  "perturbed_component": "v",
+  "dx": 0.1,
+  "h": 0.05,
+  "dt": 0.0001,
+  "T": 0.01,
+  "reached": 0.01,
+  "status": "complete",
+  "reason": null,
+  "epsilon": 1e-06,
+  "x_mode": 4,
+  "x_wavenumber": 1.2566370614359172,
+  "y_interval": [
+    -9.95,
+    9.95
+  ],
+  "x_interval": [
+    -10.0,
+    10.0
+  ],
+  "nx": 200,
+  "ny": 399,
+  "initial_physical_perturbation": "v receives eps*sin(pi*(y-yL)/(yR-yL))^2*cos(2*pi*mx*x/Lx); other physical field unchanged",
+  "boundary": "Identical unperturbed analytic lower u_t, lower w perturbation initially zero and then freely evolved",
+  "initial_amplitude": [
+    0.0,
+    9.99984423447078e-07
+  ],
+  "final_amplitude": [
+    1.4385214824837745e-07,
+    1.0214084038344047e-06
+  ],
+  "gain_from_initial_max": [
+    0.1438543890038808,
+    1.0214243141042891
+  ],
+  "initial_auxiliary_perturbation_max": 9.999999999999983e-07,
+  "initial_y_checkerboard_projection_max": 1.5537998000485238e-11,
+  "initial_v_perturbation_rounding": 5.293955920339377e-23,
+  "algebraic_rhs_subtraction_check": 3.3799718314747736e-13,
+  "reference_status": "No perturbed continuum reference or error certificate; same-discrete-system trajectory separation only",
+  "filtering": false,
+  "source_sha256": "689cdcaa9751af4e010040a5e403e7857f5e0b7ea2c9404784a61e6118edc310",
+  "artifact_sha256": "d5260a22f6950272e98b1204706dbe1e1bedf8eec46990fa5f66c6810b1db2ef",
+  "seconds": 13.53437299999996
+}

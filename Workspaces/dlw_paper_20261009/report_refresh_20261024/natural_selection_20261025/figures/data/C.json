@@ -1,0 +1,693 @@
+{
+  "case": "C",
+  "display_x_interval": [
+    -30.0,
+    30.0
+  ],
+  "display_y_interval": [
+    -30.0,
+    30.0
+  ],
+  "initial_exact_y_interval": [
+    -30.0,
+    30.0
+  ],
+  "section_y": 0.0,
+  "interpolation": "12 nearest native nodes, degree 11 barycentric; degree 15 independent control",
+  "section_values": "Numerical physical fields interpolated directly; exact profiles independently evaluated at y=0.",
+  "methods": {
+    "endpoint": {
+      "table_initial": [
+        6.0618636412046456e-05,
+        0.05436613838897486
+      ],
+      "table_final": [
+        0.00011447139279306181,
+        0.0005441699059607896
+      ],
+      "recomputed_native_maxima": {
+        "rate": [
+          6.0618636412046456e-05,
+          0.05436613838897486
+        ],
+        "final": [
+          0.00011447139279306181,
+          0.0005441699059607896
+        ]
+      },
+      "table_maximum_difference": {
+        "rate": [
+          0.0,
+          0.0
+        ],
+        "final": [
+          0.0,
+          0.0
+        ]
+      },
+      "sources": [
+        {
+          "path": "Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\rk4_spatial\\C_Endpoint-SD_RK4.npz",
+          "sha256": "fa82640ed2908c1f52bb12f228929d57e08e0c7715f41d70abb39080a35d3f3b"
+        }
+      ],
+      "interpolation": {
+        "initial": {
+          "u": {
+            "mode": "barycentric",
+            "degree": 11,
+            "indices": [
+              394,
+              395,
+              396,
+              397,
+              398,
+              399,
+              400,
+              401,
+              402,
+              403,
+              404,
+              405
+            ],
+            "nodes": [
+              -0.55,
+              -0.45,
+              -0.35000000000000003,
+              -0.25000000000000006,
+              -0.15000000000000002,
+              -0.05,
+              0.05,
+              0.15000000000000002,
+              0.25,
+              0.35000000000000003,
+              0.45,
+              0.55
+            ],
+            "lebesgue_at_zero": 1.6236114501953125,
+            "degree11_vs_degree15_max": 1.176007421574633e-15,
+            "exact_sample_degree11_vs_analytic_y0_max": 4.080140935671609e-14,
+            "exact_sample_degree15_vs_analytic_y0_max": 4.055257201440844e-14,
+            "plotted_section_error_max": 4.080140935671609e-14
+          },
+          "v": {
+            "mode": "native",
+            "degree": 0,
+            "degree11_vs_degree15_max": 0.0,
+            "exact_sample_degree11_vs_analytic_y0_max": 0.0,
+            "exact_sample_degree15_vs_analytic_y0_max": 0.0,
+            "plotted_section_error_max": 0.0
+          }
+        },
+        "rate": {
+          "u": {
+            "mode": "barycentric",
+            "degree": 11,
+            "indices": [
+              394,
+              395,
+              396,
+              397,
+              398,
+              399,
+              400,
+              401,
+              402,
+              403,
+              404,
+              405
+            ],
+            "nodes": [
+              -0.55,
+              -0.45,
+              -0.35000000000000003,
+              -0.25000000000000006,
+              -0.15000000000000002,
+              -0.05,
+              0.05,
+              0.15000000000000002,
+              0.25,
+              0.35000000000000003,
+              0.45,
+              0.55
+            ],
+            "lebesgue_at_zero": 1.6236114501953125,
+            "degree11_vs_degree15_max": 9.398162835073105e-14,
+            "exact_sample_degree11_vs_analytic_y0_max": 7.45591387024333e-13,
+            "exact_sample_degree15_vs_analytic_y0_max": 7.420812827026694e-13,
+            "plotted_section_error_max": 6.034322859393981e-05
+          },
+          "v": {
+            "mode": "native",
+            "degree": 0,
+            "degree11_vs_degree15_max": 0.0,
+            "exact_sample_degree11_vs_analytic_y0_max": 0.0,
+            "exact_sample_degree15_vs_analytic_y0_max": 0.0,
+            "plotted_section_error_max": 0.05431439591754139
+          }
+        },
+        "final": {
+          "u": {
+            "mode": "barycentric",
+            "degree": 11,
+            "indices": [
+              394,
+              395,
+              396,
+              397,
+              398,
+              399,
+              400,
+              401,
+              402,
+              403,
+              404,
+              405
+            ],
+            "nodes": [
+              -0.55,
+              -0.45,
+              -0.35000000000000003,
+              -0.25000000000000006,
+              -0.15000000000000002,
+              -0.05,
+              0.05,
+              0.15000000000000002,
+              0.25,
+              0.35000000000000003,
+              0.45,
+              0.55
+            ],
+            "lebesgue_at_zero": 1.6236114501953125,
+            "degree11_vs_degree15_max": 1.3762008974895976e-12,
+            "exact_sample_degree11_vs_analytic_y0_max": 3.704991144475511e-14,
+            "exact_sample_degree15_vs_analytic_y0_max": 3.768421706347739e-14,
+            "plotted_section_error_max": 2.0207727999044245e-05
+          },
+          "v": {
+            "mode": "native",
+            "degree": 0,
+            "degree11_vs_degree15_max": 0.0,
+            "exact_sample_degree11_vs_analytic_y0_max": 0.0,
+            "exact_sample_degree15_vs_analytic_y0_max": 0.0,
+            "plotted_section_error_max": 0.0005441699059607896
+          }
+        }
+      },
+      "visible_error_maxima": {
+        "initial": {
+          "u": 0.0,
+          "v": 0.0
+        },
+        "rate": {
+          "u": 6.0618636412046456e-05,
+          "v": 0.05436613838897486
+        },
+        "final": {
+          "u": 0.00011447139279306181,
+          "v": 0.0005441699059607896
+        }
+      }
+    },
+    "centered": {
+      "table_initial": [
+        0.0008319255078621524,
+        0.00043684413430056246
+      ],
+      "table_final": [
+        0.00011683115433761419,
+        1.0493896397845148e-05
+      ],
+      "recomputed_native_maxima": {
+        "rate": [
+          0.0008319255078621524,
+          0.00043684413430056246
+        ],
+        "final": [
+          0.00011683115433761419,
+          1.0493896397845148e-05
+        ]
+      },
+      "table_maximum_difference": {
+        "rate": [
+          0.0,
+          0.0
+        ],
+        "final": [
+          0.0,
+          0.0
+        ]
+      },
+      "sources": [
+        {
+          "path": "Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\natural_edge_rk4_20261024\\C.npz",
+          "sha256": "b04e71dc00b493f091fd3a0c7f08cbea2bd932b8559b94cb937fe86509de5b8a"
+        },
+        {
+          "path": "Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\natural_selection_20261025\\initial_C.npz",
+          "sha256": "1a93e46ce5d829d24a6093ce59061604b7943432cfda05f2bafd0d1723b58dfe"
+        }
+      ],
+      "interpolation": {
+        "initial": {
+          "u": {
+            "mode": "barycentric",
+            "degree": 11,
+            "indices": [
+              394,
+              395,
+              396,
+              397,
+              398,
+              399,
+              400,
+              401,
+              402,
+              403,
+              404,
+              405
+            ],
+            "nodes": [
+              -0.55,
+              -0.45,
+              -0.35000000000000003,
+              -0.25000000000000006,
+              -0.15000000000000002,
+              -0.05,
+              0.05,
+              0.15000000000000002,
+              0.25,
+              0.35000000000000003,
+              0.45,
+              0.55
+            ],
+            "lebesgue_at_zero": 1.6236114501953125,
+            "degree11_vs_degree15_max": 1.176007421574633e-15,
+            "exact_sample_degree11_vs_analytic_y0_max": 4.080140935671609e-14,
+            "exact_sample_degree15_vs_analytic_y0_max": 4.055257201440844e-14,
+            "plotted_section_error_max": 4.080140935671609e-14
+          },
+          "v": {
+            "mode": "native",
+            "degree": 0,
+            "degree11_vs_degree15_max": 0.0,
+            "exact_sample_degree11_vs_analytic_y0_max": 0.0,
+            "exact_sample_degree15_vs_analytic_y0_max": 0.0,
+            "plotted_section_error_max": 3.1184709093249143e-21
+          }
+        },
+        "rate": {
+          "u": {
+            "mode": "barycentric",
+            "degree": 11,
+            "indices": [
+              394,
+              395,
+              396,
+              397,
+              398,
+              399,
+              400,
+              401,
+              402,
+              403,
+              404,
+              405
+            ],
+            "nodes": [
+              -0.55,
+              -0.45,
+              -0.35000000000000003,
+              -0.25000000000000006,
+              -0.15000000000000002,
+              -0.05,
+              0.05,
+              0.15000000000000002,
+              0.25,
+              0.35000000000000003,
+              0.45,
+              0.55
+            ],
+            "lebesgue_at_zero": 1.6236114501953125,
+            "degree11_vs_degree15_max": 2.708944180085382e-13,
+            "exact_sample_degree11_vs_analytic_y0_max": 7.45591387024333e-13,
+            "exact_sample_degree15_vs_analytic_y0_max": 7.420812827026694e-13,
+            "plotted_section_error_max": 0.0008316027341999099
+          },
+          "v": {
+            "mode": "native",
+            "degree": 0,
+            "degree11_vs_degree15_max": 0.0,
+            "exact_sample_degree11_vs_analytic_y0_max": 0.0,
+            "exact_sample_degree15_vs_analytic_y0_max": 0.0,
+            "plotted_section_error_max": 0.0004331474096135324
+          }
+        },
+        "final": {
+          "u": {
+            "mode": "barycentric",
+            "degree": 11,
+            "indices": [
+              394,
+              395,
+              396,
+              397,
+              398,
+              399,
+              400,
+              401,
+              402,
+              403,
+              404,
+              405
+            ],
+            "nodes": [
+              -0.55,
+              -0.45,
+              -0.35000000000000003,
+              -0.25000000000000006,
+              -0.15000000000000002,
+              -0.05,
+              0.05,
+              0.15000000000000002,
+              0.25,
+              0.35000000000000003,
+              0.45,
+              0.55
+            ],
+            "lebesgue_at_zero": 1.6236114501953125,
+            "degree11_vs_degree15_max": 1.3680286812628407e-12,
+            "exact_sample_degree11_vs_analytic_y0_max": 3.704991144475511e-14,
+            "exact_sample_degree15_vs_analytic_y0_max": 3.768421706347739e-14,
+            "plotted_section_error_max": 1.909478448967869e-05
+          },
+          "v": {
+            "mode": "native",
+            "degree": 0,
+            "degree11_vs_degree15_max": 0.0,
+            "exact_sample_degree11_vs_analytic_y0_max": 0.0,
+            "exact_sample_degree15_vs_analytic_y0_max": 0.0,
+            "plotted_section_error_max": 4.470523606858734e-06
+          }
+        }
+      },
+      "visible_error_maxima": {
+        "initial": {
+          "u": 0.0,
+          "v": 5.551115123125783e-17
+        },
+        "rate": {
+          "u": 0.0008319255078621524,
+          "v": 0.00043684413430056246
+        },
+        "final": {
+          "u": 0.00011683115433761419,
+          "v": 1.0493896397845148e-05
+        }
+      }
+    },
+    "fd": {
+      "table_initial": [
+        0.00012122820911475429,
+        0.00014545688064671047
+      ],
+      "table_final": [
+        0.00011593599654116919,
+        8.997602838719253e-06
+      ],
+      "recomputed_native_maxima": {
+        "rate": [
+          0.00012122820911475429,
+          0.00014545688064671047
+        ],
+        "final": [
+          0.00011593599654116919,
+          8.997602838719253e-06
+        ]
+      },
+      "table_maximum_difference": {
+        "rate": [
+          0.0,
+          0.0
+        ],
+        "final": [
+          0.0,
+          0.0
+        ]
+      },
+      "sources": [
+        {
+          "path": "Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\rk4_spatial\\C_FD_RK4.npz",
+          "sha256": "22f49ca8c33dff3e4d66e6844710822d1617babb044ca939f39cf44a9b262dd8"
+        }
+      ],
+      "interpolation": {
+        "initial": {
+          "u": {
+            "mode": "barycentric",
+            "degree": 11,
+            "indices": [
+              394,
+              395,
+              396,
+              397,
+              398,
+              399,
+              400,
+              401,
+              402,
+              403,
+              404,
+              405
+            ],
+            "nodes": [
+              -0.55,
+              -0.45,
+              -0.35000000000000003,
+              -0.25000000000000006,
+              -0.15000000000000002,
+              -0.05,
+              0.05,
+              0.15000000000000002,
+              0.25,
+              0.35000000000000003,
+              0.45,
+              0.55
+            ],
+            "lebesgue_at_zero": 1.6236114501953125,
+            "degree11_vs_degree15_max": 1.176007421574633e-15,
+            "exact_sample_degree11_vs_analytic_y0_max": 4.080140935671609e-14,
+            "exact_sample_degree15_vs_analytic_y0_max": 4.055257201440844e-14,
+            "plotted_section_error_max": 4.080140935671609e-14
+          },
+          "v": {
+            "mode": "barycentric",
+            "degree": 11,
+            "indices": [
+              394,
+              395,
+              396,
+              397,
+              398,
+              399,
+              400,
+              401,
+              402,
+              403,
+              404,
+              405
+            ],
+            "nodes": [
+              -0.55,
+              -0.45,
+              -0.35000000000000003,
+              -0.25000000000000006,
+              -0.15000000000000002,
+              -0.05,
+              0.05,
+              0.15000000000000002,
+              0.25,
+              0.35000000000000003,
+              0.45,
+              0.55
+            ],
+            "lebesgue_at_zero": 1.6236114501953125,
+            "degree11_vs_degree15_max": 6.30739940886587e-16,
+            "exact_sample_degree11_vs_analytic_y0_max": 2.0875940136711596e-14,
+            "exact_sample_degree15_vs_analytic_y0_max": 2.0970108124650086e-14,
+            "plotted_section_error_max": 2.0875940136711596e-14
+          }
+        },
+        "rate": {
+          "u": {
+            "mode": "barycentric",
+            "degree": 11,
+            "indices": [
+              394,
+              395,
+              396,
+              397,
+              398,
+              399,
+              400,
+              401,
+              402,
+              403,
+              404,
+              405
+            ],
+            "nodes": [
+              -0.55,
+              -0.45,
+              -0.35000000000000003,
+              -0.25000000000000006,
+              -0.15000000000000002,
+              -0.05,
+              0.05,
+              0.15000000000000002,
+              0.25,
+              0.35000000000000003,
+              0.45,
+              0.55
+            ],
+            "lebesgue_at_zero": 1.6236114501953125,
+            "degree11_vs_degree15_max": 9.375276770032059e-14,
+            "exact_sample_degree11_vs_analytic_y0_max": 7.45591387024333e-13,
+            "exact_sample_degree15_vs_analytic_y0_max": 7.420812827026694e-13,
+            "plotted_section_error_max": 0.00012067779434143944
+          },
+          "v": {
+            "mode": "barycentric",
+            "degree": 11,
+            "indices": [
+              394,
+              395,
+              396,
+              397,
+              398,
+              399,
+              400,
+              401,
+              402,
+              403,
+              404,
+              405
+            ],
+            "nodes": [
+              -0.55,
+              -0.45,
+              -0.35000000000000003,
+              -0.25000000000000006,
+              -0.15000000000000002,
+              -0.05,
+              0.05,
+              0.15000000000000002,
+              0.25,
+              0.35000000000000003,
+              0.45,
+              0.55
+            ],
+            "lebesgue_at_zero": 1.6236114501953125,
+            "degree11_vs_degree15_max": 2.1575370634531173e-12,
+            "exact_sample_degree11_vs_analytic_y0_max": 3.7484032262662115e-13,
+            "exact_sample_degree15_vs_analytic_y0_max": 3.7734971427231124e-13,
+            "plotted_section_error_max": 0.00014513629360468627
+          }
+        },
+        "final": {
+          "u": {
+            "mode": "barycentric",
+            "degree": 11,
+            "indices": [
+              394,
+              395,
+              396,
+              397,
+              398,
+              399,
+              400,
+              401,
+              402,
+              403,
+              404,
+              405
+            ],
+            "nodes": [
+              -0.55,
+              -0.45,
+              -0.35000000000000003,
+              -0.25000000000000006,
+              -0.15000000000000002,
+              -0.05,
+              0.05,
+              0.15000000000000002,
+              0.25,
+              0.35000000000000003,
+              0.45,
+              0.55
+            ],
+            "lebesgue_at_zero": 1.6236114501953125,
+            "degree11_vs_degree15_max": 6.549641607062409e-15,
+            "exact_sample_degree11_vs_analytic_y0_max": 3.704991144475511e-14,
+            "exact_sample_degree15_vs_analytic_y0_max": 3.768421706347739e-14,
+            "plotted_section_error_max": 1.9003608689092156e-05
+          },
+          "v": {
+            "mode": "barycentric",
+            "degree": 11,
+            "indices": [
+              394,
+              395,
+              396,
+              397,
+              398,
+              399,
+              400,
+              401,
+              402,
+              403,
+              404,
+              405
+            ],
+            "nodes": [
+              -0.55,
+              -0.45,
+              -0.35000000000000003,
+              -0.25000000000000006,
+              -0.15000000000000002,
+              -0.05,
+              0.05,
+              0.15000000000000002,
+              0.25,
+              0.35000000000000003,
+              0.45,
+              0.55
+            ],
+            "lebesgue_at_zero": 1.6236114501953125,
+            "degree11_vs_degree15_max": 1.1333383462326543e-13,
+            "exact_sample_degree11_vs_analytic_y0_max": 2.2226877219452216e-14,
+            "exact_sample_degree15_vs_analytic_y0_max": 2.216356595356793e-14,
+            "plotted_section_error_max": 2.859713925197214e-06
+          }
+        }
+      },
+      "visible_error_maxima": {
+        "initial": {
+          "u": 0.0,
+          "v": 0.0
+        },
+        "rate": {
+          "u": 0.00012122820911475429,
+          "v": 0.00014545688064671047
+        },
+        "final": {
+          "u": 0.00011593599654116919,
+          "v": 8.997602838719253e-06
+        }
+      }
+    }
+  },
+  "data_sha256": "73e71fed0b9db7eb9c28abdb8e38dd1bf0eaf7bc300853a2d8b5b3859b1ee5ab",
+  "data_file": "C.npz",
+  "elapsed_seconds": 15.546465400024317
+}

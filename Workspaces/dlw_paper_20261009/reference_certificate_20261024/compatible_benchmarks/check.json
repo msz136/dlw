@@ -1,0 +1,59 @@
+{
+  "DLW_reduction_symbolic": true,
+  "Cole_Hopf_symbolic": true,
+  "checks": [
+    {
+      "case": "sine",
+      "check": "initial",
+      "x": "0",
+      "z": "1",
+      "passed": true
+    },
+    {
+      "case": "sine",
+      "check": "initial",
+      "x": "3",
+      "z": "2",
+      "passed": true
+    },
+    {
+      "case": "sine",
+      "check": "boundary",
+      "z": "0",
+      "passed": true
+    },
+    {
+      "case": "sine",
+      "check": "boundary",
+      "z": "4",
+      "passed": true
+    },
+    {
+      "case": "gaussian",
+      "check": "initial",
+      "x": "0",
+      "z": "1",
+      "passed": true
+    },
+    {
+      "case": "gaussian",
+      "check": "initial",
+      "x": "3",
+      "z": "2",
+      "passed": true
+    },
+    {
+      "case": "gaussian",
+      "check": "boundary",
+      "z": "0",
+      "passed": true
+    },
+    {
+      "case": "gaussian",
+      "check": "boundary",
+      "z": "4",
+      "passed": true
+    }
+  ],
+  "meaning": "Checks support the analytic proof, not a formal proof of every step."
+}

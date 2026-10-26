@@ -1,0 +1,70 @@
+{
+  "controls": [
+    {
+      "component": "u",
+      "control": "time_half",
+      "terminal_perturbation_difference": [
+        1.8465318250143747e-18,
+        1.8028983785744476e-17
+      ],
+      "midpoint_v_interpolation_used": false,
+      "certified_error_bound": false
+    },
+    {
+      "component": "u",
+      "control": "y_half",
+      "terminal_perturbation_difference": [
+        6.4999332169784285e-12,
+        6.133713179675287e-12
+      ],
+      "midpoint_v_interpolation_used": true,
+      "certified_error_bound": false
+    },
+    {
+      "component": "v",
+      "control": "time_half",
+      "terminal_perturbation_difference": [
+        1.3190023524423567e-18,
+        7.00178610024086e-19
+      ],
+      "midpoint_v_interpolation_used": false,
+      "certified_error_bound": false
+    },
+    {
+      "component": "v",
+      "control": "y_half",
+      "terminal_perturbation_difference": [
+        3.538974874789106e-11,
+        9.363446399786878e-12
+      ],
+      "midpoint_v_interpolation_used": true,
+      "certified_error_bound": false
+    }
+  ],
+  "x_refinement_stop": {
+    "record": "A_u_dx0.05_h0.1_dt2.5e-05",
+    "reached": 0.0075250000000000004,
+    "status": "stopped",
+    "reason": "amplitude threshold 1e6",
+    "background_max_global": [
+      40051.30944403707,
+      323072.4436324632
+    ],
+    "background_exact_error_in_region": [
+      20.153659008384537,
+      5.113410287320104
+    ],
+    "perturbation_max_global": [
+      0.14777420225328453,
+      1.3740564043909782
+    ],
+    "perturbation_max_region": [
+      3.450129010095679e-06,
+      1.1847993377392058e-06
+    ],
+    "comment": "The unperturbed numerical baseline already loses accuracy under this x refinement. This is not a physical blow-up time or an error bound."
+  },
+  "certificate": false,
+  "eta_u": null,
+  "eta_v": null
+}

@@ -1,0 +1,36 @@
+============================== section-4.3 ==============================
+4.3 A conservation-based moving mesh
+
+A uniform grid assigns the same spacing to weakly varying regions and to the narrow parts of a wave profile. We therefore let the $x$ nodes move with the solution, keep the $y$ lattice uniform, and use the same moving $x$ nodes in every transverse layer. This shared mesh preserves the lattice pairing of the Centered-SD equations while allowing the resolution in $x$ to follow the computed fields.
+
+The auxiliary equation of the natural formulation supplies the conservation law used to determine the mesh. Setting $\rho_k=1-\omega_k/h$ and choosing the flux so that it vanishes on the zero-field background gives
+
+$\rho_k=1-\frac{\omega_k}{h},\qquad q_k=(u_k+2a)\rho_k-\partial_x\rho_k-2a.$
+
+Substituting $\omega_k=h(1-\rho_k)$ into the $\omega$ equation yields $\partial_t\rho_k+\partial_xq_k=0$: the density evolves through a flux that is already present in the semi-discrete system.
+
+Since all layers share the same $x$ nodes, we average the density and the flux over the stored layers,
+
+$\bar\rho=\frac1{N_y}\sum_k\rho_k,\qquad \bar q=\frac1{N_y}\sum_k q_k,$
+
+and the averaged quantities satisfy the same conservation relation. The initial nodes equidistribute the cumulative density; with the left node fixed we require
+
+$\int_{x_0}^{x_i(0)}\bar\rho\,dx=\frac{i}{N_x}\int_{x_0}^{x_0+L}\bar\rho\,dx,\qquad i=0,\dots,N_x,$
+
+so intervals in regions of larger $\bar\rho$ receive more nodes. During the evolution each node keeps its cumulative-density label. In a periodic interval the constant in the node flux is the spatial mean of $\bar q$, and the velocity is
+
+$\dot x_i=\mathcal V_i=\frac{\bar q_i-\langle\bar q\rangle}{\bar\rho_i},\qquad \langle\bar q\rangle=\frac1{N_x}\sum_i\bar q_i.$
+
+This choice conserves every cell mass, leaves the mean displacement zero and keeps the mapping periodic. The construction requires $\bar\rho>0$, and the ordering of the nodes is preserved while the discrete Jacobian remains positive.
+
+On a nonuniform mesh the derivatives in $x$ are evaluated through the fixed uniform coordinate $\xi$, with $x_i=\xi_i+s_i$ and $J=1+\partial_\xi s$. The chain rule gives
+
+$D_xf=\frac{\partial_\xi f}{J},\qquad D_{xx}f=\frac{\partial_{\xi\xi}f}{J^2}-\frac{(\partial_\xi J)(\partial_\xi f)}{J^3},$
+
+where $\partial_\xi$ and $\partial_{\xi\xi}$ are centred three-point differences on the uniform computational grid. We write $D_x$ and $D_{xx}$ for these mapped centred operators, to distinguish them from the Fourier operators $\mathcal D_x$ and $\mathcal D_{xx}$ of Section 4.1. The uniform calculation of Section 5.4 has $s=0$ and $J=1$.
+
+At a moving node the time derivative also contains the change of its position, so we advance
+
+$\dot u_k=F_{u,k}+\mathcal V_kD_xu_k,\qquad \dot\omega_k=F_{\omega,k}+\mathcal V_kD_x\omega_k,\qquad \dot x_k=\mathcal V_k.$
+
+Here $F_u$ and $F_\omega$ denote the Centered-SD right-hand sides evaluated with the mapped operators at the current mesh. Every layer shares the node velocity, so the reconstruction of $v$ is retained during the coupled evolution, and at the lower node the prescribed rate is transported along the node trajectory, $u_t=u^*_t+\mathcal V_0u^*_x$. Setting $\mathcal V=0$ recovers the fixed-grid equations.

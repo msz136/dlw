@@ -1,0 +1,33 @@
+============================== section-5.4 ==============================
+5.4 Fixed and adaptive meshes
+
+We now examine how the distribution of the shared $x$ nodes affects the computed fields. The uniform and adaptive calculations have the same node count, the same $y$ lattice, the same RK4 step $\Delta t=10^{-4}$ and the same final time. Both use the mapped centred operators of Section 4.3, so the only difference is the node distribution; those operators are local in the computational coordinate rather than Fourier multipliers, so the fixed-mesh errors below are larger than those of Table 3. The comparison uses the two soliton tests, whose second field vanishes on the background. In the Gaussian and sinusoidal data the second field is centred on $v=4$, the transverse-averaged density vanishes, and both the equidistribution and the velocity of Section 4.3 are undefined; those two families are therefore excluded here.
+
+In the adaptive calculation the initial nodes equidistribute the transverse-averaged conservation density computed from the exact initial fields, and the nodes then move with the velocity of Section 4.3. The density ranges from $1.000$ to $1.150$ in the one-soliton case and from $1.000$ to $1.050$ in the two-soliton case. Figure 27 shows the resulting local spacing, normalized by the uniform spacing, at $t=0$ and $T=0.01$.
+
+[IMG src=Workspaces/dlw_paper_20261009/time_samm_20261025/figures/mesh_spacing.png]
+Figure 27. Local $x$ spacing normalized by the uniform spacing $\Delta x=0.1$, plotted at the interval midpoints of (a) the one-soliton and (b) the two-soliton case. Grey dashed: initial adaptive mesh; blue: $T=0.01$; orange dotted: uniform spacing. PDF
+
+Nodes are concentrated where the density is large. In the one-soliton case the spacing falls to $0.90\,\Delta x$ across the wave region, and the background is stretched to $1.04\,\Delta x$; in the two-soliton case the spacing varies between $0.97\,\Delta x$ and $1.02\,\Delta x$. The initial and final distributions nearly coincide: the largest node displacement during the calculation is $9.5\times10^{-4}$ in the one-soliton case and $5.2\times10^{-4}$ in the two-soliton case. The pattern is therefore set by the initial equidistribution and adjusted only slightly by the evolution, and the total discrete mass of the averaged density changes by less than $10^{-7}$ relative.
+
+Table 5 compares the terminal errors on the fixed and adaptive meshes and reports the relative change
+
+$\mathcal R_f=100\left(1-\frac{E_f^{\mathrm{adaptive}}(T)}{E_f^{\mathrm{uniform}}(T)}\right)\%,\qquad f=u,v.$
+
+[TABLE]
+Case | Uniform mesh | Adaptive mesh | Change
+E u E_u E u ​ | E v E_v E v ​ | E u E_u E u ​ | E v E_v E v ​ | R u \mathcal R_u R u ​ | R v \mathcal R_v R v ​
+One-soliton | 6.741 × 10 -4 | 1.401 × 10 -3 | 5.954 × 10 -4 | 1.157 × 10 -3 | 11.7% | 17.4%
+Two-soliton | 5.533 × 10 -4 | 1.589 × 10 -3 | 5.198 × 10 -4 | 1.501 × 10 -3 | 6.0% | 5.6%
+[/TABLE]
+
+Positive values correspond to a reduction. The adaptive mesh lowers both errors in both cases: by $11.7\%$ in $u$ and $17.4\%$ in $v$ for the one-soliton case, and by $6.0\%$ and $5.6\%$ for the two-soliton case. The changes are modest, of the same order as the spacing change that produces them, but they appear in both fields of both tests and therefore do not depend on the field or on the polarity of the wave. The reduction is also already obtained from the initial distribution. Holding the equidistributed initial nodes fixed gives changes of $12.8\%$ and $16.3\%$ for the one-soliton case and $5.3\%$ and $5.8\%$ for the two-soliton case, within $1.1$ percentage points of the values in Table 5. The node motion over this short interval is therefore not the main mechanism; it slightly raises the first-field error of the one-soliton case and slightly lowers the second-field error.
+
+Figure 28 shows the corresponding error profiles for the one-soliton case, that is, the maximum over the transverse layers at each native $x$ node. The adaptive mesh lowers the error over the central region of both fields: the dominant peak of $u$ falls from $6.74\times10^{-4}$ to $5.95\times10^{-4}$, and the plateau of $v$ along the wave band falls from $1.40\times10^{-3}$ to $1.16\times10^{-3}$. The reduction thus extends along the band rather than occurring at the single point that defines the maximum. In the two-soliton case it is smaller, as the last row of Table 5 shows.
+
+[IMG src=Workspaces/dlw_paper_20261009/time_samm_20261025/figures/mesh_profile_A.png]
+Figure 28. One-soliton case at $T=0.01$. Maximum over the transverse layers of the absolute error at each native $x$ node for the uniform mesh (orange dashed, open circles) and the adaptive mesh (blue): (a) $u$ and (b) $v$. Both calculations use the mapped centred operators of Section 4.3, the same number of nodes and RK4 with $\Delta t=10^{-4}$. PDF
+
+Read together, the spacing, the table and the profiles describe a consistent mechanism. The error of the fixed calculation is not spread uniformly over the region: it follows the wave band, and the equidistribution puts the additional nodes in the same band. Moving them there lowers the error along the whole band, so the largest value falls too. The relative gain is larger in $v$ than in $u$ for the one-soliton case, which is natural in this formulation: the density is a shifted copy of the auxiliary field $\omega$, and $\omega$ enters the reconstruction of $v$ through the staggered pair, so the monitor weights the part of $v$ that is not determined by the backward difference of $u$.
+
+Taken together, the comparison says what a mesh of this kind can and cannot provide at the resolution and horizon used here. It can move resolution to the part of the region where the error is produced, and it does so with a modest and systematic gain in both fields, with the same node count and the same time integrator. It does not change the origin of the error: the nodes are redistributed, the operator and its truncation are unchanged, and the improvement is limited by how much the local spacing can be reduced before the background is emptied. Nor does the present calculation test the motion of the mesh, since the initial and final distributions nearly coincide and the frozen control gives almost the same numbers. The measured gain is therefore the gain of a grid adapted to the conservation density; a longer computation, in which the density itself changes on the scale of the spacing, is what would test the adaptive part of the method.

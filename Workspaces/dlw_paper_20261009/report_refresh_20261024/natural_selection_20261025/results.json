@@ -1,0 +1,378 @@
+[
+  {
+    "case": "A",
+    "method": "Centered-SD",
+    "h": 0.1,
+    "dx": 0.1,
+    "dt": 0.0001,
+    "T": 0.01,
+    "reached": 0.01,
+    "integrator": "RK4",
+    "status": "complete",
+    "error": [
+      0.0001677233376562448,
+      7.733758362471477e-05
+    ],
+    "initial_error": [
+      0.0,
+      2.220446049250313e-16
+    ],
+    "initial_u_defect_difference": 0.0,
+    "map_error": 0.0,
+    "recomputed_error": [
+      0.0001677233376562448,
+      7.733758362471477e-05
+    ],
+    "state": "u,w; v=backward difference u + adjacent average w",
+    "boundary": "Exact continuous lower u_t; lower w initialized as v-u_y and then evolved by w equation",
+    "artifact": "Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\natural_edge_rk4_20261024\\A.npz",
+    "artifact_sha256": "10b44e4cafbb176fb50aa935b599dc68ab8fff0958b546c9f17c1a4b86de18f4",
+    "sources": [
+      {
+        "path": "Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\natural_edge_rk4_20261024\\run.py",
+        "sha256": "79bfe36073beec0213f3b96af7c698e01ea330b607013324357d79b6ef90ff8f"
+      },
+      {
+        "path": "Workspaces\\dlw_paper_20261009\\spatial_audit_20261023\\separated\\reconstruction_probe\\probe.py",
+        "sha256": "e1ab25d35251b4a5a1106d77ba3f2e32410ed0c9e46705d27917d4f2e2cd97c1"
+      },
+      {
+        "path": "Workspaces\\dlw_paper_20261009\\spatial_audit_20261023\\separated\\reconstruction_probe\\rerun_20261024.py",
+        "sha256": "32da0396c930807152222362bc46b48b03917c04bc84648169eb51a78d80b9c0"
+      },
+      {
+        "path": "Workspaces\\dlw_paper_20261009\\spatial_audit_20261023\\run.py",
+        "sha256": "1743f9877f21e78a1eff6bf9533b67f09965ba9c1ec09d0a759fa16e042f45c5"
+      },
+      {
+        "path": "Workspaces\\dlw_paper_20261009\\spatial_audit_20261023\\separated\\run_separated.py",
+        "sha256": "41046229b00982c115ae37ad206fca3fb6821341af280a86c4cd19d3f7395904"
+      }
+    ],
+    "seconds": 3.6004691999405622,
+    "source_method": "Centered-SD natural edge",
+    "source_record": "Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\natural_edge_rk4_20261024\\A.json",
+    "source_record_sha256": "b2332f9cd40fd27e425a3c7d4b9f1a217eead1df45ddccdae46daa0333c34af0",
+    "section_3_2_normalization": "omega=h*w/4",
+    "section_3_2_field_map": "v=Delta_h u+2*(omega_k+omega_(k-1))/h",
+    "final_record_difference": 0.0
+  },
+  {
+    "case": "B",
+    "method": "Centered-SD",
+    "h": 0.1,
+    "dx": 0.1,
+    "dt": 0.0001,
+    "T": 0.01,
+    "reached": 0.01,
+    "integrator": "RK4",
+    "status": "complete",
+    "error": [
+      0.16338970161586105,
+      0.0340873452664478
+    ],
+    "initial_error": [
+      0.0,
+      3.3881317890172014e-21
+    ],
+    "initial_u_defect_difference": 0.0,
+    "map_error": 0.0,
+    "recomputed_error": [
+      0.16338970161586105,
+      0.0340873452664478
+    ],
+    "state": "u,w; v=backward difference u + adjacent average w",
+    "boundary": "Exact continuous lower u_t; lower w initialized as v-u_y and then evolved by w equation",
+    "artifact": "Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\natural_edge_rk4_20261024\\B.npz",
+    "artifact_sha256": "fec81765218627215b6b13a24d0787d02e065969c1135f35590e6557d04e0eb5",
+    "sources": [
+      {
+        "path": "Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\natural_edge_rk4_20261024\\run.py",
+        "sha256": "79bfe36073beec0213f3b96af7c698e01ea330b607013324357d79b6ef90ff8f"
+      },
+      {
+        "path": "Workspaces\\dlw_paper_20261009\\spatial_audit_20261023\\separated\\reconstruction_probe\\probe.py",
+        "sha256": "e1ab25d35251b4a5a1106d77ba3f2e32410ed0c9e46705d27917d4f2e2cd97c1"
+      },
+      {
+        "path": "Workspaces\\dlw_paper_20261009\\spatial_audit_20261023\\separated\\reconstruction_probe\\rerun_20261024.py",
+        "sha256": "32da0396c930807152222362bc46b48b03917c04bc84648169eb51a78d80b9c0"
+      },
+      {
+        "path": "Workspaces\\dlw_paper_20261009\\spatial_audit_20261023\\run.py",
+        "sha256": "1743f9877f21e78a1eff6bf9533b67f09965ba9c1ec09d0a759fa16e042f45c5"
+      },
+      {
+        "path": "Workspaces\\dlw_paper_20261009\\spatial_audit_20261023\\separated\\run_separated.py",
+        "sha256": "41046229b00982c115ae37ad206fca3fb6821341af280a86c4cd19d3f7395904"
+      }
+    ],
+    "seconds": 17.888180100009777,
+    "source_method": "Centered-SD natural edge",
+    "source_record": "Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\natural_edge_rk4_20261024\\B.json",
+    "source_record_sha256": "16f4fed4c1cec15a9e43772de44d315a89b8b8f6c5a9cc9cdb2ffa2da13ca6fb",
+    "section_3_2_normalization": "omega=h*w/4",
+    "section_3_2_field_map": "v=Delta_h u+2*(omega_k+omega_(k-1))/h",
+    "final_record_difference": 0.0
+  },
+  {
+    "case": "C",
+    "method": "Centered-SD",
+    "h": 0.1,
+    "dx": 0.1,
+    "dt": 0.0001,
+    "T": 0.01,
+    "reached": 0.01,
+    "integrator": "RK4",
+    "status": "complete",
+    "error": [
+      0.00011683115433761419,
+      1.0493896397845148e-05
+    ],
+    "initial_error": [
+      0.0,
+      5.551115123125783e-17
+    ],
+    "initial_u_defect_difference": 0.0,
+    "map_error": 0.0,
+    "recomputed_error": [
+      0.00011683115433761419,
+      1.0493896397845148e-05
+    ],
+    "state": "u,w; v=backward difference u + adjacent average w",
+    "boundary": "Exact continuous lower u_t; lower w initialized as v-u_y and then evolved by w equation",
+    "artifact": "Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\natural_edge_rk4_20261024\\C.npz",
+    "artifact_sha256": "b04e71dc00b493f091fd3a0c7f08cbea2bd932b8559b94cb937fe86509de5b8a",
+    "sources": [
+      {
+        "path": "Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\natural_edge_rk4_20261024\\run.py",
+        "sha256": "79bfe36073beec0213f3b96af7c698e01ea330b607013324357d79b6ef90ff8f"
+      },
+      {
+        "path": "Workspaces\\dlw_paper_20261009\\spatial_audit_20261023\\separated\\reconstruction_probe\\probe.py",
+        "sha256": "e1ab25d35251b4a5a1106d77ba3f2e32410ed0c9e46705d27917d4f2e2cd97c1"
+      },
+      {
+        "path": "Workspaces\\dlw_paper_20261009\\spatial_audit_20261023\\separated\\reconstruction_probe\\rerun_20261024.py",
+        "sha256": "32da0396c930807152222362bc46b48b03917c04bc84648169eb51a78d80b9c0"
+      },
+      {
+        "path": "Workspaces\\dlw_paper_20261009\\spatial_audit_20261023\\run.py",
+        "sha256": "1743f9877f21e78a1eff6bf9533b67f09965ba9c1ec09d0a759fa16e042f45c5"
+      },
+      {
+        "path": "Workspaces\\dlw_paper_20261009\\spatial_audit_20261023\\separated\\run_separated.py",
+        "sha256": "41046229b00982c115ae37ad206fca3fb6821341af280a86c4cd19d3f7395904"
+      }
+    ],
+    "seconds": 57.68145660008304,
+    "source_method": "Centered-SD natural edge",
+    "source_record": "Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\natural_edge_rk4_20261024\\C.json",
+    "source_record_sha256": "ed2728dae898a6b2fa0ef9bc2ea187836afafeebf0c911b53114d30447efa158",
+    "section_3_2_normalization": "omega=h*w/4",
+    "section_3_2_field_map": "v=Delta_h u+2*(omega_k+omega_(k-1))/h",
+    "final_record_difference": 0.0
+  },
+  {
+    "case": "D",
+    "method": "Centered-SD",
+    "h": 0.1,
+    "dx": 0.1,
+    "dt": 0.0001,
+    "T": 0.01,
+    "reached": 0.01,
+    "integrator": "RK4",
+    "status": "complete",
+    "error": [
+      0.0001791633700954539,
+      0.00010090610865365335
+    ],
+    "initial_error": [
+      0.0,
+      2.220446049250313e-16
+    ],
+    "initial_u_defect_difference": 0.0,
+    "map_error": 0.0,
+    "recomputed_error": [
+      0.0001791633700954539,
+      0.00010090610865365335
+    ],
+    "state": "u,w; v=backward difference u + adjacent average w",
+    "boundary": "Exact continuous lower u_t; lower w initialized as v-u_y and then evolved by w equation",
+    "artifact": "Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\natural_edge_rk4_20261024\\D.npz",
+    "artifact_sha256": "2bc88036b561bf733fa68aa8a87e553c518885b69206dbbf10cd4279124ec942",
+    "sources": [
+      {
+        "path": "Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\natural_edge_rk4_20261024\\run.py",
+        "sha256": "79bfe36073beec0213f3b96af7c698e01ea330b607013324357d79b6ef90ff8f"
+      },
+      {
+        "path": "Workspaces\\dlw_paper_20261009\\spatial_audit_20261023\\separated\\reconstruction_probe\\probe.py",
+        "sha256": "e1ab25d35251b4a5a1106d77ba3f2e32410ed0c9e46705d27917d4f2e2cd97c1"
+      },
+      {
+        "path": "Workspaces\\dlw_paper_20261009\\spatial_audit_20261023\\separated\\reconstruction_probe\\rerun_20261024.py",
+        "sha256": "32da0396c930807152222362bc46b48b03917c04bc84648169eb51a78d80b9c0"
+      },
+      {
+        "path": "Workspaces\\dlw_paper_20261009\\spatial_audit_20261023\\run.py",
+        "sha256": "1743f9877f21e78a1eff6bf9533b67f09965ba9c1ec09d0a759fa16e042f45c5"
+      },
+      {
+        "path": "Workspaces\\dlw_paper_20261009\\spatial_audit_20261023\\separated\\run_separated.py",
+        "sha256": "41046229b00982c115ae37ad206fca3fb6821341af280a86c4cd19d3f7395904"
+      }
+    ],
+    "seconds": 57.69568210002035,
+    "source_method": "Centered-SD natural edge",
+    "source_record": "Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\natural_edge_rk4_20261024\\D.json",
+    "source_record_sha256": "621ddf31ff9a77bee97380d3adcaccdd3d4a7ecb55e8cce46ac1ed2e85c95870",
+    "section_3_2_normalization": "omega=h*w/4",
+    "section_3_2_field_map": "v=Delta_h u+2*(omega_k+omega_(k-1))/h",
+    "final_record_difference": 0.0
+  },
+  {
+    "case": "Gaussian",
+    "method": "Centered-SD",
+    "integrator": "RK4",
+    "h": 0.1,
+    "dx": 0.1,
+    "dt": 0.0001,
+    "T": 0.01,
+    "reached": 0.01,
+    "status": "complete",
+    "error": [
+      2.8999367109039387e-08,
+      6.966963894683431e-09
+    ],
+    "argmax_u": [
+      1.7000000000000028,
+      0.0
+    ],
+    "argmax_v": [
+      -1.7999999999999972,
+      1.2500000000000002
+    ],
+    "initial_error": [
+      0.0,
+      8.881784197001252e-16
+    ],
+    "independent_initial_rhs_difference": 8.916825611215984e-14,
+    "recomputed_error": [
+      2.8999367109039387e-08,
+      6.966963894683431e-09
+    ],
+    "reference_bound": 1e-13,
+    "reference_values_identical_to_certified_artifact": "Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\nondegenerate_rk4_20261024\\Gaussian_Centered-SD_RK4.npz",
+    "certified_artifact_sha256": "cd61173efbffe0c9e8cab06bd6d1cd95003e503e05b34ed9ad1cb349440ff8b3",
+    "artifact": "Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\natural_edge_rk4_20261024\\Gaussian.npz",
+    "artifact_sha256": "baf314e958fbce3ad08d31a9bf892d65210aa1d334000629e43b33c3ce03003d",
+    "sources": [
+      {
+        "path": "Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\natural_edge_rk4_20261024\\non_soliton.py",
+        "sha256": "40f2c0f82d17cfb7c06f7d5b8b413b94ca1b416e5d2dafd336de6169ac223ce3"
+      },
+      {
+        "path": "Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\nondegenerate_rk4_20261024\\run.py",
+        "sha256": "c8b8311e4bf879a01a71b0e9f71c98635b4c832215d0ebb682ee8d21e3977ecb"
+      },
+      {
+        "path": "Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\nondegenerate_rk4_20261024\\reference_grid.py",
+        "sha256": "941b41a9aa912b80cc858e116446e388ecaa4ae70711eccab0c514081e851515"
+      },
+      {
+        "path": "Workspaces\\dlw_paper_20261009\\spatial_audit_20261023\\separated\\reconstruction_probe\\probe.py",
+        "sha256": "e1ab25d35251b4a5a1106d77ba3f2e32410ed0c9e46705d27917d4f2e2cd97c1"
+      },
+      {
+        "path": "Workspaces\\dlw_paper_20261009\\spatial_audit_20261023\\separated\\reconstruction_probe\\rerun_20261024.py",
+        "sha256": "32da0396c930807152222362bc46b48b03917c04bc84648169eb51a78d80b9c0"
+      },
+      {
+        "path": "Workspaces\\dlw_paper_20261009\\spatial_audit_20261023\\run.py",
+        "sha256": "1743f9877f21e78a1eff6bf9533b67f09965ba9c1ec09d0a759fa16e042f45c5"
+      }
+    ],
+    "boundary": "Exact continuous lower u_t; all w nodes evolved; initial lower w=v-u_y",
+    "seconds": 23.109964800067246,
+    "source_method": "Centered-SD natural edge",
+    "source_record": "Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\natural_edge_rk4_20261024\\Gaussian.json",
+    "source_record_sha256": "4696b15e6216ff9bf9ff1555063511ef2c9944ee02d52cd31a9b0eee462819f7",
+    "section_3_2_normalization": "omega=h*w/4",
+    "section_3_2_field_map": "v=Delta_h u+2*(omega_k+omega_(k-1))/h",
+    "final_record_difference": 0.0,
+    "map_error": 0.0
+  },
+  {
+    "case": "Sinusoidal",
+    "method": "Centered-SD",
+    "integrator": "RK4",
+    "h": 0.1,
+    "dx": 0.1,
+    "dt": 0.0001,
+    "T": 0.01,
+    "reached": 0.01,
+    "status": "complete",
+    "error": [
+      2.0029342968908015e-08,
+      4.7059751651090664e-09
+    ],
+    "argmax_u": [
+      -85.9,
+      0.0
+    ],
+    "argmax_v": [
+      62.0,
+      -1.3499999999999999
+    ],
+    "initial_error": [
+      0.0,
+      8.881784197001252e-16
+    ],
+    "independent_initial_rhs_difference": 7.280460956327062e-14,
+    "recomputed_error": [
+      2.0029342968908015e-08,
+      4.7059751651090664e-09
+    ],
+    "reference_bound": 1e-13,
+    "reference_values_identical_to_certified_artifact": "Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\nondegenerate_rk4_20261024\\Sinusoidal_Centered-SD_RK4.npz",
+    "certified_artifact_sha256": "379b5fe0ecaf142363065e72265c35b3f301bb501e0920c992d4cdf49baf41c4",
+    "artifact": "Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\natural_edge_rk4_20261024\\Sinusoidal.npz",
+    "artifact_sha256": "cd3455f785faf69881638dde5f4aaea20c0c8529688423c2284caef37c13bef2",
+    "sources": [
+      {
+        "path": "Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\natural_edge_rk4_20261024\\non_soliton.py",
+        "sha256": "40f2c0f82d17cfb7c06f7d5b8b413b94ca1b416e5d2dafd336de6169ac223ce3"
+      },
+      {
+        "path": "Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\nondegenerate_rk4_20261024\\run.py",
+        "sha256": "c8b8311e4bf879a01a71b0e9f71c98635b4c832215d0ebb682ee8d21e3977ecb"
+      },
+      {
+        "path": "Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\nondegenerate_rk4_20261024\\reference_grid.py",
+        "sha256": "941b41a9aa912b80cc858e116446e388ecaa4ae70711eccab0c514081e851515"
+      },
+      {
+        "path": "Workspaces\\dlw_paper_20261009\\spatial_audit_20261023\\separated\\reconstruction_probe\\probe.py",
+        "sha256": "e1ab25d35251b4a5a1106d77ba3f2e32410ed0c9e46705d27917d4f2e2cd97c1"
+      },
+      {
+        "path": "Workspaces\\dlw_paper_20261009\\spatial_audit_20261023\\separated\\reconstruction_probe\\rerun_20261024.py",
+        "sha256": "32da0396c930807152222362bc46b48b03917c04bc84648169eb51a78d80b9c0"
+      },
+      {
+        "path": "Workspaces\\dlw_paper_20261009\\spatial_audit_20261023\\run.py",
+        "sha256": "1743f9877f21e78a1eff6bf9533b67f09965ba9c1ec09d0a759fa16e042f45c5"
+      }
+    ],
+    "boundary": "Exact continuous lower u_t; all w nodes evolved; initial lower w=v-u_y",
+    "seconds": 5.532916199997999,
+    "source_method": "Centered-SD natural edge",
+    "source_record": "Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\natural_edge_rk4_20261024\\Sinusoidal.json",
+    "source_record_sha256": "026e5920826c3ac055a4f3646bd93f4f63fda83a8a200db88daac12d9eba0a57",
+    "section_3_2_normalization": "omega=h*w/4",
+    "section_3_2_field_map": "v=Delta_h u+2*(omega_k+omega_(k-1))/h",
+    "final_record_difference": 0.0,
+    "map_error": 0.0
+  }
+]

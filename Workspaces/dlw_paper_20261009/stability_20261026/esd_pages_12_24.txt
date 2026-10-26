@@ -1,0 +1,139 @@
+===== PAGE 12 =====
+7
+Numerical evolution of the DLW y lattice
+7.1
+Closure and numerical method
+We now report DLW computations separately from the moving-mesh 2-HS experiments.
+Let k∗be the
+prescribed left site. Evolve uk, vk for k = k∗+ 1, . . . , k∗+ K, and prescribe uk∗(x, t). Telescoping the first
+DLW equation gives
+(uk)t = −∂x
+
+2auk + 1
+2u2
+k
+
+−h
+k
+X
+j=k∗+1
+(vj)xx + F∗(x, t),
+F∗= (uk∗)t + ∂x
+
+2auk∗+ 1
+2u2
+k∗
+
+.
+(20)
+Together with the second lattice equation this is an explicit method-of-lines evolution. No inverse periodic y
+difference is used. All stencils are backward in k, so there is no right-boundary datum. The field vk belongs
+to the edge (k −1, k); its midpoint is used in plots.
+The x interval is periodic, [−96, 96), with Nx = 384 equally spaced points. Fourier collocation approx-
+imates first and second x derivatives directly. The first derivative’s Nyquist coefficient is set to zero, as
+appropriate for real trigonometric collocation; the second derivative retains its −ξ2 coefficient. Products
+are evaluated pointwise, with no filtering, artificial viscosity, or dealiasing. The prescribed boundary flux
+is differentiated by the same Fourier operator. Classical RK4 advances the resulting nonautonomous ODE,
+evaluating the boundary at every stage. Forward Euler is used only for the time-order test.
+All main runs use
+a = 1
+3,
+λ = −2,
+h = 0.1,
+k∗= −20,
+K = 40,
+0 ≤t ≤0.1,
+∆t = 0.001.
+Five snapshots are saved at t = 0, 0.025, 0.05, 0.075, 0.1. No interior value is replaced by an exact solution
+during time stepping. For fixed Nx, K the vector field is smooth in the evolving variables and the prescribed
+boundary, so ordinary local ODE existence applies. This does not assert well-posedness uniformly as the x
+resolution increases.
+7.2
+Initial and boundary data
+The exact cases use the positive Casoratian formula already proved, with Bi = 1 and Ai = eθi:
+case
+(pi, qi)
+θi
+one wave
+(0.6, 0.9)
+0
+two waves
+(0.6, 0.9), (1.0, 1.5)
+2, −2
+The boundary uk∗and its time derivative come from the same exact tau functions. Finite positive exponential
+sums are evaluated using log-sum-exp weights. Their weighted means, variances, third central moments, and
+mixed covariances give the required analytic derivatives without finite differencing the benchmark.
+For the two nonexact cases set uk∗= 0 for all time and put
+ek = sin
+π(k −k∗)
+K
+
+,
+G(x) = e−(x/6)2,
+ϑ = 2πx
+24 .
+The initial data are
+case
+uk(x, 0)
+vk(x, 0)
+Gaussian
+0.05ekG(x)
+0.03ekG(x)
+sinusoidal
+0.03ek cos ϑ
+0.02ek sin ϑ
+The sinusoidal data are exactly periodic in x. The Gaussian and line-wave data are periodized over the
+large interval. This is a line-to-periodic approximation, not an exact periodic soliton theorem. The two-
+wave endpoint field magnitude at t = 0.1 is about 2.4 × 10−12; the one-wave tail is below the resolution of
+the double-precision log-derivative subtraction. The tail observation alone is not a rigorous bound on the
+periodization error.
+12
+
+===== PAGE 24 =====
+Figure 7: Gaussian perturbation under the compatible periodic closure. Density concentration and selected
+mesh trajectories show the strong compression reached by T=6. The lower-right panel is a mesh diagnostic,
+not an exact-solution error plot.
+11.5
+Time refinement and constraint diagnostics
+For time refinement, use the one-soliton lattice and compare at T = 0.5. Unlike the main runs, the following
+are true fixed steps. The maximum nodal velocity errors are
+Euler step
+error
+observed order
+1/256
+1.36758 × 10−5
+−
+1/512
+6.83804 × 10−6
+0.99997
+1/1024
+3.41902 × 10−6
+1.00000
+1/2048
+1.70951 × 10−6
+1.00000
+and
+RK4 step
+error
+observed order
+1/16
+1.74556 × 10−8
+−
+1/32
+1.11136 × 10−9
+3.973
+1/64
+7.08346 × 10−11
+3.972
+1/128
+4.47108 × 10−12
+3.986.
+The order is log2(E(τ)/E(τ/2)). The results agree with the expected first and fourth orders before periodic-
+tail and floating-point effects dominate.
+Across the four main runs, the maximum physical-length drift is 7.11 × 10−15, and the largest saved-
+time residual of the periodic force compatibility condition is less than 9 × 10−16. These are checks of the
+algebraic closure and its implementation, not a claim that the time integrators preserve every invariant of
+the integrable lattice.
+A separate exact-profile spatial check evaluates the one-soliton formula at common material coordinates
+z ∈[−3, 3] using the analytic extension j = z/ℓ. At T = 0.5, the velocity errors against the continuous
+24

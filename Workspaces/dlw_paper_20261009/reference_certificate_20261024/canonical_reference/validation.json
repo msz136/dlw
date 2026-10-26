@@ -1,0 +1,118 @@
+{
+  "continuum_certificate": false,
+  "refinements": [
+    {
+      "axis": "x",
+      "coarse": "Sinusoidal_M16_Y16_dt1.0e-04",
+      "fine": "Sinusoidal_M32_Y16_dt1.0e-04",
+      "max_difference_u_v": [
+        3.469446951953614e-18,
+        3.469446951953614e-18
+      ]
+    },
+    {
+      "axis": "y",
+      "coarse": "Sinusoidal_M32_Y16_dt1.0e-04",
+      "fine": "Sinusoidal_M32_Y24_dt1.0e-04",
+      "max_difference_u_v": [
+        4.163336342344337e-17,
+        8.541480240112365e-16
+      ]
+    },
+    {
+      "axis": "time",
+      "coarse": "Sinusoidal_M32_Y24_dt1.0e-04",
+      "fine": "Sinusoidal_M32_Y24_dt5.0e-05",
+      "max_difference_u_v": [
+        4.85722573273506e-17,
+        3.1582809284502744e-16
+      ]
+    },
+    {
+      "axis": "x",
+      "coarse": "Sinusoidal_M32_Y24_dt5.0e-05",
+      "fine": "Sinusoidal_M64_Y24_dt5.0e-05",
+      "max_difference_u_v": [
+        6.938893903907228e-18,
+        6.938893903907228e-18
+      ]
+    },
+    {
+      "axis": "x",
+      "coarse": "Gaussian_M64_Y16_dt1.0e-04",
+      "fine": "Gaussian_M96_Y16_dt1.0e-04",
+      "max_difference_u_v": [
+        7.074202335033419e-15,
+        8.743006318923108e-15
+      ]
+    },
+    {
+      "axis": "x",
+      "coarse": "Gaussian_M96_Y16_dt1.0e-04",
+      "fine": "Gaussian_M128_Y16_dt1.0e-04",
+      "max_difference_u_v": [
+        1.3877787807814457e-17,
+        6.938893903907228e-18
+      ]
+    },
+    {
+      "axis": "y",
+      "coarse": "Gaussian_M128_Y16_dt1.0e-04",
+      "fine": "Gaussian_M128_Y24_dt1.0e-04",
+      "max_difference_u_v": [
+        7.632783294297951e-17,
+        1.57002977784447e-15
+      ]
+    },
+    {
+      "axis": "time",
+      "coarse": "Gaussian_M128_Y24_dt1.0e-04",
+      "fine": "Gaussian_M128_Y24_dt5.0e-05",
+      "max_difference_u_v": [
+        2.7755575615628914e-17,
+        1.7011132086297565e-16
+      ]
+    },
+    {
+      "axis": "x",
+      "coarse": "Gaussian_M128_Y24_dt5.0e-05",
+      "fine": "Gaussian_M192_Y24_dt5.0e-05",
+      "max_difference_u_v": [
+        3.469446951953614e-18,
+        3.469446951953614e-18
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "case": "Sinusoidal",
+      "selected": "Sinusoidal_M32_Y24_dt5.0e-05",
+      "independent_DOP853_difference_u_v": [
+        3.8163916471489756e-17,
+        2.2101461286117008e-16
+      ],
+      "DOP853_rhs_calls": 14,
+      "sampled_full_physical_residuals": [
+        3.3361247792074167e-13,
+        1.436599970927599e-12
+      ],
+      "residual_scope": "Cubic-Hermite time interpolation; 30 time samples x 161 y x 768 x samples; exact polynomial derivatives; not an enclosure"
+    },
+    {
+      "case": "Gaussian",
+      "selected": "Gaussian_M128_Y24_dt5.0e-05",
+      "independent_DOP853_difference_u_v": [
+        2.7755575615628914e-17,
+        1.1232334506949826e-16
+      ],
+      "DOP853_rhs_calls": 14,
+      "sampled_full_physical_residuals": [
+        7.129444604125901e-13,
+        3.2873312904267704e-12
+      ],
+      "residual_scope": "Cubic-Hermite time interpolation; 30 time samples x 161 y x 768 x samples; exact polynomial derivatives; not an enclosure"
+    }
+  ],
+  "eta_u": null,
+  "eta_v": null
+}

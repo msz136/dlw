@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DLW 数值图表独立审查 · 2026-10-25</title>
+<style>
+body{max-width:1080px;margin:42px auto;padding:0 24px;color:#232629;background:#fff;font:16px/1.85 Georgia,"Microsoft YaHei",serif}h1{font-size:28px;line-height:1.4}h2{font-size:22px;margin-top:36px}h3{font-size:18px;margin-top:26px}a{color:#245e80}p{margin:12px 0}.meta,figcaption{color:#525b63;font-size:14px}.result{border-left:3px solid #345e78;padding:4px 0 4px 20px;margin:25px 0}.scroll{overflow:auto}table{width:100%;border-collapse:collapse;font-size:14px;line-height:1.65;margin:20px 0;border-top:2px solid #333;border-bottom:2px solid #333}th,td{padding:10px 12px;text-align:left;vertical-align:top}thead{border-bottom:1px solid #777}tbody tr+tr{border-top:1px solid #e3e6e8}figure{margin:25px 0}img{display:block;width:100%;height:auto}figcaption{margin:10px 0 20px}.number{white-space:nowrap;font-variant-numeric:tabular-nums}details{border-top:1px solid #ddd;padding:15px 0;margin:20px 0}summary{cursor:pointer}code{font-size:.9em;overflow-wrap:anywhere}li{margin:8px 0}@media print{body{max-width:none;margin:0;font-size:11pt}details{display:block}h2,h3{break-after:avoid}figure,table{break-inside:avoid}}
+</style></head><body>
+<h1>Section 5.1 及以后数值图表的独立审查</h1>
+<p class="meta">2026-10-25 · 对象：<a href="../dlw-paper.html#section-5.1">当前主论文</a>的 24 个图组、3 张表。只读取现有图、保存数据和绘图源；没有重新推进数值解或重新计算连续参照。</p>
+<div class="result"><p><strong>表格及图源数据对齐通过；绘图呈现需要修订。</strong>两张误差表的 48 个数值、16 处最优值加粗及正文比较倍数正确。最值得修改的是热图的近白色阈值区、双孤子 3D 曲面的抽稀，以及 Gaussian/Sinusoidal 第二场中心截面的选择。</p><p>本次保留主论文、现有图片和原始数据，以下列出可复核的审查结论及修改建议。</p></div>
+
+<h2>1. 表格与保存数据</h2>
+<div class="scroll"><table><thead><tr><th>核对对象</th><th>结果</th><th>解释</th></tr></thead><tbody>
+<tr><td>Table 1 参数与区域</td><td>通过</td><td>单孤子为 (1,2)，双孤子为 (1,2),(4,−3)；R/L 分别为 5/10、30/40，与运行记录一致。</td></tr>
+<tr><td>Table 2–3 误差值</td><td>48/48 通过</td><td>HTML、当前 CSV、初次保存 JSON 逐项一致；四位有效数字正确。终态 T=0.01、h=Δx=0.1、RK4、Δt=10<sup>−4</sup> 一致。</td></tr>
+<tr><td>加粗及正文排序</td><td>16/16 通过</td><td>终态 u：两孤子由 FD 最优，Gaussian/Sinusoidal 由 Endpoint-SD 最优；四案 v 均由 Centered-SD 最优。正文倍率正确。</td></tr>
+<tr><td>图源数组与轨迹</td><td>通过</td><td>24 个终态场数组与原始轨迹的相应原生坐标子集逐元素一致；误差数组等于保存数值场减保存参照场。24 张入稿 PNG 与各自绘图记录的文件摘要一致。</td></tr>
+</tbody></table></div>
+<figure><a href="../Workspaces/dlw_paper_20261009/figtable_audit_20261025/table-final_1440.png"><img src="../Workspaces/dlw_paper_20261009/figtable_audit_20261025/table-final_1440.png" alt="当前论文Table 3桌面显示截图"></a><figcaption>Table 3 的当前显示。桌面宽度下列组、指数和最优粗体均清楚，无列错位。</figcaption></figure>
+<p>图中的截面误差、热图标题中的全区域最大值、表中的原生二维最大误差并非同一个量。现有图注已说明裁窗及 y=0 重构，需保留这些说明。Sinusoidal 裁剪图源的 Centered-SD v 峰值与全周期表值相差 7.816×10<sup>−13</sup>（约 0.0166%）；这是不同周期位置的微小舍入差异，不是误抄或方法错配。</p>
+
+<h2>2. 误差热图：白洞、拥挤与真实细纹</h2>
+<h3>近白色阈值区造成了主要视觉问题</h3>
+<p>Figure 9/13/17/21 每个分量的三方法共用对数色标，这个比较原则正确。但绘图把低于下限的有效误差统一涂成近白色，下限为该行最大误差的 10<sup>−4</sup>（最低不小于 10<sup>−13</sup>）。小误差区因此像被挖空，边界呈锯齿。双孤子 v 的三张热图分别有约 31.7%、40.1%、42.9% 的采样点落入此颜色；单孤子 FD 的 v 达 47.3%。保存数组均为有限数，白洞并非 NaN 或缺测。</p>
+<figure><a href="../Workspaces/dlw_paper_20261009/spatial_ad_uv_20261025/figures/spatial_D.png"><img src="../Workspaces/dlw_paper_20261009/figtable_audit_20261025/figure-13_1440.png" alt="Figure 13十面板综合图，低于阈值的近白色区域及锯齿可见"></a><figcaption>Figure 13 当前正文尺度的显示。下排大片近白色区来自色标阈值；同图的窄条纹和上排误差曲线的振荡直接存在于保存数据中，不能用平滑把它们抹掉。</figcaption></figure>
+<p><strong>建议：</strong>继续共享同一分量的色标；阈值以下改用与顺序色图最低端连续的颜色，并在色条明确写“≤下限”。将上部四个截面面板与下部 2×3 热图拆开，减少重复坐标与长公式标题。问题主要来自阈值配色及十面板密度，单换另一套鲜艳颜色不能解决。</p>
+
+<h2>3. 双孤子 3D：最大值正确，局部形状不够忠实</h2>
+<p>Figure 14/15 把双孤子约 600×601 的原生网格抽到约 121×181，并专门补入全局最大值所在行列。因此，最大值核对能通过，但窄峰、谷和误差条带仍可能被跨越连接。将抽稀曲面按双线性方式回查原生点，六组分量的最大高度差约为各自峰值的 42%–81%；这是抽稀敏感性诊断，并非旧图逐像素的实际渲染误差，也不能解释为表格误差增加了这一比例。</p>
+<p>Figure 16 的新透明面保留全部 x，但 y 仍抽到至多 241 行。按其实际三角片连接回查省略点，局部高度偏差仍达各自峰值的 7.1%–22.0%。例如 FD 的 v 在 (x,y)=(1.1,2.15) 的保存绝对误差为 1.396×10<sup>−6</sup>，跨越该点的三角片高度约为 3.865×10<sup>−5</sup>。已保留采样点的数值及全局最大值没有被改动，问题出在省略点之间的曲面表示。</p>
+<p><strong>建议：</strong>双孤子误差曲面至少保留全原生 x、y 网格，或使用经过形状误差控制的抽稀。可以直接读取现有数组重绘，不需要重新求解。对当前图的窄峰、条带宽度和局部极小值，优先以未抽稀热图核对。</p>
+<h3>旧线框叠图另有固定遮挡顺序</h3>
+<p>Figure 11/15/19/23 关闭自动深度排序，按方法固定绘制层次；线框也按固定顺序叠加，交叉处的前后关系不能作为真实空间关系解释。新透明面 Figure 12/16/20/24 使用逐像素深度合成，修正了这一点，但蓝橙绿透明叠加后混成灰褐，较小的 v 误差面也容易贴地重合。定量比较仍应由共享色标的独立面板和表格承担。</p>
+<details><summary>查看双孤子旧线框与新透明面</summary>
+<figure><img loading="lazy" src="../Workspaces/dlw_paper_20261009/spatial_ad_uv_20261025/figures/errors_3d_overlay_D.png" alt="Figure 15旧线框叠图"><figcaption>Figure 15：固定方法绘制次序，且 x/y 均有抽稀。</figcaption></figure>
+<figure><img loading="lazy" src="../Workspaces/dlw_paper_20261009/spatial_ad_uv_20261025/surface_only_20261025/figures/plain_D.png" alt="Figure 16透明叠面"><figcaption>Figure 16：深度合成更合理；透明混色和 y 抽稀仍限制辨读。</figcaption></figure></details>
+
+<h2>4. Gaussian/Sinusoidal 的第二场截面缺乏代表性</h2>
+<p>Figure 17/21(c,d) 统一选 y=0，但这两例在该对称线上精确满足 v=4。截面只留下约 10<sup>−12</sup> 的重构及浮点残差，而二维最大误差为 10<sup>−9</sup>–10<sup>−7</sup>。误差轴又被强制至少显示到 10<sup>−10</sup>，曲线因而几乎全部贴零。这与 Table 3 不矛盾，却浪费了两个比较面板，容易让读者高估第二场精度。</p>
+<p><strong>建议：</strong>选择一个非中心的原生 y 截面并明确坐标，或取消这个近空误差面板，将 v=4 留作对称性说明。若要求三法在相同物理截面比较，仍需注明必要的重构方式。不要把 10<sup>−13</sup> 的原生参照证书直接赋予重构后的截面。</p>
+<details><summary>查看 Gaussian 的中心截面</summary><figure><img loading="lazy" src="../Workspaces/dlw_paper_20261009/spatial_ad_uv_20261025/figures/spatial_Gaussian.png" alt="Figure 17，中心v截面为4，误差图几乎为空"><figcaption>Figure 17(d) 标注截面峰值 1.83×10<sup>−12</sup>，但误差轴上限为 10<sup>−10</sup>。</figcaption></figure></details>
+
+<h2>5. 其余图表与修订顺序</h2>
+<div class="scroll"><table><thead><tr><th>图组</th><th>审查判断</th><th>建议</th></tr></thead><tbody>
+<tr><td>Figure 1–8 初始场</td><td>未见用错案例、场分量、正负号或 v=4 背景；未见明显裁字。</td><td>含正负的初始场可改为围绕 0 或背景值的发散色图；统一 2D/3D 配色。现有 jet 色图的假边界属于感知问题。</td></tr>
+<tr><td>Figure 10/14/18/22 独立 3D</td><td>同分量共享线性高度与颜色合理；D 需要修复抽稀。</td><td>保留共同尺度，不能为放大小误差而逐方法独立归一化。</td></tr>
+<tr><td>误差热图坐标</td><td>各方法使用正确的原生位置，但 v 图各自以 y 数据端点定轴界。Gaussian/Sinusoidal 的 SD 为 ±1.75，FD 为 ±1.8，造成约 2.86% 的纵向比例差。</td><td>小面板使用共同的物理 y 轴界限，保留各自原生数据；图框外沿的空隙应与低误差区区分。自动填满轴框也意味着 x/y 并非等比例，不能据图上斜率直接判断物理波带角度。</td></tr>
+<tr><td>Table 1–3 排版</td><td>桌面三线表清楚。390 像素窄屏时误差表约宽 670–680 像素，超出 338 像素正文。</td><td>窄屏给表加独立横向滚动容器；数值与列序无需修改。</td></tr>
+<tr><td>全节组织</td><td>每案重复展示综合图、独立曲面、线框叠图、透明叠图，正文负担偏重。</td><td>定稿选取互补视图，其余移至补充图集。当前为保留候选，本次不删改。</td></tr>
+</tbody></table></div>
+<p>建议先修复双孤子 3D 的采样和旧叠图遮挡，再重排误差热图并处理阈值颜色，随后更换非孤子第二场截面，最后统一字体、配色和重复图组。所有这些修订均可从现有数据完成。</p>
+<p>Section 5.3、5.4、5.5 当前仅有标题或注释，没有数值图表可审。本次核验限于保存数据到图表的链路，不重新判定求解器或连续参照本身的数学正确性；固定参数终态误差也不单独构成空间或时间收敛阶证明。</p>
+
+<h2>核验记录</h2>
+<p><a href="../Workspaces/dlw_paper_20261009/figtable_audit_20261025/table_audit.md">表格数据与正文核对</a> · <a href="../Workspaces/dlw_paper_20261009/figtable_audit_20261025/plot_provenance.md">绘图映射、抽稀与色标核对</a> · <a href="../Workspaces/dlw_paper_20261009/figtable_audit_20261025/visual_audit.md">24 图视觉审查</a> · <a href="../Workspaces/dlw_paper_20261009/figtable_audit_20261025/table_checks.json">表格逐项记录</a> · <a href="../Workspaces/dlw_paper_20261009/figtable_audit_20261025/plot_data_checks.json">图源逐项记录</a> · <a href="../Workspaces/dlw_paper_20261009/figtable_audit_20261025/layout_checks.json">实际页面尺寸检查</a></p>
+</body></html>

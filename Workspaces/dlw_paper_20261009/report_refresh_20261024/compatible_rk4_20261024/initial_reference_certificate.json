@@ -1,0 +1,76 @@
+{
+  "formulas": "u_t=u_xx-(u+4)u_x; v_t=-u_xxy+u_y*u_x+(u+4)u_xy",
+  "data": "u0=A sin(pi*(y+2)/4) F(x), v0=4-u0_y",
+  "scope": "Analytic continuous initial-reference evaluation at every stored sample.",
+  "script_sha256": "23f15a4b77636ab9d7f317a595336ed7bf71e6782398a27f7ec453bde1a402bb",
+  "cases": [
+    {
+      "case": "Gaussian",
+      "precision_digits": 80,
+      "nx": 1920,
+      "distinct_y_sites": 99,
+      "certified_stored_values": {
+        "ut": 236160,
+        "vt": 234240
+      },
+      "bounds": {
+        "ut": "[1.543753829849564e-17 +/- 4.59e-33]",
+        "vt": "[1.303692783184584e-17 +/- 4.58e-33]"
+      },
+      "uniform_sample_bound_ut": "1e-13",
+      "uniform_sample_bound_vt": "1e-13",
+      "coordinates": "Exact binary64 values of stored x, y and yv arrays.",
+      "conversion": "Stored binary64 reference values enclosed directly, including evaluation and conversion rounding.",
+      "gaussian_omitted_jet_bound": "1e-990",
+      "sources": [
+        {
+          "path": "initial_Gaussian_Endpoint-SD.npz",
+          "sha256": "b628cdf98607a5a0bb10e050f1c0a5daa3bc5cfcafcd58b09791a21d3314442d"
+        },
+        {
+          "path": "initial_Gaussian_Centered-SD.npz",
+          "sha256": "707494433deea693d69d5d8c128dc5d067113bc07c15e9ff431a320990c11fce"
+        },
+        {
+          "path": "initial_Gaussian_FD.npz",
+          "sha256": "d2f9214465012dbacfa06ebf0ab2da1e05d62a3c4eb2dcc3215efefa2deb75b7"
+        }
+      ],
+      "seconds": 1.491501500015147
+    },
+    {
+      "case": "Sinusoidal",
+      "precision_digits": 80,
+      "nx": 1920,
+      "distinct_y_sites": 99,
+      "certified_stored_values": {
+        "ut": 236160,
+        "vt": 234240
+      },
+      "bounds": {
+        "ut": "[1.363559025357067e-16 +/- 4.30e-32]",
+        "vt": "[1.064025766026349e-16 +/- 2.77e-32]"
+      },
+      "uniform_sample_bound_ut": "1e-13",
+      "uniform_sample_bound_vt": "1e-13",
+      "coordinates": "Exact binary64 values of stored x, y and yv arrays.",
+      "conversion": "Stored binary64 reference values enclosed directly, including evaluation and conversion rounding.",
+      "gaussian_omitted_jet_bound": "0",
+      "sources": [
+        {
+          "path": "initial_Sinusoidal_Endpoint-SD.npz",
+          "sha256": "bb45a044d6fd3bce4e7b090ac28f93d973f7f9144ea5cc6b358392a3455c9961"
+        },
+        {
+          "path": "initial_Sinusoidal_Centered-SD.npz",
+          "sha256": "5eb8d30ca9c714941747e9cfe7d8b0d5154b9f1c4c0140e8a207b58ee8eac466"
+        },
+        {
+          "path": "initial_Sinusoidal_FD.npz",
+          "sha256": "092a54d4b5627f2ec8461e5edc88b6243028f7007939a4232c650c77bf4e4e67"
+        }
+      ],
+      "seconds": 1.6637985999695957
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "figure": "physical_perturbation_responses",
+  "layout": "four rows by two columns",
+  "normalization": "epsilon=1e-6",
+  "interpolation_or_smoothing": "none",
+  "curve_count": 16,
+  "checks": [
+    {
+      "case": "A",
+      "sha256": "dc033d7907ade151abb298da0ecbddd5108772f9353f8def1b931a006f7a5c07",
+      "curves": 4,
+      "points_per_curve": 101,
+      "global_plotted_max": 1.0217415868725221,
+      "global_plotted_min": 0.0
+    },
+    {
+      "case": "D",
+      "sha256": "32fb86f693af912a73dc10955980226aae10f035d9c7980920c4ea00316a900c",
+      "curves": 4,
+      "points_per_curve": 101,
+      "global_plotted_max": 1.0286447553910447,
+      "global_plotted_min": 0.0
+    },
+    {
+      "case": "Gaussian",
+      "sha256": "5ece173738a55472f1606a97ca12cbf2094d0593ae74e0ca7f932b45eedc10f3",
+      "curves": 4,
+      "points_per_curve": 101,
+      "global_plotted_max": 1.0000007431804114,
+      "global_plotted_min": 0.0
+    },
+    {
+      "case": "Sinusoidal",
+      "sha256": "f08176783d0cf9c921c24cd1c22e65b4c8dac825345555ff827b8109aee96a5f",
+      "curves": 4,
+      "points_per_curve": 101,
+      "global_plotted_max": 1.0000009017840754,
+      "global_plotted_min": 0.0
+    }
+  ],
+  "definitions": {
+    "native_max_response": "max over the experiment's native evaluation nodes divided by epsilon=1e-6, as plotted",
+    "L2_pair_gain": "sqrt(||delta u(T)||_2,h^2+||delta v(T)||_2,h^2)/sqrt(||delta u(0)||_2,h^2+||delta v(0)||_2,h^2)",
+    "L2_domain": "full periodic x interval, native y evaluation region; squared norm uses h*dx*sum(q^2)",
+    "fourier_8x_max": "finite-grid Fourier interpolant evaluated on eightfold denser x nodes, same y rows; divided by epsilon",
+    "scope": "finite-grid nonlinear sensitivity of the natural Centered-SD method",
+    "continuous_certificate": false
+  }
+}

@@ -1,0 +1,178 @@
+[
+  {
+    "before": "Set $z_i=p_i-a$, $w_i=q_i+a$. The principal-minor expansion pairs every selected row and column with the same index set I. The lattice phase contributes $h^2y\\sum_{i\\in I}c_i$, and the centred f amplitude in (45) contributes $h^2\\sum_{i\\in I}d_i$, where",
+    "after": "We derive the leading difference between the exact semi-discrete and continuous fields by expanding the Gram determinants in the lattice spacing. With $z_i=p_i-a$ and $w_i=q_i+a$, the principal-minor expansion associates each term with a common row and column index set $I$. The lattice phase contributes $h^2y\\sum_{i\\in I}c_i$, while the centred $f$ amplitude in (45) contributes $h^2\\sum_{i\\in I}d_i$. These contributions give"
+  },
+  {
+    "before": "记 $z_i=p_i-a$、$w_i=q_i+a$。主子式展开中，选取的行、列对应同一指标集 I。格点相位贡献 $h^2y\\sum_{i\\in I}c_i$，(45) 的居中 f 振幅贡献 $h^2\\sum_{i\\in I}d_i$，其中",
+    "after": "我们通过对 Gram 行列式作关于格距的展开，推导半离散与连续精确物理场之差的首项。记 $z_i=p_i-a$、$w_i=q_i+a$，主子式展开中的每一项对应相同的行、列指标集 $I$。格点相位贡献 $h^2y\\sum_{i\\in I}c_i$，而 (45) 中居中的 $f$ 振幅贡献 $h^2\\sum_{i\\in I}d_i$。由此得到"
+  },
+  {
+    "before": "Indeed, $\\rho_i\\partial_{\\rho_i}$ selects precisely those minors containing i. Expanding the determinant and then its logarithm therefore gives (85) for every fixed N. Symmetric reconstruction at the physical midpoint yields",
+    "after": "The operator $\\rho_i\\partial_{\\rho_i}$ selects precisely the minors containing the index $i$. Expanding the determinant and then its logarithm therefore gives (85) for any fixed $N$. Substitution into the symmetric reconstruction at the physical midpoint yields"
+  },
+  {
+    "before": "算子 $\\rho_i\\partial_{\\rho_i}$ 恰好选出含 i 的主子式，故先展开行列式再取对数，即对任意固定 N 得到 (85)。在物理中点作对称重构，得到",
+    "after": "算子 $\\rho_i\\partial_{\\rho_i}$ 恰好选出含指标 $i$ 的主子式。因此，先展开行列式再展开其对数，即可对任意固定的 $N$ 得到 (85)。将其代入物理中点处的对称重构关系，得到"
+  },
+  {
+    "before": "Using $4\\beta_{xy}=v-u_y$ gives (41). Fixed regular spectral parameters, nonvanishing τ functions on a neighbourhood of K, and sufficiently small h ensure uniform bounds for the required derivatives and remainders. The positive spectral domain in Theorem 2.7 supplies these conditions; other regular real branches may be used wherever the same bounds hold. No stability estimate for a general initial-value problem is asserted.",
+    "after": "Substituting $4\\beta_{xy}=v-u_y$ into (86) gives the coefficients in (41). For fixed regular spectral parameters and sufficiently small $h$, nonvanishing τ functions on a neighbourhood of $K$ ensure uniform bounds on the derivatives and remainders used in the expansion. The positive spectral domain in Theorem 2.7 satisfies these conditions. The same calculation applies to other regular real branches wherever these bounds hold."
+  },
+  {
+    "before": "代入 $4\\beta_{xy}=v-u_y$ 即得 (41)。固定正则谱参数、K 邻域上 τ 函数不为零以及充分小的 h，保证所需导数及余项的一致界。定理 2.7 的正谱域提供这些条件；其他正则实分支在具有同样界的区域内也适用。此处未断言一般初值问题的稳定性估计。",
+    "after": "将 $4\\beta_{xy}=v-u_y$ 代入 (86)，即得到 (41) 中的系数。对于固定的正则谱参数及充分小的 $h$，$K$ 邻域内 τ 函数不为零，保证展开所需的导数和余项具有一致界。定理 2.7 的正谱域满足这些条件；在具有相同界的区域内，这一计算也适用于其他正则实分支。"
+  },
+  {
+    "before": "**Proof.** Write the nth Gram matrix as $M=I+(r_ic_k/(p_i+q_k))$, with",
+    "after": "**Proof.** We prove the adjacent-layer identity (13) by expressing the shift in the Gram matrix as a rank-one update. The Gram matrix at layer $n$ is $M=I+(r_ic_k/(p_i+q_k))$, where"
+  },
+  {
+    "before": "**证明。** 将第 n 层 Gram 矩阵写成 $M=I+(r_ic_k/(p_i+q_k))$，其中",
+    "after": "**证明。** 我们将 Gram 矩阵的层移位表示为秩一更新，以证明相邻层恒等式 (13)。第 $n$ 层的 Gram 矩阵为 $M=I+(r_ic_k/(p_i+q_k))$，其中"
+  },
+  {
+    "before": "The layer shift follows from",
+    "after": "In particular, the rank-one update in (88) follows from"
+  },
+  {
+    "before": "其中的辅助层移位关系来自恒等式",
+    "after": "特别地，(88) 中的秩一更新来自恒等式"
+  },
+  {
+    "before": "Where M is invertible, define",
+    "after": "We first work where $M$ is invertible and introduce"
+  },
+  {
+    "before": "在 M 可逆处，记",
+    "after": "我们先在 $M$ 可逆的区域内引入"
+  },
+  {
+    "before": "Taking $g=\\tau_n$ and $f=\\tau_{n+1}$ proves [(13)](#en-eq-13) wherever M is invertible. To extend the result to singular matrices, replace all $\\rho_i$ by $\\varepsilon\\rho_i$. At any fixed x,t, M is the identity at $\\varepsilon=0$, and the bilinear residual vanishes for ε near zero. Since the residual is a polynomial in ε, it vanishes identically. Setting $\\varepsilon=1$ completes the proof. □",
+    "after": "Taking $g=\\tau_n$ and $f=\\tau_{n+1}$ identifies (94) with the bilinear identity [(13)](#en-eq-13) wherever $M$ is invertible. The identity extends to singular matrices by polynomial continuation. To see this, we replace each $\\rho_i$ by $\\varepsilon\\rho_i$. At fixed $x,t$, the matrix equals the identity when $\\varepsilon=0$, so the bilinear residual vanishes for $\\varepsilon$ near zero. Since this residual is a polynomial in $\\varepsilon$, it vanishes identically. Evaluation at $\\varepsilon=1$ completes the proof. □"
+  },
+  {
+    "before": "取 $g=\\tau_n$、$f=\\tau_{n+1}$，即在 M 可逆处得到 [(13)](#zh-eq-13)。为将结论延伸至奇异矩阵，将所有 $\\rho_i$ 替换为 $\\varepsilon\\rho_i$。在固定 x、t 处，$\\varepsilon=0$ 时 M 为单位矩阵，双线性残差在 ε 的零点邻域内为零。该残差是 ε 的多项式，故恒等于零。令 $\\varepsilon=1$ 即完成证明。□",
+    "after": "取 $g=\\tau_n$、$f=\\tau_{n+1}$，即可将 (94) 识别为 $M$ 可逆处的双线性恒等式 [(13)](#zh-eq-13)。这一恒等式通过多项式延拓适用于奇异矩阵。具体地，将每个 $\\rho_i$ 替换为 $\\varepsilon\\rho_i$。在固定 $x,t$ 下，$\\varepsilon=0$ 时矩阵为单位矩阵，因此双线性残差在 $\\varepsilon$ 的零点邻域内消失。由于该残差是 $\\varepsilon$ 的多项式，它恒等于零。取 $\\varepsilon=1$ 即完成证明。□"
+  },
+  {
+    "before": "**Proof.** Set",
+    "after": "**Proof.** We express the lattice part of the linear system through two first-order Darboux operators and relate their compatibility to the nonlinear equations. For this purpose, we use"
+  },
+  {
+    "before": "**证明。** 令",
+    "after": "**证明。** 我们用两个一阶 Darboux 算子表示线性系统的格点关系，并将其相容性与非线性方程联系起来。为此，采用"
+  },
+  {
+    "before": "The w equation makes the difference vanish, and the definition of $V_{j,x}$ makes the sum vanish. Hence $\\mathcal E_j^r=\\mathcal E_j^s=0$. For a scalar function r, the product rule gives the Darboux identity",
+    "after": "The $w$ equation makes the difference in (100) vanish, while the definition of $V_{j,x}$ makes the sum vanish. Thus $\\mathcal E_j^r=\\mathcal E_j^s=0$. These scalar relations enter the operator calculation through the following Darboux identity, obtained by the product rule for a scalar function $r$:"
+  },
+  {
+    "before": "由 w 的演化方程，两项残差之差为零；由 $V_{j,x}$ 的定义，两项残差之和也为零。因此 $\\mathcal E_j^r=\\mathcal E_j^s=0$。对于标量函数 r，乘积法则给出 Darboux 恒等式",
+    "after": "$w$ 方程使 (100) 中的残差之差为零，而 $V_{j,x}$ 的定义使残差之和为零。因此，$\\mathcal E_j^r=\\mathcal E_j^s=0$。这些标量关系通过以下 Darboux 恒等式进入算子计算；该恒等式由标量函数 $r$ 的乘积法则得到："
+  },
+  {
+    "before": "Conversely, assume compatibility and the potential-difference relation. The same operator calculation gives",
+    "after": "For the converse, we assume compatibility together with the potential-difference relation. Repeating the operator calculation while retaining the scalar residuals gives"
+  },
+  {
+    "before": "反之，设相容条件与辅助势差关系成立。同样的算子计算给出",
+    "after": "反过来，我们假设相容条件及辅助势差关系成立。在保留标量残差的情况下重复上述算子计算，得到"
+  },
+  {
+    "before": "Comparing the coefficients of $\\partial_x^0$ and $\\partial_x^{-1}$ yields $\\mathcal E_j^r=\\mathcal E_j^s$ and $w_j\\mathcal E_j^s=0$. Thus both residuals vanish wherever $w_j\\ne0$. Their difference gives the w equation; their sum, after applying $\\delta_-$ and using the potential-difference relation, gives the first nonlinear equation. □",
+    "after": "Comparison of the coefficients of $\\partial_x^0$ and $\\partial_x^{-1}$ gives $\\mathcal E_j^r=\\mathcal E_j^s$ and $w_j\\mathcal E_j^s=0$. Both residuals therefore vanish wherever $w_j\\ne0$. Their difference recovers the $w$ equation. Applying $\\delta_-$ to their sum and using the potential-difference relation then recovers the first nonlinear equation. □"
+  },
+  {
+    "before": "比较 $\\partial_x^0$ 和 $\\partial_x^{-1}$ 的系数，得到 $\\mathcal E_j^r=\\mathcal E_j^s$、$w_j\\mathcal E_j^s=0$。因此在 $w_j\\ne0$ 的区域内，两项残差均为零。两者之差给出 w 方程；两者之和经后向差分，并结合辅助势差关系，给出第一条非线性方程。□",
+    "after": "比较 $\\partial_x^0$ 和 $\\partial_x^{-1}$ 的系数，得到 $\\mathcal E_j^r=\\mathcal E_j^s$ 及 $w_j\\mathcal E_j^s=0$。因此，在 $w_j\\ne0$ 的区域内，两项残差均为零。两者之差恢复 $w$ 方程；对两者之和施加 $\\delta_-$，再利用辅助势差关系，即恢复第一条非线性方程。□"
+  },
+  {
+    "before": "For PF, Q is determined by $D_1Q_j^0=u_{*,j}(0)Q_j^0/2$ with normalization $Q_{j,0}^0=1$, and $R_j^0=[1-(v_{*,j}(0)-\\delta_0u_{*,j}(0))/4]/Q_j^0$. The lower boundary $Q_0(t)$ is obtained from $u_{*,0}(t)$ by the same relation.",
+    "after": "The numerical schemes require auxiliary initial values and boundary data consistent with the prescribed physical fields. For PF, we determine $Q$ from $D_1Q_j^0=u_{*,j}(0)Q_j^0/2$, with the normalization $Q_{j,0}^0=1$, and then set $R_j^0=[1-(v_{*,j}(0)-\\delta_0u_{*,j}(0))/4]/Q_j^0$. The same relation determines the lower boundary value $Q_0(t)$ from $u_{*,0}(t)$."
+  },
+  {
+    "before": "对于 PF，由 $D_1Q_j^0=u_{*,j}(0)Q_j^0/2$ 及归一化 $Q_{j,0}^0=1$ 确定 Q，再取 $R_j^0=[1-(v_{*,j}(0)-\\delta_0u_{*,j}(0))/4]/Q_j^0$。下边界的 $Q_0(t)$ 按同一关系由 $u_{*,0}(t)$ 确定。",
+    "after": "数值格式需要与给定物理场一致的辅助变量初值和边界数据。对于 PF，我们由 $D_1Q_j^0=u_{*,j}(0)Q_j^0/2$ 及归一化条件 $Q_{j,0}^0=1$ 确定 $Q$，再取 $R_j^0=[1-(v_{*,j}(0)-\\delta_0u_{*,j}(0))/4]/Q_j^0$。同一关系由 $u_{*,0}(t)$ 确定下边界值 $Q_0(t)$。"
+  },
+  {
+    "before": "At each time, the physical fields are reconstructed by",
+    "after": "The variables $P,W$ determine the physical fields through"
+  },
+  {
+    "before": "在每个时刻，通过",
+    "after": "变量 $P,W$ 通过以下关系确定物理场："
+  },
+  {
+    "before": "where $j_L$ denotes the lowest layer and $u_{j_L,i}(t)$ is prescribed by the lower boundary data.",
+    "after": "Here $j_L$ denotes the lowest layer, and the prescribed value $u_{j_L,i}(t)$ fixes the boundary contribution in the reconstruction."
+  },
+  {
+    "before": "恢复物理场。其中，$j_L$ 为最下层编号，$u_{j_L,i}(t)$ 由下边界数据给定。",
+    "after": "其中，$j_L$ 表示最下层，给定值 $u_{j_L,i}(t)$ 确定重构中的边界贡献。"
+  },
+  {
+    "before": "The evolution equations also contain $(M_j+M_{j+1})_x$. To evaluate this term, introduce $m_j\\simeq M_{j,x}$ and $S_j=Q_jR_j$. Applying $D_1$ to the lattice constraint $M_{j+1}-M_j=h(1-S_j)$ yields",
+    "after": "To evaluate the potential term $(M_j+M_{j+1})_x$ in the evolution equations, we use $m_j\\simeq M_{j,x}$ and $S_j=Q_jR_j$. Applying $D_1$ to the lattice constraint $M_{j+1}-M_j=h(1-S_j)$ gives"
+  },
+  {
+    "before": "恢复。演化方程还包含 $(M_j+M_{j+1})_x$。为计算这一项，引入 $m_j\\simeq M_{j,x}$ 和 $S_j=Q_jR_j$。对格点约束 $M_{j+1}-M_j=h(1-S_j)$ 施加 $D_1$，得到",
+    "after": "为计算演化方程中的势函数项 $(M_j+M_{j+1})_x$，我们采用 $m_j\\simeq M_{j,x}$ 及 $S_j=Q_jR_j$。对格点约束 $M_{j+1}-M_j=h(1-S_j)$ 施加 $D_1$，得到"
+  },
+  {
+    "before": "This relation determines the m layers successively once their lower boundary value is known. Temporarily labelling the lowest layer as 0, we obtain that value from the Q equation:",
+    "after": "Once the lower boundary value of $m$ is specified, (107) determines the remaining layers successively. Temporarily labelling the lowest layer as $0$, we obtain this value from its $Q$ equation:"
+  },
+  {
+    "before": "给定下边界的 m 后，即可利用这一关系逐层求出其余各层。将最下层临时编号为 0，由该层的 Q 方程确定起始值：",
+    "after": "给定 $m$ 的下边界值后，(107) 依次确定其余各层。将最下层临时编号为 $0$，由该层的 $Q$ 方程得到这一边界值："
+  },
+  {
+    "before": "The physical x spacings become nonuniform as the nodes move. Introduce fixed uniform computational coordinates $\\xi_i=-L/2+i\\Delta\\xi$, with $\\Delta\\xi=L/N_x$, and write $x_i(t)=\\xi_i+s_i(t)$. The node displacement is $s_i$, and $J_i=1+D_\\xi s_i$ approximates the mapping Jacobian $J=x_\\xi$.",
+    "after": "As the mesh moves, the physical $x$ spacings become nonuniform. We evaluate spatial derivatives by mapping the moving nodes to fixed, uniformly spaced computational coordinates $\\xi_i=-L/2+i\\Delta\\xi$, with $\\Delta\\xi=L/N_x$. Writing $x_i(t)=\\xi_i+s_i(t)$, the displacement $s_i$ determines the discrete Jacobian $J_i=1+D_\\xi s_i$, which approximates $J=x_\\xi$."
+  },
+  {
+    "before": "物理节点移动后，相邻 $x$ 间距不再相等。为在同一节点编号上计算导数，引入固定均匀的计算坐标 $\\xi_i=-L/2+i\\Delta\\xi$，其中 $\\Delta\\xi=L/N_x$。写 $x_i(t)=\\xi_i+s_i(t)$，$s_i$ 是节点位移，$J_i=1+D_\\xi s_i$ 近似坐标映射的伸缩率 $J=x_\\xi$。",
+    "after": "随着网格运动，物理空间中的 $x$ 节点间距不再均匀。我们将移动节点映射至固定、均匀的计算坐标 $\\xi_i=-L/2+i\\Delta\\xi$，其中 $\\Delta\\xi=L/N_x$，以计算空间导数。写成 $x_i(t)=\\xi_i+s_i(t)$ 后，位移 $s_i$ 确定离散 Jacobian $J_i=1+D_\\xi s_i$，用于近似 $J=x_\\xi$。"
+  },
+  {
+    "before": "Here $D_\\xi,D_{\\xi\\xi}$ are the three-point formulas in [(62)](#en-eq-87) on the uniform computational grid. At moving nodes, each field variable satisfies $\\dot z=F_z+\\mathcal V D_1z$. Together with the node equation [(76)](#en-eq-100), this gives the coupled evolution system for the fields and the mesh. We advance this system using the time integrators in Section 3.3. The fixed-grid calculation corresponds to $s=0$ and $\\mathcal V=0$.",
+    "after": "The operators $D_\\xi,D_{\\xi\\xi}$ are the three-point formulas in [(62)](#en-eq-87), evaluated on the uniform computational grid. The time derivative at a moving node also includes the change in its position, giving $\\dot z=F_z+\\mathcal V D_1z$. Coupling this relation to the node equation [(76)](#en-eq-100) produces the field–mesh system advanced by the time integrators in Section 3.3. The fixed-grid calculation is recovered when $s=0$ and $\\mathcal V=0$."
+  },
+  {
+    "before": "$D_\\xi,D_{\\xi\\xi}$ 为[(62)](#zh-eq-87)在均匀计算坐标上的三点差分。在移动节点上，场变量满足 $\\dot z=F_z+\\mathcal V D_1z$。它与节点方程[(76)](#zh-eq-100)共同构成物理场和网格的联立演化系统，再采用第 3.3 节的时间算法推进。固定网格计算对应 $s=0,\\mathcal V=0$。",
+    "after": "算子 $D_\\xi,D_{\\xi\\xi}$ 是在均匀计算网格上应用的三点差分公式 [(62)](#zh-eq-87)。移动节点处的时间导数还包含位置变化的贡献，因此 $\\dot z=F_z+\\mathcal V D_1z$。将这一关系与节点方程 [(76)](#zh-eq-100) 耦合，得到由第 3.3 节时间积分器推进的场与网格系统。取 $s=0$ 和 $\\mathcal V=0$ 即恢复固定网格计算。"
+  },
+  {
+    "before": "The Crank–Nicolson method averages the rates at adjacent time levels:",
+    "after": "For the fixed-grid PE system, Crank–Nicolson time stepping requires a nonlinear solve at each step. The method averages the right-hand sides at the current and next time levels:"
+  },
+  {
+    "before": "Crank–Nicolson 方法对相邻时间层的变化率取平均：",
+    "after": "对于固定网格 PE 系统，Crank–Nicolson 时间推进需要在每一步求解非线性方程。该方法对当前与下一时间层的右端取平均："
+  },
+  {
+    "before": "For the fixed-grid PE calculation, $z$ collects $P,W$. We begin with the forward Euler predictor $z^{(0)}=z^n+\\Delta t\\,\\mathcal F(t_n,z^n)$ and use the residual correction",
+    "after": "For this calculation, $z$ collects the variables $P,W$. We initialize the nonlinear iteration with the forward Euler predictor $z^{(0)}=z^n+\\Delta t\\,\\mathcal F(t_n,z^n)$ and apply the residual correction"
+  },
+  {
+    "before": "对于固定网格 PE 计算，$z$ 包含 $P,W$。我们以 Euler 预测值 $z^{(0)}=z^n+\\Delta t\\,\\mathcal F(t_n,z^n)$ 为初值，采用残差修正",
+    "after": "在这一计算中，$z$ 包含变量 $P,W$。我们以向前 Euler 预测值 $z^{(0)}=z^n+\\Delta t\\,\\mathcal F(t_n,z^n)$ 初始化非线性迭代，并采用残差修正"
+  },
+  {
+    "before": "where $\\mathcal R$ is the nonlinear residual defined in Section 3.3. At each evaluation, the physical fields are recovered and the boundary data are applied at the corresponding time. We accept the iterate when",
+    "after": "Here $\\mathcal R$ is the nonlinear residual defined in Section 3.3. Each residual evaluation includes recovery of the physical fields and application of the boundary data at the corresponding time. The stopping criterion is"
+  },
+  {
+    "before": "其中 $\\mathcal R$ 为第 3.3 节定义的非线性残差。每次求值时恢复物理场，并在相应时刻施加边界数据。当",
+    "after": "其中，$\\mathcal R$ 为第 3.3 节定义的非线性残差。每次残差求值均包括物理场恢复，以及相应时刻边界数据的施加。停止准则为"
+  },
+  {
+    "before": "The iteration is allowed up to 80 residual evaluations. The numerical comparison with Euler and RK4, including the error table and spatial profiles, is presented in [Section 3.5.2](#en-time-results).",
+    "after": "An iterate satisfying this criterion is accepted, with at most 80 residual evaluations allowed per time step. [Section 3.5.2](#en-time-results) compares the resulting errors with those obtained using Euler and RK4."
+  },
+  {
+    "before": "时接受该迭代值，最多允许 80 次残差求值。与 Euler 和 RK4 的数值比较，包括误差表及空间剖面，见[第 3.5.2 节](#zh-time-results)。",
+    "after": "满足这一准则的迭代值被接受，每个时间步最多允许 80 次残差求值。[第 3.5.2 节](#zh-time-results) 比较了所得误差与 Euler、RK4 的计算结果。"
+  }
+]

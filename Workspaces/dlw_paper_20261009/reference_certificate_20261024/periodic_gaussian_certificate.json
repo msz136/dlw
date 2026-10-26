@@ -1,0 +1,20 @@
+{
+  "profile": "G_per(x)=sum_{m in Z} exp(-((x+192m)/6)^2)",
+  "initial_u": ".05 e(y) G_per(x)",
+  "initial_v": ".03 e(y) G_per(x)",
+  "envelope": "e(y)=sin(pi*(y+2)/4)",
+  "a": 2,
+  "lambda_value": -2,
+  "user_approved": true,
+  "old_profile_uniform_difference_upper": "1.324e-111",
+  "boundary_v_formula": "(.05*pi/8)*(H_{-t}G_per(x-4t)-H_t G_per(x-4t))",
+  "heat_formula": "H_s G_per(x)=6/sqrt(36+4s)*sum_m exp(-(x+192m)^2/(36+4s))",
+  "boundary_trace_time_condition": "0<=t<9",
+  "T": ".01",
+  "omitted_sum_boundary_v_uniform_upper": "1e-998",
+  "rounded_trace_sample_error_upper": "1e-80",
+  "sample_scope": "1921 points x=-96+j/10, j=0,...,1920, y=-2, T=.01",
+  "full_domain_upper": null,
+  "continuum_reference_certified": false,
+  "note": "Exact nonlinear boundary trace and its evaluation only; no interior solution certificate"
+}

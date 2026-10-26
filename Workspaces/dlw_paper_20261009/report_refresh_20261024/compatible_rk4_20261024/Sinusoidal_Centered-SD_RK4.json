@@ -1,0 +1,93 @@
+{
+  "case": "Sinusoidal",
+  "method": "Centered-SD",
+  "integrator": "RK4",
+  "h": 0.1,
+  "dx": 0.1,
+  "dt": 0.0001,
+  "T": 0.01,
+  "reached": 0.01,
+  "status": "complete",
+  "error": [
+    5.2863662440560955e-09,
+    5.366681765650583e-09
+  ],
+  "argmax_u": [
+    84.0,
+    0.0
+  ],
+  "argmax_v": [
+    93.80000000000001,
+    -1.25
+  ],
+  "state": "u,w; physical v from current full-potential edge map",
+  "nx": 1920,
+  "ny": 41,
+  "a": 2.0,
+  "computational_x_interval": [
+    -96,
+    96
+  ],
+  "computational_y_interval": [
+    -2,
+    2
+  ],
+  "evaluation_y_interval": [
+    -1.8,
+    1.8
+  ],
+  "initial_error": [
+    0.0,
+    9.9298347322474e-13
+  ],
+  "metric": "Absolute sampled maximum at native field positions.",
+  "reference": "Compatible continuous Cole-Hopf heat-equation reference.",
+  "spatial_x": "Fourier differentiation; first-derivative Nyquist zero; no filtering or dealiasing.",
+  "boundary": "Exact continuous lower u_t; all w nodes evolved by their equation; no upper y ghost.",
+  "checks": {
+    "inverse_iterations": 32,
+    "inverse_residual": 1.98507876802978e-12,
+    "map_residual": 9.9298347322474e-13,
+    "first_equation_identity": 9.012391527507546e-13,
+    "chain_rule_difference": 1.3704744958233789e-09,
+    "initial_lower_ut_difference": 0.0,
+    "initial_physical_error": [
+      0.0,
+      9.9298347322474e-13
+    ]
+  },
+  "evolution_seconds": 4.81007609993685,
+  "processing_seconds": 5.443409099942073,
+  "artifact": "Workspaces/dlw_paper_20261009/report_refresh_20261024/compatible_rk4_20261024/Sinusoidal_Centered-SD_RK4.npz",
+  "artifact_sha256": "035faeee33695702aeeb73e03c531d6c96fae752dd431662f1afa9072e623a46",
+  "sources": [
+    {
+      "path": "Workspaces/dlw_paper_20261009/report_refresh_20261024/compatible_rk4_20261024/run.py",
+      "sha256": "7a2699618a143b1124a945aa7f7537cc196900533baed913388f4c54588d2a38"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/report_refresh_20261024/compatible_rk4_20261024/reference_grid.py",
+      "sha256": "be45705309b812da307c4ad0b289dd02fe692dda372d2f3051f44bd3f1817471"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/report_refresh_20261024/initial_non_soliton.py",
+      "sha256": "de7b93f9cfa86ef293f1434dfbc9ea79249564799ef8c81b7cb5b0cf2abf7ff2"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024.py",
+      "sha256": "32da0396c930807152222362bc46b48b03917c04bc84648169eb51a78d80b9c0"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/probe.py",
+      "sha256": "e1ab25d35251b4a5a1106d77ba3f2e32410ed0c9e46705d27917d4f2e2cd97c1"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/run.py",
+      "sha256": "1743f9877f21e78a1eff6bf9533b67f09965ba9c1ec09d0a759fa16e042f45c5"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/run_separated.py",
+      "sha256": "41046229b00982c115ae37ad206fca3fb6821341af280a86c4cd19d3f7395904"
+    }
+  ]
+}

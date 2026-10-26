@@ -1,0 +1,67 @@
+{
+  "case": "B",
+  "method": "Endpoint-SD",
+  "integrator": "RK4",
+  "h": 0.1,
+  "dx": 0.1,
+  "dt": 0.0001,
+  "T": 0.01,
+  "reached": 0.01,
+  "status": "complete",
+  "error": [
+    0.1677042753120676,
+    0.0338417969311602
+  ],
+  "state": "u,v; both physical fields evolved directly",
+  "nx": 400,
+  "ny": 400,
+  "a": 2.0,
+  "computational_half_width": 20.0,
+  "region_half_width": 10.0,
+  "initial_error": [
+    0.0,
+    0.0
+  ],
+  "metric": "Absolute sampled maximum at native field locations, |x|<=R, |y|<R.",
+  "reference": "Continuous exact soliton physical fields; not a semi-discrete exact reference.",
+  "spatial_x": "Fourier differentiation; first-derivative Nyquist multiplier zero; no filtering or dealiasing.",
+  "boundary": "Exact continuous lower u_t and lower ghost u; backward/open chain; no upper y ghost.",
+  "checks": {
+    "initial_lower_ut_difference": 0.0,
+    "initial_physical_error": [
+      0.0,
+      0.0
+    ]
+  },
+  "reused_from": null,
+  "evolution_seconds": 19.432432100060396,
+  "processing_seconds": 20.334208699990995,
+  "artifact": "Workspaces/dlw_paper_20261009/report_refresh_20261024/rk4_spatial/B_Endpoint-SD_RK4.npz",
+  "artifact_sha256": "3fee4da9908309e35997e9968c3e3d81b83186a339e308e12902987a254072fe",
+  "sources": [
+    {
+      "path": "Workspaces/dlw_paper_20261009/report_refresh_20261024/rk4_spatial/run.py",
+      "sha256": "7749e98fb2534c5068c3e3df666dc06747c2a775e83e18440f1c5dd2af48837d"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/run.py",
+      "sha256": "1743f9877f21e78a1eff6bf9533b67f09965ba9c1ec09d0a759fa16e042f45c5"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/rerun_20261024.py",
+      "sha256": "32da0396c930807152222362bc46b48b03917c04bc84648169eb51a78d80b9c0"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/reconstruction_probe/probe.py",
+      "sha256": "e1ab25d35251b4a5a1106d77ba3f2e32410ed0c9e46705d27917d4f2e2cd97c1"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/spatial_audit_20261023/separated/run_separated.py",
+      "sha256": "41046229b00982c115ae37ad206fca3fb6821341af280a86c4cd19d3f7395904"
+    },
+    {
+      "path": "Workspaces/dlw_paper_20261009/paper_comparison_20261022/solver_snapshot.py",
+      "sha256": "f4be5d7cecf625c59cbea41adfd2d54f3a8b8272af3375a56cfcd506fac472a1"
+    }
+  ]
+}

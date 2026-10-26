@@ -1,0 +1,129 @@
+{
+  "notebook_sha256": "e3fd9bafc73c028b59d9a4a6a6cbdc7d7d1644d18cdb5695353454c662068aec",
+  "configs": {
+    "A": {
+      "a": 2.0,
+      "h": 0.1,
+      "dt": 0.0001,
+      "T": 0.01,
+      "L": 20.0,
+      "nx": 200,
+      "yhalf": 10.0,
+      "eval_yhalf": 5.0,
+      "eval_half": 5.0,
+      "eval_points": 1001
+    },
+    "B": {
+      "a": 2.0,
+      "h": 0.1,
+      "dt": 0.0001,
+      "T": 0.01,
+      "L": 40.0,
+      "nx": 400,
+      "yhalf": 20.0,
+      "eval_yhalf": 10.0,
+      "eval_half": 10.0,
+      "eval_points": 2001
+    },
+    "C": {
+      "a": 2.0,
+      "h": 0.1,
+      "dt": 0.0001,
+      "T": 0.01,
+      "L": 80.0,
+      "nx": 800,
+      "yhalf": 40.0,
+      "eval_yhalf": 30.0,
+      "eval_half": 30.0,
+      "eval_points": 6001
+    },
+    "D": {
+      "a": 2.0,
+      "h": 0.1,
+      "dt": 0.0001,
+      "T": 0.01,
+      "L": 80.0,
+      "nx": 800,
+      "yhalf": 40.0,
+      "eval_yhalf": 30.0,
+      "eval_half": 30.0,
+      "eval_points": 6001
+    }
+  },
+  "checks": [
+    {
+      "case": "A",
+      "method": "SD",
+      "actual_rhs_max_difference": 1.4210854715202004e-13,
+      "sum_source_max_difference": 2.117582368135751e-22,
+      "sd_fd_p_algebra_max_difference": 1.6150449033691672e-13,
+      "sd_fd_v_algebra_max_difference": 1.156852391659413e-13,
+      "derivative_convention": 7.993605777301127e-15
+    },
+    {
+      "case": "A",
+      "method": "FD",
+      "actual_rhs_max_difference": 1.099509094610717e-12,
+      "sum_source_max_difference": 2.117582368135751e-22,
+      "sd_fd_p_algebra_max_difference": 1.6150449033691672e-13,
+      "sd_fd_v_algebra_max_difference": 1.156852391659413e-13,
+      "derivative_convention": 7.993605777301127e-15
+    },
+    {
+      "case": "B",
+      "method": "SD",
+      "actual_rhs_max_difference": 4.440892098500626e-14,
+      "sum_source_max_difference": 1.734723475976807e-18,
+      "sd_fd_p_algebra_max_difference": 2.8666312216780315e-14,
+      "sd_fd_v_algebra_max_difference": 1.149080830487037e-14,
+      "derivative_convention": 3.0531133177191805e-16
+    },
+    {
+      "case": "B",
+      "method": "FD",
+      "actual_rhs_max_difference": 3.064215547965432e-13,
+      "sum_source_max_difference": 1.734723475976807e-18,
+      "sd_fd_p_algebra_max_difference": 2.8666312216780315e-14,
+      "sd_fd_v_algebra_max_difference": 1.149080830487037e-14,
+      "derivative_convention": 3.0531133177191805e-16
+    },
+    {
+      "case": "C",
+      "method": "SD",
+      "actual_rhs_max_difference": 6.661338147750939e-14,
+      "sum_source_max_difference": 1.0587911840678754e-22,
+      "sd_fd_p_algebra_max_difference": 6.981179143886879e-14,
+      "sd_fd_v_algebra_max_difference": 2.4646951146678475e-14,
+      "derivative_convention": 5.218048215738236e-15
+    },
+    {
+      "case": "C",
+      "method": "FD",
+      "actual_rhs_max_difference": 2.3124335908554914e-13,
+      "sum_source_max_difference": 1.0587911840678754e-22,
+      "sd_fd_p_algebra_max_difference": 6.981179143886879e-14,
+      "sd_fd_v_algebra_max_difference": 2.4646951146678475e-14,
+      "derivative_convention": 5.218048215738236e-15
+    },
+    {
+      "case": "D",
+      "method": "SD",
+      "actual_rhs_max_difference": 2.1538326677728037e-13,
+      "sum_source_max_difference": 5.293955920339377e-23,
+      "sd_fd_p_algebra_max_difference": 2.0287417579201161e-13,
+      "sd_fd_v_algebra_max_difference": 9.325873406851315e-14,
+      "derivative_convention": 5.5067062021407764e-14
+    },
+    {
+      "case": "D",
+      "method": "FD",
+      "actual_rhs_max_difference": 1.3279913289739451e-12,
+      "sum_source_max_difference": 1.0587911840678754e-22,
+      "sd_fd_p_algebra_max_difference": 2.0287417579201161e-13,
+      "sd_fd_v_algebra_max_difference": 9.325873406851315e-14,
+      "derivative_convention": 5.5067062021407764e-14
+    }
+  ],
+  "scope": "t=0 spatial RHS residual, not initial solution error",
+  "sampling": "native fixed-grid nodes in paper regions; RMS without mean subtraction"
+}

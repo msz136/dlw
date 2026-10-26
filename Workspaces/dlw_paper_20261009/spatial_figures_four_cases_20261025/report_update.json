@@ -1,0 +1,74 @@
+{
+  "date": "2026-10-25",
+  "cases": [
+    "A",
+    "C",
+    "Gaussian",
+    "Sinusoidal"
+  ],
+  "labels": [
+    "One-soliton",
+    "Two-soliton",
+    "Gaussian",
+    "Sinusoidal"
+  ],
+  "source_arrays_unchanged": true,
+  "main_paper_unchanged": true,
+  "backup_directory": "before_report",
+  "checks": {
+    "tables": 2,
+    "displayed_numbers_checked": 48,
+    "bold_minima_checked": 16,
+    "csv_records_checked": 24,
+    "formula_count": 58,
+    "links_valid": true,
+    "old_report_backup_verified": true,
+    "main_paper_unchanged_during_task": true,
+    "manuscript_baseline": "User-authorized illustrated numerical integration and natural-form consistency synchronization on 2026-10-25",
+    "table2_integrator": "RK4",
+    "spatial_methods": [
+      "Endpoint-SD",
+      "Centered-SD",
+      "FD"
+    ],
+    "existing_endpoint_fd_values_and_natural_final_values_unchanged": true,
+    "initial_and_final_cases": [
+      "A",
+      "C",
+      "Gaussian",
+      "Sinusoidal"
+    ],
+    "non_soliton_initial_family": "u0=A sin(pi(y+2)/4)F(x), v0=4-3u0_y",
+    "non_soliton_reference_uniform_bound": 1e-13,
+    "selected_centered_definition": "Section3.2: v=Delta_h Z=Delta_h u+2(omega_k+omega_(k-1))/h",
+    "selected_centered_source_and_artifact_hashes_verified": true,
+    "visual_inspection": false,
+    "visual_inspection_reason": "Static mathematical, structural and data validation"
+  },
+  "files": [
+    {
+      "path": "Report.html",
+      "sha256": "c20fb2b80d22ed2bed206f158b2cc9b0a8d497e397e5702869aaa01727805603"
+    },
+    {
+      "path": "Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\build_report.py",
+      "sha256": "af46c2f0a5dc71a5020a5991e7e06ceca3e8a4f26f99ff72a0134929e87d1d63"
+    },
+    {
+      "path": "Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\validate_report.py",
+      "sha256": "8f8552a2f0ce2103f970dcc94a3f3c9ed9d5a3d1e21663888f70f951814a4671"
+    },
+    {
+      "path": "Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\table1_initial_derivative_errors.csv",
+      "sha256": "f1064bca90fecbc22a051e8e205146b9daa9d8d762ace2f6d3a90df43d9ae0d0"
+    },
+    {
+      "path": "Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\table2_final_field_errors.csv",
+      "sha256": "d60f61c663e6abe44de80edfa31961b910042bb4747ae663a3528b32f10317d0"
+    },
+    {
+      "path": "Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\report_validation.json",
+      "sha256": "71370e8bdd4b471c2d3661291583772c52a91e03150bdb8c7f96d9e704e832fc"
+    }
+  ]
+}

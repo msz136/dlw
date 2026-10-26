@@ -1,0 +1,42 @@
+{
+  "problem": "a(T) from candidate and b(0) from exact actual initialization; a(0) is NOT imposed",
+  "rho": "0.1",
+  "T": "0.01",
+  "radius": "0.7",
+  "datum_cap": "0.15",
+  "H_bound": "[0.07071067811865475244008443621048490392848359376884740365883398689953662392311 +/- 6.46e-78]",
+  "linear_volterra_inverse_bound": "[3.099903090577643313061127810526419726648037804052478438966295747584568798970 +/- 3.74e-76]",
+  "fixed_point_image_norm_bound": "[0.679797788230768124986441452267535851168347003083377857604279468594340922912 +/- 4.06e-76]",
+  "contraction_constant_bound": "[0.6137494989832046515064922305387796919175466642157316907409574470190160087623 +/- 8.78e-77]",
+  "cases": [
+    {
+      "case": "Sinusoidal",
+      "terminal_a_source": "Sinusoidal_M32_Y24_dt5.0e-05.npz",
+      "terminal_a_analytic_wiener_bound": "[0.0511152637447867349106216355727864558266414864572784894271777903567273523495 +/- 7.42e-77]",
+      "exact_initial_b_analytic_wiener_bound": "[0.02418694065557206728949795103759090942539766727065052948869859606660156891461 +/- 3.41e-78]",
+      "total_datum_bound": "[0.0753022044003588022001195866103773652520391537279290189158763864233289212642 +/- 7.93e-77]",
+      "less_than_0_15": true,
+      "mean_compatible_terminal_definition": "Replace the candidate terminal a zero Fourier mode by the exact original a0 zero mode; retain all nonzero modes",
+      "mean_compatible_terminal_norm_bound": "[0.0511152637447867349106216355727864558266414864572784894271777903567273523495 +/- 7.42e-77]",
+      "mean_compatible_total_datum_bound": "[0.0753022044003588022001195866103773652520391537279290189158763864233289212642 +/- 7.93e-77]",
+      "mean_compatible_total_less_than_0_15": true
+    },
+    {
+      "case": "Gaussian",
+      "terminal_a_source": "Gaussian_M128_Y24_dt5.0e-05.npz",
+      "terminal_a_analytic_wiener_bound": "[0.081696296560627367581745671683909769113123719765185713221385038973165358192 +/- 3.36e-76]",
+      "exact_initial_b_analytic_wiener_bound": "[0.0552908342467570825613988701816312487540582438862053181081055108681375494954 +/- 4.93e-77]",
+      "total_datum_bound": "[0.136987130807384450143144541865541017867181963651391031329490549841302907688 +/- 6.48e-76]",
+      "less_than_0_15": true,
+      "mean_compatible_terminal_definition": "Replace the candidate terminal a zero Fourier mode by the exact original a0 zero mode; retain all nonzero modes",
+      "mean_compatible_terminal_norm_bound": "[0.079995766142377180163650080048246473821502405301174416820655946797797672836 +/- 3.25e-76]",
+      "mean_compatible_total_datum_bound": "[0.135286600389134262725048950229877722575560649187379734928761457665935222331 +/- 3.80e-76]",
+      "mean_compatible_total_less_than_0_15": true
+    }
+  ],
+  "mixed_problem_certified_by_proof_and_constants": true,
+  "original_initial_value_problem_certified": false,
+  "eta_u": null,
+  "eta_v": null,
+  "review_status": "self-reviewed proof plus 256-bit constants, not independent or formal verification"
+}

@@ -1,0 +1,1 @@
+Superseded by the user scope correction on 2026-10-26: report each method's own perturbed-minus-background physical response at native field sites. These alignment/threshold designs are retained as work history and must not be used in the current report.

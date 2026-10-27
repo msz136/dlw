@@ -1,0 +1,107 @@
+{
+  "case": "D",
+  "status": "complete",
+  "reason": null,
+  "reached": 0.01,
+  "T": 0.01,
+  "dt": 5e-05,
+  "h": 0.1,
+  "dx": 0.1,
+  "nx": 800,
+  "ny": 800,
+  "parameters": [
+    {
+      "kappa": 6.283185307179586,
+      "epsilon": 1e-05,
+      "component": "u",
+      "k_index": 2,
+      "epsilon_index": 2
+    },
+    {
+      "kappa": 6.283185307179586,
+      "epsilon": 1e-05,
+      "component": "v",
+      "k_index": 2,
+      "epsilon_index": 2
+    }
+  ],
+  "records": [
+    {
+      "kappa": 6.283185307179586,
+      "epsilon": 1e-05,
+      "component": "u",
+      "k_index": 2,
+      "epsilon_index": 2,
+      "status": "complete",
+      "reached": 0.01,
+      "initial_max_normalized": [
+        0.9999961350343726,
+        0.0
+      ],
+      "final_max_normalized": [
+        2.128873094723744,
+        0.4498708832696746
+      ],
+      "l2_pair_gain": 2.00778393104818,
+      "fourier8": {
+        "final_normalized": [
+          2.20644180910288,
+          0.45181351967022326
+        ],
+        "initial_max_normalized": 0.9999961350343726,
+        "gain_relative_initial": [
+          2.206450336957591,
+          0.451815265920696
+        ]
+      }
+    },
+    {
+      "kappa": 6.283185307179586,
+      "epsilon": 1e-05,
+      "component": "v",
+      "k_index": 2,
+      "epsilon_index": 2,
+      "status": "complete",
+      "reached": 0.01,
+      "initial_max_normalized": [
+        0.0,
+        1.0
+      ],
+      "final_max_normalized": [
+        16.787464711631138,
+        2.901901339393646
+      ],
+      "l2_pair_gain": 14.49068468006431,
+      "fourier8": {
+        "final_normalized": [
+          17.57096184011474,
+          3.0109691017473335
+        ],
+        "initial_max_normalized": 1.0,
+        "gain_relative_initial": [
+          17.57096184011474,
+          3.0109691017473335
+        ]
+      }
+    }
+  ],
+  "initial_physical_map_max": 2.7755575615628914e-17,
+  "normalized_rhs_versus_existing_delta_rhs_max": 5.002220859751105e-12,
+  "baseline_reproduction_max": null,
+  "legacy_pi_over_2_eps1e6_physical_differences": null,
+  "normalization": "physical differences divided by prescribed epsilon; L2 pair gain divided by measured initial pair norm",
+  "amplitude_comparison": "Full normalized physical fields versus epsilon=1e-6, at every recorded time; maxima use paper observation windows; relative denominator is the largest reference pair maximum over the corresponding time interval.",
+  "l2_region": "full periodic x interval and native interior y observation region",
+  "difference_evolution": "exact normalized nonlinear difference: epsilon multiplies quadratic difference terms",
+  "filtering": false,
+  "continuous_certificate": false,
+  "eta_u": null,
+  "eta_v": null,
+  "artifact_sha256": "dc34569aa99f19f738a0c9bcd59cf8e5031f70a003f408c2e979679613f32d18",
+  "source_sha256": {
+    "run_sweep.py": "2fec77359e98478c354c11aacba5298b3a36646f61cee99cd9eab24b6301761b",
+    "run_pilot.py": "689cdcaa9751af4e010040a5e403e7857f5e0b7ea2c9404784a61e6118edc310",
+    "run_time.py": "2c9c77f84c4c8b70a53ba57eef431fd2c8f25a94cd6f3daabfb46084db364e64"
+  },
+  "seconds": 312.51043839999966
+}

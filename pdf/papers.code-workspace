@@ -1,0 +1,15 @@
+{
+  "folders": [{"path": "."}],
+  "settings": {
+    "latex-workshop.latex.tools": [{
+      "name": "xelatex-direct",
+      "command": "xelatex",
+      "args": ["-synctex=1", "-interaction=nonstopmode", "-halt-on-error", "-aux-directory=%DIR%/build", "-output-directory=%DIR%", "%DOC%"]
+    }],
+    "latex-workshop.latex.recipes": [{"name": "XeLaTeX (twice)", "tools": ["xelatex-direct", "xelatex-direct"]}],
+    "latex-workshop.latex.recipe.default": "first",
+    "latex-workshop.latex.autoBuild.run": "never",
+    "latex-workshop.latex.autoClean.run": "never",
+    "latex-workshop.view.pdf.viewer": "tab"
+  }
+}

@@ -57,10 +57,41 @@ def main():
            'sideband_k_plus_q_abs_d_amplitude_DF':str(abs(derivative)),
            'inverse_heat_preconditioned_sideband_abs_d_amplitude_DF':str(abs(preconditioned)),
            'first_order_contribution_at_sine_amplitude_0_03':str(arb('.03')*abs(preconditioned))})
+    # A constructive first correction for independently prescribed initial
+    # alpha=delta A0 and beta=delta B0. It includes beta, not only terminal g.
+    corrections=[]
+    k=arb.pi()/2; kap=arb.pi()/4; eps=arb('1e-6')
+    def J(d):
+        return (1-(-T*d).exp())/d
+    for kind,z in [('independent_v',arb(2)),('independent_u',arb(1))]:
+        f=(kap*z).sin(); fp=kap*(kap*z).cos()
+        phi=f*f; iphi=z/2-(2*kap*z).sin()/(4*kap)
+        if kind=='independent_v': alpha=beta=phi; ia=ib=iphi
+        else: alpha=kap*(2*kap*z).sin(); beta=-alpha; ia=phi; ib=-phi
+        for sign in [1,-1]:
+            q=sign*arb.pi()/12;p=k+q
+            bracket=-(f*alpha+fp*ia)*J(2*k*q)+2*f*alpha*J(2*q*p)+fp*ib*J(2*k*p)
+            value=p/2*(T*p*p).exp()*bracket
+            corrections.append({'kind':kind,'z':str(z),'q_sign':sign,
+                'absolute_terminal_first_correction_for_eps_1e_6_lambda_0_03':str(abs(eps*arb('.03')*value))})
+    # Gaussian q-tail for this first correction only, in terminal X_.1 norm.
+    # Sum over both q signs and the real cosine carrier. The |q|+k bound is
+    # valid for all four signed sidebands.
+    wg=arb.pi()/96; Cg=arb.pi().sqrt()/32; N=128
+    q1=(N+1)*wg;a=9-T;b=2*T*k+rho;c=T*k*k+rho*k
+    first=(q1+k)*(-a*q1*q1+b*q1+c).exp()
+    ratio=(q1+wg+k)/(q1+k)*(-a*wg*(2*q1+wg)+b*wg).exp()
+    assert ratio<1
+    gaussian_tail={}
+    for kind,shape in [('independent_v',3+4*kap),('independent_u',5*kap)]:
+        tail=eps*arb('.05')*2*T*Cg*shape*first/(1-ratio)
+        gaussian_tail[kind]=str(tail)
     out={'linearization_background':'u=0, v=4; X=x-4t',
          'time':'.01','target_terminal_A_coefficient':'1e-10',
          'grid_scales':rows,'nonzero_base_analytic_smoothing':smooth,
          'sine_first_Born_sideband':born,
+         'first_initial_matching_terminal_correction':corrections,
+         'gaussian_first_correction_tail_X_0_1_after_n_128':gaussian_tail,
          'certified':False,'eta_u':None,'eta_v':None}
     (HERE/'matching_conditioning.json').write_text(json.dumps(out,indent=2),encoding='utf8')
     print(json.dumps(out,indent=2))

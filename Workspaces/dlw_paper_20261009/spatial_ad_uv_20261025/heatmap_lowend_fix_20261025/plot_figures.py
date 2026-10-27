@@ -97,7 +97,7 @@ def make(case,stage='final'):
             ax.set_ylim(base-.005,base+.005)
             ax.text(.04,.86,'Central reference: $'+f+('=0$' if initial else '=4$'),transform=ax.transAxes,fontsize=9)
             peak=max(float(e.max()) for e in all_error)
-            err.set_ylim(0,max(1e-10,peak*1.3));axes_style(err)
+            err.set_ylim(0,max(1e-15,peak*1.5));axes_style(err)
             err.text(.04,.83,'Section maximum $'+sci(peak)+'$',transform=err.transAxes,fontsize=8.4)
         else:
             err.set_yscale('log')

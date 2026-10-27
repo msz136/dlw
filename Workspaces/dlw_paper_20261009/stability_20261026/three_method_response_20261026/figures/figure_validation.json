@@ -1,0 +1,56 @@
+{
+  "curve_count": 24,
+  "source": {
+    "A": {
+      "path": "native/A.npz",
+      "sha256": "557d739fc86963b24a3bdde007fdc882c5f956fff60a7da1d31ffaf1bc948022",
+      "status": "complete",
+      "reached": 0.01
+    },
+    "D": {
+      "path": "native/D.npz",
+      "sha256": "8b15f57877a0b1c9610776c423201eeb1cebb4bf6024bf86c37af3b78223cd03",
+      "status": "complete",
+      "reached": 0.01
+    },
+    "Gaussian": {
+      "path": "native/Gaussian.npz",
+      "sha256": "4aa902620a931d74a3951ebaca8c97d571603ee9183bca49933670bea3f80e97",
+      "status": "complete",
+      "reached": 0.01
+    },
+    "Sinusoidal": {
+      "path": "native/Sinusoidal.npz",
+      "sha256": "b278c8e07681727c605166649bf7902ef4c072d90d8a782dc392ca01554b65f1",
+      "status": "complete",
+      "reached": 0.01
+    }
+  },
+  "normalization": "Each method native-node maximum of its own perturbed trajectory minus its own baseline, divided by prescribed epsilon=1e-6.",
+  "time_range": [
+    0,
+    0.01
+  ],
+  "no_data_smoothing": true,
+  "method_colors": {
+    "Endpoint-SD": "#2878B5",
+    "Centered-SD": "#E07A23",
+    "FD": "#299568"
+  },
+  "three_distinct_line_styles": true,
+  "outputs": {
+    "response_overview.png": "ab555056b7196343f2bd4bb5a0740d6a22846fdf379c6e5cd390e523897252cc",
+    "response_u_input.png": "c6515fe9b4c29a466d9913ffef8e4194d9aa2b9b28f03f33829b41e2bd6727df",
+    "response_v_input.png": "b26d2bcebf1c53de9592396074f2574ee962aaec157a186ad185f72cb130be8f",
+    "response_overview.pdf": "a4298bb92281278878eb0b5942f5cd3ccd73881810f123fe1c51770687fd5841",
+    "response_u_input.pdf": "62522a0a4b0273f861f07842363883ca87382fcfe797063f591f0180bbca0bae",
+    "response_v_input.pdf": "59046d13e9780932b7ed663e27ae3c8c8aa2864f7554777a58693f52949d3297"
+  },
+  "trajectory_count": 24,
+  "plotted_line_count": 48,
+  "main_panels": 16,
+  "native_grid_only": true,
+  "interpolation_used": false,
+  "intermethod_difference_plots": false,
+  "visual_review": "passed; see APPRAISAL.md"
+}

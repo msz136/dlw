@@ -1,0 +1,872 @@
+{
+  "case": "Gaussian",
+  "status": "complete",
+  "reason": null,
+  "reached": 0.01,
+  "T": 0.01,
+  "dt": 0.0001,
+  "h": 0.1,
+  "dx": 0.1,
+  "nx": 1920,
+  "ny": 41,
+  "parameters": [
+    {
+      "kappa": 1.5707963267948966,
+      "epsilon": 1e-07,
+      "component": "u",
+      "k_index": 0,
+      "epsilon_index": 0
+    },
+    {
+      "kappa": 1.5707963267948966,
+      "epsilon": 1e-07,
+      "component": "v",
+      "k_index": 0,
+      "epsilon_index": 0
+    },
+    {
+      "kappa": 1.5707963267948966,
+      "epsilon": 1e-06,
+      "component": "u",
+      "k_index": 0,
+      "epsilon_index": 1
+    },
+    {
+      "kappa": 1.5707963267948966,
+      "epsilon": 1e-06,
+      "component": "v",
+      "k_index": 0,
+      "epsilon_index": 1
+    },
+    {
+      "kappa": 1.5707963267948966,
+      "epsilon": 1e-05,
+      "component": "u",
+      "k_index": 0,
+      "epsilon_index": 2
+    },
+    {
+      "kappa": 1.5707963267948966,
+      "epsilon": 1e-05,
+      "component": "v",
+      "k_index": 0,
+      "epsilon_index": 2
+    },
+    {
+      "kappa": 3.141592653589793,
+      "epsilon": 1e-07,
+      "component": "u",
+      "k_index": 1,
+      "epsilon_index": 0
+    },
+    {
+      "kappa": 3.141592653589793,
+      "epsilon": 1e-07,
+      "component": "v",
+      "k_index": 1,
+      "epsilon_index": 0
+    },
+    {
+      "kappa": 3.141592653589793,
+      "epsilon": 1e-06,
+      "component": "u",
+      "k_index": 1,
+      "epsilon_index": 1
+    },
+    {
+      "kappa": 3.141592653589793,
+      "epsilon": 1e-06,
+      "component": "v",
+      "k_index": 1,
+      "epsilon_index": 1
+    },
+    {
+      "kappa": 3.141592653589793,
+      "epsilon": 1e-05,
+      "component": "u",
+      "k_index": 1,
+      "epsilon_index": 2
+    },
+    {
+      "kappa": 3.141592653589793,
+      "epsilon": 1e-05,
+      "component": "v",
+      "k_index": 1,
+      "epsilon_index": 2
+    },
+    {
+      "kappa": 6.283185307179586,
+      "epsilon": 1e-07,
+      "component": "u",
+      "k_index": 2,
+      "epsilon_index": 0
+    },
+    {
+      "kappa": 6.283185307179586,
+      "epsilon": 1e-07,
+      "component": "v",
+      "k_index": 2,
+      "epsilon_index": 0
+    },
+    {
+      "kappa": 6.283185307179586,
+      "epsilon": 1e-06,
+      "component": "u",
+      "k_index": 2,
+      "epsilon_index": 1
+    },
+    {
+      "kappa": 6.283185307179586,
+      "epsilon": 1e-06,
+      "component": "v",
+      "k_index": 2,
+      "epsilon_index": 1
+    },
+    {
+      "kappa": 6.283185307179586,
+      "epsilon": 1e-05,
+      "component": "u",
+      "k_index": 2,
+      "epsilon_index": 2
+    },
+    {
+      "kappa": 6.283185307179586,
+      "epsilon": 1e-05,
+      "component": "v",
+      "k_index": 2,
+      "epsilon_index": 2
+    }
+  ],
+  "records": [
+    {
+      "kappa": 1.5707963267948966,
+      "epsilon": 1e-07,
+      "component": "u",
+      "k_index": 0,
+      "epsilon_index": 0,
+      "status": "complete",
+      "reached": 0.01,
+      "initial_max_normalized": [
+        1.0,
+        5.551115123125783e-17
+      ],
+      "final_max_normalized": [
+        0.9983716155605268,
+        0.0193481426498312
+      ],
+      "l2_pair_gain": 1.0005527072887648,
+      "fourier8": {
+        "final_normalized": [
+          1.0003631271687596,
+          0.01936450854330614
+        ],
+        "initial_max_normalized": 1.0,
+        "gain_relative_initial": [
+          1.0003631271687596,
+          0.01936450854330614
+        ]
+      },
+      "normalized_field_difference_from_eps1e6_all_time": [
+        7.029196447128072e-09,
+        4.650990703680691e-10
+      ],
+      "normalized_field_difference_from_eps1e6_terminal": [
+        7.029196447128072e-09,
+        4.650990703680691e-10
+      ],
+      "relative_pair_max_difference_all_time": 7.029191223170847e-09,
+      "relative_pair_max_difference_terminal": 7.0406613442233755e-09
+    },
+    {
+      "kappa": 1.5707963267948966,
+      "epsilon": 1e-07,
+      "component": "v",
+      "k_index": 0,
+      "epsilon_index": 0,
+      "status": "complete",
+      "reached": 0.01,
+      "initial_max_normalized": [
+        0.0,
+        0.998458666866564
+      ],
+      "final_max_normalized": [
+        0.049221908625639285,
+        0.9968349338681654
+      ],
+      "l2_pair_gain": 1.0014700960405276,
+      "fourier8": {
+        "final_normalized": [
+          0.04931961763720124,
+          0.998823975158372
+        ],
+        "initial_max_normalized": 0.998458666866564,
+        "gain_relative_initial": [
+          0.04939575294787081,
+          1.0003658722227875
+        ]
+      },
+      "normalized_field_difference_from_eps1e6_all_time": [
+        1.722977316376273e-11,
+        2.1407275951901283e-10
+      ],
+      "normalized_field_difference_from_eps1e6_terminal": [
+        1.722977316376273e-11,
+        2.1407275951901283e-10
+      ],
+      "relative_pair_max_difference_all_time": 2.1440306674389451e-10,
+      "relative_pair_max_difference_terminal": 2.147524652686222e-10
+    },
+    {
+      "kappa": 1.5707963267948966,
+      "epsilon": 1e-06,
+      "component": "u",
+      "k_index": 0,
+      "epsilon_index": 1,
+      "status": "complete",
+      "reached": 0.01,
+      "initial_max_normalized": [
+        1.0,
+        5.551115123125783e-17
+      ],
+      "final_max_normalized": [
+        0.9983716164526633,
+        0.01934814260725437
+      ],
+      "l2_pair_gain": 1.0005527072887648,
+      "fourier8": {
+        "final_normalized": [
+          1.0003631271062234,
+          0.019364508533905665
+        ],
+        "initial_max_normalized": 1.0,
+        "gain_relative_initial": [
+          1.0003631271062234,
+          0.019364508533905665
+        ]
+      },
+      "normalized_field_difference_from_eps1e6_all_time": [
+        0.0,
+        0.0
+      ],
+      "normalized_field_difference_from_eps1e6_terminal": [
+        0.0,
+        0.0
+      ],
+      "relative_pair_max_difference_all_time": 0.0,
+      "relative_pair_max_difference_terminal": 0.0
+    },
+    {
+      "kappa": 1.5707963267948966,
+      "epsilon": 1e-06,
+      "component": "v",
+      "k_index": 0,
+      "epsilon_index": 1,
+      "status": "complete",
+      "reached": 0.01,
+      "initial_max_normalized": [
+        0.0,
+        0.998458666866564
+      ],
+      "final_max_normalized": [
+        0.049221908623476925,
+        0.9968349338911702
+      ],
+      "l2_pair_gain": 1.0014700960405276,
+      "fourier8": {
+        "final_normalized": [
+          0.04931961763709598,
+          0.9988239751568496
+        ],
+        "initial_max_normalized": 0.998458666866564,
+        "gain_relative_initial": [
+          0.04939575294776539,
+          1.0003658722212627
+        ]
+      },
+      "normalized_field_difference_from_eps1e6_all_time": [
+        0.0,
+        0.0
+      ],
+      "normalized_field_difference_from_eps1e6_terminal": [
+        0.0,
+        0.0
+      ],
+      "relative_pair_max_difference_all_time": 0.0,
+      "relative_pair_max_difference_terminal": 0.0
+    },
+    {
+      "kappa": 1.5707963267948966,
+      "epsilon": 1e-05,
+      "component": "u",
+      "k_index": 0,
+      "epsilon_index": 2,
+      "status": "complete",
+      "reached": 0.01,
+      "initial_max_normalized": [
+        1.0,
+        5.551115123125783e-17
+      ],
+      "final_max_normalized": [
+        0.9983716253729332,
+        0.019348142172654348
+      ],
+      "l2_pair_gain": 1.0005527072887648,
+      "fourier8": {
+        "final_normalized": [
+          1.0003631264797264,
+          0.01936450838855773
+        ],
+        "initial_max_normalized": 1.0,
+        "gain_relative_initial": [
+          1.0003631264797264,
+          0.01936450838855773
+        ]
+      },
+      "normalized_field_difference_from_eps1e6_all_time": [
+        7.028890025573276e-08,
+        4.533037167853138e-09
+      ],
+      "normalized_field_difference_from_eps1e6_terminal": [
+        7.028890025573276e-08,
+        4.533037167853138e-09
+      ],
+      "relative_pair_max_difference_all_time": 7.028884801843777e-08,
+      "relative_pair_max_difference_terminal": 7.040354422882918e-08
+    },
+    {
+      "kappa": 1.5707963267948966,
+      "epsilon": 1e-05,
+      "component": "v",
+      "k_index": 0,
+      "epsilon_index": 2,
+      "status": "complete",
+      "reached": 0.01,
+      "initial_max_normalized": [
+        0.0,
+        0.998458666866564
+      ],
+      "final_max_normalized": [
+        0.04922190860174964,
+        0.9968349341205845
+      ],
+      "l2_pair_gain": 1.0014700960405276,
+      "fourier8": {
+        "final_normalized": [
+          0.04931961763560475,
+          0.9988239751406658
+        ],
+        "initial_max_normalized": 0.998458666866564,
+        "gain_relative_initial": [
+          0.04939575294627186,
+          1.000365872205054
+        ]
+      },
+      "normalized_field_difference_from_eps1e6_all_time": [
+        1.7079179737145012e-10,
+        2.1384054527118224e-09
+      ],
+      "normalized_field_difference_from_eps1e6_terminal": [
+        1.7079179737145012e-10,
+        2.1384054527118224e-09
+      ],
+      "relative_pair_max_difference_all_time": 2.1417049419711944e-09,
+      "relative_pair_max_difference_terminal": 2.1451951371372018e-09
+    },
+    {
+      "kappa": 3.141592653589793,
+      "epsilon": 1e-07,
+      "component": "u",
+      "k_index": 1,
+      "epsilon_index": 0,
+      "status": "complete",
+      "reached": 0.01,
+      "initial_max_normalized": [
+        1.0,
+        5.551115123125783e-17
+      ],
+      "final_max_normalized": [
+        0.9969537624756721,
+        0.07688848239759127
+      ],
+      "l2_pair_gain": 1.0088335664397394,
+      "fourier8": {
+        "final_normalized": [
+          1.0048971098803194,
+          0.07737786262551351
+        ],
+        "initial_max_normalized": 1.0,
+        "gain_relative_initial": [
+          1.0048971098803194,
+          0.07737786262551351
+        ]
+      },
+      "normalized_field_difference_from_eps1e6_all_time": [
+        1.4620903820983244e-08,
+        3.626559830216536e-09
+      ],
+      "normalized_field_difference_from_eps1e6_terminal": [
+        1.4620903820983244e-08,
+        3.626559830216536e-09
+      ],
+      "relative_pair_max_difference_all_time": 1.4620898029360855e-08,
+      "relative_pair_max_difference_terminal": 1.4665578710624773e-08
+    },
+    {
+      "kappa": 3.141592653589793,
+      "epsilon": 1e-07,
+      "component": "v",
+      "k_index": 1,
+      "epsilon_index": 0,
+      "status": "complete",
+      "reached": 0.01,
+      "initial_max_normalized": [
+        0.0,
+        0.998458666866564
+      ],
+      "final_max_normalized": [
+        0.19601303026788305,
+        0.9954196901857446
+      ],
+      "l2_pair_gain": 1.023338226369332,
+      "fourier8": {
+        "final_normalized": [
+          0.19757450352062925,
+          1.0033586343029524
+        ],
+        "initial_max_normalized": 0.998458666866564,
+        "gain_relative_initial": [
+          0.19787950175310912,
+          1.0049075315774119
+        ]
+      },
+      "normalized_field_difference_from_eps1e6_all_time": [
+        5.54517459727677e-10,
+        1.783974856728321e-09
+      ],
+      "normalized_field_difference_from_eps1e6_terminal": [
+        5.54517459727677e-10,
+        1.783974856728321e-09
+      ],
+      "relative_pair_max_difference_all_time": 1.7867280913606233e-09,
+      "relative_pair_max_difference_terminal": 1.7921836122502982e-09
+    },
+    {
+      "kappa": 3.141592653589793,
+      "epsilon": 1e-06,
+      "component": "u",
+      "k_index": 1,
+      "epsilon_index": 1,
+      "status": "complete",
+      "reached": 0.01,
+      "initial_max_normalized": [
+        1.0,
+        5.551115123125783e-17
+      ],
+      "final_max_normalized": [
+        0.99695375883059,
+        0.07688848167441598
+      ],
+      "l2_pair_gain": 1.0088335664397394,
+      "fourier8": {
+        "final_normalized": [
+          1.0048971101311992,
+          0.0773778625830381
+        ],
+        "initial_max_normalized": 1.0,
+        "gain_relative_initial": [
+          1.0048971101311992,
+          0.0773778625830381
+        ]
+      },
+      "normalized_field_difference_from_eps1e6_all_time": [
+        0.0,
+        0.0
+      ],
+      "normalized_field_difference_from_eps1e6_terminal": [
+        0.0,
+        0.0
+      ],
+      "relative_pair_max_difference_all_time": 0.0,
+      "relative_pair_max_difference_terminal": 0.0
+    },
+    {
+      "kappa": 3.141592653589793,
+      "epsilon": 1e-06,
+      "component": "v",
+      "k_index": 1,
+      "epsilon_index": 1,
+      "status": "complete",
+      "reached": 0.01,
+      "initial_max_normalized": [
+        0.0,
+        0.998458666866564
+      ],
+      "final_max_normalized": [
+        0.19601303012934232,
+        0.9954196905574478
+      ],
+      "l2_pair_gain": 1.023338226369332,
+      "fourier8": {
+        "final_normalized": [
+          0.19757450351107358,
+          1.0033586343290304
+        ],
+        "initial_max_normalized": 0.998458666866564,
+        "gain_relative_initial": [
+          0.1978795017435387,
+          1.0049075316035303
+        ]
+      },
+      "normalized_field_difference_from_eps1e6_all_time": [
+        0.0,
+        0.0
+      ],
+      "normalized_field_difference_from_eps1e6_terminal": [
+        0.0,
+        0.0
+      ],
+      "relative_pair_max_difference_all_time": 0.0,
+      "relative_pair_max_difference_terminal": 0.0
+    },
+    {
+      "kappa": 3.141592653589793,
+      "epsilon": 1e-05,
+      "component": "u",
+      "k_index": 1,
+      "epsilon_index": 2,
+      "status": "complete",
+      "reached": 0.01,
+      "initial_max_normalized": [
+        1.0,
+        5.551115123125783e-17
+      ],
+      "final_max_normalized": [
+        0.9969537223801475,
+        0.0768884743465601
+      ],
+      "l2_pair_gain": 1.0088335664397403,
+      "fourier8": {
+        "final_normalized": [
+          1.004897112639849,
+          0.07737786219994514
+        ],
+        "initial_max_normalized": 1.0,
+        "gain_relative_initial": [
+          1.004897112639849,
+          0.07737786219994514
+        ]
+      },
+      "normalized_field_difference_from_eps1e6_all_time": [
+        1.4621030708372729e-07,
+        3.6175984707842446e-08
+      ],
+      "normalized_field_difference_from_eps1e6_terminal": [
+        1.4621030708372729e-07,
+        3.6175984707842446e-08
+      ],
+      "relative_pair_max_difference_all_time": 1.4621024916700076e-07,
+      "relative_pair_max_difference_terminal": 1.4665705985724905e-07
+    },
+    {
+      "kappa": 3.141592653589793,
+      "epsilon": 1e-05,
+      "component": "v",
+      "k_index": 1,
+      "epsilon_index": 2,
+      "status": "complete",
+      "reached": 0.01,
+      "initial_max_normalized": [
+        0.0,
+        0.998458666866564
+      ],
+      "final_max_normalized": [
+        0.19601302874381812,
+        0.9954196942780864
+      ],
+      "l2_pair_gain": 1.023338226369332,
+      "fourier8": {
+        "final_normalized": [
+          0.19757450341651925,
+          1.0033586345864742
+        ],
+        "initial_max_normalized": 0.998458666866564,
+        "gain_relative_initial": [
+          0.1978795016488384,
+          1.0049075318613716
+        ]
+      },
+      "normalized_field_difference_from_eps1e6_all_time": [
+        5.5444433488816e-09,
+        1.7840485977416165e-08
+      ],
+      "normalized_field_difference_from_eps1e6_terminal": [
+        5.5444433488816e-09,
+        1.7840485977416165e-08
+      ],
+      "relative_pair_max_difference_all_time": 1.786801946179509e-08,
+      "relative_pair_max_difference_terminal": 1.7922576925744018e-08
+    },
+    {
+      "kappa": 6.283185307179586,
+      "epsilon": 1e-07,
+      "component": "u",
+      "k_index": 2,
+      "epsilon_index": 0,
+      "status": "complete",
+      "reached": 0.01,
+      "initial_max_normalized": [
+        1.0,
+        5.551115123125783e-17
+      ],
+      "final_max_normalized": [
+        1.0450476278050018,
+        0.3074031307715316
+      ],
+      "l2_pair_gain": 1.1393036416279307,
+      "fourier8": {
+        "final_normalized": [
+          1.0788316761525756,
+          0.3168828618879584
+        ],
+        "initial_max_normalized": 1.0,
+        "gain_relative_initial": [
+          1.0788316761525756,
+          0.3168828618879584
+        ]
+      },
+      "normalized_field_difference_from_eps1e6_all_time": [
+        4.58920946799779e-08,
+        3.5211626447928523e-08
+      ],
+      "normalized_field_difference_from_eps1e6_terminal": [
+        4.58920946799779e-08,
+        3.5211626447928523e-08
+      ],
+      "relative_pair_max_difference_all_time": 4.3913877674639246e-08,
+      "relative_pair_max_difference_terminal": 4.3913877674639246e-08
+    },
+    {
+      "kappa": 6.283185307179586,
+      "epsilon": 1e-07,
+      "component": "v",
+      "k_index": 2,
+      "epsilon_index": 0,
+      "status": "complete",
+      "reached": 0.01,
+      "initial_max_normalized": [
+        0.0,
+        0.998458666866564
+      ],
+      "final_max_normalized": [
+        0.7841820534495667,
+        1.0434368596493857
+      ],
+      "l2_pair_gain": 1.339042926050571,
+      "fourier8": {
+        "final_normalized": [
+          0.809604532810878,
+          1.077207414611278
+        ],
+        "initial_max_normalized": 0.998458666866564,
+        "gain_relative_initial": [
+          0.8108543294552574,
+          1.07887031317165
+        ]
+      },
+      "normalized_field_difference_from_eps1e6_all_time": [
+        2.0156572744234325e-08,
+        1.9278049823157062e-08
+      ],
+      "normalized_field_difference_from_eps1e6_terminal": [
+        2.0156572744234325e-08,
+        1.9278049823157062e-08
+      ],
+      "relative_pair_max_difference_all_time": 1.931748184435338e-08,
+      "relative_pair_max_difference_terminal": 1.931748184435338e-08
+    },
+    {
+      "kappa": 6.283185307179586,
+      "epsilon": 1e-06,
+      "component": "u",
+      "k_index": 2,
+      "epsilon_index": 1,
+      "status": "complete",
+      "reached": 0.01,
+      "initial_max_normalized": [
+        1.0,
+        5.551115123125783e-17
+      ],
+      "final_max_normalized": [
+        1.0450476503121722,
+        0.3074031450953667
+      ],
+      "l2_pair_gain": 1.1393036416279316,
+      "fourier8": {
+        "final_normalized": [
+          1.0788316746110238,
+          0.31688286284610145
+        ],
+        "initial_max_normalized": 1.0,
+        "gain_relative_initial": [
+          1.0788316746110238,
+          0.31688286284610145
+        ]
+      },
+      "normalized_field_difference_from_eps1e6_all_time": [
+        0.0,
+        0.0
+      ],
+      "normalized_field_difference_from_eps1e6_terminal": [
+        0.0,
+        0.0
+      ],
+      "relative_pair_max_difference_all_time": 0.0,
+      "relative_pair_max_difference_terminal": 0.0
+    },
+    {
+      "kappa": 6.283185307179586,
+      "epsilon": 1e-06,
+      "component": "v",
+      "k_index": 2,
+      "epsilon_index": 1,
+      "status": "complete",
+      "reached": 0.01,
+      "initial_max_normalized": [
+        0.0,
+        0.998458666866564
+      ],
+      "final_max_normalized": [
+        0.7841820530221152,
+        1.0434368675297199
+      ],
+      "l2_pair_gain": 1.339042926050571,
+      "fourier8": {
+        "final_normalized": [
+          0.8096045335180231,
+          1.0772074140470087
+        ],
+        "initial_max_normalized": 0.998458666866564,
+        "gain_relative_initial": [
+          0.8108543301634941,
+          1.0788703126065096
+        ]
+      },
+      "normalized_field_difference_from_eps1e6_all_time": [
+        0.0,
+        0.0
+      ],
+      "normalized_field_difference_from_eps1e6_terminal": [
+        0.0,
+        0.0
+      ],
+      "relative_pair_max_difference_all_time": 0.0,
+      "relative_pair_max_difference_terminal": 0.0
+    },
+    {
+      "kappa": 6.283185307179586,
+      "epsilon": 1e-05,
+      "component": "u",
+      "k_index": 2,
+      "epsilon_index": 2,
+      "status": "complete",
+      "reached": 0.01,
+      "initial_max_normalized": [
+        1.0,
+        5.551115123125783e-17
+      ],
+      "final_max_normalized": [
+        1.0450478753801666,
+        0.3074032883336477
+      ],
+      "l2_pair_gain": 1.1393036416280256,
+      "fourier8": {
+        "final_normalized": [
+          1.078831659190397,
+          0.31688287245518615
+        ],
+        "initial_max_normalized": 1.0,
+        "gain_relative_initial": [
+          1.078831659190397,
+          0.31688287245518615
+        ]
+      },
+      "normalized_field_difference_from_eps1e6_all_time": [
+        4.589119704245803e-07,
+        3.520265050016569e-07
+      ],
+      "normalized_field_difference_from_eps1e6_terminal": [
+        4.589119704245803e-07,
+        3.520265050016569e-07
+      ],
+      "relative_pair_max_difference_all_time": 4.391301873053311e-07,
+      "relative_pair_max_difference_terminal": 4.391301873053311e-07
+    },
+    {
+      "kappa": 6.283185307179586,
+      "epsilon": 1e-05,
+      "component": "v",
+      "k_index": 2,
+      "epsilon_index": 2,
+      "status": "complete",
+      "reached": 0.01,
+      "initial_max_normalized": [
+        0.0,
+        0.998458666866564
+      ],
+      "final_max_normalized": [
+        0.7841821519048147,
+        1.0434369463360886
+      ],
+      "l2_pair_gain": 1.3390429260505838,
+      "fourier8": {
+        "final_normalized": [
+          0.8096045405891005,
+          1.0772074084026666
+        ],
+        "initial_max_normalized": 0.998458666866564,
+        "gain_relative_initial": [
+          0.8108543372454872,
+          1.0788703069534542
+        ]
+      },
+      "normalized_field_difference_from_eps1e6_all_time": [
+        2.0156578328656138e-07,
+        1.927747677044067e-07
+      ],
+      "normalized_field_difference_from_eps1e6_terminal": [
+        2.0156578328656138e-07,
+        1.927747677044067e-07
+      ],
+      "relative_pair_max_difference_all_time": 1.9317487196303254e-07,
+      "relative_pair_max_difference_terminal": 1.9317487196303254e-07
+    }
+  ],
+  "initial_physical_map_max": 1.1102230246251565e-16,
+  "normalized_rhs_versus_existing_delta_rhs_max": 4.653499807716344e-13,
+  "baseline_reproduction_max": 0.0,
+  "legacy_pi_over_2_eps1e6_physical_differences": [
+    [
+      1.1702289561910193e-18,
+      1.5918559735232182e-17
+    ],
+    [
+      2.603435172724897e-19,
+      5.411481741770911e-19
+    ]
+  ],
+  "normalization": "physical differences divided by prescribed epsilon; L2 pair gain divided by measured initial pair norm",
+  "amplitude_comparison": "Full normalized physical fields versus epsilon=1e-6, at every recorded time; maxima use paper observation windows; relative denominator is the largest reference pair maximum over the corresponding time interval.",
+  "l2_region": "full periodic x interval and native interior y observation region",
+  "difference_evolution": "exact normalized nonlinear difference: epsilon multiplies quadratic difference terms",
+  "filtering": false,
+  "continuous_certificate": false,
+  "eta_u": null,
+  "eta_v": null,
+  "artifact_sha256": "93091b56b9ff36d4f81c5dff729eaacba3e0dcd04ba0c3136d650f8b51f75449",
+  "source_sha256": {
+    "run_sweep.py": "2fec77359e98478c354c11aacba5298b3a36646f61cee99cd9eab24b6301761b",
+    "run_pilot.py": "689cdcaa9751af4e010040a5e403e7857f5e0b7ea2c9404784a61e6118edc310",
+    "run_time.py": "2c9c77f84c4c8b70a53ba57eef431fd2c8f25a94cd6f3daabfb46084db364e64"
+  },
+  "seconds": 151.8762071000001
+}

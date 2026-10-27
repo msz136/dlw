@@ -1,0 +1,46 @@
+{
+  "sections": [
+    "section-2.3",
+    "section-5.2",
+    "section-5.3",
+    "section-6"
+  ],
+  "figures_and_tables_unchanged": true,
+  "edits": [
+    [
+      "In the last two subsections,",
+      "Endpoint-SD follows naturally from the Miwa expansion, and its one-sided pairings identify the first-order correction in (16). Centered-SD is obtained by placing these same pairings symmetrically about the continuous reference, giving second-order bilinear consistency. The two constructions therefore let us examine how the placement of a common bilinear lattice affects its approximation of the continuous system. Their physical-field reconstructions carry this comparison into the nonlinear equations."
+    ],
+    [
+      "The four tests show how the initial spatial errors",
+      "The four tests distinguish the accuracy of the initial time derivatives from that of the fields after evolution. Endpoint-SD retains its initial advantage in the first component on the Gaussian and sinusoidal backgrounds, while Centered-SD gives smaller terminal errors in both fields in the soliton tests. The initial approximation of one component must therefore be considered together with the evolution of the coupled fields."
+    ],
+    [
+      "The spatial error analysis helps interpret this behavior.",
+      "The consistency analysis identifies the truncation terms introduced by each lattice arrangement. During evolution, the coupling provides a route for these errors to affect the other component; in particular, the $v_{xx}$ term links the approximation of $v$ to the computed $u$ field. The change in error ordering in the soliton tests is consistent with this coupling. Initial derivative errors and evolved field errors thus provide complementary measures of the spatial approximation."
+    ],
+    [
+      "In this subsection, we examine how time integration affects",
+      "The preceding comparison follows spatial approximation errors through the coupled evolution using RK4. We now keep Centered-SD fixed and vary the time integrator to examine how temporal approximation changes this behavior. Forward Euler, classical RK4, and Crank–Nicolson use the same exact initial fields, spatial operators and boundary data on the uniform grid with $h=\\Delta x=0.1$, and advance to $T=0.01$ with $\\Delta t=10^{-4}$. We compare both the terminal errors and their time histories to see how the additional temporal error affects each physical component."
+    ],
+    [
+      "This opposite displacement is a straightforward consequence",
+      "The opposite shifts in the two field errors suggest that the temporal contribution partly cancels the spatial error in $u$ and reinforces it in $v$. To examine this interpretation, we halve the Euler time step to $\\Delta t=5\\times10^{-5}$. The terminal error pair moves from $(1.664\\times10^{-4},\\,8.026\\times10^{-5})$ to $(1.671\\times10^{-4},\\,7.880\\times10^{-5})$ in the one-soliton test, and from $(1.420\\times10^{-4},\\,1.090\\times10^{-4})$ to $(1.560\\times10^{-4},\\,1.048\\times10^{-4})$ in the two-soliton test. In both cases, the errors move toward the RK4 values. This step-size response supports the cancellation and reinforcement interpretation and helps explain the smaller terminal $u$ errors obtained with Euler at the tested step size."
+    ],
+    [
+      "The terminal errors and their time histories show that the choice",
+      ""
+    ],
+    [
+      "These results help explain how time integration modifies",
+      "The similar shapes of the error histories suggest that the spatial approximation and wave evolution largely determine the pattern of accumulation, while the time integrator changes its magnitude in each component. Read together with the spatial comparison, these results show why the initial derivative accuracy, the terminal field error and the response to a smaller time step describe different aspects of the same computation."
+    ]
+  ],
+  "conclusion": [
+    "We have developed two related integrable semi-discretizations of the $(2+1)$-dimensional DLW system. Endpoint-SD follows from a Miwa expansion of the Hirota–Miwa equation, and Centered-SD is obtained from it through a half-step parameter shift and a staggered placement of the $\\tau$ functions. Both admit explicit Gram determinant solutions, common positivity conditions for regular field reconstruction, and Darboux–Lax representations compatible with their nonlinear equations. Their shared construction makes it possible to study the effect of lattice placement while retaining these integrable structures.",
+    "The continuum analysis makes this effect explicit. Endpoint-SD is second-order consistent in the first physical-field equation and first-order consistent in the second, whereas Centered-SD is second-order consistent in both. The leading Endpoint-SD residual correction identifies the contribution of its endpoint arrangement. For Centered-SD, matching the Gram solutions to the continuous family also establishes second-order approximation of both exact physical fields under the stated regularity and positivity assumptions. Lattice placement and field reconstruction thus determine concrete approximation properties within the common integrable framework.",
+    "The numerical experiments follow these properties from the initial time derivatives to the evolved fields. Endpoint-SD gives the smallest initial $u_t$ error in all four tests and retains the smallest terminal $u$ error on the Gaussian and sinusoidal backgrounds. In the soliton tests, Centered-SD gives smaller terminal errors in both fields than Endpoint-SD, illustrating the importance of assessing the two components through their coupled evolution. Time integration adds another contribution to this process: the Euler step-size controls support partial cancellation of spatial and temporal errors in $u$ and reinforcement in $v$. The resulting accuracy therefore depends on how the spatial and temporal approximations combine in each field.",
+    "The conservation law provides a practical way to allocate resolution. Its density concentrates shared longitudinal nodes along the soliton wave bands and improves both field errors at a fixed node count. Over the computed interval, the gain comes mainly from the initial density-adapted placement, showing the usefulness of this quantity for mesh design. The independent perturbation experiments complement the accuracy comparisons by following the persistence of a disturbance in its initial component and the response it generates in the other.",
+    "The DLW construction therefore connects a choice made at the bilinear lattice level to the approximation and computation of the physical waves. Exact solutions support the continuum comparison, while the conservation density guides the placement of numerical resolution. These are concrete ways in which the retained integrable structure contributes to the analysis and numerical treatment of the continuous system."
+  ]
+}

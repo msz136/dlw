@@ -1,0 +1,1 @@
+Figures 7-8: retained approved layout, colors, source data and heatmap scales. Only panel (d) vertical limits tightened to 1.5 times the section maximum. Both final PNGs visually inspected with no clipping or overlapping labels. PNG/PDF updated. Curve/map metadata and source hashes unchanged. All HTML formulas and image resources validated. No evolution experiments rerun.

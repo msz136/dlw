@@ -116,6 +116,42 @@ For the actual sine amplitude lambda=.03, the first-order preconditioned sideban
 
 These are coefficients in the linear matching derivative, not physical errors in an experiment. They quantify a specific change needed in a tail preconditioner: variable-coefficient sidebands must be included. The retained-mode Jacobian is not diagonal even for initially single-carrier independent perturbations.
 
+### First constructive correction for independently prescribed initial data
+
+The same calculation yields a candidate correction using both prescribed initial changes. Write delta A0=epsilon alpha(z) exp(ikX) and delta B0=epsilon beta(z) exp(ikX), taking the real part for the experimental cosine. The two independent cases are
+
+    v perturbation: alpha=beta=phi,
+    u perturbation: alpha=phi', beta=-phi',
+    phi=sin^2(pi z/4).
+
+The zero-background terminal coefficient is epsilon exp(Tk^2)alpha. The coefficient of lambda*epsilon at p=k+q required by the linearized initial-value equations is
+
+    G_(1,1),p = -i p c_q exp(Tp^2)
+       {-(f alpha+f' Ialpha) J(2kq)
+          +2 f alpha J(2q(k+q)) +f' Ibeta J(2k(k+q))}.        (D11a)
+
+Here Ialpha and Ibeta are their integrals from 0 to z. This is a formal mixed-amplitude coefficient with a convergent expression, not a proof that the full initial-value Taylor series converges. It supplies the first sideband correction for a retained-mode matching solver rather than simply adopting the diagonal heat inverse.
+
+At T=.01, k=pi/2, lambda=.03 and epsilon=1e-6, the sine benchmark gives
+
+| independent initial change | z | terminal harmonic k+q | terminal harmonic k-q |
+|---|---:|---:|---:|
+| v | 2 | 2.827249e-10 | 2.002915e-10 |
+| u | 1 | 1.690494e-12 | 1.200863e-12 |
+
+The entries are absolute first-correction harmonic amplitudes at the stated z, rounded upward. They are not full residuals or final field error bounds.
+
+For the Gaussian, (D11a) contains all q=n*pi/96, but this first correction has a certifiable Gaussian tail. In terminal X_rho norm, each term is bounded by a constant times
+
+    (|q|+k) exp(-(9-T)q^2+(2Tk+rho)|q|+Tk^2+rho*k).
+
+For the real cosine carrier the transverse constants can be taken as 3+4*(pi/4) for the v perturbation and 5*(pi/4) for the u perturbation. Bounding the tail by its first term and a decreasing adjacent-term ratio, 256-bit Arb gives, at rho=.1, Gaussian amplitude .05 and epsilon=1e-6,
+
+    tail beyond |n|=128 < 1.183e-78  (v perturbation),
+    tail beyond |n|=128 < 7.563e-79  (u perturbation).          (D11b)
+
+Thus the first nonzero-background matching correction and its Gaussian Fourier tail are actually calculable for the selected independent data. The remaining issue is the infinite sequence of higher matching corrections and a uniform inverse estimate; the tiny numbers in (D11b) do not enclose those omitted corrections.
+
 ## 4. Precision scales for the constant-state linear mechanism
 
 At u=0,v=4, the matching multiplier for A is exp(-T xi^2). For T=.01 and resolved cutoff K=pi/dx, the exact inverse amplification and required initial A-mode matching precision for a terminal A-mode tolerance 1e-10 are
@@ -153,4 +189,4 @@ The A/D solitons require their own nonzero-base bounds and transverse boundary p
 
 `matching_conditioning.py/json` reproduces the outward-rounded constants and the finite sideband evaluations. The status remains `certified=false`, `eta_u=null`, `eta_v=null`.
 
-Independent review: the moving-radius multiplier bound, contraction constant and high-input corollary were checked by the stability audit agent on 2026-10-26. The first sideband calculation is a self-checked proof calculation at this stage.
+Independent review: the moving-radius multiplier bound, contraction constant, high-input corollary, and first sideband formula (D8)–(D10) were checked by the stability audit agent on 2026-10-26. The first initial-data correction (D11a)–(D11b) is a self-checked calculation at this stage.

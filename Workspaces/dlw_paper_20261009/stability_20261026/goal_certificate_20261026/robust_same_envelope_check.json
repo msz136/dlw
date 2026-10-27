@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-26",
+  "meaning": "Exact algebra check, not a PDE existence calculation",
+  "cases": {
+    "u_only": {
+      "delta_a_0_to_2": [
+        "0",
+        "-2*H*alpha**2*eta",
+        "0"
+      ],
+      "delta_b_0_to_2": [
+        "0",
+        "2*H*alpha**2*eta",
+        "0"
+      ],
+      "passed": true
+    },
+    "v_only": {
+      "delta_a_0_to_2": [
+        "0",
+        "0",
+        "-H*alpha**2*eta"
+      ],
+      "delta_b_0_to_2": [
+        "0",
+        "0",
+        "-H*alpha**2*eta"
+      ],
+      "passed": true
+    }
+  },
+  "nonlinear_flux_cancellation": {
+    "u_only_first_a_flux": "0",
+    "u_only_first_b_flux": "0",
+    "v_only_second_a_flux": "0",
+    "v_only_second_b_flux": "0"
+  },
+  "finite_sample_mask": {
+    "sine_square_laurent_factorization": "0",
+    "two_sample_high_frequency_tail_identity": "0",
+    "passed": true
+  },
+  "all_passed": true
+}

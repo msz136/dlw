@@ -1,0 +1,259 @@
+{
+  "case": "Gaussian",
+  "methods": [
+    "Endpoint-SD",
+    "Centered-SD",
+    "FD"
+  ],
+  "inputs": [
+    "u",
+    "v"
+  ],
+  "pairs": [
+    [
+      "Endpoint-SD",
+      "Centered-SD"
+    ],
+    [
+      "Endpoint-SD",
+      "FD"
+    ],
+    [
+      "Centered-SD",
+      "FD"
+    ]
+  ],
+  "status": "complete",
+  "reason": null,
+  "reached": 0.01,
+  "T": 0.01,
+  "dt": 0.0001,
+  "h": 0.1,
+  "dx": 0.1,
+  "epsilon": 1e-06,
+  "kappa": 1.5707963267948966,
+  "spatial_x": "Fourier derivatives with zero first-derivative Nyquist multiplier; no filtering",
+  "initial_checks": [
+    {
+      "method": "Endpoint-SD",
+      "physical_map_error_normalized": [
+        0.0,
+        0.0
+      ],
+      "delta_rhs_physical_subtraction_residual": [
+        2.892363028059598e-13,
+        5.355123303482515e-13
+      ],
+      "previous_centered_delta_rhs_normalized_residual": null
+    },
+    {
+      "method": "Centered-SD",
+      "physical_map_error_normalized": [
+        5.551115123125783e-17,
+        1.1102230246251565e-16
+      ],
+      "delta_rhs_physical_subtraction_residual": [
+        1.646685289294743e-12,
+        1.832372543117776e-12
+      ],
+      "previous_centered_delta_rhs_normalized_residual": 4.2721381987576024e-13
+    },
+    {
+      "method": "FD",
+      "physical_map_error_normalized": [
+        0.0,
+        0.0
+      ],
+      "delta_rhs_physical_subtraction_residual": [
+        2.8489786969313444e-13,
+        8.327972820970403e-13
+      ],
+      "previous_centered_delta_rhs_normalized_residual": null
+    }
+  ],
+  "checkpoints": {
+    "Endpoint-SD": {
+      "baseline_reproduction_max": 0.0,
+      "baseline_continuous_reference_error": [
+        2.1466918714851957e-08,
+        6.036230431050171e-07
+      ],
+      "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\nondegenerate_rk4_20261024\\Gaussian_Endpoint-SD_RK4.npz"
+    },
+    "Centered-SD": {
+      "baseline_reproduction_max": 0.0,
+      "baseline_continuous_reference_error": [
+        2.8999367109039387e-08,
+        6.966963894683431e-09
+      ],
+      "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\natural_edge_rk4_20261024\\Gaussian.npz"
+    },
+    "FD": {
+      "baseline_reproduction_max": 0.0,
+      "baseline_continuous_reference_error": [
+        4.279950858998571e-08,
+        2.2061044546717312e-08
+      ],
+      "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\nondegenerate_rk4_20261024\\Gaussian_FD_RK4.npz"
+    }
+  },
+  "physical_grid": "u common native nodes; v common centered midpoint edges. Endpoint v[1:] matches; FD v reconstructed by cubic spline in y.",
+  "observation": "full periodic x, |y|<=1.8",
+  "normalization": "max absolute numerical perturbed-minus-unperturbed physical response divided by prescribed epsilon",
+  "agreement_metric": "For each input and time: maximum pairwise common-grid physical-field discrepancy divided by max(epsilon, largest response component among all methods); initial interpolation discrepancy included.",
+  "initial_interpolation_floor_normalized": 8.446857420879583e-07,
+  "initial_interpolation_floor_physical": 8.446857420879582e-13,
+  "initial_response_normalized": [
+    [
+      [
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.9984586668665639
+      ]
+    ],
+    [
+      [
+        1.0,
+        5.551115123125783e-17
+      ],
+      [
+        0.0,
+        0.998458666866564
+      ]
+    ],
+    [
+      [
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.9984578717082405
+      ]
+    ]
+  ],
+  "terminal_response_normalized": [
+    [
+      [
+        0.998371554130745,
+        0.019350617602246014
+      ],
+      [
+        0.04922190028960763,
+        0.9968350633576786
+      ]
+    ],
+    [
+      [
+        0.9983716164526633,
+        0.01934814260725437
+      ],
+      [
+        0.049221908623476925,
+        0.9968349338911702
+      ]
+    ],
+    [
+      [
+        0.9983702151218998,
+        0.019289013904233546
+      ],
+      [
+        0.04921442646552715,
+        0.9968331699155892
+      ]
+    ]
+  ],
+  "terminal_l2_gain_common_observation": [
+    [
+      1.000552707366059,
+      1.0014700960690317
+    ],
+    [
+      1.0005527072887646,
+      1.0014700960405276
+    ],
+    [
+      1.0005499320832498,
+      1.0014687244203164
+    ]
+  ],
+  "terminal_pairwise_relative": [
+    [
+      2.0295092484542412e-05,
+      3.548415876247074e-05
+    ],
+    [
+      6.285035478995754e-05,
+      3.517981793722813e-05
+    ],
+    [
+      5.96318153884938e-05,
+      2.423073101705253e-05
+    ]
+  ],
+  "agreement_windows": [
+    {
+      "input": "u",
+      "threshold": 0.01,
+      "first_exceedance": null,
+      "last_prefix_time_within": 0.01,
+      "right_censored": true,
+      "max_discrepancy": 6.285035478995754e-05,
+      "terminal_discrepancy": 6.285035478995754e-05
+    },
+    {
+      "input": "u",
+      "threshold": 0.05,
+      "first_exceedance": null,
+      "last_prefix_time_within": 0.01,
+      "right_censored": true,
+      "max_discrepancy": 6.285035478995754e-05,
+      "terminal_discrepancy": 6.285035478995754e-05
+    },
+    {
+      "input": "u",
+      "threshold": 0.1,
+      "first_exceedance": null,
+      "last_prefix_time_within": 0.01,
+      "right_censored": true,
+      "max_discrepancy": 6.285035478995754e-05,
+      "terminal_discrepancy": 6.285035478995754e-05
+    },
+    {
+      "input": "v",
+      "threshold": 0.01,
+      "first_exceedance": null,
+      "last_prefix_time_within": 0.01,
+      "right_censored": true,
+      "max_discrepancy": 3.548415876247074e-05,
+      "terminal_discrepancy": 3.548415876247074e-05
+    },
+    {
+      "input": "v",
+      "threshold": 0.05,
+      "first_exceedance": null,
+      "last_prefix_time_within": 0.01,
+      "right_censored": true,
+      "max_discrepancy": 3.548415876247074e-05,
+      "terminal_discrepancy": 3.548415876247074e-05
+    },
+    {
+      "input": "v",
+      "threshold": 0.1,
+      "first_exceedance": null,
+      "last_prefix_time_within": 0.01,
+      "right_censored": true,
+      "max_discrepancy": 3.548415876247074e-05,
+      "terminal_discrepancy": 3.548415876247074e-05
+    }
+  ],
+  "boundary": "Identical prescribed lower u trace; Endpoint lower exact ghost; FD upper exact-background plus quadratic perturbation extrapolation; Centered auxiliary lower trace freely evolves from its matched initial value.",
+  "continuous_certificate": false,
+  "artifact_sha256": "ce3dd5ff49b1ca312b8397eedf94a37e022c5d1d5949f31364b34e82b91835f8",
+  "source_sha256": "29db69f8427fe574727805d291954347856ff5bcf1bd7b95566202f4e2d20bcb",
+  "seconds": 116.45811469999899
+}

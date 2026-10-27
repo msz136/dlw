@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DLW 论文审查：计算、结论与图表对应</title>
+<style>
+body{max-width:1000px;margin:42px auto;padding:0 26px;color:#222;background:#fff;font:17px/1.8 Georgia,"Times New Roman","Microsoft YaHei",serif}h1{font-size:29px;line-height:1.4}h2{font-size:23px;margin-top:38px}h3{font-size:19px;margin-top:28px}a{color:#245c7b}.date{color:#666;font-size:14px}.lead{border-block:1px solid #bbb;padding:15px 0}blockquote{margin:12px 0;padding:6px 18px;border-left:3px solid #b8c5ce;color:#444;font-size:16px}.math{overflow-x:auto;text-align:center;margin:18px 0;font-family:Cambria,"Times New Roman",serif}table{border-collapse:collapse;width:100%;margin:20px 0;font-size:15px;line-height:1.65;border-block:2px solid #333}th,td{padding:9px 10px;text-align:left;vertical-align:top}thead{border-bottom:1px solid #555}tr+tr{border-top:1px solid #e3e3e3}figure{margin:24px 0}figure img{display:block;width:100%;height:auto}figcaption{font-size:14px;color:#555;margin-top:8px}code{font-size:.87em;overflow-wrap:anywhere}small{color:#555}@media print{body{max-width:none;margin:0;padding:0;font-size:11pt}h2,h3{break-after:avoid}tr,figure{break-inside:avoid}a{color:inherit;text-decoration:none}}
+</style></head><body>
+<h1>DLW 论文审查：计算、结论与图表对应</h1>
+<p class="date">2026-10-26 · <a href="../dlw-paper.html">审查的论文</a></p>
+<div class="lead"><p>主干理论推导未发现直接计算错误，式 (51) 的首项残差系数正确。主要数值排名、动网格最大误差改善和扰动响应说明与现有图表对应。需要修改的内容集中在少量代数笔误、数值说明，以及关键段落中超出当前正文内容的成果陈述。</p><p>本次接受现有实验结果，不重跑演化实验；仅核对推导、现有结果、图文对应和论文原图。没有将表达方式、一般性的严谨程度或未展开的证明细节列为问题。主论文尚未修改。</p></div>
+
+<h2>1. 首项误差系数与主干理论</h2>
+<p><a href="../dlw-paper.html#section-3.4">Section 3.4</a> 的式 (51)，以及 Appendix C 的相应展开，写的是方程残差：</p>
+<div class="math">R<sub>E,2</sub> = R<sub>v</sub> + (h/4) ∂<sub>x</sub>(v² − u<sub>y</sub>² − 8v) + O(h²).</div>
+<p>这一系数的符号、1/4 因子和 −8v 项均正确；−8v 来自式 (28) 中的 −2hV。若另写成时间导数误差 v<sub>t</sub><sup>E</sup> − v<sub>t</sub><sup>*</sup>，相应首项要取负号。当前正文采用残差写法，没有这个符号错误。</p>
+<p>连续双线性化、Hirota–Miwa 的三次展开、Endpoint 非线性消元、Centered 的辅助场方程与重构、Darboux–Lax 系数关系和连续极限，均已作代数核对，未发现直接算错的地方。</p>
+
+<h2>2. Abstract、Introduction、Conclusion 的内容对应</h2>
+<h3 id="claim-fields">2.1 “已给出精确波场首项误差系数”与当前正文不对应</h3>
+<p>位置：Abstract、Introduction 的贡献段、Conclusion 第二段；HTML 第 117、143、2464 行。</p>
+<blockquote>establish convergence orders for the corresponding exact wave fields and derive explicit leading error coefficients</blockquote>
+<p>当前 Section 3.4 给出了 Endpoint 的方程残差首项，以及 Centered 精确 Gram 波场的 O(h²) 逼近。没有给出所声称的两类精确物理波场的显式首项误差系数，也没有展开 Endpoint 精确波场的对应收敛推导。这里是成果对象说错、当前内容缺项；不能拿方程残差系数代替波场误差系数。</p>
+<p>最小修改：三处同步改为“给出方程残差的首项修正，并建立 Centered 精确波场的二阶逼近”。现有式 (51) 无需改动。</p>
+
+<h3 id="claim-refinement">2.2 引言声称使用空间加密实验，正文实际为固定空间网格比较</h3>
+<p>位置：Introduction 数值工作段；HTML 第 144 行。</p>
+<blockquote>We use spatial refinement tests to assess the predicted orders</blockquote>
+<p>当前 Section 5 和 Appendix D 的空间比较固定 h = Δx = 0.1；没有呈现空间加密序列或数值阶数表。已有控制实验包括时间步减半，不能称为空间加密实验。最小修改为“比较初始导数误差和演化物理场误差”，无需补做实验。</p>
+
+<h2>3. 可以直接定位的错误及最小修改</h2>
+<h3 id="shared-coefficient">3.1 两格式“共享首项系数”应改为“共享二阶一致性”</h3>
+<p>位置：Section 3 导语；HTML 第 933 行。</p>
+<blockquote>identify the shared initial U-derivative coefficient</blockquote>
+<p>Section 3.4 末尾实际给出：</p>
+<div class="math">(u<sub>k,t</sub>)<sub>C</sub> − (u<sub>k,t</sub>)<sub>E</sub> = −∂<sub>x</sub>[(ω<sub>k</sub>²/2 − hω<sub>k</sub>) − (ω<sub>0</sub>²/2 − hω<sub>0</sub>)].</div>
+<p>这一般是非零的 h² 首项；该节最后一句也明确写着 “different leading derivative errors”。因此两格式共同的是阶数，首项系数一般不同。将导语改为 “initial u-derivative errors” 即可。</p>
+
+<h3 id="cn-bound">3.2 C–N 容差控制的终态误差变化上界写小了</h3>
+<p>位置：Section 4.2、Appendix D 和 Table 7；HTML 第 2215、2665、2697 行。</p>
+<blockquote>changes the terminal errors … by at most 4 × 10<sup>−13</sup></blockquote>
+<p>两孤子 C–N 的现有保存记录如下。两列分别为主实验与容差从 2 × 10<sup>−14</sup> 收紧至 2 × 10<sup>−15</sup> 的控制实验：</p>
+<table><thead><tr><th>量</th><th>主实验</th><th>收紧容差</th><th>绝对变化</th></tr></thead><tbody>
+<tr><td>E<sub>u</sub></td><td>1.8047405343106886 × 10<sup>−4</sup></td><td>1.8047480964506114 × 10<sup>−4</sup></td><td>7.56214 × 10<sup>−10</sup></td></tr>
+<tr><td>E<sub>v</sub></td><td>1.0094874663346687 × 10<sup>−4</sup></td><td>1.0094877298527649 × 10<sup>−4</sup></td><td>2.63518 × 10<sup>−11</sup></td></tr>
+</tbody></table>
+<p>若继续给统一向上界，可以改成 8 × 10<sup>−10</sup>。这里比较的是“误差范数的变化”，与两条数值解的最大差值不同。修正后不改变 Table 4 的方法排名。</p>
+<p><small>证据：<a href="../Workspaces/dlw_paper_20261009/time_samm_20261025/time/D_time.json">D_time.json</a> 的 integrators.CN.error，与 <a href="../Workspaces/dlw_paper_20261009/time_samm_20261025/time/D_controls.json">D_controls.json</a> 的 tight_solve.error。</small></p>
+
+<h3 id="cn-variable">3.3 C–N 停止准则的检查变量写错了</h3>
+<p>位置：Section 4.2 和 Appendix D；HTML 第 2215、2665 行。</p>
+<p>实际实现储存并检查的是 (u,w)，w = 4ω/h。正文先说在推进变量中检查残差，又说 “Centered-SD stores ω”，两种尺度混在了一起。用论文变量可准确写成：</p>
+<div class="math">max{‖r<sub>u</sub>‖<sub>∞</sub>, (4/h)‖r<sub>ω</sub>‖<sub>∞</sub>} &lt; 2 × 10<sup>−14</sup>.</div>
+<p>在 h = 0.1 时，对应 ω 残差界为 5 × 10<sup>−16</sup>。这是实现说明的对象错误，等价变量缩放后的方法无需改变。</p>
+<p><small>证据：<a href="../Workspaces/dlw_paper_20261009/time_samm_20261025/time/run_time.py">run_time.py</a> 第 56–67、109、115 行，以及已保存结果的 state / cn_solver 字段。</small></p>
+
+<h3 id="mesh-mean">3.4 动网格常数符号和“平均位移为零”写错了</h3>
+<p>位置：Section 4.3；HTML 第 2236、2240 行。</p>
+<p>给定正文中的速度 V<sub>i</sub> = (q̄<sub>i</sub> − ⟨q̄⟩)/ρ̄<sub>i</sub>，代回即得：</p>
+<div class="math">ρ̄<sub>i</sub>V<sub>i</sub> − q̄<sub>i</sub> = −⟨q̄⟩，　Σ<sub>i</sub>ρ̄<sub>i</sub>V<sub>i</sub> = 0.</div>
+<p>所以前一句所说的常数应为均值的负数；后一句 “This choice leaves the mean displacement zero” 也不成立。为零的是密度加权的平均速度，普通平均速度与普通平均位移一般不为零。</p>
+<p>现有一孤子、两孤子文件的普通平均终态位移分别为 3.22324 × 10<sup>−5</sup>、−3.37618 × 10<sup>−6</sup>，与上述判断一致。保留速度公式和实验结果，只更正这两句话即可。</p>
+
+<h3 id="mesh-profile">3.5 图12支持最大误差改善，不支持“整个波区处处降低”</h3>
+<p>位置：Section 5.4 对 Figure 12 的解释；HTML 第 2432 行。</p>
+<blockquote>the adaptive mesh lowers the error across the entire wave zone</blockquote>
+<p>Figure 12(a) 左侧的局部谷点附近，蓝色自适应曲线明显高于橙色均匀网格曲线。例如 x = −1.7，均匀曲线误差约 3.20760 × 10<sup>−5</sup>，自适应图线在同一 x 的误差约 8.22497 × 10<sup>−5</sup>。不能将最大误差下降写成每个位置误差都下降。</p>
+<p>最小修改为“降低了最大误差和主要峰值”。表5的一孤子双场改善 11.7%、17.4%，以及两孤子改善 6.0%、5.6% 均可保留。</p>
+<figure><img src="../Workspaces/dlw_paper_20261009/time_samm_20261025/figures/mesh_profile_A.png" alt="论文图12：均匀与自适应网格的误差剖面"><figcaption>论文 Figure 12 原图。最大值下降，但左侧局部曲线存在交叉。</figcaption></figure>
+
+<h3 id="cofactor">3.6 余子式下标应转置</h3>
+<p>位置：Appendix A；HTML 第 2525 行。</p>
+<div class="math">det M · (M<sup>−1</sup>)<sub>ij</sub> = cof<sub>ji</sub> M.</div>
+<p>原文右侧写成 cof<sub>ij</sub> M，下标写反。这是普通逆矩阵公式的代数笔误。</p>
+
+<h3 id="reconstruction">3.7 重构递推的两句解释与 (B2)–(B3) 不符</h3>
+<p>位置：Appendix B；HTML 第 2569、2577 行。</p>
+<p>第一句称边数据在递推中不会放大，但 (B3) 是求和，交错的边数据误差可以累积。令 d<sub>j</sub> = v<sub>j</sub> − Δ<sub>h</sub>u<sub>j</sub>，取 δd<sub>j</sub> = (−1)<sup>j</sup>ε、δb = 0，则：</p>
+<div class="math">δω<sub>k</sub> = (−1)<sup>k</sup> k h ε/2.</div>
+<p>正确的是“单独的下边界值误差按交错符号传递，其幅值不沿层数增长”；不能一并说所有边数据误差都不累积。</p>
+<p>第二句称换错下边界值会在最低边产生 O(1) 物理场失配。按本文 (B2) 用新的 b 重新递推时，实际有 δω<sub>k</sub> = (−1)<sup>k</sup>δb，因而 δω<sub>k</sub> + δω<sub>k−1</sub> = 0，重构的初始 v 在每条边都不变。应改为“引入辅助变量的交错分量，可能影响后续演化”。若只改 b 而不重算其余 ω，才会破坏最低边重构；那不是 (B2) 的初始化操作。</p>
+
+<h2>4. 数值结果解释中可以保留的内容</h2>
+<table><thead><tr><th>论文判断</th><th>对照结果</th></tr></thead><tbody>
+<tr><td>Endpoint 的初始 u<sub>t</sub> 误差在四个算例最小</td><td>与 Table 2 对应。</td></tr>
+<tr><td>孤子终态中 Centered 两场均优于 Endpoint；Gaussian、Sinusoidal 的终态 u 以 Endpoint 最小，v 以 Centered 最小</td><td>与 Table 3 和 Figures 5–8 对应；没有把 Centered 说成所有分量都最好。</td></tr>
+<tr><td>RK4 与 C–N 接近；Euler 在 u 上有部分抵消、在 v 上有强化</td><td>与 Table 4、Figures 9–10 及现有时间步控制对应；上述容差上界需单独更正。</td></tr>
+<tr><td>动网格改善双场最大误差，主要收益来自初始布点</td><td>与 Table 5、Figures 11–12 及冻结初始自适应网格的控制结果对应。</td></tr>
+<tr><td>独立初值扰动在另一分量中产生响应，两孤子的 v 初扰动诱发较大 u 响应</td><td>与 Figures 13–14、Table 6 和现有响应结果对应。</td></tr>
+</tbody></table>
+
+<h2>5. 图表看着不舒服的地方</h2>
+<p>14 张原图已逐张检查，7 张表的逻辑列数一致，引用的图像与导出文件均存在。没有看到图例把方法对错、误差量级标反、色条范围明显错误的问题。以下只是阅读观感，不影响实验结果：</p>
+<ol>
+<li><strong>Figures 5–8 信息过密。</strong>每张十个面板，按论文宽度缩小后，热图标题、最大误差和色条数字偏小。若调整版面，可将“截线比较”和“误差热图”分开排放；保留现有数据即可。</li>
+<li><strong>Figures 9–10、13–14 的重叠虚线像一条分段彩线。</strong>目前能看出颜色，但三条轨迹接近时，视觉上容易读成同一条曲线换颜色。图注已解释重叠；不同线型或一个局部放大框会更自然。</li>
+<li><strong>Figures 7–8 的 (d) 面板显得近乎空白。</strong>标注的最大误差约 2 × 10<sup>−12</sup>，纵轴上限约 10<sup>−10</sup>，曲线都贴着底边。想突出“几乎为零”可以保留；想让读者看清细节，可收紧纵轴或加小幅放大。</li>
+</ol>
+<p>本次检查的是原图及表格内容，没有取得整页浏览器截图，因此不将整页分页效果计入已检查项目。</p>
+</body></html>

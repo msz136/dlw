@@ -1,0 +1,264 @@
+{
+  "independent_native_audit_passed": true,
+  "completed_cases": [
+    "A",
+    "Gaussian",
+    "Sinusoidal"
+  ],
+  "trajectories": 18,
+  "results": [
+    {
+      "case": "A",
+      "native_histories_match_source_exactly": true,
+      "physical_export_reconstruction_error": 0.0,
+      "initial_terminal_max_recomputation_error": 0.0,
+      "initial_physical_functions_checked": true,
+      "baseline_reproduction_checked": true,
+      "interpolation_used": false,
+      "method_pair_comparisons": false,
+      "rows": [
+        {
+          "method": "Endpoint-SD",
+          "input": "u",
+          "initial": [
+            0.9999376947588287,
+            0.0
+          ],
+          "terminal": [
+            1.0206626135276826,
+            0.09182297236299534
+          ]
+        },
+        {
+          "method": "Endpoint-SD",
+          "input": "v",
+          "initial": [
+            0.0,
+            1.0
+          ],
+          "terminal": [
+            0.22463712467372673,
+            1.0229991584472442
+          ]
+        },
+        {
+          "method": "Centered-SD",
+          "input": "u",
+          "initial": [
+            0.9999376947588287,
+            0.0
+          ],
+          "terminal": [
+            1.0206951057352376,
+            0.0918577327290919
+          ]
+        },
+        {
+          "method": "Centered-SD",
+          "input": "v",
+          "initial": [
+            0.0,
+            1.0
+          ],
+          "terminal": [
+            0.22453287587646634,
+            1.0217415868727193
+          ]
+        },
+        {
+          "method": "FD",
+          "input": "u",
+          "initial": [
+            0.9999376947588287,
+            0.0
+          ],
+          "terminal": [
+            1.0206965839939917,
+            0.091847151915911
+          ]
+        },
+        {
+          "method": "FD",
+          "input": "v",
+          "initial": [
+            0.0,
+            0.9999376947588287
+          ],
+          "terminal": [
+            0.22452622449061427,
+            1.0217101917404279
+          ]
+        }
+      ]
+    },
+    {
+      "case": "Gaussian",
+      "native_histories_match_source_exactly": true,
+      "physical_export_reconstruction_error": 0.0,
+      "initial_terminal_max_recomputation_error": 0.0,
+      "initial_physical_functions_checked": true,
+      "baseline_reproduction_checked": true,
+      "interpolation_used": false,
+      "method_pair_comparisons": false,
+      "rows": [
+        {
+          "method": "Endpoint-SD",
+          "input": "u",
+          "initial": [
+            1.0,
+            0.0
+          ],
+          "terminal": [
+            0.998371554130745,
+            0.019350617602246014
+          ]
+        },
+        {
+          "method": "Endpoint-SD",
+          "input": "v",
+          "initial": [
+            0.0,
+            0.9984586668665639
+          ],
+          "terminal": [
+            0.04922190028960763,
+            0.9968350633576786
+          ]
+        },
+        {
+          "method": "Centered-SD",
+          "input": "u",
+          "initial": [
+            1.0,
+            5.551115123125783e-17
+          ],
+          "terminal": [
+            0.9983716164526633,
+            0.01934814260725437
+          ]
+        },
+        {
+          "method": "Centered-SD",
+          "input": "v",
+          "initial": [
+            0.0,
+            0.998458666866564
+          ],
+          "terminal": [
+            0.049221908623476925,
+            0.9968349338911702
+          ]
+        },
+        {
+          "method": "FD",
+          "input": "u",
+          "initial": [
+            1.0,
+            0.0
+          ],
+          "terminal": [
+            0.9983702151218998,
+            0.019345515422902727
+          ]
+        },
+        {
+          "method": "FD",
+          "input": "v",
+          "initial": [
+            0.0,
+            1.0
+          ],
+          "terminal": [
+            0.04921442646552715,
+            0.9983727694612593
+          ]
+        }
+      ]
+    },
+    {
+      "case": "Sinusoidal",
+      "native_histories_match_source_exactly": true,
+      "physical_export_reconstruction_error": 0.0,
+      "initial_terminal_max_recomputation_error": 0.0,
+      "initial_physical_functions_checked": true,
+      "baseline_reproduction_checked": true,
+      "interpolation_used": false,
+      "method_pair_comparisons": false,
+      "rows": [
+        {
+          "method": "Endpoint-SD",
+          "input": "u",
+          "initial": [
+            1.0,
+            0.0
+          ],
+          "terminal": [
+            0.9984104912810944,
+            0.019333506398862263
+          ]
+        },
+        {
+          "method": "Endpoint-SD",
+          "input": "v",
+          "initial": [
+            0.0,
+            0.9984586668665639
+          ],
+          "terminal": [
+            0.049223180240181005,
+            0.9968747922824284
+          ]
+        },
+        {
+          "method": "Centered-SD",
+          "input": "u",
+          "initial": [
+            1.0,
+            5.551115123125783e-17
+          ],
+          "terminal": [
+            0.9984105733184505,
+            0.019331504654610532
+          ]
+        },
+        {
+          "method": "Centered-SD",
+          "input": "v",
+          "initial": [
+            0.0,
+            0.998458666866564
+          ],
+          "terminal": [
+            0.049223192279761144,
+            0.9968745421914529
+          ]
+        },
+        {
+          "method": "FD",
+          "input": "u",
+          "initial": [
+            1.0,
+            0.0
+          ],
+          "terminal": [
+            0.9984091724338406,
+            0.01932939441786614
+          ]
+        },
+        {
+          "method": "FD",
+          "input": "v",
+          "initial": [
+            0.0,
+            1.0
+          ],
+          "terminal": [
+            0.04921570730444726,
+            0.9984123893245013
+          ]
+        }
+      ]
+    }
+  ],
+  "interpretation": "Each method own perturbed-minus-unperturbed native physical response; no spatial alignment or intermethod agreement metric."
+}

@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-26",
+  "source": "dlw-paper.html",
+  "source_bytes": 2232831,
+  "source_sha256": "98de74dbb0918f67592d62c11f19a1233d23cf8cb72f678e09af528733c13cb0",
+  "experiments_rerun": false,
+  "manuscript_modified": false,
+  "leading_equation_residual": {
+    "equation": "(51)/(C2)",
+    "expression": "R_E2=R_v+(h/4)*d_x(v^2-u_y^2-8*v)+O(h^2)",
+    "algebra_check": "correct"
+  },
+  "cn_tight_control": {
+    "main_file": "time_samm_20261025/time/D_time.json",
+    "main_key": "integrators.CN.error",
+    "main": [0.00018047405343106886, 0.00010094874663346687],
+    "control_file": "time_samm_20261025/time/D_controls.json",
+    "control_key": "controls[2].error",
+    "control": [0.00018047480964506114, 0.00010094877298527649],
+    "absolute_error_norm_changes": [7.562139922774342e-10, 2.6351809626e-11],
+    "paper_claimed_upper_bound": 4e-13,
+    "sufficient_revised_upper_bound": 8e-10,
+    "actual_stored_variables": "u,w; w=4*omega/h"
+  },
+  "mesh_mean_displacements": {
+    "A": 3.2232356821e-5,
+    "D": -3.3761807776e-6,
+    "velocity_identity": "rho_bar_i*V_i-q_bar_i=-mean(q_bar)",
+    "zero_quantity": "sum_i rho_bar_i*V_i"
+  },
+  "figure12_local_counterexample": {
+    "x": -1.7,
+    "uniform_u_error": 3.207599770829739e-5,
+    "adaptive_u_error_linearly_interpolated_on_plotted_curve": 8.224974486178692e-5,
+    "nearest_adaptive_native_x": -1.6768851725791012,
+    "nearest_adaptive_native_u_error": 8.160199001167046e-5
+  },
+  "figure_count_inspected": 14,
+  "table_logical_columns": {
+    "table-parameters": 4,
+    "table-initial": 7,
+    "table-final": 7,
+    "table-time": 7,
+    "table-mesh": 7,
+    "table-native-terminal": 4,
+    "table-controls": 4
+  },
+  "missing_local_image_or_link_targets": [],
+  "whole_page_browser_screenshot_checked": false
+}

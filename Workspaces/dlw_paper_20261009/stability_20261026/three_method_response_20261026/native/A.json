@@ -1,0 +1,190 @@
+{
+  "case": "A",
+  "methods": [
+    "Endpoint-SD",
+    "Centered-SD",
+    "FD"
+  ],
+  "inputs": [
+    "u",
+    "v"
+  ],
+  "outputs": [
+    "u",
+    "v"
+  ],
+  "status": "complete",
+  "reason": null,
+  "T": 0.01,
+  "reached": 0.01,
+  "dt": 0.0001,
+  "dx": 0.1,
+  "h": 0.1,
+  "epsilon": 1e-06,
+  "kappa": 1.5707963267948966,
+  "samples": 101,
+  "response_definition": "For each method independently: maximum absolute numerical perturbed-minus-own-unperturbed physical field at its native sites, divided by prescribed epsilon.",
+  "observation": "|x|<=R, |y|<R, R=5 (A),30(D)",
+  "initial_condition": "Same analytic physical initial background and epsilon*sin^2(pi*(y-yL)/(yR-yL))*cos(kappa*x) sampled at each native physical-field location; one physical field perturbed at a time.",
+  "interpolation_used": false,
+  "method_pair_comparisons": false,
+  "terminal": [
+    {
+      "method": "Endpoint-SD",
+      "input": "u",
+      "initial_response_normalized": [
+        0.9999376947588287,
+        0.0
+      ],
+      "terminal_response_normalized": [
+        1.0206626135276826,
+        0.09182297236299534
+      ],
+      "native_pair_L2_gain": 1.002814556942168
+    },
+    {
+      "method": "Endpoint-SD",
+      "input": "v",
+      "initial_response_normalized": [
+        0.0,
+        1.0
+      ],
+      "terminal_response_normalized": [
+        0.22463712467372673,
+        1.0229991584472442
+      ],
+      "native_pair_L2_gain": 1.0141871089583017
+    },
+    {
+      "method": "Centered-SD",
+      "input": "u",
+      "initial_response_normalized": [
+        0.9999376947588287,
+        0.0
+      ],
+      "terminal_response_normalized": [
+        1.0206951057352376,
+        0.0918577327290919
+      ],
+      "native_pair_L2_gain": 1.0028188559292532
+    },
+    {
+      "method": "Centered-SD",
+      "input": "v",
+      "initial_response_normalized": [
+        0.0,
+        1.0
+      ],
+      "terminal_response_normalized": [
+        0.22453287587646634,
+        1.0217415868727193
+      ],
+      "native_pair_L2_gain": 1.0141780529584437
+    },
+    {
+      "method": "FD",
+      "input": "u",
+      "initial_response_normalized": [
+        0.9999376947588287,
+        0.0
+      ],
+      "terminal_response_normalized": [
+        1.0206965839939917,
+        0.091847151915911
+      ],
+      "native_pair_L2_gain": 1.0028290084787195
+    },
+    {
+      "method": "FD",
+      "input": "v",
+      "initial_response_normalized": [
+        0.0,
+        0.9999376947588287
+      ],
+      "terminal_response_normalized": [
+        0.22452622449061427,
+        1.0217101917404279
+      ],
+      "native_pair_L2_gain": 1.0141270297521046
+    }
+  ],
+  "initial_checks": [
+    {
+      "method": "Endpoint-SD",
+      "physical_map_error_normalized": [
+        0.0,
+        0.0
+      ],
+      "delta_rhs_physical_subtraction_residual": [
+        1.3029677692996298e-12,
+        1.262467210375669e-13
+      ],
+      "previous_centered_delta_rhs_normalized_residual": null
+    },
+    {
+      "method": "Centered-SD",
+      "physical_map_error_normalized": [
+        3.469446951953614e-18,
+        5.551115123125783e-17
+      ],
+      "delta_rhs_physical_subtraction_residual": [
+        2.7191866803605e-13,
+        2.397624009291136e-13
+      ],
+      "previous_centered_delta_rhs_normalized_residual": 3.086420008457935e-13
+    },
+    {
+      "method": "FD",
+      "physical_map_error_normalized": [
+        0.0,
+        0.0
+      ],
+      "delta_rhs_physical_subtraction_residual": [
+        8.988934898337584e-13,
+        1.766817723754862e-13
+      ],
+      "previous_centered_delta_rhs_normalized_residual": null
+    }
+  ],
+  "baseline_checks": {
+    "Endpoint-SD": {
+      "baseline_reproduction_max": 0.0,
+      "baseline_continuous_reference_error": [
+        0.00047020860693258726,
+        0.005546591666669265
+      ],
+      "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\rk4_spatial\\A_Endpoint-SD_RK4.npz"
+    },
+    "Centered-SD": {
+      "baseline_reproduction_max": 0.0,
+      "baseline_continuous_reference_error": [
+        0.0001677233376562448,
+        7.733758362471477e-05
+      ],
+      "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\natural_edge_rk4_20261024\\A.npz"
+    },
+    "FD": {
+      "baseline_reproduction_max": 0.0,
+      "baseline_continuous_reference_error": [
+        5.5679698316768444e-05,
+        0.00014278869520745197
+      ],
+      "source": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\rk4_spatial\\A_FD_RK4.npz"
+    }
+  },
+  "boundary": "Identical prescribed lower u trace; Endpoint lower exact ghost; FD upper exact-background plus quadratic perturbation extrapolation; Centered auxiliary lower trace freely evolves from its matched initial value.",
+  "native_L2_scope": "h*dx sum on each field own native sites and the same per-case observation window; terminal divided by own initial paired norm.",
+  "continuous_certificate": false,
+  "artifact_sha256": "557d739fc86963b24a3bdde007fdc882c5f956fff60a7da1d31ffaf1bc948022",
+  "source_experiment": "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_20261009\\stability_20261026\\three_method_response_20261026\\superseded_common_grid\\A.json",
+  "source_artifact_sha256": "34de5c3ab76e73d20776045a92c7d7f191759f50a4211a45795d4e0d7ac19e53",
+  "source_files": {
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_20261009\\stability_20261026\\three_method_response_20261026\\run_comparison.py": "29db69f8427fe574727805d291954347856ff5bcf1bd7b95566202f4e2d20bcb",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_20261009\\spatial_audit_20261023\\run.py": "1743f9877f21e78a1eff6bf9533b67f09965ba9c1ec09d0a759fa16e042f45c5",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_20261009\\spatial_audit_20261023\\separated\\reconstruction_probe\\rerun_20261024.py": "32da0396c930807152222362bc46b48b03917c04bc84648169eb51a78d80b9c0",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_20261009\\spatial_audit_20261023\\separated\\reconstruction_probe\\probe.py": "e1ab25d35251b4a5a1106d77ba3f2e32410ed0c9e46705d27917d4f2e2cd97c1",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_20261009\\time_samm_20261025\\time\\run_time.py": "2c9c77f84c4c8b70a53ba57eef431fd2c8f25a94cd6f3daabfb46084db364e64",
+    "C:\\Users\\msz\\aca\\Workspaces\\dlw_paper_20261009\\report_refresh_20261024\\nondegenerate_rk4_20261024\\run.py": "c8b8311e4bf879a01a71b0e9f71c98635b4c832215d0ebb682ee8d21e3977ecb"
+  },
+  "export_source_sha256": "3e41118beb8428f05cc11996a51b98b0a0204e7c65aa2447e2e65d91a24af7f5"
+}

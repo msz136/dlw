@@ -1,0 +1,84 @@
+{
+  "checks": [
+    {
+      "case": "A",
+      "recomputed_error": [
+        4.574433484250129e-05,
+        1.8105786892430586e-05
+      ],
+      "half_dt_field_difference": [
+        8.066555087196843e-12,
+        3.4141578453272814e-12
+      ],
+      "half_dt_relative_to_error": [
+        1.7633997991161448e-07,
+        1.8856721696832877e-07
+      ],
+      "FD_same_nodes_and_initial_fields": true
+    },
+    {
+      "case": "D",
+      "recomputed_error": [
+        0.00011584919077513876,
+        2.584296622343274e-05
+      ],
+      "half_dt_field_difference": [
+        3.618083419779268e-09,
+        8.180840228826097e-10
+      ],
+      "half_dt_relative_to_error": [
+        3.1230977062255915e-05,
+        3.165596455954904e-05
+      ],
+      "FD_same_nodes_and_initial_fields": true
+    },
+    {
+      "case": "Gaussian",
+      "recomputed_error": [
+        4.2823716850382e-08,
+        6.119628359613216e-09
+      ],
+      "half_dt_field_difference": [
+        4.7107439859247525e-12,
+        6.45439257596081e-12
+      ],
+      "half_dt_relative_to_error": [
+        0.00011000315555007065,
+        0.0010547033572425551
+      ],
+      "FD_same_nodes_and_initial_fields": true
+    },
+    {
+      "case": "Sinusoidal",
+      "recomputed_error": [
+        3.170682732686614e-08,
+        2.8559581366494058e-09
+      ],
+      "half_dt_field_difference": [
+        1.9416551699791285e-12,
+        2.588151915006165e-12
+      ],
+      "half_dt_relative_to_error": [
+        6.123776276833306e-05,
+        0.0009062289400511207
+      ],
+      "FD_same_nodes_and_initial_fields": true
+    }
+  ],
+  "figures": 14,
+  "tables": 8,
+  "tex_unchanged": true,
+  "assembly": {
+    "product": 8.881784197001252e-16,
+    "mass": 6.661338147750939e-16,
+    "derivative": 3.552713678800501e-15,
+    "constant_derivative": 0.0,
+    "linear_derivative": 4.773959005888173e-15,
+    "first_equation_matches_fd": 0.0
+  },
+  "sources": {
+    "run_fe.py": "941b20a95edb9b3d34a18dfac72c73350e58a43b3f394f07708ba6bdf8295c36",
+    "check_fe.py": "5d01c8c72bc6c6a0d0050969cfa49ef2a5a71494a856d91a9b7f7d208e938702",
+    "tex_sync_source.tex": "fbafd823c524573a2487a534726dabe6a9b6fb5117529de8fee6d2ad8e7b23e5"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "precision_bits": 256,
+  "T": "0.01",
+  "period": "192",
+  "z_interval": [
+    0,
+    4
+  ],
+  "target": "exact continuous constant solution (u,v)=(0,4)",
+  "coordinates": "X=x-4t; transverse strip [zstar,zstar+delta] placed inside any chosen open observation interval",
+  "shape_F": "(25 sqrt(5)/3) theta^3 (1-theta)^3, zero outside [0,1]",
+  "shape_f": "F prime; max absolute value exactly 1",
+  "nonlinear_shape_product_max_exact": "9765625*sqrt(11)/170069856",
+  "nonlinear_shape_product_max_enclosure": "[0.1904447662277931937069025036779573368235548695826556778014570250072346467911 +/- 3.61e-77]",
+  "symbolic_checks": "passed: glued bump jets, derivative normalization and nonlinear product maximum, complete R1 and R2, antiheat forcing and endpoint data",
+  "examples": [
+    {
+      "amplitude": "1e-6",
+      "residual_budget": "1e-12",
+      "period_index": 1417,
+      "wavenumber_enclosure": "[46.37121656392434394689130910528182903028530248869296821168225507604349841362 +/- 2.16e-75]",
+      "strip_width_enclosure": "[4.5857500208395711953015997476901536791899380093738020232211324474466602434e-10 +/- 2.20e-84]",
+      "residual_upper_enclosure": "[9.8606911990849006354990260315699815119263401268540168447056648959787298824e-13 +/- 2.99e-87]",
+      "verified_strict_residual_upper": "1e-12",
+      "terminal_v_error_exact": "1e-6",
+      "terminal_u_error_upper_enclosure": "[1.33516260083572375194652228711755590154910013573010614548810811911244587143e-16 +/- 3.64e-91]"
+    },
+    {
+      "amplitude": "1e-6",
+      "residual_budget": "1e-30",
+      "period_index": 2446,
+      "wavenumber_enclosure": "[80.04516281958994022166276786980900057027371198824488373025744242484290551850 +/- 2.87e-75]",
+      "strip_width_enclosure": "[1.4919764174927424169717228588907811442648359281244827566853488933186429622e-28 +/- 5.32e-102]",
+      "residual_upper_enclosure": "[9.5594332357364862134384682461376065968900912632591418213153148456508113639e-31 +/- 7.96e-105]",
+      "verified_strict_residual_upper": "1e-30",
+      "terminal_v_error_exact": "1e-6",
+      "terminal_u_error_upper_enclosure": "[4.3439592322140343610005144250979423717826426327438619756449132194618591555e-35 +/- 5.54e-109]"
+    },
+    {
+      "amplitude": "1",
+      "residual_budget": "1e-12",
+      "period_index": 1829,
+      "wavenumber_enclosure": "[59.85388503558053992862682029185636224163148782767779736003305895136454382393 +/- 2.73e-75]",
+      "strip_width_enclosure": "[2.7634667196148242193948229228677761703309025575123560889952064271544453259e-16 +/- 4.07e-90]",
+      "residual_upper_enclosure": "[9.9315854963901208271075544915054827077223378145972430982400788794681397291e-13 +/- 7.18e-87]",
+      "verified_strict_residual_upper": "1e-12",
+      "terminal_v_error_exact": "1",
+      "terminal_u_error_upper_enclosure": "[8.0459628106993468806066847749954868031053722870708116250335623066309319174e-17 +/- 7.01e-91]"
+    },
+    {
+      "amplitude": "1",
+      "residual_budget": "1e-30",
+      "period_index": 2700,
+      "wavenumber_enclosure": "[88.35729338221293483176184515473601861804538935742485121492031665865733642680 +/- 3.62e-75]",
+      "strip_width_enclosure": "[1.2433137864287530929894083137196319077646637447865444270100238873340732946e-34 +/- 3.44e-108]",
+      "residual_upper_enclosure": "[9.727486242381165592562260388725383667328741464563689893088465605266350873e-31 +/- 3.97e-104]",
+      "verified_strict_residual_upper": "1e-30",
+      "terminal_v_error_exact": "1",
+      "terminal_u_error_upper_enclosure": "[3.6199663330955044311639138383691433938146491351856536017050985598694148712e-35 +/- 4.73e-109]"
+    }
+  ],
+  "theorem": "For every residual budget r>0 and terminal error M>0, suitable k and delta give exact same initial data and lower boundary, full nonlinear residual below r, and terminal maximum v error M. Finite transverse sample points can be avoided by strip placement.",
+  "limitations": [
+    "Does not alone settle the actual independently perturbed nonzero IVP.",
+    "No uniform higher-derivative or unresolved-tail bound is imposed on the approximate fields.",
+    "No two distinct exact solutions with the same initial data are constructed."
+  ],
+  "continuous_independent_reference_certified": false
+}

@@ -1,0 +1,50 @@
+/* Matched to dlw-paper.html; logical table-column alignment retained. */
+body{max-width:1020px;margin:48px auto;padding:0 26px;color:#222;background:#fff;font:17px/1.8 Georgia,"Times New Roman","Microsoft YaHei",serif}
+main{display:block}
+h1{font-size:30px;line-height:1.35}
+h2{font-size:24px;margin-top:42px}
+h3{font-size:19px;margin-top:26px}
+h4{font-size:17px;margin:28px 0 10px}
+details{margin:24px 0;border-top:1px solid #ddd;padding-top:12px}
+summary{cursor:pointer;font-size:15px;color:#245c7b}
+a{color:#245c7b}
+nav{border-block:1px solid #ddd;padding:16px 0}
+nav a{display:block;text-decoration:none}
+nav .subsection{padding-left:20px;font-size:15px}
+section{scroll-margin-top:20px}
+.keywords{font-size:15px;color:#555}
+.table-wrap{overflow-x:auto;margin:28px 0}
+table{width:100%;border-collapse:collapse;border-top:2px solid #222;border-bottom:2px solid #222;font-size:14px;line-height:1.5;font-variant-numeric:tabular-nums}
+caption{text-align:left;font-size:16px;padding-bottom:12px}
+thead{border-bottom:1px solid #222;display:table-header-group}
+th,td{padding:11px 9px;vertical-align:middle}
+thead th{font-weight:500;white-space:normal;vertical-align:bottom}
+td{white-space:nowrap}
+td.label,th.label{text-align:left}
+td.number,th.number{text-align:right}
+td[rowspan]{padding-right:16px}
+tr.group-start td{border-top:1px solid #ddd}
+table sup{font-size:.7em}
+figure{margin:30px 0 36px;break-inside:avoid}
+figure img{display:block;width:100%;height:auto}
+figcaption{font-size:14px;line-height:1.65;margin-top:12px}
+.katex{font-size:1.02em}
+.katex-display{margin:.65em 0;overflow-x:auto;overflow-y:hidden;padding:8px 2px}
+footer{font-size:14px;color:#555;margin-top:42px}
+@media print{
+ @page{size:A4;margin:10mm}
+ body{max-width:none;margin:0;padding:0}
+ nav,footer{display:none}
+ .table-wrap{overflow:visible;break-inside:avoid;page-break-inside:avoid;margin:16px 0}
+ table{break-inside:avoid;page-break-inside:avoid}
+ table{font-size:8pt}
+ td.label,th.label{white-space:normal}
+ tr{break-inside:avoid}
+ h2,h3{break-after:avoid}
+ caption{break-after:avoid}
+ figure{margin:14px 0 18px}
+ figcaption{margin-top:6px;line-height:1.45}
+ #fig9 img,#fig10 img{width:88%;margin:0 auto}
+ .katex-display{overflow:visible}
+ .katex{font-size:.92em}
+}

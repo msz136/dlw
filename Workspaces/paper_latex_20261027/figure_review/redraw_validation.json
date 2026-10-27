@@ -1,0 +1,283 @@
+{
+  "source_sha256": {
+    "Workspaces\\dlw_paper_20261009\\stability_20261026\\three_method_response_20261026\\native\\A.npz": "557d739fc86963b24a3bdde007fdc882c5f956fff60a7da1d31ffaf1bc948022",
+    "Workspaces\\dlw_paper_20261009\\stability_20261026\\three_method_response_20261026\\native\\D.npz": "8b15f57877a0b1c9610776c423201eeb1cebb4bf6024bf86c37af3b78223cd03",
+    "Workspaces\\dlw_paper_20261009\\time_samm_20261025\\time\\A_time.npz": "c1f7d6614f3c50b065f224373133eac55da11061871fa8ec8e5ecca250ecba05",
+    "Workspaces\\dlw_paper_20261009\\time_samm_20261025\\time\\D_time.npz": "c08a68fb0d024ff75ec6b82b773b8ce979ea5428f32cdafa90c8f8f52c6d8448",
+    "Workspaces\\dlw_paper_20261009\\time_samm_20261025\\time\\Gaussian_time.npz": "37ccf1174c2a08c438a62106aad22427b4651a5b0127a502f8c85425ead997f9",
+    "Workspaces\\dlw_paper_20261009\\time_samm_20261025\\time\\Sinusoidal_time.npz": "1b6747c728cfb6e37f38b3a7503b58c41b521d45d52e9ea4eae028c6e4eb214c",
+    "Workspaces\\hs_paper_20261026\\data\\case_figures.npz": "fc3a4ab917cd30d8696fe8ffe986dc904fc8f18db5ecdc9ab8661cb05d1bbad1",
+    "Workspaces\\hs_paper_20261026\\data\\conserved_mesh.npz": "8cf0d7c23de609227df3d956c2eb2ffd5520b17ed695e25a1cebc6ac3db8323e"
+  },
+  "checks": {
+    "dlw_13": {
+      "terminal_panel_d": [
+        1.0229991584472442,
+        1.0217415868727193,
+        1.0217101917404279
+      ],
+      "unchanged_values": true,
+      "stroke": {
+        "native_vertices_preserved": true,
+        "data_offsets": false,
+        "solid_if_separated_by_pt": 2.0,
+        "crossed_if_within_pt": 0.7
+      }
+    },
+    "dlw_14": {
+      "terminal_panel_d": [
+        1.0298763660113235,
+        1.0286447553915405,
+        1.028645310763502
+      ],
+      "unchanged_values": true,
+      "stroke": {
+        "native_vertices_preserved": true,
+        "data_offsets": false,
+        "solid_if_separated_by_pt": 2.0,
+        "crossed_if_within_pt": 0.7
+      }
+    },
+    "dlw_9": {
+      "terminal_values_Euler_RK4_CN": {
+        "A": [
+          0.00016643976852237508,
+          0.0001677233376562448,
+          0.00016772319335633945
+        ],
+        "D": [
+          0.000142018163097379,
+          0.0001791633700954539,
+          0.00018047405343106886
+        ],
+        "Gaussian": [
+          5.106741619853583e-09,
+          2.8999367109039387e-08,
+          2.899920771570752e-08
+        ],
+        "Sinusoidal": [
+          1.2428628914235018e-08,
+          2.0029342968908015e-08,
+          2.0029023769380094e-08
+        ]
+      },
+      "unchanged_values": true,
+      "stroke": {
+        "native_vertices_preserved": true,
+        "data_offsets": false,
+        "solid_if_separated_by_pt": 2.0,
+        "crossed_if_within_pt": 0.7
+      }
+    },
+    "dlw_10": {
+      "terminal_values_Euler_RK4_CN": {
+        "A": [
+          8.025607553241443e-05,
+          7.733758362471477e-05,
+          7.733760200556716e-05
+        ],
+        "D": [
+          0.00010896021898743058,
+          0.00010090610865365335,
+          0.00010094874663346687
+        ],
+        "Gaussian": [
+          5.680201820013053e-08,
+          6.966963894683431e-09,
+          6.968798871298532e-09
+        ],
+        "Sinusoidal": [
+          4.213144588760542e-08,
+          4.7059751651090664e-09,
+          4.7049946161337175e-09
+        ]
+      },
+      "unchanged_values": true,
+      "stroke": {
+        "native_vertices_preserved": true,
+        "data_offsets": false,
+        "solid_if_separated_by_pt": 2.0,
+        "crossed_if_within_pt": 0.7
+      }
+    },
+    "2hs_3": [
+      {
+        "method": "sd",
+        "field": "u",
+        "min_dx": 0.019999099928993402,
+        "omitted_boundary_indices": [
+          0
+        ],
+        "remaining_values_exact": true
+      },
+      {
+        "method": "fixed",
+        "field": "u",
+        "min_dx": 0.019999999999999574,
+        "omitted_boundary_indices": [
+          0,
+          400
+        ],
+        "remaining_values_exact": true
+      },
+      {
+        "method": "sd",
+        "field": "rho",
+        "min_dx": 0.019999101567142574,
+        "omitted_boundary_indices": [],
+        "remaining_values_exact": true
+      },
+      {
+        "method": "fixed",
+        "field": "rho",
+        "min_dx": 0.019999999999999574,
+        "omitted_boundary_indices": [
+          0,
+          400
+        ],
+        "remaining_values_exact": true
+      }
+    ],
+    "2hs_4": [
+      {
+        "method": "sd",
+        "field": "u",
+        "min_dx": 0.01999778045200884,
+        "omitted_boundary_indices": [
+          0
+        ],
+        "remaining_values_exact": true
+      },
+      {
+        "method": "fixed",
+        "field": "u",
+        "min_dx": 0.019999999999999574,
+        "omitted_boundary_indices": [
+          0,
+          400
+        ],
+        "remaining_values_exact": true
+      },
+      {
+        "method": "sd",
+        "field": "rho",
+        "min_dx": 0.01999778354369841,
+        "omitted_boundary_indices": [],
+        "remaining_values_exact": true
+      },
+      {
+        "method": "fixed",
+        "field": "rho",
+        "min_dx": 0.019999999999999574,
+        "omitted_boundary_indices": [
+          0,
+          400
+        ],
+        "remaining_values_exact": true
+      }
+    ],
+    "2hs_7": [
+      {
+        "method": 0,
+        "min_dx": 0.0039999999999995595,
+        "all_cell_widths_retained": true,
+        "isolated_boundary_cells": [
+          0,
+          1999
+        ],
+        "errors_unchanged": true
+      },
+      {
+        "method": 1,
+        "min_dx": 0.0032272877550543755,
+        "all_cell_widths_retained": true,
+        "isolated_boundary_cells": [
+          0,
+          1999
+        ],
+        "errors_unchanged": true
+      }
+    ],
+    "2hs_8": [
+      {
+        "method": 0,
+        "min_dx": 0.0039999999999995595,
+        "all_cell_widths_retained": true,
+        "isolated_boundary_cells": [
+          0,
+          1999
+        ],
+        "errors_unchanged": true
+      },
+      {
+        "method": 1,
+        "min_dx": 0.0025133406931416857,
+        "all_cell_widths_retained": true,
+        "isolated_boundary_cells": [
+          0,
+          1999
+        ],
+        "errors_unchanged": true
+      }
+    ]
+  },
+  "assets": [
+    {
+      "paper": "dlw",
+      "number": 13,
+      "source": "Workspaces\\paper_latex_20261027\\figure_review\\figures\\dlw-figure-13.pdf",
+      "file": "images/figure-13.pdf",
+      "sha256": "cc9c25da1246295703b65885719ae03c8dc2b56e567ac508dcd6b7a1003d5bb6"
+    },
+    {
+      "paper": "dlw",
+      "number": 14,
+      "source": "Workspaces\\paper_latex_20261027\\figure_review\\figures\\dlw-figure-14.pdf",
+      "file": "images/figure-14.pdf",
+      "sha256": "127f0585ff95129fe9fd89615e597e68be85f9c92fdd3757a52e6dc7045aad33"
+    },
+    {
+      "paper": "dlw",
+      "number": 9,
+      "source": "Workspaces\\paper_latex_20261027\\figure_review\\figures\\dlw-figure-09.pdf",
+      "file": "images/figure-09.pdf",
+      "sha256": "6c2b236dc7014474aca2fc7534d209dc80d177d2f8ddc185ee867a273552c204"
+    },
+    {
+      "paper": "dlw",
+      "number": 10,
+      "source": "Workspaces\\paper_latex_20261027\\figure_review\\figures\\dlw-figure-10.pdf",
+      "file": "images/figure-10.pdf",
+      "sha256": "7ac5311c275a9ec8b57d048d953a328a4d7fabf9f2bebd6f275751460c467de6"
+    },
+    {
+      "paper": "2hs",
+      "number": 3,
+      "source": "Workspaces\\paper_latex_20261027\\figure_review\\figures\\2hs-figure-03.pdf",
+      "file": "images/figure-03.pdf",
+      "sha256": "e913b4ec0a05055876e6a9b87562b17331e2ead01f22007be642919dd998dea7"
+    },
+    {
+      "paper": "2hs",
+      "number": 4,
+      "source": "Workspaces\\paper_latex_20261027\\figure_review\\figures\\2hs-figure-04.pdf",
+      "file": "images/figure-04.pdf",
+      "sha256": "9500116ff0a94ec2aba7de02261a3cd0a0714cacf207d3af0ee2e792ae73604e"
+    },
+    {
+      "paper": "2hs",
+      "number": 7,
+      "source": "Workspaces\\paper_latex_20261027\\figure_review\\figures\\2hs-figure-07.pdf",
+      "file": "images/figure-07.pdf",
+      "sha256": "1997c44bf4033b6fd7e15a316425c72799bfdba7ba2907a6e3835a4d0c728976"
+    },
+    {
+      "paper": "2hs",
+      "number": 8,
+      "source": "Workspaces\\paper_latex_20261027\\figure_review\\figures\\2hs-figure-08.pdf",
+      "file": "images/figure-08.pdf",
+      "sha256": "e05776704b0ea78f7458492803d57c5b9fc419f2dd15956e325d1952d4e29257"
+    }
+  ],
+  "raw_data_unchanged": true
+}

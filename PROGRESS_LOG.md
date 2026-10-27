@@ -1,10 +1,9 @@
 # 当前工作与最近交接
 
-## 本次工作｜DLW FE空间对照与HTML同步（2026-10-27，完成）
+## 本次工作｜2HS 三密度 SAMM 独立章节（2026-10-27，完成）
 
-TeX修订的图前叙述、时间误差段及14幅图已回同步`dlw-paper.html`。新增y向P1有限元FE，一致质量矩阵/精确单元积分，共用Fourier x求导；四算例与FD相同节点、初值、参数和评估区域，RK4 dt=1e-4至T=.01，h=dx=.1。Tables 2/3及Figures 5–8现四方法，最优加粗及相关叙述对齐。FE四例v误差最小，u最优为FE/A、FD/D、Endpoint/高斯正弦。单元独立求积核验，半步轨道差至多为对应误差0.106%，HTML图/公式/表格核验通过。FE保留端点帽函数，FD保留原ghost闭合；这是数值观察，未新增FE收敛定理。TeX及PDF未改，后续以HTML编辑。下一步按用户反馈审阅算法与空间实验。入口：`report/dlw_fe_comparison_20261027.html`；`Workspaces/dlw_paper_20261009/fe_comparison_20261027/README.md`。
+直接更新LaTeX，Section 5系统推导rho、Rm、R2及通量，介绍共同ALE实现、两孤子实验与认识；扰动归Section 4.4，结论为Section 6。2000实际节点、T=.25，固定FD及三种SAMM共16组含时间减半计算；两图两表，最大减半差1.133e-12，约二阶加密。Rm两场较均衡，R2单孤子rho略优但u更差。初始独立Poisson诊断提示持续演化作用，未作因果证明。后续叙述修订撤去5.4，诊断与认识并入结果及abs/intro/conclusion；Sections3–4补足变量、参照解和扰动动机。公式图表未改，已补附录A–C：修正项推导、非均匀差分与恢复界、三张数值核验表；正文五处链接已验证。PDF现24页10图、正文8表及附录3表已同步桌面；源HTML与DLW未改。第16页留白已通过Figure9沿面板空白拆页修复，保持矢量与字号。下一步按阅读反馈微调。入口：`pdf/2hs/main.tex`；`Workspaces/hs_paper_20261026/samm_three_20261027/README.md`；同目录`validation.json`。
 
-## 上一次工作｜DLW / 2HS LaTeX 论文（2026-10-27，完成）
+## 上一次工作｜DLW FE空间对照与HTML同步（2026-10-27，完成）
 
-两套独立项目为 `pdf/dlw/`、`pdf/2hs/`，各含 main.tex、矢量图片及 PDF；源 HTML 和数值数据不变。按用户反馈检查全部图：DLW 图9/10/13/14重合处交叉虚线、分开后实线，真实分叉保留；2HS 图3/4排除对数图零边界连线，图7/8单独标记边界单元。DLW 每图说明置于对应图前，多面板沿无内容白边分行跨页，图11/12缩至85%并与图注同页；两文24图统一DejaVu Sans。XeLaTeX双遍编译及公式、图表、资产、节点、字体核验通过；DLW 39页14图8表，2HS现为16页10图8表。2HS引言新增HS来源、2HS精确解、几何积分及动网格背景，引用由2条增至7条，统一cite并核对来源；正文计算不变。引用核验见项目references_2hs_20261027目录。已替换桌面paper/dlw内两份1027 PDF，哈希核验一致，旧版保留于项目desktop_backup_20261027_151851。下一步按阅读反馈微调；勿重跑HTML转换覆盖人工修改。入口：`pdf/README.md`；`Workspaces/paper_latex_20261027/README.md`；`Workspaces/paper_latex_20261027/figure_review/redraw_validation.json`。
-
+按用户最新要求，含FE的完整论文已暂存`report/dlw-paper-add-fem.html`；主`dlw-paper.html`恢复Endpoint-SD/Centered-SD/FD三方法，同时保留TeX同步的图前叙述、时间误差段及14幅图。FE数据、算法、图表与对照结果完整保留，主稿与归档使用独立打印图块；14图8表及本地图片路径核验通过。FE四例v误差最小，u最优随算例变化；该结果属于独立暂存版，不再出现在主稿。TeX/PDF未改，下一步以HTML继续审阅，勿将FE自动重新合入。入口：`report/dlw-paper-add-fem.html`；`Workspaces/dlw_paper_20261009/fe_comparison_20261027/README.md`；同目录`withdrawal_validation.json`。

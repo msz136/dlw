@@ -1,0 +1,569 @@
+% !TeX program = xelatex
+% Standalone paper source; compile from this directory with XeLaTeX twice.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=24mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{graphicx,adjustbox,booktabs,tabularx,array,multirow}
+\usepackage{caption,placeins}
+\usepackage[hidelinks,unicode]{hyperref}
+\usepackage{enumitem}
+\captionsetup{font=small,labelfont=bf,justification=justified,singlelinecheck=false}
+\setlength{\parindent}{1.2em}
+\setlength{\parskip}{3pt}
+\setlength{\emergencystretch}{2em}
+\setlength{\textfloatsep}{14pt plus 3pt minus 3pt}
+\setlength{\floatsep}{12pt plus 3pt minus 3pt}
+\renewcommand{\topfraction}{.92}
+\renewcommand{\bottomfraction}{.85}
+\renewcommand{\textfraction}{.08}
+\renewcommand{\floatpagefraction}{.65}
+\setcounter{topnumber}{4}
+\setcounter{bottomnumber}{3}
+\setcounter{totalnumber}{6}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcommand{\paperdisplay}[2]{%
+  \begin{equation*}
+  \adjustbox{max width=.91\linewidth}{$\displaystyle #1$}#2
+  \end{equation*}}
+\begin{document}
+
+{\centering\LARGE\bfseries Numerical approximation of the two-component Hunter–Saxton system on moving and fixed meshes\par}
+\vspace{1.2em}
+ 
+\FloatBarrier
+\section*{Abstract}
+
+Integrable semi-discretizations provide exact wave solutions on evolving spatial lattices, allowing the numerical evolution and the approximation of continuous waves to be examined separately. We use this connection to study the two-component Hunter–Saxton system on moving and fixed meshes. Starting from an existing integrable semi-discretization, we formulate a coupled evolution of the velocity differences and mesh intervals and compare it with a direct moving-grid approximation and centered finite differences on a fixed physical grid. An explicit identity between the two moving-grid vector fields identifies a first-order finite-lattice correction. Exact one- and two-soliton solutions then allow this correction to be examined alongside the errors introduced by time integration and physical-coordinate reconstruction. Comparisons of forward Euler, Runge–Kutta and Crank–Nicolson integration distinguish accurate tracking of a semi-discrete trajectory from accurate approximation of the continuous fields. The density conservation law also explains the geometry of the natural mesh: for the smooth solitons considered here, the mesh expands near velocity peaks. A second conserved density, derived from the velocity curvature and physical density, generates a mesh that concentrates nodes in the wave region and improves density accuracy in both soliton tests, with the velocity response depending on the wave profile. Finally, independent numerical evolutions with and without a prescribed velocity perturbation reveal its persistence and transfer into the density field. These comparisons relate the analytical structure of the semi-discrete model to the accuracy and response of its numerical solutions.
+
+\textbf{Keywords:} two-component Hunter–Saxton equation; integrable semi-discretization; reciprocal transformation; moving mesh; numerical error; perturbation response
+
+\FloatBarrier
+\section*{1. Introduction}
+
+Nonlinear wave equations offer a setting in which coherent structures can be followed through both analytical formulas and numerical evolution. The Hunter--Saxton equation originated as an asymptotic model for director-field dynamics in nematic liquid crystals \cite{hunter1991}. Its two-component extension couples a velocity field to a transported density and admits a bilinear description through a hodograph transformation. Lou, Feng and Yao constructed a general multi-soliton solution for the two-component Hunter--Saxton (2HS) equation in this framework \cite{lou2016}. The density therefore has two roles in the computation: it is a physical field to be resolved and a quantity that determines the relation between computational and physical coordinates.
+
+Hori, Tanaka, Maruno and Ohta developed an integrable semi-discretization of the 2HS equation using bilinear equations, determinant solutions and a discrete hodograph transformation \cite{hori2026}. Their construction supplies both a spatial model and exact finite-lattice trajectories. A related numerical approach was developed by Feng, Sheng and Yu for a generalized sine-Gordon equation \cite{feng2023}, where integrable and non-integrable semi-discrete systems generate self-adaptive moving-mesh methods. These constructions give a concrete way to use analytical solution structure in numerical evolution: the field values and the physical node positions evolve together.
+
+Numerical studies of Hunter--Saxton-type equations have also used their geometric and conservation properties to guide discretization. Miyatake, Cohen, Furihata and Matsuo developed multi-symplectic and Hamiltonian-preserving methods for the scalar, modified and two-component equations, with particular attention to the boundary conditions required by the numerical formulations \cite{miyatake2017}. For the scalar Hunter--Saxton equation, Grunert, Nordli and Solem established convergence of a method that combines piecewise-linear projection with evolution along characteristics \cite{grunert2021}. These studies connect preservation of analytical structure with the choice of variables, boundary treatment and approximation of the evolving solution.
+
+Mesh allocation introduces a further choice. In adaptive moving-mesh methods, a monitor function determines how a fixed number of nodes is distributed, and equidistribution provides a systematic rule for that allocation \cite{huang2011}. A reciprocal transformation supplies such a monitor through a conserved density and determines the associated node velocity through its flux. For the smooth 2HS waves studied here, however, the physical density decreases near a velocity peak. Equal density mass then assigns wider cells to this region. This observation motivates examining how the choice of conserved density affects the accuracy of the two fields.
+
+The availability of exact solutions at both the continuous and semi-discrete levels makes a more detailed comparison possible. A numerical trajectory may follow its semi-discrete exact solution very accurately while retaining an appreciable difference from the continuous wave. On a moving mesh, this comparison also involves the physical locations at which the fields are evaluated. The distinction is especially relevant for the density, which represents a conserved mass per cell and therefore has a natural interpretation as a cell average.
+
+We seek to understand how these analytical structures can guide the design and interpretation of numerical computations. The exact lattice solutions allow the error of a time integrator to be measured independently of the approximation of the continuous wave. The reciprocal transformation identifies the physical locations and cell averages at which this latter comparison should be made. The density conservation law, in turn, specifies how nodes move and explains where the natural lattice places its resolution. Together, these relations give a basis for choosing numerical tests whose results can be traced back to the equations.
+
+Our analysis begins with an explicit identity between the integrable and direct moving-grid vector fields. It exposes a density-dependent first-order correction, which helps explain the different refinement rates observed in the soliton experiments. This connects an identifiable term in the spatial model with its numerical accuracy. We then derive a conserved density involving the velocity curvature and use its flux to construct a moving mesh. A matched comparison with uniform fixed FD examines how this allocation affects the two nodal fields. The resulting comparisons show how knowledge of the solution structure can inform both error assessment and a practical improvement in resolution. A final set of perturbation experiments follows the transfer of a velocity disturbance into the density field within each method.
+
+Section 2 introduces the continuous equations, reciprocal coordinate and exact solutions used in the experiments. Section 3 presents the three spatial formulations, their boundary data and time integrators. Section 4 examines spatial errors, time integration, mesh allocation and perturbation responses. Section 5 discusses the numerical implications of these results.
+
+\FloatBarrier
+\section*{2. The 2HS system and exact wave solutions}
+
+We use a normalization in which the constant background is \(u=0\), \(\rho=1\), and the parameter \(c\) is positive. The formulas below specify the branch and coordinate conventions used throughout the computation. The integrable semi-discretization and its soliton family are taken from \cite{hori2026}; the numerical comparisons concern their approximation properties.
+
+\FloatBarrier
+\subsection*{2.1. Continuous equations and reciprocal coordinate}
+
+The integrated form of the system is
+
+\paperdisplay{u_{tx}-u u_{xx}-\tfrac12u_x^2-4u-\tfrac{c^2}{2}(\rho^2-1)=0,\qquad \rho_t=(u\rho)_x.}{\tag{1}}
+
+The integration constant in the first equation is fixed by the stated background. For positive density, the conservation law defines a reciprocal coordinate through
+
+\paperdisplay{dX=\rho\,dx+u\rho\,dt,\qquad dT=dt,\qquad x_T=-u,\quad x_X=\rho^{-1}.}{\tag{2}}
+
+Thus a node at fixed \(X\) moves with velocity \(-u\). Writing \(w=u_x\) and differentiating along this motion gives
+
+\paperdisplay{w_T=\tfrac12w^2+4u+\tfrac{c^2}{2}(\rho^2-1),\qquad \rho_T=\rho w.}{\tag{3}}
+
+These equations connect the field evolution to the changing mesh. In particular, the mass of an interval between two fixed reciprocal labels is constant. Uniform spacing in \(X\) therefore means equal density mass in each moving physical cell.
+
+\FloatBarrier
+\subsection*{2.2. Continuous and finite-lattice solitons}
+
+For the one- and two-soliton tests, a normalized positive tau function gives a compact common representation. Set \(q_i=p_i/(cp_i-1)\), \(\omega_i=p_i^{-1}-q_i^{-1}\), \(\beta_i=p_i-q_i\), and let \(\theta_i=\beta_iX+\omega_iT+\theta_{i0}\). The continuous tau functions are
+
+\paperdisplay{f=1+e^{\theta_1}\quad(N=1),\qquad f=1+e^{\theta_1}+e^{\theta_2}+A_{12}e^{\theta_1+\theta_2}\quad(N=2),}{\tag{4}}
+ 
+\paperdisplay{A_{12}=\frac{(p_2-p_1)(q_2-q_1)}{(q_2-p_1)(p_2-q_1)},\qquad u=(\log f)_{TT},\quad x=X-(\log f)_T,\quad \rho=\bigl[1-(\log f)_{XT}\bigr]^{-1}.}{\tag{5}}
+
+The selected parameters give positive tau functions and monotone physical-coordinate maps on the evaluation domains. To evaluate a reference at a prescribed physical point \(x\), we invert the map in (5) and then evaluate the fields at the recovered label \(X\).
+
+For the finite lattice, let \(X_k=ka\) and replace \(\beta_iX\) by \(k\sigma_i(a)\), where
+
+\paperdisplay{\sigma_i(a)=\log\frac{1-aq_i}{1-ap_i},\qquad a\max_i(p_i,q_i)<1.}{\tag{6}}
+
+Denoting the resulting tau function by \(f_k\), the exact lattice fields are
+
+\paperdisplay{u_k^*=(\log f_k)_{TT},\qquad x_k^*=ka-(\log f_k)_T,\qquad d_k^*=x_k^*-x_{k-1}^*,\qquad \rho_k^*=a/d_k^*.}{\tag{7}}
+
+The continuous and discrete solutions share their time dependence and interaction coefficient. Their spatial phases differ through \(\sigma_i(a)\). Since \(\sigma_i(a)/a=\beta_i+\tfrac a2(p_i^2-q_i^2)+O(a^2)\), this representation already exposes a first-order change in the wave profile at finite lattice spacing.
+
+\FloatBarrier
+\section*{3. Numerical formulation}
+
+We evolve the fields through either a moving physical mesh or a fixed physical grid. The moving formulations use velocity jumps and cell widths as their state variables, so that field reconstruction and node motion are performed at every stage of the time integrator. The fixed-grid formulation instead evolves a differentiated velocity variable and reconstructs the velocity by solving a discrete Poisson equation.
+
+\FloatBarrier
+\subsection*{3.1. Integrable and direct moving-grid formulations}
+
+Define \(v_k=u_k-u_{k-1}\), \(d_k=x_k-x_{k-1}\), \(\rho_k=a/d_k\) and \(\alpha=a(a-c)\). In these variables, the integrable semi-discretization of \cite{hori2026} takes the form
+
+\paperdisplay{\dot v_k=2d_k(u_k+u_{k-1})+\frac{(d_k^2-\alpha)^2-v_k^2}{2d_k}-\frac{c^2d_k}{2},\qquad \dot d_k=-v_k.}{\tag{8}}
+
+With the prescribed left value \(u_0=b(T)\), the fields and physical nodes are reconstructed as \(u_k=b+\sum_{j=1}^kv_j\) and \(x_k=x_0+\sum_{j=1}^kd_j\), with \(\dot x_0=-b\). Consequently, every node satisfies \(\dot x_k=-u_k\). We call this formulation integrable SD.
+
+For comparison, a direct approximation of (3) uses the edge slope \(w_k=v_k/d_k\) and the adjacent-node mean for \(u\). This moving FD formulation is
+
+\paperdisplay{\dot w_k=\tfrac12w_k^2+2(u_k+u_{k-1})+\tfrac{c^2}{2}(\rho_k^2-1),\qquad \dot d_k=-d_kw_k,\quad \rho_k=a/d_k.}{\tag{9}}
+
+It is implemented in the same jump variables by \(\dot v_k=d_k\dot w_k-w_kv_k\). The two moving methods therefore share the field reconstruction and mesh velocity. Their difference lies in the slope equation. At the same state, direct substitution into (8) gives the exact identity
+
+\paperdisplay{F_{\mathrm{SD}}^{(w)}-F_{\mathrm{moving\ FD}}^{(w)}=ac(1-\rho_k^2)+\tfrac12a^2(\rho_k^{-1}-\rho_k)^2.}{\tag{10}}
+
+The first term is linear in the reciprocal spacing and depends on the density departure from its background. This supplies a concrete connection between the finite-lattice model and the spatial errors examined below.
+
+\FloatBarrier
+\subsection*{3.2. Fixed-grid finite differences}
+
+On a uniform physical grid, introduce \(m=u_{xx}+2\). Differentiating the first equation in (1) yields
+
+\paperdisplay{m_t=u m_x+2u_xm+c^2\rho\rho_x,\qquad \rho_t=(u\rho)_x,\qquad u_{xx}=m-2.}{\tag{11}}
+
+All spatial derivatives are approximated by centered differences, \(\mathcal D_0z_j=(z_{j+1}-z_{j-1})/(2\Delta x)\) and \(\mathcal D_2z_j=(z_{j+1}-2z_j+z_{j-1})/\Delta x^2\). At each time stage, the interior values of \(u\) are obtained from the tridiagonal system \(\mathcal D_2u=m-2\). Its reconstructed values are then used to evaluate the right-hand sides of (11). We refer to this formulation as fixed FD.
+
+\FloatBarrier
+\subsection*{3.3. Initial data, boundary data and time integration}
+
+Spatial comparisons begin with the continuous exact fields at \(T=0\). For the moving methods, these are sampled at uniform reciprocal labels and converted into jumps and physical cell widths. The left value is \(b(T)=u(X_L,T)\), and the left node evolves with \(-b(T)\). The fixed-grid method uses exact physical boundary values at \(x=-4,4\); its boundary values of \(m\) are formed with the same centered second difference applied to the exact field, including one exterior reference point on either side. Thus the fixed-grid experiment uses two-sided boundary data, whereas the moving experiments use a left-driven open chain.
+
+Temporal comparisons instead start from the exact lattice state (7), with its matching lattice boundary. In both settings, write the evolving state as \(z\) and its reconstructed right-hand side as \(\dot z=H(T,z)\). We use forward Euler, classical fourth-order Runge–Kutta and implicit trapezoidal (Crank–Nicolson) integration:
+
+\paperdisplay{z^{n+1}=z^n+\Delta T H(T_n,z^n),\qquad z^{n+1}=z^n+\tfrac{\Delta T}{2}\bigl[H(T_n,z^n)+H(T_{n+1},z^{n+1})\bigr].}{\tag{12}}
+ 
+\paperdisplay{K_1=H(T_n,z^n),\quad K_2=H(T_n+\tfrac{\Delta T}{2},z^n+\tfrac{\Delta T}{2}K_1),\quad K_3=H(T_n+\tfrac{\Delta T}{2},z^n+\tfrac{\Delta T}{2}K_2),}{\tag{13}}
+ 
+\paperdisplay{K_4=H(T_n+\Delta T,z^n+\Delta T K_3),\qquad z^{n+1}=z^n+\tfrac{\Delta T}{6}(K_1+2K_2+2K_3+K_4).}{\tag{14}}
+
+Boundary data and reconstructed fields are evaluated at each stage time. The implicit iteration uses a scaled tolerance of \(2\times10^{-13}\). The three methods have global orders one, four and two, respectively, for a smooth finite-dimensional evolution on a fixed interval with the usual bounded-derivative assumptions.
+
+\FloatBarrier
+\subsection*{3.4. A mesh generated by a conserved density}
+
+The reciprocal coordinate explains the geometry of the natural lattice. A cell moving with velocity \(-u\) carries a constant mass of \(\rho\), so equal masses produce wider cells where the density is smaller. For the smooth soliton profiles considered here, these wider cells occur near the velocity peaks. We therefore seek a conserved density that places more nodes in the wave region and supplies a corresponding rule for their motion.
+
+Set \(m=u_{xx}+2\) and \(D=\partial_t-u\partial_x\). Differentiating (1) gives \(Dm=2u_xm+c^2\rho\rho_x\), while the density equation gives \(D\rho=\rho u_x\). Consequently, \(D(m/\rho)=u_xm/\rho+c^2\rho_x\). We obtain the conservation law
+
+\paperdisplay{R_m=\frac{m}{2\rho},\qquad Q_m=-uR_m-\frac{c^2}{2}(\rho-1),\qquad (R_m)_t+(Q_m)_x=0.}{\tag{15}}
+
+The constant in the flux sets \(Q_m=0\) at the background state. Wherever \(R_m>0\), the differential \(d\xi=R_m\,dx-Q_m\,dt\) defines a local conservation coordinate. Its fixed labels move with velocity \(V=Q_m/R_m\). For the one-soliton family, writing \(s=1-2/(cp)\) and \(z=\tanh(\theta_1/2)\) gives \(R_m=1+s^2(1-z^2)(1+s^2z^2)/(1-s^2z^2)^2\geq1\). Thus this density increases inside the wave and assigns more nodes there. In the two-soliton experiment we evaluate the same density from the exact initial fields and monitor its positivity during evolution.
+
+We initialize the moving grid by equal increments of accumulated \(R_m\) on \([-4,4]\): \(\int_{-4}^{x_k(0)}R_m(x,0)\,dx=\frac{k}{N-1}\int_{-4}^{4}R_m(x,0)\,dx\). At interior nodes we evolve \(\dot x_k=V_k=-u_k-c^2(\rho_k-1)/(2R_{m,k})\). The two boundary nodes remain fixed and receive exact time-dependent boundary values. The conservation-coordinate velocity is therefore imposed in the interior, with a prescribed boundary closure.
+
+Both mesh choices use the same physical-field equations along the nodes,
+
+\paperdisplay{\dot m=(u+V)m_x+2u_xm+c^2\rho\rho_x,\qquad \dot\rho=(u+V)\rho_x+\rho u_x,\qquad u_{xx}=m-2.}{}
+
+We approximate the spatial derivatives with three-point formulas on the current mesh and recover \(u\) through the discrete boundary-value problem. The initial interior values are \(m_k=\mathcal D_2u_*(x_k,0)+2\), so the initial recovery reproduces the sampled exact velocity. Exact boundary values of \(u,\rho,m\) are used at every RK4 stage. Fixed FD uses uniform initial nodes and \(V=0\); conserved-density moving FD uses the equal-mass initialization and the velocity above. Both fields are stored at nodes. This formulation allows node allocation and motion to be examined with the field discretization and boundary data held common.
+
+\FloatBarrier
+\section*{4. Numerical experiments}
+
+Exact wave families allow us to examine several sources of numerical error within a common setting. Section 4.1 specifies the profiles and physical error measures. Section 4.2 compares the spatial models and their continuum approximation, and Section 4.3 isolates the effect of time integration on the integrable lattice. Section 4.4 compares uniform fixed meshes with conserved-density moving meshes. Section 4.5 follows the response to a prescribed initial velocity perturbation within each spatial method.
+
+\FloatBarrier
+\subsection*{4.1. Test problems and error measures}
+
+We set \(c=1\), take zero phase constants and zero coordinate shift, and use a one-soliton case with \(p_1=5\) and a two-soliton case with \((p_1,p_2)=(1.1,1.25)\). The reciprocal interval is \([-4,4]\), and the observation interval is \(0\leq T\leq0.25\). Terminal error tables use \(T=0.25\), while the spatial profile figures use the midpoint. Figures 1 and 2 show the exact physical fields at the midpoint of the observation interval, \(T=0.125\). The two-soliton experiment samples a short portion of this exact family.
+
+\subsubsection*{One-soliton case}
+
+The velocity consists of one smooth localized peak, accompanied by a density depression. These two features locate the region where the field curvature and natural cell width change most strongly.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth,height=.72\textheight,keepaspectratio]{images/figure-01.pdf}
+\caption*{Figure 1. One-soliton case: continuous exact velocity and density at T=0.125.}
+\end{figure}
+
+\subsubsection*{Two-soliton case}
+
+The two-soliton profile contains two resolved peaks with different heights and a corresponding pair of density depressions. This gives the mesh two distinct regions to resolve within the same physical interval.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth,height=.72\textheight,keepaspectratio]{images/figure-02.pdf}
+\caption*{Figure 2. Two-soliton case: continuous exact velocity and density at T=0.125.}
+\end{figure}
+
+For a moving grid, the velocity is compared with the continuous exact value at each numerical node. The density reference is its continuous mean over the numerical cell, obtained from the inverse reciprocal map:
+
+\paperdisplay{E_u=\max_k|u_k-u^*(x_k,T)|,\qquad E_\rho=\max_k\left|\rho_k-\frac{X(x_k,T)-X(x_{k-1},T)}{x_k-x_{k-1}}\right|.}{\tag{16}}
+
+For fixed FD, both errors are nodal maximum errors against continuous point values. Temporal errors use the corresponding exact finite-lattice fields at the same label indices. These definitions retain the natural location of each variable. In the field plots, moving-cell density values are displayed at cell centers; error curves use the cell-average reference in (16).
+
+For the integrable lattice, the velocity error also admits a useful signed decomposition,
+
+\paperdisplay{u_{\rm num}-u^*(x_{\rm num},T)=(u_{\rm num}-u_a^*)+[u_a^*-u^*(x_a^*,T)]+[u^*(x_a^*,T)-u^*(x_{\rm num},T)].}{\tag{17}}
+
+The three terms represent integration error, finite-lattice model error and coordinate displacement. The analogous density identity uses cell averages over the corresponding intervals. This decomposition guides the choice of references in the following experiments.
+
+\FloatBarrier
+\subsection*{4.2. Spatial formulations and the continuous reference}
+
+We compare the integrable semi-discretization with centered finite differences on a fixed physical grid, denoted here by integrable SD and FD. Both calculations begin with the continuous exact initial fields and use RK4 with \(\Delta T=5\times10^{-4}\). This comparison examines how the two spatial formulations approximate the same continuous wave family.
+
+Tables 1 and 2 report terminal errors at \(T=0.25\) for three resolutions. The SD reciprocal spacing \(a\) and the FD physical spacing \(\Delta x\) take the same nominal values, giving the same node count at each resolution. SD density errors use exact cell averages, whereas FD density errors use exact nodal values, as specified in (16). Figures 3 and 4 show the corresponding midpoint fields and errors at \(T=0.125\). Halving the time step at spacing 0.02 changes the evolved states by less than \(3\times10^{-14}\), placing these spatial errors well above the observed temporal refinement difference.
+
+\subsubsection*{One-soliton case}
+
+We first examine the single localized wave. The terminal table measures the refinement rates, while the midpoint curves show where the differences develop in physical space.
+
+\begin{table}[!htbp]
+\centering
+\caption*{Table 1. Continuous-reference errors after RK4 evolution to T=0.25. Density errors are cell-average errors for moving methods and nodal errors for fixed FD. Bold values indicate the smaller field error at each nominal spacing.}
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.22}
+\begin{tabularx}{\linewidth}{YYYYYYY}
+\toprule
+Case & Spatial method & Spacing & E\textsubscript{u} & Order & E\textsubscript{\(\rho\)} & Order \\
+\midrule
+One soliton & Integrable SD & \(a=0.04\) & 5.831 \(\times\) 10\textsuperscript{-2} & — & 1.310 \(\times\) 10\textsuperscript{-3} & — \\
+ &  & \(a=0.02\) & 2.896 \(\times\) 10\textsuperscript{-2} & 1.01 & 6.507 \(\times\) 10\textsuperscript{-4} & 1.01 \\
+ &  & \(a=0.01\) & 1.443 \(\times\) 10\textsuperscript{-2} & 1.00 & 3.241 \(\times\) 10\textsuperscript{-4} & 1.01 \\
+ & FD & \(\Delta x=0.04\) & \textbf{2.531 \(\times\) 10\textsuperscript{-6}} & — & \textbf{2.313 \(\times\) 10\textsuperscript{-5}} & — \\
+ &  & \(\Delta x=0.02\) & \textbf{6.335 \(\times\) 10\textsuperscript{-7}} & 2.00 & \textbf{5.788 \(\times\) 10\textsuperscript{-6}} & 2.00 \\
+ &  & \(\Delta x=0.01\) & \textbf{1.584 \(\times\) 10\textsuperscript{-7}} & 2.00 & \textbf{1.448 \(\times\) 10\textsuperscript{-6}} & 2.00 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Figure 3 compares the numerical velocity and density with the exact profiles at the midpoint. The lower panels display the corresponding absolute errors, locating the differences that are summarized by the terminal table.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth,height=.72\textheight,keepaspectratio]{images/figure-03.pdf}
+\caption*{Figure 3. One-soliton case: fields and spatial errors at T=0.125, with nominal spacing 0.02 and RK4 step 0.0005. Black curves are continuous point values; colored symbols are computed samples. Moving-cell density errors use exact cell averages. Prescribed boundary values are excluded from the logarithmic error curves.}
+\end{figure}
+
+The FD samples closely follow the exact wave at this resolution. Integrable SD develops a broader velocity discrepancy on the downstream side and larger density errors than the FD formulation. Its density discrepancy is nevertheless much smaller in absolute magnitude than its velocity discrepancy. Table 1 confirms that the FD formulation retains smaller errors in their respective field metrics across the tested resolutions.
+
+\subsubsection*{Two-soliton case}
+
+The second case places two wave structures in the computational interval. We use the same refinement and midpoint sampling to examine how their different amplitudes affect the two field errors.
+
+\begin{table}[!htbp]
+\centering
+\caption*{Table 2. Continuous-reference errors after RK4 evolution to T=0.25. Density errors are cell-average errors for moving methods and nodal errors for fixed FD. Bold values indicate the smaller field error at each nominal spacing.}
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.22}
+\begin{tabularx}{\linewidth}{YYYYYYY}
+\toprule
+Case & Spatial method & Spacing & E\textsubscript{u} & Order & E\textsubscript{\(\rho\)} & Order \\
+\midrule
+Two solitons & Integrable SD & \(a=0.04\) & 1.727 \(\times\) 10\textsuperscript{-1} & — & 3.779 \(\times\) 10\textsuperscript{-3} & — \\
+ &  & \(a=0.02\) & 8.522 \(\times\) 10\textsuperscript{-2} & 1.02 & 1.862 \(\times\) 10\textsuperscript{-3} & 1.02 \\
+ &  & \(a=0.01\) & 4.232 \(\times\) 10\textsuperscript{-2} & 1.01 & 9.240 \(\times\) 10\textsuperscript{-4} & 1.01 \\
+ & FD & \(\Delta x=0.04\) & \textbf{1.418 \(\times\) 10\textsuperscript{-5}} & — & \textbf{6.763 \(\times\) 10\textsuperscript{-5}} & — \\
+ &  & \(\Delta x=0.02\) & \textbf{3.582 \(\times\) 10\textsuperscript{-6}} & 1.99 & \textbf{1.711 \(\times\) 10\textsuperscript{-5}} & 1.98 \\
+ &  & \(\Delta x=0.01\) & \textbf{8.962 \(\times\) 10\textsuperscript{-7}} & 2.00 & \textbf{4.283 \(\times\) 10\textsuperscript{-6}} & 2.00 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Figure 4 makes the same midpoint comparison for the two-soliton case. Its field panels show how the two wave structures are resolved, and its error panels show where the numerical profiles depart from the reference.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth,height=.72\textheight,keepaspectratio]{images/figure-04.pdf}
+\caption*{Figure 4. Two-soliton case: fields and spatial errors at T=0.125, with nominal spacing 0.02 and RK4 step 0.0005. Black curves are continuous point values; colored symbols are computed samples. Moving-cell density errors use exact cell averages. Prescribed boundary values are excluded from the logarithmic error curves.}
+\end{figure}
+
+Integrable SD again has the larger field errors, with its velocity discrepancy extending downstream of the localized waves. The density errors vary more locally around the two depressions. The FD formulation resolves both structures more closely in the displayed comparison, and Table 2 records smaller terminal errors throughout the tested resolutions. Thus the additional wave structure changes the magnitude and distribution of the errors while preserving the overall pattern seen in the one-soliton case.
+
+The two soliton cases show the same overall pattern: FD produces smaller errors in the reported field metrics, and its advantage increases under spatial refinement. The observed orders explain this trend. Integrable SD gives approximately first-order error reduction, while FD gives approximately second-order reduction. Halving the spacing therefore reduces the SD errors by about two and the FD errors by about four. The error coefficients and wave profile determine the absolute magnitudes within this pattern.
+
+This difference in order is consistent with the analytical structure of the spatial approximations. The exact lattice phase expansion following (7) has a leading correction proportional to \(a\), and the SD slope equation contains the density-dependent first-order correction identified in (10). The centered differences used by FD have second-order local truncation errors for smooth fields. These properties help explain the refinement rates measured in Tables 1 and 2. Within SD, the velocity is reconstructed by accumulating jumps from the left boundary, so changes in the slope evolution can contribute to discrepancies farther along the chain. This is consistent with the downstream velocity errors seen in both figures, while the density responds through the changing cell widths.
+
+The comparison thus relates the field errors to the approximation order and reconstruction of each spatial formulation. For the smooth profiles and resolutions examined here, the second-order FD approximation resolves the continuous fields more accurately than the first-order integrable lattice. The fixed and moving FD mesh choices are examined separately in Section 4.4.
+
+\FloatBarrier
+\subsection*{4.3. Time integration on the integrable lattice}
+
+To isolate temporal accuracy, we fix \(a=0.02\) and initialize the exact lattice solution. Euler, RK4 and Crank–Nicolson now approximate the same trajectory with matching boundary data. Tables 3 and 4 report errors against that trajectory, so the refinement measures the effect of time integration without including the continuous-to-lattice profile difference.
+
+\subsubsection*{One-soliton case}
+
+For the single wave, all three time integrators start on the same exact lattice trajectory. Their differences therefore measure how accurately they advance that trajectory.
+
+\begin{table}[!htbp]
+\centering
+\caption*{Table 3. Temporal errors at T=0.25 for a=0.02. Bold entries are smallest among the three integrators at the same case and step size.}
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.22}
+\begin{tabularx}{\linewidth}{YYYYYYY}
+\toprule
+Case & Integrator & \(\Delta\)T & E\textsubscript{u} & Order & E\textsubscript{\(\rho\)} & Order \\
+\midrule
+One soliton & Euler & 0.025 & 5.587 \(\times\) 10\textsuperscript{-5} & — & 1.319 \(\times\) 10\textsuperscript{-4} & — \\
+ &  & 0.0125 & 2.813 \(\times\) 10\textsuperscript{-5} & 0.99 & 6.591 \(\times\) 10\textsuperscript{-5} & 1.00 \\
+ &  & 0.00625 & 1.412 \(\times\) 10\textsuperscript{-5} & 0.99 & 3.294 \(\times\) 10\textsuperscript{-5} & 1.00 \\
+ & RK4 & 0.025 & \textbf{7.719 \(\times\) 10\textsuperscript{-9}} & — & \textbf{4.991 \(\times\) 10\textsuperscript{-10}} & — \\
+ &  & 0.0125 & \textbf{4.982 \(\times\) 10\textsuperscript{-10}} & 3.95 & \textbf{3.307 \(\times\) 10\textsuperscript{-11}} & 3.92 \\
+ &  & 0.00625 & \textbf{3.164 \(\times\) 10\textsuperscript{-11}} & 3.98 & \textbf{2.145 \(\times\) 10\textsuperscript{-12}} & 3.95 \\
+ & Crank–Nicolson & 0.025 & 1.387 \(\times\) 10\textsuperscript{-7} & — & 3.872 \(\times\) 10\textsuperscript{-7} & — \\
+ &  & 0.0125 & 3.467 \(\times\) 10\textsuperscript{-8} & 2.00 & 9.681 \(\times\) 10\textsuperscript{-8} & 2.00 \\
+ &  & 0.00625 & 8.667 \(\times\) 10\textsuperscript{-9} & 2.00 & 2.420 \(\times\) 10\textsuperscript{-8} & 2.00 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth,height=.72\textheight,keepaspectratio]{images/figure-05.pdf}
+\caption*{Figure 5. One-soliton case: maximum temporal errors on the integrable lattice; a=0.02 and \(\Delta\)T=0.0025.}
+\end{figure}
+
+The curves summarize the largest error over the lattice at each time. Euler accumulates the largest error, Crank–Nicolson reduces it substantially, and RK4 follows the exact trajectory most closely at the displayed step. The refinement table identifies the corresponding temporal orders.
+
+\subsubsection*{Two-soliton case}
+
+The two-wave profile tests the same time algorithms on a more structured lattice trajectory. Both components are measured against the matching exact finite-lattice solution.
+
+\begin{table}[!htbp]
+\centering
+\caption*{Table 4. Temporal errors at T=0.25 for a=0.02. Bold entries are smallest among the three integrators at the same case and step size.}
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.22}
+\begin{tabularx}{\linewidth}{YYYYYYY}
+\toprule
+Case & Integrator & \(\Delta\)T & E\textsubscript{u} & Order & E\textsubscript{\(\rho\)} & Order \\
+\midrule
+Two solitons & Euler & 0.025 & 8.926 \(\times\) 10\textsuperscript{-5} & — & 1.959 \(\times\) 10\textsuperscript{-4} & — \\
+ &  & 0.0125 & 4.535 \(\times\) 10\textsuperscript{-5} & 0.98 & 9.767 \(\times\) 10\textsuperscript{-5} & 1.00 \\
+ &  & 0.00625 & 2.287 \(\times\) 10\textsuperscript{-5} & 0.99 & 4.876 \(\times\) 10\textsuperscript{-5} & 1.00 \\
+ & RK4 & 0.025 & \textbf{2.414 \(\times\) 10\textsuperscript{-8}} & — & \textbf{1.231 \(\times\) 10\textsuperscript{-9}} & — \\
+ &  & 0.0125 & \textbf{1.567 \(\times\) 10\textsuperscript{-9}} & 3.95 & \textbf{8.195 \(\times\) 10\textsuperscript{-11}} & 3.91 \\
+ &  & 0.00625 & \textbf{9.974 \(\times\) 10\textsuperscript{-11}} & 3.97 & \textbf{5.279 \(\times\) 10\textsuperscript{-12}} & 3.96 \\
+ & Crank–Nicolson & 0.025 & 3.405 \(\times\) 10\textsuperscript{-7} & — & 5.507 \(\times\) 10\textsuperscript{-7} & — \\
+ &  & 0.0125 & 8.511 \(\times\) 10\textsuperscript{-8} & 2.00 & 1.377 \(\times\) 10\textsuperscript{-7} & 2.00 \\
+ &  & 0.00625 & 2.128 \(\times\) 10\textsuperscript{-8} & 2.00 & 3.442 \(\times\) 10\textsuperscript{-8} & 2.00 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth,height=.72\textheight,keepaspectratio]{images/figure-06.pdf}
+\caption*{Figure 6. Two-soliton case: maximum temporal errors on the integrable lattice; a=0.02 and \(\Delta\)T=0.0025.}
+\end{figure}
+
+The curves summarize the largest error over the lattice at each time. Euler accumulates the largest error, Crank–Nicolson reduces it substantially, and RK4 follows the exact trajectory most closely at the displayed step. The refinement table identifies the corresponding temporal orders.
+
+The time histories use \(\Delta T=0.0025\) and show the errors in both components throughout the interval. Their magnitudes describe how accurately each integrator follows the coupled field and mesh evolution. The continuous-reference errors in Section 4.2 answer a different numerical question: once the temporal error has become small, the spatial model and field reconstruction determine the remaining discrepancy from the continuous wave.
+
+Tables 3 and 4 also show how the exact lattice solution guides the choice of temporal resolution. Euler approaches first-order refinement, Crank–Nicolson gives approximately second-order refinement, and RK4 approaches fourth order over the tested steps. At the smaller step used for the histories, the RK4 density error reaches a nearly flat level around floating-point evaluation accuracy. For the spatial experiments, the time-step-halving check establishes that further temporal refinement has little effect on the reported errors. Computational effort can then be directed toward the spatial approximation and the distribution of nodes.
+
+\FloatBarrier
+\subsection*{4.4. Fixed and conserved-density moving meshes}
+
+The choice of conserved density determines where a moving grid spends its resolution. We examine this effect by comparing uniform fixed FD with the \(R_m\)-based moving FD of Section 3.4. Both calculations use 2,001 nodes (2,000 intervals) on the physical interval \([-4,4]\), the same boundary data and field-difference formulas, and RK4 with \(\Delta T=5\times10^{-4}\) up to \(T=0.25\). At each intermediate RK4 stage, the moving calculation updates the density and node velocity from the current fields.
+
+At \(T=0.25\), we evaluate the continuous exact solution at each computational node and compute \(|u_k-u_*(x_k,T)|\) and \(|\rho_k-\rho_*(x_k,T)|\). The tables report their maxima over the nodes lying in \([-2.5,2.5]\). The curves connect these same samples in physical-coordinate order. Each calculation uses its own actual node positions.
+
+\subsubsection*{One-soliton case}
+
+The single wave provides a direct test of the allocation predicted by the conserved density. Figure 7 relates the terminal cell widths to the spatial distribution of the two field errors.
+
+\begin{table}[!htbp]
+\centering
+\caption*{Table 5. FD mesh comparison under RK4 at T=0.25, with 2,001 nodes and time step 0.0005. Errors are measured at each method’s computational nodes in [-2.5,2.5]. Bold values are the smallest in each error column.}
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.22}
+\begin{tabularx}{\linewidth}{YYY}
+\toprule
+Method & E\textsubscript{u} & E\textsubscript{\(\rho\)} \\
+\midrule
+Fixed FD & \textbf{3.056 \(\times\) 10\textsuperscript{-8}} & 2.613 \(\times\) 10\textsuperscript{-7} \\
+Conserved-density moving FD & 4.496 \(\times\) 10\textsuperscript{-8} & \textbf{1.534 \(\times\) 10\textsuperscript{-7}} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth,height=.72\textheight,keepaspectratio]{images/figure-07.pdf}
+\caption*{Figure 7. One soliton: fixed and conserved-density moving FD at T=0.25. Left: physical cell widths. Center and right: absolute errors at the actual computational nodes in [-2.5,2.5]; lines connect consecutive samples. Boundary-adjacent cell widths are shown as isolated open circles.}
+\end{figure}
+
+The moving grid has smaller cells around the localized wave and wider cells in the background. The density error decreases, while the fixed grid gives the smaller velocity error. Relative to fixed FD, the velocity error increases by 47.1\%, and the density error decreases by 41.3\%. The minimum moving-cell width during evolution is 0.0032, and the computed density and mesh monitor remain positive. Halving the RK4 step changes the terminal nodal states by less than 5.908 \(\times\) 10\textsuperscript{-14}.
+
+\subsubsection*{Two-soliton case}
+
+For the two-soliton profile, the same density allocates nodes around both wave structures. Figure 8 shows how this redistribution changes the errors across the common physical interval.
+
+\begin{table}[!htbp]
+\centering
+\caption*{Table 6. FD mesh comparison under RK4 at T=0.25, with 2,001 nodes and time step 0.0005. Errors are measured at each method’s computational nodes in [-2.5,2.5]. Bold values are the smallest in each error column.}
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.22}
+\begin{tabularx}{\linewidth}{YYY}
+\toprule
+Method & E\textsubscript{u} & E\textsubscript{\(\rho\)} \\
+\midrule
+Fixed FD & 1.326 \(\times\) 10\textsuperscript{-7} & 6.202 \(\times\) 10\textsuperscript{-7} \\
+Conserved-density moving FD & \textbf{9.710 \(\times\) 10\textsuperscript{-8}} & \textbf{3.239 \(\times\) 10\textsuperscript{-7}} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth,height=.72\textheight,keepaspectratio]{images/figure-08.pdf}
+\caption*{Figure 8. Two solitons: fixed and conserved-density moving FD at T=0.25. Left: physical cell widths. Center and right: absolute errors at the actual computational nodes in [-2.5,2.5]; lines connect consecutive samples. Boundary-adjacent cell widths are shown as isolated open circles.}
+\end{figure}
+
+The nonuniform widths resolve the two wave structures with the same total node count. Both maximum errors decrease, with a larger relative reduction in density than in velocity. Relative to fixed FD, the velocity error decreases by 26.8\%, and the density error decreases by 47.8\%. The minimum moving-cell width during evolution is 0.0025, and the computed density and mesh monitor remain positive. Halving the RK4 step changes the terminal nodal states by less than 3.868 \(\times\) 10\textsuperscript{-14}.
+
+Refining from 201 to 2,001 computational nodes reduces all eight nodal field errors by factors between 99.3 and 101.1, corresponding to observed orders between 1.997 and 2.005. The relative ordering of the two meshes is unchanged. Thus the refinement reduces the absolute errors while preserving the field-dependent effect of node allocation.
+
+The conserved-density mesh concentrates resolution within the wave region and reduces the maximum nodal density error in both cases. The velocity improves for the two-soliton profile, whereas the fixed grid gives the smaller velocity error for the single wave. Node concentration thus affects the two coupled fields differently. The conservation law supplies a systematic allocation and motion, and the fieldwise errors show how that choice performs for each wave profile.
+
+\FloatBarrier
+\subsection*{4.5. Propagation of an initial velocity perturbation}
+
+Exact-wave comparisons examine the evolution of a prescribed background. To study the response to a nearby initial state, we add a smooth velocity perturbation while preserving the initial physical nodes and density. This makes it possible to follow the velocity response and the density response generated by the coupling. For each method, the perturbed solution is compared with its own unperturbed numerical trajectory.
+
+Let \(\eta=(x-x_L)/(x_R-x_L)\) on the initial physical interval and define \(\phi(x)=\sin^2(\pi\eta)\cos(2\pi\eta)\), normalized to unit maximum over the initial nodes. We set \(u^\varepsilon(x,0)=u^0(x,0)+\varepsilon\phi(x)\), \(\rho^\varepsilon(x,0)=\rho^0(x,0)\), with \(\varepsilon=10^{-6}\). The moving state is perturbed through the corresponding velocity jumps. For fixed FD, the perturbation is applied as \(m^\varepsilon=m^0+\varepsilon\mathcal D_2\phi\). All boundary data retain their background values. The normalized responses are
+
+\paperdisplay{R_u(T)=\varepsilon^{-1}\max_k|u_k^\varepsilon(T)-u_k^0(T)|,\qquad R_\rho(T)=\varepsilon^{-1}\max_k|\rho_k^\varepsilon(T)-\rho_k^0(T)|.}{\tag{18}}
+
+Moving-grid differences in (18) are taken at matching labels, so the response includes the coupled change of the field and its trajectory. Fixed-grid differences are taken at matching physical nodes. Figures 9 and 10 present these histories with nominal spacing 0.02 and RK4 time step \(5\times10^{-4}\).
+
+\subsubsection*{One-soliton case}
+
+We apply the velocity-only perturbation to this background and follow each spatial method against its own unperturbed trajectory. The density starts unchanged, so its response records the subsequent transfer through the coupled equations.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth,height=.72\textheight,keepaspectratio]{images/figure-09.pdf}
+\caption*{Figure 9. One-soliton case: normalized velocity and density responses to a velocity perturbation of amplitude 10\textsuperscript{-}\textsuperscript{6}, at matching native indices.}
+\end{figure}
+
+\begin{table}[!htbp]
+\centering
+\caption*{Table 7. Terminal normalized responses and maximum changes in the complete normalized response histories under amplitude or time-step halving.}
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.22}
+\begin{tabularx}{\linewidth}{YYYYYY}
+\toprule
+Case & Method & R\textsubscript{u}(T) & R\textsubscript{\(\rho\)}(T) & \(\varepsilon\)-halving change & \(\Delta\)T-halving change \\
+\midrule
+One soliton & Integrable SD & 11.39182 & 0.23983 & 1.272 \(\times\) 10\textsuperscript{-6} & 3.220 \(\times\) 10\textsuperscript{-9} \\
+ & Moving FD & 11.40663 & 0.23977 & 1.273 \(\times\) 10\textsuperscript{-6} & 5.662 \(\times\) 10\textsuperscript{-9} \\
+ & Fixed FD & 0.75066 & 0.17379 & 1.155 \(\times\) 10\textsuperscript{-8} & 5.028 \(\times\) 10\textsuperscript{-9} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The moving-label velocity response grows over the interval and generates a density response. The fixed-position calculation also develops a density response while its velocity response remains below its initial maximum at the terminal time. The table reports these histories’ terminal values and their sensitivity to amplitude and time-step halving within each formulation.
+
+\subsubsection*{Two-soliton case}
+
+We apply the velocity-only perturbation to this background and follow each spatial method against its own unperturbed trajectory. The density starts unchanged, so its response records the subsequent transfer through the coupled equations.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth,height=.72\textheight,keepaspectratio]{images/figure-10.pdf}
+\caption*{Figure 10. Two-soliton case: normalized velocity and density responses to a velocity perturbation of amplitude 10\textsuperscript{-}\textsuperscript{6}, at matching native indices.}
+\end{figure}
+
+\begin{table}[!htbp]
+\centering
+\caption*{Table 8. Terminal normalized responses and maximum changes in the complete normalized response histories under amplitude or time-step halving.}
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.22}
+\begin{tabularx}{\linewidth}{YYYYYY}
+\toprule
+Case & Method & R\textsubscript{u}(T) & R\textsubscript{\(\rho\)}(T) & \(\varepsilon\)-halving change & \(\Delta\)T-halving change \\
+\midrule
+Two solitons & Integrable SD & 14.14049 & 0.28224 & 1.692 \(\times\) 10\textsuperscript{-6} & 7.327 \(\times\) 10\textsuperscript{-9} \\
+ & Moving FD & 14.17654 & 0.28188 & 1.693 \(\times\) 10\textsuperscript{-6} & 4.108 \(\times\) 10\textsuperscript{-9} \\
+ & Fixed FD & 0.73678 & 0.13345 & 9.541 \(\times\) 10\textsuperscript{-9} & 4.358 \(\times\) 10\textsuperscript{-9} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The moving-label velocity response grows over the interval and generates a density response. The fixed-position calculation also develops a density response while its velocity response remains below its initial maximum at the terminal time. The table reports these histories’ terminal values and their sensitivity to amplitude and time-step halving within each formulation.
+
+Initially, the perturbation is confined to the velocity. The subsequent density response records the coupling through the velocity gradient and, on a moving mesh, through the changing cell widths. The curves describe this transfer within each numerical formulation over the stated interval. Their amplitude and time-step checks quantify the reproducibility of the observed response.
+
+\FloatBarrier
+\section*{5. Conclusions}
+
+We have studied how the analytical structure of the two-component Hunter–Saxton system can guide its numerical approximation. The existing integrable semi-discretization provides exact finite-lattice trajectories, and the reciprocal transformation connects those trajectories to physical coordinates and cell densities. Using these relations, we have compared spatial formulations, isolated time-integration errors and examined the allocation of moving nodes within a common numerical study.
+
+The spatial results have a concrete explanation in the equations. The difference between the integrable and direct moving-grid vector fields contains the first-order term \(ac(1-\rho^2)\), while the exact lattice phase has a corresponding first-order departure from its continuous limit. The observed errors decrease approximately linearly for integrable SD and quadratically for the direct finite-difference formulations. This difference in order accounts for their distinct refinement trends in the selected smooth soliton tests. The exact solutions make the distinction between these spatial effects and temporal integration error measurable, allowing the time resolution to be chosen with the dominant error source in view.
+
+The conservation laws provide a second route from structure to computation. The physical density explains why the natural equal-mass mesh expands near smooth velocity peaks. The alternative density \(R_m=(u_{xx}+2)/(2\rho)\) instead increases in the wave region, and its flux supplies the corresponding interior node velocity. With common field differences, boundary values and RK4 integration, this mesh lowers the nodal density error in both soliton tests and the velocity error in the two-soliton case. The fixed grid retains the smaller velocity error for the single wave. This connects the choice of conserved density with a measurable change in how effectively a fixed node budget resolves the physical fields.
+
+The perturbation experiments complement these accuracy comparisons by following the response within each numerical formulation. An initial velocity disturbance generates a density response through the coupled evolution, and the measured histories remain consistent under amplitude and time-step refinement. Taken together, the results connect exact solution structure with the selection of reference quantities, the interpretation of numerical error and the design of mesh resolution. This offers a practical way to use the analytical information carried by an integrable model throughout a numerical computation.
+
+\FloatBarrier
+\renewcommand{\refname}{References}
+\begin{thebibliography}{9}
+
+\bibitem{hunter1991}
+J. K. Hunter and R. Saxton,
+Dynamics of director fields,
+\textit{SIAM Journal on Applied Mathematics} \textbf{51}(6) (1991), 1498--1521.
+\href{https://doi.org/10.1137/0151075}{doi:10.1137/0151075}.
+
+\bibitem{lou2016}
+S. Lou, B.-F. Feng and R. Yao,
+Multi-soliton solution to the two-component Hunter--Saxton equation,
+\textit{Wave Motion} \textbf{65} (2016), 17--28.
+\href{https://doi.org/10.1016/j.wavemoti.2016.04.006}{doi:10.1016/j.wavemoti.2016.04.006}.
+
+\bibitem{hori2026}
+A. Hori, Y. Tanaka, K.-i. Maruno and Y. Ohta,
+An integrable semi-discretization of the two-component Hunter--Saxton equation,
+arXiv:2606.18701v2 (2026).
+\href{https://arxiv.org/abs/2606.18701v2}{arXiv:2606.18701v2}.
+
+\bibitem{feng2023}
+B.-F. Feng, H.-H. Sheng and G.-F. Yu,
+Integrable semi-discretizations and self-adaptive moving mesh method for a generalized sine-Gordon equation,
+\textit{Numerical Algorithms} \textbf{94} (2023), 351--370.
+\href{https://doi.org/10.1007/s11075-023-01504-1}{doi:10.1007/s11075-023-01504-1}.
+
+\bibitem{miyatake2017}
+Y. Miyatake, D. Cohen, D. Furihata and T. Matsuo,
+Geometric numerical integrators for Hunter--Saxton-like equations,
+\textit{Japan Journal of Industrial and Applied Mathematics} \textbf{34} (2017), 441--472.
+\href{https://doi.org/10.1007/s13160-017-0252-1}{doi:10.1007/s13160-017-0252-1}.
+
+\bibitem{grunert2021}
+K. Grunert, A. Nordli and S. Solem,
+Numerical conservative solutions of the Hunter--Saxton equation,
+\textit{BIT Numerical Mathematics} \textbf{61} (2021), 441--471.
+\href{https://doi.org/10.1007/s10543-020-00835-y}{doi:10.1007/s10543-020-00835-y}.
+
+\bibitem{huang2011}
+W. Huang and R. D. Russell,
+\textit{Adaptive Moving Mesh Methods},
+Applied Mathematical Sciences, vol. 174, Springer, New York, 2011.
+\href{https://doi.org/10.1007/978-1-4419-7916-2}{doi:10.1007/978-1-4419-7916-2}.
+
+\end{thebibliography}
+\end{document}

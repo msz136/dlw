@@ -1,6 +1,6 @@
 # DLW FE spatial comparison and TeX-to-HTML synchronization
 
-2026-10-27. Main manuscript: `../../../dlw-paper.html`. Focused reading copy: `../../../report/dlw_fe_comparison_20261027.html`.
+2026-10-27. **Current status: FE withdrawn from the main manuscript at the user's request.** The full four-method paper is preserved at `../../../report/dlw-paper-add-fem.html`. Main `../../../dlw-paper.html` again contains the three original methods, with the TeX synchronization retained. Focused FE reading copy: `../../../report/dlw_fe_comparison_20261027.html`. All results below remain valid records of the archived comparison. `withdrawal_validation.json` verifies the separation; print rows are independent. Do not automatically republish FE into the main manuscript.
 
 ## Formulation
 

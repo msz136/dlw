@@ -202,7 +202,7 @@
 
 | 2HS 综合数值研究 | GSG 方法、hodograph、空间／时间及网格比较 | [入口](Workspaces/hs_numerics_plan/GSG_STYLE_REPORT.md)；[目录](Workspaces/hs_numerics_plan) |
 
-| 2HS 数值论文 | 连续／半离散精确参照、空间与时间法、守恒密度动网格及扰动响应 | [英文论文](<2HS paper.html>)；[LaTeX／PDF](pdf/2hs/main.tex)；[复现与证据](Workspaces/hs_paper_20261026/README.md)；[目录](Workspaces/hs_paper_20261026) |
+| 2HS 数值论文 | 连续／半离散精确参照、空间与时间法、三密度SAMM独立章节及扰动响应 | [英文论文](<2HS paper.html>)；[LaTeX／PDF](pdf/2hs/main.tex)；[复现与证据](Workspaces/hs_paper_20261026/README.md)；[目录](Workspaces/hs_paper_20261026) |
 
 | 空间×时间析因与选参 | 三空间路线、多阶时间法、参数扫描与新密度 | [入口](Workspaces/hs_factorial_20260925/REPORT.md)；[目录](Workspaces/hs_factorial_20260925) |
 
@@ -418,7 +418,7 @@
 
 | DLW 论文主项目 | 理论与数值正文及双语论文排版 | 格点来源与转换、τ／Gram、PE／PF、Lax、连续极限及数值整合 | [正式整合稿](dlw-paper.html)；[既有稿](report/dlw_paper_draft.html)；[英文排版](report/dlw_paper_en_print.html)、[中文排版](report/dlw_paper_zh_print.html)；[目录](Workspaces/dlw_paper_20261009) |
 
-| DLW 论文主项目 | 空间格式数值比较与图文整合 | 四算例（A/D孤子、高斯、正弦）的RK4终态物理场；Endpoint-SD/Centered-SD/FD/FE，初始导数表与物理场截面/热图；TeX修改回同步HTML | [主论文图文](dlw-paper.html)；[FE算法与空间实验](report/dlw_fe_comparison_20261027.html)；[FE数据与核验](Workspaces/dlw_paper_20261009/fe_comparison_20261027/README.md)；[既有三格式数据](Workspaces/dlw_paper_20261009/report_refresh_20261024/README.md)；[既有图文](Workspaces/dlw_paper_20261009/spatial_ad_uv_20261025/README.md)；[图表独立审查](report/dlw_figtable_audit_20261025.html)；[并行稿归档](Paper/sources/dlw_y_lattice_20261018/INDEX.md) |
+| DLW 论文主项目 | 空间格式数值比较与图文整合 | 四算例（A/D孤子、高斯、正弦）的RK4终态物理场；主稿Endpoint-SD/Centered-SD/FD；FE完整版本单独暂存；TeX修改回同步HTML | [主论文图文](dlw-paper.html)；[含FE完整暂存稿](report/dlw-paper-add-fem.html)；[FE算法与空间实验](report/dlw_fe_comparison_20261027.html)；[FE数据与核验](Workspaces/dlw_paper_20261009/fe_comparison_20261027/README.md)；[既有三格式数据](Workspaces/dlw_paper_20261009/report_refresh_20261024/README.md)；[既有图文](Workspaces/dlw_paper_20261009/spatial_ad_uv_20261025/README.md)；[图表独立审查](report/dlw_figtable_audit_20261025.html)；[并行稿归档](Paper/sources/dlw_y_lattice_20261018/INDEX.md) |
 
 | Notebook 独立审查 | 2HS／DLW／C–N 支线 | 各笔记本逐项复核及 C–N 容差、保存输出审查 | [入口](Workspaces/notebook_audit_20261008) |
 

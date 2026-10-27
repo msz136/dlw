@@ -1,0 +1,80 @@
+\FloatBarrier
+\section*{5. Self-adaptive moving meshes from conservation laws}
+
+A moving mesh assigns a finite spatial resolution to an evolving wave. In the 2HS system, the reciprocal transformation already supplies a rule for this assignment through the physical density. Its geometry depends on the wave profile: the smooth solitons considered here have density depressions near their velocity peaks, so an equal-mass grid places wider cells in those regions. We use this observation to examine how other conservation laws of the same system distribute the nodes and affect the accuracy of the physical fields. We introduce three self-adaptive moving-mesh (SAMM) formulations, derive their densities and fluxes, and compare their numerical evolutions with a uniform fixed-grid calculation.
+
+The three densities follow a common construction. The first is the physical mass density. The second combines the curvature variable with mass to balance their different stretching rates. The third includes the density gradient and cancels its coupling with curvature before performing the same balance. This sequence provides three choices with explicit analytical origins and no coefficients selected by numerical optimization. Their effects are examined with common field equations, spatial stencils and time integration.
+
+\subsection*{5.1. Three conserved densities}
+
+We write a local conservation law as \(R_t+Q_x=0\). On a smooth region where \(R>0\), it defines the coordinate and interior node velocity
+\paperdisplay{d\xi=R\,dx-Q\,dt,\qquad x_\xi=R^{-1},\qquad V=x_t\big|_\xi=Q/R.}{\tag{18}}
+Thus equal increments of \(\xi\) correspond to equal conserved mass. A larger density assigns a smaller physical cell to the same coordinate increment. The flux determines how this allocation moves with the wave. We normalize each density to one and each flux to zero at the background \(u=0\), \(\rho=1\).
+
+\subsubsection*{Physical mass}
+
+The second equation of (1) immediately gives
+\paperdisplay{R_\rho=\rho,\qquad Q_\rho=-u\rho,\qquad V_\rho=-u.}{\tag{19}}
+This choice recovers the reciprocal coordinate in Section 2.1. For a cell whose endpoints move with velocity \(-u\), the boundary transport cancels the change in its integrated density. Physical mass therefore supplies both the grid labels and their motion. For the present solitons, the density depression explains why the resulting grid expands around the velocity peak.
+
+\subsubsection*{Curvature coupled to mass}
+
+Set \(m=u_{xx}+2\) and \(D=\partial_t-u\partial_x\). Equation (1) implies
+\paperdisplay{Dm=2u_xm+c^2\rho\rho_x,\qquad D\rho=u_x\rho.}{\tag{20}}
+The curvature variable carries twice the stretching rate of the mass density. Dividing by \(\rho\) removes one copy and gives \(D(m/\rho)=u_xm/\rho+c^2\rho_x\). The remaining coupling is a spatial derivative, so background normalization yields
+\paperdisplay{R_m=\frac{m}{2\rho},\qquad Q_m=-uR_m-\frac{c^2}{2}(\rho-1),\qquad (R_m)_t+(Q_m)_x=0.}{\tag{21}}
+The ratio is consequently selected by the coupled transport equations. For the one-soliton family, let \(s=1-2/(cp)\) and \(z=\tanh(\theta_1/2)\). Then \(R_m=1+s^2(1-z^2)(1+s^2z^2)/(1-s^2z^2)^2\geq1\) on the smooth branch. This density increases within the wave and provides a different allocation from physical mass.
+
+\subsubsection*{Curvature coupled to the density gradient}
+
+Differentiating the mass equation gives \(D\rho_x=2u_x\rho_x+\rho(m-2)\). The variables \(m\) and \(\rho_x\) now have the same stretching rate, with mutually coupled source terms. Their quadratic combination \(K=m^2-c^2\rho_x^2\) cancels the mixed term:
+\paperdisplay{DK=2m(2u_xm+c^2\rho\rho_x)-2c^2\rho_x\bigl(2u_x\rho_x+\rho(m-2)\bigr)=4u_xK+4c^2\rho\rho_x.}{\tag{22}}
+Dividing by \(\rho^3\) removes three of the four stretching factors, leaving \(D(K/\rho^3)=u_xK/\rho^3+4c^2\rho_x/\rho^2\). Since the final term is a spatial derivative, we obtain
+\paperdisplay{R_2=\frac{m^2-c^2\rho_x^2}{4\rho^3},\qquad Q_2=-uR_2+c^2\left(\frac1\rho-1\right),\qquad (R_2)_t+(Q_2)_x=0.}{\tag{23}}
+Both the relative coefficient in the numerator and the power of \(\rho\) follow from these cancellations. The factor four normalizes the background. The identity \(R_2=R_m^2/\rho-c^2(\partial_x\log\rho)^2/(4\rho)\) shows how the density gradient modifies the allocation obtained from the curvature--mass ratio. This coordinate is used where \(\rho>0\) and \(m^2>c^2\rho_x^2\); these conditions are checked in the numerical evolutions.
+
+\subsection*{5.2. Common field evolution and mesh implementation}
+
+We initialize each moving grid by equidistributing its exact initial density on the physical interval \([-4,4]\):
+\paperdisplay{\int_{-4}^{x_k(0)}R(x,0)\,dx=\frac{k}{N-1}\int_{-4}^{4}R(x,0)\,dx,\qquad k=0,\ldots,N-1.}{\tag{24}}
+At each RK4 stage, the interior nodes follow \(\dot x_k=Q_k/R_k\), evaluated from the current numerical fields. Both endpoint positions are fixed and receive exact time-dependent field values. The conservation-coordinate velocity applies to the interior; the endpoint closure defines the finite-domain computation. The uniform fixed grid uses \(V=0\).
+
+All four calculations evolve the same equations along their nodes:
+\paperdisplay{\dot m=(u+V)m_x+2u_xm+c^2\rho\rho_x,\qquad \dot\rho=(u+V)\rho_x+\rho u_x,\qquad u_{xx}=m-2.}{\tag{25}}
+We use three-point differences on the current mesh and recover \(u\) from the discrete boundary-value problem. Initially, \(m_k=\mathcal D_2u_*(x_k,0)+2\), so this recovery reproduces the sampled exact velocity; \(\rho_k\) is sampled from the exact density. The additional derivative \(\rho_x\) in \(R_2\) uses the same three-point first-derivative operator. Both physical fields are nodal quantities. Initial accumulated-mass inversion determines the node locations, while the evolved errors are evaluated directly at those locations.
+
+\subsection*{5.3. Numerical comparison}
+
+We use the two wave families of Section 4.1, with \(c=1\), \(N=2000\) actual nodes and RK4 step \(\Delta T=5\times10^{-4}\), and evolve to \(T=0.25\). The fixed-grid baseline and all three SAMM calculations share the domain, field stencils and boundary data. At the terminal time, we evaluate the continuous exact fields at each method's own nodes and take the maximum errors over \([-2.5,2.5]\). Tables 7 and 8 give these errors and their ratios to fixed FD; the figures locate them relative to the cell-width distribution. The comparisons measure the combined effect of initial allocation and subsequent node motion.
+
+\subsubsection*{One-soliton case}
+
+The single wave makes the contrasting mesh geometries particularly clear. Physical mass decreases inside the wave, whereas \(R_m\) and \(R_2\) increase there. Table 7 records the resulting terminal field errors. Figure 9 shows the cell widths and the error profiles on the same physical interval.
+
+% SAMM_TABLE_ONE
+% SAMM_FIGURE_ONE
+
+The mass-based mesh has larger errors in both fields than fixed FD. Its velocity error is about 9.86 times the fixed-grid value and its density error is about 2.10 times that value. The two curvature-based choices reduce the density error: the ratios are approximately 0.587 for \(R_m\) and 0.579 for \(R_2\). Their velocity errors are larger, with ratios approximately 1.47 and 2.49. Thus the additional concentration produced by \(R_2\) gives a small further improvement in density while increasing the velocity discrepancy. The two fields respond differently even for this single smooth wave.
+
+\subsubsection*{Two-soliton case}
+
+The two-wave profile tests the same density choices in a less uniform spatial structure. Table 8 reports the terminal errors, and Figure 10 relates their locations to the mesh allocation around the two waves.
+
+% SAMM_TABLE_TWO
+% SAMM_FIGURE_TWO
+
+Here \(R_m\) improves both fields: its velocity and density errors are approximately 0.732 and 0.522 times the fixed-grid values. The \(R_2\) mesh retains a smaller density error than fixed FD, at about 0.830 of the baseline, while its velocity error is about 3.75 times larger. The mass-based grid gives the largest errors in both components. The improvement of both fields under \(R_m\), together with the different response under \(R_2\), shows that the detailed spatial allocation matters alongside the amount of node concentration.
+
+% SAMM_CHECKS
+
+\subsection*{5.4. What the density comparison reveals}
+
+The conservation laws determine different computational geometries for the same physical solution. In these waves, mass equidistribution spends less resolution near the velocity peaks. The curvature-based densities reverse this tendency and improve the density-field errors in both tests. Among the three choices, \(R_m\) gives the smallest velocity errors and the most balanced two-field performance, while \(R_2\) gives the smallest density error for the single wave. The useful distinction is therefore the location and fieldwise effect of the resolution supplied by each conserved coordinate.
+
+Refinement provides a second observation. Upon refinement from 1000 to 2000 nodes, the observed orders for the four mesh choices and both fields lie between % SAMM_ORDER
+. Their relative errors remain close across these resolutions. The density choice primarily changes the error coefficients in this regime, while the common field discretization retains its second-order trend.
+
+The field equations also identify how to investigate these coefficients. Density is evolved through local transport and stretching, whereas velocity is recovered from a boundary-value problem after the curvature variable has evolved. A separate initial-grid diagnostic illustrates the distinction. For the single wave at 1000 nodes, applying the Poisson solver to the exact sampled curvature gives velocity errors of approximately \(1.39\times10^{-6}\), \(9.46\times10^{-7}\) and \(7.01\times10^{-7}\) on the fixed, \(R_m\) and \(R_2\) grids, respectively. The latter two grids are better in this isolated recovery test, although their terminal velocity errors are larger in the coupled evolution. This diagnostic uses exact curvature as its input; the evolution itself uses the consistent discrete initialization in Section 5.2. The change in ordering directs attention to the accumulated field and mesh evolution as well as the initial spatial representation.
+
+These experiments give a concrete role to the conservation structure in numerical design. It supplies three explicit allocation rules and corresponding node velocities, and the exact waves make their consequences measurable. The results distinguish mass conservation, curvature-aware allocation and gradient-sensitive allocation through the errors of the two coupled fields. For the present tests, \(R_m\) offers the strongest overall balance; \(R_2\) demonstrates how a more concentrated conserved coordinate can redistribute accuracy between the components.
+

@@ -1,0 +1,84 @@
+\FloatBarrier
+\section*{Appendix A. The correction in the moving-grid slope equation}
+\label{app:correction}
+
+We expand the change of variables used in Section 3.1 to obtain the difference between the two moving-grid vector fields. The calculation compares both right-hand sides at the same state, with positive cell width \(d_k\) and fixed reciprocal spacing \(a\). Write \(v_k=d_kw_k\). Since \(\dot d_k=-v_k\), differentiation gives
+\paperdisplay{\dot w_k=\frac{\dot v_k}{d_k}-\frac{v_k\dot d_k}{d_k^2}=\frac{\dot v_k}{d_k}+w_k^2.}{\tag{A.1}}
+Substituting (8) into (A.1), the quadratic velocity term combines with the last term to give
+\paperdisplay{F_{\rm SD}^{(w)}=2(u_k+u_{k-1})+\frac12w_k^2+\frac12\left(d_k-\frac{\alpha}{d_k}\right)^2-\frac{c^2}{2}.}{\tag{A.2}}
+The direct moving-grid approximation (9) has the same adjacent-node velocity mean and the same quadratic slope contribution. Subtraction therefore leaves
+\paperdisplay{F_{\rm SD}^{(w)}-F_{\rm moving\,FD}^{(w)}=\frac12\left[\left(d_k-\frac{\alpha}{d_k}\right)^2-c^2\rho_k^2\right].}{\tag{A.3}}
+Now use \(d_k=a/\rho_k\) and \(\alpha=a(a-c)\). The expression inside the square becomes
+\paperdisplay{d_k-\frac{\alpha}{d_k}=c\rho_k+a(\rho_k^{-1}-\rho_k).}{\tag{A.4}}
+Expanding (A.3) proves the identity
+\paperdisplay{F_{\rm SD}^{(w)}-F_{\rm moving\,FD}^{(w)}=ac(1-\rho_k^2)+\frac{a^2}{2}(\rho_k^{-1}-\rho_k)^2.}{\tag{A.5}}
+For states with \(\rho_k\) bounded above and bounded away from zero, the final term is uniformly \(O(a^2)\). The leading correction is linear in \(a\) and vanishes at \(\rho_k=1\). Its spatial variation is thus linked to the density profile. In the smooth depression waves used here, the leading term is positive for \(c>0\) wherever \(0<\rho_k<1\).
+
+The exact lattice phase provides a second view of the finite-spacing dependence. For fixed \(p_i,q_i\) and sufficiently small \(a\), Taylor expansion of (6) gives
+\paperdisplay{\frac{\sigma_i(a)}a=(p_i-q_i)+\frac a2(p_i^2-q_i^2)+\frac{a^2}{3}(p_i^3-q_i^3)+O(a^3).}{\tag{A.6}}
+At a fixed reciprocal position \(X=ka\), the lattice spatial phase is consequently \((p_i-q_i)X+\tfrac12a(p_i^2-q_i^2)X+O(a^2)\). This is a first-order perturbation of the continuous phase on a bounded \(X\)-interval. Equations (A.5) and (A.6) identify first-order contributions in the evolution law and in its exact wave family, respectively. Their coefficients refer to different quantities; the physical-field errors in Section 4 are measured after reconstruction and evolution.
+
+\FloatBarrier
+\section*{Appendix B. Nonuniform differences and velocity recovery}
+\label{app:stencils}
+
+The SAMM calculations use the same three-point field operators on each evolving grid. We record these operators and their consistency terms to specify how the local mesh geometry enters the computation. At an interior node \(x_j\), let \(h_-=x_j-x_{j-1}>0\) and \(h_+=x_{j+1}-x_j>0\). Differentiating the quadratic interpolant through these three nodes gives
+\paperdisplay{\mathcal D_1f_j=-\frac{h_+}{h_-(h_-+h_+)}f_{j-1}+\frac{h_+-h_-}{h_-h_+}f_j+\frac{h_-}{h_+(h_-+h_+)}f_{j+1},}{\tag{B.1}}
+\paperdisplay{\mathcal D_2f_j=\frac{2}{h_-+h_+}\left(\frac{f_{j+1}-f_j}{h_+}-\frac{f_j-f_{j-1}}{h_-}\right).}{\tag{B.2}}
+For equal adjacent widths these are the centered uniform-grid formulas. The derivatives in the field equations, and the interior \(\rho_x\) entering \(R_2\), are evaluated on the current node positions at each time stage.
+
+\subsection*{B.1. Local consistency and mesh smoothness}
+
+Taylor expansion about \(x_j\), for a function with bounded derivatives through order five in the neighboring cells, yields
+\paperdisplay{\mathcal D_1f_j-f_x(x_j)=\frac{h_-h_+}{6}f_{xxx}(x_j)+\frac{h_-h_+(h_+-h_-)}{24}f_{xxxx}(x_j)+O(h_{\max}^4),}{\tag{B.3}}
+\paperdisplay{\mathcal D_2f_j-f_{xx}(x_j)=\frac{h_+-h_-}{3}f_{xxx}(x_j)+\frac{h_+^2-h_+h_-+h_-^2}{12}f_{xxxx}(x_j)+O(h_{\max}^3),}{\tag{B.4}}
+where \(h_{\max}=\max(h_-,h_+)\). The second-derivative formula depends on both the local cell size and the difference between neighboring sizes. This explains why a node-allocation rule must be considered together with the smoothness of the resulting mesh.
+
+To make the scaling explicit, suppose \(x_j=x(\xi_j)\) with uniform label spacing \(\varepsilon\), a smooth mapping with bounded derivatives, and \(x_\xi\) bounded away from zero. Then
+\paperdisplay{h_\pm=x_\xi\varepsilon\ \pm\frac12x_{\xi\xi}\varepsilon^2+\frac16x_{\xi\xi\xi}\varepsilon^3+O(\varepsilon^4),\qquad h_+-h_-=x_{\xi\xi}\varepsilon^2+O(\varepsilon^4).}{\tag{B.5}}
+Both leading contributions in (B.4) are therefore \(O(\varepsilon^2)\). For a smooth positive conservation density, \(x_\xi=1/R\) and \(x_{\xi\xi}=-R_x/R^3\). These relations connect the consistency coefficients to the local density and its gradient. They describe the spatial operator on a smooth mapped grid; the numerical refinements in Section 5 measure the complete coupled evolution, including its endpoint treatment.
+
+\subsection*{B.2. The discrete boundary-value problem}
+
+Let \(x_0=x_L\) and \(x_{N-1}=x_R\), with prescribed values \(u_L\) and \(u_R\). The interior recovery \(\mathcal D_2u=m-2\) has the tridiagonal form
+\paperdisplay{A_j^-u_{j-1}+A_j^0u_j+A_j^+u_{j+1}=m_j-2,\qquad A_j^- =\frac{2}{h_-(h_-+h_+)},\quad A_j^0=-\frac{2}{h_-h_+},\quad A_j^+=\frac{2}{h_+(h_-+h_+)}.}{\tag{B.6}}
+For the first interior row, the term \(A_1^-u_L\) is moved to the right-hand side; for the last row, the term \(A_{N-2}^+u_R\) is moved in the same way. The remaining interior system determines the velocity used in the stage right-hand side. Positive cell widths make both off-diagonal coefficients positive and each full row sum zero, yielding the discrete maximum principle with Dirichlet boundary data.
+
+The same principle gives a useful bound for the isolated recovery test. Let \(u_*\) be the exact velocity and set \(m_j=u_*''(x_j)+2\), with exact endpoint values. Write \(\tau_j=\mathcal D_2u_*(x_j)-u_*''(x_j)\). The recovery error \(e_j=u_j-u_*(x_j)\) satisfies \(\mathcal D_2e_j=-\tau_j\) and vanishes at both endpoints. The quadratic barrier \(b(x)=(x-x_L)(x_R-x)/2\) is represented exactly by (B.2), so \(\mathcal D_2b=-1\). Applying the maximum principle to \(e\pm\|\tau\|_\infty b\) gives
+\paperdisplay{|e_j|\leq\|\tau\|_\infty\frac{(x_j-x_L)(x_R-x_j)}2,\qquad \|e\|_\infty\leq\frac{(x_R-x_L)^2}{8}\|\tau\|_\infty.}{\tag{B.7}}
+The norms in this bound cover all interior nodes. If the input curvature has an error \(\delta m\), the same argument replaces \(\|\tau\|_\infty\) by \(\|\delta m-\tau\|_\infty\). Thus velocity accuracy depends on the curvature delivered by the evolution as well as on the recovery operator. In the actual time-dependent experiments, the initialization \(m_j=\mathcal D_2u_*(x_j,0)+2\) makes the initial velocity recovery exact up to the linear-solve accuracy. The diagnostic in Appendix C instead supplies the analytic curvature to isolate the spatial recovery error.
+
+\FloatBarrier
+\section*{Appendix C. Supplementary refinement and recovery checks}
+\label{app:checks}
+
+We collect the numerical checks underlying the SAMM comparisons. The two cases use \(p_1=5\) and \((p_1,p_2)=(1.1,1.25)\), respectively, with \(c=1\) and the boundary and initialization conventions of Section 5.2. All field errors below are measured directly at the computational nodes in \([-2.5,2.5]\). The grid has \(N\) nodes and \(N-1\) intervals.
+
+\subsection*{C.1. Spatial refinement}
+
+Table C.1 compares the terminal errors at \(N=1000\) and \(N=2000\), with \(T=0.25\) and \(\Delta T=5\times10^{-4}\). The node counts give the nominal refinement factor \(1999/999\), so we use
+\paperdisplay{p_q=\frac{\log(E_q^{(1000)}/E_q^{(2000)})}{\log(1999/999)},\qquad q\in\{u,\rho\}.}{\tag{C.1}}
+The moving meshes are initialized from the same conserved density at each resolution. The resulting orders describe refinement of each complete mesh formulation at a common node budget.
+
+% APPENDIX_REFINEMENT
+
+The errors decrease approximately quadratically for all four choices. Their relative sizes distinguish the density choices within that common trend. In particular, the smaller density error of the curvature-based meshes persists under refinement, while the velocity ordering remains dependent on the wave profile and the selected coordinate.
+
+\subsection*{C.2. Time-step and positivity checks}
+
+For each \(N=2000\) calculation, we repeat the evolution with half the RK4 step. At the common terminal time, define the change at matching node labels by
+\paperdisplay{\delta_{\Delta T}=\max\left\{\|x_{\Delta T}-x_{\Delta T/2}\|_\infty,\|u_{\Delta T}-u_{\Delta T/2}\|_\infty,\|\rho_{\Delta T}-\rho_{\Delta T/2}\|_\infty\right\}.}{\tag{C.2}}
+Table C.2 reports this change, the minimum cell width, and the minimum physical and monitor densities sampled at full time steps of the baseline run. The minimum monitor density during the evolution is taken over interior nodes, where the conservation-coordinate velocity is imposed; the exact initial monitor is also included in the check. For fixed FD, \(R=1\).
+
+% APPENDIX_CHECKS
+
+The step-halving changes are several orders of magnitude below the field errors in Table C.1. The recorded positive densities and cell widths show that the tested evolutions stay within the sampled admissible mesh regime. Together, these checks support interpreting the differences between the terminal errors as spatial effects in the stated experiments.
+
+\subsection*{C.3. Recovery on the initial grids}
+
+We also examine the velocity recovery before time integration. On each \(N=1000\) initial grid, we sample the exact velocity and analytic curvature, compute \(\mathcal D_2u_*-u_*''\), and solve the discrete Poisson problem with that analytic curvature and exact endpoint data. Table C.3 reports the maximum differentiation defect and recovered velocity error in the observation interval. It also gives the ratio of the largest to the smallest cell over the full physical domain.
+
+% APPENDIX_RECOVERY
+
+For the single wave, both curvature-based grids reduce the differentiation defect and the isolated velocity recovery error compared with the uniform grid. Their larger terminal velocity errors in Table C.1 therefore arise in a calculation whose initial recovery properties differ from the final error ranking. For the two-wave profile, the same isolated test already gives larger recovery errors on the moving grids, even though \(R_m\) later produces the smallest terminal velocity error. These changes in ordering make the initial diagnostic and the evolved field error complementary measurements. The full evolution includes the curvature error accumulated through transport and stretching, as well as the changing mesh used by the recovery.
+

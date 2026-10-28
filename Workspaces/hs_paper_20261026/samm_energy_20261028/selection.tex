@@ -1,0 +1,52 @@
+\section*{5. Self-adaptive moving meshes from conservation laws}
+
+The physical density plays two roles in the 2HS computation. It is one of the evolving fields, and its conservation law supplies the reciprocal coordinate used by the integrable lattice. These roles need not favor the same spatial resolution. For the smooth waves considered here, the density decreases near a velocity peak, so a grid carrying equal physical mass has wider cells in that region. This prompts us to ask how other conserved quantities of the same equations distribute the nodes, and how their distributions affect the errors in velocity and density.
+
+We develop three self-adaptive moving-mesh (SAMM) choices directly from the continuous equations. Physical mass provides the starting point. A curvature--mass ratio follows by balancing two stretching rates, and an energy-type quadratic density follows by cancelling the exchange terms between the velocity gradient and physical density. We explain these choices before comparing their numerical evolutions. The comparison holds the field discretization and time integrator fixed, allowing each conservation law to be assessed through the allocation and motion that it supplies.
+
+\subsection*{5.1. Finding conserved densities from the field equations}
+
+For convenience, we recall the continuous system and its background,
+\paperdisplay{u_{tx}=u u_{xx}+\frac12u_x^2+4u+\frac{c^2}{2}(\rho^2-1),\qquad \rho_t=(u\rho)_x,\qquad (u,\rho)\to(0,1).}{}
+We seek a local expression \(R\) whose evolution can be written as \(R_t+Q_x=0\). Wherever \(R>0\), this law defines a conservation coordinate,
+\paperdisplay{d\xi=R\,dx-Q\,dt,\qquad x_\xi=R^{-1},\qquad V=x_t\big|_\xi=Q/R.}{\tag{18}}
+Equal coordinate increments carry equal amounts of \(R\), so larger values assign smaller physical cells. The corresponding flux determines how the nodes move. Selecting a conservation law thus specifies both the initial distribution and an evolution rule for the grid.
+
+The search can be organized using the derivative \(D=\partial_t-u\partial_x\), which follows the velocity \(-u\). For any candidate density,
+\paperdisplay{R_t+Q_x=0\quad\Longleftrightarrow\quad DR-u_xR=-\partial_x(Q+uR).}{}
+We therefore compute \(DR-u_xR\) and look for a spatial derivative in the remaining terms. The following constructions use simple expressions suggested by the transport equations. The conservation condition determines the necessary powers and relative coefficients; background normalization then makes the coordinate densities comparable.
+
+\subsubsection*{Physical mass}
+
+The density equation \(\rho_t=(u\rho)_x\) already has the required divergence form. It gives
+\paperdisplay{R_\rho=\rho,\qquad Q_\rho=-u\rho,\qquad V_\rho=-u.}{\tag{19}}
+No additional combination of fields is needed. For a cell moving with endpoint velocities \(-u\), the boundary transport cancels the change in its integrated physical density. The conserved mass labels the cell and determines its width through (18). This recovers the reciprocal construction of Section 2.1 and provides the structural baseline for the other choices. In a density depression, equal mass requires a larger cell, explaining the reduced concentration around the present velocity peaks.
+
+\subsubsection*{Balancing curvature and mass stretching}
+
+To identify another density, return to the differentiated velocity equation. With \(m=u_{xx}+2\), the two transport relations are
+\paperdisplay{Dm=2u_xm+c^2\rho\rho_x,\qquad D\rho=u_x\rho.}{\tag{20}}
+The curvature variable has two copies of the stretching term, while mass has one. A conservation density needs one copy, as the criterion above shows. This suggests dividing \(m\) by a power of \(\rho\). Rather than fixing the power in advance, set \(R=m\rho^{-\alpha}\). Direct differentiation yields
+\paperdisplay{DR-u_xR=(1-\alpha)u_xm\rho^{-\alpha}+c^2\rho^{1-\alpha}\rho_x.}{}
+Choosing \(\alpha=1\) removes the excess stretching. The remaining term is \(c^2\rho_x\), which is already a spatial derivative. Since \(m=2\) and \(\rho=1\) at the background, we normalize the density by a factor two and choose a flux that vanishes there:
+\paperdisplay{R_m=\frac{m}{2\rho},\qquad Q_m=-uR_m-\frac{c^2}{2}(\rho-1),\qquad (R_m)_t+(Q_m)_x=0.}{\tag{21}}
+The ratio consequently arises from the different transport weights of curvature and mass. Its allocation responds to their combination. For the one-soliton family, let \(s=1-2/(cp)\) and \(z=\tanh(\theta_1/2)\). Then \(R_m=1+s^2(1-z^2)(1+s^2z^2)/(1-s^2z^2)^2\geq1\) on the smooth branch. This density increases within the wave, reversing the allocation produced by physical mass. The numerical calculation evaluates the same expression for both wave families and checks its positivity during evolution.
+
+\subsubsection*{A quadratic balance for slope and density}
+
+For a third choice, we use the velocity gradient itself. Writing \(w=u_x\), the original integrated equation and the mass equation give
+\paperdisplay{Dw=\frac12w^2+4u+\frac{c^2}{2}(\rho^2-1),\qquad D\rho=\rho w.}{\tag{22}}
+These relations describe the local rates of \(w\) and \(\rho\). They are a convenient starting point for a low-order balance because the equation specifies \(u_{tx}\), whereas obtaining \(u_t\) requires a spatial integration and its boundary value. A density built from \(w\) and \(\rho\) can therefore be differentiated locally without first reconstructing \(u_t\).
+
+We look for a quadratic expression that records the size of the velocity slope and the density contribution already present in (22). The term \(w^2\) records slope magnitude independently of its sign. The combination \(\rho^2-1\) is selected by the density coupling in the slope equation and vanishes at the unit background. Starting with these two terms, write \(E_A=w^2+A(\rho^2-1)\), leaving the relative coefficient \(A\) undetermined. Substitution into (22) gives
+\paperdisplay{DE_A-wE_A=8uw+(c^2+A)\rho^2w+(A-c^2)w.}{\tag{22a}}
+The terms involving only \(uw\) and \(w\) are spatial derivatives, since \(w=u_x\). The mixed term \(\rho^2w\) is the remaining exchange between the two fields. Setting \(A=-c^2\) cancels it and leaves \(8uu_x-2c^2u_x=\partial_x(4u^2-2c^2u)\). Thus the equations determine the relative sign and coefficient in
+\paperdisplay{E=u_x^2-c^2(\rho^2-1),\qquad E_t+(Q_E)_x=0,\qquad Q_E=-uE-4u^2+2c^2u.}{\tag{22b}}
+The cancellation identifies a conserved quadratic balance between slope and density. We call it energy-type to describe this balance in the present sign convention. Its sign depends on the fields; the use of a positive density for mesh generation is a separate step.
+
+Because \(E\) vanishes at the background, we add a uniform baseline and use the coupling scale \(c^2\) to set the relative size of its contribution. Our mesh choice is
+\paperdisplay{R_E=1+\frac{E}{c^2}=2-\rho^2+\frac{u_x^2}{c^2},\qquad Q_{R_E}=\frac{Q_E}{c^2},\qquad (R_E)_t+(Q_{R_E})_x=0.}{\tag{23}}
+Adding a constant preserves the local conservation law. Here it gives \(R_E=1\) and \(Q_{R_E}=0\) at the background, matching the normalization of the other two coordinates. This is a specified mesh-design convention: the conservation law fixes the quadratic combination, while its scale relative to the uniform baseline controls the allocation. We use (23) unchanged in both cases and at each resolution.
+
+For a positive density depression with \(\rho\leq1\), the expression in (23) satisfies \(R_E\geq1\). Both a larger slope magnitude and a deeper density depression increase its value. Its geometry can therefore be interpreted directly from the physical profiles. The curvature--mass coordinate weights \(u_{xx}+2\) relative to \(\rho\); the energy-type coordinate instead weights slope magnitude and the density deficit. Their numerical comparison asks how these two ways of identifying wave structure affect the coupled field errors. The further curvature--gradient construction \(R_2\) is derived in \hyperref[app:additional-density]{Appendix D} as an extension of the same search procedure.
+

@@ -56,3 +56,6 @@ Natural-density follow-up: user rejects fitted .1/-.07 monitor. natural_density_
 
 ## Three-density SAMM section (2026-10-27)
 Current LaTeX Section 5 introduces rho, Rm and R2, derives their local fluxes and compares all three with fixed FD. N=2000 actual nodes; 16 runs including time-step-halving checks. Updated PDF 18 pages, 10 figures, 8 tables. See `samm_three_20261027/README.md` and validation.json. This supersedes the two-method mesh protocol for the LaTeX paper; source HTML is unchanged.
+
+## Density-selection revision (2026-10-28)
+Current LaTeX SAMM choices are rho, Rm and RE (energy-type). R2 removed from the paper at user request, retained in history. Expanded PDE recall, ansatz motivation, coefficient determination and mesh normalization in Section 5; four energy runs and all affected figures/tables/appendix checks updated. See `samm_energy_20261028/README.md` and validation.json. PDF 24 pages, desktop synchronized; original HTML unchanged.

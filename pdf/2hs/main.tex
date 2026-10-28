@@ -35,7 +35,7 @@
 \FloatBarrier
 \section*{Abstract}
 
-Integrable semi-discretizations provide exact wave solutions on evolving spatial lattices, allowing the numerical evolution and the approximation of continuous waves to be examined separately. We use this connection to study the two-component Hunter–Saxton system on moving and fixed meshes. Starting from an existing integrable semi-discretization, we formulate a coupled evolution of the velocity differences and mesh intervals and compare it with a direct moving-grid approximation and centered finite differences on a fixed physical grid. An explicit identity between the two moving-grid vector fields identifies a first-order finite-lattice correction. Exact one- and two-soliton solutions then allow this correction to be examined alongside the errors introduced by time integration and physical-coordinate reconstruction. Comparisons of forward Euler, Runge–Kutta and Crank–Nicolson integration distinguish accurate tracking of a semi-discrete trajectory from accurate approximation of the continuous fields. The density conservation law also explains the geometry of the natural mesh: for the smooth solitons considered here, the mesh expands near velocity peaks. We construct two further conserved coordinates by balancing curvature against mass stretching and by cancelling slope--density exchange in a quadratic balance. The three meshes retain approximately second-order refinement with different fieldwise error coefficients. The curvature--mass ratio improves density accuracy in both soliton tests and velocity accuracy for the two-wave profile; the energy-type density further reduces the single-wave density error while increasing the velocity error. Finally, independent numerical evolutions with and without a prescribed velocity perturbation reveal its persistence and transfer into the density field. These comparisons relate the analytical structure of the semi-discrete model to the accuracy and response of its numerical solutions.
+Integrable semi-discretizations provide exact wave solutions on evolving spatial lattices, allowing the numerical evolution and the approximation of continuous waves to be examined separately. We use this connection to study the two-component Hunter–Saxton system on moving and fixed meshes. Starting from an existing integrable semi-discretization, we formulate a coupled evolution of the velocity differences and mesh intervals and compare it with a direct moving-grid approximation and centered finite differences on a fixed physical grid. An explicit identity between the two moving-grid vector fields identifies a first-order finite-lattice correction. Exact one- and two-soliton solutions then allow this correction to be examined alongside the errors introduced by time integration and physical-coordinate reconstruction. Comparisons of forward Euler, Runge–Kutta and Crank–Nicolson integration distinguish accurate tracking of a semi-discrete trajectory from accurate approximation of the continuous fields. The density conservation law also explains the geometry of the natural mesh: for the smooth solitons considered here, the mesh expands near velocity peaks. We construct two further conserved coordinates by balancing curvature against mass stretching and by cancelling slope--density exchange in a quadratic balance. The three meshes retain approximately second-order refinement with different fieldwise error coefficients. The curvature--mass ratio improves density accuracy in both soliton tests and velocity accuracy for the two-wave profile; the energy-type density further reduces the single-wave density error while increasing the velocity error. Finally, independent numerical evolutions with and without a prescribed velocity perturbation reveal its persistence and transfer into the density field. Overall, in this study we have examined the effects of spatial approximation and time integration separately, and explored how field reconstruction, mesh allocation and coupling shape the accuracy and response of the numerical solutions. These comparisons show how the analytical structure of the 2HS system can help explain the behavior of its numerical approximations and inform the choices made in their construction.
 
 \textbf{Keywords:} two-component Hunter–Saxton equation; integrable semi-discretization; reciprocal transformation; moving mesh; numerical error; perturbation response
 
@@ -372,7 +372,7 @@ Moving-grid differences in (17) are taken at matching labels, so the response in
 
 \subsubsection*{One-soliton case}
 
-We apply the velocity-only perturbation to this background and follow each spatial method against its own unperturbed trajectory. The density starts unchanged, so its response records the subsequent transfer through the coupled equations.
+
 
 \begin{figure}[!htbp]
 \centering
@@ -401,7 +401,7 @@ The moving-label velocity response grows over the interval and generates a densi
 
 \subsubsection*{Two-soliton case}
 
-We apply the velocity-only perturbation to this background and follow each spatial method against its own unperturbed trajectory. The density starts unchanged, so its response records the subsequent transfer through the coupled equations.
+
 
 \begin{figure}[!htbp]
 \centering

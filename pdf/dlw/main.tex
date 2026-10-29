@@ -55,7 +55,7 @@ The exact solutions provide benchmarks for examining how the analytical approxim
 The paper is organized as follows. Section 2 introduces the continuous DLW bilinear system and develops the Endpoint-SD and Centered-SD constructions, together with their Gram determinant solutions and positivity conditions. Section 3 reconstructs the nonlinear physical-field equations, establishes their Darboux–Lax representations, and examines the continuum limits of the equations and exact wave fields. Building on these formulations, Section 4 describes the spatial discretization, initial and boundary data, time integration, and conservation-based moving mesh. Section 5 presents the numerical experiments on physical-field accuracy, mesh adaptation, and the evolution of independent initial perturbations. Section 6 summarizes the main findings.
 
 \FloatBarrier
-\section*{2. Bilinear lattice construction and exact solutions}
+\section*{2. Integrable semi-discrete formulations and exact solutions}
 
 In this section, we develop a bilinear lattice description of the DLW system that connects the continuous equations, the arrangement of the \(\tau\) functions and the construction of exact solutions. In Section 2.1, we recall the continuous system and its bilinear representation, fixing the parameters and the transformation to the physical fields. We then derive an unreduced bilinear lattice from the Hirota–Miwa equation in Section 2.2, making the origin of the discrete relations explicit. Building on these relations, Section 2.3 introduces a symmetric staggered formulation through a shift of the bilinear parameter. In Section 2.4, we construct the corresponding Gram determinant solutions and specify the conditions under which they yield regular physical fields. These results provide the basis for the nonlinear formulations and integrable structure developed in Section 3.
 
@@ -70,7 +70,7 @@ We begin with the continuous DLW system and its bilinear representation. Specifi
 \paperdisplay{D_x^mD_y^nD_t^\ell f\cdot g= \left.(\partial_x-\partial_{x'})^m(\partial_y-\partial_{y'})^n (\partial_t-\partial_{t'})^\ell f(x,y,t)g(x',y',t')\right|_{(x',y',t')=(x,y,t)}.}{\tag{3}}
  Writing \(B_a=D_x^2+D_t+2aD_x\), the bilinear equations are 
 \paperdisplay{B_af\cdot g=0,\qquad (D_yB_a+2\lambda D_x)f\cdot g=0.}{\tag{4}}
- Their logarithmic expansion, followed by (2), gives the continuous field equations (1). We use the bilinear representation and continuous Gram construction of Sheng and Yu [5].
+ Their logarithmic expansion, followed by (2), gives the continuous field equations (1). In the work of Sheng and Yu [5], we have the bilinear representation above and the continuous Gram determinant solutions given below.
 
 For the lattice construction, we fix \(\lambda=-2\). This replaces \(2\lambda u\) by \(-4u\) in the second field equation and \(2\lambda D_x\) by \(-4D_x\) in the second bilinear equation. Thus 
 \paperdisplay{B_af\cdot g=0,\qquad (D_yB_a-4D_x)f\cdot g=0.}{\tag{5}}
@@ -85,29 +85,51 @@ The continuous Gram family can be written as
 \FloatBarrier
 \subsection*{2.2 An unreduced bilinear lattice from the Hirota–Miwa equation}
 
-In this subsection, we introduce the endpoint-based semi-discretization (Endpoint-SD) of the DLW bilinear system. We retain two lattice directions in the Hirota–Miwa equation and use a Miwa expansion to introduce the continuous variables \(x,t\). We then examine the local consistency of the resulting lattice relations.
+We seek a lattice description of the bilinear system (5) in which the transverse variable is discrete and the longitudinal variable and time remain continuous. To construct it, we start from the Hirota–Miwa equation and take a continuous limit in two lattice directions. The remaining directions will supply the pairings between neighbouring lattice functions. The same limit will also act on the known Gram determinant solutions of the Hirota–Miwa equation, providing the explicit solutions constructed in Section 2.4.
 
-Let \(T_\alpha,T_\beta,T_\gamma\) denote commuting shifts, with subscripts indicating their action. The Hirota–Miwa equation is 
+Following the inverse-spacing convention in [15], let \(T_\alpha,T_\beta,T_\gamma\) denote commuting shifts, with \(\tau_\alpha=T_\alpha\tau\) and \(\tau_{\alpha\beta}=T_\alpha T_\beta\tau\). The Hirota–Miwa equation is
 \paperdisplay{(\gamma-\beta)\tau_\alpha\tau_{\beta\gamma} +(\alpha-\gamma)\tau_\beta\tau_{\alpha\gamma} +(\beta-\alpha)\tau_\gamma\tau_{\alpha\beta}=0.}{\tag{8}}
- We use the inverse-spacing convention and Gram construction in [15]. Set 
-\paperdisplay{\alpha=\varepsilon_1^{-1},\qquad\beta=\varepsilon_2^{-1}, \qquad T_{\varepsilon_i^{-1}}:X_m\mapsto X_m+\frac{\varepsilon_i^m}{m}.}{\tag{9}}
- After a common midpoint translation and multiplication by \(\varepsilon_1\varepsilon_2\), the first nonzero term has total degree three and is proportional to 
-\paperdisplay{\frac{\varepsilon_1\varepsilon_2(\varepsilon_1-\varepsilon_2)}2 (D_{X_1}^2-D_{X_2}+2\gamma D_{X_1})\tau\cdot T_\gamma\tau.}{}
- Its coefficient therefore gives 
-\paperdisplay{(D_{X_1}^2-D_{X_2}+2\gamma D_{X_1})\tau\cdot T_\gamma\tau=0.}{\tag{10}}
- Retain directions with inverse spacings \(0,d\), and denote their coordinates by \(s,r\). Introduce 
-\paperdisplay{n=r+s,\qquad k=-r.}{\tag{11}}
- The two shifts then act as 
-\paperdisplay{T_0\tau_n(k)=\tau_{n+1}(k),\qquad T_d\tau_n(k)=\tau_{n+1}(k-1).}{\tag{12}}
- The zero inverse spacing is taken as a limit at the \(\tau\)-function level. The two retained relations are 
-\paperdisplay{\begin{aligned} (D_{X_1}^2-D_{X_2})\tau_n(k)\cdot\tau_{n+1}(k)&=0,\\ (D_{X_1}^2-D_{X_2}+2dD_{X_1})\tau_n(k)\cdot\tau_{n+1}(k-1)&=0. \end{aligned}}{\tag{13}}
- Now set 
-\paperdisplay{X_1=x-2bt,\qquad X_2=-t,\qquad f_k=\tau_0(k),\quad g_k=\tau_1(k).}{\tag{14}}
- Since \(D_x=D_{X_1}\) and \(D_t=-2bD_{X_1}-D_{X_2}\), the first operator becomes \(B_b\). Taking \(d=-h\), with \(h>0\), gives the following lattice.
 
-\textbf{Definition 2.1 (Endpoint-SD).} We refer to 
+This relation applies to any triple of directions in the multidimensional lattice. We use two directions, labelled by \(\alpha\) and \(\beta\), to introduce continuous variables, and initially leave the third parameter \(\gamma\) arbitrary. We will then apply the resulting relation to each of the two directions retained in the semi-discrete system.
+
+A Miwa shift expresses one lattice step as simultaneous translations of the hierarchy variables \(\boldsymbol X=(X_1,X_2,\ldots)\). With \([\varepsilon]=(\varepsilon,\varepsilon^2/2,\varepsilon^3/3,\ldots)\), set
+\paperdisplay{\alpha=\varepsilon_1^{-1},\qquad\beta=\varepsilon_2^{-1}, \qquad T_{\varepsilon_i^{-1}}:X_m\mapsto X_m+\frac{\varepsilon_i^m}{m}.}{\tag{9}}
+
+Thus \(T_{\varepsilon^{-1}}\tau(\boldsymbol X)=\tau(\boldsymbol X+[\varepsilon])\). The associated differential expansion is
+\paperdisplay{\begin{aligned} T_{\varepsilon^{-1}}&=\exp\!\left(\sum_{m\ge1}\frac{\varepsilon^m}{m}\partial_{X_m}\right),\\ T_{\varepsilon^{-1}}\tau&=\tau+\varepsilon\tau_{X_1}+\frac{\varepsilon^2}{2}\left(\tau_{X_1X_1}+\tau_{X_2}\right)+O(\varepsilon^3). \end{aligned}}{}
+
+In particular, the second-order displacement contains both a second derivative in \(X_1\) and a first derivative in \(X_2\). This linked dependence is what allows a lattice relation to produce a bilinear equation involving two continuous variables. We expand formally in the two small parameters \(\varepsilon_1,\varepsilon_2\); the Gram family in Section 2.4 realizes these expansions analytically near zero.
+
+To carry out the expansion, write \(F=\tau\), \(G=T_\gamma\tau\), and
+\paperdisplay{\mathcal S_i=\sum_{m\ge1}\frac{\varepsilon_i^m}{m}D_{X_m},\qquad i=1,2.}{}
+
+The three products in (8) have the same mean argument, \(\boldsymbol X+([\varepsilon_1]+[\varepsilon_2])/2\). Translating this common midpoint to \(\boldsymbol X\) writes their relative shifts as exponentials of Hirota derivatives. After multiplication by \(\varepsilon_1\varepsilon_2\), equation (8) becomes
+\paperdisplay{\begin{aligned} \big[&(\gamma\varepsilon_1\varepsilon_2-\varepsilon_1)e^{(\mathcal S_1-\mathcal S_2)/2} +(\varepsilon_2-\gamma\varepsilon_1\varepsilon_2)e^{-(\mathcal S_1-\mathcal S_2)/2}\\ &+(\varepsilon_1-\varepsilon_2)e^{(\mathcal S_1+\mathcal S_2)/2}\big]F\cdot G=0. \end{aligned}}{}
+
+Expanding the exponentials, all terms of total degree below three cancel. The first nonzero term is
+\paperdisplay{\frac{\varepsilon_1\varepsilon_2(\varepsilon_1-\varepsilon_2)}2 (D_{X_1}^2-D_{X_2}+2\gamma D_{X_1})F\cdot G.}{}
+
+Here \(D_{X_1}^2\) comes from the quadratic expansion of the first flow, \(D_{X_2}\) from the second component of the Miwa shift, and the coefficient of \(D_{X_1}\) from the retained parameter \(\gamma\). Equating this coefficient to zero yields
+\paperdisplay{(D_{X_1}^2-D_{X_2}+2\gamma D_{X_1})\tau\cdot T_\gamma\tau=0.}{\tag{10}}
+
+Equation (10) is differential in \(X_1,X_2\) and still discrete in the direction \(\gamma\). To obtain two compatible pairings, retain directions with inverse spacings \(0,d\), with integer coordinates \(s,r\), respectively, and apply (10) to each. Introduce the combined indices
+\paperdisplay{n=r+s,\qquad k=-r.}{\tag{11}}
+
+Increasing \(s\) advances only \(n\), whereas increasing \(r\) advances \(n\) and decreases \(k\). Thus
+\paperdisplay{T_0\tau_n(k)=\tau_{n+1}(k),\qquad T_d\tau_n(k)=\tau_{n+1}(k-1).}{\tag{12}}
+
+The direction with zero inverse spacing is defined by the limit \(\gamma\to0\) at the \(\tau\)-function level; its Gram factor is finite under the spectral conditions below. Applying (10) gives
+\paperdisplay{\begin{aligned} (D_{X_1}^2-D_{X_2})\tau_n(k)\cdot\tau_{n+1}(k)&=0,\\ (D_{X_1}^2-D_{X_2}+2dD_{X_1})\tau_n(k)\cdot\tau_{n+1}(k-1)&=0. \end{aligned}}{\tag{13}}
+
+To identify the continuous variables with those of the DLW bilinear operator, set
+\paperdisplay{X_1=x-2bt,\qquad X_2=-t,\qquad f_k=\tau_0(k),\quad g_k=\tau_1(k).}{\tag{14}}
+
+The chain rule gives \(D_x=D_{X_1}\) and \(D_t=-2bD_{X_1}-D_{X_2}\), so that \(D_{X_1}^2-D_{X_2}=B_b\). Taking \(d=-h\), with \(h>0\), converts the two relations at \(n=0\) into the following lattice.
+
+\textbf{Definition 2.1 (Endpoint-SD).} We refer to
 \paperdisplay{B_bf_k\cdot g_k=0,\qquad B_{b-h}f_k\cdot g_{k-1}=0}{\tag{15}}
- as the endpoint-based semi-discretization, abbreviated Endpoint-SD. For comparison with the continuous system at fixed parameter \(a\), we set \(b=a\) and associate both \(f_k\) and \(g_k\) with \(y_k=kh\). The auxiliary index \(n\) is not subjected to a pseudo two-reduction, so the \(x\) and \(t\) flows remain independent.
+
+as the endpoint-based semi-discretization, abbreviated Endpoint-SD. For comparison with the continuous system at fixed parameter \(a\), we set \(b=a\) and associate both \(f_k\) and \(g_k\) with \(y_k=kh\). The index \(k\) labels the transverse spatial lattice, while \(n\) labels adjacent members of the auxiliary \(\tau\) sequence. We select the members \(n=0,1\) without imposing a pseudo two-reduction on that sequence, so the \(x\) and \(t\) flows remain independent.
 
 To examine consistency, define 
 \paperdisplay{\Phi(s)=B_{a+s}f(x,y,t)\cdot g(x,y+s,t).}{}
@@ -117,7 +139,7 @@ To examine consistency, define
 \paperdisplay{\frac{\Phi(0)-\Phi(-h)}h =B_af\cdot g_y+2D_xf\cdot g -\frac h2\left(B_af\cdot g_{yy}+4D_xf\cdot g_y\right)+O(h^2).}{\tag{16}}
  \textbf{Proof.} Differentiation gives \(\Phi'(0)=B_af\cdot g_y+2D_xf\cdot g\) and \(\Phi''(0)=B_af\cdot g_{yy}+4D_xf\cdot g_y\). Taylor expansion proves (16). For solutions of (5), ordinary differentiation of the first relation gives \(B_af_y\cdot g+B_af\cdot g_y=0\), while the second gives \(B_af_y\cdot g-B_af\cdot g_y-4D_xf\cdot g=0\). Combining these identities yields \(\Phi'(0)=0\). \(\square\)
 
-The Endpoint-SD formulation therefore combines the lattice relations inherited from the Hirota–Miwa equation with a first-order approximation of the continuous bilinear system. Equation (16) makes the leading correction explicit and relates it to the endpoint placement of the \(\tau\) functions and operator parameters.
+Equation (16) connects the lattice inherited from Hirota–Miwa to the continuous DLW bilinear system and identifies the first-order correction associated with the endpoint pairing. It also motivates the symmetric placement considered next. The same construction will determine the exact solutions: the retained directions supply their lattice factors, while the Miwa expansion supplies their continuous phases.
 
 \FloatBarrier
 \subsection*{2.3 A symmetric staggered formulation}
@@ -136,18 +158,48 @@ At fixed \(h\), (18) follows exactly from (15) through (17). For the continuous 
 \paperdisplay{\begin{aligned} \frac{\Phi(h/2)+\Phi(-h/2)}2&=B_af\cdot g+O(h^2),\\ \frac{\Phi(h/2)-\Phi(-h/2)}h&=B_af\cdot g_y+2D_xf\cdot g+O(h^2). \end{aligned}}{\tag{19}}
  \textbf{Proof.} Taylor expansion gives \(\Phi(\pm h/2)=\Phi(0)\pm(h/2)\Phi'(0)+(h^2/8)\Phi''(0)+O(h^3)\). Taking the sum and difference proves (19). As shown in Section 2.2, the limiting relations are equivalent to the continuous bilinear pair (5). \(\square\)
 
-Endpoint-SD follows naturally from the Miwa expansion, and its one-sided pairings identify the first-order correction in (16). Centered-SD is obtained by placing these same pairings symmetrically about the continuous reference, giving second-order bilinear consistency. The two constructions therefore let us examine how the placement of a common bilinear lattice affects its approximation of the continuous system. Their physical-field reconstructions carry this comparison into the nonlinear equations.
+The two formulations share the lattice relations obtained in Section 2.2, but compare them with the continuous system at different parameter references and lattice positions. Their endpoint and symmetric pairings give first- and second-order bilinear consistency, respectively. The shift \(b=a+h/2\) also has a direct counterpart in the exact solutions: it changes the continuous phase generated by the Miwa expansion. We now construct both Gram families and make this dependence explicit.
 
 \FloatBarrier
 \subsection*{2.4 Gram determinant solutions and regularity}
 
-We now construct Gram determinant solutions for Endpoint-SD and Centered-SD. The retained lattice directions determine the discrete factors, while the Miwa expansion supplies the continuous dependence on \(x\) and \(t\). We present the two solution families separately and prove their bilinear identities within the same construction. We then identify a real parameter class that ensures positivity of the \(\tau\) functions and permits smooth physical-field reconstruction.
+The Miwa construction acts on the solutions as well as on the equations. We start from the known Hirota–Miwa Gram family [15], follow its spectral factors through the continuous limit of Section 2.2, and then identify the members that solve Endpoint-SD and Centered-SD. This gives the origin of both the lattice powers and the continuous phases in the resulting determinant formulas.
 
-Let \(N\ge1\), \(h>0\), and let \(a,c_{ij},\alpha_i,\beta_j,z_i,w_j\) be real, with 
+For integer coordinates \(\boldsymbol m=(m_1,\ldots,m_L)\) in directions with inverse spacings \(\gamma_1,\ldots,\gamma_L\), the fully discrete Gram family is
+\paperdisplay{\begin{aligned} \sigma(\boldsymbol m)&=\det_{1\le i,j\le N}M_{ij}(\boldsymbol m),\\ M_{ij}(\boldsymbol m)&=c_{ij}+\frac{\alpha_i\beta_j}{z_i+w_j}\prod_{\ell=1}^{L}R_{\gamma_\ell}(z_i,w_j)^{m_\ell},\qquad R_\gamma(z_i,w_j)=\frac{\gamma+w_j}{\gamma-z_i}. \end{aligned}}{}
+
+Here \(c_{ij},\alpha_i,\beta_j\) are constants, \(z_i,w_j\) are spectral parameters, and the denominators and shift factors are assumed nonzero. This family satisfies (8) for every triple of directions. Each shift multiplies the nonconstant part of \(M_{ij}\) by \(R_\gamma\), which separates into a row factor and a column factor. Indeed, writing \(M_{ij}=c_{ij}+\phi_i\psi_j/(z_i+w_j)\), one obtains
+\paperdisplay{R_\gamma-1=\frac{z_i+w_j}{\gamma-z_i},\qquad (T_\gamma M-M)_{ij}=\frac{\phi_i}{\gamma-z_i}\psi_j.}{}
+
+Thus a lattice step changes the Gram matrix by a rank-one matrix. These shift identities enter the determinant identities underlying the Hirota–Miwa Gram construction [15]. They also explain why we can follow the continuous limit at the level of individual matrix entries while retaining the determinant form.
+
+Consider first a direction that is to be made continuous. With \(\gamma=\varepsilon^{-1}\), its factor satisfies
+\paperdisplay{R_{\varepsilon^{-1}}(z_i,w_j)=\frac{1+\varepsilon w_j}{1-\varepsilon z_i},\qquad \log R_{\varepsilon^{-1}}=\sum_{m\ge1}\frac{z_i^m-(-w_j)^m}{m}\varepsilon^m.}{}
+
+The logarithmic expansion is valid near \(\varepsilon=0\), with the logarithm chosen to vanish there. Define the hierarchy phase
+\paperdisplay{\Theta_{ij}(\boldsymbol X)=\sum_{m\ge1}\bigl(z_i^m-(-w_j)^m\bigr)X_m.}{}
+
+Its change under a Miwa shift is exactly the logarithm of the lattice factor:
+\paperdisplay{e^{\Theta_{ij}(\boldsymbol X+[\varepsilon])}=R_{\varepsilon^{-1}}(z_i,w_j)e^{\Theta_{ij}(\boldsymbol X)}.}{}
+
+Consequently, the rational multipliers in the fully discrete solution and the exponential phases in the hierarchy describe the same shifts. After extracting the coefficient equations of Section 2.2, we fix the higher variables \(X_m\), \(m\ge3\), and absorb their constant row and column factors into \(\alpha_i,\beta_j\). The first two variables contribute \((z_i+w_j)X_1+(z_i^2-w_j^2)X_2\). Under (14), this becomes
+\paperdisplay{\Theta_{ij}^{(b)}=(z_i+w_j)(x-2bt)+(w_j^2-z_i^2)t.}{}
+
+Next consider the two directions that remain discrete. Suppressing \(z_i,w_j\) in the notation for \(R_\gamma\), their factors are
+\paperdisplay{R_0=-\frac{w_j}{z_i},\qquad R_{-h}=R_0\frac{1-h/w_j}{1+h/z_i}.}{}
+
+The same change of indices \(n=r+s\), \(k=-r\) used in (11) gives
+\paperdisplay{\begin{aligned} R_{-h}^{\,r}R_0^{\,s}&=R_0^n\left(\frac{R_0}{R_{-h}}\right)^k=\left(-\frac{w_j}{z_i}\right)^nL_{ij}(h)^k,\\ L_{ij}(h)&=\frac{1+h/z_i}{1-h/w_j}. \end{aligned}}{}
+
+The auxiliary power and the spatial lattice power therefore follow directly from the two retained directions. In particular, \(\log L_{ij}(h)=h(z_i^{-1}+w_j^{-1})+O(h^2)\). For fixed spectral parameters and \(kh=y\), the spatial factor tends to \(e^{y(z_i^{-1}+w_j^{-1})}\) as \(h\to0\), showing how the transverse exponential dependence is recovered.
+
+Combining these lattice factors with \(e^{\Theta_{ij}^{(b)}}\) gives the semi-discrete Gram family. For a comparison at fixed \(a\), the choices \(b=a\) and \(b=a+h/2\) yield the endpoint and centered solutions, respectively. To state the formulas, let \(N\ge1\), \(h>0\), and let \(a,c_{ij},\alpha_i,\beta_j,z_i,w_j\) be real, with
 \paperdisplay{z_iw_j(z_i+w_j)(z_i+h)(w_j-h)\ne0.}{}
- Define 
-\paperdisplay{L_{ij}(h)=\frac{1+h/z_i}{1-h/w_j},\qquad \xi_i=z_i(x-2at)-z_i^2t,\qquad \eta_j=w_j(x-2at)+w_j^2t.}{}
- \textbf{Theorem 2.1 (Gram determinant solutions).}
+
+Using \(L_{ij}(h)\) defined above, write
+\paperdisplay{\xi_i=z_i(x-2at)-z_i^2t,\qquad \eta_j=w_j(x-2at)+w_j^2t.}{}
+
+\textbf{Theorem 2.1 (Gram determinant solutions).}
 
 (i) For Endpoint-SD, set 
 \paperdisplay{\tau_n^{\mathrm E}(k)=\det_{1\le i,j\le N}\left[c_{ij} +\frac{\alpha_i\beta_j}{z_i+w_j} \left(-\frac{w_j}{z_i}\right)^n L_{ij}(h)^k e^{\xi_i+\eta_j}\right].}{\tag{20}}
@@ -157,17 +209,12 @@ Let \(N\ge1\), \(h>0\), and let \(a,c_{ij},\alpha_i,\beta_j,z_i,w_j\) be real, w
 \paperdisplay{\tau_n^{\mathrm C}(k)=\det_{1\le i,j\le N}\left[c_{ij} +\frac{\alpha_i\beta_j}{z_i+w_j} \left(-\frac{w_j}{z_i}\right)^n L_{ij}(h)^k e^{\xi_i+\eta_j-h(z_i+w_j)t}\right].}{\tag{22}}
  Then \(f_k^{\mathrm C}=\tau_0^{\mathrm C}(k)\), \(g_k^{\mathrm C}=\tau_1^{\mathrm C}(k)\) satisfy 
 \paperdisplay{B_{a-\frac h2}f_k^{\mathrm C}\cdot g_{k-1}^{\mathrm C}=0,\qquad B_{a+\frac h2}f_k^{\mathrm C}\cdot g_k^{\mathrm C}=0.}{\tag{23}}
- \textbf{Proof.} In the Hirota–Miwa Gram construction [15], the factor for a direction of inverse spacing \(\gamma\) is \(R_\gamma=(\gamma+w_j)/(\gamma-z_i)\). Hence 
-\paperdisplay{R_0=-\frac{w_j}{z_i},\qquad R_{-h}=R_0\frac{1-h/w_j}{1+h/z_i}.}{}
- With \(n=r+s\), \(k=-r\), the two retained directions give 
-\paperdisplay{R_{-h}^{\,r}R_0^{\,s} =\left(-\frac{w_j}{z_i}\right)^nL_{ij}(h)^k.}{}
- For a Miwa direction, 
-\paperdisplay{\log\frac{1+\varepsilon w_j}{1-\varepsilon z_i} =\sum_{m\ge1}\frac{z_i^m-(-w_j)^m}{m}\varepsilon^m.}{}
- The first two continuous times therefore contribute \((z_i+w_j)X_1+(z_i^2-w_j^2)X_2\). Fixing the higher times and absorbing their factors into the amplitudes, the change \(X_1=x-2bt\), \(X_2=-t\) gives the phase 
-\paperdisplay{(z_i+w_j)(x-2bt)+(w_j^2-z_i^2)t.}{}
- The finite determinants are analytic in the Miwa parameters near zero, so the coefficient identities of Section 2.2 apply to this family. Taking \(b=a\) gives (20)–(21); taking \(b=a+h/2\) supplies the additional phase \(-h(z_i+w_j)t\) and gives (22)–(23). \(\square\)
 
-The superscripts distinguish the two families. They share the same determinant structure and lattice factors, while the extra phase in Centered-SD records the shifted parameter reference. To obtain regular real physical fields, we now choose a parameter class for which the determinants remain positive.
+\textbf{Proof.} The identity for \(e^{\Theta_{ij}(\boldsymbol X+[\varepsilon])}\) shows that each small-parameter shift of the Gram entries has exactly the multiplier of the corresponding Hirota–Miwa direction. The determinant therefore satisfies (8) with the Miwa shifts used in Section 2.2. Since the matrix is finite and its shifted entries are analytic in \(\varepsilon_1,\varepsilon_2\) near zero, we may extract the coefficient of total degree three from that identity. This gives (10) for each retained direction, hence the two relations (13).
+
+The lattice factor calculation above identifies the entries after the change \((r,s)\mapsto(n,k)\), and (14) converts the continuous operator into \(B_b\). Taking \(n=0\) selects \(f_k=\tau_0(k)\), \(g_k=\tau_1(k)\). For \(b=a\), the phase is \(\xi_i+\eta_j\), which gives (20) and (21). For \(b=a+h/2\), it is \(\xi_i+\eta_j-h(z_i+w_j)t\), which gives (22) and (23). \(\square\)
+
+The two families thus share the same Gram kernel and lattice factors. Their difference in continuous phase records exactly the parameter shift used to obtain the centered formulation. The bilinear identities hold under the nonvanishing conditions above; to reconstruct smooth real physical fields through logarithmic derivatives, we additionally require positive \(\tau\) functions. The following proposition gives a sufficient parameter class.
 
 \textbf{Proposition 2.3 (A positive real solution class).} Set \(z_i=-P_i\), \(w_i=Q_i\), \(c_{ij}=\delta_{ij}\), \(\alpha_i=-e^{\xi_{i0}}\), and \(\beta_i=e^{\eta_{i0}}\), with real phase constants. If 
 \paperdisplay{0<Q_N<\cdots<Q_1<P_1<\cdots<P_N,\qquad 0<h<Q_N,}{\tag{24}}
@@ -177,7 +224,7 @@ The superscripts distinguish the two families. They share the same determinant s
 \paperdisplay{\det H_{I,I}= \frac{\prod_{i<j,\ i,j\in I}(P_j-P_i)(Q_i-Q_j)} {\prod_{i,j\in I}(P_i-Q_j)}>0.}{\tag{25}}
  Positive diagonal multiplication preserves these signs. Expanding \(\det(I+A)\) as the sum of all principal minors, including the empty minor \(1\), proves positivity. The additional Centered-SD phase also consists of positive row and column factors. \(\square\)
 
-Starting from the Hirota–Miwa equation, we have introduced Endpoint-SD and developed its centered counterpart, Centered-SD, within the same bilinear construction. Endpoint-SD retains the endpoint arrangement that follows naturally from the Miwa expansion, whereas Centered-SD places the pairings symmetrically through a shift of the parameter reference and a staggered placement of the \(\tau\) functions. These arrangements give first- and second-order bilinear consistency, respectively. Both admit explicit Gram determinant solutions, for which the positivity conditions established above ensure smooth logarithms for physical-field reconstruction. The determinant identities behind the field evaluations are collected in Appendix A. With these results in place, we next develop the corresponding nonlinear formulations and their Lax representations, then examine how the lattice solutions approach the continuous physical fields.
+The Miwa limit has therefore supplied both the semi-discrete bilinear relations and their explicit determinant solutions. The endpoint and centered formulations correspond to the two parameter choices and lattice placements described above, with first- and second-order bilinear consistency. On the positive parameter class, these determinants yield smooth real physical fields; the derivative identities used to evaluate them are collected in Appendix A. We now turn to the nonlinear field equations, their Darboux–Lax representations, and the continuous limit of the reconstructed waves.
 
 \FloatBarrier
 \section*{3. Nonlinear formulations and integrable structure}

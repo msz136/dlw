@@ -1,44 +1,54 @@
-% !TeX program = xelatex
-% Standalone paper source; compile from this directory with XeLaTeX twice.
-\documentclass[11pt,a4paper]{article}
-\usepackage[margin=24mm]{geometry}
-\usepackage{fontspec}
-\setmainfont{Times New Roman}
+% !TeX program = pdflatex
+% Typography follows variant_BS_lattice_Nov.18/variants.tex.
+\documentclass{article}
 \usepackage{amsmath,amssymb,mathtools}
 \usepackage{graphicx,adjustbox,booktabs,tabularx,array,multirow}
 \usepackage{caption,placeins,float}
 \usepackage[hidelinks,unicode]{hyperref}
 \usepackage{enumitem}
-\captionsetup{font=small,labelfont=bf,justification=justified,singlelinecheck=false}
-\setlength{\parindent}{1.2em}
-\setlength{\parskip}{3pt}
+\textwidth=6.5truein \textheight=9.2truein
+\hoffset=-2.5truecm \voffset=-2.0truecm
+\renewcommand{\figurename}{Fig.}
+\captionsetup{font=normalsize,labelfont=normalfont,labelsep=colon,justification=justified,singlelinecheck=true}
 \setlength{\emergencystretch}{2em}
-\setlength{\textfloatsep}{14pt plus 3pt minus 3pt}
-\setlength{\floatsep}{12pt plus 3pt minus 3pt}
-\renewcommand{\topfraction}{.92}
+% Permit tall numerical comparisons to share a page with their discussion.
+\renewcommand{\topfraction}{.93}
 \renewcommand{\bottomfraction}{.85}
-\renewcommand{\textfraction}{.08}
-\renewcommand{\floatpagefraction}{.65}
-\setcounter{topnumber}{4}
-\setcounter{bottomnumber}{3}
-\setcounter{totalnumber}{6}
-\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\renewcommand{\textfraction}{.05}
+\renewcommand{\floatpagefraction}{.75}
+\setcounter{topnumber}{3}
+\setcounter{totalnumber}{5}
+\setlength{\textfloatsep}{14pt plus 2pt minus 2pt}
+\setlength{\floatsep}{12pt plus 2pt minus 2pt}
+% Keep float-page gaps fixed instead of stretching the space between figures/tables.
+\makeatletter
+\setlength{\@fptop}{0pt}
+\setlength{\@fpsep}{12pt}
+\setlength{\@fpbot}{0pt plus 1fil}
+\makeatother
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\renewcommand{\tabularxcolumn}[1]{m{#1}}
 \newcommand{\paperdisplay}[2]{%
   \begin{equation*}
-  \adjustbox{max width=.91\linewidth}{$\displaystyle #1$}#2
+  \adjustbox{max width=.94\linewidth}{$\displaystyle #1$}#2
   \end{equation*}}
+\hypersetup{pdfauthor={Song-Zhe Miao, Bo-Jian Shen, Han-Han Sheng and Guo-Fu Yu}}
 \begin{document}
- 
-{\centering\LARGE\bfseries Integrable semi-discretization and numerical approximation of the (2+1)-dimensional dispersive long-wave system\par}
-\vspace{1.2em}
-  
-\FloatBarrier
-\section*{Abstract}
-
+\title{\bfseries Integrable semi-discretization and numerical approximation of the (2+1)-dimensional dispersive long-wave system}
+\author{Song-Zhe Miao, Bo-Jian Shen, Han-Han Sheng and Guo-Fu Yu
+\thanks{Corresponding author. Email address: gfyu@sjtu.edu.cn}\\
+School of Mathematical Sciences, CMA-Shanghai, Shanghai Jiao Tong University,\\
+Shanghai 200240, PR China\\}
+\date{}
+\maketitle
+\begin{abstract}
 Exact solutions of the \((2+1)\)-dimensional dispersive long-wave (DLW) system provide a detailed description of nonlinear wave propagation and interaction. Extending these solutions to a spatial lattice brings their integrable structure into a discrete setting and raises the question of how the lattice changes the physical waves. In this work, we develop two related integrable semi-discretizations to study this connection between lattice construction and wave approximation. Starting from the Hirota–Miwa equation, a Miwa expansion gives an endpoint formulation (Endpoint-SD). A half-step parameter shift and a staggered placement of the \(\tau\) functions then yield a centered formulation (Centered-SD). Both admit explicit Gram determinant solutions and nonlinear physical-field equations with compatible Darboux–Lax representations, allowing the effects of lattice placement to be studied within a common integrable framework. To quantify these effects, we first examine how the equations and their exact wave fields approach their continuous counterparts. Endpoint-SD is second-order consistent in the first field equation and first-order consistent in the second, while Centered-SD achieves second-order consistency in both. Under suitable regularity and positivity assumptions, we further establish second-order approximation of the exact Centered-SD wave fields. Together with the leading correction to the Endpoint-SD equation residual, this relates the lattice construction to its continuum approximation. These analytical comparisons provide a basis for numerical experiments with soliton, Gaussian and sinusoidal profiles. Through these experiments, we show how lattice placement, wave profile and field reconstruction jointly influence computational accuracy, with the consistency analysis helping to interpret the behavior at finite lattice spacing. Building on this spatial comparison, we then examine how the errors develop during numerical evolution under different time integrators. The semi-discrete structure also offers a way to improve the resolution of the waves. Specifically, we establish a conservation law and use it to construct a self-adaptive moving mesh, improving the accuracy of both fields in the soliton tests at a fixed node count. These results clarify how the arrangement of an integrable lattice and the reconstruction of its physical fields influence the approximation of continuous waves. By tracing these choices from the bilinear equations to the evolving field errors, the study provides a basis for understanding and improving numerical accuracy within a common integrable framework.
+\end{abstract}
+
+{\bfseries Keywords}: Dispersive long-wave system; Integrable discretization; Bilinear method; Self-adaptive moving mesh method; Consistency analysis
 
 \FloatBarrier
-\section*{1. Introduction}
+\section{Introduction}
 
 The propagation and interaction of shallow-water waves have long attracted interest in the study of nonlinear wave phenomena. Nonlinearity and dispersion shape the evolving wave profiles, and their balance can support coherent waves that persist during propagation. Nonlinear long-wave equations describe these effects in a reduced form, allowing wave motion to be studied without retaining the full complexity of the underlying fluid equations. Within this class, integrable models provide exact solutions through which individual waves and their interactions can be examined, together with bilinear formulations and Lax representations that describe the structures governing their evolution. These analytical results also provide reference solutions for numerical computation. Representing the waves on a spatial lattice introduces choices that affect both their approximation and the structure of the governing equations. Integrable discretization brings these questions together by constructing discrete equations alongside their exact solutions and continuum limits.
 
@@ -54,13 +64,14 @@ The exact solutions provide benchmarks for examining how the analytical approxim
 
 The paper is organized as follows. Section 2 introduces the continuous DLW bilinear system and develops the Endpoint-SD and Centered-SD constructions, together with their Gram determinant solutions and positivity conditions. Section 3 reconstructs the nonlinear physical-field equations, establishes their Darboux–Lax representations, and examines the continuum limits of the equations and exact wave fields. Building on these formulations, Section 4 describes the spatial discretization, initial and boundary data, time integration, and conservation-based moving mesh. Section 5 presents the numerical experiments on physical-field accuracy, mesh adaptation, and the evolution of independent initial perturbations. Section 6 summarizes the main findings.
 
+
 \FloatBarrier
-\section*{2. Integrable semi-discrete formulations and exact solutions}
+\section{Integrable bilinear semi-discrete formulations and exact solutions}
 
 In this section, we develop a bilinear lattice description of the DLW system that connects the continuous equations, the arrangement of the \(\tau\) functions and the construction of exact solutions. In Section 2.1, we recall the continuous system and its bilinear representation, fixing the parameters and the transformation to the physical fields. In Section 2.2, we derive an unreduced bilinear lattice from the Hirota–Miwa equation and establish a unified Gram determinant family through an adjacent-layer identity. Section 2.3 specializes this construction to the endpoint and centered formulations, compares their bilinear consistency, and gives a positive real solution class.
 
-\FloatBarrier
-\subsection*{2.1 The continuous DLW system and its bilinear representation}
+
+\subsection{The continuous DLW system and its bilinear representation}
 
 We begin with the continuous DLW system and its bilinear representation. Specifically, we seek a description in which the physical fields and their explicit solutions can be obtained from a common pair of \(\tau\) functions. With real parameters \(a\) and \(\lambda\), the continuous equations are 
 \paperdisplay{u_{yt}+v_{xx}+[(u+2a)u_y]_x=0,\qquad v_t+u_{xxy}+[(u+2a)v+2\lambda u]_x=0.}{\tag{1}}
@@ -82,8 +93,8 @@ The continuous Gram family can be written as
 \paperdisplay{\xi_i=p_ix-p_i^2t+\frac{y}{p_i-a},\qquad \eta_j=q_jx+q_j^2t+\frac{y}{q_j+a}.}{\tag{7}}
  The parameters are chosen so that the denominators are nonzero. On regions where \(\tau_1^{(0)}\) and \(\tau_0^{(0)}\) are positive, (2) gives smooth real physical fields. These \(\tau\) functions solve the bilinear equations (5).
 
-\FloatBarrier
-\subsection*{2.2 An unreduced bilinear lattice and its Gram determinant solutions}
+
+\subsection{Bilinear semi-discrete construction and Gram determinant solutions}
 
 We seek a lattice description of the bilinear system (5) in which the transverse variable is discrete and the longitudinal variable and time remain continuous. To construct it, we start from the Hirota–Miwa equation and take a continuous limit in two lattice directions. The remaining directions will supply the pairings between neighbouring lattice functions. We then give a unified Gram determinant family for this lattice and establish its bilinear identities by a direct adjacent-layer calculation.
 
@@ -275,12 +286,12 @@ For the second pairing, the zero layer is independent of \(\sigma\), so \(\mathc
 
 It follows entrywise that \(\mathcal T_{-1}(k;b-h)=\tau_1^{(b)}(k-1)=g_{k-1}\). Applying (31) with \(\ell=-1\) and \(\sigma=b-h\) therefore gives \(B_{b-h}f_k\cdot g_{k-1}=0\), proving the theorem. \(\square\)
 
-\FloatBarrier
-\subsection*{2.3 Endpoint and centered semi-discretizations}
+
+\subsection{Endpoint and centered semi-discretizations}
 
 The lattice (26) and its Gram family (29) depend on the free parameter \(b\). We now compare them with the continuous DLW system at fixed \(a\). Choosing \(b\) and assigning the two \(\tau\) functions to transverse positions gives the endpoint and centered formulations.
 
-\textbf{Definition 2.1 (Endpoint-SD).} Set \(b=a\) and place both \(f_k\) and \(g_k\) at \(y_k=kh\). We call the resulting system the endpoint-based semi-discretization, abbreviated Endpoint-SD,
+\textbf{Definition 2.1 (Endpoint-SD).} A natural choice is to set \(b=a\) and place both \(f_k\) and \(g_k\) at \(y_k=kh\). This gives the endpoint-based semi-discretization, abbreviated Endpoint-SD,
 \paperdisplay{B_af_k^{\mathrm E}\cdot g_k^{\mathrm E}=0,\qquad B_{a-h}f_k^{\mathrm E}\cdot g_{k-1}^{\mathrm E}=0.}{\tag{44}}
 
 For this parameter choice, write
@@ -335,15 +346,16 @@ The endpoint and symmetric pairings give first- and second-order bilinear consis
 
 The common bilinear lattice and its determinant identity thus support both parameter choices. On the positive class, the resulting determinants yield smooth real physical fields. Their derivative identities are collected in Appendix A.
 
+
 \FloatBarrier
-\section*{3. Nonlinear formulations and integrable structure}
+\section{Integrable nonlinear semi-discrete formulations}
 
 The bilinear construction gives Endpoint-SD and Centered-SD a common origin, while their different lattice arrangements enter the reconstruction of the physical fields. We now develop the corresponding nonlinear equations and examine how these choices shape their relation to the continuous DLW system. Alongside the field reconstruction, we establish compatible linear problems and use the determinant solutions to study the approximation of the continuous wave fields.
 
 In Section 3.1, we introduce the nonlinear formulation of Endpoint-SD through its endpoint variables. Building on this reconstruction, Section 3.2 develops the formulation of Centered-SD using the staggered placement of the \(\tau\) functions. We then establish their Darboux–Lax representations in Section 3.3. Section 3.4 brings the two formulations back to the continuous DLW system by examining their consistency and the convergence of the exact physical fields. For Centered-SD, we match the exact Gram fields to the continuous solution and compare the initial u-derivative errors of the two formulations to interpret the spatial comparisons.
 
-\FloatBarrier
-\subsection*{3.1 The endpoint-based semi-discretization (Endpoint-SD)}
+
+\subsection{The endpoint-based semi-discretization (Endpoint-SD)}
 
 We first introduce the physical fields associated with the endpoint bilinear lattice. Following the continuous transformation, we use the logarithmic ratio of the two \(\tau\) functions to define the first field and replace the \(y\) derivative of their logarithmic product by a lattice difference to define the second. This reconstruction connects the two bilinear pairings to a nonlinear system for the physical fields.
 
@@ -385,8 +397,8 @@ To obtain the second field equation, we use the pairing across the edge. Set
 
 We have thus obtained the nonlinear Endpoint-SD system by combining the endpoint field reconstruction with the two bilinear relations. Equations (58)–(59) involve only \(U_k\) and \(V_k\), with the logarithmic variables eliminated in the derivation. With the nonlinear equations established, we can now use the Endpoint-SD Gram determinants from Section 2.3 to obtain exact physical fields through (57). The positivity of these determinants ensures that the resulting fields remain smooth. These explicit fields also provide reference solutions for the subsequent analysis and numerical tests of Endpoint-SD.
 
-\FloatBarrier
-\subsection*{3.2 The centered semi-discretization (Centered-SD)}
+
+\subsection{The centered semi-discretization (Centered-SD)}
 
 We introduce the physical fields through the symmetric pairings of the centered bilinear lattice. As in the Endpoint-SD construction, taking logarithms turns the bilinear equations into relations that can be subtracted and added. The second field is then defined by a lattice difference of the logarithmic potential.
 
@@ -433,8 +445,8 @@ We now have equations for \(\omega_{k,t}\) and \(\Delta_hu_{k,t}\), together wit
 \paperdisplay{\begin{aligned} \Delta_hu_{k,t}&=-\partial_x\Delta_h[H(u_k)+\omega_k^2/2-h\omega_k]-v_{k,xx},\\[2mm] v_{k,t}&=-\partial_x^2\Delta_hu_k\\ &\quad-\partial_x\Bigg\{\Delta_h[H(u_k)+\omega_k^2/2-h\omega_k]\\ &\hspace{22mm}+\frac2h[(u_k+2a)\omega_k+(u_{k-1}+2a)\omega_{k-1}-h(u_k+u_{k-1})]\Bigg\}. \end{aligned}}{\tag{85}}
  Replacing \(\omega\) by the reconstruction (72) gives the two equations in (73). \(\square\)
 
-\FloatBarrier
-\subsection*{3.3 Darboux–Lax representations}
+
+\subsection{Darboux–Lax representations}
 
 We now examine the integrable structure of the nonlinear systems through their associated linear problems. For each formulation, we seek a lattice relation connecting neighbouring wave functions and a continuous equation governing their time dependence. Their compatibility connects these linear problems to the nonlinear field equations derived above.
 
@@ -496,8 +508,8 @@ The coefficient equations also show how the linear compatibility recovers the no
 
 We have thus obtained both Darboux–Lax representations from the same logarithmic relations used to derive the nonlinear systems. The endpoint and staggered reconstructions enter through the coefficients \(A_k,C_k\), together with the corresponding choice of \(b\). Their common operator form makes the connection between Endpoint-SD and Centered-SD explicit: each translates its bilinear lattice into a compatible linear problem governing the reconstructed physical fields.
 
-\FloatBarrier
-\subsection*{3.4 Continuous limit and approximation of the physical fields}
+
+\subsection{Continuous limit and approximation of the physical fields}
 
 We examine the nonlinear equations at the physical locations of their fields. Write the continuous residuals as 
 \paperdisplay{\mathcal R_u=u_{yt}+v_{xx}+\partial_x[(u+2a)u_y],\qquad \mathcal R_v=v_t+u_{xxy}+\partial_x[(u+2a)v-4u].}{\tag{109}}
@@ -527,13 +539,14 @@ The extra flux also distinguishes the initial derivative errors of the two semi-
 \paperdisplay{(u_{k,t})_{\mathrm C}-(u_{k,t})_{\mathrm E} =-\partial_x\left[\left(\frac{\omega_k^2}{2}-h\omega_k\right)-\left(\frac{\omega_0^2}{2}-h\omega_0\right)\right].}{\tag{116}}
  On the smooth reconstructed family, this difference is \(O(h^2)\). The two formulations therefore share the second-order approximation of the first equation while retaining different leading derivative errors. This identity connects the nonlinear flux to the initial spatial comparisons in Section 5.2. The midpoint expansions behind (110) and (111) are given in Appendix C.
 
+
 \FloatBarrier
-\section*{4. Numerical formulation}
+\section{Numerical formulation}
 
 In this section, we develop numerical formulations for computing the physical fields introduced above. The semi-discrete equations retain continuous dependence on \(x\) and \(t\), so their numerical evolution requires a further spatial approximation, initial and boundary data, and a time-integration scheme. We specify these ingredients for Endpoint-SD and Centered-SD, together with a direct finite-difference discretization of the continuous DLW system as a baseline. Section 4.1 introduces the common differentiation operators in \(x\) and the resulting spatial formulations. Section 4.2 specifies the initial and boundary data and describes how the fields are advanced in time. In Section 4.3, we use the Centered-SD conservation law to construct a shared moving mesh, allowing the longitudinal resolution to adapt to the evolving fields.
 
-\FloatBarrier
-\subsection*{4.1 Fourier differentiation and spatial formulations}
+
+\subsection{Fourier differentiation and spatial formulations}
 
 We first discretize the remaining \(x\) derivatives to obtain systems that can be advanced in time. Endpoint-SD, Centered-SD, and the direct finite-difference baseline use the same Fourier differentiation in \(x\), providing a common longitudinal approximation for examining their different transverse formulations. Denote the numerical first- and second-derivative operators by \(\mathcal D_x\) and \(\mathcal D_{xx}\), with Fourier multipliers \(\mathrm i\xi\) and \(-\xi^2\), respectively. The first-derivative multiplier is set to zero at the Nyquist frequency, and nonlinear products are evaluated at the grid points. The calligraphic notation distinguishes these numerical operators from Hirota’s bilinear derivatives.
 
@@ -553,8 +566,8 @@ For comparison, direct discretization of the continuous DLW system gives the FD 
 
 The three spatial formulations use the same Fourier differentiation in \(x\) and the prescribed lower-boundary data for recovering the \(u\) time derivative. Their different approximations enter through the transverse differences, nonlinear fluxes, and placement of the physical fields. This common numerical setting allows us to examine how the endpoint and centered lattice constructions affect the computed waves, with direct finite differences providing a reference discretization of the continuous equations. It also connects the consistency analysis of Section 3 with the spatial errors measured in the numerical experiments.
 
-\FloatBarrier
-\subsection*{4.2 Initial and boundary data and time integration}
+
+\subsection{Initial and boundary data and time integration}
 
 In this subsection, we specify the initial and boundary data and describe how the resulting spatial systems are advanced in time. The initial states are obtained by sampling the same continuous reference fields at the native locations of each formulation. Endpoint-SD and FD advance \(z=(u_k,v_k)_k\), while Centered-SD advances \(z=(u_k,\omega_k)_k\) and reconstructs \(v\) through the relation in Section 4.1. At each stage, the current state and the prescribed boundary data supply the time derivatives required by the integrator. We use forward Euler, classical RK4, and Crank–Nicolson to examine how different temporal approximations affect the computed physical fields.
 
@@ -578,8 +591,8 @@ The implicit step uses an Euler prediction followed by fixed-point iteration. Th
 
 The spatial and temporal comparisons in Sections 5.2 and 5.3 use \(\Delta t=10^{-4}\) and \(T=0.01\); the mesh experiments in Section 5.4 use RK4 with the same step size and final time. In each comparison, the advanced state is expressed in terms of the physical fields \(u\) and \(v\) for error evaluation. This provides a common basis for assessing the numerical evolution across formulations with different state variables. With the spatial operators and boundary treatment fixed, the time-integrator comparisons then allow us to follow how the temporal approximation influences the accumulation of errors in the two coupled fields.
 
-\FloatBarrier
-\subsection*{4.3 A conservation-based moving mesh}
+
+\subsection{A conservation-based moving mesh}
 
 The spatial variation of a wave is often concentrated in a small part of the computational domain. A uniform grid distributes nodes equally across these regions and the more slowly varying background, while an adaptive mesh can allocate additional resolution where the fields vary more strongly. In this subsection, we first establish a semi-discrete conservation law for Centered-SD and then use its density and flux to construct a self-adaptive moving mesh. The nodes move in \(x\), while the \(y\) lattice remains uniform and all transverse layers share the same longitudinal mesh. This arrangement retains the transverse lattice pairings and allows the distribution of resolution in \(x\) to evolve with the physical fields.
 
@@ -617,29 +630,30 @@ Here \(F_u\) and \(F_\omega\) denote the Centered-SD right-hand sides evaluated 
 
 The resulting scheme couples the physical-field evolution to a mesh determined by the semi-discrete conservation law. The averaged density specifies the initial distribution of nodes, and the associated flux governs their subsequent motion through the preservation of cumulative-density labels. By sharing the longitudinal nodes across all transverse layers, the construction accommodates mesh adaptation within the existing Centered-SD field reconstruction. It thus provides a concrete way to use the analytical structure of the equations to guide spatial resolution, whose effect on the computed wave fields can be assessed at a fixed node count.
 
+
 \FloatBarrier
-\section*{5. Numerical experiments}
+\section{Numerical experiments}
 
 In this section, we examine how the semi-discrete formulations developed above perform in numerical computation. Our focus is on the accuracy of the evolving physical fields and the roles of spatial discretization, time integration, and mesh distribution in determining that accuracy. We also follow the response to independent initial perturbations to examine how disturbances develop through the coupling of the two fields. Section 5.1 introduces the test problems, continuous reference solutions, and error measures. Section 5.2 examines the spatial approximations and compares the physical fields computed by Endpoint-SD, Centered-SD, and direct finite differences under common RK4 time integration. With Centered-SD, we then study the error histories of three time integrators in Section 5.3 and the effect of conservation-based mesh adaptation in Section 5.4. Section 5.5 examines the evolution of independent initial perturbations within each spatial formulation.
 
-\FloatBarrier
-\subsection*{5.1 Test problems and error measures}
+
+\subsection{Test problems and error measures}
 
 We begin by specifying the initial fields and reference solutions used in the numerical experiments, together with the regions and error measures through which the computed fields are assessed. The four test problems cover a single soliton, interacting solitons, a localized Gaussian profile, and a periodic sinusoidal profile. These backgrounds allow us to examine the numerical formulations across different wave shapes and spatial distributions, while the continuous reference solutions provide a common basis for evaluating both physical fields. All numerical tests use \(a=2\) and \(\lambda=-2\). For the one- and two-soliton cases, the reference solutions are generated directly from the continuous Gram determinant formulas (6)–(7) in Section 2.1, with \(\rho_i=1\) and zero phase shifts. Table 1 lists their spectral parameters, evaluation windows, and computational intervals.
 
 \begin{table}[!htbp]
 \centering
-\caption*{Table 1. Spectral parameters and regions for the soliton tests.}
-\small
-\setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.22}
+\caption*{Table 1: Spectral parameters and regions for the soliton tests.}
+\normalsize
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.25}\setlength{\extrarowheight}{1pt}
 \begin{tabularx}{\linewidth}{YYYY}
-\toprule
+\hline
 Case & Spectral pairs & Region & Periodic x interval \\
-\midrule
+\hline
 One-soliton & (1, 2) & R = 5 & [-10, 10) \\
 Two-soliton & (1, 2), (4, -3) & R = 30 & [-40, 40) \\
-\bottomrule
+\hline
 \end{tabularx}
 \end{table}
 
@@ -647,22 +661,22 @@ Writing the periodic \(x\) interval as \([-L,L)\), we use the same interval in \
 
 As shown in Figure 1, the one-soliton case consists of a single oblique wave band with smooth negative troughs in both \(u\) and \(v\).
 
-\FloatBarrier
-\noindent\includegraphics[width=\linewidth,trim=0 196.575bp 0 0,clip]{images/figure-01.pdf}\par
-\noindent\begin{minipage}{\linewidth}
-\noindent\includegraphics[width=\linewidth,trim=0 0 0 216.000bp,clip]{images/figure-01.pdf}\par
-\captionof*{figure}{\textbf{Figure 1.} One-soliton case. Exact initial physical fields. Left: sections at \(y=0\); right: physical-field heatmaps, with the central section marked by a white dashed line. The upper and lower rows show \(u\) and \(v\), respectively.}
-\end{minipage}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth,height=.80\textheight,keepaspectratio]{images/figure-01.pdf}
+\caption*{Fig. 1: One-soliton case. Exact initial physical fields. Left: sections at \(y=0\); right: physical-field heatmaps, with the central section marked by a white dashed line. The upper and lower rows show \(u\) and \(v\), respectively.}
+\end{figure}
 
 
-The two-soliton case (Figure 2) combines the spectral pair of the one-soliton wave with a second pair \((4,-3)\). Its first field \(u\) features a dominant negative trough alongside a shallower positive ridge, whereas both intersecting wave bands remain negative in the second field \(v\), allowing us to test the schemes on interacting waves of different amplitudes and polarities.
+The two-soliton case (Figure 2) combines the spectral pair of the one-soliton wave with a second pair \((4,-3)\). Its first field \(u\) features a dominant negative trough alongside a shallower positive ridge, whereas both intersecting wave bands remain negative in the second field \(v\), allowing us to test the schemes on interacting waves of different amplitudes and polarities. We choose \(y=-20\) to show the two soliton profiles more clearly in the cross-sections.
 
-\FloatBarrier
-\noindent\includegraphics[width=\linewidth,trim=0 196.575bp 0 0,clip]{images/figure-02.pdf}\par
-\noindent\begin{minipage}{\linewidth}
-\noindent\includegraphics[width=\linewidth,trim=0 0 0 216.000bp,clip]{images/figure-02.pdf}\par
-\captionof*{figure}{\textbf{Figure 2.} Two-soliton case. Exact initial physical fields. Left: sections at \(y=0\); right: physical-field heatmaps, with the central section marked by a white dashed line. The upper and lower rows show \(u\) and \(v\), respectively. The section panels focus on \(x\in[-8,8]\); the heatmaps retain the full \([-30,30]\) window.}
-\end{minipage}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth,height=.80\textheight,keepaspectratio]{images/figure-02.pdf}
+\caption*{Fig. 2: Two-soliton case. Exact initial physical fields. Left: sections at \(y=-20\); right: physical-field heatmaps, with the selected section marked by a white dashed line. The upper and lower rows show \(u\) and \(v\), respectively. The section panels focus on \(x\in[-16,2]\); the heatmaps retain the full \([-30,30]\) window.}
+\end{figure}
 
 
 For the Gaussian and sinusoidal tests, let \(z=y+2\) and \(\kappa=\pi/4\), and take the separable initial fields
@@ -673,24 +687,24 @@ The Gaussian test uses \(A=0.05\) with the periodic localized profile \(F(x)=\su
 
 Because the initial fields satisfy the relation \(v_0=4-3u_{0y}\), the subsequent evolution under the full DLW system can be represented through two linear heat equations and a Laplace transformation over \(0\le t\le0.01\). Interval evaluation of these analytical representations provides continuous reference values and initial time derivatives with an absolute error bound of \(10^{-13}\).
 
-As illustrated in Figure 3, the Gaussian test starts from a localized positive hump in \(u\), while \(v\) varies symmetrically about the background value \(v=4\) with opposite signs in the upper and lower halves of the strip and remains equal to four along the central section \(y=0\).
-
-\FloatBarrier
-\noindent\includegraphics[width=\linewidth,trim=0 196.575bp 0 0,clip]{images/figure-03.pdf}\par
-\noindent\begin{minipage}{\linewidth}
-\noindent\includegraphics[width=\linewidth,trim=0 0 0 216.000bp,clip]{images/figure-03.pdf}\par
-\captionof*{figure}{\textbf{Figure 3.} Gaussian case. Exact initial physical fields. Left: sections at \(y=0\); right: physical-field heatmaps, with the central section marked by a white dashed line. The upper and lower rows show \(u\) and \(v\), respectively. The displayed \(x\) window is \([-18,18]\); the error tables use the full periodic interval \([-96,96)\). The exact central second field satisfies \(v(x,0,t)=4\).}
-\end{minipage}
+Figure 3 shows the localized Gaussian profile and its transverse variation. We choose \(y=1\) to display a positive hump in \(u\) and the corresponding elevation of \(v\) above its background value \(v=4\). The heatmaps show how these sections extend across the strip, with the departure of \(v\) from its background changing sign across \(y=0\).
 
 
-The sinusoidal test (Figure 4) replaces the localized pulse in \(x\) by a periodic cosine wave, so that \(u\) alternates in sign along \(x\) while the departure of \(v\) from its background \(v=4\) reverses sign across \(y=0\).
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth,height=.80\textheight,keepaspectratio]{images/figure-03.pdf}
+\caption*{Fig. 3: Gaussian case. Exact initial physical fields. Left: sections at \(y=1\); right: physical-field heatmaps, with the selected section marked by a white dashed line. The upper and lower rows show \(u\) and \(v\), respectively. The displayed \(x\) window is \([-18,18]\); the error tables use the full periodic interval \([-96,96)\).}
+\end{figure}
 
-\FloatBarrier
-\noindent\includegraphics[width=\linewidth,trim=0 196.575bp 0 0,clip]{images/figure-04.pdf}\par
-\noindent\begin{minipage}{\linewidth}
-\noindent\includegraphics[width=\linewidth,trim=0 0 0 216.000bp,clip]{images/figure-04.pdf}\par
-\captionof*{figure}{\textbf{Figure 4.} Sinusoidal case. Exact initial physical fields. Left: sections at \(y=0\); right: physical-field heatmaps, with the central section marked by a white dashed line. The upper and lower rows show \(u\) and \(v\), respectively. The displayed \(x\) window is \([-12,12]\); the error tables use the full periodic interval \([-96,96)\). The exact central second field satisfies \(v(x,0,t)=4\).}
-\end{minipage}
+
+The sinusoidal test (Figure 4) replaces the localized pulse in \(x\) by a periodic cosine wave, so that \(u\) alternates in sign along \(x\) while the departure of \(v\) from its background \(v=4\) reverses sign across \(y=0\). We choose \(y=1\) to show the periodic wave profiles in both physical fields.
+
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth,height=.80\textheight,keepaspectratio]{images/figure-04.pdf}
+\caption*{Fig. 4: Sinusoidal case. Exact initial physical fields. Left: sections at \(y=1\); right: physical-field heatmaps, with the selected section marked by a white dashed line. The upper and lower rows show \(u\) and \(v\), respectively. The displayed \(x\) window is \([-12,12]\); the error tables use the full periodic interval \([-96,96)\).}
+\end{figure}
 
 
 Each numerical method is initialized by sampling the continuous reference fields at its native grid locations. Recall that both semi-discrete formulations place \(u\) at transverse nodes and \(v\) at edge midpoints, whereas FD places both fields at the nodes. Errors are evaluated directly at these native sites inside the specified interior region (\(|x|\le R\) and \(|y|<R\) for the soliton tests, and all \(x\) nodes with \(|y|\le1.8\) for the Gaussian and sinusoidal tests). At the final time \(T=0.01\), we record the maximum absolute errors
@@ -699,28 +713,32 @@ Each numerical method is initialized by sampling the continuous reference fields
 
 Here, \(\mathcal G_u\) and \(\mathcal G_v\) denote the native lattice sites of the two physical fields within the evaluation region. We also record the initial derivative errors \(E_{u_t}\) and \(E_{v_t}\), defined as the maximum absolute differences between the spatially computed and exact continuous time derivatives at \(t=0\). These initial errors characterize the spatial approximation before time stepping, while \(E_u(T)\) and \(E_v(T)\) measure the resulting physical-field errors after evolution. Together, they allow us to examine how the initial spatial accuracy is reflected in the computed waves and how the two field components respond during the coupled evolution. In the tables below, bold entries indicate the smallest error among the compared methods for each case and field.
 
-\FloatBarrier
-\subsection*{5.2 Comparison of spatial formulations}
+
+\subsection{Comparison of spatial formulations}
 
 In this subsection, we examine how the spatial formulation affects the accuracy of the two physical fields, following the initial spatial approximation through to the computed wave profiles. The analysis in Section 3.4 identifies different truncation errors for Endpoint-SD and Centered-SD, and we use the four test problems to investigate how these differences are reflected in numerical evolution. Direct finite differences applied to the continuous DLW system provide a baseline. All three formulations use \(h=\Delta x=0.1\) and advance from the exact initial data to \(T=0.01\) using classical RK4 with \(\Delta t=10^{-4}\). We first examine the initial time-derivative errors in Table 2, then consider the evolved physical-field errors and their spatial distributions.
 
 \begin{table}[!htbp]
 \centering
-\caption*{Table 2. Initial time-derivative errors at h = \(\Delta\)x = 0.1.}
-\small
+\caption*{Table 2: Initial time-derivative errors at h = \(\Delta\)x = 0.1.}
+\normalsize
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.25}\setlength{\extrarowheight}{1pt}
 \setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.22}
-\begin{tabularx}{\linewidth}{YYYYYYY}
-\toprule
-Case & \multicolumn{2}{>{\raggedright\arraybackslash}p{2\dimexpr\linewidth/7-2\tabcolsep\relax}}{Endpoint-SD} & \multicolumn{2}{>{\raggedright\arraybackslash}p{2\dimexpr\linewidth/7-2\tabcolsep\relax}}{Centered-SD} & \multicolumn{2}{>{\raggedright\arraybackslash}p{2\dimexpr\linewidth/7-2\tabcolsep\relax}}{FD} \\
- & \(E_{u_t}\) & \(E_{v_t}\) & \(E_{u_t}\) & \(E_{v_t}\) & \(E_{u_t}\) & \(E_{v_t}\) \\
-\midrule
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{ccccccc}
+
+\hline
+\multicolumn{1}{c}{Case} & \multicolumn{2}{c}{Endpoint-SD} & \multicolumn{2}{c}{Centered-SD} & \multicolumn{2}{c}{FD} \\
+ & \multicolumn{1}{c}{\(E_{u_t}\)} & \multicolumn{1}{c}{\(E_{v_t}\)} & \multicolumn{1}{c}{\(E_{u_t}\)} & \multicolumn{1}{c}{\(E_{v_t}\)} & \multicolumn{1}{c}{\(E_{u_t}\)} & \multicolumn{1}{c}{\(E_{v_t}\)} \\
+\hline
 One-soliton & \textbf{2.479 \(\times\) 10\textsuperscript{-3}} & 5.492 \(\times\) 10\textsuperscript{-1} & 1.656 \(\times\) 10\textsuperscript{-2} & \textbf{8.443 \(\times\) 10\textsuperscript{-3}} & 4.957 \(\times\) 10\textsuperscript{-3} & 1.394 \(\times\) 10\textsuperscript{-2} \\
 Two-soliton & \textbf{2.142 \(\times\) 10\textsuperscript{-3}} & 7.010 \(\times\) 10\textsuperscript{-1} & 1.295 \(\times\) 10\textsuperscript{-2} & \textbf{1.089 \(\times\) 10\textsuperscript{-2}} & 4.284 \(\times\) 10\textsuperscript{-3} & 1.644 \(\times\) 10\textsuperscript{-2} \\
 Gaussian & \textbf{2.142 \(\times\) 10\textsuperscript{-6}} & 6.038 \(\times\) 10\textsuperscript{-5} & 2.900 \(\times\) 10\textsuperscript{-6} & \textbf{6.997 \(\times\) 10\textsuperscript{-7}} & 4.284 \(\times\) 10\textsuperscript{-6} & 2.215 \(\times\) 10\textsuperscript{-6} \\
 Sinusoidal & \textbf{1.586 \(\times\) 10\textsuperscript{-6}} & 2.833 \(\times\) 10\textsuperscript{-5} & 2.003 \(\times\) 10\textsuperscript{-6} & \textbf{4.715 \(\times\) 10\textsuperscript{-7}} & 3.171 \(\times\) 10\textsuperscript{-6} & 1.639 \(\times\) 10\textsuperscript{-6} \\
-\bottomrule
-\end{tabularx}
+\hline
+\end{tabular}
+\end{adjustbox}
 \end{table}
 
 At \(t=0\), the two semi-discrete formulations show a clear division between the two components: Endpoint-SD gives the smallest initial \(u_t\) defect \(E_{u_t}\) in all four cases, whereas Centered-SD gives the smallest \(v_t\) defect \(E_{v_t}\). This pattern is consistent with Proposition 3.4. In the first equation, both formulations are second-order consistent, and the difference in \(E_{u_t}\) comes from the \(O(h^2)\) auxiliary flux term retained by Centered-SD. In the second equation, however, the one-sided pairing of Endpoint-SD leaves a first-order \(O(h)\) truncation term, which makes its initial \(v_t\) error significantly larger than those of Centered-SD and FD.
@@ -729,21 +747,25 @@ Table 3 follows these initial states to \(T=0.01\) and reports the resulting err
 
 \begin{table}[!htbp]
 \centering
-\caption*{Table 3. Physical-field errors at T = 0.01 with RK4, \(\Delta\)t = 10\textsuperscript{-}\textsuperscript{4} and h = \(\Delta\)x = 0.1.}
-\small
+\caption*{Table 3: Physical-field errors at T = 0.01 with RK4, \(\Delta\)t = 10\textsuperscript{-}\textsuperscript{4} and h = \(\Delta\)x = 0.1.}
+\normalsize
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.25}\setlength{\extrarowheight}{1pt}
 \setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.22}
-\begin{tabularx}{\linewidth}{YYYYYYY}
-\toprule
-Case & \multicolumn{2}{>{\raggedright\arraybackslash}p{2\dimexpr\linewidth/7-2\tabcolsep\relax}}{Endpoint-SD} & \multicolumn{2}{>{\raggedright\arraybackslash}p{2\dimexpr\linewidth/7-2\tabcolsep\relax}}{Centered-SD} & \multicolumn{2}{>{\raggedright\arraybackslash}p{2\dimexpr\linewidth/7-2\tabcolsep\relax}}{FD} \\
- & \(E_u\) & \(E_v\) & \(E_u\) & \(E_v\) & \(E_u\) & \(E_v\) \\
-\midrule
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{ccccccc}
+
+\hline
+\multicolumn{1}{c}{Case} & \multicolumn{2}{c}{Endpoint-SD} & \multicolumn{2}{c}{Centered-SD} & \multicolumn{2}{c}{FD} \\
+ & \multicolumn{1}{c}{\(E_u\)} & \multicolumn{1}{c}{\(E_v\)} & \multicolumn{1}{c}{\(E_u\)} & \multicolumn{1}{c}{\(E_v\)} & \multicolumn{1}{c}{\(E_u\)} & \multicolumn{1}{c}{\(E_v\)} \\
+\hline
 One-soliton & 4.702 \(\times\) 10\textsuperscript{-4} & 5.547 \(\times\) 10\textsuperscript{-3} & 1.677 \(\times\) 10\textsuperscript{-4} & \textbf{7.734 \(\times\) 10\textsuperscript{-5}} & \textbf{5.568 \(\times\) 10\textsuperscript{-5}} & 1.428 \(\times\) 10\textsuperscript{-4} \\
 Two-soliton & 4.942 \(\times\) 10\textsuperscript{-4} & 7.076 \(\times\) 10\textsuperscript{-3} & 1.792 \(\times\) 10\textsuperscript{-4} & \textbf{1.009 \(\times\) 10\textsuperscript{-4}} & \textbf{1.149 \(\times\) 10\textsuperscript{-4}} & 1.694 \(\times\) 10\textsuperscript{-4} \\
 Gaussian & \textbf{2.147 \(\times\) 10\textsuperscript{-8}} & 6.036 \(\times\) 10\textsuperscript{-7} & 2.900 \(\times\) 10\textsuperscript{-8} & \textbf{6.967 \(\times\) 10\textsuperscript{-9}} & 4.280 \(\times\) 10\textsuperscript{-8} & 2.206 \(\times\) 10\textsuperscript{-8} \\
 Sinusoidal & \textbf{1.588 \(\times\) 10\textsuperscript{-8}} & 2.833 \(\times\) 10\textsuperscript{-7} & 2.003 \(\times\) 10\textsuperscript{-8} & \textbf{4.706 \(\times\) 10\textsuperscript{-9}} & 3.170 \(\times\) 10\textsuperscript{-8} & 1.637 \(\times\) 10\textsuperscript{-8} \\
-\bottomrule
-\end{tabularx}
+\hline
+\end{tabular}
+\end{adjustbox}
 \end{table}
 
 Looking across Table 3, we see that Centered-SD maintains the smallest \(v\) error in all four tests, while the ordering of the \(u\) error depends on the test problem.
@@ -756,33 +778,29 @@ Comparing the two semi-discrete schemes, we notice that Centered-SD not only red
 
 The heatmaps in Figure 5(e–j) extend this section comparison to the two-dimensional region. The dashed horizontal line marks \(y=0\), linking the upper panels to the maps below. Bands of larger error follow the inclined wave structure, with narrow low-error strips separating local maxima. The common color scale within each field makes the smaller \(v\) errors of Centered-SD and FD visible alongside the broader, brighter Endpoint-SD error band.
 
-\FloatBarrier
-\noindent\includegraphics[width=\linewidth,trim=0 532.383bp 0 0.000bp,clip]{images/figure-05.pdf}\par
-\noindent\includegraphics[width=\linewidth,trim=0 355.883bp 0 224.000bp,clip]{images/figure-05.pdf}\par
-\noindent\includegraphics[width=\linewidth,trim=0 177.383bp 0 400.500bp,clip]{images/figure-05.pdf}\par
-\noindent\begin{minipage}{\linewidth}
-\noindent\includegraphics[width=\linewidth,trim=0 0.000bp 0 579.000bp,clip]{images/figure-05.pdf}\par
-\captionof*{figure}{\textbf{Figure 5.} One-soliton case at \(T=0.01\). Panels (a,c) compare the continuous \(y=0\) profiles with numerical symbols; panels (b,d) show the absolute errors along that section. The lower rows show the \(u\) and \(v\) error maps, with columns for Endpoint-SD, Centered-SD and FD. Each row uses one logarithmic color scale; values at or below its lower limit, including zero, share the darkest color, as indicated by the \(\leq\) label on the colorbar. Panel maxima refer to the full table region.}
-\end{minipage}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth,height=.80\textheight,keepaspectratio]{images/figure-05.pdf}
+\caption*{Fig. 5: One-soliton case at \(T=0.01\). Panels (a,c) compare the continuous \(y=0\) profiles with numerical symbols; panels (b,d) show the absolute errors along that section. The lower rows show the \(u\) and \(v\) error maps, with columns for Endpoint-SD, Centered-SD and FD. Each row uses one logarithmic color scale; values at or below its lower limit, including zero, share the lowest (dark-blue) color, as indicated by the \(\leq\) label on the colorbar. Panel maxima refer to the full table region.}
+\end{figure}
 
 
 
 
 
-The two-soliton section in Figure 6(a,c) has a more asymmetric shape. Along \(y=0\), the \(u\) profile has a small positive shoulder to the left of a pronounced negative trough, while \(v\) has a broader depression leading into a deeper minimum. The numerical values reproduce these features closely. The section errors in panels (b,d) resolve the differences beneath this visual agreement, including local oscillations and larger errors near the central trough.
+We choose \(y=-20\) in Figure 6(a,c), as in Figure 2, to resolve the two soliton profiles in the evolved fields. The \(u\) section contains a broad positive crest followed by a narrower negative trough, while \(v\) has two distinct negative troughs. The numerical values reproduce these features closely. Panels (b,d) show how the section errors vary across the two waves.
 
 Relative to Endpoint-SD, Centered-SD reduces the terminal \(u\) error from \(4.942\times10^{-4}\) to \(1.792\times10^{-4}\) and the \(v\) error from \(7.076\times10^{-3}\) to \(1.009\times10^{-4}\). The improvement factors — about \(2.8\) in \(u\) and \(70\) in \(v\) — are nearly identical to those observed in the single-soliton case, and Centered-SD also improves upon the FD baseline in the second field by a factor of about \(1.7\).
 
-The heatmaps in Figure 6(e–j) show how this error pattern extends across the two-dimensional wave configuration. Several bands and their intersections are visible over the wider plotting region, whereas the upper panels focus on the central section. In \(v\), the dominant oblique band is substantially brighter for Endpoint-SD; the Centered-SD and FD maps retain a narrower band of larger error. These maps locate the errors reported in Table 3 and show their variation away from \(y=0\).
+The heatmaps in Figure 6(e–j) show how this error pattern extends across the two-dimensional wave configuration. The upper panels resolve the two waves along \(y=-20\), while the maps include their interaction region. In \(v\), the dominant oblique band is substantially brighter for Endpoint-SD; the Centered-SD and FD maps retain a narrower band of larger error. These maps locate the errors reported in Table 3 and show their variation away from the selected section.
 
-\FloatBarrier
-\noindent\includegraphics[width=\linewidth,trim=0 532.383bp 0 0.000bp,clip]{images/figure-06.pdf}\par
-\noindent\includegraphics[width=\linewidth,trim=0 355.883bp 0 224.000bp,clip]{images/figure-06.pdf}\par
-\noindent\includegraphics[width=\linewidth,trim=0 177.383bp 0 400.500bp,clip]{images/figure-06.pdf}\par
-\noindent\begin{minipage}{\linewidth}
-\noindent\includegraphics[width=\linewidth,trim=0 0.000bp 0 579.000bp,clip]{images/figure-06.pdf}\par
-\captionof*{figure}{\textbf{Figure 6.} Two-soliton case at \(T=0.01\). Panels (a,c) compare the continuous \(y=0\) profiles with numerical symbols; panels (b,d) show the absolute errors along that section. The lower rows show the \(u\) and \(v\) error maps, with columns for Endpoint-SD, Centered-SD and FD. Each row uses one logarithmic color scale; values at or below its lower limit, including zero, share the darkest color, as indicated by the \(\leq\) label on the colorbar. Panel maxima refer to the full table region. The sections focus on \(x\in[-8,8]\), while the maps retain \([-30,30]\).}
-\end{minipage}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth,height=.80\textheight,keepaspectratio]{images/figure-06.pdf}
+\caption*{Fig. 6: Two-soliton case at \(T=0.01\). Panels (a,c) compare the continuous \(y=-20\) profiles with numerical symbols; panels (b,d) show the absolute errors along that section. The lower rows show the \(u\) and \(v\) error maps, with columns for Endpoint-SD, Centered-SD and FD. Each row uses one logarithmic color scale; values at or below its lower limit, including zero, share the lowest (dark-blue) color, as indicated by the \(\leq\) label on the colorbar. Panel maxima refer to the full table region. The sections focus on \(x\in[-16,2]\), while the maps retain \([-30,30]\).}
+\end{figure}
 
 
 
@@ -792,33 +810,29 @@ The heatmaps in Figure 6(e–j) show how this error pattern extends across the t
 
 \subsubsection*{Gaussian and sinusoidal cases}
 
-In the smooth, small-amplitude Gaussian (Figure 7) and sinusoidal (Figure 8) tests, the field gradients are much milder and the terminal error ordering at \(T=0.01\) follows the initial derivative defects of Table 2. Endpoint-SD gives the smallest \(u\) error, while Centered-SD lies between Endpoint-SD and FD in \(u\) and produces the smallest \(v\) error in both tests. Specifically, Centered-SD reduces \(E_v\) to \(6.967\times10^{-9}\) in the Gaussian case (about \(3.2\) times smaller than FD and \(87\) times smaller than Endpoint-SD) and to \(4.706\times10^{-9}\) in the sinusoidal case (\(3.5\) times smaller than FD and \(60\) times smaller than Endpoint-SD). Because the exact second field remains constant at \(v=4\) along the symmetry line \(y=0\), the cross-sectional \(v\) error along \(y=0\) is near machine precision, while the heatmaps show how the errors distribute symmetrically across the upper and lower halves of the strip.
+In the smooth, small-amplitude Gaussian (Figure 7) and sinusoidal (Figure 8) tests, the field gradients are much milder and the terminal error ordering at \(T=0.01\) follows the initial derivative defects of Table 2. Endpoint-SD gives the smallest \(u\) error, while Centered-SD lies between Endpoint-SD and FD in \(u\) and produces the smallest \(v\) error in both tests. Specifically, Centered-SD reduces \(E_v\) to \(6.967\times10^{-9}\) in the Gaussian case (about \(3.2\) times smaller than FD and \(87\) times smaller than Endpoint-SD) and to \(4.706\times10^{-9}\) in the sinusoidal case (\(3.5\) times smaller than FD and \(60\) times smaller than Endpoint-SD). For both cases, we use \(y=1\) to display the spatial variation and numerical error of both physical fields.
 
-Figure 7(a) shows the Gaussian section as a smooth positive hump, with all three sets of numerical symbols following the reference curve. Panel (b) resolves the much smaller differences between them as several error lobes across the hump. The second field is constant along \(y=0\) in panel (c), and the enlarged vertical scale in panel (d) displays section errors of order \(10^{-12}\). The heatmaps below show the transverse variation that this central section does not sample: the \(v\) error grows away from the symmetry line and forms corresponding patterns in the upper and lower halves of the strip.
+Figure 7(a,c) shows the evolved Gaussian profiles along \(y=1\), using the same section as Figure 3. Both physical fields retain a smooth localized hump relative to their backgrounds, and the numerical symbols closely follow the reference curves. Panels (b,d) resolve the section errors across these humps, with the smallest maxima attained by Endpoint-SD in \(u\) and Centered-SD in \(v\). The heatmaps show how the errors vary across the strip and locate their larger values away from the symmetry line.
 
-\FloatBarrier
-\noindent\includegraphics[width=\linewidth,trim=0 537.883bp 0 0.000bp,clip]{images/figure-07.pdf}\par
-\noindent\includegraphics[width=\linewidth,trim=0 355.883bp 0 218.500bp,clip]{images/figure-07.pdf}\par
-\noindent\includegraphics[width=\linewidth,trim=0 177.383bp 0 400.500bp,clip]{images/figure-07.pdf}\par
-\noindent\begin{minipage}{\linewidth}
-\noindent\includegraphics[width=\linewidth,trim=0 0.000bp 0 579.000bp,clip]{images/figure-07.pdf}\par
-\captionof*{figure}{\textbf{Figure 7.} Gaussian case at \(T=0.01\). Panels (a,c) compare the continuous \(y=0\) profiles with numerical symbols; panels (b,d) show the absolute errors along that section. The lower rows show the \(u\) and \(v\) error maps, with columns for Endpoint-SD, Centered-SD and FD. Each row uses one logarithmic color scale; values at or below its lower limit, including zero, share the darkest color, as indicated by the \(\leq\) label on the colorbar. Panel maxima refer to the full table region. The display window is \([-18,18]\); the table uses the full periodic interval \([-96,96)\). The exact central second field is \(v(x,0,t)=4\).}
-\end{minipage}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth,height=.80\textheight,keepaspectratio]{images/figure-07.pdf}
+\caption*{Fig. 7: Gaussian case at \(T=0.01\). Panels (a,c) compare the continuous \(y=1\) profiles with numerical symbols; panels (b,d) show the absolute errors along that section. The lower rows show the \(u\) and \(v\) error maps, with columns for Endpoint-SD, Centered-SD and FD. Each row uses one logarithmic color scale; values at or below its lower limit, including zero, share the lowest (dark-blue) color, as indicated by the \(\leq\) label on the colorbar. Panel maxima refer to the full table region. The display window is \([-18,18]\); the table uses the full periodic interval \([-96,96)\).}
+\end{figure}
 
 
 
 
 
-Figure 8(a) presents the sinusoidal section, with a positive crest near the center and negative values toward the ends of the displayed interval. The numerical symbols follow this alternating profile, while panel (b) separates their section errors. As in the Gaussian test, \(v\) is constant on \(y=0\) and its section error remains of order \(10^{-12}\). In the heatmaps, the errors vary along both spatial directions, forming repeated bands and lobes. Reading the sections together with these maps shows how close agreement on the central line accompanies a nonuniform error distribution across the strip.
+Figure 8(a,c) shows the sinusoidal profiles along \(y=1\), using the same section as Figure 4. Both fields have a positive crest relative to their respective backgrounds near the center and lower values toward the ends of the displayed interval. The numerical symbols closely follow the reference curves, while panels (b,d) resolve the errors in each physical field. The section error maxima are smallest for Endpoint-SD in \(u\) and Centered-SD in \(v\). The heatmaps extend this comparison across the strip, where the errors form repeated bands and lobes.
 
-\FloatBarrier
-\noindent\includegraphics[width=\linewidth,trim=0 537.883bp 0 0.000bp,clip]{images/figure-08.pdf}\par
-\noindent\includegraphics[width=\linewidth,trim=0 355.883bp 0 218.500bp,clip]{images/figure-08.pdf}\par
-\noindent\includegraphics[width=\linewidth,trim=0 177.383bp 0 400.500bp,clip]{images/figure-08.pdf}\par
-\noindent\begin{minipage}{\linewidth}
-\noindent\includegraphics[width=\linewidth,trim=0 0.000bp 0 579.000bp,clip]{images/figure-08.pdf}\par
-\captionof*{figure}{\textbf{Figure 8.} Sinusoidal case at \(T=0.01\). Panels (a,c) compare the continuous \(y=0\) profiles with numerical symbols; panels (b,d) show the absolute errors along that section. The lower rows show the \(u\) and \(v\) error maps, with columns for Endpoint-SD, Centered-SD and FD. Each row uses one logarithmic color scale; values at or below its lower limit, including zero, share the darkest color, as indicated by the \(\leq\) label on the colorbar. Panel maxima refer to the full table region. The display window is \([-12,12]\); the table uses the full periodic interval \([-96,96)\). The exact central second field is \(v(x,0,t)=4\).}
-\end{minipage}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth,height=.80\textheight,keepaspectratio]{images/figure-08.pdf}
+\caption*{Fig. 8: Sinusoidal case at \(T=0.01\). Panels (a,c) compare the continuous \(y=1\) profiles with numerical symbols; panels (b,d) show the absolute errors along that section. The lower rows show the \(u\) and \(v\) error maps, with columns for Endpoint-SD, Centered-SD and FD. Each row uses one logarithmic color scale; values at or below its lower limit, including zero, share the lowest (dark-blue) color, as indicated by the \(\leq\) label on the colorbar. Panel maxima refer to the full table region. The display window is \([-12,12]\); the table uses the full periodic interval \([-96,96)\).}
+\end{figure}
 
 
 
@@ -828,28 +842,32 @@ The four tests distinguish the accuracy of the initial time derivatives from tha
 
 The consistency analysis identifies the truncation terms introduced by each lattice arrangement. During evolution, the coupling provides a route for these errors to affect the other component; in particular, the \(v_{xx}\) term links the approximation of \(v\) to the computed \(u\) field. The change in error ordering in the soliton tests is consistent with this coupling. Initial derivative errors and evolved field errors thus provide complementary measures of the spatial approximation.
 
-\FloatBarrier
-\subsection*{5.3 Comparison of time integrators}
+
+\subsection{Comparison of time integrators}
 
 The preceding comparison follows spatial approximation errors through the coupled evolution using RK4. We now keep Centered-SD fixed and vary the time integrator to examine how temporal approximation changes this behavior. Forward Euler, classical RK4, and Crank–Nicolson use the same exact initial fields, spatial operators and boundary data on the uniform grid with \(h=\Delta x=0.1\), and advance to \(T=0.01\) with \(\Delta t=10^{-4}\). We compare both the terminal errors and their time histories to see how the additional temporal error affects each physical component.
 
 \begin{table}[!htbp]
 \centering
-\caption*{Table 4. Physical-field errors at T = 0.01 for Centered-SD with forward Euler, RK4 and Crank–Nicolson at h = \(\Delta\)x = 0.1 and \(\Delta\)t = 10\textsuperscript{-}\textsuperscript{4}. Values are rounded to four significant digits; some RK4 and Crank–Nicolson entries therefore coincide. Additional digits, signed differences and the smaller recorded error are given in Appendix D, Table 8. Bold values indicate the smallest error among the three integrators, determined before rounding.}
-\small
+\caption*{Table 4: Physical-field errors at T = 0.01 for Centered-SD with forward Euler, RK4 and Crank–Nicolson at h = \(\Delta\)x = 0.1 and \(\Delta\)t = 10\textsuperscript{-}\textsuperscript{4}. Values are rounded to four significant digits; some RK4 and Crank–Nicolson entries therefore coincide. Additional digits, signed differences and the smaller recorded error are given in Appendix D, Table 8. Bold values indicate the smallest error among the three integrators, determined before rounding.}
+\normalsize
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.25}\setlength{\extrarowheight}{1pt}
 \setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.22}
-\begin{tabularx}{\linewidth}{YYYYYYY}
-\toprule
-Case & \multicolumn{2}{>{\raggedright\arraybackslash}p{2\dimexpr\linewidth/7-2\tabcolsep\relax}}{Forward Euler} & \multicolumn{2}{>{\raggedright\arraybackslash}p{2\dimexpr\linewidth/7-2\tabcolsep\relax}}{RK4} & \multicolumn{2}{>{\raggedright\arraybackslash}p{2\dimexpr\linewidth/7-2\tabcolsep\relax}}{Crank–Nicolson} \\
- & \(E_u\) & \(E_v\) & \(E_u\) & \(E_v\) & \(E_u\) & \(E_v\) \\
-\midrule
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{ccccccc}
+
+\hline
+\multicolumn{1}{c}{Case} & \multicolumn{2}{c}{Forward Euler} & \multicolumn{2}{c}{RK4} & \multicolumn{2}{c}{Crank–Nicolson} \\
+ & \multicolumn{1}{c}{\(E_u\)} & \multicolumn{1}{c}{\(E_v\)} & \multicolumn{1}{c}{\(E_u\)} & \multicolumn{1}{c}{\(E_v\)} & \multicolumn{1}{c}{\(E_u\)} & \multicolumn{1}{c}{\(E_v\)} \\
+\hline
 One-soliton & \textbf{1.664 \(\times\) 10\textsuperscript{-4}} & 8.026 \(\times\) 10\textsuperscript{-5} & 1.677 \(\times\) 10\textsuperscript{-4} & \textbf{7.734 \(\times\) 10\textsuperscript{-5}} & 1.677 \(\times\) 10\textsuperscript{-4} & 7.734 \(\times\) 10\textsuperscript{-5} \\
 Two-soliton & \textbf{1.420 \(\times\) 10\textsuperscript{-4}} & 1.090 \(\times\) 10\textsuperscript{-4} & 1.792 \(\times\) 10\textsuperscript{-4} & \textbf{1.009 \(\times\) 10\textsuperscript{-4}} & 1.805 \(\times\) 10\textsuperscript{-4} & 1.009 \(\times\) 10\textsuperscript{-4} \\
 Gaussian & \textbf{5.107 \(\times\) 10\textsuperscript{-9}} & 5.680 \(\times\) 10\textsuperscript{-8} & 2.900 \(\times\) 10\textsuperscript{-8} & \textbf{6.967 \(\times\) 10\textsuperscript{-9}} & 2.900 \(\times\) 10\textsuperscript{-8} & 6.969 \(\times\) 10\textsuperscript{-9} \\
 Sinusoidal & \textbf{1.243 \(\times\) 10\textsuperscript{-8}} & 4.213 \(\times\) 10\textsuperscript{-8} & 2.003 \(\times\) 10\textsuperscript{-8} & 4.706 \(\times\) 10\textsuperscript{-9} & 2.003 \(\times\) 10\textsuperscript{-8} & \textbf{4.705 \(\times\) 10\textsuperscript{-9}} \\
-\bottomrule
-\end{tabularx}
+\hline
+\end{tabular}
+\end{adjustbox}
 \end{table}
 
 Table 4 collects the terminal errors at \(T=0.01\). The RK4 columns reproduce the Centered-SD benchmarks from Table 3, and the implicit second-order Crank–Nicolson scheme matches these values to within a relative difference of at most \(7.3\times10^{-3}\) (attained in \(u\) for the two-soliton case). By contrast, first-order forward Euler shifts the error levels in opposite directions for the two physical components: it produces a larger \(v\) error than RK4 in every test — by \(3.8\%\) and \(8.0\%\) in the two soliton cases, and by factors of \(8.2\) and \(9.0\) in the Gaussian and sinusoidal cases — yet it gives the smallest terminal \(u\) error in all four tests, lying below the RK4 value by \(0.8\%\), \(21\%\), \(82\%\), and \(38\%\). Looking only at the final time \(T=0.01\) therefore ranks the integrators differently depending on which component is inspected, without showing how these differences develop.
@@ -862,30 +880,30 @@ where \(m\) labels the time integrator. Because the grid point attaining the max
 
 Figure 9 shows how the maximum error in \(u\) develops over time. In all four problems the error starts at zero and grows without numerical oscillations. For the one-soliton, Gaussian, and sinusoidal tests, \(E_u(t)/t\) varies by less than \(10\%\) over the interval. The two-soliton case follows the same near-linear trend up to about \(t=0.009\), then steepens as the soliton branches meet: \(E_u(t)/t\) increases by \(36\%\) over the final tenth of the run. RK4 and Crank–Nicolson nearly coincide; the forward Euler error lies below RK4 by factors near \(0.99\), \(0.18\), and \(0.62\) in the one-soliton, Gaussian, and sinusoidal tests, and its ratio to RK4 decreases from \(0.97\) to \(0.79\) during the two-soliton interaction.
 
-\FloatBarrier
-\noindent\includegraphics[width=\linewidth,trim=0 166.909bp 0 0,clip]{images/figure-09.pdf}\par
-\noindent\begin{minipage}{\linewidth}
-\noindent\includegraphics[width=\linewidth,trim=0 0 0 171.500bp,clip]{images/figure-09.pdf}\par
-\captionof*{figure}{\textbf{Figure 9.} Development of the maximum absolute error in \(u\) for Centered-SD with forward Euler (orange), RK4 (blue) and Crank–Nicolson (green): (a) one-soliton, (b) two-soliton, (c) Gaussian and (d) sinusoidal cases. Each value is the maximum over the native field locations in the region of Section 5.1 and is evaluated at every time step; the vertical axis is logarithmic. All calculations use \(h=\Delta x=0.1\) and \(\Delta t=10^{-4}\). The initial error vanishes. Overlapping curves use alternating colors, with solid strokes where they separate.}
-\end{minipage}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth,height=.80\textheight,keepaspectratio]{images/figure-09.pdf}
+\caption*{Fig. 9: Development of the maximum absolute error in \(u\) for Centered-SD with forward Euler (red), RK4 (blue) and Crank–Nicolson (green): (a) one-soliton, (b) two-soliton, (c) Gaussian and (d) sinusoidal cases. Each value is the maximum over the native field locations in the region of Section 5.1 and is evaluated at every time step; the vertical axis is logarithmic. All calculations use \(h=\Delta x=0.1\) and \(\Delta t=10^{-4}\). The initial error vanishes. Overlapping curves use alternating colors, with solid strokes where they separate.}
+\end{figure}
 
 
 Figure 10 shows the corresponding histories for \(v\). The errors begin at zero and grow to their terminal values without numerical oscillations. RK4 and Crank–Nicolson remain close throughout the evolution. The forward Euler curve follows a similar shape above RK4, by factors of \(1.04\) and \(1.08\) in the two soliton tests and \(8.2\) and \(9.0\) in the Gaussian and sinusoidal tests.
 
-\FloatBarrier
-\noindent\includegraphics[width=\linewidth,trim=0 166.909bp 0 0,clip]{images/figure-10.pdf}\par
-\noindent\begin{minipage}{\linewidth}
-\noindent\includegraphics[width=\linewidth,trim=0 0 0 171.500bp,clip]{images/figure-10.pdf}\par
-\captionof*{figure}{\textbf{Figure 10.} Development of the maximum absolute error in \(v\), with the same colors as Figure 9. Each value is the maximum over the native midpoints \(y_{k-1/2}\) of the second field in the region of Section 5.1. Overlapping curves use alternating colors, with solid strokes where they separate.}
-\end{minipage}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth,height=.80\textheight,keepaspectratio]{images/figure-10.pdf}
+\caption*{Fig. 10: Development of the maximum absolute error in \(v\), with the same colors as Figure 9. Each value is the maximum over the native midpoints \(y_{k-1/2}\) of the second field in the region of Section 5.1. Overlapping curves use alternating colors, with solid strokes where they separate.}
+\end{figure}
 
 
 The opposite shifts in the two field errors suggest that the temporal contribution partly cancels the spatial error in \(u\) and reinforces it in \(v\). To examine this interpretation, we halve the Euler time step to \(\Delta t=5\times10^{-5}\). The terminal error pair moves from \((1.664\times10^{-4},\,8.026\times10^{-5})\) to \((1.671\times10^{-4},\,7.880\times10^{-5})\) in the one-soliton test, and from \((1.420\times10^{-4},\,1.090\times10^{-4})\) to \((1.560\times10^{-4},\,1.048\times10^{-4})\) in the two-soliton test. In both cases, the errors move toward the RK4 values. This step-size response supports the cancellation and reinforcement interpretation and helps explain the smaller terminal \(u\) errors obtained with Euler at the tested step size.
 
 The similar shapes of the error histories suggest that the spatial approximation and wave evolution largely determine the pattern of accumulation, while the time integrator changes its magnitude in each component. Read together with the spatial comparison, these results show why the initial derivative accuracy, the terminal field error and the response to a smaller time step describe different aspects of the same computation.
 
-\FloatBarrier
-\subsection*{5.4 Fixed and adaptive meshes}
+
+\subsection{Fixed and adaptive meshes}
 
 In this subsection, we use the semi-discrete conservation law to examine how the distribution of spatial resolution affects the accuracy of Centered-SD. The soliton fields concentrate their variation along localized wave bands, and the conservation density provides a means of placing additional nodes in these regions. We compare uniform and adaptive meshes for the one- and two-soliton problems, following both the node distribution and the resulting physical-field errors. This allows us to examine how a conserved quantity from the semi-discrete system can guide the numerical resolution of its waves.
 
@@ -895,11 +913,11 @@ In the adaptive runs, the initial \(x\) nodes are placed by equidistributing the
 
 As seen in Figure 11, the equidistribution concentrates nodes in the region of larger density. In the one-soliton test, the local spacing contracts to \(0.90\Delta x\) across the wave trough while stretching to \(1.04\Delta x\) in the background; in the two-soliton test, it varies more mildly between \(0.97\Delta x\) and \(1.02\Delta x\). Over the short evolution to \(T=0.01\), the initial and final node distributions are nearly indistinguishable: the maximum node displacement is \(9.5\times10^{-4}\) in the one-soliton case and \(5.2\times10^{-4}\) in the two-soliton case, and the total discrete mass of \(\bar\rho\) is conserved to within \(10^{-7}\) relative error. The spatial resolution pattern is thus established by the initial equidistribution and adjusted only slightly by the node motion during the run.
 
-\FloatBarrier
-\begin{figure}[H]
+
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=.85\linewidth,height=.72\textheight,keepaspectratio]{images/figure-11.pdf}
-\caption*{\textbf{Figure 11.} Local \(x\) spacing normalized by the uniform spacing \(\Delta x=0.1\), plotted at the interval midpoints of (a) the one-soliton and (b) the two-soliton case. Grey dashed: initial adaptive mesh; blue: \(T=0.01\); orange dotted: uniform spacing.}
+\caption*{Fig. 11: Local \(x\) spacing normalized by the uniform spacing \(\Delta x=0.1\), plotted at the interval midpoints of (a) the one-soliton and (b) the two-soliton case. Grey dashed: initial adaptive mesh; blue: \(T=0.01\); red dotted: uniform spacing.}
 \end{figure}
 
 
@@ -910,38 +928,42 @@ Table 5 compares the terminal errors at \(T=0.01\) on the uniform and adaptive m
  
 \begin{table}[!htbp]
 \centering
-\caption*{Table 5. Physical-field errors at T = 0.01 on the uniform and adaptive meshes, with the relative change defined in the text. Both calculations use Centered-SD with mapped centred x differences, RK4, \(\Delta\)t = 10\textsuperscript{-}\textsuperscript{4} and the same number of nodes.}
-\small
+\caption*{Table 5: Physical-field errors at T = 0.01 on the uniform and adaptive meshes, with the relative change defined in the text. Both calculations use Centered-SD with mapped centred x differences, RK4, \(\Delta\)t = 10\textsuperscript{-}\textsuperscript{4} and the same number of nodes.}
+\normalsize
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.25}\setlength{\extrarowheight}{1pt}
 \setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.22}
-\begin{tabularx}{\linewidth}{YYYYYYY}
-\toprule
-Case & \multicolumn{2}{>{\raggedright\arraybackslash}p{2\dimexpr\linewidth/7-2\tabcolsep\relax}}{Uniform mesh} & \multicolumn{2}{>{\raggedright\arraybackslash}p{2\dimexpr\linewidth/7-2\tabcolsep\relax}}{Adaptive mesh} & \multicolumn{2}{>{\raggedright\arraybackslash}p{2\dimexpr\linewidth/7-2\tabcolsep\relax}}{Change} \\
- & \(E_u\) & \(E_v\) & \(E_u\) & \(E_v\) & \(\mathcal R_u\) & \(\mathcal R_v\) \\
-\midrule
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{ccccccc}
+
+\hline
+\multicolumn{1}{c}{Case} & \multicolumn{2}{c}{Uniform mesh} & \multicolumn{2}{c}{Adaptive mesh} & \multicolumn{2}{c}{Change} \\
+ & \multicolumn{1}{c}{\(E_u\)} & \multicolumn{1}{c}{\(E_v\)} & \multicolumn{1}{c}{\(E_u\)} & \multicolumn{1}{c}{\(E_v\)} & \multicolumn{1}{c}{\(\mathcal R_u\)} & \multicolumn{1}{c}{\(\mathcal R_v\)} \\
+\hline
 One-soliton & 6.741 \(\times\) 10\textsuperscript{-4} & 1.401 \(\times\) 10\textsuperscript{-3} & \textbf{5.954 \(\times\) 10\textsuperscript{-4}} & \textbf{1.157 \(\times\) 10\textsuperscript{-3}} & 11.7\% & 17.4\% \\
 Two-soliton & 5.533 \(\times\) 10\textsuperscript{-4} & 1.589 \(\times\) 10\textsuperscript{-3} & \textbf{5.198 \(\times\) 10\textsuperscript{-4}} & \textbf{1.501 \(\times\) 10\textsuperscript{-3}} & 6.0\% & 5.6\% \\
-\bottomrule
-\end{tabularx}
+\hline
+\end{tabular}
+\end{adjustbox}
 \end{table}
 
 Positive values of \(\mathcal R_f\) indicate an error reduction. The adaptive mesh lowers the errors in both physical fields for both test problems: by \(11.7\%\) in \(u\) and \(17.4\%\) in \(v\) for the one-soliton case, and by \(6.0\%\) in \(u\) and \(5.6\%\) in \(v\) for the two-soliton case. These improvements are modest and commensurate with the \(3\%\)–\(10\%\) local spacing reductions shown in Figure 11, but they occur consistently across both components without degrading either field. Moreover, a control calculation in which the initially equidistributed nodes are held fixed in time (\(\mathcal V_i=0\)) yields reductions of \(12.8\%\) and \(16.3\%\) for the one-soliton case and \(5.3\%\) and \(5.8\%\) for the two-soliton case — within \(1.1\) percentage points of the moving-mesh values in Table 5. Over this short time interval, the accuracy gain therefore comes primarily from the initial density-adapted node placement rather than from dynamic node motion.
 
 To show where this reduction takes place in space, Figure 12 plots the transverse-maximum error profiles \(\max_{|y|<5}|u_h-u^*|\) and \(\max_{|y|<5}|v_h-v^*|\) as functions of \(x\) for the one-soliton case. On the uniform mesh, the numerical error is not distributed evenly across the domain, but is localized along the central wave band \(x\in[-3,3]\). Because the conservation density \(\bar\rho\) peaks in this same band, the equidistribution shifts nodes from the quiet background directly into the region where the truncation error is generated. As a result, the adaptive mesh lowers the maximum errors and the main error peaks — reducing the main peak in \(u\) from \(6.74\times10^{-4}\) to \(5.95\times10^{-4}\) and lowering the broad plateau in \(v\) from \(1.40\times10^{-3}\) to \(1.16\times10^{-3}\). We also notice that the relative gain in the one-soliton test is larger for \(v\) (\(17.4\%\)) than for \(u\) (\(11.7\%\)). This is natural in the Centered-SD formulation: the monitor density \(\rho_k=1-\omega_k/h\) is a shifted rescaling of the auxiliary variable \(\omega_k\), which enters the staggered reconstruction \(v_k=\Delta_hu_k+\frac2h(\omega_k+\omega_{k-1})\) and specifically weights the part of \(v\) not captured by the backward difference of \(u\).
 
-\FloatBarrier
-\begin{figure}[H]
+
+\begin{figure}[!htbp]
 \centering
-\includegraphics[width=.85\linewidth,height=.72\textheight,keepaspectratio]{images/figure-12.pdf}
-\caption*{\textbf{Figure 12.} One-soliton case at \(T=0.01\). Maximum over the transverse layers of the absolute error at each native \(x\) node for the uniform mesh (orange) and the adaptive mesh (blue): (a) \(u\) and (b) \(v\). Both calculations use the mapped centred operators of Section 4.3, the same number of nodes and RK4 with \(\Delta t=10^{-4}\).}
+\includegraphics[width=\linewidth]{images/figure-12.pdf}
+\caption*{Fig. 12: One-soliton case at \(T=0.01\). Maximum over the transverse layers of the absolute error at each native \(x\) node for the uniform mesh (red) and the adaptive mesh (blue): (a) \(u\) and (b) \(v\). Both calculations use the mapped centred operators of Section 4.3, the same number of nodes and RK4 with \(\Delta t=10^{-4}\).}
 \end{figure}
 
 The mesh experiments show that the semi-discrete conservation density provides a useful basis for allocating spatial resolution. Equidistribution concentrates nodes along the soliton wave bands, where the uniform-grid errors are also largest, and reduces the errors in both physical fields at the same node count. The spatial error profiles further show that this improvement extends across the wave region, connecting the change in node placement with the location of the computed errors.
 
 Over the present time interval, the node distribution changes only slightly, and the calculation with a fixed, initially adapted mesh gives similar error reductions. The main benefit therefore comes from the resolution pattern established by the conservation density. These results give the conservation law a concrete role in numerical computation: it guides the placement of nodes in a way that improves the approximation of the physical fields. The mesh construction thus provides a further connection between the analytical structure of the semi-discrete system and the accurate computation of its waves.
 
-\FloatBarrier
-\subsection*{5.5 Evolution of independent physical-field perturbations}
+
+\subsection{Evolution of independent physical-field perturbations}
 
 The preceding experiments start from prescribed reference wave fields and examine how accurately their evolution is reproduced. A related question concerns the response of the numerical evolution when the initial physical fields are slightly changed. Such changes may arise when initial data are sampled or prescribed, and their influence develops through the coupling between the two fields. A disturbance introduced into \(u\) can generate a response in \(v\), while a disturbance in \(v\) can also affect the subsequent evolution of \(u\). Understanding this response helps describe how the computed waves depend on their initial physical data.
 
@@ -955,50 +977,50 @@ For each spatial formulation, let \((u_h^\varepsilon,v_h^\varepsilon)\) and \((u
 
 For the one-soliton background, Figure 13 follows both perturbation directions. With \(u_0\) perturbed, the response in \(u\) remains near its initial amplitude and grows slightly, while the initially unperturbed \(v\) field develops a response from zero. For Endpoint-SD, Centered-SD, and FD, the terminal induced \(v\) responses are \(0.09182\), \(0.09186\), and \(0.09185\) times \(\varepsilon\), respectively. With \(v_0\) perturbed, each formulation produces a growing \(u\) response reaching approximately \(0.225\varepsilon\), alongside a small increase in the initially imposed \(v\) disturbance. The two inputs thus expose both the persistence of the original disturbance and the response generated through coupling.
 
-\FloatBarrier
-\noindent\includegraphics[width=\linewidth,trim=0 141.893bp 0 0,clip]{images/figure-13.pdf}\par
-\noindent\begin{minipage}{\linewidth}
-\noindent\includegraphics[width=\linewidth,trim=0 0 0 166.000bp,clip]{images/figure-13.pdf}\par
-\captionof*{figure}{Figure 13. One-soliton perturbation responses. The upper and lower rows perturb \(u_0\) and \(v_0\), respectively; the columns show the normalized \(u\) and \(v\) responses. Blue: Endpoint-SD; orange: Centered-SD; green: FD. Each curve uses its own unperturbed trajectory and native field sites. Where curves overlap, their colors alternate; separated curves are solid. The Endpoint-SD response in panel (d) is slightly larger than the other two responses.}
-\end{minipage}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth,height=.80\textheight,keepaspectratio]{images/figure-13.pdf}
+\caption*{Fig. 13: One-soliton perturbation responses. The upper and lower rows perturb \(u_0\) and \(v_0\), respectively; the columns show the normalized \(u\) and \(v\) responses. Blue: Endpoint-SD; red: Centered-SD; green: FD. Each curve uses its own unperturbed trajectory and native field sites. Where curves overlap, their colors alternate; separated curves are solid. The Endpoint-SD response in panel (d) is slightly larger than the other two responses.}
+\end{figure}
 
 
 The two-soliton background produces a substantial induced \(u\) response when the initial perturbation is applied to \(v_0\) (Figure 14). By \(T=0.01\), this response reaches approximately \(0.974\varepsilon\) within each formulation, while the \(v\) response remains close to its initial magnitude. For the reverse input, an initial \(u_0\) perturbation produces terminal \(v\) responses of \(0.10280\varepsilon\), \(0.10278\varepsilon\), and \(0.10277\varepsilon\) for Endpoint-SD, Centered-SD, and FD, respectively. These histories show how a disturbance initially confined to one component develops into a response in both physical fields on the interacting-wave background.
 
-\FloatBarrier
-\noindent\includegraphics[width=\linewidth,trim=0 141.893bp 0 0,clip]{images/figure-14.pdf}\par
-\noindent\begin{minipage}{\linewidth}
-\noindent\includegraphics[width=\linewidth,trim=0 0 0 166.000bp,clip]{images/figure-14.pdf}\par
-\captionof*{figure}{Figure 14. Two-soliton perturbation responses. The upper and lower rows perturb \(u_0\) and \(v_0\), respectively; the columns show the normalized \(u\) and \(v\) responses. Blue: Endpoint-SD; orange: Centered-SD; green: FD. Each curve uses its own unperturbed trajectory and native field sites. Where curves overlap, their colors alternate; separated curves are solid. The Endpoint-SD response in panel (d) is slightly larger than the other two responses.}
-\end{minipage}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth,height=.80\textheight,keepaspectratio]{images/figure-14.pdf}
+\caption*{Fig. 14: Two-soliton perturbation responses. The upper and lower rows perturb \(u_0\) and \(v_0\), respectively; the columns show the normalized \(u\) and \(v\) responses. Blue: Endpoint-SD; red: Centered-SD; green: FD. Each curve uses its own unperturbed trajectory and native field sites. Where curves overlap, their colors alternate; separated curves are solid. The Endpoint-SD response in panel (d) is slightly larger than the other two responses.}
+\end{figure}
 
 
 On the Gaussian and sinusoidal backgrounds, the initially perturbed component stays close to its initial magnitude over the computed interval, while a smaller response develops in the other field. Table 6 records the terminal responses separately for each formulation. An initial \(u_0\) disturbance induces a \(v\) response of approximately \(0.019\varepsilon\), and a \(v_0\) disturbance induces a \(u\) response of approximately \(0.049\varepsilon\). The full time histories are included in the supplementary response plots.
 
-\begin{table}[!htbp]
+\begin{center}\begin{minipage}{\linewidth}
 \centering
-\caption*{Table 6. Terminal normalized responses on the Gaussian and sinusoidal backgrounds at \(T=0.01\). Each pair gives \((\|\delta u_h\|_\infty/\varepsilon,\|\delta v_h\|_\infty/\varepsilon)\) for the indicated initial perturbation.}
-\small
-\setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.22}
+\captionof*{table}{Table 6: Terminal normalized responses on the Gaussian and sinusoidal backgrounds at \(T=0.01\). Each pair gives \((\|\delta u_h\|_\infty/\varepsilon,\|\delta v_h\|_\infty/\varepsilon)\) for the indicated initial perturbation.}
+\normalsize
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.25}\setlength{\extrarowheight}{1pt}
 \begin{tabularx}{\linewidth}{YYYY}
-\toprule
+\hline
 Method & Background & \(u_0\) perturbed & \(v_0\) perturbed \\
-\midrule
+\hline
 Endpoint-SD & Gaussian & (0.99837, 0.01935) & (0.04922, 0.99684) \\
  & Sinusoidal & (0.99841, 0.01933) & (0.04922, 0.99687) \\
 Centered-SD & Gaussian & (0.99837, 0.01935) & (0.04922, 0.99683) \\
  & Sinusoidal & (0.99841, 0.01933) & (0.04922, 0.99687) \\
 FD & Gaussian & (0.99837, 0.01935) & (0.04921, 0.99837) \\
  & Sinusoidal & (0.99841, 0.01933) & (0.04922, 0.99841) \\
-\bottomrule
+\hline
 \end{tabularx}
-\end{table}
+\end{minipage}\end{center}
 
 These experiments show how a small change in one initial physical field develops through the coupled numerical evolution. Within each formulation, the initially perturbed component remains close to its original disturbance magnitude over the computed interval, while the other field acquires a response whose magnitude depends on the background and the perturbed component. The substantial induced \(u\) response in the two-soliton case is consistent with the transverse integration in the first field equation, through which the influence of a \(v\) perturbation can accumulate across the domain. Following the two inputs separately therefore helps us understand both the persistence of an initial disturbance and the response generated by the coupling. Alongside the preceding accuracy tests, these histories describe how the computed waves respond to changes in their physical initial data.
 
-\FloatBarrier
-\section*{6. Conclusions}
+
+\section{Conclusion and discussion}
 
 In this work, building on the bilinear formulation and exact solutions of the continuous DLW system, we have developed two related integrable semi-discretizations. A Miwa expansion of the Hirota–Miwa equation gives Endpoint-SD, from which we obtain Centered-SD through a half-step parameter shift and a staggered placement of the \(\tau\) functions. For both formulations, we construct explicit Gram determinant solutions, establish common positivity conditions for regular field reconstruction, and derive Darboux–Lax representations compatible with the nonlinear equations. These shared structures allow us to examine how lattice placement affects the approximation of the physical waves.
 
@@ -1010,7 +1032,7 @@ We also use the semi-discrete conservation law to guide the allocation of spatia
 
 The DLW construction therefore connects a choice made at the bilinear lattice level to the approximation and computation of the physical waves. Exact solutions support the continuum comparison, while the conservation density guides the allocation of spatial resolution. In this way, the integrable structure provides a foundation for understanding and improving the approximation of continuous waves through the design of their discrete representations.
 
-\FloatBarrier
+
 \section*{Appendix A. Determinant identities and alternative solution representations}
 
 Every field used in the main text is a logarithmic derivative of a \(\tau\) function, so its evaluation reduces to an identity for a determinant and for the derivatives of that determinant. This appendix records the three identities on which the reconstruction rests, together with the relation between the two determinant families and the explicit low-order members.
@@ -1035,7 +1057,7 @@ and analogously for \(u_k\), \(v_k\) through (71). Smoothness of the fields is t
 
 \textbf{Low-order members.} For \(N=1\) with \(c_{11}=1\), writing \(A=\alpha\beta/(z+w)\) gives \(\tau_n(k)=1+A(-w/z)^nL(h)^k e^{\xi+\eta}\). Substitution into (A3) reproduces the standard one-soliton field at the node and edge locations, and the two-soliton case used in Section 5 is the same formula with a \(2\times2\) Cauchy matrix. The family with \(c_{ij}=\delta_{ij}\) is the Gram reduction of the usual Casoratian determinants of the hierarchy [15]; we use the Gram form throughout because the Miwa expansion acts on it directly.
 
-\FloatBarrier
+
 \section*{Appendix B. Field transformations and reconstruction conditions}
 
 The numerical state of Centered-SD is the pair \((u_k,\omega_k)\), whereas the physical comparison is made in the fields \((u,v)\). This appendix records the two transformations between them, the conditions under which they are equivalent, and the lower trace required by the computation.
@@ -1058,7 +1080,7 @@ in which the coefficients have modulus one. An error in the lower trace alone pr
 
 \textbf{Consistency of the initial data.} Equation (B2) reproduces \(v_k\) on every edge by construction. Once the lower trace is supplied, \((u,\omega)\) represents the prescribed physical fields \((u,v)\). Changing the lower trace by \(\delta b\) and repeating the recurrence adds \(\delta\omega_k=(-1)^k\delta b\). Its adjacent values sum to zero, so the reconstructed initial \(v_k\) remains unchanged. This alternating auxiliary component can affect the subsequent evolution; the lower trace is therefore specified together with the physical initial data. All computations in Section 5 use the construction above.
 
-\FloatBarrier
+
 \section*{Appendix C. Operator compatibility and continuum expansions}
 
 Two computations are compressed in the main text: the reduction of the compatibility condition (88) to scalar coefficient relations, and the expansions that yield the residuals (110), (111) and (113). We record both.
@@ -1081,7 +1103,7 @@ and applying \(\partial_x\) produces the coefficient \(\tfrac h4\partial_x(v^2-u
 
 so on the smooth family with \(W=v-u_y+O(h^2)\) the reconstructed second field is second-order accurate. The extra flux of the first equation is \(\omega^2/2-h\omega=h^2(W^2/32-W/4)\), whose lattice difference and subsequent \(x\) derivative are \(O(h^2)\), so the first residual is again \(\mathcal R_u+O(h^2)\). Differentiating (C3) in time and using \(W_t=W_{xx}-\partial_x[(u+2a)W-4u]\) from (77) shows that the second residual is \(\mathcal R_v+O(h^2)\), which is the content of (111).
 
-\FloatBarrier
+
 \section*{Appendix D. Numerical implementation and supplementary experiments}
 
 This appendix collects the conventions of the computations, the closures at the transverse ends, and the control runs quoted in Sections 5.3 and 5.4.
@@ -1098,22 +1120,34 @@ The control runs underlying Sections 5.3 and 5.4 are summarized below. They use 
 
 \begin{table}[!htbp]
 \centering
-\caption*{Table 7. Control runs for Section 5. The change column states the only difference from the corresponding main run.}
-\small
-\setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.22}
+\caption*{Table 7: Control runs for Section 5. The change column states the only difference from the corresponding main run.}
+\normalsize
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.25}\setlength{\extrarowheight}{1pt}
+\textit{(a) Terminal field errors}\par\vspace{4pt}
 \begin{tabularx}{\linewidth}{YYYY}
-\toprule
+\hline
 Run & Change & \(E_u\) & \(E_v\) \\
-\midrule
-One soliton\newline Euler & main, \(\Delta t=10^{-4}\) & \(1.664\times10^{-4}\) & \(8.026\times10^{-5}\) \\
+\hline
+One soliton, Euler & main, \(\Delta t=10^{-4}\) & \(1.664\times10^{-4}\) & \(8.026\times10^{-5}\) \\
  & half step, \(\Delta t=5\times10^{-5}\) & \(1.671\times10^{-4}\) & \(7.880\times10^{-5}\) \\
-Two solitons\newline Euler & main, \(\Delta t=10^{-4}\) & \(1.420\times10^{-4}\) & \(1.090\times10^{-4}\) \\
+\addlinespace[3pt]
+Two solitons, Euler & main, \(\Delta t=10^{-4}\) & \(1.420\times10^{-4}\) & \(1.090\times10^{-4}\) \\
  & half step, \(\Delta t=5\times10^{-5}\) & \(1.560\times10^{-4}\) & \(1.048\times10^{-4}\) \\
-All, CN & tight solve, \(2\times10^{-15}\) & terminal error norms change by at most \(8\times10^{-10}\) \\
-Mesh\newline one soliton & adaptive, nodes moving & \(5.954\times10^{-4}\) & \(1.157\times10^{-3}\) \\
- & equidistributed, frozen & \multicolumn{2}{>{\raggedright\arraybackslash}p{2\dimexpr\linewidth/4-2\tabcolsep\relax}}{reductions of \(12.8\%\) and \(16.3\%\) relative to the uniform mesh} \\
-\bottomrule
+\addlinespace[3pt]
+One-soliton mesh & adaptive, nodes moving & \(5.954\times10^{-4}\) & \(1.157\times10^{-3}\) \\
+\hline
+\end{tabularx}
+\par\vspace{10pt}
+\textit{(b) Additional control results}\par\vspace{4pt}
+\begin{tabularx}{\linewidth}{YYYY}
+\hline
+Run & Change & \multicolumn{2}{c}{Observed change} \\
+\hline
+All, CN & tight solve, \(2\times10^{-15}\) & \multicolumn{2}{>{\centering\arraybackslash}m{\dimexpr\linewidth/2-2\tabcolsep\relax}}{terminal error norms change by at most \(8\times10^{-10}\)} \\
+\addlinespace[3pt]
+One-soliton mesh & equidistributed, frozen & \multicolumn{2}{>{\centering\arraybackslash}m{\dimexpr\linewidth/2-2\tabcolsep\relax}}{reductions of \(12.8\%\) and \(16.3\%\) relative to the uniform mesh} \\
+\hline
 \end{tabularx}
 \end{table}
 
@@ -1125,15 +1159,15 @@ Table 8 resolves the entries that coincide after rounding in Table 4. It lists t
 
 \begin{table}[!htbp]
 \centering
-\caption*{Table 8. Terminal RK4 and Crank–Nicolson error norms at T = 0.01, with h = \(\Delta\)x = 0.1 and \(\Delta\)t = 10\textsuperscript{-}\textsuperscript{4}. The last column compares the two saved main runs.}
-\small
-\setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.22}
+\caption*{Table 8: Terminal RK4 and Crank–Nicolson error norms at T = 0.01, with h = \(\Delta\)x = 0.1 and \(\Delta\)t = 10\textsuperscript{-}\textsuperscript{4}. The last column compares the two saved main runs.}
+\normalsize
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.25}\setlength{\extrarowheight}{1pt}
 \begin{adjustbox}{max width=\linewidth}
-\begin{tabular}{llrrrl}
-\toprule
-Case & Field & RK4 & Crank–Nicolson & C–N - RK4 & Smaller error \\
-\midrule
+\begin{tabular}{cccccc}
+\hline
+\multicolumn{1}{c}{Case} & \multicolumn{1}{c}{Field} & \multicolumn{1}{c}{RK4} & \multicolumn{1}{c}{Crank–Nicolson} & \multicolumn{1}{c}{C–N - RK4} & \multicolumn{1}{c}{Smaller error} \\
+\hline
 One-soliton & \textit{u} & 1.67723337656 \(\times\) 10\textsuperscript{-4} & 1.67723193356 \(\times\) 10\textsuperscript{-4} & -1.44300 \(\times\) 10\textsuperscript{-10} & C–N \\
  & \textit{v} & 7.73375836247 \(\times\) 10\textsuperscript{-5} & 7.73376020056 \(\times\) 10\textsuperscript{-5} & 1.83809 \(\times\) 10\textsuperscript{-11} & RK4 \\
 Two-soliton & \textit{u} & 1.79163370095 \(\times\) 10\textsuperscript{-4} & 1.80474053431 \(\times\) 10\textsuperscript{-4} & 1.31068 \(\times\) 10\textsuperscript{-6} & RK4 \\
@@ -1142,7 +1176,7 @@ Gaussian & \textit{u} & 2.89993671090 \(\times\) 10\textsuperscript{-8} & 2.8999
  & \textit{v} & 6.96696389468 \(\times\) 10\textsuperscript{-9} & 6.96879887130 \(\times\) 10\textsuperscript{-9} & 1.83498 \(\times\) 10\textsuperscript{-12} & RK4 \\
 Sinusoidal & \textit{u} & 2.00293429689 \(\times\) 10\textsuperscript{-8} & 2.00290237694 \(\times\) 10\textsuperscript{-8} & -3.19200 \(\times\) 10\textsuperscript{-13} & C–N \\
  & \textit{v} & 4.70597516511 \(\times\) 10\textsuperscript{-9} & 4.70499461613 \(\times\) 10\textsuperscript{-9} & -9.80549 \(\times\) 10\textsuperscript{-13} & C–N \\
-\bottomrule
+\hline
 \end{tabular}
 \end{adjustbox}
 \end{table}
@@ -1151,10 +1185,36 @@ For the one-soliton case, Crank–Nicolson gives the smaller \textit{u} error by
 
 The Gaussian main runs favor Crank–Nicolson in \textit{u} and RK4 in \textit{v}; the sinusoidal main runs favor Crank–Nicolson in both components. Their differences range from approximately 1.6 \(\times\) 10\textsuperscript{-13} to 1.8 \(\times\) 10\textsuperscript{-12}. The saved step-size controls show how sensitive these small differences are to temporal resolution. Halving the RK4 time step changes its Gaussian \textit{v} error to 6.969132826384 \(\times\) 10\textsuperscript{-9} and its sinusoidal \textit{v} error to 4.704773459707 \(\times\) 10\textsuperscript{-9}, reversing their ordering relative to the main C–N runs. Thus Table 8 distinguishes the methods at the stated time step, while the controls show that the closest comparisons depend on that step. The displayed digits report the computed norms; they are not a certification of twelve-digit accuracy of the continuous reference.
 
-\FloatBarrier
+
+
+% Template declarations adapted for four authors and numerical data.
+\section*{Acknowledgements}
+1
+
+\section*{Declarations}
+
+\section*{Competing interests}
+The authors declare that they have no competing financial interests. Additionally, there are no personal relationships or affiliations that could have influenced the work presented in this manuscript.
+
+\section*{Author contributions}
+Four authors contributed equally to writing the paper.
+
+\section*{Data availability}
+No datasets were generated or utilized in this study.
+
+\section*{Conflict of interest}
+The authors declare that they have no conflict of interest.
+
+\section*{Ethics approval and consent to participate}
+There are no human or animal participants in this article and informed consent is not applicable.
+
+\section*{Consent for publication}
+The authors confirm the work described has not been published before.
+
+
 \section*{References}
  
-\begin{enumerate}[label={[\arabic*]},leftmargin=*,itemsep=5pt]
+\begin{enumerate}[label={[\arabic*]},leftmargin=*,itemsep=3pt]
  
 \item M. Boiti, J.J.-P. Leon, F. Pempinelli. Spectral transform for a two spatial dimension extension of the dispersive long wave equation. \emph{Inverse Problems} \textbf{3} (1987), 371–387. \href{https://doi.org/10.1088/0266-5611/3/3/007}{DOI}.
  

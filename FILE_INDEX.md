@@ -202,7 +202,7 @@
 
 | 2HS 综合数值研究 | GSG 方法、hodograph、空间／时间及网格比较 | [入口](Workspaces/hs_numerics_plan/GSG_STYLE_REPORT.md)；[目录](Workspaces/hs_numerics_plan) |
 
-| 2HS 数值论文 | 连续／半离散精确参照、空间与时间法、三密度SAMM独立章节及扰动响应 | [英文论文](<2HS paper.html>)；[LaTeX／PDF](pdf/2hs/main.tex)；[复现与证据](Workspaces/hs_paper_20261026/README.md)；[目录](Workspaces/hs_paper_20261026) |
+| 2HS 数值论文 | 连续／半离散精确参照、空间与时间法、三密度SAMM独立章节及扰动响应 | [英文论文](<2HS paper.html>)；[LaTeX／PDF](pdf/2hs/main.tex)；[BS 模板格式对照](report/paper_bs_style_20261029.html)；[复现与证据](Workspaces/hs_paper_20261026/README.md)；[目录](Workspaces/hs_paper_20261026) |
 
 | 空间×时间析因与选参 | 三空间路线、多阶时间法、参数扫描与新密度 | [入口](Workspaces/hs_factorial_20260925/REPORT.md)；[目录](Workspaces/hs_factorial_20260925) |
 
@@ -230,7 +230,7 @@
 
 | --- | --- | --- |
 
-| DLW 论文主项目 | 正式成果整合、英文正文、Endpoint-SD／Centered-SD／FD 空间比较与时间积分、动网格与修订 | [正式整合稿](dlw-paper.html)；[LaTeX／PDF](pdf/dlw/main.tex)；[直接错误审查](report/dlw_paper_review_20261026.html)；[既有正文](Workspaces/dlw_paper_20261009/manuscript.md)；[二维图试绘](report/dlw_heatmap_preview_20261022.html)；[目录](Workspaces/dlw_paper_20261009) |
+| DLW 论文主项目 | 正式成果整合、英文正文、Endpoint-SD／Centered-SD／FD 空间比较与时间积分、动网格与修订 | [正式整合稿](dlw-paper.html)；[LaTeX／PDF](pdf/dlw/main.tex)；[BS 模板格式对照](report/paper_bs_style_20261029.html)；[双线性推导与图专题](report/dlw_bilinear_derivation_and_figures_20261029.html)；[直接错误审查](report/dlw_paper_review_20261026.html)；[既有正文](Workspaces/dlw_paper_20261009/manuscript.md)；[二维图试绘](report/dlw_heatmap_preview_20261022.html)；[目录](Workspaces/dlw_paper_20261009) |
 
 | 论文推导与范围审查 | 草稿理论推导、适用条件与结论审查 | [入口](Workspaces/dlw_draft_audit_20261010/audit.md)；[目录](Workspaces/dlw_draft_audit_20261010) |
 

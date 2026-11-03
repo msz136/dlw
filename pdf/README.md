@@ -1,20 +1,20 @@
 # DLW 与 2HS 的 LaTeX 论文
 
-2026-10-27 从根目录 `dlw-paper.html` 与 `2HS paper.html` 转写。
+2026-10-27 从根目录 HTML 转写；2026-10-29 按 BS 模板统一正文、图表与字体，当前以 TeX 为准。格式对照见 `../report/paper_bs_style_20261029.html`。
 
 - `dlw/main.tex`、`dlw/main.pdf`、`dlw/images/`：DLW，14 图、8 表。
-- `2hs/main.tex`、`2hs/main.pdf`、`2hs/images/`：2HS，10 图、8 表。
+- `2hs/main.tex`、`2hs/main.pdf`、`2hs/images/`：2HS，10 图、11 表（含附录三表）。
 - 每篇只有一个正文 TeX 文件，参考文献也在其中；图片全部随目录携带，无须访问原工作目录。
 - 公式取自 HTML 的原始 TeX，正文、公式编号、图表编号和参考文献顺序保留。网页目录、下载按钮、打印重复图及资源页脚不进入论文。
 - 优先使用对应图的矢量 PDF 原文件，便于放大和打印。
 
 ## VS Code
 
-打开 `papers.code-workspace`，打开需要编辑的 `main.tex`，通过 LaTeX Workshop 的 Build 命令（通常 Ctrl+Alt+B）编译。项目已配置 XeLaTeX 连续运行两次，使用本机 MiKTeX，不依赖 latexmk/Perl；不会自动清理文件。
+打开 `papers.code-workspace`，打开需要编辑的 `main.tex`，通过 LaTeX Workshop 的 Build 命令（通常 Ctrl+Alt+B）编译。项目已配置 pdfLaTeX 连续运行两次，使用本机 MiKTeX，不依赖 latexmk/Perl；不会自动清理文件。
 
 也可以在此目录运行 `powershell -ExecutionPolicy Bypass -File ./build.ps1`；仅编译一篇时追加 `-Paper dlw` 或 `-Paper 2hs`。生成的 `main.pdf` 位于各自正文旁，辅助文件归入 `build/`。
 
-需要 MiKTeX/XeLaTeX 和 Times New Roman 字体（当前 Windows 环境已验证）。Codex 内置编译器的 latexmk 路线因本机缺少 Perl 失败；上面的直接 XeLaTeX 路线已成功生成 PDF。
+当前使用 MiKTeX/pdfLaTeX 及原生 Computer Modern 字体，与 BS 模板一致。构建脚本和 VS Code 工作区已同步；DLW 40页、2HS 23页。模板的 `variant_BS_lattice_Nov.18/variants.pdf` 为20页，可运行该目录的 `build.ps1` 重新编译。
 
 转换和核验记录：`../Workspaces/paper_latex_20261027/`。之后可直接编辑 TeX；重新运行转换程序会覆盖 TeX，请勿在人工修改后直接重跑转换。
 

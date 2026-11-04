@@ -79,7 +79,7 @@ The paper is organized as follows. Section 2 introduces the continuous DLW bilin
 \FloatBarrier
 \section{Integrable bilinear semi-discrete formulations and exact solutions}
 
-In this section, we develop a bilinear lattice description of the DLW system that connects the continuous equations, the arrangement of the \(\tau\) functions and the construction of exact solutions. In Section 2.1, we recall the continuous system and its bilinear representation, fixing the parameters and the transformation to the physical fields. In Section 2.2, we derive an unreduced bilinear lattice from the Hirota–Miwa equation and establish a unified Gram determinant family through an adjacent-layer identity. Section 2.3 specializes this construction to the endpoint and centered formulations, compares their bilinear consistency, and gives a positive real solution class.
+In this section, we develop a bilinear lattice description of the DLW system that connects the continuous equations, the arrangement of the \(\tau\) functions and the construction of exact solutions. In Section 2.1, we recall the continuous system and its bilinear representation, fixing the parameters and the transformation to the physical fields. In Section 2.2, we derive an unreduced bilinear lattice from the Hirota–Miwa equation and construct a unified Gram determinant family using a standard identity of the KP hierarchy. Section 2.3 specializes this construction to the endpoint and centered formulations, compares their bilinear consistency, and gives a positive real solution class.
 
 
 \subsection{The continuous DLW system and its bilinear representation}
@@ -108,7 +108,7 @@ The parameters are chosen so that the denominators are nonzero. On regions where
 
 \subsection{Bilinear semi-discrete construction and Gram determinant solutions}
 
-We seek a lattice description of the bilinear system (5) in which the transverse variable is discrete and the longitudinal variable and time remain continuous. To construct it, we start from the Hirota–Miwa equation and take a continuous limit in two lattice directions. The remaining directions will supply the pairings between neighbouring lattice functions. We then give a unified Gram determinant family for this lattice and establish its bilinear identities by a direct adjacent-layer calculation.
+We seek a lattice description of the bilinear system (5) in which the transverse variable is discrete and the longitudinal variable and time remain continuous. To construct it, we start from the Hirota–Miwa equation and take a continuous limit in two lattice directions. The remaining directions will supply the pairings between neighbouring lattice functions. We then construct its Gram determinant solutions from the continuous family (6), using a standard adjacent-layer identity of the KP hierarchy.
 
 Following the inverse-spacing convention in [15], let \(T_\alpha,T_\beta,T_\gamma\) denote commuting shifts, with \(\tau_\alpha=T_\alpha\tau\) and \(\tau_{\alpha\beta}=T_\alpha T_\beta\tau\). The Hirota–Miwa equation [17,18] is
 \paperdisplay{(\gamma-\beta)\tau_\alpha\tau_{\beta\gamma} +(\alpha-\gamma)\tau_\beta\tau_{\alpha\gamma} +(\beta-\alpha)\tau_\gamma\tau_{\alpha\beta}=0.}{\tag{8}}
@@ -146,7 +146,7 @@ These expansions are understood as formal power series in the inverse lattice pa
 We now realize two retained directions using the Gram family below. On each nonconstant Gram entry, the shift \(T_\gamma\) has multiplier \((\gamma+q_j+a)/(\gamma-p_i+a)\). Under the spectral conditions stated below, this multiplier and its inverse have finite limits at \(\gamma=0\), giving \(-(q_j+a)/(p_i-a)\). This continuation defines \(T_0\) for this family. Choose the two retained parameters as \(0,d\), with integer coordinates \(s,r\), respectively, and set
 
 \paperdisplay{n=r+s,\qquad k=-r.}{\tag{14}}
-Increasing \(s\) advances only \(n\), whereas increasing \(r\) advances \(n\) and decreases \(k\). Consequently,
+Here \(n\) is the auxiliary determinant layer, and \(k\) is the transverse lattice index. Increasing \(s\) advances only \(n\), whereas increasing \(r\) advances \(n\) and decreases \(k\). Consequently,
 
 \paperdisplay{\begin{aligned}&
 T_0\tau_n(k)=\tau_{n+1}(k),\qquad
@@ -164,88 +164,45 @@ The chain rule gives \(D_x=D_{X_1}\) and \(D_t=-2bD_{X_1}-D_{X_2}\), so that \(D
 \paperdisplay{\begin{aligned}&\left(D_x^2+D_t+2bD_x\right)f_k\cdot g_k=0,\\&\left(D_x^2+D_t+(2b-2h)D_x\right)f_k\cdot g_{k-1}=0.\end{aligned}}{\tag{18}}
 The parameter \(b\) is left free at this stage. The index \(k\) labels the transverse lattice, while \(n\) labels adjacent members of the auxiliary \(\tau\) sequence. We select \(n=0,1\) without imposing a pseudo two-reduction, so the \(x\) and \(t\) flows remain independent.
 
-The two retained directions have spectral multipliers \(-(q_j+a)/(p_i-a)\) and \((q_j+a-h)/(a-h-p_i)\). Under the change of indices (14), their combined contribution is
-\paperdisplay{\left(-\frac{q_j+a}{p_i-a}\right)^n\left[\frac{-(q_j+a)/(p_i-a)}{(q_j+a-h)/(a-h-p_i)}\right]^k=\left(-\frac{q_j+a}{p_i-a}\right)^n\left(\frac{1+h/(p_i-a)}{1-h/(q_j+a)}\right)^k.}{\tag{19}}
-
-The first two Miwa variables under (17) contribute the phase \((p_i+q_j)[x-2(b-a)t]+(q_j^2-p_i^2)t\). Moreover, \(\log \left(\frac{1+h/(p_i-a)}{1-h/(q_j+a)}\right)=h((p_i-a)^{-1}+(q_j+a)^{-1})+O(h^2)\), so for \(kh=y\) the spatial factor tends to \(e^{y((p_i-a)^{-1}+(q_j+a)^{-1})}\).
+We construct solutions of (18) from the continuous Gram family (6). Its transverse dependence enters through the exponential
+\[
+\exp\!\left[y\left(\frac1{p_i-a}+\frac1{q_j+a}\right)\right].
+\]
+On the lattice \(y=kh\), we replace this exponential by the rational factor
+\paperdisplay{\left(\frac{1+h/(p_i-a)}{1-h/(q_j+a)}\right)^k.}{\tag{19}}
+This factor is the multiplier of \(T_0T_d^{-1}\) with \(d=-h\), so it advances the physical lattice while keeping the auxiliary layer fixed. Its logarithm is \(h[(p_i-a)^{-1}+(q_j+a)^{-1}]+O(h^2)\); hence (19) tends to the transverse exponential as \(h\to0\) with \(kh=y\). We retain the Cauchy kernel and determinant structure of (6). The change of continuous variables (17) gives the phase \((p_i+q_j)[x-2(b-a)t]+(q_j^2-p_i^2)t\).
 
 Let \(N\ge1\), \(h>0\), and let \(a,b,c_{ij},\alpha_i,\beta_j,p_i,q_j\) be real constants satisfying
 \paperdisplay{(p_i-a)(q_j+a)(p_i+q_j)(p_i-a+h)(q_j+a-h)\ne0.}{\tag{20}}
 For integer indices \(n,k\), we define the common Gram family by
 \paperdisplay{\begin{aligned}\tau_n^{(b)}(k)&=\det_{1\le i,j\le N}\Bigg[c_{ij}+\frac{\alpha_i\beta_j}{p_i+q_j}\left(-\frac{q_j+a}{p_i-a}\right)^n\\&\qquad\qquad\times\left(\frac{1+h/(p_i-a)}{1-h/(q_j+a)}\right)^k\exp\!\big[(p_i+q_j)[x-2(b-a)t]+(q_j^2-p_i^2)t\big]\Bigg].\end{aligned}}{\tag{21}}
 
-To verify this family directly, we first establish the adjacent-layer identity. Its proof separates the row and column factors of the Gram entries, expresses a layer shift as a rank-one update, and reduces the bilinear relation to a differential equation for a ratio of two determinants.
+The auxiliary layers run in the reverse order to those in (6). With the amplitude correspondence in Appendix A, the layers \(n=0,1\) approach the continuous pair \(f,g\) at \(b=a\).
 
-\begin{lem}
-Let \(C=(c_{ij})\) be a constant matrix. For fixed parameters \(p_i,q_j,a,b,\sigma\), assume \((p_i+q_j)(p_i+b-a-\sigma)(q_j+a-b+\sigma)\ne0\). For each \(\ell\in\mathbb Z\), define
-\paperdisplay{\mathcal T_\ell(\sigma)=\det_{1\le i,j\le N}\!\left[c_{ij}+\frac{a_i b_j}{p_i+q_j}\left(-\frac{p_i+b-a-\sigma}{q_j+a-b+\sigma}\right)^\ell e^{(p_i+q_j)[x-2(b-a)t]+(q_j^2-p_i^2)t}\right].}{\tag{22}}
-Here \(a_i,b_j\) are independent of \(x,t\); they may depend on a fixed lattice index. Then
+We use the Gram determinant identity of Chen et al. [20, Lemma 2.1] to verify the two pairings. In the present variables, the identity takes the following form. For constants \(a_i,b_j\), define
+\paperdisplay{\begin{aligned}
+\mathcal T_\ell(\sigma)=\det_{1\le i,j\le N}\Bigg[&c_{ij}+\frac{a_i b_j}{p_i+q_j}
+\left(-\frac{p_i+b-a-\sigma}{q_j+a-b+\sigma}\right)^\ell\\
+&\times e^{(p_i+q_j)[x-2(b-a)t]+(q_j^2-p_i^2)t}\Bigg].
+\end{aligned}}{\tag{22}}
+When the displayed denominators and the numerator of the layer factor are nonzero, the adjacent determinants satisfy
 \paperdisplay{\left(D_x^2+D_t+2\sigma D_x\right)\mathcal T_{\ell+1}(\sigma)\cdot\mathcal T_\ell(\sigma)=0.}{\tag{23}}
-\end{lem}
-
-\begin{proof}
-Write the matrix at layer \(\ell\) as \(M=C+(r_i c_j/(p_i+q_j))\), where the entries of the column vectors \(r,c\) are
-\paperdisplay{\begin{aligned}r_i&=a_i[-(p_i+b-a-\sigma)]^\ell e^{(p_i+b-a)x-(p_i+b-a)^2t},\\c_j&=b_j(q_j+a-b+\sigma)^{-\ell}e^{(q_j+a-b)x+(q_j+a-b)^2t}.\end{aligned}}{\tag{24}}
-Define the vector \(d\) by \(d_j=c_j/(q_j+a-b+\sigma)\). Differentiation and the change of layer give the component relations
-\paperdisplay{\begin{aligned}
-(r_i)_x&=(p_i+b-a)r_i,&\quad(r_i)_t&=-(p_i+b-a)^2r_i,\\
-(c_j)_x&=(q_j+a-b)c_j,&\quad(c_j)_t&=(q_j+a-b)^2c_j,\\
-(M_x)_{ij}&=r_ic_j,&\quad(M_t)_{ij}&=[q_j-p_i+2(a-b)]r_ic_j,\\
-(M_{\ell+1}-M)_{ij}&=-\frac{r_ic_j}{q_j+a-b+\sigma}.
-\end{aligned}}{\tag{25}}
-In vector form, these identities read \(M_x=rc^{\mathsf T}\), \(M_t=-r_xc^{\mathsf T}+rc_x^{\mathsf T}\), and \(M_{\ell+1}=M-rd^{\mathsf T}\). The last relation follows entrywise from
-\paperdisplay{-\frac{p_i+b-a-\sigma}{q_j+a-b+\sigma}-1=-\frac{p_i+q_j}{q_j+a-b+\sigma}.}{\tag{26}}
-
-First suppose that \(M\) is invertible. Define
-\paperdisplay{\kappa=c^{\mathsf T}M^{-1}r,\qquad
-\zeta=d^{\mathsf T}M^{-1}r,\qquad
-\psi=\frac{\mathcal T_{\ell+1}}{\mathcal T_\ell}=1-\zeta.}{\tag{27}}
-The matrix determinant lemma gives the last equality, and Jacobi's formula gives \(\kappa=\mathcal T_{\ell,x}/\mathcal T_\ell\). The inverse matrix and the column factors satisfy
-\paperdisplay{\begin{aligned}&
-(M^{-1})_x=-M^{-1}rc^{\mathsf T}M^{-1},\\&
-(M^{-1})_t=M^{-1}r_xc^{\mathsf T}M^{-1}-M^{-1}rc_x^{\mathsf T}M^{-1},\\&
-d_x=c-\sigma d,\qquad d_t=c_x-\sigma c+\sigma^2d,\qquad r_t=-r_{xx}.
-\end{aligned}}{\tag{28}}
-
-Differentiating the two scalar products in (27) and using (28) yields
-\paperdisplay{\begin{aligned}&
-\kappa_x=c_x^{\mathsf T}M^{-1}r+c^{\mathsf T}M^{-1}r_x-\kappa^2,\\&
-\zeta_x=\kappa(1-\zeta)-\sigma\zeta+d^{\mathsf T}M^{-1}r_x,\\&
-\partial_x(d^{\mathsf T}M^{-1}r_x)
-=(c^{\mathsf T}M^{-1}r_x)(1-\zeta)-\sigma d^{\mathsf T}M^{-1}r_x
-+d^{\mathsf T}M^{-1}r_{xx},\\&
-\zeta_t=(c_x^{\mathsf T}M^{-1}r)(1-\zeta)-\sigma\kappa+\sigma^2\zeta
--d^{\mathsf T}M^{-1}r_{xx}+\kappa d^{\mathsf T}M^{-1}r_x.
-\end{aligned}}{\tag{29}}
-Differentiate the second relation in (29) once more in \(x\) and add the fourth relation. The terms involving \(d^{\mathsf T}M^{-1}r_{xx}\) cancel. Substituting the second relation for \(d^{\mathsf T}M^{-1}r_x\) and collecting the remaining terms gives
-\paperdisplay{\begin{aligned}
-\zeta_{xx}+\zeta_t+2\sigma\zeta_x
-&=\left(\kappa_x+c_x^{\mathsf T}M^{-1}r+c^{\mathsf T}M^{-1}r_x-\kappa^2\right)(1-\zeta)\\
-&=2\kappa_x(1-\zeta),
-\end{aligned}}{\tag{30}}
-where the last equality uses the first relation in (29). Consequently, \(\psi=1-\zeta\) satisfies
-\paperdisplay{\psi_{xx}+\psi_t+2\sigma\psi_x+2\kappa_x\psi=0.}{\tag{31}}
-
-For \(f=\psi g\), expansion of the bilinear operator yields
-\paperdisplay{\frac{\left(D_x^2+D_t+2\sigma D_x\right)f\cdot g}{g^2}
-=\psi_{xx}+\psi_t+2\sigma\psi_x+2\left(\frac{g_x}{g}\right)_x\psi.}{\tag{32}}
-Taking \(g=\mathcal T_\ell\) and \(f=\mathcal T_{\ell+1}\) identifies (31) with (23). The identity also holds at singular matrices. Indeed, replace \(C\) by \(C+\epsilon I\). At any fixed \((x,t)\), the matrix \(M+\epsilon I\) is invertible for all but finitely many \(\epsilon\), so the bilinear residual vanishes at those values. This residual is a polynomial in \(\epsilon\), hence vanishes identically. Setting \(\epsilon=0\) completes the proof.
-\end{proof}
+The correspondence with the cited identity, including its auxiliary variable, is given in Appendix A. The amplitudes \(a_i,b_j\) may depend on a fixed lattice site.
 
 \begin{theo}
 Under (20), let \(\tau_n^{(b)}(k)\) be defined by (21). Then \(f_k=\tau_0^{(b)}(k)\) and \(g_k=\tau_1^{(b)}(k)\) satisfy the two bilinear equations (18).
 \end{theo}
 
 \begin{proof}
-We apply Lemma 2.1 at a fixed lattice site \(k\), with
-\paperdisplay{a_i(k)=\alpha_i\left(1+\frac{h}{p_i-a}\right)^k,\qquad b_j(k)=\beta_j\left(1-\frac{h}{q_j+a}\right)^{-k}.}{\tag{33}}
-With (33), the zero-layer phase and amplitude agree with (21). Write the corresponding determinant in the lemma as \(\mathcal T_\ell(k;\sigma)\). At \(\sigma=b\), its inverse layer multiplier is \(-(q_j+a)/(p_i-a)\), and hence
-\paperdisplay{\mathcal T_0(k;b)=\tau_0^{(b)}(k)=f_k,\qquad\mathcal T_{-1}(k;b)=\tau_1^{(b)}(k)=g_k.}{\tag{34}}
-The inverse layer \(\ell=-1\) supplies the factor \(-(q_j+a)/(p_i-a)\), so the discrete pair in (34) uses \(f_k=\tau_0^{(b)}(k)\) and \(g_k=\tau_1^{(b)}(k)\). The continuous pair in (6) uses the reciprocal layer factor and the assignment \(f=\tau_1^{(0)},g=\tau_0^{(0)}\). Taking \(\ell=-1\) and \(\sigma=b\) in (23) gives \(\left(D_x^2+D_t+2bD_x\right)f_k\cdot g_k=0\).
+We apply (23) at a fixed lattice site \(k\), with
+\paperdisplay{a_i(k)=\alpha_i\left(1+\frac{h}{p_i-a}\right)^k,\qquad b_j(k)=\beta_j\left(1-\frac{h}{q_j+a}\right)^{-k}.}{\tag{24}}
+With (24), the zero-layer phase and amplitude agree with (21). Write the corresponding determinant as \(\mathcal T_\ell(k;\sigma)\). At \(\sigma=b\), its inverse layer multiplier is \(-(q_j+a)/(p_i-a)\), and hence
+\paperdisplay{\mathcal T_0(k;b)=\tau_0^{(b)}(k)=f_k,\qquad\mathcal T_{-1}(k;b)=\tau_1^{(b)}(k)=g_k.}{\tag{25}}
+Taking \(\ell=-1\) and \(\sigma=b\) in (23) gives \(\left(D_x^2+D_t+2bD_x\right)f_k\cdot g_k=0\).
 
 For the second pairing, the zero layer is independent of \(\sigma\), so \(\mathcal T_0(k;b-h)=f_k\). The inverse layer factor at \(\sigma=b-h\) obeys
-\paperdisplay{-\frac{q_j+a-h}{p_i-a+h}\left(\frac{1+h/(p_i-a)}{1-h/(q_j+a)}\right)^k=-\frac{q_j+a}{p_i-a}\left(\frac{1+h/(p_i-a)}{1-h/(q_j+a)}\right)^{k-1}.}{\tag{35}}
-It follows entrywise that \(\mathcal T_{-1}(k;b-h)=\tau_1^{(b)}(k-1)=g_{k-1}\). Applying (23) with \(\ell=-1\) and \(\sigma=b-h\) therefore gives \(\left(D_x^2+D_t+(2b-2h)D_x\right)f_k\cdot g_{k-1}=0\), proving the theorem.
+\paperdisplay{-\frac{q_j+a-h}{p_i-a+h}\left(\frac{1+h/(p_i-a)}{1-h/(q_j+a)}\right)^k=-\frac{q_j+a}{p_i-a}\left(\frac{1+h/(p_i-a)}{1-h/(q_j+a)}\right)^{k-1}.}{\tag{26}}
+Thus the change from \(\sigma=b\) to \(\sigma=b-h\) in the inverse layer absorbs one backward lattice step. All other entry factors agree, giving \(\mathcal T_{-1}(k;b-h)=\tau_1^{(b)}(k-1)=g_{k-1}\). Applying (23) with \(\ell=-1\) and \(\sigma=b-h\) therefore gives \(\left(D_x^2+D_t+(2b-2h)D_x\right)f_k\cdot g_{k-1}=0\), proving the theorem.
 \end{proof}
 
 
@@ -254,47 +211,47 @@ It follows entrywise that \(\mathcal T_{-1}(k;b-h)=\tau_1^{(b)}(k-1)=g_{k-1}\). 
 The lattice (18) and its Gram family (21) depend on the free parameter \(b\). We now compare them with the continuous DLW system at fixed \(a\). Choosing \(b\) and assigning the two \(\tau\) functions to transverse positions gives the endpoint and centered formulations.
 
 \noindent\textbf{Definition 2.1 (Endpoint-SD).} Set \(b=a\) and place both \(f_k^{\mathrm E}\) and \(g_k^{\mathrm E}\) at \(y_k=kh\). This gives the endpoint-based semi-discretization, abbreviated Endpoint-SD,
-\paperdisplay{\begin{aligned}&\left(D_x^2+D_t+2aD_x\right)f_k^{\mathrm E}\cdot g_k^{\mathrm E}=0,\\&\left(D_x^2+D_t+(2a-2h)D_x\right)f_k^{\mathrm E}\cdot g_{k-1}^{\mathrm E}=0.\end{aligned}}{\tag{36}}
+\paperdisplay{\begin{aligned}&\left(D_x^2+D_t+2aD_x\right)f_k^{\mathrm E}\cdot g_k^{\mathrm E}=0,\\&\left(D_x^2+D_t+(2a-2h)D_x\right)f_k^{\mathrm E}\cdot g_{k-1}^{\mathrm E}=0.\end{aligned}}{\tag{27}}
 The endpoint tau functions are obtained from the determinant family through
-\paperdisplay{f_k^{\mathrm E}=\tau_0^{\mathrm E}(k),\qquad g_k^{\mathrm E}=\tau_1^{\mathrm E}(k).}{\tag{37}}
+\paperdisplay{f_k^{\mathrm E}=\tau_0^{\mathrm E}(k),\qquad g_k^{\mathrm E}=\tau_1^{\mathrm E}(k).}{\tag{28}}
 Substitution of \(b=a\) in (21) gives
-\paperdisplay{\begin{aligned}\tau_n^{\mathrm E}(k)&=\det_{1\le i,j\le N}\Bigg[c_{ij}+\frac{\alpha_i\beta_j}{p_i+q_j}\left(-\frac{q_j+a}{p_i-a}\right)^n\\&\qquad\qquad\times\left(\frac{1+h/(p_i-a)}{1-h/(q_j+a)}\right)^k\exp\!\big[(p_i+q_j)x+(q_j^2-p_i^2)t\big]\Bigg].\end{aligned}}{\tag{38}}
-By Theorem 2.1, the functions in (37) satisfy (36).
+\paperdisplay{\begin{aligned}\tau_n^{\mathrm E}(k)&=\det_{1\le i,j\le N}\Bigg[c_{ij}+\frac{\alpha_i\beta_j}{p_i+q_j}\left(-\frac{q_j+a}{p_i-a}\right)^n\\&\qquad\qquad\times\left(\frac{1+h/(p_i-a)}{1-h/(q_j+a)}\right)^k\exp\!\big[(p_i+q_j)x+(q_j^2-p_i^2)t\big]\Bigg].\end{aligned}}{\tag{29}}
+By Theorem 2.1, the functions in (28) satisfy (27).
 
 To examine consistency, define 
-\paperdisplay{\Phi(s)=\left(D_x^2+D_t+2(a+s)D_x\right)f(x,y,t)\cdot g(x,y+s,t).}{\tag{39}}
+\paperdisplay{\Phi(s)=\left(D_x^2+D_t+2(a+s)D_x\right)f(x,y,t)\cdot g(x,y+s,t).}{\tag{30}}
 The endpoint pairings correspond to \(\Phi(0)\) and \(\Phi(-h)\).
 
 \begin{prop}
 For sufficiently smooth \(f,g\), 
-\paperdisplay{\begin{aligned}\frac{\Phi(0)-\Phi(-h)}h&=\left(D_x^2+D_t+2aD_x\right)f\cdot g_y+2D_xf\cdot g\\&\quad-\frac h2\left[\left(D_x^2+D_t+2aD_x\right)f\cdot g_{yy}+4D_xf\cdot g_y\right]+O(h^2).\end{aligned}}{\tag{40}}
+\paperdisplay{\begin{aligned}\frac{\Phi(0)-\Phi(-h)}h&=\left(D_x^2+D_t+2aD_x\right)f\cdot g_y+2D_xf\cdot g\\&\quad-\frac h2\left[\left(D_x^2+D_t+2aD_x\right)f\cdot g_{yy}+4D_xf\cdot g_y\right]+O(h^2).\end{aligned}}{\tag{31}}
 \end{prop}
 
 \begin{proof}
-Differentiation gives \(\Phi'(0)=\left(D_x^2+D_t+2aD_x\right)f\cdot g_y+2D_xf\cdot g\) and \(\Phi''(0)=\left(D_x^2+D_t+2aD_x\right)f\cdot g_{yy}+4D_xf\cdot g_y\). Taylor expansion proves (40). For solutions of (5), ordinary differentiation of the first relation gives \(\left(D_x^2+D_t+2aD_x\right)f_y\cdot g+\left(D_x^2+D_t+2aD_x\right)f\cdot g_y=0\), while the second gives \(\left(D_x^2+D_t+2aD_x\right)f_y\cdot g-\left(D_x^2+D_t+2aD_x\right)f\cdot g_y-4D_xf\cdot g=0\). Combining these identities yields \(\Phi'(0)=0\).
+Differentiation gives \(\Phi'(0)=\left(D_x^2+D_t+2aD_x\right)f\cdot g_y+2D_xf\cdot g\) and \(\Phi''(0)=\left(D_x^2+D_t+2aD_x\right)f\cdot g_{yy}+4D_xf\cdot g_y\). Taylor expansion proves (31). For solutions of (5), ordinary differentiation of the first relation gives \(\left(D_x^2+D_t+2aD_x\right)f_y\cdot g+\left(D_x^2+D_t+2aD_x\right)f\cdot g_y=0\), while the second gives \(\left(D_x^2+D_t+2aD_x\right)f_y\cdot g-\left(D_x^2+D_t+2aD_x\right)f\cdot g_y-4D_xf\cdot g=0\). Combining these identities yields \(\Phi'(0)=0\).
 \end{proof}
 
 
-The first-order term in (40) arises from the one-sided placement of the endpoint pairings. A symmetric arrangement is obtained by choosing
-\paperdisplay{b=a+\frac h2.}{\tag{41}}
+The first-order term in (31) arises from the one-sided placement of the endpoint pairings. A symmetric arrangement is obtained by choosing
+\paperdisplay{b=a+\frac h2.}{\tag{32}}
 \noindent\textbf{Definition 2.2 (Centered-SD).} Set \(b=a+h/2\). Place \(g_k^{\mathrm C}\) at \(y_k=kh\) and \(f_k^{\mathrm C}\) at \(y_{k-\frac12}=(k-\frac12)h\). The centered semi-discretization, abbreviated Centered-SD, is the bilinear system
 
-\paperdisplay{\begin{aligned}&\left(D_x^2+D_t+(2a-h)D_x\right)f_k^{\mathrm C}\cdot g_{k-1}^{\mathrm C}=0,\\&\left(D_x^2+D_t+(2a+h)D_x\right)f_k^{\mathrm C}\cdot g_k^{\mathrm C}=0.\end{aligned}}{\tag{42}}
+\paperdisplay{\begin{aligned}&\left(D_x^2+D_t+(2a-h)D_x\right)f_k^{\mathrm C}\cdot g_{k-1}^{\mathrm C}=0,\\&\left(D_x^2+D_t+(2a+h)D_x\right)f_k^{\mathrm C}\cdot g_k^{\mathrm C}=0.\end{aligned}}{\tag{33}}
 The two neighbouring functions \(g_{k-1}^{\mathrm C},g_k^{\mathrm C}\) are symmetric about \(f_k^{\mathrm C}\), and the two operator parameters are symmetric about \(a\).
 
 Substituting \(b=a+h/2\) into (21) gives
-\paperdisplay{\begin{aligned}\tau_n^{\mathrm C}(k)&=\det_{1\le i,j\le N}\Bigg[c_{ij}+\frac{\alpha_i\beta_j}{p_i+q_j}\left(-\frac{q_j+a}{p_i-a}\right)^n\\&\qquad\qquad\times\left(\frac{1+h/(p_i-a)}{1-h/(q_j+a)}\right)^k\exp\!\big[(p_i+q_j)(x-ht)+(q_j^2-p_i^2)t\big]\Bigg].\end{aligned}}{\tag{43}}
-The functions \(f_k^{\mathrm C}=\tau_0^{\mathrm C}(k)\), \(g_k^{\mathrm C}=\tau_1^{\mathrm C}(k)\) satisfy (42) by Theorem 2.1. Both formulations therefore use the same Gram kernel and lattice factor; the change of \(b\) is recorded in their continuous phases.
+\paperdisplay{\begin{aligned}\tau_n^{\mathrm C}(k)&=\det_{1\le i,j\le N}\Bigg[c_{ij}+\frac{\alpha_i\beta_j}{p_i+q_j}\left(-\frac{q_j+a}{p_i-a}\right)^n\\&\qquad\qquad\times\left(\frac{1+h/(p_i-a)}{1-h/(q_j+a)}\right)^k\exp\!\big[(p_i+q_j)(x-ht)+(q_j^2-p_i^2)t\big]\Bigg].\end{aligned}}{\tag{34}}
+The functions \(f_k^{\mathrm C}=\tau_0^{\mathrm C}(k)\), \(g_k^{\mathrm C}=\tau_1^{\mathrm C}(k)\) satisfy (33) by Theorem 2.1. Both formulations therefore use the same Gram kernel and lattice factor; the change of \(b\) is recorded in their continuous phases.
 
-At fixed \(h\), (42) follows exactly from (18) through (41). For the continuous comparison, \(a\) remains fixed. Using \(\Phi\) from (39) at the location of \(f_k^{\mathrm C}\), the two pairings correspond to \(\Phi(-h/2)\) and \(\Phi(h/2)\).
+At fixed \(h\), (33) follows exactly from (18) through (32). For the continuous comparison, \(a\) remains fixed. Using \(\Phi\) from (30) at the location of \(f_k^{\mathrm C}\), the two pairings correspond to \(\Phi(-h/2)\) and \(\Phi(h/2)\).
 
 \begin{prop}
 For sufficiently smooth \(f,g\), 
-\paperdisplay{\begin{aligned} \frac{\Phi(h/2)+\Phi(-h/2)}2&=\left(D_x^2+D_t+2aD_x\right)f\cdot g+O(h^2),\\ \frac{\Phi(h/2)-\Phi(-h/2)}h&=\left(D_x^2+D_t+2aD_x\right)f\cdot g_y+2D_xf\cdot g+O(h^2). \end{aligned}}{\tag{44}}
+\paperdisplay{\begin{aligned} \frac{\Phi(h/2)+\Phi(-h/2)}2&=\left(D_x^2+D_t+2aD_x\right)f\cdot g+O(h^2),\\ \frac{\Phi(h/2)-\Phi(-h/2)}h&=\left(D_x^2+D_t+2aD_x\right)f\cdot g_y+2D_xf\cdot g+O(h^2). \end{aligned}}{\tag{35}}
 \end{prop}
 
 \begin{proof}
-Taylor expansion gives \(\Phi(\pm h/2)=\Phi(0)\pm(h/2)\Phi'(0)+(h^2/8)\Phi''(0)+O(h^3)\). Taking the sum and difference proves (44). As in the proof of Proposition 2.1, the limiting relations are equivalent to the continuous bilinear pair (5).
+Taylor expansion gives \(\Phi(\pm h/2)=\Phi(0)\pm(h/2)\Phi'(0)+(h^2/8)\Phi''(0)+O(h^3)\). Taking the sum and difference proves (35). As in the proof of Proposition 2.1, the limiting relations are equivalent to the continuous bilinear pair (5).
 \end{proof}
 
 
@@ -302,13 +259,13 @@ The endpoint and symmetric pairings give first- and second-order bilinear consis
 
 \begin{prop}
 Choose real parameters satisfying \(c_{ij}=\delta_{ij}\), \(\alpha_i<0\), and \(\beta_i>0\). If 
-\paperdisplay{-a<q_N<\cdots<q_1<-p_1<\cdots<-p_N,\qquad0<h<q_N+a,}{\tag{45}}
+\paperdisplay{-a<q_N<\cdots<q_1<-p_1<\cdots<-p_N,\qquad0<h<q_N+a,}{\tag{36}}
 then both determinant families are positive for every integer \(n,k\) and finite real \(x,t\).
 \end{prop}
 
 \begin{proof}
 The nonconstant part of each determinant is a product of positive diagonal matrices and the Cauchy matrix with entries \(-1/(p_i+q_j)\). Indeed, \(-(q_j+a)/(p_i-a)>0\) and \((1+h/(p_i-a))/(1-h/(q_j+a))>0\), and these factors separate into row and column factors. Every nonempty principal minor of this Cauchy matrix satisfies 
-\paperdisplay{\det_{i,j\in I}\left[-\frac1{p_i+q_j}\right]=\frac{\prod_{i<j,\ i,j\in I}(p_i-p_j)(q_i-q_j)}{\prod_{i,j\in I}(-p_i-q_j)}>0.}{\tag{46}}
+\paperdisplay{\det_{i,j\in I}\left[-\frac1{p_i+q_j}\right]=\frac{\prod_{i<j,\ i,j\in I}(p_i-p_j)(q_i-q_j)}{\prod_{i,j\in I}(-p_i-q_j)}>0.}{\tag{37}}
 Positive diagonal multiplication preserves these signs. Expanding each determinant as the sum of the principal minors of its nonconstant part, including the empty minor \(1\), proves positivity. The additional Centered-SD phase also consists of positive row and column factors.
 \end{proof}
 
@@ -319,32 +276,32 @@ The common bilinear lattice and its determinant identity thus support both param
 \FloatBarrier
 \section{Integrable nonlinear semi-discrete formulations}
 
-The nonlinear Endpoint-SD system is given by (50)–(51), and the Centered-SD system by (58), closed by the reconstruction (59). Their Darboux–Lax pairs are (65) and (66). We first state these systems in the physical fields and then derive them from the bilinear equations. Section 3.4 examines their continuous limits and the approximation of the exact wave fields.
+The nonlinear Endpoint-SD system is given by (41)–(42), and the Centered-SD system by (49), closed by the reconstruction (50). Their Darboux–Lax pairs are (56) and (57). We first state these systems in the physical fields and then derive them from the bilinear equations. Section 3.4 examines their continuous limits and the approximation of the exact wave fields.
 
 \subsection{The endpoint-based semi-discretization (Endpoint-SD)}
 
 We reconstruct the endpoint fields from the logarithmic ratio and product of \(f_k^{\mathrm E},g_k^{\mathrm E}\). For a lattice function \(w_k(x,t)\), define
 
-\paperdisplay{\Delta_hw_k=\frac{w_k-w_{k-1}}h.}{\tag{47}}
+\paperdisplay{\Delta_hw_k=\frac{w_k-w_{k-1}}h.}{\tag{38}}
 
 The Endpoint-SD bilinear equations are
 
-\paperdisplay{\begin{aligned}&\left(D_x^2+D_t+2aD_x\right)f_k^{\mathrm E}\cdot g_k^{\mathrm E}=0,\\&\left(D_x^2+D_t+(2a-2h)D_x\right)f_k^{\mathrm E}\cdot g_{k-1}^{\mathrm E}=0.\end{aligned}}{\tag{48}}
+\paperdisplay{\begin{aligned}&\left(D_x^2+D_t+2aD_x\right)f_k^{\mathrm E}\cdot g_k^{\mathrm E}=0,\\&\left(D_x^2+D_t+(2a-2h)D_x\right)f_k^{\mathrm E}\cdot g_{k-1}^{\mathrm E}=0.\end{aligned}}{\tag{39}}
 
 We define the physical fields by
 
-\paperdisplay{u_k=2\partial_x\log\frac{f_k^{\mathrm E}}{g_k^{\mathrm E}},\qquad v_k=\frac2h\partial_x\log\frac{f_k^{\mathrm E}g_k^{\mathrm E}}{f_{k-1}^{\mathrm E}g_{k-1}^{\mathrm E}}.}{\tag{49}}
+\paperdisplay{u_k=2\partial_x\log\frac{f_k^{\mathrm E}}{g_k^{\mathrm E}},\qquad v_k=\frac2h\partial_x\log\frac{f_k^{\mathrm E}g_k^{\mathrm E}}{f_{k-1}^{\mathrm E}g_{k-1}^{\mathrm E}}.}{\tag{40}}
 The field \(u_k\) is associated with the node \(y_k=kh\), while \(v_k\) lies at the edge midpoint \(y_{k-\frac12}\). These locations are used when comparing the lattice fields with their continuous counterparts.
 
 \begin{samepage}
 \begin{prop}
-Let \(f_k^{\mathrm E},g_k^{\mathrm E}\) be positive, sufficiently smooth solutions of (48). The physical fields (49) satisfy the Endpoint-SD system
+Let \(f_k^{\mathrm E},g_k^{\mathrm E}\) be positive, sufficiently smooth solutions of (39). The physical fields (40) satisfy the Endpoint-SD system
 
 \begin{align*}
-\Delta_hu_{k,t}&=-\partial_x\Delta_h\left(\frac12u_k^2+2au_k\right)-v_{k,xx},\tag{50}\\
+\Delta_hu_{k,t}&=-\partial_x\Delta_h\left(\frac12u_k^2+2au_k\right)-v_{k,xx},\tag{41}\\
 v_{k,t}&=-\partial_x^2\Delta_hu_k\notag\\
 &\quad-\partial_x\Bigg[\left(\frac{u_k+u_{k-1}}2+2a-2h\right)v_k+\frac h4v_k^2\notag\\
-&\hspace{24mm}-2(u_k+u_{k-1})-\frac h4(\Delta_hu_k)^2\Bigg].\tag{51}
+&\hspace{24mm}-2(u_k+u_{k-1})-\frac h4(\Delta_hu_k)^2\Bigg].\tag{42}
 \end{align*}
 \end{prop}
 \end{samepage}
@@ -352,50 +309,50 @@ v_{k,t}&=-\partial_x^2\Delta_hu_k\notag\\
 \begin{proof}
 For either tau family, use the two logarithmic ratios
 
-\paperdisplay{r_k=\log\frac{f_k}{g_k},\qquad q_k=\log\frac{f_k}{g_{k-1}}.}{\tag{52}}
+\paperdisplay{r_k=\log\frac{f_k}{g_k},\qquad q_k=\log\frac{f_k}{g_{k-1}}.}{\tag{43}}
 For the common bilinear lattice (18), division by the corresponding tau products gives
 
 \paperdisplay{\begin{aligned}
 r_{k,t}&=r_{k,xx}-r_{k,x}^2-2b r_{k,x}-2\partial_x^2\log f_k,\\
 q_{k,t}&=q_{k,xx}-q_{k,x}^2-2(b-h)q_{k,x}-2\partial_x^2\log f_k.
-\end{aligned}}{\tag{53}}
-Here we used \(\log(f_kg_k)=2\log f_k-r_k\) and \(\log(f_kg_{k-1})=2\log f_k-q_k\). The identities (53) will also be used for the centered formulation and the Lax representation.
+\end{aligned}}{\tag{44}}
+Here we used \(\log(f_kg_k)=2\log f_k-r_k\) and \(\log(f_kg_{k-1})=2\log f_k-q_k\). The identities (44) will also be used for the centered formulation and the Lax representation.
 
 For Endpoint-SD, set \(b=a\) and take \((f_k,g_k)=(f_k^{\mathrm E},g_k^{\mathrm E})\). The field definitions imply
 
 \paperdisplay{u_k=2r_{k,x},\qquad q_{k,x}=\frac{u_k+u_{k-1}}4+\frac h4v_k,\qquad
-4\Delta_h\partial_x\log f_k=v_k+\Delta_hu_k.}{\tag{54}}
-Applying \(2\partial_x\) to the first equation of (53) gives
+4\Delta_h\partial_x\log f_k=v_k+\Delta_hu_k.}{\tag{45}}
+Applying \(2\partial_x\) to the first equation of (44) gives
 
-\paperdisplay{u_{k,t}=u_{k,xx}-\partial_x\left(\frac12u_k^2+2au_k\right)-4\partial_x^3\log f_k.}{\tag{55}}
-Taking its lattice difference and using the last identity in (54) yields (50).
+\paperdisplay{u_{k,t}=u_{k,xx}-\partial_x\left(\frac12u_k^2+2au_k\right)-4\partial_x^3\log f_k.}{\tag{46}}
+Taking its lattice difference and using the last identity in (45) yields (41).
 
-For the second field equation, subtract the average of the first relation in (53) and its backward shift from the second relation. Use (54), multiply by \(4/h\), and differentiate in \(x\) to obtain (51). The algebraic identities are given in Appendix B.
+For the second field equation, subtract the average of the first relation in (44) and its backward shift from the second relation. Use (45), multiply by \(4/h\), and differentiate in \(x\) to obtain (42). The algebraic identities are given in Appendix B.
 \end{proof}
 
-Equations (50)–(51) describe the endpoint fields reconstructed from the bilinear lattice. Applying (49) to the positive Gram determinants of Section 2.3 gives smooth exact fields, which provide reference solutions for the analysis and numerical experiments below.
+Equations (41)–(42) describe the endpoint fields reconstructed from the bilinear lattice. Applying (40) to the positive Gram determinants of Section 2.3 gives smooth exact fields, which provide reference solutions for the analysis and numerical experiments below.
 
 \subsection{The centered semi-discretization (Centered-SD)}
 
 The centered construction uses the symmetric placement of \(f_k^{\mathrm C}\) between \(g_{k-1}^{\mathrm C}\) and \(g_k^{\mathrm C}\). Its bilinear pairings are
 
-\paperdisplay{\begin{aligned}&\left(D_x^2+D_t+(2a+h)D_x\right)f_k^{\mathrm C}\cdot g_k^{\mathrm C}=0,\\&\left(D_x^2+D_t+(2a-h)D_x\right)f_k^{\mathrm C}\cdot g_{k-1}^{\mathrm C}=0.\end{aligned}}{\tag{56}}
+\paperdisplay{\begin{aligned}&\left(D_x^2+D_t+(2a+h)D_x\right)f_k^{\mathrm C}\cdot g_k^{\mathrm C}=0,\\&\left(D_x^2+D_t+(2a-h)D_x\right)f_k^{\mathrm C}\cdot g_{k-1}^{\mathrm C}=0.\end{aligned}}{\tag{47}}
 With \(f_k^{\mathrm C}\) located at \(y_k=(k-1/2)h\), define
 
 \paperdisplay{u_k=\partial_x\log\frac{\left(f_k^{\mathrm C}\right)^2}{g_{k-1}^{\mathrm C}g_k^{\mathrm C}},\qquad
-v_k=\partial_x\Delta_h\log(\left(f_k^{\mathrm C}\right)^2g_{k-1}^{\mathrm C}g_k^{\mathrm C}).}{\tag{57}}
+v_k=\partial_x\Delta_h\log(\left(f_k^{\mathrm C}\right)^2g_{k-1}^{\mathrm C}g_k^{\mathrm C}).}{\tag{48}}
 The field \(u_k\) is nodal, and \(v_k\) lies at the edge midpoint \(y_k-h/2\). For these exact tau fields, the logarithmic difference is
 
 \[\omega_k=\partial_x\log\frac{g_k^{\mathrm C}}{g_{k-1}^{\mathrm C}}.\]
 
 \begin{samepage}
 \begin{prop}
-Let \(f_k^{\mathrm C},g_k^{\mathrm C}\) be positive, sufficiently smooth solutions of (56). The physical fields (57) satisfy the Centered-SD system
+Let \(f_k^{\mathrm C},g_k^{\mathrm C}\) be positive, sufficiently smooth solutions of (47). The physical fields (48) satisfy the Centered-SD system
 
-\paperdisplay{\begin{aligned} \Delta_hu_{k,t} &=-\partial_x\Delta_h\left[\frac12u_k^2+2au_k+\frac{\omega_k^2}{2}-h\omega_k\right]-v_{k,xx},\\[2mm] v_{k,t} &=-\partial_x^2\Delta_hu_k\\ &\quad-\partial_x\Bigg\{\Delta_h\left[\frac12u_k^2+2au_k+\frac{\omega_k^2}{2}-h\omega_k\right]\\ &\hspace{22mm}+\frac2h\left[(u_k+2a)\omega_k+(u_{k-1}+2a)\omega_{k-1}-h(u_k+u_{k-1})\right]\Bigg\}. \end{aligned}}{\tag{58}}
+\paperdisplay{\begin{aligned} \Delta_hu_{k,t} &=-\partial_x\Delta_h\left[\frac12u_k^2+2au_k+\frac{\omega_k^2}{2}-h\omega_k\right]-v_{k,xx},\\[2mm] v_{k,t} &=-\partial_x^2\Delta_hu_k\\ &\quad-\partial_x\Bigg\{\Delta_h\left[\frac12u_k^2+2au_k+\frac{\omega_k^2}{2}-h\omega_k\right]\\ &\hspace{22mm}+\frac2h\left[(u_k+2a)\omega_k+(u_{k-1}+2a)\omega_{k-1}-h(u_k+u_{k-1})\right]\Bigg\}. \end{aligned}}{\tag{49}}
 Here \(\omega_k\) is reconstructed from the physical fields by
 
-\paperdisplay{\omega_k=\frac h2(v_k-\Delta_hu_k)-\omega_{k-1},\qquad k=1,\ldots,N.}{\tag{59}}
+\paperdisplay{\omega_k=\frac h2(v_k-\Delta_hu_k)-\omega_{k-1},\qquad k=1,\ldots,N.}{\tag{50}}
 with the compatible lower trace \(\omega_0=\partial_x\log(g_0^{\mathrm C}/g_{-1}^{\mathrm C})\). On a finite lattice, the recurrence uniquely determines \(\omega\) from \(u,v\) and this trace.
 \end{prop}
 \end{samepage}
@@ -403,90 +360,97 @@ with the compatible lower trace \(\omega_0=\partial_x\log(g_0^{\mathrm C}/g_{-1}
 Appendix B gives the closed form of the reconstruction and the conditions on the lower trace.
 
 \begin{proof}
-Use the ratios (52) with \((f_k,g_k)=(f_k^{\mathrm C},g_k^{\mathrm C})\). Their derivatives satisfy
+Use the ratios (43) with \((f_k,g_k)=(f_k^{\mathrm C},g_k^{\mathrm C})\). Their derivatives satisfy
 
 \paperdisplay{u_k=r_{k,x}+q_{k,x},\qquad
-(q_k-r_k)_x=\partial_x\log\frac{g_k}{g_{k-1}}.}{\tag{60}}
+(q_k-r_k)_x=\partial_x\log\frac{g_k}{g_{k-1}}.}{\tag{51}}
 The field definitions also give
 
 \paperdisplay{v_k-\Delta_hu_k=\frac2h\partial_x\log\frac{g_k}{g_{k-2}}
-=\frac2h\left[\partial_x\log\frac{g_k}{g_{k-1}}+\partial_x\log\frac{g_{k-1}}{g_{k-2}}\right].}{\tag{61}}
-By the recurrence (59) and its specified initial value, \(\omega_k=(q_k-r_k)_x=\partial_x\log(g_k/g_{k-1})\). Hence \(r_{k,x}=(u_k-\omega_k)/2\) and \(q_{k,x}=(u_k+\omega_k)/2\). Set \(b=a+h/2\) in (53). Subtracting its first relation from the second and differentiating in \(x\) gives
+=\frac2h\left[\partial_x\log\frac{g_k}{g_{k-1}}+\partial_x\log\frac{g_{k-1}}{g_{k-2}}\right].}{\tag{52}}
+By the recurrence (50) and its specified initial value, \(\omega_k=(q_k-r_k)_x=\partial_x\log(g_k/g_{k-1})\). Hence \(r_{k,x}=(u_k-\omega_k)/2\) and \(q_{k,x}=(u_k+\omega_k)/2\). Set \(b=a+h/2\) in (44). Subtracting its first relation from the second and differentiating in \(x\) gives
 
-\paperdisplay{\omega_{k,t}=\omega_{k,xx}-\partial_x[(u_k+2a)\omega_k-hu_k].}{\tag{62}}
+\paperdisplay{\omega_{k,t}=\omega_{k,xx}-\partial_x[(u_k+2a)\omega_k-hu_k].}{\tag{53}}
 
-Adding the two relations in (53) uses \(r_{k,x}^2+q_{k,x}^2=(u_k^2+\omega_k^2)/2\). Apply \(\partial_x\Delta_h\) to the sum. Since (57) implies \(4\Delta_h\partial_x\log f_k=v_k+\Delta_hu_k\), the second derivatives combine to give the first equation in (58).
+Adding the two relations in (44) uses \(r_{k,x}^2+q_{k,x}^2=(u_k^2+\omega_k^2)/2\). Apply \(\partial_x\Delta_h\) to the sum. Since (48) implies \(4\Delta_h\partial_x\log f_k=v_k+\Delta_hu_k\), the second derivatives combine to give the first equation in (49).
 
 Differentiating \(v_k=\Delta_hu_k+2(\omega_k+\omega_{k-1})/h\) in \(t\) and twice in \(x\) gives
 
 \paperdisplay{\begin{aligned}
 v_{k,t}&=\Delta_hu_{k,t}+\frac2h(\omega_{k,t}+\omega_{k-1,t}),\\
 v_{k,xx}&=\partial_x^2\Delta_hu_k+\frac2h(\omega_{k,xx}+\omega_{k-1,xx}).
-\end{aligned}}{\tag{63}}
-Substitution of (62) and the first equation of (58), followed by the second identity in (63), gives the second equation of (58).
+\end{aligned}}{\tag{54}}
+Substitution of (53) and the first equation of (49), followed by the second identity in (54), gives the second equation of (49).
 \end{proof}
 
 \subsection{Darboux–Lax representations}
 
-Assume that the tau functions are positive, sufficiently smooth solutions of (48) and (56), with the compatible lower trace in (59) for Centered-SD. Let \(Y\) denote the backward shift, \((Y\psi)_k=\psi_{k-1}\). For each tau pair, set
-\paperdisplay{S_k=2\partial_x^2\log f_k.}{\tag{64}}
-
-\begin{samepage}
-\noindent\textbf{Endpoint-SD.} For the physical fields (49), define
+The two tau pairings in (18) also give compatible linear equations. Assume that the tau functions are positive, sufficiently smooth solutions of (18), and use the logarithmic ratios \(r_k,q_k\) in (43). For Endpoint-SD take \(b=a\); for Centered-SD take \(b=a+h/2\), with the compatible lower trace in (50). Define the operators on a sequence \(\psi=(\psi_k)\) by
 \paperdisplay{\begin{aligned}
-L^{\mathrm E}&=\left(\partial_x+\frac{u_{k-1}}2\right)Y
--\left(\partial_x+\frac{u_k+u_{k-1}+hv_k}{4}-h\right),\\
-M^{\mathrm E}&=\partial_x^2-2a\partial_x+S_k.
-\end{aligned}}{\tag{65}}
-\noindent\textbf{Centered-SD.} For the physical fields (57), define
-\paperdisplay{\begin{aligned}
-L^{\mathrm C}&=\left(\partial_x+\frac{u_{k-1}-\omega_{k-1}}2\right)Y
--\left(\partial_x+\frac{u_k+\omega_k}2-h\right),\\
-M^{\mathrm C}&=\partial_x^2-(2a+h)\partial_x+S_k.
-\end{aligned}}{\tag{66}}
-\end{samepage}
+(L\psi)_k&=(\partial_x+r_{k-1,x})\psi_{k-1}
+ -(\partial_x+q_{k,x}-h)\psi_k,\\
+(M\psi)_k&=(\partial_x^2-2b\partial_x+2\partial_x^2\log f_k)\psi_k.
+\end{aligned}}{\tag{55}}
+Thus \(L\) relates neighbouring lattice sites, while \(M\) governs the time evolution at each site. In the physical variables these operators are as follows.
 
-Write \([L,M]=LM-ML\).
+\noindent\textbf{Endpoint-SD.} The relations (45) give
+\paperdisplay{\begin{aligned}
+(L^{\mathrm E}\psi)_k&=\left(\partial_x+\frac{u_{k-1}}2\right)\psi_{k-1}
+ -\left(\partial_x+\frac{u_k+u_{k-1}+hv_k}{4}-h\right)\psi_k,\\
+(M^{\mathrm E}\psi)_k&=\left(\partial_x^2-2a\partial_x+2\partial_x^2\log f_k\right)\psi_k.
+\end{aligned}}{\tag{56}}
+
+\noindent\textbf{Centered-SD.} The centered field definitions give
+\paperdisplay{\begin{aligned}
+(L^{\mathrm C}\psi)_k&=\left(\partial_x+\frac{u_{k-1}-\omega_{k-1}}2\right)\psi_{k-1}
+ -\left(\partial_x+\frac{u_k+\omega_k}2-h\right)\psi_k,\\
+(M^{\mathrm C}\psi)_k&=\left(\partial_x^2-(2a+h)\partial_x+2\partial_x^2\log f_k\right)\psi_k.
+\end{aligned}}{\tag{57}}
+
+Write \([L,M]=LM-ML\). The following proposition gives the compatibility relation for the auxiliary equations \(L\psi=0\), \(\psi_t=M\psi\).
 
 \begin{prop}
-The operators (65)–(66) satisfy
+The operators (56)–(57) satisfy, componentwise,
 \begin{align*}
-L_t^{\mathrm E}+[L^{\mathrm E},M^{\mathrm E}]
-&=-\frac12\,\partial_x(u_k+u_{k-1}+hv_k)\,L^{\mathrm E},\tag{67}\\
-L_t^{\mathrm C}+[L^{\mathrm C},M^{\mathrm C}]
-&=-\partial_x(u_k+\omega_k)\,L^{\mathrm C}.\tag{68}
+(L^{\mathrm E})_t+[L^{\mathrm E},M^{\mathrm E}]
+&=-\frac12\partial_x(u_k+u_{k-1}+hv_k)L^{\mathrm E},\tag{58}\\
+(L^{\mathrm C})_t+[L^{\mathrm C},M^{\mathrm C}]
+&=-\partial_x(u_k+\omega_k)L^{\mathrm C}.\tag{59}
 \end{align*}
 \end{prop}
 
-These identities give the compatible linear systems \(L^{\mathrm E}\psi^{\mathrm E}=0\), \(\psi_t^{\mathrm E}=M^{\mathrm E}\psi^{\mathrm E}\) and \(L^{\mathrm C}\psi^{\mathrm C}=0\), \(\psi_t^{\mathrm C}=M^{\mathrm C}\psi^{\mathrm C}\).
-
 \begin{proof}
-Use the logarithmic ratios (52), with \(b=a\) for Endpoint-SD and \(b=a+h/2\) for Centered-SD. Set
-\paperdisplay{A_k=r_{k-1,x},\qquad C_k=q_{k,x}-h,}{\tag{69}}
-so the two operator pairs have the common form
-\paperdisplay{L=(\partial_x+A_k)Y-(\partial_x+C_k),\qquad
-M=\partial_x^2-2b\partial_x+S_k.}{\tag{70}}
-The identity \(q_k-r_{k-1}=\log f_k-\log f_{k-1}\) and the \(x\) derivatives of (53) give
-\begin{align*}
-S_k-S_{k-1}&=2(C_k-A_k)_x,\tag{71}\\
-(A_k)_t&=(A_k)_{xx}-2(b+A_k)(A_k)_x-(S_{k-1})_x,\tag{72}\\
-(C_k)_t&=(C_k)_{xx}-2(b+C_k)(C_k)_x-(S_k)_x.\tag{73}
-\end{align*}
+The first bilinear equation at site \(k-1\) and the second at site \(k\) give two solutions of the time equation at the respective sites,
+\paperdisplay{\begin{aligned}
+\partial_t\left(\frac{g_{k-1}}{f_{k-1}}\right)
+ &=\left(\partial_x^2-2b\partial_x+2\partial_x^2\log f_{k-1}\right)
+ \frac{g_{k-1}}{f_{k-1}},\\
+\partial_t\left(e^{hx+(h^2-2bh)t}\frac{g_{k-1}}{f_k}\right)
+ &=\left(\partial_x^2-2b\partial_x+2\partial_x^2\log f_k\right)
+ \left(e^{hx+(h^2-2bh)t}\frac{g_{k-1}}{f_k}\right).
+\end{aligned}}{\tag{60}}
+Their logarithmic derivatives give the Darboux factors \(\partial_x+r_{k-1,x}\) and \(\partial_x+q_{k,x}-h\) appearing in \(L\). Both factors transform their time operators to the same operator, because
+\paperdisplay{\begin{aligned}
+2\partial_x^2\log f_{k-1}-2r_{k-1,xx}
+ &=2\partial_x^2\log g_{k-1},\\
+2\partial_x^2\log f_k-2q_{k,xx}
+ &=2\partial_x^2\log g_{k-1}.
+\end{aligned}}{\tag{61}}
+The Darboux intertwining relations therefore imply
+\paperdisplay{\big((L_t+[L,M])\psi\big)_k=-2q_{k,xx}(L\psi)_k.}{\tag{62}}
+Appendix C gives the component calculation directly from (44). Substituting the physical field definitions into \(q_{k,x}\) proves (58)–(59). Along \(\psi_t=M\psi\), (62) becomes
+\paperdisplay{\partial_t(L\psi)_k=
+\left(\partial_x^2-2b\partial_x+2\partial_x^2\log g_{k-1}\right)(L\psi)_k.}{\tag{63}}
+Hence the time evolution preserves the lattice equation \(L\psi=0\).
 
-Expand \(L_t+LM-(M-2C_{k,x})L\) by the product rule and the backward shift of coefficients. The coefficient of \(\partial_xY\) is \(S_{k-1}-S_k+2(C_k-A_k)_x\), which vanishes by (71). After this substitution, the coefficients of \(Y\) and the identity operator vanish by (72) and (73), while the coefficient of \(\partial_x\) cancels identically. Thus
-\paperdisplay{L_t+[L,M]=-2C_{k,x}L.}{\tag{74}}
-Appendix C records the full operator expansion. For Endpoint-SD, (54) gives \(2C_{k,x}=\tfrac12\partial_x(u_k+u_{k-1}+hv_k)\). For Centered-SD, \(q_{k,x}=(u_k+\omega_k)/2\) gives \(2C_{k,x}=\partial_x(u_k+\omega_k)\). These substitutions prove (67)–(68). Along \(\psi_t=M\psi\), the same identity gives \(\partial_t(L\psi)=(M-2C_{k,x})(L\psi)\), so the lattice constraint is preserved.
-
-The coefficient relations also recover the nonlinear equations. For Endpoint-SD, substituting (54) into (71)–(73) yields
-\begin{align*}
-u_{k,t}&=u_{k,xx}-(u_k+2a)u_{k,x}-2(S_k)_x,\tag{75}\\
-\Delta_hS_k&=\frac12\partial_x(v_k+\Delta_hu_k).\tag{76}
-\end{align*}
-Taking a lattice difference of the first relation and using the second gives (50). The identity \(h v_{k,t}=4C_{k,t}-u_{k,t}-u_{k-1,t}\), together with (73), gives (51).
-
-For Centered-SD, \(C_k-A_{k+1}=\omega_k-h\). Subtracting the forward shift of (72) from (73) gives the auxiliary evolution (62), while (71) again gives (76). Adding (62) to twice the forward shift of (72), and using \(u_k=2A_{k+1}+\omega_k\), yields
-\paperdisplay{u_{k,t}=u_{k,xx}-\partial_x[\frac12u_k^2+2au_k+\omega_k^2/2-h\omega_k]-2(S_k)_x.}{\tag{77}}
-Its lattice difference, together with (76), gives the first equation in (58). Differentiating \(v_k=\Delta_hu_k+2(\omega_k+\omega_{k-1})/h\) in time and substituting (62) gives the second equation. Appendix C records the intermediate substitutions for this reconstruction.
+The coefficient relations also recover the nonlinear field equations. For Endpoint-SD they give
+\paperdisplay{\begin{aligned}
+u_{k,t}&=u_{k,xx}-(u_k+2a)u_{k,x}-4\partial_x^3\log f_k,\\
+\Delta_h(2\partial_x^2\log f_k)&=\frac12\partial_x(v_k+\Delta_hu_k).
+\end{aligned}}{\tag{64}}
+For Centered-SD the corresponding evolution is
+\paperdisplay{u_{k,t}=u_{k,xx}-\partial_x\left[\frac12u_k^2+2au_k+\frac12\omega_k^2-h\omega_k\right]-4\partial_x^3\log f_k.}{\tag{65}}
+Taking lattice differences and using the field reconstructions yields (41)–(42) and (49). The substitutions for the second fields are recorded in Appendix C.
 \end{proof}
 
 \subsection{Continuous limit and approximation of the physical fields}
@@ -501,50 +465,50 @@ The smooth reconstruction assumption below is stated in terms of \(W\).
 \begin{prop}
 On a fixed compact region, suppose the lattice fields admit smooth reconstructions \(u(x,y,t),v(x,y,t)\), with the derivatives required below bounded uniformly as \(h\to0\).
 
-\noindent\textbf{Endpoint-SD.} For solutions of (50)–(51), the reconstructed fields satisfy
+\noindent\textbf{Endpoint-SD.} For solutions of (41)–(42), the reconstructed fields satisfy
 
 \paperdisplay{\begin{aligned}
 u_{yt}&=-v_{xx}-\partial_x[(u+2a)u_y]+O(h^2),\\[2mm]
 v_t&=-u_{xxy}-\partial_x[(u+2a)v-4u]\\
 &\quad-\frac h4\partial_x(v^2-u_y^2-8v)+O(h^2).
-\end{aligned}}{\tag{78}}
-\noindent\textbf{Centered-SD.} For solutions of (58), assume the recurrence (59) selects a smooth reconstructed family with \(W=v-u_y+O(h^2)\), including the derivative bounds required in the equations. Then
+\end{aligned}}{\tag{66}}
+\noindent\textbf{Centered-SD.} For solutions of (49), assume the recurrence (50) selects a smooth reconstructed family with \(W=v-u_y+O(h^2)\), including the derivative bounds required in the equations. Then
 
 \paperdisplay{\begin{aligned}
 u_{yt}&=-v_{xx}-\partial_x[(u+2a)u_y]+O(h^2),\\[2mm]
 v_t&=-u_{xxy}-\partial_x[(u+2a)v-4u]+O(h^2).
-\end{aligned}}{\tag{79}}
+\end{aligned}}{\tag{67}}
 All continuous quantities are evaluated at the corresponding edge midpoint. Under these smoothness and reconstruction assumptions, sampling a solution of the continuous DLW system gives defects of orders \(O(h^2)\) and \(O(h)\) in the two Endpoint-SD equations, and \(O(h^2)\) in both Centered-SD equations.
 \end{prop}
 \end{samepage}
 
 \begin{proof}
-Midpoint expansion gives \(\Delta_hu=u_y+h^2u_{yyy}/24+O(h^4)\) and \(\frac{u(y+h/2)+u(y-h/2)}2=u+h^2u_{yy}/8+O(h^4)\). The first Endpoint-SD equation therefore gives the first relation in (78). In its second equation, the flux becomes 
-\paperdisplay{(u+2a)v-4u+u_{xy}+\frac h4(v^2-u_y^2-8v)+O(h^2),}{\tag{80}}
-which gives the second relation in (78) after differentiation in \(x\).
+Midpoint expansion gives \(\Delta_hu=u_y+h^2u_{yyy}/24+O(h^4)\) and \(\frac{u(y+h/2)+u(y-h/2)}2=u+h^2u_{yy}/8+O(h^4)\). The first Endpoint-SD equation therefore gives the first relation in (66). In its second equation, the flux becomes
+\paperdisplay{(u+2a)v-4u+u_{xy}+\frac h4(v^2-u_y^2-8v)+O(h^2),}{\tag{68}}
+which gives the second relation in (66) after differentiation in \(x\).
 
 For Centered-SD, the reconstruction has the expansion 
-\paperdisplay{v=u_y+W+h^2\left(\frac{u_{yyy}}{24}+\frac{W_{yy}}8\right)+O(h^4).}{\tag{81}}
-The extra flux in its first equation is \(\omega^2/2-h\omega=h^2(W^2/32-W/4)\). On the stated smooth family, its lattice difference and subsequent \(x\) derivative are \(O(h^2)\), which gives the first relation in (79).
+\paperdisplay{v=u_y+W+h^2\left(\frac{u_{yyy}}{24}+\frac{W_{yy}}8\right)+O(h^4).}{\tag{69}}
+The extra flux in its first equation is \(\omega^2/2-h\omega=h^2(W^2/32-W/4)\). On the stated smooth family, its lattice difference and subsequent \(x\) derivative are \(O(h^2)\), which gives the first relation in (67).
 
-Scaling (62) gives \(W_t=W_{xx}-\partial_x[(u+2a)W-4u]\). Differentiating the reconstruction in time and using this equation, the right-hand side for \(v_t\) is 
+Scaling (53) gives \(W_t=W_{xx}-\partial_x[(u+2a)W-4u]\). Differentiating the reconstruction in time and using this equation, the right-hand side for \(v_t\) is
 \paperdisplay{\begin{aligned}
 &-\partial_y\partial_x\left(\frac12u^2+2au\right)-v_{xx}+(v-u_y)_{xx}
 -\partial_x[(u+2a)(v-u_y)-4u]+O(h^2)\\
 &=-u_{xxy}-\partial_x[(u+2a)v-4u]+O(h^2).
-\end{aligned}}{\tag{82}}
-This proves (79).
+\end{aligned}}{\tag{70}}
+This proves (67).
 \end{proof}
 
-The smooth-family assumption includes the lower trace in the reconstruction (59), together with the resulting spatial derivatives. For matched exact waves, this expansion follows from the Gram formulas.
+The smooth-family assumption includes the lower trace in the reconstruction (50), together with the resulting spatial derivatives. For matched exact waves, this expansion follows from the Gram formulas.
 
-Fix the spectral parameters \(p_i,q_j\) of the continuous family (6)–(7). Their combined phase is \((p_i+q_j)x+(q_j^2-p_i^2)t+[(p_i-a)^{-1}+(q_j+a)^{-1}]y\). To match this family, evaluate the Centered-SD Gram formula (43) at the shifted parameters \(p_i-h/2\) and \(q_j+h/2\), with \(c_{ij}=\delta_{ij}\) and \(\alpha_i\beta_j=-\rho_i((p_i-a)-h/2)/((q_j+a)+h/2)\). The \(x,t\) phase then agrees exactly with the continuous one, and the \(y\) phase rate is
-\paperdisplay{\begin{aligned}\frac1h\log\frac{(p_i-a+h/2)(q_j+a+h/2)}{(p_i-a-h/2)(q_j+a-h/2)}&=\frac1{p_i-a}+\frac1{q_j+a}+O(h^2).\end{aligned}}{\tag{83}}
-At their respective staggered positions, the \(g\) amplitude agrees with the continuous amplitude, while the \(f\) amplitude differs by the factor \(\sqrt{(1-h^2/(4(p_i-a)^2))/(1-h^2/(4(q_j+a)^2))}=1+O(h^2)\). For nonzero spectral denominators, sufficiently small \(h\), and positive tau functions bounded away from zero on the fixed region, the determinants and their required derivatives therefore differ from the continuous counterparts by \(O(h^2)\). Symmetric averaging in (57) gives \(u_h=u+O(h^2)\); applying the midpoint difference to the logarithmic potential gives \(v_h=v+O(h^2)\). Thus both exact physical fields approximate their continuous counterparts at second order.
+Fix the spectral parameters \(p_i,q_j\) of the continuous family (6)–(7). Their combined phase is \((p_i+q_j)x+(q_j^2-p_i^2)t+[(p_i-a)^{-1}+(q_j+a)^{-1}]y\). To match this family, evaluate the Centered-SD Gram formula (34) at the shifted parameters \(p_i-h/2\) and \(q_j+h/2\), with \(c_{ij}=\delta_{ij}\) and \(\alpha_i\beta_j=-\rho_i((p_i-a)-h/2)/((q_j+a)+h/2)\). The \(x,t\) phase then agrees exactly with the continuous one, and the \(y\) phase rate is
+\paperdisplay{\begin{aligned}\frac1h\log\frac{(p_i-a+h/2)(q_j+a+h/2)}{(p_i-a-h/2)(q_j+a-h/2)}&=\frac1{p_i-a}+\frac1{q_j+a}+O(h^2).\end{aligned}}{\tag{71}}
+At their respective staggered positions, the \(g\) amplitude agrees with the continuous amplitude, while the \(f\) amplitude differs by the factor \(\sqrt{(1-h^2/(4(p_i-a)^2))/(1-h^2/(4(q_j+a)^2))}=1+O(h^2)\). For nonzero spectral denominators, sufficiently small \(h\), and positive tau functions bounded away from zero on the fixed region, the determinants and their required derivatives therefore differ from the continuous counterparts by \(O(h^2)\). Symmetric averaging in (48) gives \(u_h=u+O(h^2)\); applying the midpoint difference to the logarithmic potential gives \(v_h=v+O(h^2)\). Thus both exact physical fields approximate their continuous counterparts at second order.
 
 The extra flux also distinguishes the initial derivative errors of the two semi-discrete formulations. With common continuous physical samples and the same lower value of \(u_t\), subtracting their first equations and summing along the lattice gives 
-\paperdisplay{(u_{k,t})_{\mathrm C}-(u_{k,t})_{\mathrm E} =-\partial_x\left[\left(\frac{\omega_k^2}{2}-h\omega_k\right)-\left(\frac{\omega_0^2}{2}-h\omega_0\right)\right].}{\tag{84}}
-On the smooth reconstructed family, this difference is \(O(h^2)\). The two formulations therefore share the second-order approximation of the first equation while retaining different leading derivative errors. This identity connects the nonlinear flux to the initial spatial comparisons in Section 5.2. The midpoint expansions behind (78) and (79) are given in Appendix C.
+\paperdisplay{(u_{k,t})_{\mathrm C}-(u_{k,t})_{\mathrm E} =-\partial_x\left[\left(\frac{\omega_k^2}{2}-h\omega_k\right)-\left(\frac{\omega_0^2}{2}-h\omega_0\right)\right].}{\tag{72}}
+On the smooth reconstructed family, this difference is \(O(h^2)\). The two formulations therefore share the second-order approximation of the first equation while retaining different leading derivative errors. This identity connects the nonlinear flux to the initial spatial comparisons in Section 5.2. The midpoint expansions behind (66) and (67) are given in Appendix C.
 
 
 \FloatBarrier
@@ -557,18 +521,18 @@ In this section, we develop numerical formulations for computing the physical fi
 
 We first discretize the remaining \(x\) derivatives to obtain systems that can be advanced in time. Endpoint-SD, Centered-SD, and the direct finite-difference baseline use the same Fourier differentiation in \(x\), providing a common longitudinal approximation for examining their different transverse formulations. Write the periodic interval as \([-L,L)\), where \(L\) is its half-width and the period is \(2L\). On Fourier mode \(m\), the numerical operators \(\widetilde{\partial}_x\) and \(\widetilde{\partial}_{xx}\) have multipliers \(\mathrm i\pi m/L\) and \(-(\pi m/L)^2\), respectively. The first-derivative multiplier is set to zero at the Nyquist frequency, and nonlinear products are evaluated at the grid points. Throughout the numerical formulation, the tilde denotes the numerical derivative in the physical coordinate x. This subsection uses Fourier differentiation. Section 4.3 specifies the mapped three-point realization used for both meshes in the fixed-versus-adaptive comparison.
 
-Both semi-discrete formulations place \(u\) at nodes and \(v\) at edge midpoints; FD places both fields at nodes. We use the backward transverse difference (47) and write adjacent averages and centered transverse differences explicitly. Recalling the physical-field equations (50)–(51), Endpoint-SD takes the form
+Both semi-discrete formulations place \(u\) at nodes and \(v\) at edge midpoints; FD places both fields at nodes. We use the backward transverse difference (38) and write adjacent averages and centered transverse differences explicitly. Recalling the physical-field equations (41)–(42), Endpoint-SD takes the form
 
-\paperdisplay{\begin{aligned}\Delta_h\dot u_k&=-\widetilde{\partial}_x\Delta_h\left(\frac12u_k^2+2au_k\right)-\widetilde{\partial}_{xx}v_k,\\\dot v_k&=-\widetilde{\partial}_x\Bigg[\left(\frac{u_k+u_{k-1}}2+2a-2h\right)v_k+\frac h4v_k^2\\&\hspace{24mm}-2(u_k+u_{k-1})-\frac h4(\Delta_hu_k)^2\Bigg]-\widetilde{\partial}_{xx}\Delta_hu_k.\end{aligned}}{\tag{85}}
+\paperdisplay{\begin{aligned}\Delta_h\dot u_k&=-\widetilde{\partial}_x\Delta_h\left(\frac12u_k^2+2au_k\right)-\widetilde{\partial}_{xx}v_k,\\\dot v_k&=-\widetilde{\partial}_x\Bigg[\left(\frac{u_k+u_{k-1}}2+2a-2h\right)v_k+\frac h4v_k^2\\&\hspace{24mm}-2(u_k+u_{k-1})-\frac h4(\Delta_hu_k)^2\Bigg]-\widetilde{\partial}_{xx}\Delta_hu_k.\end{aligned}}{\tag{73}}
 
 For Centered-SD, the field definition in Section 3.2 gives \(v_k=\Delta_hu_k+2(\omega_k+\omega_{k-1})/h\). We retain this relation in the numerical formulation. The equations for the time derivatives are
 
-\paperdisplay{\begin{aligned}\Delta_h\dot u_k&=-\widetilde{\partial}_x\Delta_h[\frac12u_k^2+2au_k+\omega_k^2/2-h\omega_k]-\widetilde{\partial}_{xx}v_k,\\\dot\omega_k&=\widetilde{\partial}_{xx}\omega_k-\widetilde{\partial}_x[(u_k+2a)\omega_k-hu_k],\\\dot v_k&=\Delta_h\dot u_k+\frac2h(\dot\omega_k+\dot\omega_{k-1}).\end{aligned}}{\tag{86}}
+\paperdisplay{\begin{aligned}\Delta_h\dot u_k&=-\widetilde{\partial}_x\Delta_h[\frac12u_k^2+2au_k+\omega_k^2/2-h\omega_k]-\widetilde{\partial}_{xx}v_k,\\\dot\omega_k&=\widetilde{\partial}_{xx}\omega_k-\widetilde{\partial}_x[(u_k+2a)\omega_k-hu_k],\\\dot v_k&=\Delta_h\dot u_k+\frac2h(\dot\omega_k+\dot\omega_{k-1}).\end{aligned}}{\tag{74}}
 The first equation is summed from the prescribed lower value of \(\dot u\). Advancing \((u,\omega)\) and recovering \(v\) through the field relation implements the physical-field equations of Proposition 3.2. The same differentiated relation supplies \(\dot v\) when measuring the initial spatial error.
 
 For comparison, direct discretization of the continuous DLW system gives the FD baseline,
 
-\paperdisplay{\begin{aligned}\Delta_h\dot u_k&=-\widetilde{\partial}_x\Delta_h\left(\frac12u_k^2+2au_k\right)-\widetilde{\partial}_{xx}\frac{v_k+v_{k-1}}2,\\\dot v_k&=-\widetilde{\partial}_x[(u_k+2a)v_k-4u_k]-\widetilde{\partial}_{xx}\frac{u_{k+1}-u_{k-1}}{2h}.\end{aligned}}{\tag{87}}
+\paperdisplay{\begin{aligned}\Delta_h\dot u_k&=-\widetilde{\partial}_x\Delta_h\left(\frac12u_k^2+2au_k\right)-\widetilde{\partial}_{xx}\frac{v_k+v_{k-1}}2,\\\dot v_k&=-\widetilde{\partial}_x[(u_k+2a)v_k-4u_k]-\widetilde{\partial}_{xx}\frac{u_{k+1}-u_{k-1}}{2h}.\end{aligned}}{\tag{75}}
 
 The three spatial formulations use the same Fourier differentiation in \(x\) and the prescribed lower-boundary data for recovering the \(u\) time derivative. Their different approximations enter through the transverse differences, nonlinear fluxes, and placement of the physical fields. This common numerical setting allows us to examine how the endpoint and centered lattice constructions affect the computed waves, with direct finite differences providing a reference discretization of the continuous equations. It also connects the consistency analysis of Section 3 with the spatial errors measured in the numerical experiments.
 
@@ -580,20 +544,20 @@ In this subsection, we specify the initial and boundary data and describe how th
 \[\boldsymbol z=\begin{cases}(u_k,v_k)_k,&\text{Endpoint-SD and FD},\\(u_k,\omega_k)_k,&\text{Centered-SD}.\end{cases}\]
 Each component includes its values at all longitudinal nodes. Centered-SD reconstructs \(v\) through the relation in Section 4.1. At each stage, the current state and the prescribed boundary data supply the time derivatives required by the integrator. We use forward Euler, classical RK4, and Crank–Nicolson to examine how different temporal approximations affect the computed physical fields.
 
-For Centered-SD, the initial lower auxiliary value is \(\omega_0=h(v^*-u_y^*)/4\), evaluated at the lower node. The remaining values follow from the linear reconstruction (59),
+For Centered-SD, the initial lower auxiliary value is \(\omega_0=h(v^*-u_y^*)/4\), evaluated at the lower node. The remaining values follow from the linear reconstruction (50),
 
-\paperdisplay{\omega_k=\frac h2(v_k-\Delta_hu_k)-\omega_{k-1}.}{\tag{88}}
+\paperdisplay{\omega_k=\frac h2(v_k-\Delta_hu_k)-\omega_{k-1}.}{\tag{76}}
 This recurrence reproduces the prescribed physical field \(v\) on every internal edge. During evolution, the lower auxiliary value follows the same \(\omega\) equation as the interior values. The lower value of \(u_t\) is supplied by the continuous reference solution at every stage.
 
 Endpoint-SD uses the prescribed lower derivative and the continuous lower ghost value of \(u\) in its backward lattice relations. For FD, the lower data are supplied in the same way, while the upper ghost value extrapolates the departure from the continuous reference. Writing \(e_k=u_k-u_k^*\), this closure is \(u_{N+1}=u_{N+1}^*+3e_N-3e_{N-1}+e_{N-2}\). The reference values are evaluated at the current stage time. Fourier differentiation acts on a periodic \(x\) interval extending beyond the principal wave profiles; the products are evaluated at the nodes without filtering, dealiasing or artificial viscosity.
 
 Let \(t_n=n\Delta t\), and let \(\boldsymbol z^n\) denote the state at \(t_n\). Writing the evolution equations as \(\dot{\boldsymbol z}=F(t,\boldsymbol z)\), forward Euler advances the state by \(\boldsymbol z^{n+1}=\boldsymbol z^n+\Delta t F(t_n,\boldsymbol z^n)\). Classical RK4 uses four stage derivatives,
 
-\paperdisplay{\begin{aligned}K_1&=F(t_n,\boldsymbol z^n),&K_2&=F(t_n+\Delta t/2,\boldsymbol z^n+\Delta t K_1/2),\\K_3&=F(t_n+\Delta t/2,\boldsymbol z^n+\Delta t K_2/2),&K_4&=F(t_n+\Delta t,\boldsymbol z^n+\Delta t K_3),\\\boldsymbol z^{n+1}&=\boldsymbol z^n+\frac{\Delta t}{6}(K_1+2K_2+2K_3+K_4).\end{aligned}}{\tag{89}}
+\paperdisplay{\begin{aligned}K_1&=F(t_n,\boldsymbol z^n),&K_2&=F(t_n+\Delta t/2,\boldsymbol z^n+\Delta t K_1/2),\\K_3&=F(t_n+\Delta t/2,\boldsymbol z^n+\Delta t K_2/2),&K_4&=F(t_n+\Delta t,\boldsymbol z^n+\Delta t K_3),\\\boldsymbol z^{n+1}&=\boldsymbol z^n+\frac{\Delta t}{6}(K_1+2K_2+2K_3+K_4).\end{aligned}}{\tag{77}}
 
 Crank–Nicolson determines the next state from
 
-\paperdisplay{\boldsymbol z^{n+1}=\boldsymbol z^n+\frac{\Delta t}{2}\bigl[F(t_n,\boldsymbol z^n)+F(t_{n+1},\boldsymbol z^{n+1})\bigr].}{\tag{90}}
+\paperdisplay{\boldsymbol z^{n+1}=\boldsymbol z^n+\frac{\Delta t}{2}\bigl[F(t_n,\boldsymbol z^n)+F(t_{n+1},\boldsymbol z^{n+1})\bigr].}{\tag{78}}
 We solve the implicit step by fixed-point iteration from an Euler prediction, using the scaled state \((u,W)\), where \(W=4\omega/h\). Appendix D gives the residual tolerance and the tighter-tolerance control calculation.
 
 The spatial and temporal comparisons in Sections 5.2 and 5.3 use \(\Delta t=10^{-4}\) and \(T=0.01\); the mesh experiments in Section 5.4 use RK4 with the same step size and final time. In each comparison, the advanced state is expressed in terms of the physical fields \(u\) and \(v\) for error evaluation. This provides a common basis for assessing the numerical evolution across formulations with different state variables. With the spatial operators and boundary treatment fixed, the time-integrator comparisons then allow us to follow how the temporal approximation influences the accumulation of errors in the two coupled fields.
@@ -605,32 +569,32 @@ The spatial variation of a wave is often concentrated in a small part of the com
 
 To establish the conservation law, we introduce the density \(\rho_k=1-\omega_k/h\) and define the associated flux \(q_k\) by
 
-\paperdisplay{\rho_k=1-\frac{\omega_k}{h},\qquad q_k=(u_k+2a)\rho_k-\partial_x\rho_k-2a.}{\tag{91}}
+\paperdisplay{\rho_k=1-\frac{\omega_k}{h},\qquad q_k=(u_k+2a)\rho_k-\partial_x\rho_k-2a.}{\tag{79}}
 Substituting \(\omega_k=h(1-\rho_k)\) into the auxiliary equation of Centered-SD gives \(\partial_t\rho_k+\partial_xq_k=0\). We choose the additive constant in \(q_k\) so that the flux vanishes on the zero-field background. This conservation relation connects the evolution of the density to its spatial transport and forms the basis of the mesh construction below.
 
 Since all layers share the same \(x\) nodes, we average the density and the flux over the stored layers,
 
-\paperdisplay{\bar\rho=\frac1{N_y}\sum_k\rho_k,\qquad \bar q=\frac1{N_y}\sum_k q_k,}{\tag{92}}
+\paperdisplay{\bar\rho=\frac1{N_y}\sum_k\rho_k,\qquad \bar q=\frac1{N_y}\sum_k q_k,}{\tag{80}}
 and the averaged quantities satisfy the same conservation relation.
 
 On a periodic interval of length \(2L\), the initial nodes equidistribute the cumulative density. Fixing a reference node \(x_0\), we require
 
-\paperdisplay{\int_{x_0}^{x_i(0)}\bar\rho\,dx=\frac{i}{N_x}\int_{x_0}^{x_0+2L}\bar\rho\,dx,\qquad i=0,\dots,N_x,}{\tag{93}}
+\paperdisplay{\int_{x_0}^{x_i(0)}\bar\rho\,dx=\frac{i}{N_x}\int_{x_0}^{x_0+2L}\bar\rho\,dx,\qquad i=0,\dots,N_x,}{\tag{81}}
 so intervals in regions of larger \(\bar\rho\) receive more nodes.
 
 During the evolution each node keeps its cumulative-density label, which is equivalent to preserving the mass of every cell \([x_i,x_{i+1}]\). This requires \(\bar\rho_i\mathcal V_i-\bar q_i\) to take the same value at every node. We choose that constant as the negative of the nodal mean of \(\bar q\), and the velocity is
 
-\paperdisplay{\dot x_i=\mathcal V_i=\frac{\bar q_i-\langle\bar q\rangle}{\bar\rho_i},\qquad \langle\bar q\rangle=\frac1{N_x}\sum_i\bar q_i.}{\tag{94}}
+\paperdisplay{\dot x_i=\mathcal V_i=\frac{\bar q_i-\langle\bar q\rangle}{\bar\rho_i},\qquad \langle\bar q\rangle=\frac1{N_x}\sum_i\bar q_i.}{\tag{82}}
 This choice gives zero density-weighted mean nodal velocity and keeps the mapping periodic. The construction requires \(\bar\rho>0\), and the ordering of the nodes is preserved while the discrete Jacobian remains positive.
 
 For the mesh comparison, both the fixed and adaptive calculations use mapped three-point differences in the longitudinal direction. Write \(\xi_i=\xi_0+i\Delta\xi\) for the fixed uniform computational grid and \(x_i=\xi_i+s_i\) for the physical nodes. Discretizing the chain rule gives
 
-\paperdisplay{\begin{aligned}&(\widetilde{\partial}_x f)_i=\frac{f_{i+1}-f_{i-1}}{2\Delta\xi\,J_i},\\&(\widetilde{\partial}_{xx}f)_i=\frac{f_{i+1}-2f_i+f_{i-1}}{(\Delta\xi)^2J_i^2}\\&\quad-\frac{(J_{i+1}-J_{i-1})(f_{i+1}-f_{i-1})}{4(\Delta\xi)^2J_i^3},\\&J_i=1+\frac{s_{i+1}-s_{i-1}}{2\Delta\xi}.\end{aligned}}{\tag{95}}
+\paperdisplay{\begin{aligned}&(\widetilde{\partial}_x f)_i=\frac{f_{i+1}-f_{i-1}}{2\Delta\xi\,J_i},\\&(\widetilde{\partial}_{xx}f)_i=\frac{f_{i+1}-2f_i+f_{i-1}}{(\Delta\xi)^2J_i^2}\\&\quad-\frac{(J_{i+1}-J_{i-1})(f_{i+1}-f_{i-1})}{4(\Delta\xi)^2J_i^3},\\&J_i=1+\frac{s_{i+1}-s_{i-1}}{2\Delta\xi}.\end{aligned}}{\tag{83}}
 Here \(J_i\) is the discrete Jacobian, and \(f_i\) denotes a sampled field. The formulas use centered three-point differences on the computational grid. Setting \(s_i=0\) gives \(J_i=1\) and the uniform-grid realization used in Section 5.4.
 
 Here \(i\) labels the moving longitudinal nodes and \(k\) labels the transverse layers. All layers share \(x_i(t)\) and its velocity \(\mathcal V_i\). A dot denotes the total time derivative along a moving node, so we advance
 
-\paperdisplay{\begin{aligned}\dot u_{i,k}&=F_{u,i,k}+\mathcal V_i(\widetilde{\partial}_xu)_{i,k},\\\dot\omega_{i,k}&=F_{\omega,i,k}+\mathcal V_i(\widetilde{\partial}_x\omega)_{i,k},\qquad\dot x_i=\mathcal V_i.\end{aligned}}{\tag{96}}
+\paperdisplay{\begin{aligned}\dot u_{i,k}&=F_{u,i,k}+\mathcal V_i(\widetilde{\partial}_xu)_{i,k},\\\dot\omega_{i,k}&=F_{\omega,i,k}+\mathcal V_i(\widetilde{\partial}_x\omega)_{i,k},\qquad\dot x_i=\mathcal V_i.\end{aligned}}{\tag{84}}
 Here \(F_{u,i,k}\) and \(F_{\omega,i,k}\) are the Centered-SD rates at fixed physical position, evaluated with the current mapped operators. The common node velocity retains the reconstruction of \(v\) across layers. At the lower transverse boundary \(k=0\), each longitudinal node uses
 
 \[\dot u_{i,0}=u_t^*(x_i(t),y_0,t)+\mathcal V_i u_x^*(x_i(t),y_0,t).\]
@@ -674,7 +638,7 @@ The two-soliton case (Figure 2) adds the spectral pair \((4,-3)\). Its \(u\) fie
 
 For the Gaussian and sinusoidal tests, take the separable initial fields
 
-\paperdisplay{\begin{aligned}u_0(x,y)&=A\sin\!\left[\frac{\pi(y+2)}4\right]F_0(x),\\v_0(x,y)&=4-\frac{3\pi A}{4}\cos\!\left[\frac{\pi(y+2)}4\right]F_0(x).\end{aligned}}{\tag{97}}
+\paperdisplay{\begin{aligned}u_0(x,y)&=A\sin\!\left[\frac{\pi(y+2)}4\right]F_0(x),\\v_0(x,y)&=4-\frac{3\pi A}{4}\cos\!\left[\frac{\pi(y+2)}4\right]F_0(x).\end{aligned}}{\tag{85}}
 The Gaussian test uses \(A=0.05\) with the periodic localized profile \(F_0(x)=\sum_{j\in\mathbb Z}\exp[-((x+192j)/6)^2]\), while the sinusoidal test uses \(A=0.03\) with \(F_0(x)=\cos(\pi x/12)\). Both problems are computed on the periodic interval \(x\in[-96,96)\) over the transverse strip \(y\in[-2,2]\) with homogeneous lower boundary data \(u=0\).
 
 These initial fields follow from the heat-equation and Laplace-transformation construction in Appendix E. Taking \(s(y)=A\sin[\pi(y+2)/4]/2\) gives \(u_0=2sF_0\) and \(v_0=4-6s_yF_0\), hence \(v_0=4-3u_{0y}\). Both profiles have explicit continuous references on \(0\le t\le0.01\). Appendix E establishes the initial matching, nonzero reconstruction denominators and reference-evaluation bounds.
@@ -685,7 +649,7 @@ The sinusoidal test (Figure 4) replaces the localized pulse in \(x\) by a period
 
 Each numerical method is initialized by sampling the continuous reference fields at its native grid locations. Recall that both semi-discrete formulations place \(u\) at transverse nodes and \(v\) at edge midpoints, whereas FD places both fields at the nodes. Errors are evaluated directly at these native sites inside the specified interior region (\(|x|\le R\) and \(|y|<R\) for the soliton tests, and all \(x\) nodes with \(|y|\le1.8\) for the Gaussian and sinusoidal tests). At the final time \(T=0.01\), we record the maximum absolute errors
 
-\paperdisplay{E_u(T)=\max_{\mathcal G_u}\left|u_h(T)-u^*(T)\right|,\qquad E_v(T)=\max_{\mathcal G_v}\left|v_h(T)-v^*(T)\right|,}{\tag{98}}
+\paperdisplay{E_u(T)=\max_{\mathcal G_u}\left|u_h(T)-u^*(T)\right|,\qquad E_v(T)=\max_{\mathcal G_v}\left|v_h(T)-v^*(T)\right|,}{\tag{86}}
 Here, \(\mathcal G_u\) and \(\mathcal G_v\) are the native field sites within the evaluation region. The initial derivative errors \(E_{u_t}\) and \(E_{v_t}\) are the maximum absolute differences between the spatially computed and exact continuous time derivatives at \(t=0\). They measure the spatial approximation before time integration. Bold table entries identify the smallest error for each case and field.
 
 
@@ -844,7 +808,7 @@ Table 4 reports the terminal errors. RK4 reproduces the Centered-SD values of Ta
 
 To see how the errors accumulate during the computation, we record the maximum absolute error over the native grid sites at every time step \(t_n=n\Delta t\),
 
-\paperdisplay{E_u^{(m)}(t_n)=\max_{\mathcal G_u}\left|u_h^{(m)}(t_n)-u^*(t_n)\right|,\qquad E_v^{(m)}(t_n)=\max_{\mathcal G_v}\left|v_h^{(m)}(t_n)-v^*(t_n)\right|,}{\tag{99}}
+\paperdisplay{E_u^{(m)}(t_n)=\max_{\mathcal G_u}\left|u_h^{(m)}(t_n)-u^*(t_n)\right|,\qquad E_v^{(m)}(t_n)=\max_{\mathcal G_v}\left|v_h^{(m)}(t_n)-v^*(t_n)\right|,}{\tag{87}}
 where \(m\) labels the time integrator. Because the grid point attaining the maximum can shift as the wave moves, these curves track the evolution of the worst-case error in each field across the domain.
 
 Figure 9 follows the maximum error in \(u\). The one-soliton, Gaussian, and sinusoidal cases show nearly linear accumulation, with \(E_u(t)/t\) varying by less than \(10\%\). The two-soliton curve steepens near the end of the interval, with this ratio increasing by \(36\%\) over the final tenth of the run. RK4 and Crank–Nicolson nearly coincide, while the Euler curve remains below them.
@@ -888,7 +852,7 @@ As seen in Figure 11, the equidistribution concentrates nodes in the region of l
 
 Table 5 compares the terminal errors at \(T=0.01\) on the uniform and adaptive meshes, measuring the relative improvement via
 
-\paperdisplay{\text{Reduction (\%)}=100\left(1-\frac{E_f^{\mathrm{adaptive}}(T)}{E_f^{\mathrm{uniform}}(T)}\right),\qquad f=u,v.}{\tag{100}}
+\paperdisplay{\text{Reduction (\%)}=100\left(1-\frac{E_f^{\mathrm{adaptive}}(T)}{E_f^{\mathrm{uniform}}(T)}\right),\qquad f=u,v.}{\tag{88}}
  
 \begin{table}[!htbp]
 \centering
@@ -911,7 +875,7 @@ Two-soliton & 5.533 \(\times\) 10\textsuperscript{-4} & 1.589 \(\times\) 10\text
 \end{adjustbox}
 \end{table}
 
-Positive percentages in (100) indicate a reduction in error. The adaptive mesh lowers the errors in both physical fields for both test problems: by \(11.7\%\) in \(u\) and \(17.4\%\) in \(v\) for the one-soliton case, and by \(6.0\%\) in \(u\) and \(5.6\%\) in \(v\) for the two-soliton case. These improvements are modest and commensurate with the \(3\%\)–\(10\%\) local spacing reductions shown in Figure 11, but they occur consistently across both components without degrading either field. Moreover, a control calculation in which the initially equidistributed nodes are held fixed in time (\(\mathcal V_i=0\)) yields reductions of \(12.8\%\) and \(16.3\%\) for the one-soliton case and \(5.3\%\) and \(5.8\%\) for the two-soliton case — within \(1.1\) percentage points of the moving-mesh values in Table 5. Over this short time interval, the accuracy gain therefore comes primarily from the initial density-adapted node placement rather than from dynamic node motion.
+Positive percentages in (88) indicate a reduction in error. The adaptive mesh lowers the errors in both physical fields for both test problems: by \(11.7\%\) in \(u\) and \(17.4\%\) in \(v\) for the one-soliton case, and by \(6.0\%\) in \(u\) and \(5.6\%\) in \(v\) for the two-soliton case. These improvements are modest and commensurate with the \(3\%\)–\(10\%\) local spacing reductions shown in Figure 11, but they occur consistently across both components without degrading either field. Moreover, a control calculation in which the initially equidistributed nodes are held fixed in time (\(\mathcal V_i=0\)) yields reductions of \(12.8\%\) and \(16.3\%\) for the one-soliton case and \(5.3\%\) and \(5.8\%\) for the two-soliton case — within \(1.1\) percentage points of the moving-mesh values in Table 5. Over this short time interval, the accuracy gain therefore comes primarily from the initial density-adapted node placement rather than from dynamic node motion.
 
 To show where this reduction takes place in space, Figure 12 plots the transverse-maximum error profiles \(\max_{|y|<5}|u_h-u^*|\) and \(\max_{|y|<5}|v_h-v^*|\) as functions of \(x\) for the one-soliton case. On the uniform mesh, the numerical error is not distributed evenly across the domain, but is localized along the central wave band \(x\in[-3,3]\). Because the conservation density \(\bar\rho\) peaks in this same band, the equidistribution shifts nodes from the quiet background directly into the region where the truncation error is generated. As a result, the adaptive mesh lowers the maximum errors and the main error peaks — reducing the main peak in \(u\) from \(6.74\times10^{-4}\) to \(5.95\times10^{-4}\) and lowering the broad plateau in \(v\) from \(1.40\times10^{-3}\) to \(1.16\times10^{-3}\). We also notice that the relative gain in the one-soliton test is larger for \(v\) (\(17.4\%\)) than for \(u\) (\(11.7\%\)). This is natural in the Centered-SD formulation: the monitor density \(\rho_k=1-\omega_k/h\) is a shifted rescaling of the auxiliary variable \(\omega_k\), which enters the staggered reconstruction \(v_k=\Delta_hu_k+\frac2h(\omega_k+\omega_{k-1})\) and specifically weights the part of \(v\) not captured by the backward difference of \(u\).
 
@@ -934,7 +898,7 @@ The preceding experiments start from prescribed reference wave fields and examin
 
 We examine this dependence on the same four backgrounds by perturbing \(u_0\) and \(v_0\) separately. For each spatial formulation, the perturbed evolution is measured relative to its own unperturbed trajectory. This separates the continuing response in the initially disturbed field from the response generated in the other component, allowing us to follow both processes over time. Let \(y_L,y_R\) be the endpoints of the transverse node interval for the chosen test. The two experiments add \(\varepsilon\Phi\) to \(u_0\) or \(v_0\), respectively, with
 
-\paperdisplay{\Phi(x,y)=\sin^2\!\left(\frac{\pi(y-y_L)}{y_R-y_L}\right)\cos\!\left(\frac{\pi x}{2}\right),\qquad\varepsilon=10^{-6}.}{\tag{101}}
+\paperdisplay{\Phi(x,y)=\sin^2\!\left(\frac{\pi(y-y_L)}{y_R-y_L}\right)\cos\!\left(\frac{\pi x}{2}\right),\qquad\varepsilon=10^{-6}.}{\tag{89}}
 The perturbation is sampled at each field's native sites. The transverse node intervals are \([-9.95,9.95]\) for the one-soliton case, \([-39.95,39.95]\) for the two-soliton case, and \([-2,2]\) for the Gaussian and sinusoidal cases. The envelope and its first derivative vanish at the transverse endpoints. All trajectories use \(h=\Delta x=0.1\), RK4, \(\Delta t=10^{-4}\), and \(T=0.01\), with the prescribed lower \(u\) trace and the boundary closures of Section 4.2.
 
 For each spatial formulation, let \((u_h^\varepsilon,v_h^\varepsilon)\) and \((u_h^0,v_h^0)\) be its perturbed and unperturbed numerical trajectories. We record \(\delta u_h=u_h^\varepsilon-u_h^0\) and \(\delta v_h=v_h^\varepsilon-v_h^0\), and plot their native-node maximum magnitudes divided by \(\varepsilon\) in the observation regions of Section 5.1. The initial ordinates are the maxima of the imposed perturbation sampled at those same sites. The nonlinear difference equations are advanced together with the corresponding background at every RK4 stage.
@@ -1003,52 +967,68 @@ Beyond the DLW system, this study suggests a way to organize the analysis and co
 
 Every field used in the main text is a logarithmic derivative of a \(\tau\) function, so its evaluation reduces to an identity for a determinant and for the derivatives of that determinant. This appendix records the three identities on which the reconstruction rests, together with the relation between the two determinant families and the explicit low-order members.
 
+\noindent\textbf{The adjacent-layer identity.} To apply [20, Lemma 2.1] to (22), take its variables \(x_1=x\), \(x_2=-t\), its parameter \(a=\sigma\), and its row and column spectral parameters \(p_i+b-a\) and \(q_j+a-b\). Introduce its auxiliary variable \(s\) by multiplying the nonconstant entry in (22) by
+\[
+\exp\!\left[s\left(\frac1{p_i+b-a-\sigma}
+             +\frac1{q_j+a-b+\sigma}\right)\right].
+\]
+The constant entry \(c_{ij}\) is independent of all variables. The row and column factors in the notation of that lemma can be chosen as
+\paperdisplay{\begin{aligned}
+\varphi_i^{(\ell)}&=a_i(p_i+b-a-\sigma)^\ell
+ e^{(p_i+b-a)x_1+(p_i+b-a)^2x_2+s/(p_i+b-a-\sigma)},\\
+\psi_j^{(\ell)}&=b_j\left(-\frac1{q_j+a-b+\sigma}\right)^\ell
+ e^{(q_j+a-b)x_1-(q_j+a-b)^2x_2+s/(q_j+a-b+\sigma)}.
+\end{aligned}}{\tag{A1}}
+Their product divided by \(p_i+q_j\) is the nonconstant Gram entry. Differentiation verifies the relations (15)–(16) of [20]; for example, the layer increment multiplies that entry by \(-(p_i+b-a-\sigma)/(q_j+a-b+\sigma)\), and its difference from one is \(-(p_i+q_j)/(q_j+a-b+\sigma)\). The auxiliary derivative multiplies it by \((p_i+q_j)/[(p_i+b-a-\sigma)(q_j+a-b+\sigma)]\). These are precisely the layer and auxiliary-variable relations in the lemma. Its first bilinear identity, restricted to \(s=0\) and \(x_2=-t\), gives (23).
+
+\noindent\textbf{Continuous-layer correspondence.} For the continuous family (6), choose \(c_{ij}=\delta_{ij}\), \(\alpha_i=-(p_i-a)\rho_i\), and \(\beta_j=(q_j+a)^{-1}\) in (21). At \(b=a\), the limit with \(kh=y\) is then \(\tau_{1-n}^{(0)}\). Thus the layers \(n=0,1\) converge to \(f=\tau_1^{(0)}\) and \(g=\tau_0^{(0)}\), respectively. For general \(b\), the same correspondence holds after replacing \(x\) by \(x-2(b-a)t\). This accounts for both the reciprocal layer convention and the amplitude factors.
+
 \noindent\textbf{Rank-one identity.} Let \(M(\theta)=M_0+\theta\,r\,c^{\mathsf T}\) with \(M_0\) invertible and \(r,c\) column vectors. Factoring \(M_0\) out of the rows of \(M(\theta)\) gives
 
-\paperdisplay{\det M(\theta)=\det M_0\left(1+\theta\,c^{\mathsf T}M_0^{-1}r\right),\qquad \partial_\theta\log\det M(\theta)=c^{\mathsf T}M^{-1}r .}{\tag{A1}}
+\paperdisplay{\det M(\theta)=\det M_0\left(1+\theta\,c^{\mathsf T}M_0^{-1}r\right),\qquad \partial_\theta\log\det M(\theta)=c^{\mathsf T}M^{-1}r .}{\tag{A2}}
 The second form follows from the first together with the Sherman–Morrison formula for \(M^{-1}\), and it is the only identity needed to differentiate a determinant in a parameter that enters linearly.
 
-\noindent\textbf{Shift identity.} The two families (38) and (43) differ only in their phases. The endpoint exponent is \((p_i+q_j)x+(q_j^2-p_i^2)t\), and the centered exponent includes the additional term \(-h(p_i+q_j)t\). The endpoint family gives the centered one through the simultaneous substitutions
+\noindent\textbf{Shift identity.} The two families (29) and (34) differ only in their phases. The endpoint exponent is \((p_i+q_j)x+(q_j^2-p_i^2)t\), and the centered exponent includes the additional term \(-h(p_i+q_j)t\). The endpoint family gives the centered one through the simultaneous substitutions
 
-\paperdisplay{\tau_n^{\mathrm C}(k;h)=\left.\tau_n^{\mathrm E}(k;h)\right|_{\substack{a\mapsto a+h/2\\p_i\mapsto p_i+h/2,\ q_j\mapsto q_j-h/2}},}{\tag{A2}}
-These substitutions preserve \(p_i-a\), \(q_j+a\) and \(p_i+q_j\), so the layer factors and Cauchy minors agree. Their effect on the endpoint phase gives precisely the centered phase in (43), retaining the corresponding positivity conditions.
+\paperdisplay{\tau_n^{\mathrm C}(k;h)=\left.\tau_n^{\mathrm E}(k;h)\right|_{\substack{a\mapsto a+h/2\\p_i\mapsto p_i+h/2,\ q_j\mapsto q_j-h/2}},}{\tag{A3}}
+These substitutions preserve \(p_i-a\), \(q_j+a\) and \(p_i+q_j\), so the layer factors and Cauchy minors agree. Their effect on the endpoint phase gives precisely the centered phase in (34), retaining the corresponding positivity conditions.
 
-\noindent\textbf{Logarithmic fields.} With \(f_k=\tau_0(k)\) and \(g_k=\tau_1(k)\) the definitions (49) and (57) become ratios of neighbouring determinants,
+\noindent\textbf{Logarithmic fields.} With \(f_k=\tau_0(k)\) and \(g_k=\tau_1(k)\) the definitions (40) and (48) become ratios of neighbouring determinants,
 
-\paperdisplay{u_k=2\partial_x\log\frac{\tau_0(k)}{\tau_1(k)},\qquad v_k=\frac2h\partial_x\log\frac{\tau_0(k)\tau_1(k)}{\tau_0(k-1)\tau_1(k-1)},}{\tag{A3}}
-and analogously for \(u_k,v_k\) through (57). Positivity of sufficiently smooth \(\tau\) functions is a sufficient condition for smooth real physical-field reconstruction. Proposition 2.3 provides this condition for the parameter class (45). On any compact region in \((x,t)\), with a fixed finite set of lattice indices, these determinants have a positive lower bound and their derivatives are bounded. The logarithmic derivatives defining the fields and their required derivatives are therefore bounded there. More generally, nonvanishing real \(\tau\) functions permit the same local derivative formulas with \(\log|\tau|\); field smoothness alone does not require a positive choice of \(\tau\).
+\paperdisplay{u_k=2\partial_x\log\frac{\tau_0(k)}{\tau_1(k)},\qquad v_k=\frac2h\partial_x\log\frac{\tau_0(k)\tau_1(k)}{\tau_0(k-1)\tau_1(k-1)},}{\tag{A4}}
+and analogously for \(u_k,v_k\) through (48). Positivity of sufficiently smooth \(\tau\) functions is a sufficient condition for smooth real physical-field reconstruction. Proposition 2.3 provides this condition for the parameter class (36). On any compact region in \((x,t)\), with a fixed finite set of lattice indices, these determinants have a positive lower bound and their derivatives are bounded. The logarithmic derivatives defining the fields and their required derivatives are therefore bounded there. More generally, nonvanishing real \(\tau\) functions permit the same local derivative formulas with \(\log|\tau|\); field smoothness alone does not require a positive choice of \(\tau\).
 
 \noindent\textbf{Low-order members.} For \(N=1\) and \(c_{11}=1\), the common family takes the form
-\paperdisplay{\begin{aligned}\tau_n^{(b)}(k)&=1+\frac{\alpha\beta}{p+q}\left(-\frac{q+a}{p-a}\right)^n\\&\quad\times\left(\frac{1+h/(p-a)}{1-h/(q+a)}\right)^k\exp\![(p+q)(x-2(b-a)t)+(q^2-p^2)t].\end{aligned}}{\tag{A4}}
-Here \(b=a\) for Endpoint-SD and \(b=a+h/2\) for Centered-SD. Substitution into (A3) reproduces the one-soliton field at its node and edge locations. The two-soliton case in Section 5 uses the corresponding \(2\times2\) determinant in (21). The family with \(c_{ij}=\delta_{ij}\) is the Gram reduction of the Casoratian determinants of the hierarchy [15].
+\paperdisplay{\begin{aligned}\tau_n^{(b)}(k)&=1+\frac{\alpha\beta}{p+q}\left(-\frac{q+a}{p-a}\right)^n\\&\quad\times\left(\frac{1+h/(p-a)}{1-h/(q+a)}\right)^k\exp\![(p+q)(x-2(b-a)t)+(q^2-p^2)t].\end{aligned}}{\tag{A5}}
+Here \(b=a\) for Endpoint-SD and \(b=a+h/2\) for Centered-SD. Substitution into (A4) reproduces the one-soliton field at its node and edge locations. The two-soliton case in Section 5 uses the corresponding \(2\times2\) determinant in (21). The family with \(c_{ij}=\delta_{ij}\) is the Gram reduction of the Casoratian determinants of the hierarchy [15].
 
 
 \section*{Appendix B. Field transformations and reconstruction conditions}
 
-\noindent\textbf{Endpoint field equation.} Use the logarithmic ratios (52) and identities (53)–(54). For the second field equation, subtract the average of the first equation in (53) and its backward shift from the second. The required identities are
+\noindent\textbf{Endpoint field equation.} Use the logarithmic ratios (43) and identities (44)–(45). For the second field equation, subtract the average of the first equation in (44) and its backward shift from the second. The required identities are
 
 \paperdisplay{\begin{aligned}
 q_k-\frac{r_k+r_{k-1}}2&=\frac h2\Delta_h\log(f_kg_k),\\
 q_{k,x}^2-\frac{u_k^2+u_{k-1}^2}{8}
 &=\frac h8(u_k+u_{k-1})v_k+\frac{h^2}{16}\left[v_k^2-(\Delta_hu_k)^2\right].
 \end{aligned}}{\tag{B1}}
-Using (54) to combine the second derivatives, and multiplying the difference by \(4/h\), we obtain
+Using (45) to combine the second derivatives, and multiplying the difference by \(4/h\), we obtain
 
 \paperdisplay{\begin{aligned}
 0={}&2\partial_t\Delta_h\log(f_kg_k)+(\Delta_hu_k)_x
 +(\frac{u_k+u_{k-1}}2+2a-2h)v_k\\
 &+\frac h4v_k^2-2(u_k+u_{k-1})-\frac h4(\Delta_hu_k)^2.
 \end{aligned}}{\tag{B2}}
-Differentiating in \(x\) and using \(v_k=2\partial_x\Delta_h\log(f_kg_k)\) proves (51).
+Differentiating in \(x\) and using \(v_k=2\partial_x\Delta_h\log(f_kg_k)\) proves (42).
 
 \noindent\textbf{Centered field reconstruction.}
 
 The numerical state of Centered-SD is the pair \((u_k,\omega_k)\), whereas the physical comparison is made in the fields \((u,v)\). This appendix records the two transformations between them, the conditions under which they are equivalent, and the lower trace required by the computation.
 
-\noindent\textbf{Field relation and recurrence.} The definitions (57) imply, for every edge,
+\noindent\textbf{Field relation and recurrence.} The definitions (48) imply, for every edge,
 
 \paperdisplay{v_k-\Delta_hu_k=\frac2h\left(\omega_k+\omega_{k-1}\right),\qquad \omega_k=\partial_x\log\frac{g_k}{g_{k-1}},}{\tag{B3}}
-where the second expression shows that \(\omega_k\) is the lattice difference of the logarithmic potential and therefore carries a factor \(h\) relative to \(v-u_y\). Rearranging (B3) gives the reconstruction (59),
+where the second expression shows that \(\omega_k\) is the lattice difference of the logarithmic potential and therefore carries a factor \(h\) relative to \(v-u_y\). Rearranging (B3) gives the reconstruction (50),
 
 \paperdisplay{\omega_k=\frac h2\left(v_k-\Delta_hu_k\right)-\omega_{k-1},\qquad k=1,\dots,N .}{\tag{B4}}
 The recurrence is linear and lower triangular, so it determines \((\omega_1,\dots,\omega_N)\) uniquely from the physical fields and the single lower value \(\omega_0\). Its solution is
@@ -1065,34 +1045,49 @@ in which the coefficients have modulus one. An error in the lower trace alone pr
 
 We record the operator expansion used in the proof of Proposition 3.3 and the remaining field-reconstruction calculations. The continuum expansions used in Section 3.4 follow below.
 
-\noindent\textbf{Operator expansion.} With the coefficients and operators (69)–(70), the product rule gives
+\noindent\textbf{Operator expansion.} The definitions of \(r_k,q_k\) and the \(x\) derivatives of (44) give
 \paperdisplay{\begin{aligned}
-L_t+LM-(M-2C_{k,x})L
-={}&\big[S_{k-1}-S_k+2(C_k-A_k)_x\big]\partial_xY\\
-&+\Big[A_{k,t}-A_{k,xx}+2bA_{k,x}+(S_{k-1})_x\\
-&\qquad+A_k(S_{k-1}-S_k)+2A_kC_{k,x}\Big]Y\\
-&-C_{k,t}+C_{k,xx}-2(b+C_k)C_{k,x}-S_{k,x}.
+2\partial_x^2\log f_k-2\partial_x^2\log f_{k-1}
+ &=2(q_{k,xx}-r_{k-1,xx}),\\
+r_{k-1,xt}&=r_{k-1,xxx}-2(b+r_{k-1,x})r_{k-1,xx}
+ -2\partial_x^3\log f_{k-1},\\
+q_{k,xt}&=q_{k,xxx}-2(b+q_{k,x}-h)q_{k,xx}
+ -2\partial_x^3\log f_k.
 \end{aligned}}{\tag{C1}}
-The first bracket vanishes by (71). Substitution of \(S_{k-1}-S_k=-2(C_k-A_k)_x\) into the second bracket reduces it to \(A_{k,t}-A_{k,xx}+2(b+A_k)A_{k,x}+(S_{k-1})_x\), which vanishes by (72). The last line vanishes by (73), proving (74).
+Applying the product rule at each site yields
+\paperdisplay{\begin{aligned}
+&\big((L_t+[L,M])\psi\big)_k+2q_{k,xx}(L\psi)_k\\
+={}&\left[2\partial_x^2\log f_{k-1}-2\partial_x^2\log f_k
+       +2(q_{k,xx}-r_{k-1,xx})\right]\partial_x\psi_{k-1}\\
+ &+\Big[r_{k-1,xt}-r_{k-1,xxx}+2br_{k-1,xx}
+       +2\partial_x^3\log f_{k-1}\\
+ &\qquad+2r_{k-1,x}(\partial_x^2\log f_{k-1}-\partial_x^2\log f_k)
+       +2r_{k-1,x}q_{k,xx}\Big]\psi_{k-1}\\
+ &+\left[-q_{k,xt}+q_{k,xxx}-2(b+q_{k,x}-h)q_{k,xx}
+       -2\partial_x^3\log f_k\right]\psi_k.
+\end{aligned}}{\tag{C2}}
+The first and last coefficients vanish by (C1). Substitution of the first relation in (C1) into the middle coefficient reduces it to the second relation. This proves (62) componentwise.
 
-\noindent\textbf{Recovery of the nonlinear systems.} For Endpoint-SD, the first field equation follows from (75)–(76), as shown in the main text. The second follows by substituting (73) and (75) into
-\paperdisplay{h(v_k)_t=4(C_k)_t-(u_k)_t-(u_{k-1})_t.}{\tag{C2}}
-For Centered-SD, the coefficients obey
-\paperdisplay{C_k-A_{k+1}=\omega_k-h.}{\tag{C3}}
-To eliminate the second derivatives, use \(-v_{k,xx}+2(\omega_{k,xx}+\omega_{k-1,xx})/h=-\partial_x^2\Delta_hu_k\). Substituting (62) and (77) into \(v_{k,t}=\Delta_hu_{k,t}+2(\omega_{k,t}+\omega_{k-1,t})/h\) then gives the second equation in (58). The first follows from the lattice difference of (77) and (76).
+\noindent\textbf{Recovery of the nonlinear systems.} For Endpoint-SD, differentiate \(u_k=2r_{k,x}\) in time and use (44) to obtain the first relation in (64). The last relation of (45) gives its second relation. Their lattice difference gives (41). For the second field, substitute (44) into
+\paperdisplay{hv_{k,t}=4q_{k,xt}-u_{k,t}-u_{k-1,t}.}{\tag{C3}}
+Using \(q_{k,x}=(u_k+u_{k-1}+hv_k)/4\) reduces the result to (42).
+
+For Centered-SD the definitions give
+\paperdisplay{q_{k,x}-r_{k,x}=\omega_k,\qquad u_k=2r_{k,x}+\omega_k.}{\tag{C4}}
+Subtracting the \(x\) derivatives of the two relations (44) yields (53). Adding (53) to twice the \(x\) derivative of the first relation (44) yields (65). The reconstruction gives \(\Delta_h(2\partial_x^2\log f_k)=\partial_x(v_k+\Delta_hu_k)/2\), so the lattice difference of (65) gives the first equation in (49). For the second, differentiate \(v_k=\Delta_hu_k+2(\omega_k+\omega_{k-1})/h\) in time and substitute (53) and (65). The second derivatives combine through \(-v_{k,xx}+2(\omega_{k,xx}+\omega_{k-1,xx})/h=-\partial_x^2\Delta_hu_k\), giving the second equation in (49).
 
 \noindent\textbf{Midpoint expansions.} For smooth \(q\) sampled at the nodes and edges of the lattice,
 
-\paperdisplay{\Delta_hq_k=q_y+\frac{h^2}{24}q_{yyy}+O(h^4),\qquad \frac{q_k+q_{k-1}}2=q+\frac{h^2}{8}q_{yy}+O(h^4),}{\tag{C4}}
-evaluated at the edge midpoint. Substituting (C4) into the first Endpoint-SD equation gives the first relation in (78), since both the difference and the average are second-order accurate there. The second equation carries an additional term from the flux. Expanding its bracket at the midpoint gives
+\paperdisplay{\Delta_hq_k=q_y+\frac{h^2}{24}q_{yyy}+O(h^4),\qquad \frac{q_k+q_{k-1}}2=q+\frac{h^2}{8}q_{yy}+O(h^4),}{\tag{C5}}
+evaluated at the edge midpoint. Substituting (C5) into the first Endpoint-SD equation gives the first relation in (66), since both the difference and the average are second-order accurate there. The second equation carries an additional term from the flux. Expanding its bracket at the midpoint gives
 
-\paperdisplay{(u+2a)v-4u+u_{xy}+\frac h4\left(v^2-u_y^2-8v\right)+O(h^2),}{\tag{C5}}
-and applying \(\partial_x\) and solving for \(v_t\) gives the correction \(-\tfrac h4\partial_x(v^2-u_y^2-8v)\) in (78).
+\paperdisplay{(u+2a)v-4u+u_{xy}+\frac h4\left(v^2-u_y^2-8v\right)+O(h^2),}{\tag{C6}}
+and applying \(\partial_x\) and solving for \(v_t\) gives the correction \(-\tfrac h4\partial_x(v^2-u_y^2-8v)\) in (66).
 
 \noindent\textbf{Centered reconstruction.} The relation \(v_k=\Delta_hu_k+\frac{W_k+W_{k-1}}2\) with \(W_k=4\omega_k/h\) expands as
 
-\paperdisplay{v=u_y+W+h^2\left(\frac{u_{yyy}}{24}+\frac{W_{yy}}8\right)+O(h^4),}{\tag{C6}}
-so on the smooth family with \(W=v-u_y+O(h^2)\) the reconstructed second field is second-order accurate. The extra flux of the first equation is \(\omega^2/2-h\omega=h^2(W^2/32-W/4)\), whose lattice difference and subsequent \(x\) derivative are \(O(h^2)\), which gives the first relation in (79). Differentiating (C6) in time and using \(W_t=W_{xx}-\partial_x[(u+2a)W-4u]\) from (62) gives the second relation in (79).
+\paperdisplay{v=u_y+W+h^2\left(\frac{u_{yyy}}{24}+\frac{W_{yy}}8\right)+O(h^4),}{\tag{C7}}
+so on the smooth family with \(W=v-u_y+O(h^2)\) the reconstructed second field is second-order accurate. The extra flux of the first equation is \(\omega^2/2-h\omega=h^2(W^2/32-W/4)\), whose lattice difference and subsequent \(x\) derivative are \(O(h^2)\), which gives the first relation in (67). Differentiating (C7) in time and using \(W_t=W_{xx}-\partial_x[(u+2a)W-4u]\) from (53) gives the second relation in (67).
 
 
 \section*{Appendix D. Numerical implementation and supplementary experiments}
@@ -1105,7 +1100,7 @@ This appendix collects the conventions of the computations, the closures at the 
 
 \noindent\textbf{Implicit step.} Crank–Nicolson is solved by an Euler predictor followed by fixed-point iteration on the trapezoidal residual. The implementation advances \((u,W)\), where \(W=4\omega/h\). In the notation of the field equations, the trapezoidal residual satisfies \(\max\{\|r_u\|_\infty,(4/h)\|r_\omega\|_\infty\}<2\times10^{-14}\) at termination. A control calculation with a stopping level of \(2\times10^{-15}\) changes the terminal error norms of Section 5.3 by at most \(8\times10^{-10}\).
 
-\noindent\textbf{Moving mesh.} The longitudinal derivatives use the explicit mapped three-point formulas (95), with \(x_i=\xi_i+s_i\) and the discrete Jacobian defined there. The node motion is coupled to the field equations through \(\dot{\boldsymbol z}=F(t,\boldsymbol z)+\mathcal V\widetilde{\partial}_x\boldsymbol z\). The uniform-mesh results of Table 5 use the same realization with \(s_i=0\), \(J_i=1\) and \(\mathcal V=0\).
+\noindent\textbf{Moving mesh.} The longitudinal derivatives use the explicit mapped three-point formulas (83), with \(x_i=\xi_i+s_i\) and the discrete Jacobian defined there. The node motion is coupled to the field equations through \(\dot{\boldsymbol z}=F(t,\boldsymbol z)+\mathcal V\widetilde{\partial}_x\boldsymbol z\). The uniform-mesh results of Table 5 use the same realization with \(s_i=0\), \(J_i=1\) and \(\mathcal V=0\).
 
 The control runs underlying Sections 5.3 and 5.4 are summarized below. They use the same Centered-SD state, grid and reference as the corresponding main runs, and a single quantity is changed in each row.
 
@@ -1299,6 +1294,8 @@ The authors confirm the work described has not been published before.
 \item T. Miwa. On Hirota's difference equations. \emph{Proceedings of the Japan Academy, Series A, Mathematical Sciences} \textbf{58} (1982), 9–12. \href{https://doi.org/10.3792/pjaa.58.9}{DOI}.
 
 \item C. X. Li, J. J. C. Nimmo, K. M. Tamizhmani. On solutions to the non-Abelian Hirota–Miwa equation and its continuum limits. \emph{Proceedings of the Royal Society A} \textbf{465} (2009), 1441–1451. \href{https://doi.org/10.1098/rspa.2008.0438}{DOI}.
+
+\item J. Chen, Y. Chen, B.-F. Feng, K. Maruno, Y. Ohta. General high-order rogue waves of the (1+1)-dimensional Yajima--Oikawa system. arXiv:1709.03781 (2017). \href{https://arxiv.org/abs/1709.03781}{arXiv}.
 
 \end{enumerate}
  

@@ -1,8 +1,8 @@
 # 当前工作与交接
 
-## 本次工作：DLW 正文推导可读性（2026-11-04）
+## 本次工作：DLW 正文可读性、记号与排版（2026-11-05，完成）
 
-Miwa 保留两次极限路线，提前说明辅助层 n 和物理格点 k。Gram 由连续 tau 的横向指数引出有理格点因子，引用 Chen 等 Lemma 2.1；附录给出参数、辅助变量和连续层振幅对应。Lax 以 L/M 的分量形式及已有 r/q 表述，展开 S/Y/A/C，解释 Darboux 因子来源和约束保持；详细展开在附录 C。HTML/TeX 编号公式一致，Gram 精确算术和 Lax 符号核验通过。数值正文、数据、图表和 2HS 保持原状，仅更新 DLW 公式引用。入口：`pdf/dlw/main.tex`、`dlw-paper.html`、`Workspaces/paper_latex_20261027/reader_revision_20261104/`。
+最新将Prop3.2式50改为omega的显式有限交错求和，差分直接展开成hv_j-u_j+u_{j-1}，兼容下边界omega0在命题内给定。证明、连续极限、算法和附录的引用措辞同步，式76/B4保留递推实现。HTML/TeX同步，40页、112式号、117显示块，双遍无警告，网页无溢出缺图。式49/50沿原版跨P9–10，相关变化页已目检。保留前轮250词主动语态摘要、Definition标准无名称环境、式77两列对齐、31分点15pt缩进及5.2通量抵消说明。图文拆分排版保持，Fig5 P21、Fig6 P22–23、Fig7 P23–24、Fig8 P24–25、Fig9/10 P26/27、Fig13/14 P30/31。2HS未改。下一步用户审阅，勿重放旧快照。入口：`pdf/dlw/main.pdf`、`dlw-paper.html`、`Workspaces/paper_latex_20261027/omega_explicit_20261105/README.md`。
 
 ## 上一次工作｜DLW Lax正文证明与语义分段（2026-11-03，完成）
 
